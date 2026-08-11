@@ -83,6 +83,10 @@ Available scripts:
   unchanged-source historical fallbacks. Its optional `--preserve-fonts-from`
   argument restores matching Font objects from an official bundle after using
   an unfinished translated bundle as the UI/text source.
+- `build_unity_ui_translation.py` rewrites only the serialized `m_text` field
+  of TextMesh Pro components. It uses the official same-version bundle as the
+  structural source, applies contextual UI fixes and current PC data first,
+  and treats unfinished builds only as fallback translation data.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately

@@ -70,6 +70,12 @@ font payloads. Joseph's 3.6.1 translation did not modify Font objects. A
 font-preserved build now restores those four objects byte-for-byte from the
 official Chinese 3.8.1 bundle while retaining the translated text data.
 
+Screenshot testing exposed a context collision in the PC exact-string table:
+`关闭` maps to `Disabled`, which is correct for a toggle but wrong for Close,
+Quit, and Go-back buttons. The UI builder resolves these using the serialized
+GameObject hierarchy. It also injects the repository's complete English 3.8.1
+changelog in place of the unfinished bundle's partially translated copy.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
