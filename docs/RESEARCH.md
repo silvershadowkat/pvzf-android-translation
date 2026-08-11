@@ -97,6 +97,26 @@ The new build combines 1,485 current PC exact matches, 130 current PC regex
 matches, 821 Joseph fallback mappings, and 79 aha fallback mappings. It reduces
 CJK-bearing literal occurrences from 3,762 to 1,298.
 
+## First 3.8.1 TextAsset rebuild
+
+Starting from aha's font-enabled 3.8.1 bundle, the deterministic TextAsset
+builder modifies and validates 278 of 291 text assets. It applies current PC
+almanac/tip data, safely reuses Joseph content only where the Chinese source is
+unchanged, and recursively translates remaining JSON string leaves.
+
+The rebuilt bundle:
+
+- preserves every JSON asset's root type and top-level key set;
+- matches all 274 current PC Fusion Showcase/I-Zombie tip entries that
+  correspond to bundled assets;
+- reduces CJK-bearing TextAsset content from 21,852 characters in aha's bundle
+  to 1,141 characters across 20 assets;
+- retains remaining Chinese that is also present in the available PC
+  translation source, internal data/credits, or newly untranslated content.
+
+This output is not yet an end-user release. It must be tested on Android before
+being inserted into a signed APK.
+
 ## Signing identities
 
 The official Chinese APK, Joseph APK, and aha APK use different signing keys.

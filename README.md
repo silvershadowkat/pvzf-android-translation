@@ -5,9 +5,9 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.8.1; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: research prototype. The metadata generator is implemented and
-> self-validating, but its output still needs on-device testing. Unity asset
-> patching and APK packaging are in progress.
+> Status: research prototype. The metadata generator and Unity TextAsset
+> builder are implemented and self-validating, but their outputs still need
+> on-device testing. Texture completion and APK packaging are in progress.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
@@ -78,6 +78,9 @@ python -m pip install -r requirements.txt
 
 Available scripts:
 
+- `build_unity_text_translation.py` builds and reopens a translated TextAsset
+  bundle, preserving JSON structure and using current PC data before safe
+  unchanged-source historical fallbacks.
 - `compare_unity_bundles.py` compares serialized object hashes by asset file and
   path ID.
 - `inventory_unity_bundle.py` inventories object types, names, and text assets.

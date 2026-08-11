@@ -37,7 +37,7 @@ def main() -> int:
     (args.output_dir / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(json.dumps(manifest, ensure_ascii=False, indent=2))
+    print(json.dumps({"extracted": len(manifest), "output_dir": str(args.output_dir)}, ensure_ascii=True))
     return 0
 
 

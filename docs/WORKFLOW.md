@@ -73,12 +73,14 @@ Planned asset stages:
 
 1. Replace the three almanac text databases with current PC English JSON.
 2. Translate level, custom-level, tutorial, and Abyss text assets.
-3. Replace localized textures by asset name.
-4. inject or retarget a font with Latin coverage and preserve its Unity
+3. Validate that every original JSON asset remains JSON with the same root
+   structure and top-level fields.
+4. Replace localized textures by asset name.
+5. Inject or retarget a font with Latin coverage and preserve its Unity
    dependencies.
-5. Apply field-level `MonoBehaviour` transformations derived from Joseph's
+6. Apply field-level `MonoBehaviour` transformations derived from Joseph's
    broader 3.6.1 delta.
-6. Reopen the rebuilt bundle and verify every intended object.
+7. Reopen the rebuilt bundle and verify every intended object.
 
 ## 6. Package and sign
 

@@ -78,9 +78,11 @@ def read_json(path: Path) -> object:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
-def load_pc_translations(strings_dir: Path) -> tuple[dict[str, str], list[tuple[str, str]], dict[str, int]]:
+def load_pc_translations(
+    strings_dir: Path,
+) -> tuple[dict[str, str], list[tuple[str, str, re.Pattern[str], str]], dict[str, int]]:
     exact: dict[str, str] = {}
-    regex_entries: list[tuple[str, str]] = []
+    regex_entries: list[tuple[str, str, re.Pattern[str], str]] = []
     counts: dict[str, int] = {}
 
     for filename in EXACT_FILES:
@@ -113,8 +115,10 @@ def load_pc_translations(strings_dir: Path) -> tuple[dict[str, str], list[tuple[
         for pattern, translated in payload.items():
             if not isinstance(pattern, str) or not isinstance(translated, str):
                 continue
-            re.compile(pattern, re.DOTALL)
-            regex_entries.append((pattern, translated))
+            compiled = re.compile(pattern, re.DOTALL)
+            cjk_runs = re.findall(r"[\u3400-\u9fff]+", pattern)
+            anchor = max(cjk_runs, key=len) if cjk_runs else ""
+            regex_entries.append((pattern, translated, compiled, anchor))
             added += 1
         counts[filename] = added
 
@@ -181,7 +185,7 @@ def translate_literal(
     text: str,
     exact: dict[str, str],
     observed: dict[str, tuple[str, str]],
-    regex_entries: list[tuple[str, str]],
+    regex_entries: list[tuple[str, str, re.Pattern[str], str]],
 ) -> tuple[str, str | None]:
     if not CJK_RE.search(text):
         return text, None
@@ -191,8 +195,10 @@ def translate_literal(
         translated, label = observed[text]
         return translated, f"reference:{label}"
 
-    for pattern, template in regex_entries:
-        match = re.search(pattern, text, re.DOTALL)
+    for _pattern, template, compiled, anchor in regex_entries:
+        if anchor and anchor not in text:
+            continue
+        match = compiled.search(text)
         if match is None:
             continue
         dynamic: list[str] = []
