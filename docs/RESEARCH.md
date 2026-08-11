@@ -93,6 +93,16 @@ set into the existing `Dynamic` and `fzjz Dynamic` object IDs: 703 glyphs and
 characters, the exact 4096x4096 atlas pixels, remapped material and source-font
 references, and the official Chinese SDF as a fallback for untranslated names.
 
+On-device v4 screenshots confirmed that this corrected titles, buttons,
+categories, card costs, and most menu text. Three scrolling Almanac description
+components were still explicitly bound to the separate `汉仪夏日体W SDF`
+handwriting asset (resource path IDs 187255, 193273, and 194141), so they did
+not benefit from the Dynamic transplant. The v5 refinement retargets only
+those components to Dynamic and its matching material at 18 points. It also
+reduces the plant Almanac title from the anomalous 70 points to the same 50
+points used by the correctly fitting zombie title. All other components are
+left as produced by v4.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.

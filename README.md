@@ -5,9 +5,9 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.8.1; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: research prototype. The metadata generator and Unity TextAsset
-> builder are implemented and self-validating, but their outputs still need
-> on-device testing. Texture completion and APK packaging are in progress.
+> Status: working research build under iterative on-device visual testing.
+> Metadata, Unity text/UI reconstruction, TMP font transplantation, targeted
+> layout refinement, and APK packaging are implemented and self-validating.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
@@ -94,6 +94,9 @@ Available scripts:
   and character tables, SDF atlas pixels, material settings, source Font
   references, and an optional CJK fallback, all remapped into stable target
   object IDs.
+- `refine_almanac_layout.py` retargets only the three long 3.8.1 Almanac
+  description components from the handwriting TMP slot to the transplanted
+  Dynamic slot and normalizes the oversized plant-page title.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately
