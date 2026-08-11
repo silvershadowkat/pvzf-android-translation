@@ -76,6 +76,16 @@ Quit, and Go-back buttons. The UI builder resolves these using the serialized
 GameObject hierarchy. It also injects the repository's complete English 3.8.1
 changelog in place of the unfinished bundle's partially translated copy.
 
+Visual testing showed that restoring the official 3.8.1 fonts still does not
+match Joseph's presentation. Official 3.6.1 contains PvZ-style font families
+including `BrianneTod`, `ContinuumBold`, `DwarvenTodcraft`, and
+`HouseofTerror`; upstream 3.8.1 removed those families. Joseph's 3.6.1 bundle
+does not alter the font objects, and almost all of its translated TMP text
+components continue to reference the existing `ContinuumBold SDF` asset. The
+v3 experiment therefore places Joseph's byte-identical `ContinuumBold` font
+payload into the stable 3.8.1 `fzcq` and `fzjz` Font object IDs used by dynamic
+TMP text, while retaining the 3.8.1 component structure.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.

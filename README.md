@@ -87,6 +87,9 @@ Available scripts:
   of TextMesh Pro components. It uses the official same-version bundle as the
   structural source, applies contextual UI fixes and current PC data first,
   and treats unfinished builds only as fallback translation data.
+- `replace_unity_font_data.py` transplants donor font payloads into stable
+  same-version Font object IDs. This permits Joseph-style typography without
+  changing TextMesh Pro component layout or introducing fragile object paths.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately
