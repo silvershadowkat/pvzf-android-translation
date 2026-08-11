@@ -90,6 +90,10 @@ Available scripts:
 - `replace_unity_font_data.py` transplants donor font payloads into stable
   same-version Font object IDs. This permits Joseph-style typography without
   changing TextMesh Pro component layout or introducing fragile object paths.
+- `transplant_tmp_font_asset.py` performs the complete TMP transplant: glyph
+  and character tables, SDF atlas pixels, material settings, source Font
+  references, and an optional CJK fallback, all remapped into stable target
+  object IDs.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately

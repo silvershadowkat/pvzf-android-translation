@@ -86,6 +86,13 @@ v3 experiment therefore places Joseph's byte-identical `ContinuumBold` font
 payload into the stable 3.8.1 `fzcq` and `fzjz` Font object IDs used by dynamic
 TMP text, while retaining the 3.8.1 component structure.
 
+Device screenshots proved that v3 changed only the dynamic source TTF; the
+already baked SDF atlas continued to render the handwritten 3.8.1 glyphs. The
+v4 pipeline therefore transplants the complete `ContinuumBold SDF` dependency
+set into the existing `Dynamic` and `fzjz Dynamic` object IDs: 703 glyphs and
+characters, the exact 4096x4096 atlas pixels, remapped material and source-font
+references, and the official Chinese SDF as a fallback for untranslated names.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
