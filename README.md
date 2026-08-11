@@ -1,0 +1,96 @@
+# PvZ Fusion Android Translation Toolkit
+
+Research and tooling for producing a repeatable English translation patch for
+the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
+is Android 3.8.1; the larger goal is a workflow that can be rerun when the game
+updates.
+
+> Status: research prototype. The metadata generator is implemented and
+> self-validating, but its output still needs on-device testing. Unity asset
+> patching and APK packaging are in progress.
+
+This repository intentionally contains **no APKs, game binaries, extracted
+assets, signing keys, or bundled translation data**. Supply legally obtained
+game files locally and clone the translation project separately.
+
+## What is known
+
+Joseph Franci's Android 3.6.1 build and aha's unfinished Android 3.8.1 build
+use the same basic architecture:
+
+1. Replace IL2CPP string literals in `global-metadata.dat`.
+2. Modify serialized content in `data.unity3d` for almanac text, UI text,
+   fonts, textures, and other content that is not sourced from IL2CPP literals.
+3. Repackage and sign the APK, or install the metadata as a writable hot patch.
+
+Joseph's port was substantially broader. It modified 257 `TextAsset` objects
+and 3,081 `MonoBehaviour` objects; aha's 3.8.1 port modified only the three
+almanac `TextAsset` objects and 1,598 `MonoBehaviour` objects.
+
+The first clean 3.8.1 metadata build translates 2,515 literal occurrences,
+compared with 335 in aha's updated file. Remaining Chinese literal occurrences
+drop from 3,762 to 1,298. This does not mean every remaining occurrence is
+visible player-facing text, and asset-side text still needs separate handling.
+
+See [Research findings](docs/RESEARCH.md) and the [repeatable workflow](docs/WORKFLOW.md).
+
+## Metadata builder
+
+`scripts/build_metadata_translation.py` uses only the Python standard library.
+It starts from a clean official metadata file every time, applies current PC
+exact and regex translations, optionally learns fallback mappings from known
+Chinese/English Android pairs, appends one rebuilt literal database, corrects
+the metadata header, and validates the result by reading it back.
+
+Example layout (all ignored by Git):
+
+```text
+artifacts/
+  ChineseAPK3.6.1/
+  ChineseAPK3.8.1/
+  JosephEnglish3.6.1/
+  ahaEnglish3.8.1/
+translation-data/
+```
+
+Example invocation:
+
+```powershell
+python scripts/build_metadata_translation.py `
+  --base artifacts/ChineseAPK3.8.1/global-metadata.dat `
+  --strings-dir translation-data/PvZ_Fusion_Translator/Localization/English/Strings `
+  --reference-pair Joseph-3.6.1 artifacts/ChineseAPK3.6.1/global-metadata.dat artifacts/JosephEnglish3.6.1/global-metadata.dat `
+  --reference-pair aha-3.8.1 artifacts/ChineseAPK3.8.1/global-metadata.dat artifacts/ahaEnglish3.8.1/global-metadata.dat `
+  --output generated/global-metadata.dat `
+  --report generated/metadata-report.json
+```
+
+The order of reference pairs sets fallback priority. Current PC translation
+entries always take precedence over learned historical mappings.
+
+## Unity analysis utilities
+
+Install the optional Unity dependency:
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+Available scripts:
+
+- `compare_unity_bundles.py` compares serialized object hashes by asset file and
+  path ID.
+- `inventory_unity_bundle.py` inventories object types, names, and text assets.
+- `extract_text_assets.py` extracts selected Unity `TextAsset` objects.
+
+## Safety and distribution
+
+- Back up Android saves before reinstalling or changing signing identities.
+- A re-signed APK cannot update an APK signed by another private key. Choose one
+  project key and preserve it securely for future releases.
+- Do not commit or publicly redistribute game APKs or proprietary game assets.
+- Translation data from Teyliu's project is CC BY-NC 4.0 and must remain
+  attributed and noncommercial.
+
+This is an independent fan interoperability project and is not affiliated with
+PopCap, Electronic Arts, LanPiaoPiao, or the translation maintainers.

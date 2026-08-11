@@ -1,0 +1,109 @@
+# Research findings
+
+## Artifacts examined
+
+| Artifact | Size | SHA-256 |
+| --- | ---: | --- |
+| Official Chinese Android 3.6.1 APK | 607,354,220 | `57460a1305e0bebac3c15543645a3f86e94a5564c098947897e40b15012b61d7` |
+| Joseph English Android 3.6.1 APK | 595,434,060 | `bcdae9fa8199be1ad85ecb5d3b27c95f19168ac29ae6885691ce71d7210fe1ef` |
+| Official Chinese Android 3.8.1 APK | 597,908,259 | `1d6789a388621f544ea1c29778acfb12645933b67153ecaed4f54a48c7fa43c0` |
+| aha unfinished English Android 3.8.1 APK | 546,810,706 | `355b35304100b64e38ba66667eaecd8841b0f5aa8a2eb58f9f42e1cb9ba63657` |
+| aha follow-up `global-metadata.dat` | 11,315,244 | `66b38880578cc9633622794c9b9c2750a2bb1d72db7b7b86be3683034286c172` |
+
+## Joseph 3.6.1 versus official Chinese 3.6.1
+
+The manifest, `classes.dex`, resource table, boot configuration, scripting
+assembly list, `RuntimeInitializeOnLoads.json`, and ARM64 `libil2cpp.so` are
+byte-identical. The translation-specific changes are therefore confined to:
+
+- `global-metadata.dat`
+- `data.unity3d`
+- the Unity application GUID
+- the APK signature
+
+Joseph changed these existing Unity objects without adding or removing objects:
+
+| Object type | Modified |
+| --- | ---: |
+| `AudioClip` | 18 |
+| `MonoBehaviour` | 3,081 |
+| `SpriteRenderer` | 16 |
+| `TextAsset` | 257 |
+| `Texture2D` | 60 |
+
+The changed text assets comprise 160 `level*` files, 66 `Custom*` files, 19
+tutorial files, the three almanac databases, `AbyssBuffData`, and several other
+content files. This broad asset coverage explains why the 3.6.1 port was much
+more complete than the later unfinished build.
+
+## aha 3.8.1 versus official Chinese 3.8.1
+
+The ARM64 `libil2cpp.so`, boot configuration, scripting assembly list,
+`RuntimeInitializeOnLoads.json`, and Unity application GUID are byte-identical.
+The Unity bundle changes are:
+
+| Object type | Added | Modified |
+| --- | ---: | ---: |
+| `TextAsset` | 0 | 3 |
+| `MonoBehaviour` | 1 | 1,598 |
+| `Texture2D` | 40 | 41 |
+| `Font` | 1 | 4 |
+| `Material` | 2 | 0 |
+| `Mesh` | 13 | 0 |
+| `MonoScript` | 16 | 0 |
+| `Shader` | 6 | 0 |
+| `ComputeShader` | 6 | 0 |
+
+The only changed `TextAsset` objects are `LawnStrings`, `ZombieStrings`, and
+`DetailStrings`. The added objects are largely dependencies of an injected
+English font/UI asset set.
+
+The almanac data came almost directly from the PC translation repository:
+
+- `ZombieStrings`: exact match to current PC English data.
+- `DetailStrings`: exact match to current PC English data.
+- `LawnStrings`: only two records differ from current PC English data.
+
+## IL2CPP metadata method
+
+All examined builds use metadata version 31. Each literal lookup entry is an
+eight-byte `(byte_length, relative_offset)` pair. The header stores lookup and
+literal-database offsets at bytes 8 through 23.
+
+| Build | Literals | Data offset | Header data size |
+| --- | ---: | ---: | ---: |
+| Chinese 3.6.1 | 12,914 | 103,568 | 385,280 |
+| Joseph 3.6.1 | 12,914 | 10,860,853 | 385,280 (stale) |
+| Chinese 3.8.1 | 14,249 | 114,248 | 432,780 |
+| aha 3.8.1 embedded | 14,249 | 10,879,107 | 436,140 |
+| aha 3.8.1 follow-up | 14,249 | 10,879,107 | 435,917 |
+
+Both translators append a rebuilt literal database and redirect the lookup
+table to it. Joseph's header failed to update the data-size field; the game
+tolerates it, but the new builder writes the correct value. Repeatedly patching
+an already patched file also causes needless growth. The new builder always
+starts from a clean official file and produces a deterministic single append.
+
+Literal changes:
+
+| Comparison | Changed occurrences |
+| --- | ---: |
+| Joseph 3.6.1 versus Chinese 3.6.1 | 2,105 |
+| aha embedded 3.8.1 versus Chinese 3.8.1 | 280 |
+| aha follow-up 3.8.1 versus Chinese 3.8.1 | 335 |
+| New generated 3.8.1 versus Chinese 3.8.1 | 2,515 |
+
+The new build combines 1,485 current PC exact matches, 130 current PC regex
+matches, 821 Joseph fallback mappings, and 79 aha fallback mappings. It reduces
+CJK-bearing literal occurrences from 3,762 to 1,298.
+
+## Signing identities
+
+The official Chinese APK, Joseph APK, and aha APK use different signing keys.
+aha used the standard Android debug certificate. Consequently, users cannot
+install one build as an update over another unless it has the same signing key.
+A maintained release must establish one stable project key and preserve it.
+
+No attempt should be made to obtain or bypass somebody else's private signing
+key. A one-time save migration/reinstall is the legitimate path when changing
+signing identity.
