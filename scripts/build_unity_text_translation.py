@@ -2,9 +2,11 @@
 """Patch translatable TextAsset content in a PvZ Fusion Unity bundle.
 
 The first intended 3.8.1 target is aha's unfinished bundle because it already
-contains the required Latin font/UI dependencies.  The script fills its missing
-text from current PC translation data and from only those Joseph 3.6.1 assets
-whose Chinese source payload is unchanged.
+contains translated serialized UI strings and textures.  The script fills its
+missing text from current PC translation data and from only those Joseph 3.6.1
+assets whose Chinese source payload is unchanged.  It can also restore matching
+Font objects from an official bundle, avoiding the unfinished port's global
+replacement of the game's original typography.
 """
 
 from __future__ import annotations
@@ -79,6 +81,20 @@ def read_text_records(bundle: Path) -> dict[tuple[str, int], TextRecord]:
         data = obj.parse_as_object()
         key = (obj.assets_file.name, obj.path_id)
         records[key] = TextRecord(key[0], key[1], data.m_Name, data.m_Script)
+    del env
+    gc.collect()
+    return records
+
+
+def read_raw_objects(bundle: Path, type_name: str) -> dict[tuple[str, int], tuple[str, bytes]]:
+    env = UnityPy.load(str(bundle))
+    records: dict[tuple[str, int], tuple[str, bytes]] = {}
+    for obj in env.objects:
+        if obj.type.name != type_name:
+            continue
+        data = obj.read()
+        key = (obj.assets_file.name, obj.path_id)
+        records[key] = (data.m_Name, bytes(obj.get_raw_data()))
     del env
     gc.collect()
     return records
@@ -243,6 +259,11 @@ def main() -> int:
     parser.add_argument("--localization-dir", required=True, type=Path, help="PC Localization/English directory")
     parser.add_argument("--legacy-base-bundle", required=True, type=Path, help="official Chinese 3.6.1 bundle")
     parser.add_argument("--legacy-translated-bundle", required=True, type=Path, help="Joseph English 3.6.1 bundle")
+    parser.add_argument(
+        "--preserve-fonts-from",
+        type=Path,
+        help="optional official bundle whose matching Font objects replace modified base fonts",
+    )
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
@@ -268,6 +289,23 @@ def main() -> int:
     changed_assets: list[dict[str, Any]] = []
     expected: dict[tuple[str, int], tuple[str, str]] = {}
     expected_structure: dict[tuple[str, int], tuple[type[Any], set[str] | None]] = {}
+    expected_fonts: dict[tuple[str, int], tuple[str, str]] = {}
+
+    if args.preserve_fonts_from is not None:
+        source_fonts = read_raw_objects(args.preserve_fonts_from, "Font")
+        for obj in env.objects:
+            if obj.type.name != "Font":
+                continue
+            key = (obj.assets_file.name, obj.path_id)
+            source = source_fonts.get(key)
+            if source is None:
+                continue
+            source_name, source_raw = source
+            current_name = obj.read().m_Name
+            if current_name != source_name or bytes(obj.get_raw_data()) == source_raw:
+                continue
+            obj.set_raw_data(source_raw)
+            expected_fonts[key] = (source_name, sha256(source_raw))
 
     for obj in env.objects:
         if obj.type.name != "TextAsset":
@@ -358,6 +396,12 @@ def main() -> int:
     check_env = UnityPy.load(str(args.output))
     for obj in check_env.objects:
         key = (obj.assets_file.name, obj.path_id)
+        if key in expected_fonts:
+            expected_name, expected_hash = expected_fonts[key]
+            if obj.type.name != "Font" or obj.read().m_Name != expected_name:
+                raise RuntimeError(f"Font identity validation failed for {key}")
+            if sha256(bytes(obj.get_raw_data())) != expected_hash:
+                raise RuntimeError(f"Font content validation failed for {key}")
         if key not in expected:
             continue
         data = obj.parse_as_object()
@@ -393,6 +437,14 @@ def main() -> int:
             "validated_text_assets": validated,
         },
         "legacy_learning": legacy_stats,
+        "font_preservation": {
+            "source": str(args.preserve_fonts_from.resolve()) if args.preserve_fonts_from is not None else None,
+            "restored_font_count": len(expected_fonts),
+            "restored_fonts": [
+                {"file": key[0], "path_id": key[1], "name": value[0], "sha256": value[1]}
+                for key, value in sorted(expected_fonts.items())
+            ],
+        },
         "legacy_mapping_conflicts": legacy_conflicts,
         "pc_translation_entries": extras["source_counts"],
         "method_counts": dict(sorted(method_counts.items())),

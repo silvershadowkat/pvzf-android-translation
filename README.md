@@ -80,7 +80,9 @@ Available scripts:
 
 - `build_unity_text_translation.py` builds and reopens a translated TextAsset
   bundle, preserving JSON structure and using current PC data before safe
-  unchanged-source historical fallbacks.
+  unchanged-source historical fallbacks. Its optional `--preserve-fonts-from`
+  argument restores matching Font objects from an official bundle after using
+  an unfinished translated bundle as the UI/text source.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately

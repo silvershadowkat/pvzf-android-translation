@@ -58,6 +58,18 @@ The only changed `TextAsset` objects are `LawnStrings`, `ZombieStrings`, and
 `DetailStrings`. The added objects are largely dependencies of an injected
 English font/UI asset set.
 
+All 1,598 modified `MonoBehaviour` objects are TextMesh Pro text components.
+Their serialized differences begin at the `m_text` string and the remainder of
+each component is byte-identical after accounting for string length and
+alignment. No Button, GameObject, Transform, or other interaction component was
+changed by aha's bundle.
+
+The unfinished bundle also replaced the four existing Font objects `fzcq`,
+`PerfectDOSVGA437`, `LiberationSans`, and `fzjz` with roughly 82 KiB generic
+font payloads. Joseph's 3.6.1 translation did not modify Font objects. A
+font-preserved build now restores those four objects byte-for-byte from the
+official Chinese 3.8.1 bundle while retaining the translated text data.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
