@@ -117,6 +117,20 @@ The rebuilt bundle:
 This output is not yet an end-user release. It must be tested on Android before
 being inserted into a signed APK.
 
+## First packaged research APK
+
+The payload packager successfully inserted the generated bundle and metadata
+into aha's 3.8.1 APK shell without rebuilding the Android manifest or native
+libraries. The local research build verifies with APK Signature Schemes v1,
+v2, and v3, passes `zipalign -c 4`, retains package
+`com.LanPiaoPiao.PlantsVsZombiesRH` and version `3.8.1`, and contains the exact
+expected payload hashes.
+
+It is signed with a local Android debug key for testing only. That certificate
+does not match the official, Joseph, or aha certificates, so it requires a
+one-time save backup and reinstall unless the device already has a build signed
+with that same local key.
+
 ## Signing identities
 
 The official Chinese APK, Joseph APK, and aha APK use different signing keys.

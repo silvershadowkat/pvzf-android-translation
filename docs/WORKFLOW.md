@@ -86,7 +86,8 @@ Planned asset stages:
 
 Only after metadata and bundle tests pass:
 
-1. Replace the two payload files in a clean official APK.
+1. Run `package_apk_payload.py` to replace the two payload files in the chosen
+   APK shell and remove its obsolete JAR signature entries.
 2. Preserve all unrelated native libraries and launcher code.
 3. Align the APK.
 4. Sign it with the project's stable private release key.
@@ -94,6 +95,14 @@ Only after metadata and bundle tests pass:
 
 Never commit the key. Store at least two secure backups and document its alias
 and certificate fingerprint without recording its password.
+
+Example verification commands after signing:
+
+```powershell
+zipalign -c 4 translated.apk
+apksigner verify --verbose --print-certs translated.apk
+aapt dump badging translated.apk
+```
 
 ## 7. Release without game binaries in source control
 

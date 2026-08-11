@@ -81,6 +81,10 @@ Available scripts:
 - `build_unity_text_translation.py` builds and reopens a translated TextAsset
   bundle, preserving JSON structure and using current PC data before safe
   unchanged-source historical fallbacks.
+- `package_apk_payload.py` replaces only `data.unity3d` and
+  `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
+  and validates the embedded payload hashes. Its output is deliberately
+  unsigned; use Android SDK `zipalign` and `apksigner` afterward.
 - `compare_unity_bundles.py` compares serialized object hashes by asset file and
   path ID.
 - `inventory_unity_bundle.py` inventories object types, names, and text assets.
@@ -91,6 +95,8 @@ Available scripts:
 - Back up Android saves before reinstalling or changing signing identities.
 - A re-signed APK cannot update an APK signed by another private key. Choose one
   project key and preserve it securely for future releases.
+- Local research APKs may be signed with a debug key, but public releases should
+  use a dedicated private project key that is securely backed up.
 - Do not commit or publicly redistribute game APKs or proprietary game assets.
 - Translation data from Teyliu's project is CC BY-NC 4.0 and must remain
   attributed and noncommercial.
