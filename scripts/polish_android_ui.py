@@ -97,9 +97,9 @@ TEXT_OVERRIDES = {
     185703: "Upgrade Level: 10/10\nUpgrade Bonus: 500%\nCost: 3 matching cards",
     185708: "Free Rerolls: 2",
     # The Help parchment already contains the creator list and Joseph Franci's
-    # Android-port credit. Reuse the dormant creator-list layer for the two
-    # current port contributors, without obscuring the baked artwork.
-    179902: "aha · SilverShadow",
+    # Android-port credit. Reuse the dormant creator-list layer for the current
+    # port contributors, without obscuring the baked artwork.
+    179902: "aha · SilverShadow · Codex",
     # The Help parchment already contains a complete baked Hotkeys column.
     # These two live overlays otherwise duplicate and obscure that artwork.
     185005: "   ",
@@ -157,7 +157,12 @@ TEXT_OVERRIDES = {
 }
 
 HANDLE_REPLACEMENTS = {
-    188915: {"蓝飘飘fly": "LanPiaoPiaoFly"},
+    188915: {
+        "蓝飘飘fly": "LanPiaoPiaoFly",
+        "The Official source of PvZ Fusion is only on the dev, LanPiaoPiaoFly's Bilibili": (
+            "The official source of PvZ Fusion is LanPiaoPiaoFly's Bilibili"
+        ),
+    },
     189350: {"蓝飘飘fly": "LanPiaoPiaoFly"},
 }
 
@@ -166,6 +171,8 @@ ALMANAC_TIP_COMPONENT = 184559
 ALMANAC_TIP_RECT_TRANSFORM = 176824
 PORT_CREDITS_COMPONENT = 179902
 PORT_CREDITS_RECT_TRANSFORM = 176070
+PORT_CREDITS_FONT_ASSET = 178477  # 汉仪夏日体W SDF (parchment handwriting)
+PORT_CREDITS_MATERIAL = 2
 
 
 def sha256_file(path: Path) -> str:
@@ -304,14 +311,19 @@ def main() -> int:
         "font_size": port_credit_tree["m_fontSize"],
         "auto_size": port_credit_tree["m_enableAutoSizing"],
         "word_wrap": port_credit_tree["m_enableWordWrapping"],
+        "font_asset": dict(port_credit_tree["m_fontAsset"]),
+        "shared_material": dict(port_credit_tree["m_sharedMaterial"]),
     }
     # Reassert the text because this fresh typetree read may predate the
     # generic override saved above in UnityPy's object cache.
     port_credit_tree["m_text"] = TEXT_OVERRIDES[PORT_CREDITS_COMPONENT]
+    port_credit_tree["m_fontAsset"] = {"m_FileID": 0, "m_PathID": PORT_CREDITS_FONT_ASSET}
+    port_credit_tree["m_sharedMaterial"] = {"m_FileID": 0, "m_PathID": PORT_CREDITS_MATERIAL}
+    port_credit_tree["m_hasFontAssetChanged"] = 1
     port_credit_tree["m_fontSize"] = 20.0
     port_credit_tree["m_fontSizeBase"] = 20.0
     port_credit_tree["m_enableAutoSizing"] = 1
-    port_credit_tree["m_fontSizeMin"] = 12.0
+    port_credit_tree["m_fontSizeMin"] = 16.0
     port_credit_tree["m_fontSizeMax"] = 20.0
     port_credit_tree["m_enableWordWrapping"] = 0
     port_credit_obj.save_typetree(port_credit_tree)
@@ -325,8 +337,8 @@ def main() -> int:
         "size": dict(port_credit_rect_tree["m_SizeDelta"]),
     }
     port_credit_rect_tree["m_AnchoredPosition"]["x"] = -3.39
-    port_credit_rect_tree["m_AnchoredPosition"]["y"] = -1.9
-    port_credit_rect_tree["m_SizeDelta"]["x"] = 20.0
+    port_credit_rect_tree["m_AnchoredPosition"]["y"] = -2.35
+    port_credit_rect_tree["m_SizeDelta"]["x"] = 30.0
     port_credit_rect_tree["m_SizeDelta"]["y"] = 1.0
     port_credit_rect_obj.save_typetree(port_credit_rect_tree)
     changes.append(
@@ -340,8 +352,10 @@ def main() -> int:
                 "font_size": 20.0,
                 "auto_size": 1,
                 "word_wrap": 0,
-                "anchored_position": {"x": -3.39, "y": -1.9},
-                "size": {"x": 20.0, "y": 1.0},
+                "font_asset": PORT_CREDITS_FONT_ASSET,
+                "shared_material": PORT_CREDITS_MATERIAL,
+                "anchored_position": {"x": -3.39, "y": -2.35},
+                "size": {"x": 30.0, "y": 1.0},
             },
         }
     )
@@ -444,8 +458,11 @@ def main() -> int:
         port_credit_tree["m_fontSize"] != 20.0
         or port_credit_tree["m_enableAutoSizing"] != 1
         or port_credit_tree["m_enableWordWrapping"] != 0
+        or port_credit_tree["m_fontAsset"]["m_PathID"] != PORT_CREDITS_FONT_ASSET
+        or port_credit_tree["m_sharedMaterial"]["m_PathID"] != PORT_CREDITS_MATERIAL
         or abs(port_credit_rect_tree["m_AnchoredPosition"]["x"] - -3.39) > 0.001
-        or abs(port_credit_rect_tree["m_AnchoredPosition"]["y"] - -1.9) > 0.001
+        or abs(port_credit_rect_tree["m_AnchoredPosition"]["y"] - -2.35) > 0.001
+        or abs(port_credit_rect_tree["m_SizeDelta"]["x"] - 30.0) > 0.001
     ):
         raise RuntimeError("port-credit layout validation failed")
     for path_id in HANDLE_REPLACEMENTS:

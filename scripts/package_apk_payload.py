@@ -41,7 +41,10 @@ def is_old_signature(filename: str) -> bool:
 
 def copy_entry(source: zipfile.ZipFile, target: zipfile.ZipFile, info: zipfile.ZipInfo) -> None:
     cloned = copy.copy(info)
-    with source.open(info, "r") as reader, target.open(cloned, "w", force_zip64=True) as writer:
+    # Every entry in the supported APKs is below 4 GiB. Avoid force_zip64 here:
+    # unnecessary Zip64 local headers cause Android's verifier to emit noisy
+    # "header mismatch" warnings even though the archive is otherwise valid.
+    with source.open(info, "r") as reader, target.open(cloned, "w") as writer:
         shutil.copyfileobj(reader, writer, length=8 * 1024 * 1024)
 
 
@@ -50,7 +53,7 @@ def write_replacement(target: zipfile.ZipFile, original: zipfile.ZipInfo, replac
     cloned.file_size = 0
     cloned.compress_size = 0
     cloned.CRC = 0
-    with replacement.open("rb") as reader, target.open(cloned, "w", force_zip64=True) as writer:
+    with replacement.open("rb") as reader, target.open(cloned, "w") as writer:
         shutil.copyfileobj(reader, writer, length=8 * 1024 * 1024)
 
 
