@@ -159,6 +159,30 @@ line directly into the original 1400×600 `thanks` texture, and blanks TMP
 component 179902. The saved bundle is reopened and the texture is extracted
 again for exact preview validation before APK packaging.
 
+Screenshot review after V11 exposed two distinct late-game translation paths.
+Gods Evolution cards, mode descriptions, save labels, Odyssey luck text, and
+Starbound rewards are IL2CPP format strings assembled at runtime. These now
+have narrow screenshot-confirmed exact mappings, including a projectile-count
+suffix which previously matched the broad fusion-recipe regex and produced an
+unrelated "plant not discovered" sentence.
+
+Challenge and Odyssey page buttons contain a second serialized string after
+their ordinary TMP `m_text`. The game copies this trailing backing field into
+the visible label when the screen opens. That explains why bundle inspection
+showed English while device screenshots still showed `返回菜单`, `上一页`,
+`下一页`, and `回到索引`. The V12 UI builder patches and revalidates all 51
+backing fields. An object-level comparison against V11 found no other semantic
+UI changes.
+
+The Starbound Task Rewards screenshot also revealed a deployment trap. Every
+shown reward was already English in the metadata embedded in the public APK,
+including the Day 1-6 headings and the basic-plant, first-fusion, Sunflower,
+Solar Bomb, and Cherry-projectile rewards. Fusion can instead load an older
+metadata copy from `files/il2cpp/Metadata/global-metadata.dat`; therefore a
+stale external hot patch can make a newly installed APK appear untranslated.
+Testers should back up their files and remove only that stale `files/il2cpp`
+override before retesting, never their save/progression data.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
@@ -200,12 +224,12 @@ Literal changes:
 | Joseph 3.6.1 versus Chinese 3.6.1 | 2,105 |
 | aha embedded 3.8.1 versus Chinese 3.8.1 | 280 |
 | aha follow-up 3.8.1 versus Chinese 3.8.1 | 335 |
-| New generated 3.8.1 versus Chinese 3.8.1 | 2,571 |
+| New generated 3.8.1 versus Chinese 3.8.1 | 2,594 |
 
-The new build combines 1,841 current PC exact matches, 123 current PC regex
-matches, 579 Joseph fallback mappings, and 28 aha fallback mappings. It reduces
-CJK-bearing literal occurrences from 3,762 to 1,236. The remaining literals
-are retained unless they can be proven player-facing; blindly translating
+The new build combines the current PC exact/regex data, conservative historical
+Android fallbacks, and 42 screenshot-confirmed Android runtime mappings. It
+reduces CJK-bearing literal occurrences from 3,762 to 1,211. The remaining
+literals are retained unless they can be proven player-facing; blindly translating
 internal keys, test strings, or configuration values is unsafe.
 
 ## First 3.8.1 TextAsset rebuild

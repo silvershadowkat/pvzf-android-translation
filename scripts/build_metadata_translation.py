@@ -25,12 +25,94 @@ EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_bu
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
 STRUCTURED_PAIR_FILES = ("travel_buffs.json", "tips_fs.json", "tips_iz.json")
 
-# Confirmed against the Android 3.8.1 UI.  These are runtime format fragments
-# used by ZenGarden.GardenShopSlot, so the PC translator's regex for completed
-# shop strings never sees them with concrete numbers substituted.
+# Confirmed against the Android 3.8.1 UI. These are runtime format strings and
+# fragments which the PC translator does not see in their final rendered form.
+# Keep this list exact and screenshot-backed: broad CJK replacement can mutate
+# internal identifiers or developer-only diagnostics.
 ANDROID_CONFIRMED_EXACT = {
+    # Zen Garden shop.
     "\n已持有{0}个": "\nOwned: {0}",
     "{0}\n价格：{1}": "{0}\nCost: {1}",
+
+    # The Gods: Evolution - plant cards and shared selection labels.
+    "\n\n定位：": "\n\nRole: ",
+    "升级到": " upgrades to ",
+    "{0}\n已选了{1}次": "{0}\nTimes selected: {1}",
+    "{0}获得{1:F0}%独立伤害增幅\n当前增幅：{2:F0}%": (
+        "{0} gains {1:F0}% independent damage\nCurrent bonus: {2:F0}%"
+    ),
+    "{0}获得{1:F0}%速度增幅\n当前增幅：{2:F0}%": (
+        "{0} gains {1:F0}% speed\nCurrent bonus: {2:F0}%"
+    ),
+    "的发射数量+1": "'s projectile count +1",
+    "最多{0}株植物": "At most {0} plants",
+    "翻页({0}/{1})": "Page ({0}/{1})",
+
+    # The Gods: Evolution - mode, difficulty, unlock and progress cards.
+    "经典的诸神进化\n\n": "Classic The Gods: Evolution\n\n",
+    "最终面临大帅的挑战\n\n": "Final challenge: the Archduke\n\n",
+    "1次轮回，最终面临僵王的挑战\n\n": (
+        "1 reincarnation; final boss: Dr. Zomboss\n\n"
+    ),
+    "2次轮回，最终面临黄金僵王的挑战\n\n": (
+        "2 reincarnations; final boss: Golden Dr. Zomboss\n\n"
+    ),
+    "解锁条件：\n累计通关达20次": "Unlock condition:\nComplete 20 total runs",
+    "该难度下还没有通关过": "Not yet completed at this difficulty",
+    "该难度已经通关了{0}次": "Completions at this difficulty: {0}",
+    "额外5次刷新机会，正常僵尸数量\n\n": (
+        "5 extra rerolls; normal zombie count\n\n"
+    ),
+    "额外4次刷新机会，僵尸血量x2\n\n": "4 extra rerolls; zombie HP x2\n\n",
+    "额外3次刷新机会，僵尸血量x3\n\n": "3 extra rerolls; zombie HP x3\n\n",
+    "额外2次刷新机会，僵尸血量x4，速度x1.5\n\n": (
+        "2 extra rerolls; zombie HP x4; speed x1.5\n\n"
+    ),
+    "诸神：进化，推荐难度0~3，第{0}轮": (
+        "The Gods: Evolved, Recommended Diff: 0-3, Round {0}"
+    ),
+
+    # Odyssey luck overlay.
+    "当前幸运值：{0}\n幸运可以增加从箱子里获取植物的数量和从抽奖中获得的阳光数量": (
+        "Current Luck: {0}\nLuck increases plants from boxes and Sun from prize draws"
+    ),
+
+    # Dynamic save-slot labels.
+    "{0}，编号：{1}\n保存时间：{2}\n版本：{3}": (
+        "{0}, Slot: {1}\nSaved at: {2}\nVersion: {3}"
+    ),
+    "，最近一次自动保存\n保存时间：": ", Latest Autosave\nSaved at: ",
+
+    # Almanac action label. The existing PC wording described the resulting
+    # state; the Android control is an action button.
+    "禁用转场动画": "Disable Transitions",
+
+    # Starbound Task Rewards. Keep unselected labels grey rather than black so
+    # they remain readable over the dark star-field panel on Android.
+    "奖励1：<color=black>": "Reward 1: <color=grey>",
+    "奖励1：<color=white>": "Reward 1: <color=white>",
+    "奖励2：<color=black>": "Reward 2: <color=grey>",
+    "奖励2：<color=white>": "Reward 2: <color=white>",
+    "星辉白天：第1关": "Starbound Adventure: Day | Level 1",
+    "星辉白天：第2关": "Starbound Adventure: Day | Level 2",
+    "星辉白天：第3关": "Starbound Adventure: Day | Level 3",
+    "星辉白天：第4关": "Starbound Adventure: Day | Level 4",
+    "星辉白天：第5关": "Starbound Adventure: Day | Level 5",
+    "星辉白天：第6关": "Starbound Adventure: Day | Level 6",
+    "每局开始赠送一个基础植物": (
+        "Start each level with a basic plant already planted (except Roof)\n"
+    ),
+    "每局开始的第一次融合，都会奖励50阳光": (
+        "The first fusion of each level returns 50 Sun\n"
+    ),
+    "每局开始给予75点初始阳光": "Start each level with 75 bonus Sun\n",
+    "每局开始额外赠送一个向日葵": (
+        "Start each level with a Sunflower already planted (except Roof)\n"
+    ),
+    "阳光炸弹的阳光产量永久x3": "Triple Solar Bomb's Sun production permanently\n",
+    "樱桃子弹击中僵尸时有概率释放小樱桃爆炸": (
+        "Cherry projectiles may cause small Cherry explosions on hit\n"
+    ),
 }
 
 

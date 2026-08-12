@@ -32,9 +32,9 @@ Joseph's port was substantially broader. It modified 257 `TextAsset` objects
 and 3,081 `MonoBehaviour` objects; aha's 3.8.1 port modified only the three
 almanac `TextAsset` objects and 1,598 `MonoBehaviour` objects.
 
-The current clean 3.8.1 metadata build translates 2,571 literal occurrences,
+The current clean 3.8.1 metadata build translates 2,594 literal occurrences,
 compared with 335 in aha's updated file. Remaining Chinese literal occurrences
-drop from 3,762 to 1,236. This does not mean every remaining occurrence is
+drop from 3,762 to 1,211. This does not mean every remaining occurrence is
 visible player-facing text, and asset-side text still needs separate handling.
 
 For future maintainers and coding agents, start with
@@ -47,7 +47,7 @@ This project did not merely copy one old translated APK. For Android 3.8.1 it:
 
 - rebuilt the IL2CPP string-literal database deterministically from a clean
   metadata base, updating offsets and header sizes correctly;
-- applied 2,571 translated literal occurrences, including current PC exact and
+- applied 2,594 translated literal occurrences, including current PC exact and
   regex translations plus conservative historical Android fallbacks;
 - rebuilt and validated 278 Unity `TextAsset` objects, covering Almanacs,
   levels, custom levels, tutorials, tips, Abyss/configuration data, and other

@@ -18,6 +18,17 @@ import UnityPy
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
 TEXT_OFFSET = 88
 
+# Several page-navigation labels are stored twice by the Android UI component:
+# the normal TMP m_text field and a trailing runtime backing string. The latter
+# overwrites m_text when the menu opens, which is why static bundle inspection
+# previously looked English while device screenshots still showed Chinese.
+ANDROID_RUNTIME_BACKING_EXACT = {
+    "返回菜单": "Back to Menu",
+    "上一页": "Previous Page",
+    "下一页": "Next Page",
+    "回到索引": "Back to Index",
+}
+
 
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
@@ -53,6 +64,21 @@ def replace_tmp_text(raw: bytes, value: str) -> bytes:
     field = struct.pack("<i", len(encoded)) + encoded
     field += b"\0" * ((-len(field)) & 3)
     return raw[:TEXT_OFFSET] + field + raw[old_end:]
+
+
+def serialized_string(value: str) -> bytes:
+    encoded = value.encode("utf-8")
+    field = struct.pack("<i", len(encoded)) + encoded
+    return field + b"\0" * ((-len(field)) & 3)
+
+
+def replace_runtime_backing_text(raw: bytes) -> tuple[bytes, str, str] | None:
+    """Replace an exact trailing UI backing string, if one is present."""
+    for source, target in ANDROID_RUNTIME_BACKING_EXACT.items():
+        source_field = serialized_string(source)
+        if raw.endswith(source_field):
+            return raw[: -len(source_field)] + serialized_string(target), source, target
+    return None
 
 
 def load_objects(path: Path):
@@ -206,6 +232,34 @@ def main() -> int:
             "method": method,
         })
 
+    runtime_backing_expected = {}
+    runtime_backing_counts = collections.Counter()
+    for key, obj in sorted(objects.items()):
+        if obj.type.name != "MonoBehaviour":
+            continue
+        replaced = replace_runtime_backing_text(bytes(obj.get_raw_data()))
+        if replaced is None:
+            continue
+        updated, source, target = replaced
+        obj.set_raw_data(updated)
+        runtime_backing_expected[key] = target
+        runtime_backing_counts[source] += 1
+        changes.append({
+            "file": key[0],
+            "path_id": key[1],
+            "source": source,
+            "previous": source,
+            "translated": target,
+            "method": "android_runtime_backing",
+        })
+
+    missing_runtime_backings = set(ANDROID_RUNTIME_BACKING_EXACT) - set(runtime_backing_counts)
+    if missing_runtime_backings:
+        raise RuntimeError(
+            "missing Android runtime backing labels: "
+            f"{sorted(missing_runtime_backings)}"
+        )
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -217,6 +271,10 @@ def main() -> int:
         parsed = read_tmp_text(bytes(check_objects[key].get_raw_data()))
         if parsed is None or parsed[0] != target:
             raise RuntimeError(f"TMP validation failed for {key}")
+    for key, target in runtime_backing_expected.items():
+        raw = bytes(check_objects[key].get_raw_data())
+        if not raw.endswith(serialized_string(target)):
+            raise RuntimeError(f"runtime backing validation failed for {key}")
     del check_env
     gc.collect()
 
@@ -225,6 +283,8 @@ def main() -> int:
         "base": {"path": str(args.base_bundle.resolve()), "sha256": sha256_file(args.base_bundle)},
         "output": {"path": str(args.output.resolve()), "size": args.output.stat().st_size, "sha256": sha256_file(args.output)},
         "validated_ui_strings": len(expected),
+        "validated_runtime_backing_strings": len(runtime_backing_expected),
+        "runtime_backing_counts": dict(sorted(runtime_backing_counts.items())),
         "method_counts": dict(sorted(methods.items())),
         "changes": changes,
     }

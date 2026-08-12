@@ -397,6 +397,9 @@ def main() -> int:
         "auto_size": tip_tree["m_enableAutoSizing"],
         "word_wrap": tip_tree["m_enableWordWrapping"],
     }
+    # Reassert the translated text because this fresh typetree read can predate
+    # the generic TEXT_OVERRIDES save in UnityPy's object cache.
+    tip_tree["m_text"] = TEXT_OVERRIDES[ALMANAC_TIP_COMPONENT]
     tip_tree["m_fontSize"] = 24.0
     tip_tree["m_fontSizeBase"] = 24.0
     tip_tree["m_enableAutoSizing"] = 1
