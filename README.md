@@ -97,6 +97,9 @@ Available scripts:
 - `refine_almanac_layout.py` retargets only the three long 3.8.1 Almanac
   description components from the handwriting TMP slot to the transplanted
   Dynamic slot and normalizes the oversized plant-page title.
+- `polish_android_ui.py` removes PC-only Almanac size tags to match Joseph's
+  Android data, romanizes contributor handles, cleans mixed-language UI
+  defaults, and applies the final narrow title/layout corrections.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately

@@ -103,6 +103,20 @@ reduces the plant Almanac title from the anomalous 70 points to the same 50
 points used by the correctly fitting zombie title. All other components are
 left as produced by v4.
 
+V5 screenshots then exposed a second layer: the current PC `LawnStrings` and
+`ZombieStrings` data embeds `<size=36>` in almost every field, overriding the
+correct 18-point Android component size. Joseph's English 3.6.1 copies of both
+assets contain no TMP size tags at all. V6 follows that proven Android behavior
+and removes 2,780 opening/closing size tags from those two assets while
+preserving their JSON structure and all translated content.
+
+The V6 serialized-UI audit also reduced CJK-bearing TMP text components from
+68 to zero. This includes compact romanized credits (`LanPiaoPiaoFly`,
+`Gfishtus`, `Mengluo`, `Aya Shameimaru`, and `Landie`), contributor links,
+storage/upgrade labels, shortcuts, draw screens, Zen Garden status, statistics,
+and several later locked-mode defaults. The zombie Almanac title and shadow
+were reduced to 36 points to target Joseph's single-line presentation.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
