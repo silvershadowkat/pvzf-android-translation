@@ -117,6 +117,18 @@ storage/upgrade labels, shortcuts, draw screens, Zen Garden status, statistics,
 and several later locked-mode defaults. The zombie Almanac title and shadow
 were reduced to 36 points to target Joseph's single-line presentation.
 
+V6 device screenshots identified two final layout collisions. The rotating
+plant Almanac tip used a 1200-unit-wide, fixed 36-point text rectangle that
+continued beneath the centered Search control. V7 preserves its left edge but
+reduces the rectangle to 880 units, ends it before Search, disables wrapping,
+and enables 12–24-point automatic sizing.
+
+The Help/Credits parchment is a baked 1400x600 texture containing the original
+credits, Hotkeys, translation credits, and Joseph Franci attribution. Two live
+TMP overlays were redundantly drawn over the baked Hotkeys and bottom-right
+credits. V7 blanks only those overlays and leaves the original texture
+unchanged, avoiding lossy regeneration of names and shortcut text.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.

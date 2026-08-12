@@ -58,16 +58,10 @@ TEXT_OVERRIDES = {
     185656: "New World\nNew Time (2026/6/3 14:19)\nSurvival Mode, Cheats, Version: 1.20.1",
     185703: "Upgrade Level: 10/10\nUpgrade Bonus: 500%\nCost: 3 matching cards",
     185708: "Free Rerolls: 2",
-    185839: (
-        "<size=75%>Shortcuts:\n"
-        "1: Shovel    Q: Plant HP\n"
-        "2: Glove     W: Zombie HP\n"
-        "3: Time Stop E: Coffee Bean\n"
-        "4: Hammer    P: Toggle Airship SFX\n"
-        "5: Cart      V: Toggle Zombie Glove\n"
-        "C: Hover a plant to open Almanac\n"
-        "H: Hover a plant to view info</size>"
-    ),
+    # The Help parchment already contains a complete baked Hotkeys column.
+    # These two live overlays otherwise duplicate and obscure that artwork.
+    185005: "   ",
+    185839: "   ",
     186016: "Current Wave: 30/200",
     186184: "When enabled, clicking a card discards it",
     186413: "P\nL\nA\nY\nE\nR\n\nC\nP\nU",
@@ -125,6 +119,8 @@ HANDLE_REPLACEMENTS = {
 }
 
 ZOMBIE_TITLE_COMPONENTS = {184024, 189896}
+ALMANAC_TIP_COMPONENT = 184559
+ALMANAC_TIP_RECT_TRANSFORM = 176824
 
 
 def sha256_file(path: Path) -> str:
@@ -214,7 +210,7 @@ def main() -> int:
         previous = tree["m_text"]
         updated = previous
         for source, target in replacements.items():
-            if source not in updated:
+            if source not in updated and target not in updated:
                 raise RuntimeError(f"expected handle {source!r} missing from component {path_id}")
             updated = updated.replace(source, target)
         tree["m_text"] = updated
@@ -239,6 +235,49 @@ def main() -> int:
             }
         )
 
+    tip_obj = objects[("resources.assets", ALMANAC_TIP_COMPONENT)]
+    tip_tree = tip_obj.read_typetree(check_read=False)
+    tip_before = {
+        "font_size": tip_tree["m_fontSize"],
+        "auto_size": tip_tree["m_enableAutoSizing"],
+        "word_wrap": tip_tree["m_enableWordWrapping"],
+    }
+    tip_tree["m_fontSize"] = 24.0
+    tip_tree["m_fontSizeBase"] = 24.0
+    tip_tree["m_enableAutoSizing"] = 1
+    tip_tree["m_fontSizeMin"] = 12.0
+    tip_tree["m_fontSizeMax"] = 24.0
+    tip_tree["m_enableWordWrapping"] = 0
+    tip_obj.save_typetree(tip_tree)
+
+    tip_rect_obj = objects[("resources.assets", ALMANAC_TIP_RECT_TRANSFORM)]
+    tip_rect_tree = tip_rect_obj.read_typetree()
+    if tip_rect_tree["m_GameObject"]["m_PathID"] != tip_tree["m_GameObject"]["m_PathID"]:
+        raise RuntimeError("Almanac tip RectTransform no longer belongs to the expected GameObject")
+    rect_before = {
+        "anchored_x": tip_rect_tree["m_AnchoredPosition"]["x"],
+        "width": tip_rect_tree["m_SizeDelta"]["x"],
+    }
+    # Keep the original left edge while ending before the centered Search box.
+    tip_rect_tree["m_AnchoredPosition"]["x"] = -472.0
+    tip_rect_tree["m_SizeDelta"]["x"] = 880.0
+    tip_rect_obj.save_typetree(tip_rect_tree)
+    changes.append(
+        {
+            "kind": "almanac_tip_layout",
+            "path_id": ALMANAC_TIP_COMPONENT,
+            "rect_transform_path_id": ALMANAC_TIP_RECT_TRANSFORM,
+            "before": {**tip_before, **rect_before},
+            "after": {
+                "font_size": 24.0,
+                "auto_size": 1,
+                "word_wrap": 0,
+                "anchored_x": -472.0,
+                "width": 880.0,
+            },
+        }
+    )
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -261,6 +300,19 @@ def main() -> int:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_fontSize"] != args.zombie_title_size:
             raise RuntimeError(f"zombie title validation failed for component {path_id}")
+    tip_tree = check_objects[("resources.assets", ALMANAC_TIP_COMPONENT)].read_typetree(check_read=False)
+    if (
+        tip_tree["m_fontSize"] != 24.0
+        or tip_tree["m_enableAutoSizing"] != 1
+        or tip_tree["m_enableWordWrapping"] != 0
+    ):
+        raise RuntimeError("Almanac tip typography validation failed")
+    tip_rect_tree = check_objects[("resources.assets", ALMANAC_TIP_RECT_TRANSFORM)].read_typetree()
+    if (
+        tip_rect_tree["m_AnchoredPosition"]["x"] != -472.0
+        or tip_rect_tree["m_SizeDelta"]["x"] != 880.0
+    ):
+        raise RuntimeError("Almanac tip rectangle validation failed")
     validated_assets = set()
     for obj in check_env.objects:
         if obj.type.name != "TextAsset":
