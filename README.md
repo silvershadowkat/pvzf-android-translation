@@ -224,6 +224,10 @@ Available scripts:
 - `audit_remaining_cjk.py` separately inventories CJK-bearing IL2CPP literals,
   TextAsset JSON leaves, and serialized TMP text so internal data and creator
   names are not confused with missed player-facing UI.
+- `audit_fixed_backgrounds.py` inventories fixed 1920x1080 `Background`/`BG`
+  RectTransforms and records their complete menu hierarchy. Its results are
+  evidence for targeted ultrawide fixes, not permission to stretch every
+  reference-resolution screen.
 - `audit_apk_release.py` proves that the manifest, DEX, native libraries,
   resources, and all other undeclared entries are byte-identical to the chosen
   APK shell; only the two expected data payloads may differ.

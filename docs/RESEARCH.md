@@ -306,6 +306,18 @@ about the upstream game or every runtime path.
   on the full-width colon `：`. The metadata builder reconstructs
   `name：description` by stable section and numeric modifier ID, producing short
   card labels such as `Ace Drop` and `Alpha Escort` without duplication.
+- The PC runtime formats the selected modifier body with
+  `BUFF_NAME_FORMAT = <align=center><color=#700000>[{0}]</color></align>...`,
+  but Android uses the same combined `name：description` literal both to derive
+  the card/title name and to populate the description. Reproducing the PC-only
+  bracket/color heading exactly therefore needs a validated runtime UI patch;
+  changing the literal alone would incorrectly add brackets or rich-text tags
+  to card labels. Keep the safe short-name split until such a hook exists.
+- A read-only 1920x1080 background audit found 31 fixed `Background` objects.
+  Size alone is not a safe rewrite criterion: most belong to full game modes or
+  deliberately framed screens. Only `GardenStoreMenu/Background` (path 173612)
+  and `GardenProtectionMenu/Background` (path 170016) currently have confirmed
+  ultrawide modal defects and are stretched by the production polish pass.
 - The PC translator consumes local JSON under its `Localization` directory.
   Current PC packages can wrap it with `ModUpdateUtil.exe`/launcher scripts that
   refresh those local files at launch. Android does not run that Windows

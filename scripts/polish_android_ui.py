@@ -169,6 +169,9 @@ HANDLE_REPLACEMENTS = {
 }
 
 ZOMBIE_TITLE_COMPONENTS = {184024, 189896}
+# The selected Zombie Almanac name is rendered twice (foreground + shadow).
+# Keep both components capped together so long PC names fit identically.
+ZOMBIE_NAME_COMPONENTS = {185821, 192116}
 ALMANAC_TIP_COMPONENT = 184559
 ALMANAC_TIP_RECT_TRANSFORM = 176824
 PORT_CREDITS_COMPONENT = 179902
@@ -176,6 +179,11 @@ PORT_CREDITS_RECT_TRANSFORM = 176070
 PORT_CREDITS_FONT_ASSET = 178477  # 汉仪夏日体W SDF (parchment handwriting)
 PORT_CREDITS_MATERIAL = 2
 GARDEN_STORE_BACKGROUND_RECT_TRANSFORM = 173612
+GARDEN_PROTECTION_BACKGROUND_RECT_TRANSFORM = 170016
+ULTRAWIDE_MODAL_BACKGROUNDS = {
+    GARDEN_STORE_BACKGROUND_RECT_TRANSFORM: "garden_store_ultrawide_background",
+    GARDEN_PROTECTION_BACKGROUND_RECT_TRANSFORM: "garden_defense_ultrawide_background",
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -225,6 +233,7 @@ def main() -> int:
     parser.add_argument("--dummy-dll-dir", required=True, type=Path)
     parser.add_argument("--unity-version", default="2022.3.62f1")
     parser.add_argument("--zombie-title-size", default=36.0, type=float)
+    parser.add_argument("--zombie-name-size", default=24.0, type=float)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
@@ -394,6 +403,31 @@ def main() -> int:
             }
         )
 
+    for path_id in ZOMBIE_NAME_COMPONENTS:
+        obj = objects[("resources.assets", path_id)]
+        tree = obj.read_typetree(check_read=False)
+        previous = {
+            "font_size": tree["m_fontSize"],
+            "font_size_base": tree["m_fontSizeBase"],
+            "font_size_max": tree["m_fontSizeMax"],
+        }
+        tree["m_fontSize"] = args.zombie_name_size
+        tree["m_fontSizeBase"] = args.zombie_name_size
+        tree["m_fontSizeMax"] = args.zombie_name_size
+        obj.save_typetree(tree)
+        changes.append(
+            {
+                "kind": "zombie_selected_name_size",
+                "path_id": path_id,
+                "before": previous,
+                "after": {
+                    "font_size": args.zombie_name_size,
+                    "font_size_base": args.zombie_name_size,
+                    "font_size_max": args.zombie_name_size,
+                },
+            }
+        )
+
     tip_obj = objects[("resources.assets", ALMANAC_TIP_COMPONENT)]
     tip_tree = tip_obj.read_typetree(check_read=False)
     tip_before = {
@@ -440,39 +474,37 @@ def main() -> int:
         }
     )
 
-    # GardenStoreMenu itself already stretches to the Android canvas, but its
-    # parchment background was fixed at 1920x1080. On ultrawide phones this
-    # exposed inactive Zen Garden controls beside the modal. Stretch only the
-    # visual background; keep the goods, coin bank, and return button layouts
-    # unchanged.
-    garden_background_obj = objects[
-        ("resources.assets", GARDEN_STORE_BACKGROUND_RECT_TRANSFORM)
-    ]
-    garden_background_tree = garden_background_obj.read_typetree()
-    garden_background_before = {
-        "anchor_min": dict(garden_background_tree["m_AnchorMin"]),
-        "anchor_max": dict(garden_background_tree["m_AnchorMax"]),
-        "anchored_position": dict(garden_background_tree["m_AnchoredPosition"]),
-        "size": dict(garden_background_tree["m_SizeDelta"]),
-    }
-    garden_background_tree["m_AnchorMin"] = {"x": 0.0, "y": 0.0}
-    garden_background_tree["m_AnchorMax"] = {"x": 1.0, "y": 1.0}
-    garden_background_tree["m_AnchoredPosition"] = {"x": 0.0, "y": 0.0}
-    garden_background_tree["m_SizeDelta"] = {"x": 0.0, "y": 0.0}
-    garden_background_obj.save_typetree(garden_background_tree)
-    changes.append(
-        {
-            "kind": "garden_store_ultrawide_background",
-            "rect_transform_path_id": GARDEN_STORE_BACKGROUND_RECT_TRANSFORM,
-            "before": garden_background_before,
-            "after": {
-                "anchor_min": {"x": 0.0, "y": 0.0},
-                "anchor_max": {"x": 1.0, "y": 1.0},
-                "anchored_position": {"x": 0.0, "y": 0.0},
-                "size": {"x": 0.0, "y": 0.0},
-            },
+    # These Zen Garden modal menus sit over the normal shop screen. Their
+    # parchment backgrounds were fixed at 1920x1080, exposing inactive shop
+    # buttons on ultrawide displays. Stretch only each visual background;
+    # preserve every modal control and its reference-resolution layout.
+    for path_id, kind in ULTRAWIDE_MODAL_BACKGROUNDS.items():
+        background_obj = objects[("resources.assets", path_id)]
+        background_tree = background_obj.read_typetree()
+        background_before = {
+            "anchor_min": dict(background_tree["m_AnchorMin"]),
+            "anchor_max": dict(background_tree["m_AnchorMax"]),
+            "anchored_position": dict(background_tree["m_AnchoredPosition"]),
+            "size": dict(background_tree["m_SizeDelta"]),
         }
-    )
+        background_tree["m_AnchorMin"] = {"x": 0.0, "y": 0.0}
+        background_tree["m_AnchorMax"] = {"x": 1.0, "y": 1.0}
+        background_tree["m_AnchoredPosition"] = {"x": 0.0, "y": 0.0}
+        background_tree["m_SizeDelta"] = {"x": 0.0, "y": 0.0}
+        background_obj.save_typetree(background_tree)
+        changes.append(
+            {
+                "kind": kind,
+                "rect_transform_path_id": path_id,
+                "before": background_before,
+                "after": {
+                    "anchor_min": {"x": 0.0, "y": 0.0},
+                    "anchor_max": {"x": 1.0, "y": 1.0},
+                    "anchored_position": {"x": 0.0, "y": 0.0},
+                    "size": {"x": 0.0, "y": 0.0},
+                },
+            }
+        )
 
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -513,6 +545,14 @@ def main() -> int:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_fontSize"] != args.zombie_title_size:
             raise RuntimeError(f"zombie title validation failed for component {path_id}")
+    for path_id in ZOMBIE_NAME_COMPONENTS:
+        tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
+        if (
+            tree["m_fontSize"] != args.zombie_name_size
+            or tree["m_fontSizeBase"] != args.zombie_name_size
+            or tree["m_fontSizeMax"] != args.zombie_name_size
+        ):
+            raise RuntimeError(f"zombie selected-name validation failed for component {path_id}")
     tip_tree = check_objects[("resources.assets", ALMANAC_TIP_COMPONENT)].read_typetree(check_read=False)
     if (
         tip_tree["m_fontSize"] != 24.0
@@ -526,16 +566,15 @@ def main() -> int:
         or tip_rect_tree["m_SizeDelta"]["x"] != 880.0
     ):
         raise RuntimeError("Almanac tip rectangle validation failed")
-    garden_background_tree = check_objects[
-        ("resources.assets", GARDEN_STORE_BACKGROUND_RECT_TRANSFORM)
-    ].read_typetree()
-    if (
-        garden_background_tree["m_AnchorMin"] != {"x": 0.0, "y": 0.0}
-        or garden_background_tree["m_AnchorMax"] != {"x": 1.0, "y": 1.0}
-        or garden_background_tree["m_AnchoredPosition"] != {"x": 0.0, "y": 0.0}
-        or garden_background_tree["m_SizeDelta"] != {"x": 0.0, "y": 0.0}
-    ):
-        raise RuntimeError("Garden Store ultrawide background validation failed")
+    for path_id, kind in ULTRAWIDE_MODAL_BACKGROUNDS.items():
+        background_tree = check_objects[("resources.assets", path_id)].read_typetree()
+        if (
+            background_tree["m_AnchorMin"] != {"x": 0.0, "y": 0.0}
+            or background_tree["m_AnchorMax"] != {"x": 1.0, "y": 1.0}
+            or background_tree["m_AnchoredPosition"] != {"x": 0.0, "y": 0.0}
+            or background_tree["m_SizeDelta"] != {"x": 0.0, "y": 0.0}
+        ):
+            raise RuntimeError(f"{kind} validation failed")
     validated_assets = set()
     for obj in check_env.objects:
         if obj.type.name != "TextAsset":
