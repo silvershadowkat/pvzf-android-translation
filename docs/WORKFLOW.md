@@ -20,6 +20,7 @@ The metadata builder consumes:
 - `translation_strings.json`
 - `customlevel_strings.json`
 - `abyss_buffs.json`
+- structurally aligned `travel_buffs.json`, `tips_fs.json`, and `tips_iz.json`
 - `translation_regexs.json`
 - `customlevel_regexs.json`
 
@@ -39,6 +40,12 @@ Inspect the generated JSON report for:
 
 The builder reparses the generated file and aborts if any rebuilt literal does
 not round-trip exactly.
+
+Run `scripts/audit_remaining_cjk.py` after the metadata and Unity passes. Do
+not blindly translate every CJK-bearing metadata literal: some are internal
+keys, debug/test messages, or configuration values whose mutation can break
+game behavior. Promote additional strings only when their player-facing use is
+confirmed.
 
 ## 4. Test the metadata hot patch
 

@@ -27,9 +27,9 @@ Joseph's port was substantially broader. It modified 257 `TextAsset` objects
 and 3,081 `MonoBehaviour` objects; aha's 3.8.1 port modified only the three
 almanac `TextAsset` objects and 1,598 `MonoBehaviour` objects.
 
-The first clean 3.8.1 metadata build translates 2,515 literal occurrences,
+The current clean 3.8.1 metadata build translates 2,571 literal occurrences,
 compared with 335 in aha's updated file. Remaining Chinese literal occurrences
-drop from 3,762 to 1,298. This does not mean every remaining occurrence is
+drop from 3,762 to 1,236. This does not mean every remaining occurrence is
 visible player-facing text, and asset-side text still needs separate handling.
 
 See [Research findings](docs/RESEARCH.md) and the [repeatable workflow](docs/WORKFLOW.md).
@@ -98,8 +98,12 @@ Available scripts:
   description components from the handwriting TMP slot to the transplanted
   Dynamic slot and normalizes the oversized plant-page title.
 - `polish_android_ui.py` removes PC-only Almanac size tags to match Joseph's
-  Android data, romanizes contributor handles, cleans mixed-language UI
-  defaults, and applies the final narrow title/layout corrections.
+  Android data, translates visible configuration-backed labels, adds the
+  current Android-port credits, cleans mixed-language UI defaults, and applies
+  the final narrow title/layout corrections.
+- `audit_remaining_cjk.py` separately inventories CJK-bearing IL2CPP literals,
+  TextAsset JSON leaves, and serialized TMP text so internal data and creator
+  names are not confused with missed player-facing UI.
 - `package_apk_payload.py` replaces only `data.unity3d` and
   `global-metadata.dat` in a supplied APK, removes obsolete signature entries,
   and validates the embedded payload hashes. Its output is deliberately

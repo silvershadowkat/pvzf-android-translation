@@ -129,6 +129,14 @@ TMP overlays were redundantly drawn over the baked Hotkeys and bottom-right
 credits. V7 blanks only those overlays and leaves the original texture
 unchanged, avoiding lossy regeneration of names and shortcut text.
 
+V8 reuses the dormant creator-list TMP layer to add `aha · SilverShadow`
+directly beneath the baked Joseph Franci Android-port attribution. It also
+translates all 27 visible `PlantEvolutionData` route labels and the remaining
+`TalentData` label (`Quick Hands I`). A post-build CJK audit reports zero
+serialized UI components and only 17 TextAsset leaves; those are level-maker
+or contributor names, an internal shader README, and two legacy raw data
+tables. They are deliberately retained.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
@@ -162,11 +170,13 @@ Literal changes:
 | Joseph 3.6.1 versus Chinese 3.6.1 | 2,105 |
 | aha embedded 3.8.1 versus Chinese 3.8.1 | 280 |
 | aha follow-up 3.8.1 versus Chinese 3.8.1 | 335 |
-| New generated 3.8.1 versus Chinese 3.8.1 | 2,515 |
+| New generated 3.8.1 versus Chinese 3.8.1 | 2,571 |
 
-The new build combines 1,485 current PC exact matches, 130 current PC regex
-matches, 821 Joseph fallback mappings, and 79 aha fallback mappings. It reduces
-CJK-bearing literal occurrences from 3,762 to 1,298.
+The new build combines 1,841 current PC exact matches, 123 current PC regex
+matches, 579 Joseph fallback mappings, and 28 aha fallback mappings. It reduces
+CJK-bearing literal occurrences from 3,762 to 1,236. The remaining literals
+are retained unless they can be proven player-facing; blindly translating
+internal keys, test strings, or configuration values is unsafe.
 
 ## First 3.8.1 TextAsset rebuild
 

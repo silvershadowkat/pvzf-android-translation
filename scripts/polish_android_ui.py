@@ -3,7 +3,8 @@
 
 This pass removes PC-only Almanac font-size tags (matching Joseph's Android
 data), cleans and romanizes the credits panel, normalizes the zombie Almanac
-heading, and replaces remaining mixed Chinese/English serialized UI defaults.
+heading, translates visible configuration-backed labels, and replaces
+remaining mixed Chinese/English serialized UI defaults.
 """
 
 from __future__ import annotations
@@ -21,6 +22,39 @@ from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
 
 SIZE_TAG_RE = re.compile(r"</?size(?:=[^>]*)?>", re.IGNORECASE)
 ALMANAC_ASSETS = {"LawnStrings", "ZombieStrings"}
+
+TEXT_ASSET_REPLACEMENTS = {
+    "PlantEvolutionData": {
+        "机枪路线": "Gatling Route",
+        "樱桃路线": "Cherry Route",
+        "寒冰路线": "Ice Route",
+        "毁灭路线": "Doom Route",
+        "黑高路线": "Tall-nut Route",
+        "灾果路线": "Jalapeño-nut Route",
+        "大喷路线": "Fume Route",
+        "忧郁路线": "Gloom Route",
+        "大帝路线": "Emperor Route",
+        "剑仙路线": "Swordmaster Route",
+        "战神路线": "War God Route",
+        "毁胆路线": "Doom Scaredy Route",
+        "魅胆路线": "Hypno Scaredy Route",
+        "魅后路线": "Hypno Queen Route",
+        "冰炮路线": "Ice Cannon Route",
+        "火炮路线": "Fire Cannon Route",
+        "火神路线": "Fire God Route",
+        "究投路线": "Ultimate Melon Route",
+        "瓜炮路线": "Melon Cannon Route",
+        "菜炮路线": "Cabbage Cannon Route",
+        "大哥路线": "Big Brother Route",
+        "浴火路线": "Phoenix Route",
+        "绿伞路线": "Emerald Umbrella Route",
+        "玄钢路线": "Darksteel Route",
+        "刺果路线": "Spikefruit Route",
+        "爆竹路线": "Firecracker Route",
+        "黑曜路线": "Obsidian Route",
+    },
+    "TalentData": {"至极手速": "Quick Hands I"},
+}
 
 CREDITS_TEXT = """<align=center><size=16>Credits</size>
 <size=12>LanPiaoPiaoFly — Direction, Code & Animation
@@ -58,6 +92,10 @@ TEXT_OVERRIDES = {
     185656: "New World\nNew Time (2026/6/3 14:19)\nSurvival Mode, Cheats, Version: 1.20.1",
     185703: "Upgrade Level: 10/10\nUpgrade Bonus: 500%\nCost: 3 matching cards",
     185708: "Free Rerolls: 2",
+    # The Help parchment already contains the creator list and Joseph Franci's
+    # Android-port credit. Reuse the dormant creator-list layer for the two
+    # current port contributors, without obscuring the baked artwork.
+    179902: "aha · SilverShadow",
     # The Help parchment already contains a complete baked Hotkeys column.
     # These two live overlays otherwise duplicate and obscure that artwork.
     185005: "   ",
@@ -121,6 +159,8 @@ HANDLE_REPLACEMENTS = {
 ZOMBIE_TITLE_COMPONENTS = {184024, 189896}
 ALMANAC_TIP_COMPONENT = 184559
 ALMANAC_TIP_RECT_TRANSFORM = 176824
+PORT_CREDITS_COMPONENT = 179902
+PORT_CREDITS_RECT_TRANSFORM = 176070
 
 
 def sha256_file(path: Path) -> str:
@@ -148,6 +188,19 @@ def strip_size_tags(value):
         return [strip_size_tags(item) for item in value]
     if isinstance(value, dict):
         return {key: strip_size_tags(item) for key, item in value.items()}
+    return value
+
+
+def replace_nested_strings(value, replacements: dict[str, str]):
+    if isinstance(value, str):
+        updated = value
+        for source, target in replacements.items():
+            updated = updated.replace(source, target)
+        return updated
+    if isinstance(value, list):
+        return [replace_nested_strings(item, replacements) for item in value]
+    if isinstance(value, dict):
+        return {key: replace_nested_strings(item, replacements) for key, item in value.items()}
     return value
 
 
@@ -194,6 +247,42 @@ def main() -> int:
     if found_assets != ALMANAC_ASSETS:
         raise RuntimeError(f"missing Almanac assets: {sorted(ALMANAC_ASSETS - found_assets)}")
 
+    translated_config_assets = set()
+    for obj in env.objects:
+        if obj.type.name != "TextAsset":
+            continue
+        data = obj.parse_as_object()
+        replacements = TEXT_ASSET_REPLACEMENTS.get(data.m_Name)
+        if replacements is None:
+            continue
+        tree = json.loads(data.m_Script.lstrip("\ufeff"))
+        serialized_before = json.dumps(tree, ensure_ascii=False)
+        tree = replace_nested_strings(tree, replacements)
+        serialized_after = json.dumps(tree, ensure_ascii=False)
+        unresolved = [source for source in replacements if source in serialized_after]
+        if unresolved:
+            raise RuntimeError(f"visible translations remain in {data.m_Name}: {unresolved}")
+        if serialized_before == serialized_after and not all(
+            target in serialized_after for target in replacements.values()
+        ):
+            raise RuntimeError(f"expected visible labels missing from {data.m_Name}")
+        data.m_Script = json.dumps(tree, ensure_ascii=False, indent=4)
+        obj.save_typetree(data)
+        translated_config_assets.add(data.m_Name)
+        changes.append(
+            {
+                "kind": "visible_text_asset_translation",
+                "asset": data.m_Name,
+                "path_id": obj.path_id,
+                "replacement_count": len(replacements),
+            }
+        )
+    if translated_config_assets != set(TEXT_ASSET_REPLACEMENTS):
+        raise RuntimeError(
+            "missing visible TextAssets: "
+            f"{sorted(set(TEXT_ASSET_REPLACEMENTS) - translated_config_assets)}"
+        )
+
     for path_id, replacement in TEXT_OVERRIDES.items():
         obj = objects[("resources.assets", path_id)]
         tree = obj.read_typetree(check_read=False)
@@ -203,6 +292,54 @@ def main() -> int:
         changes.append(
             {"kind": "ui_text", "path_id": path_id, "before": previous, "after": replacement}
         )
+
+    port_credit_obj = objects[("resources.assets", PORT_CREDITS_COMPONENT)]
+    port_credit_tree = port_credit_obj.read_typetree(check_read=False)
+    credit_typography_before = {
+        "font_size": port_credit_tree["m_fontSize"],
+        "auto_size": port_credit_tree["m_enableAutoSizing"],
+        "word_wrap": port_credit_tree["m_enableWordWrapping"],
+    }
+    # Reassert the text because this fresh typetree read may predate the
+    # generic override saved above in UnityPy's object cache.
+    port_credit_tree["m_text"] = TEXT_OVERRIDES[PORT_CREDITS_COMPONENT]
+    port_credit_tree["m_fontSize"] = 20.0
+    port_credit_tree["m_fontSizeBase"] = 20.0
+    port_credit_tree["m_enableAutoSizing"] = 1
+    port_credit_tree["m_fontSizeMin"] = 12.0
+    port_credit_tree["m_fontSizeMax"] = 20.0
+    port_credit_tree["m_enableWordWrapping"] = 0
+    port_credit_obj.save_typetree(port_credit_tree)
+
+    port_credit_rect_obj = objects[("resources.assets", PORT_CREDITS_RECT_TRANSFORM)]
+    port_credit_rect_tree = port_credit_rect_obj.read_typetree()
+    if port_credit_rect_tree["m_GameObject"]["m_PathID"] != port_credit_tree["m_GameObject"]["m_PathID"]:
+        raise RuntimeError("port-credit RectTransform no longer belongs to the expected GameObject")
+    credit_rect_before = {
+        "anchored_position": dict(port_credit_rect_tree["m_AnchoredPosition"]),
+        "size": dict(port_credit_rect_tree["m_SizeDelta"]),
+    }
+    port_credit_rect_tree["m_AnchoredPosition"]["x"] = -3.39
+    port_credit_rect_tree["m_AnchoredPosition"]["y"] = -1.9
+    port_credit_rect_tree["m_SizeDelta"]["x"] = 20.0
+    port_credit_rect_tree["m_SizeDelta"]["y"] = 1.0
+    port_credit_rect_obj.save_typetree(port_credit_rect_tree)
+    changes.append(
+        {
+            "kind": "english_android_port_credits",
+            "component_path_id": PORT_CREDITS_COMPONENT,
+            "rect_transform_path_id": PORT_CREDITS_RECT_TRANSFORM,
+            "before": {**credit_typography_before, **credit_rect_before},
+            "after": {
+                "text": TEXT_OVERRIDES[PORT_CREDITS_COMPONENT],
+                "font_size": 20.0,
+                "auto_size": 1,
+                "word_wrap": 0,
+                "anchored_position": {"x": -3.39, "y": -1.9},
+                "size": {"x": 20.0, "y": 1.0},
+            },
+        }
+    )
 
     for path_id, replacements in HANDLE_REPLACEMENTS.items():
         obj = objects[("resources.assets", path_id)]
@@ -292,6 +429,20 @@ def main() -> int:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_text"] != replacement:
             raise RuntimeError(f"UI text validation failed for component {path_id}")
+    port_credit_tree = check_objects[("resources.assets", PORT_CREDITS_COMPONENT)].read_typetree(
+        check_read=False
+    )
+    port_credit_rect_tree = check_objects[
+        ("resources.assets", PORT_CREDITS_RECT_TRANSFORM)
+    ].read_typetree()
+    if (
+        port_credit_tree["m_fontSize"] != 20.0
+        or port_credit_tree["m_enableAutoSizing"] != 1
+        or port_credit_tree["m_enableWordWrapping"] != 0
+        or abs(port_credit_rect_tree["m_AnchoredPosition"]["x"] - -3.39) > 0.001
+        or abs(port_credit_rect_tree["m_AnchoredPosition"]["y"] - -1.9) > 0.001
+    ):
+        raise RuntimeError("port-credit layout validation failed")
     for path_id in HANDLE_REPLACEMENTS:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if any(source in tree["m_text"] for source in HANDLE_REPLACEMENTS[path_id]):
@@ -326,6 +477,22 @@ def main() -> int:
         validated_assets.add(data.m_Name)
     if validated_assets != ALMANAC_ASSETS:
         raise RuntimeError("Almanac validation did not visit every requested asset")
+    validated_config_assets = set()
+    for obj in check_env.objects:
+        if obj.type.name != "TextAsset":
+            continue
+        data = obj.parse_as_object()
+        replacements = TEXT_ASSET_REPLACEMENTS.get(data.m_Name)
+        if replacements is None:
+            continue
+        payload = data.m_Script
+        if any(source in payload for source in replacements):
+            raise RuntimeError(f"visible CJK labels remain in {data.m_Name}")
+        if not all(target in payload for target in replacements.values()):
+            raise RuntimeError(f"translated labels missing from {data.m_Name}")
+        validated_config_assets.add(data.m_Name)
+    if validated_config_assets != set(TEXT_ASSET_REPLACEMENTS):
+        raise RuntimeError("visible TextAsset validation did not visit every requested asset")
     del check_env
     gc.collect()
 

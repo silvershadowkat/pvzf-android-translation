@@ -23,6 +23,7 @@ MAGIC = b"\xaf\x1b\xb1\xfa"
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
+STRUCTURED_PAIR_FILES = ("travel_buffs.json", "tips_fs.json", "tips_iz.json")
 
 
 @dataclass(frozen=True)
@@ -78,6 +79,18 @@ def read_json(path: Path) -> object:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def aligned_string_pairs(source: object, translated: object) -> Iterable[tuple[str, str]]:
+    if isinstance(source, str) and isinstance(translated, str):
+        yield source, translated
+    elif isinstance(source, dict) and isinstance(translated, dict):
+        for key, value in source.items():
+            if key in translated:
+                yield from aligned_string_pairs(value, translated[key])
+    elif isinstance(source, list) and isinstance(translated, list):
+        for source_item, translated_item in zip(source, translated):
+            yield from aligned_string_pairs(source_item, translated_item)
+
+
 def load_pc_translations(
     strings_dir: Path,
 ) -> tuple[dict[str, str], list[tuple[str, str, re.Pattern[str], str]], dict[str, int]]:
@@ -103,6 +116,21 @@ def load_pc_translations(
                 exact[source] = translated
                 added += 1
         counts[filename] = added
+
+    dumps_dir = strings_dir.parents[2] / "Dumps"
+    for filename in STRUCTURED_PAIR_FILES:
+        source_path = dumps_dir / filename
+        translated_path = strings_dir / filename
+        if not source_path.exists() or not translated_path.exists():
+            continue
+        source_payload = read_json(source_path)
+        translated_payload = read_json(translated_path)
+        added = 0
+        for source, translated in aligned_string_pairs(source_payload, translated_payload):
+            if CJK_RE.search(source) and translated and source != translated and source not in exact:
+                exact[source] = translated
+                added += 1
+        counts[f"structured:{filename}"] = added
 
     for filename in REGEX_FILES:
         path = strings_dir / filename
