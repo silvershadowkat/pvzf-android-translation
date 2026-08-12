@@ -143,6 +143,14 @@ skin-navigation arrows. All three duplicated Almanac variants now use the
 compact 24-point `Skin` label, preserving the control while keeping it clear of
 both arrows.
 
+V10 replaces the poorly matched Android-port overlay font with the bundle's
+actual parchment handwriting TMP asset (`汉仪夏日体W SDF`, path 178477,
+material 2). It preserves the baked `Joseph Franci` attribution and places
+`aha · SilverShadow · Codex` on a wider separate line underneath. The visible
+disclaimer phrase “only on the dev” is also rewritten as a direct official
+source attribution. Serialized player-facing UI remains free of unexplained
+CJK; remaining matches are names or internal data.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
@@ -228,3 +236,21 @@ A maintained release must establish one stable project key and preserve it.
 No attempt should be made to obtain or bypass somebody else's private signing
 key. A one-time save migration/reinstall is the legitimate path when changing
 signing identity.
+
+## Final 3.8.1 English release audit
+
+The final package uses the official Chinese 3.8.1 APK—not aha's repackaged
+shell—as its Android base. Comparative auditing proves the manifest, resource
+table, `classes.dex`, all eight ARM native libraries, and every other
+non-signature entry are byte-identical to the official APK. Only the two
+declared translation payloads differ:
+
+- `data.unity3d`: `90ebea8f5e876bf5d74054e3656228de3642af97b633d4b721c8d7fc71366be2`
+- `global-metadata.dat`: `51670b65758f26adc7856a3cfc1eb9412e300174fcc552726dd783a06844dbc2`
+
+The final APK passes ZIP integrity, `zipalign`, and Android v1/v2/v3 signature
+verification. Its dedicated 4096-bit release certificate has SHA-256
+`1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6`.
+Windows Defender reported no threats on August 11, 2026. These checks provide
+strong comparative evidence about the port but are not an absolute guarantee
+about the upstream game or every runtime path.
