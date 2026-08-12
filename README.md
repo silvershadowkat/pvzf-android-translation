@@ -191,6 +191,11 @@ python -m pip install -r requirements.txt
 
 Available scripts:
 
+- `audit_translation_provenance.py` reports which Android mappings are
+  platform-required and which Codex-assisted fallbacks have been superseded by
+  newer PC community translations. See
+  [`docs/TRANSLATION-MAINTENANCE.md`](docs/TRANSLATION-MAINTENANCE.md) for the
+  complete refresh and major-version migration workflow.
 - `build_unity_text_translation.py` builds and reopens a translated TextAsset
   bundle, preserving JSON structure and using current PC data before safe
   unchanged-source historical fallbacks. Its optional `--preserve-fonts-from`

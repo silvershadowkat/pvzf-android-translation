@@ -2,7 +2,7 @@
 """Apply Android-specific 3.8.1 UI polish after translation and TMP transplant.
 
 This pass removes PC-only Almanac font-size tags (matching Joseph's Android
-data), cleans and romanizes the credits panel, normalizes the zombie Almanac
+data), cleans the credits while preserving original creator names, normalizes the zombie Almanac
 heading, translates visible configuration-backed labels, and replaces
 remaining mixed Chinese/English serialized UI defaults.
 """
@@ -57,11 +57,11 @@ TEXT_ASSET_REPLACEMENTS = {
 }
 
 CREDITS_TEXT = """<align=center><size=16>Credits</size>
-<size=12>LanPiaoPiaoFly — Direction, Code & Animation
-Gfishtus — Art & Visual Direction
-Mengluo — Video Editing
-Aya Shameimaru — Animation Support
-Landie — Art Support</size></align>"""
+<size=12>蓝飘飘fly — Direction, Code & Animation
+机鱼吐司 — Art & Visual Direction
+梦珞 — Video Editing
+射命丸文 — Animation Support
+蓝蝶 — Art Support</size></align>"""
 
 TEXT_OVERRIDES = {
     178983: CREDITS_TEXT,
@@ -157,12 +157,15 @@ TEXT_OVERRIDES = {
 
 HANDLE_REPLACEMENTS = {
     188915: {
-        "蓝飘飘fly": "LanPiaoPiaoFly",
         "The Official source of PvZ Fusion is only on the dev, LanPiaoPiaoFly's Bilibili": (
-            "The official source of PvZ Fusion is LanPiaoPiaoFly's Bilibili"
+            "The official source of PvZ Fusion is 蓝飘飘fly's Bilibili"
         ),
+        "The Official source of PvZ Fusion is only on the dev, 蓝飘飘fly's Bilibili": (
+            "The official source of PvZ Fusion is 蓝飘飘fly's Bilibili"
+        ),
+        "LanPiaoPiaoFly": "蓝飘飘fly",
     },
-    189350: {"蓝飘飘fly": "LanPiaoPiaoFly"},
+    189350: {"LanPiaoPiaoFly": "蓝飘飘fly"},
 }
 
 ZOMBIE_TITLE_COMPONENTS = {184024, 189896}
@@ -365,13 +368,13 @@ def main() -> int:
         previous = tree["m_text"]
         updated = previous
         for source, target in replacements.items():
-            if source not in updated and target not in updated:
-                raise RuntimeError(f"expected handle {source!r} missing from component {path_id}")
             updated = updated.replace(source, target)
+        if "蓝飘飘fly" not in updated:
+            raise RuntimeError(f"original creator name missing from component {path_id}")
         tree["m_text"] = updated
         obj.save_typetree(tree)
         changes.append(
-            {"kind": "handle_romanization", "path_id": path_id, "before": previous, "after": updated}
+            {"kind": "original_creator_name_restore", "path_id": path_id, "before": previous, "after": updated}
         )
 
     for path_id in ZOMBIE_TITLE_COMPONENTS:

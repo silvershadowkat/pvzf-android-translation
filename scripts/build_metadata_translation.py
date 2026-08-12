@@ -34,6 +34,18 @@ ANDROID_CONFIRMED_EXACT = {
     "\n已持有{0}个": "\nOwned: {0}",
     "{0}\n价格：{1}": "{0}\nCost: {1}",
 
+    # The PC settings screen defines one numbered, color-coded six-level
+    # difficulty scale. customlevel_strings.json also contains shorter labels
+    # for unrelated cards and otherwise wins because it is loaded later.
+    # Reassert the settings labels here so Android presents the complete PC
+    # scale instead of a mixture of numbered and unnumbered modes.
+    "简单模式": "<size=20><color=#00C853>0: Easy Mode",
+    "普通模式": "<size=20><color=#64DD17>1: Casual Mode",
+    "正常模式": "<size=20><color=#AEEA00>2: Normal Mode",
+    "困难模式": "<size=20><color=#FFD600>3: Veteran Mode",
+    "极难模式": "<size=20><color=#FF6D00>4: Merciless Mode",
+    "你确定？": "<size=20><color=#D50000>5: Are You Sure?",
+
     # The Gods: Evolution - plant cards and shared selection labels.
     "\n\n定位：": "\n\nRole: ",
     "升级到": " upgrades to ",
@@ -113,6 +125,17 @@ ANDROID_CONFIRMED_EXACT = {
     "樱桃子弹击中僵尸时有概率释放小樱桃爆炸": (
         "Cherry projectiles may cause small Cherry explosions on hit\n"
     ),
+}
+
+# These entries intentionally differ from a generic PC literal because the
+# Android control has different semantics or contrast/layout requirements.
+# Every other Android-confirmed entry is a fallback: a newly added PC community
+# exact translation automatically takes precedence over it.
+ANDROID_REQUIRED_OVERRIDE_SOURCES = {
+    "简单模式", "普通模式", "正常模式", "困难模式", "极难模式", "你确定？",
+    "禁用转场动画",
+    "奖励1：<color=black>", "奖励1：<color=white>",
+    "奖励2：<color=black>", "奖励2：<color=white>",
 }
 
 
@@ -220,6 +243,31 @@ def load_pc_translations(
             if CJK_RE.search(source) and translated and source != translated and source not in exact:
                 exact[source] = translated
                 added += 1
+        if filename == "travel_buffs.json":
+            # Android stores each modifier as one "name：description" string.
+            # AlmanacBuffMenu splits on the full-width colon for card/title
+            # text, while keeping the complete string for the body. The PC
+            # translator stores name and desc separately, so importing desc
+            # alone makes Android repeat the full description as the title.
+            for section, source_records in source_payload.items():
+                translated_records = translated_payload.get(section)
+                if not isinstance(source_records, dict) or not isinstance(translated_records, dict):
+                    continue
+                for record_id, source_record in source_records.items():
+                    translated_record = translated_records.get(record_id)
+                    if not isinstance(source_record, dict) or not isinstance(translated_record, dict):
+                        continue
+                    source_desc = source_record.get("desc")
+                    translated_name = translated_record.get("name")
+                    translated_desc = translated_record.get("desc")
+                    if not all(isinstance(value, str) and value for value in (
+                        source_desc, translated_name, translated_desc
+                    )):
+                        continue
+                    if not CJK_RE.search(source_desc):
+                        continue
+                    exact[source_desc] = f"{translated_name}：{translated_desc}"
+                    added += 1
         counts[f"structured:{filename}"] = added
 
     for filename in REGEX_FILES:
@@ -240,8 +288,20 @@ def load_pc_translations(
             added += 1
         counts[filename] = added
 
-    exact.update(ANDROID_CONFIRMED_EXACT)
+    fallback_added = 0
+    community_preferred = 0
+    for source, target in ANDROID_CONFIRMED_EXACT.items():
+        if source in ANDROID_REQUIRED_OVERRIDE_SOURCES:
+            exact[source] = target
+        elif source in exact:
+            community_preferred += 1
+        else:
+            exact[source] = target
+            fallback_added += 1
     counts["android_confirmed_exact"] = len(ANDROID_CONFIRMED_EXACT)
+    counts["android_required_overrides"] = len(ANDROID_REQUIRED_OVERRIDE_SOURCES)
+    counts["android_fallbacks_added"] = fallback_added
+    counts["android_fallbacks_superseded_by_pc"] = community_preferred
 
     return exact, regex_entries, counts
 

@@ -20,6 +20,26 @@ Save/data path:
 
 Do not restore the old `il2cpp` directory over the new installation.
 
+## Troubleshooting blindly renamed packages
+
+Do not change only the manifest package ID to install this game beside another
+copy. The compiled DEX still contains package-qualified `BuildConfig`/`R`
+classes and the original application-ID constant, while an added mod may have
+its own hardcoded paths or preference names. A manifest-only rename does not
+rewrite those values and is unsupported.
+
+With both copies installed, such a derivative can read or overwrite unexpected
+metadata, configuration, preferences, or hot-patch files—or the added mod may
+have directly replaced the English assets. Either case can produce text that
+does not match the original English APK. The full external-storage path was
+not found as a literal in the base game's IL2CPP metadata or `libil2cpp.so`, so
+a proper alternate-package build would need a wider controlled audit rather
+than a speculative path patch.
+
+For reliable testing, use the unchanged package ID. Back up saves, remove the
+blindly renamed derivative, and check only the original package's
+`files/il2cpp` directory for stale metadata. Do not remove progression data.
+
 ## Download verification
 
 - File: `PvZ-Fusion-3.8.1-English-Android.apk`

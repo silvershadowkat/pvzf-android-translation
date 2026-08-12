@@ -22,13 +22,27 @@ physical-device testing.**
   - translated the mode variants, reincarnation/boss descriptions, unlock
     condition, completion status, difficulty effects, and round footer;
   - translated dynamic save-slot and latest-autosave labels.
+- **Difficulty settings**
+  - restored the PC translation's complete numbered six-level scale, from
+    `0: Easy Mode` through `5: Are You Sure?`;
+  - restored the PC green-to-red color progression across all six settings
+    instead of mixing numbered and unnumbered labels.
 - **Challenge and Odyssey selection screens**
   - translated `Back to Menu`, `Previous Page`, `Next Page`, and `Back to
     Index` in the runtime backing fields which overwrite ordinary TMP text when
     these menus open.
 - **Almanac**
   - translated the action beside `Close` as `Disable Transitions`;
+  - repaired the blank Mechanics Almanac by retaining Android's required
+    `details` list and merging all 38 current PC titles/descriptions into it;
+  - restored the short PC community names for modifier cards and kept their
+    descriptions in the description field, eliminating duplicated long
+    descriptions from the card-title area;
   - retained the existing Android font, sizing, and layout refinements.
+- **Credits and Changelog**
+  - restored the original Chinese proper names for the game's credited
+    creators and helpers while keeping role descriptions in English;
+  - removed the changelog instruction for the PC-only `Languages` button.
 - **Starbound Task Rewards**
   - confirmed the complete Task Rewards dataset is already translated by the
     current English source data;
@@ -39,6 +53,11 @@ physical-device testing.**
 
 ## Reproducibility and safety
 
+- Added a translation provenance audit and maintenance guide. PC community
+  translations automatically supersede Codex-assisted fallbacks when upstream
+  gains an exact entry, while narrowly documented Android-required overrides
+  remain explicit. Reports record the exact source commit, origin, and dirty
+  state.
 - A fresh build now reapplies the translated Almanac tip before saving its
   typography changes. This fixes an object-cache ordering issue that appeared
   only when rebuilding the full bundle from a clean input.
@@ -67,6 +86,31 @@ an older external metadata hot patch. Before judging the next build, back up
 the game files, fully close the game, and remove only the stale external
 `files/il2cpp` override. Do not delete the save/progression files.
 
+## Troubleshooting blindly renamed packages
+
+Do not change only the manifest package ID to install a second copy beside the
+original. The APK's compiled `classes.dex` still contains package-qualified
+`BuildConfig`/`R` classes and the original application-ID constant, and an
+added mod can also retain its own hardcoded package paths or preference names.
+A blind manifest rename does not update those compiled or hardcoded values.
+
+This can make a renamed derivative read or overwrite unexpected metadata,
+configuration, preferences, or hot-patch files when both copies are installed.
+It may then display translations that do not match the embedded APK. It can
+also simply contain translation assets overwritten by the additional mod, as
+happened in the reported test.
+
+The complete external-storage path was not found as a literal in Fusion's
+IL2CPP metadata or `libil2cpp.so`, so this warning does not claim that the base
+game itself hardcodes that one path. Supporting a second package correctly
+would require auditing and rebuilding every package-qualified component and
+the added mod—not a one-field rename.
+
+For a valid test, use the unchanged package ID and expected signed APK. Back up
+saves, remove the blindly renamed derivative, and ensure the original
+package's external `files/il2cpp` directory has no stale metadata override.
+Never delete progression files as part of this check.
+
 ## Physical-device checks before release
 
 - Open Odyssey Gacha and verify the luck overlay fits at luck values 0 and 1+.
@@ -80,4 +124,3 @@ the game files, fully close the game, and remove only the stale external
 - Open Starbound Task Rewards and verify selected/unselected rewards are both
   readable and all scrolling entries remain English.
 - Recheck the Zen Garden Tool Shop `Cost` and `Owned` lines.
-
