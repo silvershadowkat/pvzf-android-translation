@@ -101,6 +101,11 @@ copy in the APK. A clean install removes that override, but the safer targeted
 test is to back up the game files and remove only `files/il2cpp` while leaving
 all progression/save files intact.
 
+This remains a documented manual recovery procedure. The project will not add
+startup code that automatically inspects, deletes, renames, replaces, or
+migrates external metadata. That decision preserves the official launcher/DEX
+behavior and avoids modifying user files without an explicit action.
+
 The same diagnosis applies when newer bundle-based fixes appear but newer
 metadata-based fixes do not. For example, a device may show the repaired
 Mechanics Almanac and Tool Shop while still showing unnumbered difficulty

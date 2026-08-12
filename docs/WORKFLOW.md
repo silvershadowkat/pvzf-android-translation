@@ -59,6 +59,14 @@ Back up saves and the existing metadata first. Android scoped-storage rules may
 require a device file manager with appropriate access or ADB. Fully close the
 game before replacing the file.
 
+Project policy: do not add an automatic stale-metadata migration to the APK.
+The launcher must not inspect, delete, rename, replace, or move the user's
+external `files/il2cpp` data during startup. APK updates can preserve that
+directory, so release notes must tell users to back up their game files and
+manually remove only a confirmed stale metadata override when necessary. A
+clean install is the alternative. Never direct users to delete save or
+progression files.
+
 Test at minimum:
 
 - first launch and main menu

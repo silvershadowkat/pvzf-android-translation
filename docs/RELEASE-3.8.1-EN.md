@@ -20,6 +20,20 @@ Save/data path:
 
 Do not restore the old `il2cpp` directory over the new installation.
 
+### Stale metadata policy
+
+An APK update replaces the metadata packaged inside the APK, but Android can
+preserve an older writable override in `files/il2cpp`. Fusion may continue to
+load that external copy, making some newly translated screens appear stale
+even though the updated APK contains the correct translation.
+
+The English Android project intentionally does **not** add startup code that
+deletes, renames, replaces, or migrates external metadata. This preserves the
+official launcher/DEX behavior and avoids modifying user files automatically.
+If stale text remains after an update, back up the game files, fully close the
+game, and manually remove only the stale `files/il2cpp` override—or perform a
+clean installation. Do not remove progression or save files.
+
 ## Troubleshooting blindly renamed packages
 
 Do not change only the manifest package ID to install this game beside another
