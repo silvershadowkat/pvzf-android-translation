@@ -25,6 +25,14 @@ EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_bu
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
 STRUCTURED_PAIR_FILES = ("travel_buffs.json", "tips_fs.json", "tips_iz.json")
 
+# Confirmed against the Android 3.8.1 UI.  These are runtime format fragments
+# used by ZenGarden.GardenShopSlot, so the PC translator's regex for completed
+# shop strings never sees them with concrete numbers substituted.
+ANDROID_CONFIRMED_EXACT = {
+    "\n已持有{0}个": "\nOwned: {0}",
+    "{0}\n价格：{1}": "{0}\nCost: {1}",
+}
+
 
 @dataclass(frozen=True)
 class MetadataLayout:
@@ -149,6 +157,9 @@ def load_pc_translations(
             regex_entries.append((pattern, translated, compiled, anchor))
             added += 1
         counts[filename] = added
+
+    exact.update(ANDROID_CONFIRMED_EXACT)
+    counts["android_confirmed_exact"] = len(ANDROID_CONFIRMED_EXACT)
 
     return exact, regex_entries, counts
 

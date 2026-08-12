@@ -167,6 +167,14 @@ The almanac data came almost directly from the PC translation repository:
 
 ## IL2CPP metadata method
 
+The Android 3.8.1 Zen Garden Tool Shop builds its green price/ownership text
+from two runtime format fragments (`{0}\n价格：{1}` and
+`\n已持有{0}个`). The upstream PC regex only matches a fully rendered shop
+string containing concrete digits, so these fragments survived earlier
+metadata passes. `build_metadata_translation.py` now carries narrow,
+screenshot-confirmed Android mappings to `Cost` and `Owned`; it does not apply
+a general Chinese-text substitution.
+
 All examined builds use metadata version 31. Each literal lookup entry is an
 eight-byte `(byte_length, relative_offset)` pair. The header stores lookup and
 literal-database offsets at bytes 8 through 23.
