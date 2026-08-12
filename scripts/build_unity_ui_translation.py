@@ -158,7 +158,13 @@ def learn_legacy_map(base_strings, translated_strings) -> dict[str, str]:
 
 
 def clean_changelog(value: str) -> str:
-    return value.replace("è“é£˜é£˜fly", "LanPiaoPiaoFly")
+    languages_note = (
+        "If you'd like to change the language of the translation, make sure to check out "
+        'the "Languages" menu in the bottom right of this menu.'
+    )
+    value = value.replace("LanPiaoPiaoFly", "蓝飘飘fly")
+    value = value.replace(languages_note, "")
+    return re.sub(r"\n{3,}", "\n\n", value).strip()
 
 
 def main() -> int:

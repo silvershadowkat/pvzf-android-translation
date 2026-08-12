@@ -25,7 +25,10 @@ DESCRIPTION_COMPONENTS = {
     193273: "plant description",
     194141: "zombie description",
 }
+MODIFIER_DESCRIPTION_COMPONENT = 187255
+MODIFIER_DESCRIPTION_LAYOUT_GROUP = 190633
 PLANT_TITLE_COMPONENT = 191011
+MECHANICS_DESCRIPTION_COMPONENT = 180985
 
 
 def sha256_file(path: Path) -> str:
@@ -59,6 +62,18 @@ def find_named_mono(objects, name: str):
     return matches[0]
 
 
+def find_named_material(objects, name: str):
+    matches = []
+    for obj in objects.values():
+        if obj.type.name != "Material":
+            continue
+        if obj.read_typetree()["m_Name"] == name:
+            matches.append(obj)
+    if len(matches) != 1:
+        raise RuntimeError(f"expected one Material named {name!r}, found {len(matches)}")
+    return matches[0]
+
+
 def require_pointer(tree: dict, field: str, expected_path_id: int, component: str) -> None:
     actual = tree[field]["m_PathID"]
     if actual != expected_path_id:
@@ -75,6 +90,8 @@ def main() -> int:
     parser.add_argument("--dynamic-font-asset", default="Dynamic")
     parser.add_argument("--handwriting-font-asset", default="汉仪夏日体W SDF")
     parser.add_argument("--description-size", default=18.0, type=float)
+    parser.add_argument("--modifier-description-size", default=20.0, type=float)
+    parser.add_argument("--modifier-hidden-title-line", default=23, type=int)
     parser.add_argument("--plant-title-size", default=50.0, type=float)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
@@ -90,6 +107,8 @@ def main() -> int:
     handwriting_font = find_named_mono(objects, args.handwriting_font_asset)
     dynamic_font_tree = dynamic_font.read_typetree(check_read=False)
     dynamic_material_id = dynamic_font_tree["material"]["m_PathID"]
+    clean_dynamic_material = find_named_material(objects, "Dynamic_light")
+    outlined_dynamic_material = find_named_material(objects, "Dynamic_underLay")
 
     changes = []
     for path_id, label in DESCRIPTION_COMPONENTS.items():
@@ -104,10 +123,15 @@ def main() -> int:
         }
         tree["m_fontAsset"] = {"m_FileID": 0, "m_PathID": dynamic_font.path_id}
         tree["m_sharedMaterial"] = {"m_FileID": 0, "m_PathID": dynamic_material_id}
-        tree["m_fontSize"] = args.description_size
-        tree["m_fontSizeBase"] = args.description_size
+        target_size = (
+            args.modifier_description_size
+            if path_id == MODIFIER_DESCRIPTION_COMPONENT
+            else args.description_size
+        )
+        tree["m_fontSize"] = target_size
+        tree["m_fontSizeBase"] = target_size
         tree["m_enableAutoSizing"] = 0
-        tree["m_fontSizeMin"] = min(args.description_size, tree["m_fontSizeMin"])
+        tree["m_fontSizeMin"] = min(target_size, tree["m_fontSizeMin"])
         tree["m_hasFontAssetChanged"] = 1
         obj.save_typetree(tree)
         changes.append(
@@ -118,11 +142,25 @@ def main() -> int:
                 "after": {
                     "font_asset_path_id": dynamic_font.path_id,
                     "shared_material_path_id": dynamic_material_id,
-                    "font_size": args.description_size,
-                    "font_size_base": args.description_size,
+                    "font_size": target_size,
+                    "font_size_base": target_size,
                 },
             }
         )
+
+    layout_obj = objects[("resources.assets", MODIFIER_DESCRIPTION_LAYOUT_GROUP)]
+    layout_tree = layout_obj.read_typetree(check_read=False)
+    layout_before = dict(layout_tree["m_Padding"])
+    layout_tree["m_Padding"]["m_Top"] = -args.modifier_hidden_title_line
+    layout_obj.save_typetree(layout_tree)
+    changes.append(
+        {
+            "component": "modifier description hidden metadata line",
+            "path_id": MODIFIER_DESCRIPTION_LAYOUT_GROUP,
+            "before": {"padding": layout_before},
+            "after": {"padding_top": -args.modifier_hidden_title_line},
+        }
+    )
 
     title_obj = objects[("resources.assets", PLANT_TITLE_COMPONENT)]
     title_tree = title_obj.read_typetree(check_read=False)
@@ -141,6 +179,42 @@ def main() -> int:
         }
     )
 
+    # Every Mechanics Almanac page reuses this one TMP component. Android's
+    # Dynamic_underLay material adds a large, opaque black underlay which is
+    # tolerable around white text but overwhelms the smaller blue rich-text
+    # emphasis. Dynamic_light uses the same Dynamic atlas with the restrained
+    # treatment used elsewhere, so wording, colors, bold tags, wrapping, and
+    # font metrics remain unchanged.
+    mechanics_obj = objects[("resources.assets", MECHANICS_DESCRIPTION_COMPONENT)]
+    mechanics_tree = mechanics_obj.read_typetree(check_read=False)
+    require_pointer(
+        mechanics_tree,
+        "m_sharedMaterial",
+        outlined_dynamic_material.path_id,
+        "Mechanics Almanac description",
+    )
+    mechanics_before = {
+        "shared_material_path_id": mechanics_tree["m_sharedMaterial"]["m_PathID"],
+        "font_asset_path_id": mechanics_tree["m_fontAsset"]["m_PathID"],
+        "font_size": mechanics_tree["m_fontSize"],
+    }
+    mechanics_tree["m_sharedMaterial"] = {
+        "m_FileID": 0,
+        "m_PathID": clean_dynamic_material.path_id,
+    }
+    mechanics_obj.save_typetree(mechanics_tree)
+    changes.append(
+        {
+            "component": "Mechanics Almanac shared description",
+            "path_id": MECHANICS_DESCRIPTION_COMPONENT,
+            "before": mechanics_before,
+            "after": {
+                **mechanics_before,
+                "shared_material_path_id": clean_dynamic_material.path_id,
+            },
+        }
+    )
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -155,11 +229,30 @@ def main() -> int:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         require_pointer(tree, "m_fontAsset", dynamic_font.path_id, label)
         require_pointer(tree, "m_sharedMaterial", dynamic_material_id, label)
-        if tree["m_fontSize"] != args.description_size:
+        target_size = (
+            args.modifier_description_size
+            if path_id == MODIFIER_DESCRIPTION_COMPONENT
+            else args.description_size
+        )
+        if tree["m_fontSize"] != target_size:
             raise RuntimeError(f"{label} font-size validation failed")
+    layout_tree = check_objects[
+        ("resources.assets", MODIFIER_DESCRIPTION_LAYOUT_GROUP)
+    ].read_typetree(check_read=False)
+    if layout_tree["m_Padding"]["m_Top"] != -args.modifier_hidden_title_line:
+        raise RuntimeError("modifier description hidden-line validation failed")
     title_tree = check_objects[("resources.assets", PLANT_TITLE_COMPONENT)].read_typetree(check_read=False)
     if title_tree["m_fontSize"] != args.plant_title_size:
         raise RuntimeError("plant title font-size validation failed")
+    mechanics_tree = check_objects[
+        ("resources.assets", MECHANICS_DESCRIPTION_COMPONENT)
+    ].read_typetree(check_read=False)
+    require_pointer(
+        mechanics_tree,
+        "m_sharedMaterial",
+        clean_dynamic_material.path_id,
+        "Mechanics Almanac description",
+    )
     del check_env
     gc.collect()
 

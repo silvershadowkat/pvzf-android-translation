@@ -9,6 +9,9 @@
 !/docs/**
 !/scripts/
 !/scripts/*.py
+!/assets/
+assets/*
+!/assets/credits-parchment-approved-3.8.1-testing.png
 
 # Never commit proprietary game builds, extracted game data, signing keys,
 # generated metadata, or local Python environments.

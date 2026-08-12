@@ -294,3 +294,36 @@ verification. Its dedicated 4096-bit release certificate has SHA-256
 Windows Defender reported no threats on August 11, 2026. These checks provide
 strong comparative evidence about the port but are not an absolute guarantee
 about the upstream game or every runtime path.
+
+## Android 3.8.1 translation adapters discovered after release
+
+- Android's `DetailStrings` TextAsset requires a `details` array containing 38
+  linked records. The PC `DetailStringsTranslate.json` is a flat dictionary.
+  Replacing the Android object wholesale makes Mechanics Almanac appear blank;
+  the builder now preserves the Android schema and merges PC text by title.
+- PC modifier data provides distinct `name` and `desc` fields. Android's
+  `AlmanacBuffMenu.OnCardClick` (ARM64 RVA `0x1D159C8`) splits a combined string
+  on the full-width colon `：`. The metadata builder reconstructs
+  `name：description` by stable section and numeric modifier ID, producing short
+  card labels such as `Ace Drop` and `Alpha Escort` without duplication.
+- The PC runtime formats the selected modifier body with a separate bracketed
+  heading, while Android uses one combined literal both to derive the short
+  title and to populate the body. The Android adapter keeps `name：` on a
+  dedicated first metadata line, and the masked description layout clips that
+  line above its viewport. This preserves clean card/title names while showing
+  only the 20-point description body, without adding a runtime hook.
+- A read-only 1920x1080 background audit found 31 fixed `Background` objects.
+  Size alone is not a safe rewrite criterion: most belong to full game modes or
+  deliberately framed screens. Only `GardenStoreMenu/Background` (path 173612)
+  and `GardenProtectionMenu/Background` (path 170016) currently have confirmed
+  ultrawide modal defects and are stretched by the production polish pass.
+- The PC translator consumes local JSON under its `Localization` directory.
+  Current PC packages can wrap it with `ModUpdateUtil.exe`/launcher scripts that
+  refresh those local files at launch. Android does not run that Windows
+  updater, so provenance audits record the exact `Teyliu/PVZF-Translation`
+  commit imported into each Android build.
+- A manifest-only package rename is unsupported. Package-qualified symbols and
+  constants remain in `classes.dex`, and third-party mods may retain their own
+  hardcoded paths. The complete external metadata path was not found as a
+  literal in `global-metadata.dat` or `libil2cpp.so`, so no claim is made that
+  the base game hardcodes that full path.

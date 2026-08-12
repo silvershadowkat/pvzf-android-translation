@@ -15,7 +15,7 @@ assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
 The community APK is distributed separately on the
-[v3.8.1-en.1 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.1).
+[v3.8.1-en.2 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.2).
 Back up saves and read the installation warning there before installing.
 
 ## What is known
@@ -191,6 +191,11 @@ python -m pip install -r requirements.txt
 
 Available scripts:
 
+- `audit_translation_provenance.py` reports which Android mappings are
+  platform-required and which Codex-assisted fallbacks have been superseded by
+  newer PC community translations. See
+  [`docs/TRANSLATION-MAINTENANCE.md`](docs/TRANSLATION-MAINTENANCE.md) for the
+  complete refresh and major-version migration workflow.
 - `build_unity_text_translation.py` builds and reopens a translated TextAsset
   bundle, preserving JSON structure and using current PC data before safe
   unchanged-source historical fallbacks. Its optional `--preserve-fonts-from`
@@ -219,6 +224,10 @@ Available scripts:
 - `audit_remaining_cjk.py` separately inventories CJK-bearing IL2CPP literals,
   TextAsset JSON leaves, and serialized TMP text so internal data and creator
   names are not confused with missed player-facing UI.
+- `audit_fixed_backgrounds.py` inventories fixed 1920x1080 `Background`/`BG`
+  RectTransforms and records their complete menu hierarchy. Its results are
+  evidence for targeted ultrawide fixes, not permission to stretch every
+  reference-resolution screen.
 - `audit_apk_release.py` proves that the manifest, DEX, native libraries,
   resources, and all other undeclared entries are byte-identical to the chosen
   APK shell; only the two expected data payloads may differ.

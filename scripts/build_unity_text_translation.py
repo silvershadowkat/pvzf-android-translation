@@ -28,8 +28,8 @@ CJK_RE = re.compile(r"[\u3400-\u9fff]")
 ALMANAC_FILES = {
     "LawnStrings": "LawnStringsTranslate.json",
     "ZombieStrings": "ZombieStringsTranslate.json",
-    "DetailStrings": "DetailStringsTranslate.json",
 }
+DETAIL_STRINGS_FILE = "DetailStringsTranslate.json"
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
 
@@ -70,6 +70,49 @@ def parse_json_text(value: str) -> Any:
     # Joseph's translated TextAssets commonly retain a UTF-8 BOM as the first
     # decoded character. Unity accepts it, but Python's json.loads does not.
     return json.loads(value.lstrip("\ufeff"))
+
+
+def merge_android_detail_strings(
+    source_script: str,
+    pc_descriptions: dict[str, str],
+    exact: dict[str, str],
+) -> str:
+    """Merge PC Mechanics Almanac copy into Android's required list schema."""
+    tree = parse_json_text(source_script)
+    if not isinstance(tree, dict) or not isinstance(tree.get("details"), list):
+        raise RuntimeError("official Android DetailStrings no longer contains a details list")
+
+    details = tree["details"]
+    source_titles: list[str] = []
+    for index, item in enumerate(details):
+        if not isinstance(item, dict):
+            raise RuntimeError(f"Android DetailStrings item {index} is not an object")
+        title = item.get("title")
+        if not isinstance(title, str) or not title:
+            raise RuntimeError(f"Android DetailStrings item {index} has no title")
+        source_titles.append(title)
+
+    if len(source_titles) != len(set(source_titles)):
+        raise RuntimeError("official Android DetailStrings contains duplicate titles")
+    missing = sorted(set(source_titles) - set(pc_descriptions))
+    extra = sorted(set(pc_descriptions) - set(source_titles))
+    if missing or extra:
+        raise RuntimeError(
+            "PC/Android Mechanics Almanac title mismatch: "
+            f"missing={missing!r}, extra={extra!r}"
+        )
+
+    for item, source_title in zip(details, source_titles):
+        translated_title = exact.get(source_title)
+        if not isinstance(translated_title, str) or CJK_RE.search(translated_title):
+            raise RuntimeError(f"missing English Mechanics Almanac title for {source_title!r}")
+        description = pc_descriptions[source_title]
+        if not isinstance(description, str):
+            raise RuntimeError(f"invalid PC Mechanics Almanac text for {source_title!r}")
+        item["title"] = translated_title
+        item["text"] = description
+
+    return json.dumps(tree, ensure_ascii=False, indent=4)
 
 
 def read_text_records(bundle: Path) -> dict[tuple[str, int], TextRecord]:
@@ -260,6 +303,11 @@ def main() -> int:
     parser.add_argument("--legacy-base-bundle", required=True, type=Path, help="official Chinese 3.6.1 bundle")
     parser.add_argument("--legacy-translated-bundle", required=True, type=Path, help="Joseph English 3.6.1 bundle")
     parser.add_argument(
+        "--source-bundle",
+        type=Path,
+        help="official bundle matching the target version; defaults to --preserve-fonts-from",
+    )
+    parser.add_argument(
         "--preserve-fonts-from",
         type=Path,
         help="optional official bundle whose matching Font objects replace modified base fonts",
@@ -281,6 +329,22 @@ def main() -> int:
         name: (args.localization_dir / "Almanac" / filename).read_text(encoding="utf-8-sig")
         for name, filename in ALMANAC_FILES.items()
     }
+    pc_detail_descriptions = read_json(args.localization_dir / "Almanac" / DETAIL_STRINGS_FILE)
+    if not isinstance(pc_detail_descriptions, dict):
+        raise RuntimeError("PC DetailStrings translation is not an object")
+    source_bundle = args.source_bundle or args.preserve_fonts_from
+    if source_bundle is None:
+        raise RuntimeError("--source-bundle is required when --preserve-fonts-from is omitted")
+    source_detail_records = [
+        record for record in read_text_records(source_bundle).values() if record.name == "DetailStrings"
+    ]
+    if len(source_detail_records) != 1:
+        raise RuntimeError(
+            f"expected one official Android DetailStrings asset, found {len(source_detail_records)}"
+        )
+    android_detail_script = merge_android_detail_strings(
+        source_detail_records[0].script, pc_detail_descriptions, exact
+    )
     tips_fs: dict[str, str] = extras["tips_fs"]
     tips_iz: dict[str, str] = extras["tips_iz"]
 
@@ -317,7 +381,10 @@ def main() -> int:
         new_script = original_script
         methods: list[str] = []
 
-        if original_name in almanac:
+        if original_name == "DetailStrings":
+            new_script = android_detail_script
+            methods.append("current_pc_android_detail_merge")
+        elif original_name in almanac:
             new_script = almanac[original_name]
             methods.append("current_pc_almanac")
         else:
@@ -363,8 +430,11 @@ def main() -> int:
         obj.save_typetree(data)
         key = (obj.assets_file.name, obj.path_id)
         expected[key] = (new_name, new_script)
+        structure_source_script = (
+            source_detail_records[0].script if original_name == "DetailStrings" else original_script
+        )
         try:
-            original_tree = parse_json_text(original_script)
+            original_tree = parse_json_text(structure_source_script)
         except (json.JSONDecodeError, TypeError):
             pass
         else:

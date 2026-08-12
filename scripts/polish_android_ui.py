@@ -2,7 +2,7 @@
 """Apply Android-specific 3.8.1 UI polish after translation and TMP transplant.
 
 This pass removes PC-only Almanac font-size tags (matching Joseph's Android
-data), cleans and romanizes the credits panel, normalizes the zombie Almanac
+data), cleans the credits while preserving original creator names, normalizes the zombie Almanac
 heading, translates visible configuration-backed labels, and replaces
 remaining mixed Chinese/English serialized UI defaults.
 """
@@ -57,11 +57,11 @@ TEXT_ASSET_REPLACEMENTS = {
 }
 
 CREDITS_TEXT = """<align=center><size=16>Credits</size>
-<size=12>LanPiaoPiaoFly — Direction, Code & Animation
-Gfishtus — Art & Visual Direction
-Mengluo — Video Editing
-Aya Shameimaru — Animation Support
-Landie — Art Support</size></align>"""
+<size=12>蓝飘飘fly — Direction, Code & Animation
+机鱼吐司 — Art & Visual Direction
+梦珞 — Video Editing
+射命丸文 — Animation Support
+蓝蝶 — Art Support</size></align>"""
 
 TEXT_OVERRIDES = {
     178983: CREDITS_TEXT,
@@ -157,21 +157,33 @@ TEXT_OVERRIDES = {
 
 HANDLE_REPLACEMENTS = {
     188915: {
-        "蓝飘飘fly": "LanPiaoPiaoFly",
         "The Official source of PvZ Fusion is only on the dev, LanPiaoPiaoFly's Bilibili": (
-            "The official source of PvZ Fusion is LanPiaoPiaoFly's Bilibili"
+            "The official source of PvZ Fusion is 蓝飘飘fly's Bilibili"
         ),
+        "The Official source of PvZ Fusion is only on the dev, 蓝飘飘fly's Bilibili": (
+            "The official source of PvZ Fusion is 蓝飘飘fly's Bilibili"
+        ),
+        "LanPiaoPiaoFly": "蓝飘飘fly",
     },
-    189350: {"蓝飘飘fly": "LanPiaoPiaoFly"},
+    189350: {"LanPiaoPiaoFly": "蓝飘飘fly"},
 }
 
 ZOMBIE_TITLE_COMPONENTS = {184024, 189896}
+# The selected Zombie Almanac name is rendered twice (foreground + shadow).
+# Keep both components capped together so long PC names fit identically.
+ZOMBIE_NAME_COMPONENTS = {185821, 192116}
 ALMANAC_TIP_COMPONENT = 184559
 ALMANAC_TIP_RECT_TRANSFORM = 176824
 PORT_CREDITS_COMPONENT = 179902
 PORT_CREDITS_RECT_TRANSFORM = 176070
 PORT_CREDITS_FONT_ASSET = 178477  # 汉仪夏日体W SDF (parchment handwriting)
 PORT_CREDITS_MATERIAL = 2
+GARDEN_STORE_BACKGROUND_RECT_TRANSFORM = 173612
+GARDEN_PROTECTION_BACKGROUND_RECT_TRANSFORM = 170016
+ULTRAWIDE_MODAL_BACKGROUNDS = {
+    GARDEN_STORE_BACKGROUND_RECT_TRANSFORM: "garden_store_ultrawide_background",
+    GARDEN_PROTECTION_BACKGROUND_RECT_TRANSFORM: "garden_defense_ultrawide_background",
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -221,6 +233,7 @@ def main() -> int:
     parser.add_argument("--dummy-dll-dir", required=True, type=Path)
     parser.add_argument("--unity-version", default="2022.3.62f1")
     parser.add_argument("--zombie-title-size", default=36.0, type=float)
+    parser.add_argument("--zombie-name-size", default=24.0, type=float)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
@@ -365,13 +378,13 @@ def main() -> int:
         previous = tree["m_text"]
         updated = previous
         for source, target in replacements.items():
-            if source not in updated and target not in updated:
-                raise RuntimeError(f"expected handle {source!r} missing from component {path_id}")
             updated = updated.replace(source, target)
+        if "蓝飘飘fly" not in updated:
+            raise RuntimeError(f"original creator name missing from component {path_id}")
         tree["m_text"] = updated
         obj.save_typetree(tree)
         changes.append(
-            {"kind": "handle_romanization", "path_id": path_id, "before": previous, "after": updated}
+            {"kind": "original_creator_name_restore", "path_id": path_id, "before": previous, "after": updated}
         )
 
     for path_id in ZOMBIE_TITLE_COMPONENTS:
@@ -387,6 +400,31 @@ def main() -> int:
                 "path_id": path_id,
                 "before": previous,
                 "after": args.zombie_title_size,
+            }
+        )
+
+    for path_id in ZOMBIE_NAME_COMPONENTS:
+        obj = objects[("resources.assets", path_id)]
+        tree = obj.read_typetree(check_read=False)
+        previous = {
+            "font_size": tree["m_fontSize"],
+            "font_size_base": tree["m_fontSizeBase"],
+            "font_size_max": tree["m_fontSizeMax"],
+        }
+        tree["m_fontSize"] = args.zombie_name_size
+        tree["m_fontSizeBase"] = args.zombie_name_size
+        tree["m_fontSizeMax"] = args.zombie_name_size
+        obj.save_typetree(tree)
+        changes.append(
+            {
+                "kind": "zombie_selected_name_size",
+                "path_id": path_id,
+                "before": previous,
+                "after": {
+                    "font_size": args.zombie_name_size,
+                    "font_size_base": args.zombie_name_size,
+                    "font_size_max": args.zombie_name_size,
+                },
             }
         )
 
@@ -436,6 +474,38 @@ def main() -> int:
         }
     )
 
+    # These Zen Garden modal menus sit over the normal shop screen. Their
+    # parchment backgrounds were fixed at 1920x1080, exposing inactive shop
+    # buttons on ultrawide displays. Stretch only each visual background;
+    # preserve every modal control and its reference-resolution layout.
+    for path_id, kind in ULTRAWIDE_MODAL_BACKGROUNDS.items():
+        background_obj = objects[("resources.assets", path_id)]
+        background_tree = background_obj.read_typetree()
+        background_before = {
+            "anchor_min": dict(background_tree["m_AnchorMin"]),
+            "anchor_max": dict(background_tree["m_AnchorMax"]),
+            "anchored_position": dict(background_tree["m_AnchoredPosition"]),
+            "size": dict(background_tree["m_SizeDelta"]),
+        }
+        background_tree["m_AnchorMin"] = {"x": 0.0, "y": 0.0}
+        background_tree["m_AnchorMax"] = {"x": 1.0, "y": 1.0}
+        background_tree["m_AnchoredPosition"] = {"x": 0.0, "y": 0.0}
+        background_tree["m_SizeDelta"] = {"x": 0.0, "y": 0.0}
+        background_obj.save_typetree(background_tree)
+        changes.append(
+            {
+                "kind": kind,
+                "rect_transform_path_id": path_id,
+                "before": background_before,
+                "after": {
+                    "anchor_min": {"x": 0.0, "y": 0.0},
+                    "anchor_max": {"x": 1.0, "y": 1.0},
+                    "anchored_position": {"x": 0.0, "y": 0.0},
+                    "size": {"x": 0.0, "y": 0.0},
+                },
+            }
+        )
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -475,6 +545,14 @@ def main() -> int:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_fontSize"] != args.zombie_title_size:
             raise RuntimeError(f"zombie title validation failed for component {path_id}")
+    for path_id in ZOMBIE_NAME_COMPONENTS:
+        tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
+        if (
+            tree["m_fontSize"] != args.zombie_name_size
+            or tree["m_fontSizeBase"] != args.zombie_name_size
+            or tree["m_fontSizeMax"] != args.zombie_name_size
+        ):
+            raise RuntimeError(f"zombie selected-name validation failed for component {path_id}")
     tip_tree = check_objects[("resources.assets", ALMANAC_TIP_COMPONENT)].read_typetree(check_read=False)
     if (
         tip_tree["m_fontSize"] != 24.0
@@ -488,6 +566,15 @@ def main() -> int:
         or tip_rect_tree["m_SizeDelta"]["x"] != 880.0
     ):
         raise RuntimeError("Almanac tip rectangle validation failed")
+    for path_id, kind in ULTRAWIDE_MODAL_BACKGROUNDS.items():
+        background_tree = check_objects[("resources.assets", path_id)].read_typetree()
+        if (
+            background_tree["m_AnchorMin"] != {"x": 0.0, "y": 0.0}
+            or background_tree["m_AnchorMax"] != {"x": 1.0, "y": 1.0}
+            or background_tree["m_AnchoredPosition"] != {"x": 0.0, "y": 0.0}
+            or background_tree["m_SizeDelta"] != {"x": 0.0, "y": 0.0}
+        ):
+            raise RuntimeError(f"{kind} validation failed")
     validated_assets = set()
     for obj in check_env.objects:
         if obj.type.name != "TextAsset":
