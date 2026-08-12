@@ -6,11 +6,28 @@ Electronic Arts, LanPiaoPiao, or the upstream translation maintainers.
 
 ## Install warning
 
-Back up your saves first. The package ID is unchanged, but this release uses a
-dedicated community signing certificate. Android will not install it over the
-official Chinese, Joseph, or aha APK because those use different certificates.
-After backing up, uninstall the existing build and install this APK. Future
-releases signed with this same project certificate can update it in place.
+**Back up your saves first, uninstall the old build, and then install this APK
+fresh.** Although releases signed with this project's certificate can normally
+update in place, a clean installation is recommended for this update because
+Android can preserve an older external translation override during an update.
+
+Keep the original package ID:
+
+```text
+com.LanPiaoPiao.PlantsVsZombiesRH
+```
+
+Do not blindly rename the manifest package to install a second copy. A package
+rename does not rewrite every compiled package-qualified value or value added
+by a mod. The renamed copy can therefore use metadata, preferences, or a
+translation override associated with the original package and show the wrong
+text. Supporting a different package ID requires a controlled rebuild and
+audit, not a one-field rename.
+
+This release uses a dedicated community signing certificate. Android will not
+install it over the official Chinese, Joseph, or aha APK because those use
+different certificates. Back up first, remove that existing build, and install
+this APK.
 
 Save/data path:
 
@@ -57,8 +74,8 @@ blindly renamed derivative, and check only the original package's
 ## Download verification
 
 - File: `PvZ-Fusion-3.8.1-English-Android.apk`
-- Size: `550689362` bytes
-- SHA-256: `3a13cfdb083186cf8d359c641fc20b770ffa64aca8f536220cddd03feb329cc7`
+- Size: `550771282` bytes
+- SHA-256: `2401421503011e797dde7b4f3ec8a3f97ade7d6c39da205d661b970d7aa6bfbc`
 - Signing certificate SHA-256:
   `1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6`
 
@@ -73,6 +90,53 @@ blindly renamed derivative, and check only the original package's
 - Android-specific title, description, footer, skin-selector, Help/Hotkeys,
   and credits layout fixes;
 - in-game Android-port credits for Joseph Franci, aha, SilverShadow, and Codex.
+
+## Changes in v3.8.1-en.2
+
+Many of these corrections came directly from community screenshots and rapid
+device testing. The targeted changes are:
+
+- **Zen Garden Tool Shop:** translated the Android-only `Cost` and `Owned`
+  values and expanded its modal background across ultrawide displays so
+  inactive garden buttons no longer appear usable behind it.
+- **Garden Defense:** applied the same ultrawide modal-background correction
+  after testing showed that screen had the matching exposed-button problem.
+- **Odyssey Gacha:** translated the current-luck display and the explanation of
+  how luck affects plants obtained from boxes and Sun obtained from draws.
+- **The Gods: Evolution:** translated plant roles, upgrade paths, selection
+  counts, damage/speed/projectile upgrades, maximum-plant choices, page
+  counters, mode variants, difficulty effects, round text, unlock/completion
+  messages, save slots, and autosave labels. It also corrects the Maelstrom
+  projectile-count card that could receive an unrelated fallback message.
+- **Difficulty settings:** restored all six PC-style numbered labels, from
+  `0: Easy Mode` through `5: Are You Sure?`, with the complete green-to-red
+  color progression.
+- **Challenge and Odyssey menus:** translated runtime-backed `Back to Menu`,
+  `Previous Page`, `Next Page`, and `Back to Index` controls that could revert
+  after their screens opened.
+- **Mechanics Almanac:** repaired the formerly blank Android page by adapting
+  the current PC data to Android's required schema. All 38 current mechanics
+  entries are included, and colored emphasis is now readable without the
+  heavy dark text underlay seen in tester screenshots.
+- **Modifier Almanac:** restored the PC community's short modifier names on
+  cards and in the selected title, removed the repeated name from the visible
+  description, and enlarged the description text slightly for readability.
+- **Plant and Zombie Almanacs:** refined long selected-entry names so they fit
+  more consistently without changing their terminology.
+- **Almanac index:** translated the missing control beside `Close` as
+  `Disable Transitions`.
+- **Starbound Task Rewards:** added exact Android mappings for the reported day
+  and reward strings and changed unselected reward text from black to grey so
+  it remains readable over the star-field background.
+- **Credits:** restored original Chinese names for credited creators and
+  helpers, retained English role descriptions, and added the approved Android
+  testing credit on the parchment using its matching visual style.
+- **Changelog:** removed the reference to the PC-only `Languages` button from
+  this English-only Android build.
+- **Translation maintenance:** added a repeatable PC-to-Android synchronization
+  and provenance workflow. New PC community translations take priority over
+  Codex-assisted fallback translations when matching upstream entries become
+  available, while Android-specific schema adapters remain explicit.
 
 ## Safety evidence
 
@@ -94,6 +158,16 @@ and Codex.
 Translation data is used under CC BY-NC 4.0 and the release is noncommercial.
 Toolkit code is MIT. Full provenance and contributor names are in `README.md`
 and `THIRD_PARTY.md`.
+
+## Community thanks
+
+Special thanks to **モア, the Virtue of Cuteness** (`absolute201616`) and
+**S.O.R.O.B Pengantar Minuman 🤖** (`jazzuke1`) for exceptionally fast,
+thorough testing and clear screenshots.
+
+Thank you to **aha** for the **3 THUMBS UP**, and to everyone else who tested,
+reported an issue, followed the project, or simply looked forward to this
+Android port. That enthusiasm and encouragement motivated this release.
 
 The APK contains third-party game material. Distribution may be removed if a
 rights holder objects. The source toolkit intentionally contains no game

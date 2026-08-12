@@ -1,9 +1,8 @@
-# Pending Android 3.8.1 English update
+# Android 3.8.1 English v3.8.1-en.2 update
 
-This file is the staging checklist for the next public English release. The
-source fixes below are intentionally grouped for one later release. **No new
-public APK or GitHub release should be created until the batch has completed
-physical-device testing.**
+This file records the grouped fixes prepared for the second public English
+3.8.1 release. The main build received physical-device testing before release;
+the detailed checklist remains useful for regression testing and future ports.
 
 ## Translation areas included
 

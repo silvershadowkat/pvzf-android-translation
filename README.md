@@ -15,7 +15,7 @@ assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
 The community APK is distributed separately on the
-[v3.8.1-en.1 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.1).
+[v3.8.1-en.2 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.2).
 Back up saves and read the installation warning there before installing.
 
 ## What is known
