@@ -137,6 +137,12 @@ serialized UI components and only 17 TextAsset leaves; those are level-maker
 or contributor names, an internal shader README, and two legacy raw data
 tables. They are deliberately retained.
 
+V9 corrects the final plant-detail collision found during device testing. The
+PC-sized `Change Skin` label rendered at an effective 36 points beneath the two
+skin-navigation arrows. All three duplicated Almanac variants now use the
+compact 24-point `Skin` label, preserving the control while keeping it clear of
+both arrows.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.
