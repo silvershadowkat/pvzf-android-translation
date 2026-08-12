@@ -23,8 +23,8 @@ Do not restore the old `il2cpp` directory over the new installation.
 ## Download verification
 
 - File: `PvZ-Fusion-3.8.1-English-Android.apk`
-- Size: `550681170` bytes
-- SHA-256: `a99e1b2bcfac922e923869506bff291c502865975b46b6ad9db525fb7c820e71`
+- Size: `550689362` bytes
+- SHA-256: `3a13cfdb083186cf8d359c641fc20b770ffa64aca8f536220cddd03feb329cc7`
 - Signing certificate SHA-256:
   `1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6`
 

@@ -151,6 +151,14 @@ disclaimer phrase “only on the dev” is also rewritten as a direct official
 source attribution. Serialized player-facing UI remains free of unexplained
 CJK; remaining matches are names or internal data.
 
+Device testing showed that the V10 TMP asset still resolved to a visually
+mismatched face and placed the added line too close to the torn parchment edge.
+V11 removes the runtime dependency: it extracts the game's embedded legacy
+`fzjz` font, renders `Joseph Franci · aha · SilverShadow · Codex` as a single
+line directly into the original 1400×600 `thanks` texture, and blanks TMP
+component 179902. The saved bundle is reopened and the texture is extracted
+again for exact preview validation before APK packaging.
+
 The almanac data came almost directly from the PC translation repository:
 
 - `ZombieStrings`: exact match to current PC English data.

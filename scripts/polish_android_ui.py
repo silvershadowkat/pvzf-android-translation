@@ -96,9 +96,8 @@ TEXT_OVERRIDES = {
     185656: "New World\nNew Time (2026/6/3 14:19)\nSurvival Mode, Cheats, Version: 1.20.1",
     185703: "Upgrade Level: 10/10\nUpgrade Bonus: 500%\nCost: 3 matching cards",
     185708: "Free Rerolls: 2",
-    # The Help parchment already contains the creator list and Joseph Franci's
-    # Android-port credit. Reuse the dormant creator-list layer for the current
-    # port contributors, without obscuring the baked artwork.
+    # Staging text only. The subsequent bake_help_credits.py pass renders the
+    # complete credit into the parchment texture and blanks this live layer.
     179902: "aha · SilverShadow · Codex",
     # The Help parchment already contains a complete baked Hotkeys column.
     # These two live overlays otherwise duplicate and obscure that artwork.

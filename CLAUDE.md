@@ -84,10 +84,11 @@ explicitly designed as a final polish pass.
    `scripts/transplant_tmp_font_asset.py`.
 5. Refine Almanac typography with `scripts/refine_almanac_layout.py`.
 6. Apply Android-specific finishing work with `scripts/polish_android_ui.py`.
-7. Run `scripts/audit_remaining_cjk.py` and review every *visible* result.
-8. Package only the two payloads with `scripts/package_apk_payload.py`.
-9. Align, release-sign, and verify the APK.
-10. Run `scripts/audit_apk_release.py` against the chosen base APK.
+7. Bake and validate the Help parchment with `scripts/bake_help_credits.py`.
+8. Run `scripts/audit_remaining_cjk.py` and review every *visible* result.
+9. Package only the two payloads with `scripts/package_apk_payload.py`.
+10. Align, release-sign, and verify the APK.
+11. Run `scripts/audit_apk_release.py` against the chosen base APK.
 
 Every builder writes a JSON report and reopens/revalidates its generated file.
 Treat a failed validation as a real failure; do not delete checks to get a
@@ -95,7 +96,8 @@ build through.
 
 ## Current 3.8.1 final-polish specifics
 
-`scripts/polish_android_ui.py` is the authoritative record. Important details:
+`scripts/polish_android_ui.py` followed by `scripts/bake_help_credits.py` is the
+authoritative final sequence. Important details:
 
 - Almanac PC `<size>` tags are removed because Android applies a different
   effective scale.
@@ -103,11 +105,11 @@ build through.
 - the rotating Almanac footer is width-limited so it does not cross Search;
 - duplicate live Help/Hotkeys overlays are blanked because the parchment
   already contains that content;
-- the Android port line uses TMP component path ID `179902`, RectTransform
-  `176070`, handwriting font asset `178477` (`汉仪夏日体W SDF`), and material
-  path ID `2`;
-- the baked `Joseph Franci` line is preserved; the live line below it reads
-  `aha · SilverShadow · Codex`;
+- the Help parchment is Texture2D path ID `2199`, named `thanks`, and must
+  remain exactly 1400×600;
+- the complete credit line `Joseph Franci · aha · SilverShadow · Codex` is
+  baked into that texture using embedded Font path ID `6493` (`fzjz`);
+- live TMP component path ID `179902` is deliberately blanked after baking;
 - the disclaimer is rewritten to avoid the awkward phrase “only on the dev.”
 
 Path IDs are valid for this exact 3.8.1 bundle only. For a future version,
@@ -116,7 +118,9 @@ numbers. Do not assume an unchanged path ID points to the same object.
 
 ## Typography traps
 
-The game contains multiple superficially similar TMP assets:
+The game contains multiple superficially similar TMP assets. Do not use any of
+them for the parchment credit—the final renderer uses the embedded legacy
+`fzjz` Font data directly and bakes pixels into the texture:
 
 - `Dynamic` (path `178475`, material `1`) – transplanted readable UI face;
 - `fzjz Dynamic` (path `178476`, material `112`) – compact/bold face that made

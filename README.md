@@ -67,8 +67,10 @@ This project did not merely copy one old translated APK. For Android 3.8.1 it:
   other executable/application-shell content unchanged from the official
   Chinese 3.8.1 APK shell.
 
-The in-game Android-port credit preserves `Joseph Franci` and adds
-`aha · SilverShadow · Codex` beneath it using the parchment handwriting font.
+The in-game Android-port credit is baked into the Help parchment as one clean
+line in the game's original embedded `fzjz` handwriting font:
+`Joseph Franci · aha · SilverShadow · Codex`. The former live overlay is
+disabled, so runtime TMP substitution cannot change its font or placement.
 
 ## What was reused and from whom
 
@@ -210,8 +212,10 @@ Available scripts:
   Dynamic slot and normalizes the oversized plant-page title.
 - `polish_android_ui.py` removes PC-only Almanac size tags to match Joseph's
   Android data, translates visible configuration-backed labels, adds the
-  current Android-port credits, cleans mixed-language UI defaults, and applies
+  credits staging text, cleans mixed-language UI defaults, and applies
   the final narrow title/layout corrections.
+- `bake_help_credits.py` replaces the 1400×600 Help parchment texture with a
+  deterministic pre-rendered version and blanks the former live credit layer.
 - `audit_remaining_cjk.py` separately inventories CJK-bearing IL2CPP literals,
   TextAsset JSON leaves, and serialized TMP text so internal data and creator
   names are not confused with missed player-facing UI.
