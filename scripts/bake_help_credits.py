@@ -71,6 +71,11 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--preview", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
+    parser.add_argument(
+        "--approved-artwork",
+        type=Path,
+        help="approved complete parchment artwork; resized to the required 1400x600 texture",
+    )
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
     args = parser.parse_args()
 
@@ -94,7 +99,18 @@ def main() -> int:
     if font.m_Name != "fzjz":
         raise RuntimeError("Embedded parchment handwriting Font identity changed")
     font_bytes = bytes(font.m_FontData)
-    replacement = render_credit(texture.image, font_bytes)
+    if args.approved_artwork:
+        approved = Image.open(args.approved_artwork).convert("RGBA")
+        replacement = approved.resize((1400, 600), Image.Resampling.LANCZOS)
+        render_source = {
+            "kind": "approved_complete_artwork",
+            "path": str(args.approved_artwork.resolve()),
+            "sha256": sha256_file(args.approved_artwork),
+            "original_size": list(approved.size),
+        }
+    else:
+        replacement = render_credit(texture.image, font_bytes)
+        render_source = {"kind": "deterministic_text_bake"}
     if replacement.size != (1400, 600):
         raise RuntimeError(f"Help texture must remain 1400x600, got {replacement.size}")
     texture.image = replacement
@@ -134,6 +150,7 @@ def main() -> int:
         "base": {"path": str(args.base_bundle.resolve()), "sha256": sha256_file(args.base_bundle)},
         "render": {
             "text": CREDIT_TEXT,
+            "source": render_source,
             "font_path_id": HANDWRITING_FONT_PATH_ID,
             "font_name": font.m_Name,
             "font_data_sha256": hashlib.sha256(font_bytes).hexdigest(),

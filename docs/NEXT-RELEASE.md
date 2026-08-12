@@ -9,7 +9,9 @@ physical-device testing.**
 
 - **Zen Garden Tool Shop**
   - translated the runtime `Cost` and `Owned` format fragments;
-  - retained the existing item names and layout.
+  - retained the existing item names and controls;
+  - made the modal background follow the full Android canvas so ultrawide
+    phones no longer show inactive Zen Garden buttons beside the shop.
 - **Odyssey Gacha**
   - translated the current-luck value and the explanation of how luck affects
     box plants and prize-draw Sun.
@@ -38,10 +40,15 @@ physical-device testing.**
   - restored the short PC community names for modifier cards and kept their
     descriptions in the description field, eliminating duplicated long
     descriptions from the card-title area;
+  - removed the heavy opaque underlay from the shared Mechanics Almanac body
+    component so blue emphasized words remain readable on every mechanics
+    page while preserving white text, colors, bold tags, and wrapping;
   - retained the existing Android font, sizing, and layout refinements.
 - **Credits and Changelog**
   - restored the original Chinese proper names for the game's credited
     creators and helpers while keeping role descriptions in English;
+  - added the approved `English 3.8.1 Android Testing` parchment credit for
+    `モア` and `S.O.R.O.B` and kept its source artwork in the repository;
   - removed the changelog instruction for the PC-only `Languages` button.
 - **Starbound Task Rewards**
   - confirmed the complete Task Rewards dataset is already translated by the
@@ -86,6 +93,34 @@ an older external metadata hot patch. Before judging the next build, back up
 the game files, fully close the game, and remove only the stale external
 `files/il2cpp` override. Do not delete the save/progression files.
 
+Installing the new APK as an update does not necessarily fix this state. An
+APK update replaces the embedded copy, but Android preserves the existing
+package's writable `Android/data/.../files` directory. If an older external
+metadata file is present there, Fusion can keep choosing it over the newer
+copy in the APK. A clean install removes that override, but the safer targeted
+test is to back up the game files and remove only `files/il2cpp` while leaving
+all progression/save files intact.
+
+The same diagnosis applies when newer bundle-based fixes appear but newer
+metadata-based fixes do not. For example, a device may show the repaired
+Mechanics Almanac and Tool Shop while still showing unnumbered difficulty
+labels or modifier descriptions duplicated into their titles. Those exact
+difficulty and modifier fixes are already embedded in the pending APK; this
+mixed old/new result points to a stale external metadata override, not a
+different translation inside the APK.
+
+## Community testing thanks
+
+Special thanks for rapid, thorough device testing and clear screenshots:
+
+- **モア, the Virtue of Cuteness** (`absolute201616`)
+- **S.O.R.O.B Pengantar Minuman 🤖** (`jazzuke1`)
+
+The full Discord display names and usernames are recorded here for precise
+attribution. The proposed in-game heading is `English 3.8.1 Android Testing:`
+with the shorter display forms `モア` and `S.O.R.O.B` so the parchment remains
+readable.
+
 ## Troubleshooting blindly renamed packages
 
 Do not change only the manifest package ID to install a second copy beside the
@@ -121,6 +156,10 @@ Never delete progression files as part of this check.
 - Verify all Gods Evolution mode, difficulty, completion, unlock, save-slot,
   and autosave text at narrow and 16:9 aspect ratios.
 - Open the Almanac index and confirm `Disable Transitions` fits beside `Close`.
+- Open several Mechanics Almanac pages and confirm blue emphasis remains crisp
+  and readable without the former heavy black underlay.
 - Open Starbound Task Rewards and verify selected/unselected rewards are both
   readable and all scrolling entries remain English.
 - Recheck the Zen Garden Tool Shop `Cost` and `Owned` lines.
+- On an ultrawide phone, open the Tool Shop and confirm its background covers
+  the whole screen and no inactive Zen Garden buttons remain visible beside it.

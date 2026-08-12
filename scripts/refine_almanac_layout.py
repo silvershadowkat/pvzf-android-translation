@@ -26,6 +26,7 @@ DESCRIPTION_COMPONENTS = {
     194141: "zombie description",
 }
 PLANT_TITLE_COMPONENT = 191011
+MECHANICS_DESCRIPTION_COMPONENT = 180985
 
 
 def sha256_file(path: Path) -> str:
@@ -56,6 +57,18 @@ def find_named_mono(objects, name: str):
     matches = [obj for obj in objects.values() if obj.type.name == "MonoBehaviour" and mono_name(obj) == name]
     if len(matches) != 1:
         raise RuntimeError(f"expected one MonoBehaviour named {name!r}, found {len(matches)}")
+    return matches[0]
+
+
+def find_named_material(objects, name: str):
+    matches = []
+    for obj in objects.values():
+        if obj.type.name != "Material":
+            continue
+        if obj.read_typetree()["m_Name"] == name:
+            matches.append(obj)
+    if len(matches) != 1:
+        raise RuntimeError(f"expected one Material named {name!r}, found {len(matches)}")
     return matches[0]
 
 
@@ -90,6 +103,8 @@ def main() -> int:
     handwriting_font = find_named_mono(objects, args.handwriting_font_asset)
     dynamic_font_tree = dynamic_font.read_typetree(check_read=False)
     dynamic_material_id = dynamic_font_tree["material"]["m_PathID"]
+    clean_dynamic_material = find_named_material(objects, "Dynamic_light")
+    outlined_dynamic_material = find_named_material(objects, "Dynamic_underLay")
 
     changes = []
     for path_id, label in DESCRIPTION_COMPONENTS.items():
@@ -141,6 +156,42 @@ def main() -> int:
         }
     )
 
+    # Every Mechanics Almanac page reuses this one TMP component. Android's
+    # Dynamic_underLay material adds a large, opaque black underlay which is
+    # tolerable around white text but overwhelms the smaller blue rich-text
+    # emphasis. Dynamic_light uses the same Dynamic atlas with the restrained
+    # treatment used elsewhere, so wording, colors, bold tags, wrapping, and
+    # font metrics remain unchanged.
+    mechanics_obj = objects[("resources.assets", MECHANICS_DESCRIPTION_COMPONENT)]
+    mechanics_tree = mechanics_obj.read_typetree(check_read=False)
+    require_pointer(
+        mechanics_tree,
+        "m_sharedMaterial",
+        outlined_dynamic_material.path_id,
+        "Mechanics Almanac description",
+    )
+    mechanics_before = {
+        "shared_material_path_id": mechanics_tree["m_sharedMaterial"]["m_PathID"],
+        "font_asset_path_id": mechanics_tree["m_fontAsset"]["m_PathID"],
+        "font_size": mechanics_tree["m_fontSize"],
+    }
+    mechanics_tree["m_sharedMaterial"] = {
+        "m_FileID": 0,
+        "m_PathID": clean_dynamic_material.path_id,
+    }
+    mechanics_obj.save_typetree(mechanics_tree)
+    changes.append(
+        {
+            "component": "Mechanics Almanac shared description",
+            "path_id": MECHANICS_DESCRIPTION_COMPONENT,
+            "before": mechanics_before,
+            "after": {
+                **mechanics_before,
+                "shared_material_path_id": clean_dynamic_material.path_id,
+            },
+        }
+    )
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -160,6 +211,15 @@ def main() -> int:
     title_tree = check_objects[("resources.assets", PLANT_TITLE_COMPONENT)].read_typetree(check_read=False)
     if title_tree["m_fontSize"] != args.plant_title_size:
         raise RuntimeError("plant title font-size validation failed")
+    mechanics_tree = check_objects[
+        ("resources.assets", MECHANICS_DESCRIPTION_COMPONENT)
+    ].read_typetree(check_read=False)
+    require_pointer(
+        mechanics_tree,
+        "m_sharedMaterial",
+        clean_dynamic_material.path_id,
+        "Mechanics Almanac description",
+    )
     del check_env
     gc.collect()
 

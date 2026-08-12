@@ -175,6 +175,7 @@ PORT_CREDITS_COMPONENT = 179902
 PORT_CREDITS_RECT_TRANSFORM = 176070
 PORT_CREDITS_FONT_ASSET = 178477  # 汉仪夏日体W SDF (parchment handwriting)
 PORT_CREDITS_MATERIAL = 2
+GARDEN_STORE_BACKGROUND_RECT_TRANSFORM = 173612
 
 
 def sha256_file(path: Path) -> str:
@@ -439,6 +440,40 @@ def main() -> int:
         }
     )
 
+    # GardenStoreMenu itself already stretches to the Android canvas, but its
+    # parchment background was fixed at 1920x1080. On ultrawide phones this
+    # exposed inactive Zen Garden controls beside the modal. Stretch only the
+    # visual background; keep the goods, coin bank, and return button layouts
+    # unchanged.
+    garden_background_obj = objects[
+        ("resources.assets", GARDEN_STORE_BACKGROUND_RECT_TRANSFORM)
+    ]
+    garden_background_tree = garden_background_obj.read_typetree()
+    garden_background_before = {
+        "anchor_min": dict(garden_background_tree["m_AnchorMin"]),
+        "anchor_max": dict(garden_background_tree["m_AnchorMax"]),
+        "anchored_position": dict(garden_background_tree["m_AnchoredPosition"]),
+        "size": dict(garden_background_tree["m_SizeDelta"]),
+    }
+    garden_background_tree["m_AnchorMin"] = {"x": 0.0, "y": 0.0}
+    garden_background_tree["m_AnchorMax"] = {"x": 1.0, "y": 1.0}
+    garden_background_tree["m_AnchoredPosition"] = {"x": 0.0, "y": 0.0}
+    garden_background_tree["m_SizeDelta"] = {"x": 0.0, "y": 0.0}
+    garden_background_obj.save_typetree(garden_background_tree)
+    changes.append(
+        {
+            "kind": "garden_store_ultrawide_background",
+            "rect_transform_path_id": GARDEN_STORE_BACKGROUND_RECT_TRANSFORM,
+            "before": garden_background_before,
+            "after": {
+                "anchor_min": {"x": 0.0, "y": 0.0},
+                "anchor_max": {"x": 1.0, "y": 1.0},
+                "anchored_position": {"x": 0.0, "y": 0.0},
+                "size": {"x": 0.0, "y": 0.0},
+            },
+        }
+    )
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -491,6 +526,16 @@ def main() -> int:
         or tip_rect_tree["m_SizeDelta"]["x"] != 880.0
     ):
         raise RuntimeError("Almanac tip rectangle validation failed")
+    garden_background_tree = check_objects[
+        ("resources.assets", GARDEN_STORE_BACKGROUND_RECT_TRANSFORM)
+    ].read_typetree()
+    if (
+        garden_background_tree["m_AnchorMin"] != {"x": 0.0, "y": 0.0}
+        or garden_background_tree["m_AnchorMax"] != {"x": 1.0, "y": 1.0}
+        or garden_background_tree["m_AnchoredPosition"] != {"x": 0.0, "y": 0.0}
+        or garden_background_tree["m_SizeDelta"] != {"x": 0.0, "y": 0.0}
+    ):
+        raise RuntimeError("Garden Store ultrawide background validation failed")
     validated_assets = set()
     for obj in check_env.objects:
         if obj.type.name != "TextAsset":
