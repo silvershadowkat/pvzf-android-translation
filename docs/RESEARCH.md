@@ -306,13 +306,12 @@ about the upstream game or every runtime path.
   on the full-width colon `：`. The metadata builder reconstructs
   `name：description` by stable section and numeric modifier ID, producing short
   card labels such as `Ace Drop` and `Alpha Escort` without duplication.
-- The PC runtime formats the selected modifier body with
-  `BUFF_NAME_FORMAT = <align=center><color=#700000>[{0}]</color></align>...`,
-  but Android uses the same combined `name：description` literal both to derive
-  the card/title name and to populate the description. Reproducing the PC-only
-  bracket/color heading exactly therefore needs a validated runtime UI patch;
-  changing the literal alone would incorrectly add brackets or rich-text tags
-  to card labels. Keep the safe short-name split until such a hook exists.
+- The PC runtime formats the selected modifier body with a separate bracketed
+  heading, while Android uses one combined literal both to derive the short
+  title and to populate the body. The Android adapter keeps `name：` on a
+  dedicated first metadata line, and the masked description layout clips that
+  line above its viewport. This preserves clean card/title names while showing
+  only the 20-point description body, without adding a runtime hook.
 - A read-only 1920x1080 background audit found 31 fixed `Background` objects.
   Size alone is not a safe rewrite criterion: most belong to full game modes or
   deliberately framed screens. Only `GardenStoreMenu/Background` (path 173612)

@@ -266,7 +266,9 @@ def load_pc_translations(
                         continue
                     if not CJK_RE.search(source_desc):
                         continue
-                    exact[source_desc] = f"{translated_name}：{translated_desc}"
+                    # Keep the title metadata on its own line. The Unity
+                    # layout pass clips that line above the body viewport.
+                    exact[source_desc] = f"{translated_name}：\n{translated_desc}"
                     added += 1
         counts[f"structured:{filename}"] = added
 

@@ -74,7 +74,9 @@ Some PC files cannot be copied wholesale:
 - PC modifier records store separate `name` and `desc` fields. Android stores
   a combined `name：description` runtime string and splits on the full-width
   colon for card/title labels. The metadata builder reconstructs that Android
-  form by stable section and numeric modifier ID.
+  form by stable section and numeric modifier ID, puts the required name on a
+  dedicated first line, and the Unity layout clips that metadata-only line so
+  the visible description does not repeat the title.
 - Android-only runtime format fragments (Tool Shop `Cost`/`Owned`, save
   labels, and similar fields) may not exist as complete PC strings.
 - Runtime-backed page-navigation labels require the UI component backing-field
