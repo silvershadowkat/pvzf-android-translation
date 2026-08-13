@@ -1,7 +1,6 @@
 # PvZ Fusion 3.8.1 — English Android Update 3
 
-This is the public **no-SS** English translation build. It does not contain the
-private SilverShadow Cheats prototype.
+This release updates the English Android translation for PvZ Fusion 3.8.1.
 
 ## Installation
 

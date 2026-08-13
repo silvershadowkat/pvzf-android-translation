@@ -6,7 +6,7 @@ The earlier audit concentrated on TextMesh Pro's `m_text` field. Puzzle Mode's
 `切换关卡组` label is a legacy `UnityEngine.UI.Text` component stored in `m_Text`.
 The production audit now recursively inspects every readable serialized string
 field, plus TextAssets and IL2CPP string literals. The label is translated as
-`Switch Level Group` in both the no-SS and SilverShadow build pipelines.
+`Switch Level Group` by the Android translation pipeline.
 
 ## Additional proactive findings
 

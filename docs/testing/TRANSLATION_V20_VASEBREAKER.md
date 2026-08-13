@@ -1,6 +1,6 @@
 # Translation v20 — Vasebreaker PVP
 
-This no-SS test build addresses the dynamic text reported in Vasebreaker PVP.
+This translation test build addresses the dynamic text reported in Vasebreaker PVP.
 
 ## Corrected runtime strings
 
