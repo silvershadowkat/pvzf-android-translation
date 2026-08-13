@@ -14,16 +14,32 @@ import gc
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 
 import UnityPy
 from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_metadata_translation import CJK_RE, load_pc_translations  # noqa: E402
 
 
 SIZE_TAG_RE = re.compile(r"</?size(?:=[^>]*)?>", re.IGNORECASE)
 ALMANAC_ASSETS = {"LawnStrings", "ZombieStrings"}
 
 TEXT_ASSET_REPLACEMENTS = {
+    # Android retains category fields alongside the translated Mechanics
+    # Almanac title/body. Translate them as well so future category/filter UI
+    # cannot surface Chinese even though the current list mainly shows titles.
+    "DetailStrings": {
+        "玩法": "Gameplay",
+        "基本机制": "Basic Mechanics",
+        "植物特性": "Plant Traits",
+        "植物体系": "Plant Systems",
+        "僵尸机制": "Zombie Mechanics",
+        "环境机制": "Environmental Mechanics",
+        "关卡机制": "Level Mechanics",
+    },
     "PlantEvolutionData": {
         "机枪路线": "Gatling Route",
         "樱桃路线": "Cherry Route",
@@ -69,10 +85,10 @@ TEXT_OVERRIDES = {
     # Android. These are the three duplicated Almanac plant-detail variants.
     179605: "<size=80%><color=black>Skin</color></size>",
     179732: "Your Weapon",
-    179832: "41_5\nSpeed Frenzy",
+    179832: "41_5\nBerserker I",
     179962: "Adventure Trials",
     180066: "Not Completed",
-    180103: "42_5\nSpeed Frenzy II",
+    180103: "42_5\nBerserker II",
     180110: "Battle Skill",
     180578: "Health Upgrade",
     181012: "Please Enter",
@@ -155,6 +171,50 @@ TEXT_OVERRIDES = {
     194181: "Plant Name",
 }
 
+# This Puzzle Mode button uses the legacy UnityEngine.UI.Text component,
+# whose serialized field is m_Text (capital T). TEXT_OVERRIDES above targets
+# TextMesh Pro components whose field is m_text (lowercase t).
+LEGACY_TEXT_OVERRIDES = {
+    185329: "Return to Index",
+    185334: "Confirm Loadout",
+    186732: "Switch Level Group",
+    186853: "Sun Drop Multiplier",
+    189691: "Go to the Shop",
+    192713: "OK",
+    193277: "Set Sun Amount",
+}
+
+# A few 3.8.1 Android perk strings differ slightly from the current PC source
+# keys, so an exact PC lookup cannot match them. These narrowly scoped
+# fallbacks preserve the Android meaning while using the PC terminology.
+SERIALIZED_FIELD_FALLBACKS = {
+    "疾速狂热": "Berserker I",
+    "植物的攻击速度增加10%": "Increase the Attack Speed of all plants by 10%",
+    "疾速狂热II": "Berserker II",
+    "植物的攻击速度增加20%": "Increase the Attack Speed of all plants by another 20%",
+    "每融合1次植物，下次融合的植物获得1%伤害加成": (
+        "Your next Fused Plant gains 1% Attack Damage for each Fusion already performed"
+    ),
+    "植物射击一定次数后，接下来的1秒内获得无限射速": (
+        "After firing a certain number of shots, a Plant gains unlimited Attack Speed for 1 second"
+    ),
+    "植物获得1%生命偷取，作用于全场血量百分比最低的植物": (
+        "Plants gain 1% Life Steal, applied to the Plant with the lowest HP percentage on the field"
+    ),
+    "解锁超级水草、超级窝炬": "Unlock Hydra Kelp & Infernowood",
+    "燃血": "Bloodburn",
+    "植物造成伤害时会消耗本类型的全部植物当前血量的10%，造成100%已消耗血量的伤害，在血量低于10%时不触发": (
+        "When a Plant deals damage, all Plants of that type consume 10% of their current HP "
+        "to deal damage equal to 100% of the HP consumed; does not trigger below 10% HP"
+    ),
+}
+
+SERIALIZED_PC_FIELD_SUFFIXES = {
+    ("data", "name"),
+    ("data", "description"),
+    ("group", "title"),
+}
+
 HANDLE_REPLACEMENTS = {
     188915: {
         "The Official source of PvZ Fusion is only on the dev, LanPiaoPiaoFly's Bilibili": (
@@ -227,10 +287,43 @@ def replace_nested_strings(value, replacements: dict[str, str]):
     return value
 
 
+def translate_serialized_fields(value, exact: dict[str, str], path=()):
+    """Translate only known player-facing configuration fields."""
+    changes = []
+    if isinstance(value, dict):
+        for key, item in list(value.items()):
+            child_path = path + (key,)
+            if (
+                isinstance(item, str)
+                and len(child_path) >= 2
+                and tuple(child_path[-2:]) in SERIALIZED_PC_FIELD_SUFFIXES
+                and CJK_RE.search(item)
+            ):
+                translated = exact.get(item, SERIALIZED_FIELD_FALLBACKS.get(item))
+                if translated is not None:
+                    value[key] = translated
+                    changes.append((child_path, item, translated))
+            else:
+                changes.extend(translate_serialized_fields(item, exact, child_path))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            changes.extend(translate_serialized_fields(item, exact, path + (index,)))
+    return changes
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-bundle", required=True, type=Path)
     parser.add_argument("--dummy-dll-dir", required=True, type=Path)
+    parser.add_argument(
+        "--strings-dir",
+        type=Path,
+        default=Path(
+            "translation-data/PVZF-Translation/PvZ_Fusion_Translator/"
+            "Localization/English/Strings"
+        ),
+        help="current PC-community English Strings directory",
+    )
     parser.add_argument("--unity-version", default="2022.3.62f1")
     parser.add_argument("--zombie-title-size", default=36.0, type=float)
     parser.add_argument("--zombie-name-size", default=24.0, type=float)
@@ -244,6 +337,7 @@ def main() -> int:
     env.typetree_generator = generator
     objects = object_map(env)
     changes = []
+    pc_exact, _, _ = load_pc_translations(args.strings_dir)
 
     found_assets = set()
     for obj in env.objects:
@@ -316,6 +410,46 @@ def main() -> int:
         changes.append(
             {"kind": "ui_text", "path_id": path_id, "before": previous, "after": replacement}
         )
+
+    for path_id, replacement in LEGACY_TEXT_OVERRIDES.items():
+        obj = objects[("resources.assets", path_id)]
+        tree = obj.read_typetree(check_read=False)
+        previous = tree["m_Text"]
+        tree["m_Text"] = replacement
+        obj.save_typetree(tree)
+        changes.append(
+            {
+                "kind": "legacy_ui_text",
+                "path_id": path_id,
+                "before": previous,
+                "after": replacement,
+            }
+        )
+
+    serialized_field_changes = []
+    for obj in env.objects:
+        if obj.type.name != "MonoBehaviour":
+            continue
+        try:
+            tree = obj.read_typetree(check_read=False)
+        except Exception:
+            continue
+        object_changes = translate_serialized_fields(tree, pc_exact)
+        if not object_changes:
+            continue
+        obj.save_typetree(tree)
+        for field_path, previous, replacement in object_changes:
+            change = {
+                "kind": "serialized_pc_translation",
+                "file": obj.assets_file.name,
+                "path_id": obj.path_id,
+                "field_path": list(field_path),
+                "before": previous,
+                "after": replacement,
+                "source": "pc_exact" if previous in pc_exact else "android_fallback",
+            }
+            serialized_field_changes.append(change)
+            changes.append(change)
 
     port_credit_obj = objects[("resources.assets", PORT_CREDITS_COMPONENT)]
     port_credit_tree = port_credit_obj.read_typetree(check_read=False)
@@ -435,8 +569,7 @@ def main() -> int:
         "auto_size": tip_tree["m_enableAutoSizing"],
         "word_wrap": tip_tree["m_enableWordWrapping"],
     }
-    # Reassert the translated text because this fresh typetree read can predate
-    # the generic TEXT_OVERRIDES save in UnityPy's object cache.
+    # Reassert translated text after the fresh typetree read.
     tip_tree["m_text"] = TEXT_OVERRIDES[ALMANAC_TIP_COMPONENT]
     tip_tree["m_fontSize"] = 24.0
     tip_tree["m_fontSizeBase"] = 24.0
@@ -520,6 +653,19 @@ def main() -> int:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_text"] != replacement:
             raise RuntimeError(f"UI text validation failed for component {path_id}")
+    for path_id, replacement in LEGACY_TEXT_OVERRIDES.items():
+        tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
+        if tree["m_Text"] != replacement:
+            raise RuntimeError(f"legacy UI text validation failed for component {path_id}")
+    for change in serialized_field_changes:
+        tree = check_objects[(change["file"], change["path_id"])].read_typetree(check_read=False)
+        value = tree
+        for part in change["field_path"]:
+            value = value[part]
+        if value != change["after"]:
+            raise RuntimeError(
+                f"serialized field validation failed for component {change['path_id']}"
+            )
     port_credit_tree = check_objects[("resources.assets", PORT_CREDITS_COMPONENT)].read_typetree(
         check_read=False
     )

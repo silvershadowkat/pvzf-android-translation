@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit CJK-bearing IL2CPP literals, Unity TextAssets, and serialized UI text."""
+"""Audit CJK-bearing IL2CPP literals, TextAssets, and all serialized strings."""
 
 from __future__ import annotations
 
@@ -59,7 +59,8 @@ def main() -> int:
     env = UnityPy.load(str(args.bundle))
     env.typetree_generator = generator
     text_assets = []
-    ui_components = []
+    serialized_objects = []
+    typetree_failures = []
     for obj in env.objects:
         if obj.type.name == "TextAsset":
             data = obj.parse_as_object()
@@ -87,12 +88,36 @@ def main() -> int:
         elif obj.type.name == "MonoBehaviour":
             try:
                 tree = obj.read_typetree(check_read=False)
-            except Exception:
+            except Exception as error:
+                raw = bytes(obj.get_raw_data())
+                decoded = raw.decode("utf-8", errors="ignore")
+                raw_cjk = sorted(set(CJK_RE.findall(decoded)))
+                if raw_cjk:
+                    typetree_failures.append(
+                        {
+                            "file": obj.assets_file.name,
+                            "path_id": obj.path_id,
+                            "type": obj.type.name,
+                            "error": str(error),
+                            "raw_size": len(raw),
+                            "decoded_cjk_characters": raw_cjk,
+                        }
+                    )
                 continue
-            text = tree.get("m_text")
-            if isinstance(text, str) and CJK_RE.search(text):
-                ui_components.append(
-                    {"file": obj.assets_file.name, "path_id": obj.path_id, "text": safe_text(text)}
+            matches = [
+                {"field_path": list(path), "text": safe_text(text)}
+                for path, text in walk_strings(tree)
+                if CJK_RE.search(text)
+            ]
+            if matches:
+                serialized_objects.append(
+                    {
+                        "file": obj.assets_file.name,
+                        "path_id": obj.path_id,
+                        "type": obj.type.name,
+                        "match_count": len(matches),
+                        "matches": matches,
+                    }
                 )
 
     report = {
@@ -107,7 +132,12 @@ def main() -> int:
             "cjk_string_leaves": sum(item["match_count"] for item in text_assets),
             "assets": text_assets,
         },
-        "serialized_ui": {"component_count": len(ui_components), "components": ui_components},
+        "serialized_objects": {
+            "object_count": len(serialized_objects),
+            "cjk_string_fields": sum(item["match_count"] for item in serialized_objects),
+            "objects": serialized_objects,
+        },
+        "typetree_failures_with_utf8_lead_bytes": typetree_failures,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -118,7 +148,9 @@ def main() -> int:
                 "metadata_unique_strings": report["metadata"]["unique_strings"],
                 "text_asset_count": report["text_assets"]["asset_count"],
                 "text_asset_cjk_leaves": report["text_assets"]["cjk_string_leaves"],
-                "serialized_ui_components": report["serialized_ui"]["component_count"],
+                "serialized_object_count": report["serialized_objects"]["object_count"],
+                "serialized_cjk_string_fields": report["serialized_objects"]["cjk_string_fields"],
+                "typetree_failures_with_utf8_lead_bytes": len(typetree_failures),
             },
             indent=2,
         )
