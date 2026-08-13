@@ -30,6 +30,15 @@ ALMANAC_FILES = {
     "ZombieStrings": "ZombieStringsTranslate.json",
 }
 DETAIL_STRINGS_FILE = "DetailStringsTranslate.json"
+DETAIL_TYPE_TRANSLATIONS = {
+    "玩法": "Gameplay",
+    "基本机制": "Basic Mechanics",
+    "植物特性": "Plant Traits",
+    "植物体系": "Plant Systems",
+    "僵尸机制": "Zombie Mechanics",
+    "环境机制": "Environmental Mechanics",
+    "关卡机制": "Level Mechanics",
+}
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
 
@@ -81,7 +90,6 @@ def merge_android_detail_strings(
     tree = parse_json_text(source_script)
     if not isinstance(tree, dict) or not isinstance(tree.get("details"), list):
         raise RuntimeError("official Android DetailStrings no longer contains a details list")
-
     details = tree["details"]
     source_titles: list[str] = []
     for index, item in enumerate(details):
@@ -91,7 +99,6 @@ def merge_android_detail_strings(
         if not isinstance(title, str) or not title:
             raise RuntimeError(f"Android DetailStrings item {index} has no title")
         source_titles.append(title)
-
     if len(source_titles) != len(set(source_titles)):
         raise RuntimeError("official Android DetailStrings contains duplicate titles")
     missing = sorted(set(source_titles) - set(pc_descriptions))
@@ -101,17 +108,22 @@ def merge_android_detail_strings(
             "PC/Android Mechanics Almanac title mismatch: "
             f"missing={missing!r}, extra={extra!r}"
         )
-
     for item, source_title in zip(details, source_titles):
+        source_type = item.get("type")
+        translated_type = DETAIL_TYPE_TRANSLATIONS.get(source_type)
+        if translated_type is None:
+            raise RuntimeError(
+                f"missing English Mechanics Almanac category for {source_type!r}"
+            )
         translated_title = exact.get(source_title)
         if not isinstance(translated_title, str) or CJK_RE.search(translated_title):
             raise RuntimeError(f"missing English Mechanics Almanac title for {source_title!r}")
         description = pc_descriptions[source_title]
         if not isinstance(description, str):
             raise RuntimeError(f"invalid PC Mechanics Almanac text for {source_title!r}")
+        item["type"] = translated_type
         item["title"] = translated_title
         item["text"] = description
-
     return json.dumps(tree, ensure_ascii=False, indent=4)
 
 

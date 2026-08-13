@@ -79,8 +79,31 @@ Some PC files cannot be copied wholesale:
   the visible description does not repeat the title.
 - Android-only runtime format fragments (Tool Shop `Cost`/`Owned`, save
   labels, and similar fields) may not exist as complete PC strings.
+- Audit dynamic UI fragments as families, not only as completed screenshots.
+  Vasebreaker PVP, for example, appends the standalone full-width state
+  suffixes `（关）` / `（开）` to more than one toggle and constructs notices
+  from a prefix, the live player name, and a suffix. Search the metadata for
+  nearby turn/move/vase fragments after any one member is reported. Translate
+  the exact fragments while preserving placeholders and intentional spaces;
+  never globally replace the individual characters `关` or `开`.
+- Plant affinity labels are the 18 member names of Android 3.8.1's
+  `SynergyType` enum. The Almanac renders them with `ToString()`, so they live
+  in the IL2CPP definition-string heap rather than the ordinary literal table
+  or `LawnStrings`. `build_metadata_translation.py` renames only the 18
+  version-validated enum fields; it preserves their numeric values and aborts
+  if any expected source name or table layout differs. Revalidate these field
+  indices after every game update.
 - Runtime-backed page-navigation labels require the UI component backing-field
   patch in addition to ordinary TMP text replacement.
+- Serialized UI is not uniformly TextMesh Pro. Legacy `UnityEngine.UI.Text`
+  components use `m_Text` (capital T), while TMP uses `m_text`. The remaining-
+  CJK audit recursively scans all readable serialized string fields and reports
+  unreadable candidate objects; do not reduce this check back to one field.
+- Audit mixed-language output as well as fully Chinese output. A broad PC regex
+  can translate the surrounding sentence while leaving an Android-only perk
+  label or one fusion ingredient in Chinese. Exact Android 3.8.1 fallbacks fix
+  those cases and automatically yield if the PC community later supplies an
+  exact English entry.
 - Proper names in original game credits remain in their original Chinese.
   Translate roles and surrounding prose, not creator/helper names.
 - Remove PC-only UI directions such as the changelog's `Languages` button.
@@ -115,6 +138,11 @@ check.
 10. Rebuild from clean inputs, reopen every artifact, compare the APK against
     the official shell, and physically test before publishing.
 
+Do not translate existing save-slot names automatically. A legacy save whose
+stored default name is Chinese should be renamed with the game's
+`Rename Selected Save` control. New saves use the translated default. This
+keeps migration tooling away from progression data.
+
 ## Required audits before a release
 
 - metadata literal count and round-trip validation;
@@ -130,3 +158,8 @@ check.
 
 A blindly renamed side-by-side package is not a valid test environment. See
 `RELEASE-3.8.1-EN.md` for the compiled/hardcoded package-value warning.
+
+Abyss is deliberately parked in Android 3.8.1. Dormant classes and an inactive
+Challenge-menu object exist in the shipped assets, but the translation project
+must not expose or shortcut that mode. Reassess only if a future upstream
+Android build officially enables it.

@@ -15,8 +15,40 @@ assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
 The community APK is distributed separately on the
-[v3.8.1-en.2 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.2).
+[v3.8.1-en.3 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.3).
 Back up saves and read the installation warning there before installing.
+
+## Moving saves without restoring old translation files
+
+Do **not** copy the old app's entire `files` directory into a new English
+installation. Restoring that directory wholesale can also restore an old
+IL2CPP hot patch, loose translation data, mod files, caches, or other
+version-specific content.
+
+The normal Android data directory is:
+
+```text
+/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesRH/files/
+```
+
+Use this conservative migration procedure:
+
+1. Back up the old `files` directory before uninstalling anything.
+2. Install the English APK using the original package ID. Do not rename it.
+3. Launch once, reach the main menu, then fully close or force-stop the game.
+4. Restore only the save files needed. Never merge the complete old directory
+   over the new installation.
+
+For most players, restore only `playerData.json`, which contains the main
+profiles, progression, unlocks, settings, and money. Optional mode data may
+include root-level `level<number>.json`, `save<number>.json`, `autosave.json`,
+`Player/Saves/`, `GardenUnifiedData.json`, legacy `GardenData*.json`,
+`AutoChessSaves/`, `CustomIZ.json`, and `CustomPlantData.json`.
+
+Do **not** restore `il2cpp/`, any `global-metadata.dat`, `data.unity3d`, loose
+translation files, mod directories, `tombstone_*`, `unity.ver`, logs, caches,
+or unknown files installed by another mod. These are not normal progression
+saves and can override or break the English translation.
 
 ## What is known
 
@@ -32,9 +64,9 @@ Joseph's port was substantially broader. It modified 257 `TextAsset` objects
 and 3,081 `MonoBehaviour` objects; aha's 3.8.1 port modified only the three
 almanac `TextAsset` objects and 1,598 `MonoBehaviour` objects.
 
-The current clean 3.8.1 metadata build translates 2,594 literal occurrences,
+The current clean 3.8.1 metadata build translates 2,606 literal occurrences,
 compared with 335 in aha's updated file. Remaining Chinese literal occurrences
-drop from 3,762 to 1,211. This does not mean every remaining occurrence is
+drop from 3,762 to 1,161. This does not mean every remaining occurrence is
 visible player-facing text, and asset-side text still needs separate handling.
 
 For future maintainers and coding agents, start with
