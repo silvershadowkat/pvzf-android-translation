@@ -1,10 +1,9 @@
 # Translation V18 screenshot review
 
 This batch contained 13 screenshots. The translation changes are made in the
-shared payload builder and therefore apply to both the public no-SS and private
-SilverShadow variants. Only the no-SS APK was packaged for this test pass.
+shared payload builder and were packaged for an Android translation test pass.
 
-Candidate APK: `outputs/PvZ-Fusion-3.8.1-English-NoSS-Translation-Test-v18.apk`
+Candidate APK: `outputs/PvZ-Fusion-3.8.1-English-Translation-Test-v18.apk`
 
 - Size: `551152210` bytes
 - SHA-256: `aa00d4ad52bb04f634a621fee241d337ac23e63862fcf9b7dd4fccd76f22793e`

@@ -1,7 +1,6 @@
 # Translation maintenance and future-version migration
 
-This is the repeatable path for updating the English Android build. It applies
-to both the public no-menu project and the private SilverShadow build.
+This is the repeatable path for updating the English Android build.
 
 ## Translation authority and provenance
 
