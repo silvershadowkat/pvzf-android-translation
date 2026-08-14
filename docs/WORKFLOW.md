@@ -101,9 +101,10 @@ For Android 3.8.1, run `scripts/apply_pc_texture_translations.py` after the
 final credits bake. It audits all PNGs in the PC English texture catalog but
 only serializes the eight exact-name, exact-size particle replacements. The
 pass verifies that each same-name Sprite still references its Texture2D and
-reopens the output to measure the encoded image. It deliberately preserves the
-approved Android `thanks` parchment, skips the obsolete PC `Logo3.6` artwork,
-and does not touch the parked Abyss entrance.
+replaces its incompatible Chinese tight mesh with a full-canvas quad before
+reopening the output to validate the complete unclipped Sprite. It deliberately
+preserves the approved Android `thanks` parchment, skips the obsolete PC
+`Logo3.6` artwork, and does not touch the parked Abyss entrance.
 
 ## 6. Package and sign
 

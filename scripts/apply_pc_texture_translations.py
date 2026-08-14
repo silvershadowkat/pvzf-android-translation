@@ -13,6 +13,7 @@ import argparse
 import gc
 import hashlib
 import json
+import struct
 from pathlib import Path
 
 import UnityPy
@@ -65,6 +66,67 @@ def find_named_objects(env: UnityPy.Environment, type_name: str) -> dict[str, li
         data = obj.read()
         found.setdefault(data.m_Name, []).append(obj)
     return found
+
+
+def expand_sprite_to_full_rect(sprite: object, width: int, height: int) -> None:
+    """Replace a retained tight Chinese mesh with a full rectangular quad.
+
+    The PC English particle art does not share the outline of the original
+    Chinese glyphs. Replacing only Texture2D pixels therefore leaves parts of
+    the English letters outside the serialized tight mesh. A transparent full
+    quad preserves every source pixel while retaining the original pivot, PPU,
+    texture linkage, and overall 2D canvas.
+    """
+
+    if round(sprite.m_Rect.width) != width or round(sprite.m_Rect.height) != height:
+        raise RuntimeError(
+            f"Sprite {sprite.m_Name} canvas differs from its texture: "
+            f"{sprite.m_Rect.width}x{sprite.m_Rect.height} != {width}x{height}"
+        )
+
+    ppu = float(sprite.m_PixelsToUnits)
+    pivot_x = float(sprite.m_Pivot.x)
+    pivot_y = float(sprite.m_Pivot.y)
+    left = -(pivot_x * width) / ppu
+    right = ((1.0 - pivot_x) * width) / ppu
+    bottom = -(pivot_y * height) / ppu
+    top = ((1.0 - pivot_y) * height) / ppu
+    positions = (
+        (left, top, 0.0),
+        (right, top, 0.0),
+        (left, bottom, 0.0),
+        (right, bottom, 0.0),
+    )
+
+    render_data = sprite.m_RD
+    vertex_data = render_data.m_VertexData
+    vertex_data.m_VertexCount = 4
+    vertex_data.m_DataSize = b"".join(
+        struct.pack("<3f", *position) for position in positions
+    ) + bytes(32)
+    render_data.m_IndexBuffer = struct.pack("<6H", 0, 1, 2, 2, 1, 3)
+    if not render_data.m_SubMeshes:
+        raise RuntimeError(f"Sprite {sprite.m_Name} has no serialized submesh")
+    submesh = render_data.m_SubMeshes[0]
+    submesh.firstByte = 0
+    submesh.firstVertex = 0
+    submesh.indexCount = 6
+    submesh.vertexCount = 4
+    submesh.baseVertex = 0
+    submesh.topology = 0
+    render_data.m_SubMeshes = [submesh]
+
+    render_data.textureRect.x = 0.0
+    render_data.textureRect.y = 0.0
+    render_data.textureRect.width = float(width)
+    render_data.textureRect.height = float(height)
+    render_data.textureRectOffset.x = 0.0
+    render_data.textureRectOffset.y = 0.0
+    render_data.uvTransform.x = ppu
+    render_data.uvTransform.y = width / 2.0
+    render_data.uvTransform.z = ppu
+    render_data.uvTransform.w = height / 2.0
+    render_data.settingsRaw &= ~64
 
 
 def audit_catalog(
@@ -171,6 +233,8 @@ def main() -> int:
         texture_format = int(texture.m_TextureFormat)
         texture.image = texture_source
         texture_obj.save_typetree(texture)
+        expand_sprite_to_full_rect(sprite, *texture_source.size)
+        sprite_obj.save_typetree(sprite)
         applied.append(
             {
                 "name": name,
@@ -181,6 +245,7 @@ def main() -> int:
                 "source": str(texture_source_path.resolve()),
                 "source_sha256": sha256_file(texture_source_path),
                 "mean_pixel_error_before": round(before_error, 4),
+                "sprite_mesh": "full_rect",
             }
         )
 
@@ -203,6 +268,15 @@ def main() -> int:
             raise RuntimeError(f"reopened dimensions changed for {name}")
         if sprite.m_RD.texture.path_id != texture_obj.path_id:
             raise RuntimeError(f"reopened Sprite linkage changed for {name}")
+        if sprite.m_RD.settingsRaw & 64:
+            raise RuntimeError(f"reopened Sprite still uses a tight mesh for {name}")
+        if sprite.m_RD.m_VertexData.m_VertexCount != 4:
+            raise RuntimeError(f"reopened Sprite is not a four-vertex quad for {name}")
+        sprite_image = sprite.image.convert("RGBA")
+        if sprite_image.size != source.size:
+            raise RuntimeError(
+                f"reopened Sprite canvas changed for {name}: {sprite_image.size} != {source.size}"
+            )
         after_error = mean_pixel_error(source, texture.image)
         record["mean_pixel_error_after"] = round(after_error, 4)
         if after_error >= float(record["mean_pixel_error_before"]) or after_error > 8.0:

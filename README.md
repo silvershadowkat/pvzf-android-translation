@@ -255,9 +255,11 @@ Available scripts:
   deterministic pre-rendered version and blanks the former live credit layer.
 - `apply_pc_texture_translations.py` audits the complete PC English texture
   catalog and bakes the eight validated comic particle effects into Android by
-  exact Texture2D/Sprite name and dimensions. It preserves the approved credits
-  parchment and rejects unclassified texture differences instead of importing
-  versioned artwork blindly.
+  exact Texture2D/Sprite name and dimensions. It replaces the incompatible
+  Chinese tight meshes with full-canvas quads so the English artwork is not
+  clipped, while preserving each texture's dimensions, pivot, and scale. It
+  preserves the approved credits parchment and rejects unclassified texture
+  differences instead of importing versioned artwork blindly.
 - `audit_remaining_cjk.py` separately inventories CJK-bearing IL2CPP literals,
   TextAsset JSON leaves, and serialized TMP text so internal data and creator
   names are not confused with missed player-facing UI.
