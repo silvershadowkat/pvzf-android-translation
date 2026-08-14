@@ -142,6 +142,33 @@ stored default name is Chinese should be renamed with the game's
 `Rename Selected Save` control. New saves use the translated default. This
 keeps migration tooling away from progression data.
 
+### Why an imported save can still say `新的存档`
+
+The save picker does not generate the whole row from one translatable string.
+Its row format supplies `Slot`, `Saved at`, and `Version`, but the first value
+is the save's persisted `SurvivalData.name`. In the official game,
+`SaveInfo.SaveSurvivalData` and `SaveMgr.SaveBoard` historically created a new
+slot with the default name `新的存档`. Translating that default to `New Save
+File` affects newly created saves only; it cannot safely rewrite names already
+stored in progression data.
+
+This distinction can be confirmed from the UI itself: English row labels
+surrounding a Chinese first line mean the current translation is active, while
+an older displayed save version (for example, `Version: 3.7` in a 3.8.1 build)
+proves the slot was imported from an earlier game version. The player may use
+`Rename Selected Save` to change that stored label. If a genuinely new save
+created by the current clean build still receives the Chinese default, check
+for a stale external `files/il2cpp` metadata override before changing code.
+
+### Preserve runtime formatting characters
+
+Some metadata literals deliberately end in `\n` because the game concatenates
+several formatted fields into one inspection panel. Translations must preserve
+those separators. For example, the SolarNova inspection fields for HP, damage,
+production cooldown, and Lumos level each retain the official trailing newline.
+Removing it causes adjacent labels and values to run together even though the
+individual words are correctly translated.
+
 ## Required audits before a release
 
 - metadata literal count and round-trip validation;

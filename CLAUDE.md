@@ -85,10 +85,12 @@ explicitly designed as a final polish pass.
 5. Refine Almanac typography with `scripts/refine_almanac_layout.py`.
 6. Apply Android-specific finishing work with `scripts/polish_android_ui.py`.
 7. Bake and validate the Help parchment with `scripts/bake_help_credits.py`.
-8. Run `scripts/audit_remaining_cjk.py` and review every *visible* result.
-9. Package only the two payloads with `scripts/package_apk_payload.py`.
-10. Align, release-sign, and verify the APK.
-11. Run `scripts/audit_apk_release.py` against the chosen base APK.
+8. Bake validated PC particle translations with
+   `scripts/apply_pc_texture_translations.py`.
+9. Run `scripts/audit_remaining_cjk.py` and review every *visible* result.
+10. Package only the two payloads with `scripts/package_apk_payload.py`.
+11. Align, release-sign, and verify the APK.
+12. Run `scripts/audit_apk_release.py` against the chosen base APK.
 
 Every builder writes a JSON report and reopens/revalidates its generated file.
 Treat a failed validation as a real failure; do not delete checks to get a

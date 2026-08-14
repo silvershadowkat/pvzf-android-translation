@@ -21,6 +21,7 @@ from typing import Iterable
 
 MAGIC = b"\xaf\x1b\xb1\xfa"
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
+CSHARP_FORMAT_FIELD_RE = re.compile(r"\{(\d+)(?:,[^}:]+)?(?::[^}]+)?\}")
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
 STRUCTURED_PAIR_FILES = ("travel_buffs.json", "tips_fs.json", "tips_iz.json")
@@ -79,6 +80,15 @@ ANDROID_CONFIRMED_EXACT = {
     "{0}，编号：{1}\n保存时间：{2}\n版本：{3}": "{0}, Slot: {1}\nSaved at: {2}\nVersion: {3}",
     "，最近一次自动保存\n保存时间：": ", Latest Autosave\nSaved at: ",
     "禁用转场动画": "Disable Transitions",
+
+    # Plant inspection popup. The official Android fragments all retain a
+    # trailing newline; older English references dropped it and caused the
+    # independently formatted stats to run together (for example,
+    # "300/300Damage"). Preserve the source separators exactly.
+    "生命值：{0}/{1}\n": "HP: {0}/{1}\n",
+    "攻击力：{0}\n": "Damage: {0}\n",
+    "生产间隔：{0}秒\n": "Production CD: {0}s\n",
+    "光照等级：{0}\n": "Lumos Level: {0}\n",
 
     # Starbound Task Rewards.
     "奖励1：<color=black>": "Reward 1: <color=grey>",
@@ -253,6 +263,8 @@ ANDROID_381_SYNERGY_ENUM_FIELDS = {
 ANDROID_REQUIRED_OVERRIDE_SOURCES = {
     "简单模式", "普通模式", "正常模式", "困难模式", "极难模式", "你确定？",
     "禁用转场动画",
+    "生命值：{0}/{1}\n", "攻击力：{0}\n",
+    "生产间隔：{0}秒\n", "光照等级：{0}\n",
     "奖励1：<color=black>", "奖励1：<color=white>",
     "奖励2：<color=black>", "奖励2：<color=white>",
 }
@@ -565,6 +577,60 @@ def csharp_format(template: str, values: Iterable[str]) -> str:
     return protected.replace(open_token, "{").replace(close_token, "}")
 
 
+def translate_csharp_template_with_pc_regex(
+    text: str,
+    regex_entries: list[tuple[str, str, re.Pattern[str], str]],
+) -> str | None:
+    """Bridge PC runtime regexes to Android's compiled C# format strings.
+
+    The PC translator sees the final rendered text, such as
+    ``保存成功，编号：0``, while IL2CPP metadata contains the pre-rendered
+    template ``保存成功，编号：{0}``. Substitute unique numeric sentinels,
+    require a whole-string PC regex match, render the community translation,
+    and then restore the original C# placeholders (including format specifiers
+    such as ``:F0`` and ``:D2``).
+
+    Only a single unambiguous, fully English result is accepted. Partial
+    matches are deliberately rejected so a small regex such as ``第(\\d+)页``
+    cannot discard the rest of a longer Android diagnostic or UI message.
+    """
+
+    fields = list(CSHARP_FORMAT_FIELD_RE.finditer(text))
+    if not fields:
+        return None
+
+    original_fields: dict[int, str] = {}
+    sentinels: dict[int, str] = {}
+    for field in fields:
+        index = int(field.group(1))
+        original = field.group(0)
+        previous = original_fields.get(index)
+        if previous is not None and previous != original:
+            return None
+        original_fields[index] = original
+        sentinels[index] = f"927401{index:03d}683"
+
+    sample = CSHARP_FORMAT_FIELD_RE.sub(
+        lambda match: sentinels[int(match.group(1))], text
+    )
+    candidates: set[str] = set()
+    for _pattern, template, compiled, anchor in regex_entries:
+        if anchor and anchor not in sample:
+            continue
+        match = compiled.search(sample)
+        if match is None or match.span() != (0, len(sample)):
+            continue
+        rendered = csharp_format(template, match.groups())
+        for index, sentinel in sentinels.items():
+            rendered = rendered.replace(sentinel, original_fields[index])
+        if rendered != text and not CJK_RE.search(rendered):
+            candidates.add(rendered)
+
+    if len(candidates) == 1:
+        return candidates.pop()
+    return None
+
+
 def translate_literal(
     text: str,
     exact: dict[str, str],
@@ -596,6 +662,10 @@ def translate_literal(
         result = csharp_format(template, dynamic)
         if result != text:
             return result, "pc_regex"
+
+    template_result = translate_csharp_template_with_pc_regex(text, regex_entries)
+    if template_result is not None:
+        return template_result, "pc_regex_csharp_template"
     return text, None
 
 
