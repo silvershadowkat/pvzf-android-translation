@@ -253,6 +253,11 @@ Available scripts:
   the final narrow title/layout corrections.
 - `bake_help_credits.py` replaces the 1400×600 Help parchment texture with a
   deterministic pre-rendered version and blanks the former live credit layer.
+- `apply_pc_texture_translations.py` audits the complete PC English texture
+  catalog and bakes the eight validated comic particle effects into Android by
+  exact Texture2D/Sprite name and dimensions. It preserves the approved credits
+  parchment and rejects unclassified texture differences instead of importing
+  versioned artwork blindly.
 - `audit_remaining_cjk.py` separately inventories CJK-bearing IL2CPP literals,
   TextAsset JSON leaves, and serialized TMP text so internal data and creator
   names are not confused with missed player-facing UI.
