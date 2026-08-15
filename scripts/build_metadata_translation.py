@@ -90,6 +90,11 @@ ANDROID_CONFIRMED_EXACT = {
     "生产间隔：{0}秒\n": "Production CD: {0}s\n",
     "光照等级：{0}\n": "Lumos Level: {0}\n",
 
+    # The Gods: Evolved builds this card body by appending a short suffix to
+    # the live plant name. The PC project has the completed sentence, while
+    # Android stores only this fragment in its literal table.
+    "保底时大招所需射击子弹数-10": ": -10 shots needed for ultimate",
+
     # Starbound Task Rewards.
     "奖励1：<color=black>": "Reward 1: <color=grey>",
     "奖励1：<color=white>": "Reward 1: <color=white>",
@@ -257,6 +262,56 @@ ANDROID_381_SYNERGY_ENUM_FIELDS = {
     7360: ("召唤师", "Necromancers"),
 }
 
+# Investment Odyssey derives each card title with InvestBuff.ToString(). The
+# PC translation JSON intentionally leaves these title fields blank, so its
+# runtime translator only supplies the descriptions. As with plant affinities
+# above, the Android build must rename the validated enum definition strings
+# while retaining every numeric value and all gameplay code unchanged.
+ANDROID_381_INVEST_ENUM_FIELDS = {
+    9689: ("完美开局", "Perfect Start"),
+    9690: ("气氛组", "Cheer Squad"),
+    9691: ("无伤通关", "Flawless Victory"),
+    9692: ("植物重组", "Plant Reshuffle"),
+    9693: ("究极支援", "Ultimate Support"),
+    9694: ("恢复生机", "Revitalization"),
+    9695: ("简单模式", "Easy Mode"),
+    9696: ("难度修改器", "Difficulty Modifier"),
+    9697: ("当头一棒", "Opening Strike"),
+    9698: ("榜样的力量", "Role Model"),
+    9699: ("基层贡献", "Grassroots Support"),
+    9700: ("绝对力量奖", "Absolute Power Award"),
+    9701: ("存款回报", "Deposit Returns"),
+    9702: ("免费刷新", "Free Reroll"),
+    9703: ("现金为王", "Cash Is King"),
+    9704: ("降本增效", "Cost Efficiency"),
+    9705: ("精准暴击", "Precision Crit"),
+    9706: ("百花齐放", "Full Bloom"),
+    9707: ("榜样的力量II", "Role Model II"),
+    9708: ("风暴骑士", "Storm Knight"),
+    9709: ("绕口令", "Tongue Twister"),
+    9710: ("创伤小组", "Trauma Team"),
+    9711: ("打通上下游", "Vertical Integration"),
+    9712: ("人海战术", "Human Wave Tactics"),
+    9713: ("固定理财", "Fixed Investment"),
+    9714: ("星变", "Star Shift"),
+    9715: ("沙里淘金", "Panning for Gold"),
+    9716: ("延迟收益", "Delayed Returns"),
+    9717: ("幸运闪避", "Lucky Dodge"),
+    9718: ("攻防一体", "Offense and Defense"),
+    9719: ("野蛮成长", "Wild Growth"),
+    9720: ("鲜血阶梯", "Blood Ladder"),
+    9721: ("超光速提拔", "Lightspeed Promotion"),
+    9722: ("幸运之子", "Lucky One"),
+    9723: ("积分大使飘飘", "Points Ambassador Piaopiao"),
+    9724: ("开源节流", "Increase Revenue, Cut Costs"),
+    9725: ("概率事件", "Random Event"),
+    9726: ("被动收入", "Passive Income"),
+    9727: ("星辉模仿卡", "Starlight Imitater"),
+    9728: ("淘宝积分", "Points Marketplace"),
+    9729: ("养精蓄锐", "Gathering Strength"),
+    9730: ("藏一手", "Ace Up the Sleeve"),
+}
+
 # Only platform-specific semantic/layout fixes override PC data. All other
 # Codex/screenshot-confirmed mappings are fallbacks and automatically yield to
 # a current PC community exact translation when one appears.
@@ -356,25 +411,29 @@ def read_definition_string(data: bytes, layout: DefinitionLayout, relative_offse
     return data[start:end].decode("utf-8")
 
 
-def translate_synergy_enum_fields(base: bytes) -> tuple[bytes, list[dict[str, object]]]:
-    """Rename only the validated 3.8.1 affinity enum fields used by Almanac ToString()."""
+def translate_validated_enum_fields(
+    base: bytes,
+    fields: dict[int, tuple[str, str]],
+    label: str,
+) -> tuple[bytes, list[dict[str, object]]]:
+    """Rename validated display-facing enum fields without changing their values."""
     layout = parse_definition_layout(base)
     field_count = layout.field_size // 12
     output = bytearray(base)
     new_heap = bytearray(base[layout.string_offset : layout.string_offset + layout.string_size])
     changes: list[dict[str, object]] = []
 
-    for field_index, (expected_source, translated) in ANDROID_381_SYNERGY_ENUM_FIELDS.items():
+    for field_index, (expected_source, translated) in fields.items():
         if field_index >= field_count:
             raise RuntimeError(
-                f"affinity enum field {field_index} is outside the {field_count}-field table"
+                f"{label} enum field {field_index} is outside the {field_count}-field table"
             )
         record_offset = layout.field_offset + field_index * 12
         original_name_offset = struct.unpack_from("<I", base, record_offset)[0]
         original_name = read_definition_string(base, layout, original_name_offset)
         if original_name != expected_source:
             raise RuntimeError(
-                f"affinity enum validation failed at field {field_index}: "
+                f"{label} enum validation failed at field {field_index}: "
                 f"expected {expected_source!r}, found {original_name!r}"
             )
         translated_offset = len(new_heap)
@@ -385,7 +444,7 @@ def translate_synergy_enum_fields(base: bytes) -> tuple[bytes, list[dict[str, ob
                 "field_index": field_index,
                 "source": original_name,
                 "translation": translated,
-                "expected_numeric_value": field_index - min(ANDROID_381_SYNERGY_ENUM_FIELDS) + 1,
+                "numeric_value_unchanged": True,
             }
         )
 
@@ -400,7 +459,7 @@ def translate_synergy_enum_fields(base: bytes) -> tuple[bytes, list[dict[str, ob
         actual = read_definition_string(output, translated_layout, translated_offset)
         if actual != change["translation"]:
             raise RuntimeError(
-                f"affinity enum round-trip validation failed at field {change['field_index']}"
+                f"{label} enum round-trip validation failed at field {change['field_index']}"
             )
     return bytes(output), changes
 
@@ -748,7 +807,19 @@ def main() -> int:
                 }
             )
 
-    definition_patched_base, synergy_enum_changes = translate_synergy_enum_fields(base)
+    definition_patched_base, display_enum_changes = translate_validated_enum_fields(
+        base,
+        {**ANDROID_381_SYNERGY_ENUM_FIELDS, **ANDROID_381_INVEST_ENUM_FIELDS},
+        "Android display",
+    )
+    synergy_enum_changes = [
+        change for change in display_enum_changes
+        if int(change["field_index"]) in ANDROID_381_SYNERGY_ENUM_FIELDS
+    ]
+    invest_enum_changes = [
+        change for change in display_enum_changes
+        if int(change["field_index"]) in ANDROID_381_INVEST_ENUM_FIELDS
+    ]
     output = build_metadata(definition_patched_base, layout, translated_bytes)
     output_layout, output_literals = parse_metadata(output)
     if [item.raw for item in output_literals] != translated_bytes:
@@ -781,6 +852,11 @@ def main() -> int:
             "strategy": "validated field-name rename; enum values and all IL2CPP code unchanged",
             "changed_field_count": len(synergy_enum_changes),
             "changes": synergy_enum_changes,
+        },
+        "android_investment_enum": {
+            "strategy": "validated field-name rename; enum values and all IL2CPP code unchanged",
+            "changed_field_count": len(invest_enum_changes),
+            "changes": invest_enum_changes,
         },
         "reference_pairs": reference_stats,
         "reference_conflicts": reference_conflicts,

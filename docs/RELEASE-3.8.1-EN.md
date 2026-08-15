@@ -1,4 +1,4 @@
-# PvZ Fusion 3.8.1 — English Android
+# PvZ Fusion 3.8.1: English Android
 
 This is an independent, noncommercial English Android port of *Plants vs.
 Zombies: Fusion* 3.8.1. It is not affiliated with or endorsed by PopCap,
@@ -48,7 +48,7 @@ The English Android project intentionally does **not** add startup code that
 deletes, renames, replaces, or migrates external metadata. This preserves the
 official launcher/DEX behavior and avoids modifying user files automatically.
 If stale text remains after an update, back up the game files, fully close the
-game, and manually remove only the stale `files/il2cpp` override—or perform a
+game, and manually remove only the stale `files/il2cpp` override, or perform a
 clean installation. Do not remove progression or save files.
 
 ## Troubleshooting blindly renamed packages
@@ -60,7 +60,7 @@ its own hardcoded paths or preference names. A manifest-only rename does not
 rewrite those values and is unsupported.
 
 With both copies installed, such a derivative can read or overwrite unexpected
-metadata, configuration, preferences, or hot-patch files—or the added mod may
+metadata, configuration, preferences, or hot-patch files, or the added mod may
 have directly replaced the English assets. Either case can produce text that
 does not match the original English APK. The full external-storage path was
 not found as a literal in the base game's IL2CPP metadata or `libil2cpp.so`, so
@@ -137,6 +137,16 @@ device testing. The targeted changes are:
   and provenance workflow. New PC community translations take priority over
   Codex-assisted fallback translations when matching upstream entries become
   available, while Android-specific schema adapters remain explicit.
+
+## Changes prepared after v3.8.1-en.5
+
+- Translated all 42 Investment Odyssey modifier names. The descriptions still
+  use the PC community translation.
+- Translated the remaining Buckshot Commando upgrade text.
+- Fixed the Princess Solarnova stat panel spacing.
+- Improved the audit used to find hidden Android-only Chinese text.
+- Documented the custom-level plant list, optional UI-position preset, update
+  behavior, and 3.6.1 music comparison.
 
 ## Safety evidence
 

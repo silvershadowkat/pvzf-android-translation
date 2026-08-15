@@ -92,6 +92,19 @@ Some PC files cannot be copied wholesale:
   version-validated enum fields; it preserves their numeric values and aborts
   if any expected source name or table layout differs. Revalidate these field
   indices after every game update.
+- Investment Odyssey descriptions come from the PC community
+  `travel_buffs.json`, but its 42 `investmentBuffs.*.name` fields are currently
+  blank. Android renders the corresponding card titles with
+  `InvestBuff.ToString()`. The metadata builder therefore keeps the PC
+  descriptions and renames only the 42 version-validated Android enum fields.
+  Record this distinction in release notes: Android completes missing display
+  titles; it does not supersede the PC translation or alter enum values.
+- `audit_remaining_cjk.py --dump-cs <dump.cs>` must accompany the ordinary
+  literal/bundle scan. Player-facing enum member names live in the IL2CPP
+  definition-string heap and were invisible to the older literal-only audit.
+  Treat its enum report as a review inventory, not permission to translate
+  every identifier. Patch only a class proven to be displayed through
+  `ToString()` and validate every expected field name and index.
 - Runtime-backed page-navigation labels require the UI component backing-field
   patch in addition to ordinary TMP text replacement.
 - Serialized UI is not uniformly TextMesh Pro. Legacy `UnityEngine.UI.Text`
@@ -125,9 +138,10 @@ check.
    work.
 6. Run `audit_translation_provenance.py`. Accept PC replacements for fallback
    entries; manually review only Android-required conflicts.
-7. Run `audit_remaining_cjk.py` on the rebuilt metadata and bundle. Classify
-   results as internal identifiers, original proper names, non-player-facing
-   diagnostics, or confirmed visible text.
+7. Run `audit_remaining_cjk.py` on the rebuilt metadata and bundle and pass the
+   new version's `dump.cs` with `--dump-cs`. Classify literal and definition-
+   enum results as internal identifiers, original proper names, non-player-
+   facing diagnostics, or confirmed visible text.
 8. For confirmed visible gaps, first search the current PC data by underlying
    ID, source string, call relationship, and data structure. Only then create a
    concise GPT/Codex draft.

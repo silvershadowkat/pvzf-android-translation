@@ -77,6 +77,10 @@ Test at minimum:
 - font rendering, rich-text tags, and line wrapping
 - save/load and relaunch
 
+For the 2026-08-14 Investment/Odyssey, UI-position, audio, and custom-level
+investigation, including exact reproduction routes, see
+`docs/testing/DISCORD_AUDIT_2026-08-14.md`.
+
 ## 5. Patch `data.unity3d`
 
 Metadata alone cannot translate serialized `TextAsset` data, baked UI strings,

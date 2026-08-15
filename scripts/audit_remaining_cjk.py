@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit CJK-bearing IL2CPP literals, TextAssets, and all serialized strings."""
+"""Audit CJK-bearing IL2CPP text, TextAssets, and serialized strings."""
 
 from __future__ import annotations
 
@@ -18,6 +18,13 @@ from build_metadata_translation import parse_metadata  # noqa: E402
 
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
+ENUM_BLOCK_RE = re.compile(
+    r"(?ms)^(?:public|private|internal|protected)?\s*enum\s+(?P<name>[^\s/]+)"
+    r"[^\n]*\n\{(?P<body>.*?)^\}"
+)
+ENUM_MEMBER_RE = re.compile(
+    r"(?m)^\s*public\s+const\s+[^\s]+\s+(?P<name>[^\s=]+)\s*=\s*(?P<value>[^;]+);"
+)
 
 
 def walk_strings(value, path=()):
@@ -35,11 +42,40 @@ def safe_text(value: str) -> str:
     return value.encode("utf-8", "backslashreplace").decode("utf-8")
 
 
+def audit_dump_enums(path: Path | None) -> list[dict[str, object]]:
+    """Inventory CJK enum members that may surface through Enum.ToString().
+
+    These names live in the metadata definition-string heap rather than the
+    string-literal table. The original audit therefore missed player-facing
+    enums such as InvestBuff and SynergyType even though their values appeared
+    on screen. The inventory is intentionally broad and remains a review list:
+    many enum names are internal and must not be translated blindly.
+    """
+    if path is None:
+        return []
+    text = path.read_text(encoding="utf-8", errors="replace")
+    enums = []
+    for block in ENUM_BLOCK_RE.finditer(text):
+        members = [
+            {"name": match.group("name"), "value": match.group("value").strip()}
+            for match in ENUM_MEMBER_RE.finditer(block.group("body"))
+            if CJK_RE.search(match.group("name"))
+        ]
+        if members:
+            enums.append({"enum": block.group("name"), "member_count": len(members), "members": members})
+    return enums
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--metadata", required=True, type=Path)
     parser.add_argument("--bundle", required=True, type=Path)
     parser.add_argument("--dummy-dll-dir", required=True, type=Path)
+    parser.add_argument(
+        "--dump-cs",
+        type=Path,
+        help="optional Il2CppDumper dump.cs used to inventory CJK enum definition names",
+    )
     parser.add_argument("--unity-version", default="2022.3.62f1")
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
@@ -120,8 +156,9 @@ def main() -> int:
                     }
                 )
 
+    enum_definitions = audit_dump_enums(args.dump_cs)
     report = {
-        "format_version": 1,
+        "format_version": 2,
         "metadata": {
             "cjk_occurrences": sum(item["occurrences"] for item in metadata),
             "unique_strings": len(metadata),
@@ -138,6 +175,16 @@ def main() -> int:
             "objects": serialized_objects,
         },
         "typetree_failures_with_utf8_lead_bytes": typetree_failures,
+        "definition_enums": {
+            "source": str(args.dump_cs.resolve()) if args.dump_cs else None,
+            "review_note": (
+                "Definition names can reach the UI through Enum.ToString(); "
+                "do not translate this broad inventory without runtime confirmation."
+            ),
+            "enum_count": len(enum_definitions),
+            "cjk_member_count": sum(item["member_count"] for item in enum_definitions),
+            "enums": enum_definitions,
+        },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -151,6 +198,8 @@ def main() -> int:
                 "serialized_object_count": report["serialized_objects"]["object_count"],
                 "serialized_cjk_string_fields": report["serialized_objects"]["cjk_string_fields"],
                 "typetree_failures_with_utf8_lead_bytes": len(typetree_failures),
+                "definition_enum_count": len(enum_definitions),
+                "definition_cjk_members": sum(item["member_count"] for item in enum_definitions),
             },
             indent=2,
         )
