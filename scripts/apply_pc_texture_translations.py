@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""Bake validated PC English particle textures into the Android Unity bundle.
+"""Bake validated PC English textures into the Android Unity bundle.
 
 The PC translator replaces assets dynamically by exact asset name. Android does
 not run that translator, so the equivalent PNGs must be serialized into
 ``data.unity3d``. This pass is deliberately narrow: it audits the complete PC
-English texture catalog, but only writes the eight confirmed particle effects.
+English texture catalog. Particle effects also receive a full-rectangle Sprite
+mesh because English lettering can extend beyond the original Chinese mesh.
+Other compatible textures are written only when name and dimensions match one
+unique Android Texture2D exactly. Every such validated match is baked from the
+canonical PC source: whole-canvas pixel averages are not reliable localization
+detectors because a few untranslated glyphs can occupy a tiny transparent area.
 """
 
 from __future__ import annotations
@@ -35,7 +40,7 @@ PARTICLE_NAMES = (
 PRESERVE_REASONS = {
     "Logo/Logo3.6.png": "versioned PC 3.6 logo is unsuitable for Android 3.8.1",
     "Menu/thanks.png": "preserve the approved Android credits parchment",
-    "Menu/\u6df1\u6e0a\u5165\u53e3.png": "Abyss is parked and must remain untouched",
+    "Menu/深渊入口.png": "Abyss is parked and must remain untouched",
 }
 
 
@@ -101,6 +106,7 @@ def expand_sprite_to_full_rect(sprite: object, width: int, height: int) -> None:
     render_data = sprite.m_RD
     vertex_data = render_data.m_VertexData
     vertex_data.m_VertexCount = 4
+    # Unity stores the position stream first, followed by an unused UV stream.
     vertex_data.m_DataSize = b"".join(
         struct.pack("<3f", *position) for position in positions
     ) + bytes(32)
@@ -126,7 +132,7 @@ def expand_sprite_to_full_rect(sprite: object, width: int, height: int) -> None:
     render_data.uvTransform.y = width / 2.0
     render_data.uvTransform.z = ppu
     render_data.uvTransform.w = height / 2.0
-    render_data.settingsRaw &= ~64
+    render_data.settingsRaw &= ~64  # SpriteMeshType.Tight -> FullRect
 
 
 def audit_catalog(
@@ -162,8 +168,6 @@ def audit_catalog(
                     item["reason"] = PRESERVE_REASONS[relative]
                 elif relative == f"Particles/{source_path.name}":
                     item["classification"] = "particle_translation"
-                elif error <= 7.0:
-                    item["classification"] = "already_localized_or_compression_only"
                 else:
                     item["classification"] = "manual_review_required"
         audit.append(item)
@@ -177,6 +181,11 @@ def main() -> int:
     parser.add_argument("--pc-sprite-particles", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
+    parser.add_argument(
+        "--apply-compatible-catalog",
+        action="store_true",
+        help="also apply non-particle PC textures with unique exact-name/dimension matches",
+    )
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
     args = parser.parse_args()
 
@@ -188,11 +197,41 @@ def main() -> int:
     review_required = [
         item for item in catalog_audit if item.get("classification") == "manual_review_required"
     ]
-    if review_required:
+    if review_required and not args.apply_compatible_catalog:
         names = [str(item["source"]) for item in review_required]
         raise RuntimeError(f"unclassified PC texture differences require review: {names}")
 
     applied: list[dict[str, object]] = []
+    applied_catalog_textures: list[dict[str, object]] = []
+    if args.apply_compatible_catalog:
+        for item in review_required:
+            source_path = args.pc_texture_root / str(item["source"])
+            source = Image.open(source_path).convert("RGBA")
+            targets = texture_objects.get(source_path.stem, [])
+            if len(targets) != 1:
+                continue
+            texture_obj = targets[0]
+            texture = texture_obj.read()
+            target_size = (texture.m_Width, texture.m_Height)
+            if target_size != source.size:
+                continue
+            before_error = mean_pixel_error(source, texture.image)
+            texture_format = int(texture.m_TextureFormat)
+            texture.image = source
+            texture_obj.save_typetree(texture)
+            item["classification"] = "compatible_translation"
+            applied_catalog_textures.append(
+                {
+                    "name": source_path.stem,
+                    "relative_source": str(item["source"]),
+                    "texture_path_id": texture_obj.path_id,
+                    "dimensions": list(source.size),
+                    "texture_format": texture_format,
+                    "source_sha256": sha256_file(source_path),
+                    "mean_pixel_error_before": round(before_error, 4),
+                }
+            )
+
     for name in PARTICLE_NAMES:
         texture_source_path = args.pc_texture_root / "Particles" / f"{name}.png"
         sprite_source_path = args.pc_sprite_particles / f"{name}.png"
@@ -258,6 +297,18 @@ def main() -> int:
     check_env = UnityPy.load(str(args.output))
     check_textures = find_named_objects(check_env, "Texture2D")
     check_sprites = find_named_objects(check_env, "Sprite")
+    for record in applied_catalog_textures:
+        source = Image.open(
+            args.pc_texture_root / str(record["relative_source"])
+        ).convert("RGBA")
+        texture = check_textures[str(record["name"])][0].read()
+        after_error = mean_pixel_error(source, texture.image)
+        record["mean_pixel_error_after"] = round(after_error, 4)
+        if after_error >= float(record["mean_pixel_error_before"]) or after_error > 8.0:
+            raise RuntimeError(
+                f"reopened texture validation failed for {record['relative_source']}: "
+                f"before={record['mean_pixel_error_before']}, after={after_error:.4f}"
+            )
     for record in applied:
         name = str(record["name"])
         source = Image.open(args.pc_texture_root / "Particles" / f"{name}.png").convert("RGBA")
@@ -304,6 +355,7 @@ def main() -> int:
             "classifications": dict(sorted(classifications.items())),
         },
         "catalog_audit": catalog_audit,
+        "applied_compatible_textures": applied_catalog_textures,
         "applied_particle_textures": applied,
         "output": {
             "path": str(args.output.resolve()),
@@ -317,11 +369,14 @@ def main() -> int:
         json.dumps(
             {
                 "catalog_summary": report["catalog_summary"],
+                "applied_compatible": [
+                    record["relative_source"] for record in applied_catalog_textures
+                ],
                 "applied": [record["name"] for record in applied],
                 "output": report["output"],
                 "report": str(args.report),
             },
-            ensure_ascii=False,
+            ensure_ascii=True,
             indent=2,
         )
     )

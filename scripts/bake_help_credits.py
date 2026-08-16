@@ -72,6 +72,17 @@ def main() -> int:
     parser.add_argument("--preview", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument(
+        "--approved-bundle",
+        type=Path,
+        help="bundle containing the already approved complete Help parchment texture",
+    )
+    parser.add_argument(
+        "--credits-component-path-id",
+        type=int,
+        default=PORT_CREDITS_COMPONENT_PATH_ID,
+        help="resolved live Android-port credit overlay to disable",
+    )
+    parser.add_argument(
         "--approved-artwork",
         type=Path,
         help="approved complete parchment artwork; resized to the required 1400x600 texture",
@@ -84,7 +95,17 @@ def main() -> int:
     env.typetree_generator = generator
     objects = {(obj.assets_file.name, obj.path_id): obj for obj in env.objects}
 
-    texture_obj = objects[("resources.assets", HELP_TEXTURE_PATH_ID)]
+    texture_matches = []
+    for candidate in objects.values():
+        if candidate.type.name != "Texture2D":
+            continue
+        data = candidate.read()
+        if data.m_Name == "thanks" and (data.m_Width, data.m_Height) == (1400, 600):
+            texture_matches.append(candidate)
+    if len(texture_matches) != 1:
+        raise RuntimeError(f"expected one 1400x600 Help parchment named 'thanks', found {len(texture_matches)}")
+    texture_obj = texture_matches[0]
+    help_texture_path_id = texture_obj.path_id
     texture = texture_obj.read()
     if texture.m_Name != "thanks" or (texture.m_Width, texture.m_Height) != (1400, 600):
         raise RuntimeError("Help parchment texture identity changed")
@@ -94,12 +115,42 @@ def main() -> int:
         "height": texture.m_Height,
         "format": int(texture.m_TextureFormat),
     }
-    font_obj = objects[("resources.assets", HANDWRITING_FONT_PATH_ID)]
+    font_matches = []
+    for candidate in objects.values():
+        if candidate.type.name != "Font":
+            continue
+        data = candidate.read()
+        if data.m_Name == "fzjz":
+            font_matches.append(candidate)
+    if len(font_matches) != 1:
+        raise RuntimeError(f"expected one embedded Font named 'fzjz', found {len(font_matches)}")
+    font_obj = font_matches[0]
+    handwriting_font_path_id = font_obj.path_id
     font = font_obj.read()
     if font.m_Name != "fzjz":
         raise RuntimeError("Embedded parchment handwriting Font identity changed")
     font_bytes = bytes(font.m_FontData)
-    if args.approved_artwork:
+    if args.approved_bundle:
+        approved_env = UnityPy.load(str(args.approved_bundle))
+        approved_matches = []
+        for candidate in approved_env.objects:
+            if candidate.type.name != "Texture2D":
+                continue
+            data = candidate.read()
+            if data.m_Name == "thanks" and (data.m_Width, data.m_Height) == (1400, 600):
+                approved_matches.append(data)
+        if len(approved_matches) != 1:
+            raise RuntimeError(
+                f"approved bundle must contain one 1400x600 texture named 'thanks'; found {len(approved_matches)}"
+            )
+        replacement = approved_matches[0].image.convert("RGBA")
+        render_source = {
+            "kind": "approved_bundle_texture",
+            "path": str(args.approved_bundle.resolve()),
+            "sha256": sha256_file(args.approved_bundle),
+        }
+        del approved_env
+    elif args.approved_artwork:
         approved = Image.open(args.approved_artwork).convert("RGBA")
         replacement = approved.resize((1400, 600), Image.Resampling.LANCZOS)
         render_source = {
@@ -116,7 +167,7 @@ def main() -> int:
     texture.image = replacement
     texture_obj.save_typetree(texture)
 
-    credit_obj = objects[("resources.assets", PORT_CREDITS_COMPONENT_PATH_ID)]
+    credit_obj = objects[("resources.assets", args.credits_component_path_id)]
     credit_tree = credit_obj.read_typetree(check_read=False)
     overlay_before = credit_tree["m_text"]
     credit_tree["m_text"] = "   "
@@ -131,8 +182,8 @@ def main() -> int:
     check_env = UnityPy.load(str(args.output))
     check_env.typetree_generator = generator
     check_objects = {(obj.assets_file.name, obj.path_id): obj for obj in check_env.objects}
-    check_texture = check_objects[("resources.assets", HELP_TEXTURE_PATH_ID)].read()
-    check_overlay = check_objects[("resources.assets", PORT_CREDITS_COMPONENT_PATH_ID)].read_typetree(
+    check_texture = check_objects[("resources.assets", help_texture_path_id)].read()
+    check_overlay = check_objects[("resources.assets", args.credits_component_path_id)].read_typetree(
         check_read=False
     )["m_text"]
     if check_texture.m_Name != "thanks" or (check_texture.m_Width, check_texture.m_Height) != (1400, 600):
@@ -151,7 +202,7 @@ def main() -> int:
         "render": {
             "text": CREDIT_TEXT,
             "source": render_source,
-            "font_path_id": HANDWRITING_FONT_PATH_ID,
+            "font_path_id": handwriting_font_path_id,
             "font_name": font.m_Name,
             "font_data_sha256": hashlib.sha256(font_bytes).hexdigest(),
             "font_size": 20,
@@ -165,9 +216,9 @@ def main() -> int:
             "sha256": sha256_file(args.output),
         },
         "preview": {"path": str(args.preview.resolve()), "sha256": sha256_file(args.preview)},
-        "texture": {"path_id": HELP_TEXTURE_PATH_ID, "before": texture_before},
+        "texture": {"path_id": help_texture_path_id, "before": texture_before},
         "disabled_overlay": {
-            "path_id": PORT_CREDITS_COMPONENT_PATH_ID,
+            "path_id": args.credits_component_path_id,
             "before": overlay_before,
             "after": "   ",
         },

@@ -1,4 +1,4 @@
-# Translation v24: Investment Odyssey audit
+# Translation v24 - Investment Odyssey audit
 
 ## Why this screen remained mixed-language
 
