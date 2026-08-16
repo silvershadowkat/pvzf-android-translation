@@ -23,6 +23,8 @@ from typing import Any
 
 import UnityPy
 
+from build_metadata_translation import ANDROID_CONFIRMED_EXACT
+
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
 ALMANAC_FILES = {
@@ -35,9 +37,86 @@ DETAIL_TYPE_TRANSLATIONS = {
     "基本机制": "Basic Mechanics",
     "植物特性": "Plant Traits",
     "植物体系": "Plant Systems",
+    "植物机制": "Plant Systems",
     "僵尸机制": "Zombie Mechanics",
     "环境机制": "Environmental Mechanics",
     "关卡机制": "Level Mechanics",
+}
+ANDROID_39_DETAIL_ALIASES = {
+    "低矮、高大、巨型植物": ("植物特性-植物体型",),
+    "可密植、坚实、金属植物": (
+        "植物特性-可密植植物",
+        "植物特性-坚实植物",
+        "植物特性-金属植物",
+    ),
+    "植物机制-护盾": ("基本机制-护盾",),
+    "植物机制-寒冷与冻结状态": ("植物体系-寒冷与冻结状态",),
+    "植物机制-余烬状态": ("植物体系-余烬状态",),
+    "植物机制-水草值": ("植物体系-水草值",),
+    "植物机制-红温状态": ("植物体系-红温状态",),
+    "植物机制-光照等级": ("植物体系-光照等级",),
+    "植物机制-磁力系统": ("植物体系-磁力系统",),
+    "植物机制-中毒状态": ("植物体系-中毒状态",),
+    "植物机制-传送状态": ("植物体系-传送状态",),
+    "僵尸机制-临界值": ("基本机制-临界值",),
+    "僵尸机制-防具": ("基本机制-僵尸防具",),
+    "僵尸机制-护甲": ("基本机制-护甲值",),
+}
+ANDROID_39_DETAIL_TITLES = {
+    "基本机制-植物占位": "Basic Mechanics - Plant Positions",
+    "基本机制-僵尸身位": "Basic Mechanics - Zombie Positions",
+    "基本机制-关卡难度": "Basic Mechanics - Level Difficulty",
+    "低矮、高大、巨型植物": "Plant Traits - Short, Tall, and Giant Plants",
+    "可密植、坚实、金属植物": "Plant Traits - Stackable, Defensive, and Metal Plants",
+    "植物机制-护盾": "Plant Systems - Shields",
+    "植物机制-寒冷与冻结状态": "Plant Systems - Chill and Freeze",
+    "植物机制-余烬状态": "Plant Systems - Irradiated Status",
+    "植物机制-水草值": "Plant Systems - Tangle Points",
+    "植物机制-红温状态": "Plant Systems - Enflamed Status",
+    "植物机制-光照等级": "Plant Systems - Lumos Levels",
+    "植物机制-磁力系统": "Plant Systems - Magnetic Systems",
+    "植物机制-中毒状态": "Plant Systems - Poison",
+    "植物机制-传送状态": "Plant Systems - Chronoshift",
+    "僵尸机制-临界值": "Zombie Mechanics - Critical Thresholds",
+    "僵尸机制-防具": "Zombie Mechanics - Armor Pieces",
+    "僵尸机制-护甲": "Zombie Mechanics - Damage Reduction",
+    "僵尸机制-BOSS及领袖": "Zombie Mechanics - Bosses and Leaders",
+}
+ANDROID_39_DETAIL_DESCRIPTIONS = {
+    "基本机制-植物占位": (
+        "Each tile has four plant positions: Main, Shell, Carrier, and Flying. "
+        "A position normally holds one plant, while stackable plants can share a position in groups of three.\n\n"
+        "<color=#77FFF8>Main:</color> Used by most plants.\n"
+        "<color=#77FFF8>Shell:</color> Usually occupied by Pumpkin-type plants.\n"
+        "<color=#77FFF8>Carrier:</color> Usually occupied by Lily Pad and Flower Pot-type plants.\n"
+        "<color=#77FFF8>Flying:</color> Usually occupied by Blover fusions and certain special plants."
+    ),
+    "基本机制-僵尸身位": (
+        "Zombies can occupy three positions: Ground, Air, and Underground. A zombie's position determines "
+        "whether certain plants can target it and whether certain attacks can hit it. Cherry Bombs, Doom-shrooms, "
+        "Jalapenos, Cob Cannon projectiles, and similar attacks ignore position restrictions.\n\n"
+        "<color=#77FFF8>Ground:</color> Most zombies on land or water.\n"
+        "<color=#77FFF8>Air:</color> Most flying zombies.\n"
+        "<color=#77FFF8>Underground:</color> Usually used by Miner-type zombies while entering the lawn."
+    ),
+    "基本机制-关卡难度": (
+        "Normal levels have six difficulty settings, from 0 to 5, which can be changed from Options or while playing. "
+        "Higher difficulties increase the number of zombies. Difficulty 4 and above also grant extra bonuses.\n\n"
+        "<color=#77FFF8>Difficulty 4:</color> Zombies gain 30% damage reduction and 0.1x movement speed.\n"
+        "<color=#77FFF8>Difficulty 5:</color> Damage reduction becomes 60% and the speed bonus becomes 0.2x. "
+        "Cherry explosions still splash when they hit Wall-nut-type plants. On levels with at least four flags, "
+        "the final wave also gains powerful special zombies.\n\n"
+        "Difficulty 6 is exclusive to Skin Challenges. In addition to Difficulty 5 rules, zombies gain 40% Toughness, "
+        "the first wave arrives after 3 seconds, and natural spawning occurs every 10 seconds."
+    ),
+    "僵尸机制-BOSS及领袖": (
+        "<color=#002461>Boss zombies</color> are exceptionally powerful. Fixed one-million-damage attacks, such as the "
+        "Mallet, deal at most 5000 damage to them. Hypnosis, swallowing, drowning, Tangle Point executions, ash "
+        "executions, umbrella conversion, shrinking, chronoshift executions, and similar instant-kill or weakening "
+        "effects do not work on bosses.\n\n<color=#002461>Leader zombies</color> are a boss subtype with 100 additional "
+        "DR. Outside Odyssey Survival, they lead huge waves from the third flag onward. In Odyssey: Evolved, their "
+        "Toughness is doubled."
+    ),
 }
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
@@ -85,7 +164,8 @@ def merge_android_detail_strings(
     source_script: str,
     pc_descriptions: dict[str, str],
     exact: dict[str, str],
-) -> str:
+    allow_untranslated_new_content: bool = False,
+) -> tuple[str, dict[str, list[str]]]:
     """Merge PC Mechanics Almanac copy into Android's required list schema."""
     tree = parse_json_text(source_script)
     if not isinstance(tree, dict) or not isinstance(tree.get("details"), list):
@@ -101,30 +181,44 @@ def merge_android_detail_strings(
         source_titles.append(title)
     if len(source_titles) != len(set(source_titles)):
         raise RuntimeError("official Android DetailStrings contains duplicate titles")
-    missing = sorted(set(source_titles) - set(pc_descriptions))
+    resolved_titles = set(pc_descriptions) | set(ANDROID_39_DETAIL_ALIASES) | set(ANDROID_39_DETAIL_DESCRIPTIONS)
+    missing = sorted(set(source_titles) - resolved_titles)
     extra = sorted(set(pc_descriptions) - set(source_titles))
-    if missing or extra:
+    if (missing or extra) and not allow_untranslated_new_content:
         raise RuntimeError(
             "PC/Android Mechanics Almanac title mismatch: "
             f"missing={missing!r}, extra={extra!r}"
         )
     for item, source_title in zip(details, source_titles):
+        if source_title in missing:
+            # Compatibility migrations intentionally preserve newly introduced
+            # upstream entries until they have been reviewed and translated.
+            # Existing entries are still merged from the community project.
+            continue
         source_type = item.get("type")
         translated_type = DETAIL_TYPE_TRANSLATIONS.get(source_type)
         if translated_type is None:
             raise RuntimeError(
                 f"missing English Mechanics Almanac category for {source_type!r}"
             )
-        translated_title = exact.get(source_title)
+        translated_title = ANDROID_39_DETAIL_TITLES.get(source_title, exact.get(source_title))
         if not isinstance(translated_title, str) or CJK_RE.search(translated_title):
             raise RuntimeError(f"missing English Mechanics Almanac title for {source_title!r}")
-        description = pc_descriptions[source_title]
+        if source_title in ANDROID_39_DETAIL_DESCRIPTIONS:
+            description = ANDROID_39_DETAIL_DESCRIPTIONS[source_title]
+        elif source_title in ANDROID_39_DETAIL_ALIASES:
+            description = "\n\n".join(pc_descriptions[key] for key in ANDROID_39_DETAIL_ALIASES[source_title])
+        else:
+            description = pc_descriptions[source_title]
         if not isinstance(description, str):
             raise RuntimeError(f"invalid PC Mechanics Almanac text for {source_title!r}")
         item["type"] = translated_type
         item["title"] = translated_title
         item["text"] = description
-    return json.dumps(tree, ensure_ascii=False, indent=4)
+    return json.dumps(tree, ensure_ascii=False, indent=4), {
+        "untranslated_android_titles": missing,
+        "unused_pc_titles": extra,
+    }
 
 
 def read_text_records(bundle: Path) -> dict[tuple[str, int], TextRecord]:
@@ -326,7 +420,20 @@ def main() -> int:
     )
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
+    parser.add_argument(
+        "--android-exact-map",
+        type=Path,
+        help="optional reviewed Android-only exact-string fallback map",
+    )
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
+    parser.add_argument(
+        "--allow-untranslated-new-content",
+        action="store_true",
+        help=(
+            "translate the known Mechanics Almanac intersection while preserving "
+            "new or renamed upstream entries for a later reviewed pass"
+        ),
+    )
     args = parser.parse_args()
 
     legacy_patches, legacy_leaf, legacy_conflicts, legacy_stats = learn_legacy_text_patches(
@@ -336,7 +443,20 @@ def main() -> int:
     for patch in legacy_patches:
         patches_by_name[patch.source_name].append(patch)
 
-    exact, regex_entries, extras = load_pc_maps(args.localization_dir)
+    pc_exact, regex_entries, extras = load_pc_maps(args.localization_dir)
+    exact = dict(ANDROID_CONFIRMED_EXACT)
+    exact.update(pc_exact)
+    if args.android_exact_map is not None:
+        android_map = read_json(args.android_exact_map)
+        android_exact = android_map.get("exact", android_map)
+        if not isinstance(android_exact, dict) or not all(
+            isinstance(key, str) and isinstance(value, str)
+            for key, value in android_exact.items()
+        ):
+            raise RuntimeError("Android exact map must contain a string-to-string 'exact' object")
+        # PC community text always wins if it later contains the same source.
+        for source, translated in android_exact.items():
+            exact.setdefault(source, translated)
     almanac = {
         name: (args.localization_dir / "Almanac" / filename).read_text(encoding="utf-8-sig")
         for name, filename in ALMANAC_FILES.items()
@@ -354,8 +474,11 @@ def main() -> int:
         raise RuntimeError(
             f"expected one official Android DetailStrings asset, found {len(source_detail_records)}"
         )
-    android_detail_script = merge_android_detail_strings(
-        source_detail_records[0].script, pc_detail_descriptions, exact
+    android_detail_script, detail_merge = merge_android_detail_strings(
+        source_detail_records[0].script,
+        pc_detail_descriptions,
+        exact,
+        args.allow_untranslated_new_content,
     )
     tips_fs: dict[str, str] = extras["tips_fs"]
     tips_iz: dict[str, str] = extras["tips_iz"]
@@ -529,6 +652,7 @@ def main() -> int:
         },
         "legacy_mapping_conflicts": legacy_conflicts,
         "pc_translation_entries": extras["source_counts"],
+        "mechanics_almanac_merge": detail_merge,
         "method_counts": dict(sorted(method_counts.items())),
         "changed_text_asset_count": len(changed_assets),
         "changed_text_assets": changed_assets,

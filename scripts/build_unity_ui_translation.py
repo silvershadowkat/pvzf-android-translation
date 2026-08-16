@@ -17,11 +17,6 @@ import UnityPy
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
 TEXT_OFFSET = 88
-
-# Several page-navigation labels are stored twice by the Android UI component:
-# the normal TMP m_text field and a trailing runtime backing string. The latter
-# overwrites m_text when the menu opens, which is why static bundle inspection
-# previously looked English while device screenshots still showed Chinese.
 ANDROID_RUNTIME_BACKING_EXACT = {
     "返回菜单": "Back to Menu",
     "上一页": "Previous Page",
@@ -73,7 +68,6 @@ def serialized_string(value: str) -> bytes:
 
 
 def replace_runtime_backing_text(raw: bytes) -> tuple[bytes, str, str] | None:
-    """Replace an exact trailing UI backing string, if one is present."""
     for source, target in ANDROID_RUNTIME_BACKING_EXACT.items():
         source_field = serialized_string(source)
         if raw.endswith(source_field):
@@ -222,7 +216,10 @@ def main() -> int:
         else:
             candidate = candidate_strings.get(key)
             if candidate is not None and candidate != source and not CJK_RE.search(candidate):
-                target, method = candidate, "aha_candidate_fallback"
+                source_hierarchy = hierarchy_for_component(source_objects, key)
+                candidate_hierarchy = hierarchy_for_component(candidate_objects, key)
+                if source_hierarchy and source_hierarchy == candidate_hierarchy:
+                    target, method = candidate, "validated_candidate_fallback"
 
         if target is None or target == current:
             continue
@@ -258,13 +255,9 @@ def main() -> int:
             "translated": target,
             "method": "android_runtime_backing",
         })
-
     missing_runtime_backings = set(ANDROID_RUNTIME_BACKING_EXACT) - set(runtime_backing_counts)
     if missing_runtime_backings:
-        raise RuntimeError(
-            "missing Android runtime backing labels: "
-            f"{sorted(missing_runtime_backings)}"
-        )
+        raise RuntimeError(f"missing Android runtime backing labels: {sorted(missing_runtime_backings)}")
 
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)

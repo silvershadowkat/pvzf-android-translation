@@ -14,7 +14,7 @@ the PC English translation texture catalog by exact asset name and dimensions.
 - 3 exact matches are intentionally preserved:
   - `Logo/Logo3.6.png` is obsolete version-specific 3.6 artwork.
   - `Menu/thanks.png` is the approved Android credits parchment.
-  - The Abyss entrance texture belongs to parked content and is out of scope.
+  - `Menu/深渊入口.png` belongs to parked Abyss content and is out of scope.
 
 The replacement tool validates that each selected Android asset has one exact
 `Texture2D`, one matching `Sprite`, the expected dimensions, and a valid

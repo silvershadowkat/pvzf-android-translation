@@ -3,14 +3,22 @@
 ## Reported save message
 
 The save-success toast is not stored in save data. Android IL2CPP metadata
-contains the C# format template `保存成功，编号：{0}`. The PC community project
-translates the final rendered form, such as `保存成功，编号：0`, with a regex.
-It was missed because the static Android builder sees `{0}` while the PC
-runtime translator sees a concrete number.
+contains the C# format template:
+
+`保存成功，编号：{0}`
+
+The current PC community project already translates the final rendered form
+with this regex:
+
+`保存成功，编号：(\d+)` -> `Progress saved with ID: {0}`
+
+It was missed because the static Android builder sees `{0}`, while the PC
+runtime translator sees a concrete number such as `0`. The ordinary regex
+therefore could not match during the metadata build.
 
 ## Builder correction
 
-`build_metadata_translation.py` now uses a conservative bridge for this data
+`build_metadata_translation.py` now has a conservative bridge for this data
 shape. It replaces C# fields with unique test values, accepts only a PC regex
 that matches the entire resulting string, applies the PC community target, and
 restores the original fields including format specifiers such as `:F0` and
@@ -36,7 +44,9 @@ templates:
 - modifier-reroll reward text;
 - new-plant acquisition/use-count text.
 
-Developer diagnostics and partial regex matches were not promoted.
+Developer diagnostics and partial regex matches were not promoted. For
+example, a short `Page` regex is not allowed to replace one clause inside a
+longer load/migration diagnostic.
 
 ## Phone checks
 

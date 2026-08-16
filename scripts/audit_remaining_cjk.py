@@ -10,14 +10,16 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-import UnityPy
-from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
-
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_metadata_translation import parse_metadata  # noqa: E402
+from build_metadata_translation import (  # noqa: E402
+    load_pc_translations,
+    parse_metadata,
+    translate_literal,
+)
 
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
+LATIN_RE = re.compile(r"[A-Za-z]")
 ENUM_BLOCK_RE = re.compile(
     r"(?ms)^(?:public|private|internal|protected)?\s*enum\s+(?P<name>[^\s/]+)"
     r"[^\n]*\n\{(?P<body>.*?)^\}"
@@ -69,12 +71,28 @@ def audit_dump_enums(path: Path | None) -> list[dict[str, object]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--metadata", required=True, type=Path)
-    parser.add_argument("--bundle", required=True, type=Path)
-    parser.add_argument("--dummy-dll-dir", required=True, type=Path)
+    parser.add_argument(
+        "--bundle",
+        type=Path,
+        help="optional Unity bundle to scan for TextAssets and serialized strings",
+    )
+    parser.add_argument(
+        "--dummy-dll-dir",
+        type=Path,
+        help="DummyDll directory required when --bundle is supplied",
+    )
     parser.add_argument(
         "--dump-cs",
         type=Path,
         help="optional Il2CppDumper dump.cs used to inventory CJK enum definition names",
+    )
+    parser.add_argument(
+        "--pc-strings-dir",
+        type=Path,
+        help=(
+            "optional PC English Strings directory; reports any remaining metadata "
+            "literal that the community rules can still translate"
+        ),
     )
     parser.add_argument("--unity-version", default="2022.3.62f1")
     parser.add_argument("--output", required=True, type=Path)
@@ -82,87 +100,128 @@ def main() -> int:
 
     _, literals = parse_metadata(args.metadata.read_bytes())
     metadata_groups = defaultdict(list)
+    mixed_language = []
+    short_cjk_review = []
     for index, literal in enumerate(literals):
         if CJK_RE.search(literal.text):
             metadata_groups[literal.text].append(index)
+            if LATIN_RE.search(literal.text):
+                mixed_language.append({"index": index, "text": safe_text(literal.text)})
+            if len(literal.text) <= 32 and "\n" not in literal.text:
+                short_cjk_review.append({"index": index, "text": safe_text(literal.text)})
     metadata = [
         {"text": safe_text(text), "occurrences": len(indices), "indices": indices}
         for text, indices in sorted(metadata_groups.items(), key=lambda item: (-len(item[1]), item[0]))
     ]
 
-    generator = TypeTreeGenerator(args.unity_version)
-    generator.load_local_dll_folder(str(args.dummy_dll_dir))
-    env = UnityPy.load(str(args.bundle))
-    env.typetree_generator = generator
     text_assets = []
     serialized_objects = []
     typetree_failures = []
-    for obj in env.objects:
-        if obj.type.name == "TextAsset":
-            data = obj.parse_as_object()
-            try:
-                payload = json.loads(data.m_Script.lstrip("\ufeff"))
-            except (json.JSONDecodeError, TypeError):
-                strings = [((), data.m_Script)]
-            else:
-                strings = walk_strings(payload)
-            matches = [
-                {"json_path": list(path), "text": safe_text(text)}
-                for path, text in strings
-                if CJK_RE.search(text)
-            ]
-            if matches:
-                text_assets.append(
-                    {
-                        "file": obj.assets_file.name,
-                        "path_id": obj.path_id,
-                        "name": data.m_Name,
-                        "match_count": len(matches),
-                        "matches": matches,
-                    }
-                )
-        elif obj.type.name == "MonoBehaviour":
-            try:
-                tree = obj.read_typetree(check_read=False)
-            except Exception as error:
-                raw = bytes(obj.get_raw_data())
-                decoded = raw.decode("utf-8", errors="ignore")
-                raw_cjk = sorted(set(CJK_RE.findall(decoded)))
-                if raw_cjk:
-                    typetree_failures.append(
+    if args.bundle is not None:
+        if args.dummy_dll_dir is None:
+            parser.error("--dummy-dll-dir is required when --bundle is supplied")
+        try:
+            import UnityPy
+            from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
+        except ImportError as error:
+            parser.error(
+                "UnityPy is required only for --bundle scans; install requirements.txt "
+                f"or omit --bundle ({error})"
+            )
+        generator = TypeTreeGenerator(args.unity_version)
+        generator.load_local_dll_folder(str(args.dummy_dll_dir))
+        env = UnityPy.load(str(args.bundle))
+        env.typetree_generator = generator
+        for obj in env.objects:
+            if obj.type.name == "TextAsset":
+                data = obj.parse_as_object()
+                try:
+                    payload = json.loads(data.m_Script.lstrip("\ufeff"))
+                except (json.JSONDecodeError, TypeError):
+                    strings = [((), data.m_Script)]
+                else:
+                    strings = walk_strings(payload)
+                matches = [
+                    {"json_path": list(path), "text": safe_text(text)}
+                    for path, text in strings
+                    if CJK_RE.search(text)
+                ]
+                if matches:
+                    text_assets.append(
+                        {
+                            "file": obj.assets_file.name,
+                            "path_id": obj.path_id,
+                            "name": data.m_Name,
+                            "match_count": len(matches),
+                            "matches": matches,
+                        }
+                    )
+            elif obj.type.name == "MonoBehaviour":
+                try:
+                    tree = obj.read_typetree(check_read=False)
+                except Exception as error:
+                    raw = bytes(obj.get_raw_data())
+                    decoded = raw.decode("utf-8", errors="ignore")
+                    raw_cjk = sorted(set(CJK_RE.findall(decoded)))
+                    if raw_cjk:
+                        typetree_failures.append(
+                            {
+                                "file": obj.assets_file.name,
+                                "path_id": obj.path_id,
+                                "type": obj.type.name,
+                                "error": str(error),
+                                "raw_size": len(raw),
+                                "decoded_cjk_characters": raw_cjk,
+                            }
+                        )
+                    continue
+                matches = [
+                    {"field_path": list(path), "text": safe_text(text)}
+                    for path, text in walk_strings(tree)
+                    if CJK_RE.search(text)
+                ]
+                if matches:
+                    serialized_objects.append(
                         {
                             "file": obj.assets_file.name,
                             "path_id": obj.path_id,
                             "type": obj.type.name,
-                            "error": str(error),
-                            "raw_size": len(raw),
-                            "decoded_cjk_characters": raw_cjk,
+                            "match_count": len(matches),
+                            "matches": matches,
                         }
                     )
-                continue
-            matches = [
-                {"field_path": list(path), "text": safe_text(text)}
-                for path, text in walk_strings(tree)
-                if CJK_RE.search(text)
-            ]
-            if matches:
-                serialized_objects.append(
-                    {
-                        "file": obj.assets_file.name,
-                        "path_id": obj.path_id,
-                        "type": obj.type.name,
-                        "match_count": len(matches),
-                        "matches": matches,
-                    }
-                )
 
     enum_definitions = audit_dump_enums(args.dump_cs)
+    pc_translatable_remnants = []
+    pc_counts = None
+    if args.pc_strings_dir is not None:
+        exact, regex_entries, pc_counts = load_pc_translations(args.pc_strings_dir)
+        for index, literal in enumerate(literals):
+            if not CJK_RE.search(literal.text):
+                continue
+            translated, method = translate_literal(literal.text, exact, {}, regex_entries)
+            if method is not None and translated != literal.text:
+                pc_translatable_remnants.append(
+                    {
+                        "index": index,
+                        "method": method,
+                        "source": safe_text(literal.text),
+                        "translation": safe_text(translated),
+                    }
+                )
     report = {
-        "format_version": 2,
+        "format_version": 3,
         "metadata": {
             "cjk_occurrences": sum(item["occurrences"] for item in metadata),
             "unique_strings": len(metadata),
             "strings": metadata,
+            "mixed_language_occurrences": len(mixed_language),
+            "mixed_language_review": mixed_language,
+            "short_cjk_occurrences": len(short_cjk_review),
+            "short_cjk_review": short_cjk_review,
+            "pc_translation_entries": pc_counts,
+            "pc_translatable_remnant_count": len(pc_translatable_remnants),
+            "pc_translatable_remnants": pc_translatable_remnants,
         },
         "text_assets": {
             "asset_count": len(text_assets),
@@ -193,6 +252,9 @@ def main() -> int:
             {
                 "metadata_cjk_occurrences": report["metadata"]["cjk_occurrences"],
                 "metadata_unique_strings": report["metadata"]["unique_strings"],
+                "metadata_mixed_language_occurrences": len(mixed_language),
+                "metadata_short_cjk_occurrences": len(short_cjk_review),
+                "metadata_pc_translatable_remnants": len(pc_translatable_remnants),
                 "text_asset_count": report["text_assets"]["asset_count"],
                 "text_asset_cjk_leaves": report["text_assets"]["cjk_string_leaves"],
                 "serialized_object_count": report["serialized_objects"]["object_count"],
