@@ -1079,6 +1079,26 @@ ANDROID_REQUIRED_OVERRIDE_SOURCES = {
 }
 
 
+# These 3.9-only modifier titles are not present in the older PC travel-buff
+# dump. They still use Android's combined `title：description` runtime format,
+# so they must pass through the same final parser as PC-sourced modifiers.
+ANDROID_39_MODIFIER_TITLES = {
+    "不破不立", "两极分化", "枪枪爆头", "开炮", "尸愁之路II", "无限火力",
+    "超新星爆发", "元素反应", "荆狂诅咒", "鱼丸护体", "厚积薄发", "打折券",
+    "伤情恶化", "深度创伤", "适应之力", "随从强化", "领袖强化", "霸凌弱者",
+    "斗转星移", "倒反天罡", "傲慢", "冷冻冬眠", "匣中惊喜",
+    "卧薪尝胆", "危机四伏", "同步治疗", "命运无常", "坚毅灵光", "大变活尸",
+    "嫉妒", "小丑派对", "小鬼当家", "尸稠之路", "帅令加身", "廉价审美",
+    "恃强凌弱", "恶贯满盈", "成群结队", "战个痛快", "抢你小车", "护盾保护",
+    "无理投资", "植物熄火", "榜样激励", "正当防卫", "步步紧逼", "死亡行军",
+    "永眠之地", "点钻成金", "特立独行", "猫瓜纪元", "生化危机", "生机翻涌",
+    "白银时代", "真实伤害", "神魂不稳", "积重难返", "秽土转生",
+    "第一轮回强化", "第二轮回强化", "第三轮回强化", "紧追不放", "老当益壮",
+    "腐朽之息", "膨胀危机", "舞影重重", "英雄退场", "荆枝易折", "铁蹄荡川",
+    "闪电突袭", "随从号令", "飞来横祸", "首领号令", "高贵审美",
+}
+
+
 @dataclass(frozen=True)
 class MetadataLayout:
     lookup_offset: int
@@ -1273,6 +1293,77 @@ def aligned_string_pairs(source: object, translated: object) -> Iterable[tuple[s
             yield from aligned_string_pairs(source_item, translated_item)
 
 
+def load_modifier_sources(strings_dir: Path) -> set[str]:
+    """Return exact source literals used as combined Almanac modifier text."""
+    sources: set[str] = set()
+    title_translations: dict[str, str] = {}
+    source_path = strings_dir.parents[2] / "Dumps" / "travel_buffs.json"
+    translated_path = strings_dir / "travel_buffs.json"
+    if not source_path.exists():
+        raise FileNotFoundError(f"missing travel modifier source dump: {source_path}")
+    if not translated_path.exists():
+        raise FileNotFoundError(f"missing travel modifier translation: {translated_path}")
+    source_payload = read_json(source_path)
+    translated_payload = read_json(translated_path)
+    for section, records in source_payload.items():
+        if section == "investmentBuffs" or not isinstance(records, dict):
+            continue
+        translated_records = translated_payload.get(section, {})
+        for record_id, record in records.items():
+            if not isinstance(record, dict):
+                continue
+            description = record.get("desc")
+            translated_record = translated_records.get(record_id, {})
+            translated_description = translated_record.get("desc")
+            if (
+                isinstance(description, str)
+                and (
+                    "：" in description
+                    or (
+                        isinstance(translated_description, str)
+                        and ": " in translated_description
+                    )
+                )
+            ):
+                sources.add(description)
+                translated_name = translated_record.get("name")
+                if isinstance(translated_name, str) and translated_name and "：" in description:
+                    title_translations[description.split("：", 1)[0]] = translated_name
+
+    # Android 3.9 revises some bodies without updating the PC source dump.
+    # Accept those exact fallbacks only when their parsed title agrees with the
+    # PC record, or when the title is a reviewed 3.9-only modifier title.
+    for source, target in ANDROID_CONFIRMED_EXACT.items():
+        if "：" not in source or ": " not in target:
+            continue
+        source_title = source.split("：", 1)[0]
+        translated_title = target.split(": ", 1)[0]
+        if (
+            title_translations.get(source_title) == translated_title
+            or source_title in ANDROID_39_MODIFIER_TITLES
+            or source_title.startswith("祝福-")
+            or source_title.startswith("诅咒-")
+            or source_title.startswith("质变-")
+        ):
+            sources.add(source)
+    return sources
+
+
+def normalize_modifier_translation(translated: str) -> str:
+    """Preserve the runtime delimiter while putting the body on its own line."""
+    if "：" in translated:
+        title, body = translated.split("：", 1)
+    elif ": " in translated:
+        title, body = translated.split(": ", 1)
+    else:
+        raise ValueError(f"modifier translation has no title delimiter: {translated!r}")
+    title = re.sub(r"^<nobr>|</nobr>$", "", title.strip())
+    body = body.lstrip("\r\n ")
+    if not title or not body:
+        raise ValueError(f"modifier translation has an empty title or body: {translated!r}")
+    return f"<nobr>{title}</nobr>：\n{body}"
+
+
 def load_pc_translations(
     strings_dir: Path,
 ) -> tuple[dict[str, str], list[tuple[str, str, re.Pattern[str], str]], dict[str, int]]:
@@ -1371,36 +1462,6 @@ def load_pc_translations(
     counts["android_fallbacks_added"] = fallback_added
     counts["android_fallbacks_superseded_by_pc"] = community_preferred
 
-    # Android renders each travel modifier from one combined string. The
-    # compact card uses the first line as its title, while the Almanac body
-    # clips that title line above the description viewport. Normalize every
-    # modifier translation, including Android-only 3.9 fallbacks, to the same
-    # non-wrapping title plus description format. A wrapping title would leak
-    # its second line into the body and make the description look duplicated.
-    modifier_normalized = 0
-    travel_source_path = dumps_dir / "travel_buffs.json"
-    if travel_source_path.exists():
-        travel_source = read_json(travel_source_path)
-        for section in travel_source.values():
-            if not isinstance(section, dict):
-                continue
-            for record in section.values():
-                if not isinstance(record, dict):
-                    continue
-                source_desc = record.get("desc")
-                if not isinstance(source_desc, str) or source_desc not in exact:
-                    continue
-                translated = exact[source_desc]
-                if "：\n" in translated:
-                    title, body = translated.split("：\n", 1)
-                    title = re.sub(r"^<nobr>|</nobr>$", "", title)
-                elif ": " in translated:
-                    title, body = translated.split(": ", 1)
-                else:
-                    continue
-                exact[source_desc] = f"<nobr>{title}</nobr>：\n{body}"
-                modifier_normalized += 1
-    counts["modifier_combined_strings_normalized"] = modifier_normalized
     return exact, regex_entries, counts
 
 
@@ -1676,6 +1737,7 @@ def main() -> int:
     base = args.base.read_bytes()
     layout, literals = parse_metadata(base)
     exact, regex_entries, pc_counts = load_pc_translations(args.strings_dir)
+    modifier_sources = load_modifier_sources(args.strings_dir)
 
     observed: dict[str, tuple[str, str]] = {}
     reference_stats: list[dict[str, object]] = []
@@ -1720,12 +1782,25 @@ def main() -> int:
     translated_bytes: list[bytes] = []
     method_counts: dict[str, int] = {}
     changes: list[dict[str, object]] = []
+    modifier_records: list[dict[str, object]] = []
     cjk_before = 0
     cjk_after = 0
     for index, literal in enumerate(literals):
         if CJK_RE.search(literal.text):
             cjk_before += 1
         translated_text, method = translate_literal(literal.text, exact, observed, regex_entries)
+        if literal.text in modifier_sources:
+            before_normalization = translated_text
+            translated_text = normalize_modifier_translation(translated_text)
+            modifier_records.append(
+                {
+                    "index": index,
+                    "source": literal.text,
+                    "before": before_normalization,
+                    "translation": translated_text,
+                    "changed_by_final_parser": translated_text != before_normalization,
+                }
+            )
         translated_text = translated_text.replace("\u2014", "-")
         if CJK_RE.search(translated_text):
             cjk_after += 1
@@ -1817,6 +1892,15 @@ def main() -> int:
         },
         "reference_pairs": reference_stats,
         "reference_conflicts": reference_conflicts,
+        "modifier_almanac_parser": {
+            "known_source_count": len(modifier_sources),
+            "parsed_literal_occurrences": len(modifier_records),
+            "changed_after_provenance_resolution": sum(
+                bool(record["changed_by_final_parser"])
+                for record in modifier_records
+            ),
+            "records": modifier_records,
+        },
         "method_counts": dict(sorted(method_counts.items())),
         "changed_literal_occurrences": len(changes),
         "changes": changes,
