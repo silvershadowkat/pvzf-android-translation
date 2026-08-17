@@ -23,6 +23,7 @@ from UnityPy.helpers.TypeTreeGenerator import TypeTreeGenerator
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_metadata_translation import (  # noqa: E402
     ANDROID_CONFIRMED_EXACT,
+    ANDROID_REQUIRED_OVERRIDE_SOURCES,
     CJK_RE,
     load_pc_translations,
 )
@@ -30,6 +31,11 @@ from build_metadata_translation import (  # noqa: E402
 
 SIZE_TAG_RE = re.compile(r"</?size(?:=[^>]*)?>", re.IGNORECASE)
 ALMANAC_ASSETS = {"LawnStrings", "ZombieStrings"}
+
+SERIALIZED_ANDROID_CORRECTIONS = {
+    "<size=20>Let's Rock!": "<size=20>LETS ROCK",
+    "Let's Rock!": "LETS ROCK",
+}
 
 TEXT_ASSET_REPLACEMENTS = {
     # Android retains category fields alongside the translated Mechanics
@@ -664,7 +670,7 @@ def translate_serialized_fields(value, exact: dict[str, str], path=()):
                     and tuple(child_path[-len(suffix):]) == suffix
                     for suffix in SERIALIZED_PC_FIELD_SUFFIXES
                 )
-                and CJK_RE.search(item)
+                and (CJK_RE.search(item) or item in SERIALIZED_ANDROID_CORRECTIONS)
             ):
                 translated = exact.get(item, SERIALIZED_FIELD_FALLBACKS.get(item))
                 if translated is None and child_path[-1] in {"m_text", "m_Text"}:
@@ -786,6 +792,10 @@ def main() -> int:
     # Android-only mappings fill exact gaps, including new 3.9 visible labels.
     serialized_exact = dict(ANDROID_CONFIRMED_EXACT)
     serialized_exact.update(pc_exact)
+    for source in ANDROID_REQUIRED_OVERRIDE_SOURCES:
+        if source in ANDROID_CONFIRMED_EXACT:
+            serialized_exact[source] = ANDROID_CONFIRMED_EXACT[source]
+    serialized_exact.update(SERIALIZED_ANDROID_CORRECTIONS)
 
     found_assets = set()
     for obj in env.objects:
