@@ -342,6 +342,40 @@ ANDROID_CONFIRMED_EXACT.update({
     "超级肥料": "Super Fertilizer",
     "\n版本：": "\nVersion: ",
     "\n当前版本：": "\nCurrent version: ",
+
+    # Android 3.9 SP Evolution cards. A broad PC regex translated only the
+    # colored heading and discarded every unlock recipe that followed it.
+    "<color=red>【SP进化】</color>：\n<nobr>解锁<color=red>究极寒冰小喷菇</color>\n寒冰机枪小喷菇+豌豆射手</nobr>\n<nobr>解锁<color=red>究极阳光小喷菇</color>\n阳光机枪小喷菇+豌豆射手</nobr>\n继承原转换配方": (
+        "<color=red>[SP Evolution]</color>:\n"
+        "<nobr>Unlock <color=red>Ultimate Gatling Icicle-shroom</color>\n"
+        "Gatling Icicle-shroom + Peashooter</nobr>\n"
+        "<nobr>Unlock <color=red>Ultimate Gatling Sun-shroom</color>\n"
+        "Gatling Sun-shroom + Peashooter</nobr>\n"
+        "Inherits the original conversion recipe"
+    ),
+    "<color=red>【SP进化】</color>：\n<nobr>解锁<color=red>究极毁灭菇射手</color>\n毁灭菇机枪射手+毁灭菇</nobr>\n<nobr>解锁<color=red>究极毁灭胆小菇</color>\n毁灭机枪胆小菇+毁灭菇</nobr>\n继承原转换配方": (
+        "<color=red>[SP Evolution]</color>:\n"
+        "<nobr>Unlock <color=red>Ultimate Doom Gatling</color>\n"
+        "Doom Gatling + Doom-shroom</nobr>\n"
+        "<nobr>Unlock <color=red>Ultimate Doom Scaredy-shroom</color>\n"
+        "Doom Gatling Scaredy-shroom + Doom-shroom</nobr>\n"
+        "Inherits the original conversion recipe"
+    ),
+    "<color=red>【SP进化】</color>：\n<nobr>解锁<color=red>究极浴火射手</color>\n浴火三线射手+火爆辣椒</nobr>\n<nobr>解锁<color=red>究极飞火射手</color></nobr>\n继承原转换配方": (
+        "<color=red>[SP Evolution]</color>:\n"
+        "<nobr>Unlock <color=red>Ultimate Phoenix Threepeater</color>\n"
+        "Phoenix Threepeater + Jalapeno</nobr>\n"
+        "<nobr>Unlock <color=red>Ultimate Flying Phoenix</color></nobr>\n"
+        "Inherits the original conversion recipe"
+    ),
+    "<color=red>【SP进化】</color>：\n<nobr>解锁<color=red>究极阳光帝果</color>\n阳光帝果+坚果</nobr>\n<nobr>解锁<color=red>究极火焰帝果</color>\n火焰帝果+坚果</nobr>\n继承原转换配方": (
+        "<color=red>[SP Evolution]</color>:\n"
+        "<nobr>Unlock <color=red>Ultimate Twin Solar-nut</color>\n"
+        "Twin Solar-nut + Wall-nut</nobr>\n"
+        "<nobr>Unlock <color=red>Ultimate Fire Twin Solar-nut</color>\n"
+        "Fire Twin Solar-nut + Wall-nut</nobr>\n"
+        "Inherits the original conversion recipe"
+    ),
 })
 
 # Deeper Android-only metadata audit. These strings survived both the PC exact
@@ -1028,7 +1062,13 @@ ANDROID_CONFIRMED_EXACT.update({
     "获得一个神秘大炮": "Gain a Mystery Cannon",
     "获得了{0:F0}%力量增幅": "Gained {0:F0}% power bonus",
     "获得了{0:F0}%速度增幅": "Gained {0:F0}% speed bonus",
-    "诅咒-争强好胜：究极樱桃射手发射的子弹伤害降低50%，累计造成3 *100m": "Curse - Competitive Spirit: Ultimate Cherry Shooter projectile damage -50%. Deal 300M cumulative damage to reverse the Curse",
+    "诅咒-争强好胜：究极樱桃射手发射的子弹伤害降低50%，累计造成3亿伤害后反转诅咒\n反转效果：究极樱桃射手每次攻击，额外从屏幕左方发射若干樱桃子弹，攻击力等同于其他植物已造成伤害的0.0001%": (
+        "Curse - Competitive Spirit: Ultimate Cherry Shooter projectile damage -50%. "
+        "Deal 300M cumulative damage to reverse the Curse\n"
+        "Reversed: Each Ultimate Cherry Shooter attack also fires Cherry projectiles "
+        "from the left side of the screen. Their Attack equals 0.0001% of damage dealt "
+        "by other plants"
+    ),
     "诅咒-千锤百炼：磁力坚果不再发射子弹，累计吸引5000发子弹后反转诅咒\n反转效果：每次攻击时，额外发射一颗已吸引子弹中数量最多的类型的子弹": "Curse - Tempered a Thousand Times: Magnet-nut no longer fires. Absorb 5000 projectiles to reverse the Curse\nReversed: Each attack also fires 1 projectile of the most frequently absorbed type",
     "诅咒-壹肆叁柒：究极杨桃大帝的攻击间隔翻倍，在攻击1437次后反转诅咒，每轮攻击计入5次\n反转效果：发射的多功能子弹额外获得1437点基础伤害": "Curse - 1437: Ultimate Starfruit Emperor's attack interval is doubled. Reverse the Curse after 1437 attacks; each volley counts as 5\nReversed: Multifunction projectiles gain 1437 base damage",
     "诅咒-见者有份：究极火菜炮每有一个目标，发射的子弹伤害降低1%，最低降低为原来的30%，累计通过此方式降低50000%后反转诅咒\n反转效果：究极火菜炮每有一个目标，发射的子弹伤害增加1%": "Curse - Share the Wealth: Ultimate Fire Cabbage Cannon projectile damage drops 1% per target, to a minimum of 30%. Reverse the Curse after 50000% total reduction\nReversed: Projectile damage increases 1% per target",
@@ -1041,7 +1081,10 @@ ANDROID_CONFIRMED_EXACT.update({
     "请在文件OpenBLive中填写数据": "Enter the required data in the OpenBLive file",
     "诸神进化：无尽，第{0}轮": "The Gods: Evolved - Endless, Round {0}",
     "诸神进化：炼狱": "The Gods: Evolved - Purgatory",
-    "质变- *10k": "Ascension - *10k",
+    "质变-万剑归宗：究极剑仙杨桃每有2发大剑，每次攻击额外发射1发旋转小剑": (
+        "Ascend: Myriad Blades: For every 2 greatswords held by Ultimate Swordmaster "
+        "Starfruit, each attack also fires 1 rotating small sword"
+    ),
     "质变-人人有份：金瓜大招额外给全场僵尸发射西瓜，且大招分裂数x2": "Ascension - Share the Wealth: Golden Melon's skill also fires Melons at every zombie and doubles the skill's split count",
     "质变-固甲摧锋：究极云杉发射的子弹额外附带当前护盾量0.6%的攻击力，最高不超过基础攻击力的300%": "Ascension - Armorbreaker: Ultimate Spruce projectiles gain Attack equal to 0.6% of current Shield, capped at 300% of base Attack",
     "质变-拿来吧你：普通攻击叠加解读的概率翻倍。敌方目标进入战斗时，魔法寒冰射手对其施加3层“解读”。每一波开始时，对全场血量最高的僵尸施加100层“解读”，每层解读额外使本次伤害提高100%，僵尸死亡后，将剩余解读层数传递给其他僵尸": "Ascension - Hand It Over: Double the chance for normal attacks to apply Interpretation. Magic Snow Pea applies 3 stacks when an enemy enters battle. At each wave, apply 100 stacks to the highest-HP zombie. Each stack adds 100% damage to that hit; remaining stacks transfer when the zombie dies",
@@ -1062,7 +1105,10 @@ ANDROID_CONFIRMED_EXACT.update({
     "飞来横祸：关卡波次增加时，有概率出现一些特别的蹦极僵尸，概率随波次提高": "Disaster from Above: Special Bungee Zombies may appear, with chance rising by wave",
     "首领号令：boss僵尸获得30%血量加成，其召唤的僵尸获得60%血量加成": "Boss's Order: Boss zombies gain 30% HP; zombies they summon gain 60% HP",
     "高贵审美：木头、白银词条加成变为原来的70%，黄金，钻石词条加成变为原来的110%": "Refined Taste: Wooden and Silver modifier bonuses become 70% of normal; Gold and Diamond bonuses become 110%",
-    "鱼丸护体：立即获得3个超级机械保龄球卡牌，该植物拥有64 *10k": "Fish Ball Protection: Immediately gain 3 Super Mechanical Bowling Ball cards. This plant has 640K HP",
+    "鱼丸护体：立即获得3个超级机械保龄球卡牌，该植物拥有64万初始血量": (
+        "Giga Guardian: Immediately gain 3 Giga Mecha-nut seed packets. "
+        "This plant starts with 640K HP"
+    ),
 })
 
 # Only platform-specific semantic/layout fixes override PC data. All other
@@ -1097,6 +1143,31 @@ ANDROID_39_MODIFIER_TITLES = {
     "腐朽之息", "膨胀危机", "舞影重重", "英雄退场", "荆枝易折", "铁蹄荡川",
     "闪电突袭", "随从号令", "飞来横祸", "首领号令", "高贵审美",
 }
+
+# Titles for revised Android 3.9 modifier bodies. Prefer the dedicated PC
+# travel-buff names when they exist, then use these reviewed mobile fallbacks.
+# Keeping this separate from the descriptions lets body revisions continue to
+# inherit stable PC terminology without relying on a whole-string match.
+ANDROID_39_MODIFIER_TITLE_TRANSLATIONS = {
+    "鱼丸护体": "Giga Guardian",
+    "祝福-争强好胜": "Blessing - Competitive Spirit",
+    "祝福-千锤百炼": "Blessing - Tempered a Thousand Times",
+    "祝福-壹肆叁柒": "Blessing - 1437",
+    "祝福-见者有份": "Blessing - Share the Wealth",
+    "诅咒-争强好胜": "Curse - Competitive Spirit",
+    "诅咒-千锤百炼": "Curse - Tempered a Thousand Times",
+    "诅咒-壹肆叁柒": "Curse - 1437",
+    "诅咒-见者有份": "Curse - Share the Wealth",
+    "质变-万剑归宗": "Ascend: Myriad Blades",
+    "质变-人人有份": "Ascend: Share the Wealth",
+    "质变-固甲摧锋": "Ascend: Armorbreaker",
+    "质变-拿来吧你": "Ascend: Decryption",
+    "质变-杀戮光环": "Ascend: Killing Aura",
+    "质变-谁劈了我的瓜": "Ascend: Who Split My Melon?",
+    "质变-饱和弹射": "Ascend: Saturation Ricochet",
+}
+
+MODIFIER_CATEGORY_PREFIXES = ("祝福-", "诅咒-", "质变-")
 
 
 @dataclass(frozen=True)
@@ -1293,8 +1364,14 @@ def aligned_string_pairs(source: object, translated: object) -> Iterable[tuple[s
             yield from aligned_string_pairs(source_item, translated_item)
 
 
-def load_modifier_sources(strings_dir: Path) -> set[str]:
-    """Return exact source literals used as combined Almanac modifier text."""
+def clean_modifier_source_title(source: str) -> str:
+    """Return the unformatted Chinese title before the runtime delimiter."""
+    title = source.split("：", 1)[0]
+    return re.sub(r"<[^>]+>", "", title).strip()
+
+
+def load_modifier_sources(strings_dir: Path) -> tuple[set[str], dict[str, str]]:
+    """Return exact modifier sources plus stable Chinese-to-English titles."""
     sources: set[str] = set()
     title_translations: dict[str, str] = {}
     source_path = strings_dir.parents[2] / "Dumps" / "travel_buffs.json"
@@ -1314,14 +1391,13 @@ def load_modifier_sources(strings_dir: Path) -> set[str]:
                 continue
             description = record.get("desc")
             translated_record = translated_records.get(record_id, {})
-            translated_description = translated_record.get("desc")
             if (
                 isinstance(description, str)
                 and (
                     "：" in description
                     or (
-                        isinstance(translated_description, str)
-                        and ": " in translated_description
+                        isinstance(translated_record.get("desc"), str)
+                        and ": " in translated_record["desc"]
                     )
                 )
             ):
@@ -1346,22 +1422,51 @@ def load_modifier_sources(strings_dir: Path) -> set[str]:
             or source_title.startswith("质变-")
         ):
             sources.add(source)
-    return sources
+    for source_title, translated_title in ANDROID_39_MODIFIER_TITLE_TRANSLATIONS.items():
+        title_translations.setdefault(source_title, translated_title)
+    return sources, title_translations
 
 
-def normalize_modifier_translation(translated: str) -> str:
+def modifier_source_reason(source: str, exact_sources: set[str]) -> str | None:
+    """Classify combined modifier strings without matching unrelated task text."""
+    if source in exact_sources:
+        return "exact_pc_or_reviewed_source"
+    if "：" not in source:
+        return None
+    source_title = clean_modifier_source_title(source)
+    if source_title.startswith(MODIFIER_CATEGORY_PREFIXES):
+        return "category_prefix"
+    if source_title in ANDROID_39_MODIFIER_TITLES:
+        return "reviewed_android_title"
+    return None
+
+
+def normalize_modifier_translation(
+    translated: str,
+    preferred_title: str | None = None,
+) -> tuple[str, bool]:
     """Preserve the runtime delimiter while putting the body on its own line."""
-    if "：" in translated:
+    preferred_delimiter = f"{preferred_title}: " if preferred_title else None
+    if preferred_delimiter and translated.startswith(preferred_delimiter):
+        title = preferred_title
+        body = translated[len(preferred_delimiter):]
+    elif "：" in translated:
         title, body = translated.split("：", 1)
     elif ": " in translated:
         title, body = translated.split(": ", 1)
     else:
         raise ValueError(f"modifier translation has no title delimiter: {translated!r}")
-    title = re.sub(r"^<nobr>|</nobr>$", "", title.strip())
+    title = re.sub(r"</?(?:nobr|size)(?:=[^>]+)?>", "", title.strip())
+    if preferred_title:
+        title = preferred_title.strip()
     body = body.lstrip("\r\n ")
     if not title or not body:
         raise ValueError(f"modifier translation has an empty title or body: {translated!r}")
-    return f"<nobr>{title}</nobr>：\n{body}"
+    shrink_title = len(title) > 24
+    title_markup = f"<nobr>{title}</nobr>"
+    if shrink_title:
+        title_markup = f"<size=80%>{title_markup}</size>"
+    return f"{title_markup}：\n{body}", shrink_title
 
 
 def load_pc_translations(
@@ -1737,7 +1842,7 @@ def main() -> int:
     base = args.base.read_bytes()
     layout, literals = parse_metadata(base)
     exact, regex_entries, pc_counts = load_pc_translations(args.strings_dir)
-    modifier_sources = load_modifier_sources(args.strings_dir)
+    modifier_sources, modifier_title_translations = load_modifier_sources(args.strings_dir)
 
     observed: dict[str, tuple[str, str]] = {}
     reference_stats: list[dict[str, object]] = []
@@ -1789,15 +1894,29 @@ def main() -> int:
         if CJK_RE.search(literal.text):
             cjk_before += 1
         translated_text, method = translate_literal(literal.text, exact, observed, regex_entries)
-        if literal.text in modifier_sources:
+        modifier_reason = modifier_source_reason(literal.text, modifier_sources)
+        if modifier_reason is not None and not (
+            "：" in translated_text or ": " in translated_text
+        ):
+            modifier_reason = None
+        if modifier_reason is not None:
             before_normalization = translated_text
-            translated_text = normalize_modifier_translation(translated_text)
+            source_title = clean_modifier_source_title(literal.text)
+            preferred_title = modifier_title_translations.get(source_title)
+            translated_text, title_shrunk = normalize_modifier_translation(
+                translated_text,
+                preferred_title,
+            )
             modifier_records.append(
                 {
                     "index": index,
                     "source": literal.text,
+                    "source_title": source_title,
+                    "match_reason": modifier_reason,
+                    "preferred_title": preferred_title,
                     "before": before_normalization,
                     "translation": translated_text,
+                    "title_shrunk": title_shrunk,
                     "changed_by_final_parser": translated_text != before_normalization,
                 }
             )
@@ -1856,6 +1975,58 @@ def main() -> int:
             f"{preview}"
         )
 
+    escaped_category_modifiers = [
+        {"index": index, "source": literal.text}
+        for index, literal in enumerate(literals)
+        if clean_modifier_source_title(literal.text).startswith(MODIFIER_CATEGORY_PREFIXES)
+        and not any(record["index"] == index for record in modifier_records)
+    ]
+    if escaped_category_modifiers:
+        preview = json.dumps(escaped_category_modifiers[:10], ensure_ascii=False)
+        raise RuntimeError(
+            "self-validation failed: categorized modifiers escaped final parsing: "
+            f"{preview}"
+        )
+
+    malformed_modifier_outputs: list[dict[str, object]] = []
+    for record in modifier_records:
+        translated = str(record["translation"])
+        parts = translated.split("：\n", 1)
+        if len(parts) != 2:
+            malformed_modifier_outputs.append(record)
+            continue
+        plain_title = re.sub(r"<[^>]+>", "", parts[0]).strip()
+        body = parts[1].lstrip()
+        final_title_word = re.split(r"[ -]+", plain_title)[-1].rstrip("?")
+        if (
+            not plain_title
+            or not body
+            or body.startswith(f"{plain_title}:")
+            or body.startswith(f"{final_title_word}:")
+            or re.match(r"^.{1,24}\?*\s*:\s*(?:\n|$)", body)
+        ):
+            malformed_modifier_outputs.append(record)
+    if malformed_modifier_outputs:
+        preview = json.dumps(malformed_modifier_outputs[:10], ensure_ascii=False)
+        raise RuntimeError(
+            "self-validation failed: modifier title text leaked into a description: "
+            f"{preview}"
+        )
+
+    sp_evolution_outputs = [
+        output_literals[index].text
+        for index in range(len(literals))
+        if "【SP进化】" in literals[index].text
+    ]
+    if len(sp_evolution_outputs) != 4 or any(
+        "Inherits the original conversion recipe" not in value
+        or "Unlock" not in value
+        for value in sp_evolution_outputs
+    ):
+        raise RuntimeError(
+            "self-validation failed: one or more SP Evolution recipes are incomplete"
+        )
+
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output)
     report = {
@@ -1894,13 +2065,28 @@ def main() -> int:
         "reference_conflicts": reference_conflicts,
         "modifier_almanac_parser": {
             "known_source_count": len(modifier_sources),
+            "known_title_translation_count": len(modifier_title_translations),
             "parsed_literal_occurrences": len(modifier_records),
+            "title_based_literal_occurrences": sum(
+                record["match_reason"] != "exact_pc_or_reviewed_source"
+                for record in modifier_records
+            ),
+            "preferred_title_occurrences": sum(
+                record["preferred_title"] is not None
+                for record in modifier_records
+            ),
+            "shrunk_title_occurrences": sum(
+                bool(record["title_shrunk"])
+                for record in modifier_records
+            ),
+            "escaped_category_modifier_occurrences": 0,
             "changed_after_provenance_resolution": sum(
                 bool(record["changed_by_final_parser"])
                 for record in modifier_records
             ),
             "records": modifier_records,
         },
+        "sp_evolution_recipe_occurrences": len(sp_evolution_outputs),
         "method_counts": dict(sorted(method_counts.items())),
         "changed_literal_occurrences": len(changes),
         "changes": changes,
