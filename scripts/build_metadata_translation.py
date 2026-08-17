@@ -333,6 +333,17 @@ ANDROID_CONFIRMED_EXACT.update({
     ),
 })
 
+# Android 3.9 corrections that intentionally differ from the older PC text.
+# The seed-selection font maps punctuation poorly, so the start button uses
+# plain capital letters to avoid displaying apostrophe or exclamation glyphs
+# as unrelated symbols.
+ANDROID_CONFIRMED_EXACT.update({
+    "一起摇滚吧！": "<size=20>LETS ROCK",
+    "超级肥料": "Super Fertilizer",
+    "\n版本：": "\nVersion: ",
+    "\n当前版本：": "\nCurrent version: ",
+})
+
 # Deeper Android-only metadata audit. These strings survived both the PC exact
 # pass and the older Android reference passes because the mobile build stores
 # shortened descriptions, recipe panels, and runtime fragments rather than the
@@ -1064,6 +1075,7 @@ ANDROID_REQUIRED_OVERRIDE_SOURCES = {
     "生产间隔：{0}秒\n", "光照等级：{0}\n",
     "奖励1：<color=black>", "奖励1：<color=white>",
     "奖励2：<color=black>", "奖励2：<color=white>",
+    "一起摇滚吧！", "超级肥料", "\n版本：", "\n当前版本：",
 }
 
 
@@ -1358,6 +1370,37 @@ def load_pc_translations(
     counts["android_required_overrides"] = len(ANDROID_REQUIRED_OVERRIDE_SOURCES)
     counts["android_fallbacks_added"] = fallback_added
     counts["android_fallbacks_superseded_by_pc"] = community_preferred
+
+    # Android renders each travel modifier from one combined string. The
+    # compact card uses the first line as its title, while the Almanac body
+    # clips that title line above the description viewport. Normalize every
+    # modifier translation, including Android-only 3.9 fallbacks, to the same
+    # non-wrapping title plus description format. A wrapping title would leak
+    # its second line into the body and make the description look duplicated.
+    modifier_normalized = 0
+    travel_source_path = dumps_dir / "travel_buffs.json"
+    if travel_source_path.exists():
+        travel_source = read_json(travel_source_path)
+        for section in travel_source.values():
+            if not isinstance(section, dict):
+                continue
+            for record in section.values():
+                if not isinstance(record, dict):
+                    continue
+                source_desc = record.get("desc")
+                if not isinstance(source_desc, str) or source_desc not in exact:
+                    continue
+                translated = exact[source_desc]
+                if "：\n" in translated:
+                    title, body = translated.split("：\n", 1)
+                    title = re.sub(r"^<nobr>|</nobr>$", "", title)
+                elif ": " in translated:
+                    title, body = translated.split(": ", 1)
+                else:
+                    continue
+                exact[source_desc] = f"<nobr>{title}</nobr>：\n{body}"
+                modifier_normalized += 1
+    counts["modifier_combined_strings_normalized"] = modifier_normalized
     return exact, regex_entries, counts
 
 

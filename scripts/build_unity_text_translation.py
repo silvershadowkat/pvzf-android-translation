@@ -31,6 +31,10 @@ ALMANAC_FILES = {
     "LawnStrings": "LawnStringsTranslate.json",
     "ZombieStrings": "ZombieStringsTranslate.json",
 }
+ALMANAC_SCHEMAS = {
+    "LawnStrings": ("plants", "seedType"),
+    "ZombieStrings": ("zombies", "theZombieType"),
+}
 DETAIL_STRINGS_FILE = "DetailStringsTranslate.json"
 DETAIL_TYPE_TRANSLATIONS = {
     "玩法": "Gameplay",
@@ -158,6 +162,79 @@ def parse_json_text(value: str) -> Any:
     # Joseph's translated TextAssets commonly retain a UTF-8 BOM as the first
     # decoded character. Unity accepts it, but Python's json.loads does not.
     return json.loads(value.lstrip("\ufeff"))
+
+
+def merge_android_almanac(
+    asset_name: str,
+    source_script: str,
+    pc_script: str,
+    overrides: dict[str, Any],
+) -> tuple[str, dict[str, int]]:
+    """Overlay PC translations onto the matching official Android records.
+
+    Replacing an entire Almanac TextAsset with an older PC file drops records
+    introduced by a newer Android release. Keep the official list, order, and
+    schema, then overlay translations by the stable numeric game ID.
+    """
+    list_key, id_key = ALMANAC_SCHEMAS[asset_name]
+    source_tree = parse_json_text(source_script)
+    pc_tree = parse_json_text(pc_script)
+    if not isinstance(source_tree, dict) or not isinstance(source_tree.get(list_key), list):
+        raise RuntimeError(f"official {asset_name} does not contain a {list_key} list")
+    if not isinstance(pc_tree, dict) or not isinstance(pc_tree.get(list_key), list):
+        raise RuntimeError(f"PC {asset_name} does not contain a {list_key} list")
+
+    def index_records(records: list[Any], label: str) -> dict[str, dict[str, Any]]:
+        indexed: dict[str, dict[str, Any]] = {}
+        for position, record in enumerate(records):
+            if not isinstance(record, dict) or id_key not in record:
+                raise RuntimeError(f"{label} {asset_name} record {position} has no {id_key}")
+            stable_id = str(record[id_key])
+            if stable_id in indexed:
+                raise RuntimeError(f"{label} {asset_name} has duplicate {id_key} {stable_id}")
+            indexed[stable_id] = record
+        return indexed
+
+    source_records = source_tree[list_key]
+    source_by_id = index_records(source_records, "official")
+    pc_by_id = index_records(pc_tree[list_key], "PC")
+    asset_overrides = overrides.get(asset_name, {})
+    if not isinstance(asset_overrides, dict):
+        raise RuntimeError(f"Android Almanac overrides for {asset_name} must be an object")
+    unknown_overrides = sorted(set(asset_overrides) - set(source_by_id))
+    if unknown_overrides:
+        raise RuntimeError(f"Android Almanac overrides reference unknown {asset_name} IDs: {unknown_overrides}")
+
+    merged_records: list[dict[str, Any]] = []
+    pc_applied = 0
+    override_applied = 0
+    official_only = 0
+    for source_record in source_records:
+        stable_id = str(source_record[id_key])
+        merged = dict(source_record)
+        pc_record = pc_by_id.get(stable_id)
+        if pc_record is not None:
+            merged.update(pc_record)
+            merged[id_key] = source_record[id_key]
+            pc_applied += 1
+        else:
+            official_only += 1
+        override = asset_overrides.get(stable_id)
+        if override is not None:
+            if not isinstance(override, dict):
+                raise RuntimeError(f"Android Almanac override {asset_name} {stable_id} must be an object")
+            merged.update(override)
+            merged[id_key] = source_record[id_key]
+            override_applied += 1
+        merged_records.append(merged)
+    source_tree[list_key] = merged_records
+    return json.dumps(source_tree, ensure_ascii=False, indent=4), {
+        "official_records": len(source_records),
+        "pc_records_applied": pc_applied,
+        "android_overrides_applied": override_applied,
+        "official_only_records": official_only,
+        "pc_records_not_in_official": len(set(pc_by_id) - set(source_by_id)),
+    }
 
 
 def merge_android_detail_strings(
@@ -425,6 +502,11 @@ def main() -> int:
         type=Path,
         help="optional reviewed Android-only exact-string fallback map",
     )
+    parser.add_argument(
+        "--android-almanac-overrides",
+        type=Path,
+        help="optional Android-version Almanac records keyed by TextAsset and stable ID",
+    )
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
     parser.add_argument(
         "--allow-untranslated-new-content",
@@ -457,19 +539,23 @@ def main() -> int:
         # PC community text always wins if it later contains the same source.
         for source, translated in android_exact.items():
             exact.setdefault(source, translated)
-    almanac = {
+    pc_almanac = {
         name: (args.localization_dir / "Almanac" / filename).read_text(encoding="utf-8-sig")
         for name, filename in ALMANAC_FILES.items()
     }
+    almanac_overrides: dict[str, Any] = {}
+    if args.android_almanac_overrides is not None:
+        almanac_overrides = read_json(args.android_almanac_overrides)
+        if not isinstance(almanac_overrides, dict):
+            raise RuntimeError("Android Almanac overrides must contain an object")
     pc_detail_descriptions = read_json(args.localization_dir / "Almanac" / DETAIL_STRINGS_FILE)
     if not isinstance(pc_detail_descriptions, dict):
         raise RuntimeError("PC DetailStrings translation is not an object")
     source_bundle = args.source_bundle or args.preserve_fonts_from
     if source_bundle is None:
         raise RuntimeError("--source-bundle is required when --preserve-fonts-from is omitted")
-    source_detail_records = [
-        record for record in read_text_records(source_bundle).values() if record.name == "DetailStrings"
-    ]
+    source_text_records = list(read_text_records(source_bundle).values())
+    source_detail_records = [record for record in source_text_records if record.name == "DetailStrings"]
     if len(source_detail_records) != 1:
         raise RuntimeError(
             f"expected one official Android DetailStrings asset, found {len(source_detail_records)}"
@@ -480,6 +566,18 @@ def main() -> int:
         exact,
         args.allow_untranslated_new_content,
     )
+    merged_almanac: dict[str, str] = {}
+    almanac_merge_stats: dict[str, dict[str, int]] = {}
+    for asset_name, pc_script in pc_almanac.items():
+        matches = [record for record in source_text_records if record.name == asset_name]
+        if len(matches) != 1:
+            raise RuntimeError(f"expected one official Android {asset_name} asset, found {len(matches)}")
+        merged_almanac[asset_name], almanac_merge_stats[asset_name] = merge_android_almanac(
+            asset_name,
+            matches[0].script,
+            pc_script,
+            almanac_overrides,
+        )
     tips_fs: dict[str, str] = extras["tips_fs"]
     tips_iz: dict[str, str] = extras["tips_iz"]
 
@@ -519,9 +617,9 @@ def main() -> int:
         if original_name == "DetailStrings":
             new_script = android_detail_script
             methods.append("current_pc_android_detail_merge")
-        elif original_name in almanac:
-            new_script = almanac[original_name]
-            methods.append("current_pc_almanac")
+        elif original_name in merged_almanac:
+            new_script = merged_almanac[original_name]
+            methods.append("current_pc_android_almanac_merge")
         else:
             exact_legacy = next(
                 (patch for patch in patches_by_name.get(original_name, []) if patch.source_script == original_script),
@@ -652,6 +750,7 @@ def main() -> int:
         },
         "legacy_mapping_conflicts": legacy_conflicts,
         "pc_translation_entries": extras["source_counts"],
+        "almanac_merge": almanac_merge_stats,
         "mechanics_almanac_merge": detail_merge,
         "method_counts": dict(sorted(method_counts.items())),
         "changed_text_asset_count": len(changed_assets),
