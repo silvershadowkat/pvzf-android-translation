@@ -175,3 +175,9 @@ aapt dump badging translated.apk
 The preferred public deliverable is a patcher that accepts a user-supplied
 official APK and produces a locally signed translated build. Translation data
 must retain Teyliu project attribution and comply with CC BY-NC 4.0.
+
+For a local PC comparison package, use `scripts/package_pc_comparison.py`.
+Do not use Windows `tar -a`: its ZIP writer can replace non-ASCII texture names
+with question marks and collapse multiple source files onto one archive path.
+The PC packager requires an exact source/archive path match, UTF-8 flags for
+non-ASCII names, zero Windows path collisions, and a complete CRC pass.

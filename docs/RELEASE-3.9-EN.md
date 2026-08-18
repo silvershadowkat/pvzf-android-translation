@@ -89,8 +89,8 @@ pinned PC branch does not yet contain usable English for them.
 ## PC visual-comparison package
 
 - File: `PvZ-Fusion-3.9-English-PC-branch-0747001d.zip`
-- Size: `957,514,497` bytes
-- SHA-256: `EA3C79F232DCB02766C8A8A042150894182A21F4D4C3DED8711D48DE4CEBB6E8`
+- Size: `957,391,047` bytes
+- SHA-256: `41466BD422B8D52384CE32A1014A48D9834F76E22CF7EE4182B152ED1C9C9E04`
 - Base: the user-supplied official PC 3.9 files
 - English project: `Teyliu/PVZF-Translation` branch `3.9`, commit `0747001d`
 - Loader: official MelonLoader 0.7.1 x64
@@ -99,6 +99,12 @@ This is a local branch snapshot for hands-on comparison, not a published PC
 English 3.9 release. Run `Launch Game.bat` after extracting it to its own
 folder. Untranslated content in this package reflects the current PC branch
 and is useful evidence for what Android should leave Chinese.
+
+The ZIP is built with `scripts/package_pc_comparison.py`, which preserves and
+validates UTF-8 entry names. Windows `tar -a` must not be used for this package:
+it replaces the translation project's Chinese texture filenames with question
+marks, creating duplicate archive paths that trigger replacement prompts in a
+clean extraction folder.
 
 ## Installation warning
 
