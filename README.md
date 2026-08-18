@@ -5,10 +5,11 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.9; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: a clean Android 3.9 Test 3 APK has been rebuilt from the official
-> 3.9 shell and the known-good 3.8.1 English Update 6 baseline. Automated
-> metadata, bundle, signature, alignment, and comparative APK audits pass. It
-> has not been published and still requires a real-device smoke test.
+> Status: Android 3.9 prerelease 5 is built from the official 3.9 shell with
+> the latest PC `3.9` translations and the known-good 3.8.1 Update 6 Android
+> fixes carried forward only where compatible. Metadata, bundle, signature,
+> alignment, and comparative APK audits pass. Real-device testing is still
+> required.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
@@ -35,12 +36,10 @@ plant or mechanics names. These mappings live in explicit reviewed allowlists,
 are counted separately in build reports, and automatically yield when the PC
 project later supplies an English value.
 
-Android Clean Test 3 pins `Teyliu/PVZF-Translation` branch `3.9` at commit
-`0747001d10b6f3b82f89ea1ee022f2e30f347791`. The separate PC visual-reference
-folder uses the newer commit `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`;
-its newer English Almanac data must be incorporated into the next Android test
-build. Reviewed Android translations from 3.8.1 Update 6 may remain only where
-the official source text is unchanged.
+Android prerelease 5 pins `Teyliu/PVZF-Translation` branch `3.9` at commit
+`d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`, the newest remote branch commit
+available when built. Reviewed Android translations from 3.8.1 Update 6 may
+remain only where the official source text is unchanged.
 
 ## PC 3.9 visual reference
 
@@ -83,6 +82,11 @@ Use this conservative migration procedure:
 3. Launch once, reach the main menu, then fully close or force-stop the game.
 4. Restore only the save files needed. Never merge the complete old directory
    over the new installation.
+
+Clearing the app cache is not a substitute for this migration. Android cache
+cleanup targets temporary cache storage, while this game stores its writable
+IL2CPP override under the persistent external `files/` directory. Do not use
+**Clear storage/data**, which deletes app data.
 
 For most players, restore only `playerData.json`, which contains the main
 profiles, progression, unlocks, settings, and money. Optional mode data may
@@ -128,7 +132,7 @@ For the clean Android 3.9 rebuild, this project:
 - applies current PC exact and regex translations plus conservative 3.8.1
   fallbacks only for unchanged official source strings, plus an auditable
   reviewed allowlist for generic Android UI and safe tutorial prompts;
-- rebuilt and validated 278 Unity `TextAsset` objects, covering Almanacs,
+- rebuilt and validated 137 translated Unity `TextAsset` objects, covering Almanacs,
   levels, custom levels, tutorials, tips, Abyss/configuration data, and other
   serialized player-facing text;
 - translated serialized TextMesh Pro UI while resolving Android-specific

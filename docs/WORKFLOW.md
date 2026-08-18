@@ -15,9 +15,9 @@ version.
 Pull the latest `Teyliu/PVZF-Translation` data and the associated translator
 source. Review which base game version the release supports before building.
 Inspect all upstream branches, not only `main`, and pin the exact selected
-commit in the build report. Android Clean Test 3 uses branch `3.9` at
-`0747001d10b6f3b82f89ea1ee022f2e30f347791`. The independent PC static
-reference uses the later `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`.
+commit in the build report. Android prerelease 5 and the independent PC static
+reference use branch `3.9` at
+`d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`.
 
 The metadata builder consumes:
 

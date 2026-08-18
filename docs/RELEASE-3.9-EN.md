@@ -1,14 +1,13 @@
-# PvZ Fusion 3.9 English Android - Clean Test 3
+# PvZ Fusion 3.9 English Android - Prerelease 5
 
-This is a local first-pass test build. It has not been published as a GitHub
-release. Automated build and package audits pass, but real-device testing is
-still required.
+This is the fifth public test build. Automated build and package audits pass,
+but broad real-device testing is still required.
 
 ## Test file
 
-- File: `PvZ-Fusion-3.9-English-Android-clean-test3.apk`
-- Size: `570,936,224` bytes
-- SHA-256: `5EC4D6EF7A0E2585F427FA9145B2A1A2FBC47DF88A236EFF379709A3B920F623`
+- File: `PvZ-Fusion-3.9-English-Android-prerelease5.apk`
+- Size: `570,948,512` bytes
+- SHA-256: `7653D8F8A423484CD0A4FBA7D9418F3DA325EB4583F5323E7DE5C80C3BE9E7BE`
 - Package: `com.LanPiaoPiao.PlantsVsZombiesRH`
 - Version: `3.9`
 - Signing certificate SHA-256:
@@ -24,7 +23,7 @@ update should be signature-compatible.
 - Official Android 3.9 shell: `ChineseAPK3.9.apk`
   (`A3ADF7D8742D537F167217867E943E1B9FAEAA361A868E33E388A373671320B0`)
 - PC translation: `Teyliu/PVZF-Translation`, branch `3.9`, commit
-  `0747001d10b6f3b82f89ea1ee022f2e30f347791`
+  `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`
 
 The 3.8.1 baseline was normalized to remove em dashes before any 3.9 content
 was integrated. The final 3.9 payload received the same validation pass.
@@ -50,9 +49,9 @@ pinned PC branch does not yet contain usable English for them.
 
 ## Included fixes
 
-- Fixed the Test 1 glyph corruption. The legacy texture pass had copied the
+- Preserves the fix for the earlier glyph corruption. The legacy texture pass had copied the
   Update 6 `fzcq Atlas` bitmap without its matching 703-entry glyph table into
-  a 3.9 font asset with a 1,740-entry table. Test 3 excludes all TMP font
+  a 3.9 font asset with a 1,740-entry table. This build excludes all TMP font
   atlases from ordinary texture inheritance and transplants the complete
   matching Update 6/PC English PvZ2 font chain: source payload, 703-entry glyph
   and character tables, SDF atlas, material, and object pointers. The official
@@ -68,6 +67,8 @@ pinned PC branch does not yet contain usable English for them.
 - Fixed the new-save version labels and default `New Save File` text.
 - Rebuilt modifier-card records so descriptions no longer repeat inside names;
   untranslated records keep their official Chinese name and description.
+- Rejects the PC `??? (Currently Bugged)` shop placeholder and keeps the
+  official untranslated item label until upstream supplies usable English.
 - Shifted modifier Almanac descriptions right to the same margin as regular
   plant and zombie descriptions.
 - Removed em dashes from player-facing translated metadata and bundle text.
@@ -151,6 +152,11 @@ directory. In particular, a stale writable override at
 `files/il2cpp/Metadata/global-metadata.dat` can supersede the new APK payload
 and make old translation defects reappear. Remove only a confirmed stale
 `files/il2cpp` override; do not remove progression files.
+
+Clearing the Android app cache does not reliably remove this persistent
+`files/il2cpp` override. Do not use **Clear storage/data**, because that deletes
+app data. Use the backup, uninstall, install, first-launch, and save-only
+restore procedure in the README.
 
 ## First-pass device checklist
 

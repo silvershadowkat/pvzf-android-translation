@@ -344,7 +344,6 @@ ANDROID_CONFIRMED_EXACT.update({
 # as unrelated symbols.
 ANDROID_CONFIRMED_EXACT.update({
     "一起摇滚吧！": "<size=20>LETS ROCK",
-    "超级肥料": "Super Fertilizer",
     "\n版本：": "\nVersion: ",
     "\n当前版本：": "\nCurrent version: ",
 
@@ -965,7 +964,6 @@ ANDROID_CONFIRMED_EXACT.update({
         "Start with 50 Luck and increase the Luck cap to 300, then randomly select 5 Zombie Modifiers. These 5 modifiers reroll only after clearing The Gods: Evolved on any difficulty"
     ),
     "伤情恶化：被黑橄榄高坚果僵尸攻击的植物在1秒内无法回血": "Worsening Wounds: Plants hit by Black Football Tall-nut Zombies cannot recover HP for 1 second",
-    "使用了超级肥料": "Used Super Fertilizer",
     "倒反天罡：究极植物的倍率降为原来的10%，非究极植物的倍率提高到原来的400%，并获得2倍速度增幅": (
         "Role Reversal: Ultimate Plant multipliers fall to 10% of normal. Non-Ultimate Plant multipliers rise to 400%, with a 2x speed bonus"
     ),
@@ -1546,6 +1544,7 @@ def load_pc_translations(
         if not isinstance(payload, dict):
             raise ValueError(f"{path} must contain a JSON object")
         added = 0
+        rejected_placeholders = 0
         for source, translated in payload.items():
             if (
                 isinstance(source, str)
@@ -1553,9 +1552,13 @@ def load_pc_translations(
                 and CJK_RE.search(source)
                 and not source.startswith("-------")
             ):
+                if not is_usable_pc_translation(translated):
+                    rejected_placeholders += 1
+                    continue
                 exact[source] = translated
                 added += 1
         counts[filename] = added
+        counts[f"{filename}:placeholder_rejected"] = rejected_placeholders
 
     dumps_dir = strings_dir.parents[2] / "Dumps"
     for filename in STRUCTURED_PAIR_FILES:
@@ -1672,7 +1675,11 @@ def observed_translations(
         if source.raw == target.raw:
             continue
         changed += 1
-        if not CJK_RE.search(source.text) or CJK_RE.search(target.text) or not target.text:
+        if (
+            not CJK_RE.search(source.text)
+            or CJK_RE.search(target.text)
+            or not is_usable_pc_translation(target.text)
+        ):
             continue
         previous = mapping.get(source.text)
         if previous is not None and previous != target.text:

@@ -51,7 +51,7 @@ obtained copies under the ignored local directories.
 | Official Chinese 3.9 APK shell/reference | `artifacts/ChineseAPK3.9.apk` | `a3adf7d8742d537f167217867e943e1b9faeaa361a868e33e388a373671320b0` |
 | Known-good English 3.8.1 baseline | `artifacts/PvZ-Fusion-3.8.1-English-Android-update6.apk` | `a8441c6792363e0475ad0d989ce2046ec6d536f3011ef9496dc8e1eaf6a35c93` |
 | Official Chinese 3.8.1 comparison | `artifacts/ChineseAPK3.8.1.apk` | `1d6789a388621f544ea1c29778acfb12645933b67153ecaed4f54a48c7fa43c0` |
-| PC English data | `translation-data/PVZF-Translation` branch `3.9` | `0747001d10b6f3b82f89ea1ee022f2e30f347791` |
+| PC English data | `translation-data/PVZF-Translation` branch `3.9` | `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1` |
 
 Never silently accept a hash mismatch. Upstream downloads are sometimes
 replaced without changing their filename.

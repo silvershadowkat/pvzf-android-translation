@@ -24,8 +24,8 @@ strings that are unchanged in 3.9. Historical Joseph/aha mappings remain
 conservative fallbacks for unchanged source strings. Do not carry independently
 generated 3.9 prose from earlier prerelease branches into the clean rebuild.
 
-Clean Test 3 uses upstream branch `3.9` at commit
-`0747001d10b6f3b82f89ea1ee022f2e30f347791`. That branch was newer than `main`
+Prerelease 5 uses upstream branch `3.9` at commit
+`d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`. That branch was newer than `main`
 when selected. Always inspect upstream branches and record both branch and
 commit rather than assuming `main` is authoritative.
 

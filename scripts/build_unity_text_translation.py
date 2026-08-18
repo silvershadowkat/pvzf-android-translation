@@ -459,15 +459,22 @@ def load_pc_maps(localization_dir: Path) -> tuple[dict[str, str], list[tuple[str
     exact: dict[str, str] = {}
     regex_entries: list[tuple[str, str, re.Pattern[str], str]] = []
     source_counts: dict[str, int] = {}
+    placeholder_sources: set[str] = set()
 
     for filename in EXACT_FILES:
         payload = read_json(strings_dir / filename)
         added = 0
+        rejected_placeholders = 0
         for source, target in payload.items():
             if isinstance(source, str) and isinstance(target, str) and CJK_RE.search(source):
+                if not is_usable_pc_translation(target):
+                    rejected_placeholders += 1
+                    placeholder_sources.add(source)
+                    continue
                 exact[source] = target
                 added += 1
         source_counts[filename] = added
+        source_counts[f"{filename}:placeholder_rejected"] = rejected_placeholders
 
     for filename in REGEX_FILES:
         payload = read_json(strings_dir / filename)
@@ -484,8 +491,38 @@ def load_pc_maps(localization_dir: Path) -> tuple[dict[str, str], list[tuple[str
         "tips_fs": read_json(strings_dir / "tips_fs.json"),
         "tips_iz": read_json(strings_dir / "tips_iz.json"),
         "source_counts": source_counts,
+        "placeholder_sources": placeholder_sources,
     }
     return exact, regex_entries, extras
+
+
+def restore_pc_placeholder_sources(
+    source: Any,
+    candidate: Any,
+    placeholder_sources: set[str],
+    counts: collections.Counter[str],
+) -> Any:
+    """Keep official text where upstream English is only a placeholder."""
+    if isinstance(source, str) and isinstance(candidate, str):
+        if source in placeholder_sources and candidate != source:
+            counts["pc_placeholder_preserved_official"] += 1
+            return source
+        return candidate
+    if isinstance(source, dict) and isinstance(candidate, dict):
+        return {
+            key: restore_pc_placeholder_sources(
+                source.get(key), value, placeholder_sources, counts
+            )
+            for key, value in candidate.items()
+        }
+    if isinstance(source, list) and isinstance(candidate, list):
+        result = list(candidate)
+        for index, source_item in enumerate(source[: len(result)]):
+            result[index] = restore_pc_placeholder_sources(
+                source_item, result[index], placeholder_sources, counts
+            )
+        return result
+    return candidate
 
 
 def csharp_format(template: str, values: list[str]) -> str:
@@ -799,6 +836,7 @@ def main() -> int:
                         collect_approved_pairs(source_item, pc_item, approved_pc_pairs)
     tips_fs: dict[str, str] = extras["tips_fs"]
     tips_iz: dict[str, str] = extras["tips_iz"]
+    placeholder_sources: set[str] = extras["placeholder_sources"]
 
     env = UnityPy.load(str(args.base_bundle))
     method_counts: collections.Counter[str] = collections.Counter()
@@ -890,6 +928,12 @@ def main() -> int:
                     regex_entries,
                     method_counts,
                 )
+                policy_script = restore_pc_placeholder_sources(
+                    official_record.script,
+                    policy_script,
+                    placeholder_sources,
+                    method_counts,
+                )
                 if policy_script != new_script:
                     new_script = policy_script
                     methods.append("new_39_pc_or_chinese_policy")
@@ -901,6 +945,12 @@ def main() -> int:
                     approved_pc_pairs,
                     pc_exact,
                     regex_entries,
+                    method_counts,
+                )
+                policy_tree = restore_pc_placeholder_sources(
+                    official_tree,
+                    policy_tree,
+                    placeholder_sources,
                     method_counts,
                 )
                 if policy_tree != candidate_tree:

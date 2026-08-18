@@ -1,38 +1,35 @@
-# Next release gate: Android 3.9 Clean Test 3
+# Android 3.9 prerelease 5 test gate
 
-Do not publish this build until it completes a real-device first pass. The
-local candidate is `PvZ-Fusion-3.9-English-Android-clean-test3.apk`; its hash
-and provenance are recorded in `RELEASE-3.9-EN.md`.
+Prerelease 5 uses the latest PC `3.9` branch at
+`d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`. It preserves the tested Android
+3.9 fixes while refreshing current PC Almanac and gameplay text.
 
-## Required device checks
+## Required installation order
 
-- Back up saves and remove only any stale external `files/il2cpp` override.
-- Install over 3.8.1 Update 6 and confirm Android accepts the shared signature.
-- Verify launch, version 3.9, save/load, relaunch, and normal progression.
-- Create a new save and check all version labels and `New Save File`.
-- Check the English Odyssey key, Return controls, pause-menu `MENU`, and exact
-  `LETS ROCK` label.
-- Recheck the main-menu dialog, settings/configuration screen, general button
-  labels, and in-level overlays that showed scrambled glyphs in Test 1.
-- Open new 3.9 plants and items; confirm their art and context menus are intact.
-- Inspect new entries that remain Chinese and confirm they are complete source
-  text, not PC placeholders or duplicated fallback wording.
-- Inspect modifier card titles and descriptions, including untranslated cards.
-  Names must not repeat descriptions.
-- Compare modifier, plant, and zombie Almanac description alignment.
-- Test narrow, 16:9, and ultrawide layouts where available.
-- Recheck Odyssey, Challenge, Zen Garden, Gods Evolution, pause, Almanac, and
-  plant-selection flows that previously regressed during 3.9 ports.
+1. Back up the app's `files` directory.
+2. Uninstall the currently installed game.
+3. Install prerelease 5 and launch it once.
+4. Fully close the game, then restore save/progression files only.
+5. Do not restore or modify `il2cpp/`, `global-metadata.dat`, translated
+   bundles, mods, caches, or unknown files from the old installation.
 
-## Report with screenshots
+Clearing cache is not a substitute: the writable IL2CPP override is under the
+persistent external `files/` directory. Never use **Clear storage/data** unless
+you intentionally want to erase app data.
 
-For each defect, record the screen/navigation path, aspect ratio, whether the
-text is dynamic or static, and a screenshot. Do not patch an untranslated 3.9
-field with independently generated English; first check whether the PC `3.9`
-branch gained a usable translation after the pinned commit.
+## What testers should check
 
-## Release decision
+- Compare Android wording against the supplied PC 3.9 English reference.
+- Report English present on PC but missing or wrong on Android.
+- Report broken fonts, clipping, overlap, bad wrapping, wrong button meaning,
+  missing art, context-menu regressions, duplicated modifier text, or crashes.
+- Check new saves, settings, Odyssey, Challenge, Zen Garden, Gods Evolution,
+  pause, plant selection, regular Almanac, and modifier Almanac screens.
+- Confirm the Odyssey key, Return, pause-menu `MENU`, and `LETS ROCK` art.
+- Confirm the tool-shop item no longer says `??? (Currently Bugged)`.
 
-After device testing, refresh the PC `3.9` branch, review any upstream changes,
-rebuild from the clean official inputs, rerun all automated audits, and prepare
-release notes. Do not publish the present local APK automatically.
+Do not report Chinese text by itself as a defect. Some current PC 3.9 fields
+are incomplete and intentionally remain in the official language. For a
+translation report, identify the matching PC English text or explain why the
+screen is generic UI that can be translated safely without inventing gameplay
+terminology.
