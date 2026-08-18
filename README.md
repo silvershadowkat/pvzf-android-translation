@@ -5,28 +5,31 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.9; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: Android 3.9 beta release pipeline implemented and self-validating.
-> Metadata, Unity text/UI reconstruction, TMP font transplantation, targeted
-> layout refinement, APK packaging, and comparative release auditing are
-> complete. Final releases still require a real-device smoke test.
+> Status: a clean Android 3.9 Test 1 APK has been rebuilt from the official
+> 3.9 shell and the known-good 3.8.1 English Update 6 baseline. Automated
+> metadata, bundle, signature, alignment, and comparative APK audits pass. It
+> has not been published and still requires a real-device smoke test.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
-The current community test APK is distributed separately on the
-[v3.9-release-5 prerelease page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.9-release-5).
-Back up saves and read the installation warning there before installing.
+The current local test handoff is documented in
+[docs/RELEASE-3.9-EN.md](docs/RELEASE-3.9-EN.md). Back up saves and read the
+installation warning there before installing.
 
 ## 3.9 beta translation policy
 
-New or changed 3.9 text must match the current PC community translation
-exactly. If the PC project has not translated a 3.9 entry, keep the official
-Chinese Android text. Do not create AI-assisted English text for new 3.9
-content while the PC translation is still in beta.
+New or changed 3.9 text must match a usable value from the latest PC community
+translation exactly. Placeholder values such as `TODO`, `???`, repeated
+temporary descriptions, and literal `X`/`Y` names do not count as
+translations. If the PC project has no usable translation, keep the official
+Chinese Android field. Do not create context-aware or other AI-assisted
+English text for new 3.9 content.
 
-Reviewed Android-specific and context-assisted translations inherited from
-3.8.1 may remain when their original source text is unchanged.
+The current rebuild pins `Teyliu/PVZF-Translation` branch `3.9` at commit
+`0747001d10b6f3b82f89ea1ee022f2e30f347791`. Reviewed Android translations
+from 3.8.1 Update 6 may remain only where the official source text is unchanged.
 
 ## Moving saves without restoring old translation files
 
@@ -74,10 +77,11 @@ Joseph's port was substantially broader. It modified 257 `TextAsset` objects
 and 3,081 `MonoBehaviour` objects; aha's 3.8.1 port modified only the three
 almanac `TextAsset` objects and 1,598 `MonoBehaviour` objects.
 
-The current clean 3.8.1 metadata build translates 2,606 literal occurrences,
-compared with 335 in aha's updated file. Remaining Chinese literal occurrences
-drop from 3,762 to 1,161. This does not mean every remaining occurrence is
-visible player-facing text, and asset-side text still needs separate handling.
+The clean 3.9 build uses the official Chinese 3.9 APK as the application shell,
+the signed 3.8.1 Update 6 APK as the reviewed Android translation baseline, and
+the pinned PC 3.9 branch as the only English authority for new content. It
+rebuilds only the two translation payloads and leaves the manifest, DEX, native
+libraries, resources, and other non-signature APK entries unchanged.
 
 For future maintainers and coding agents, start with
 [CLAUDE.md](CLAUDE.md). Also see the [research findings](docs/RESEARCH.md),
@@ -85,12 +89,12 @@ For future maintainers and coding agents, start with
 
 ## What this Android port changed
 
-This project did not merely copy one old translated APK. For Android 3.8.1 it:
+For the clean Android 3.9 rebuild, this project:
 
 - rebuilt the IL2CPP string-literal database deterministically from a clean
   metadata base, updating offsets and header sizes correctly;
-- applied 2,594 translated literal occurrences, including current PC exact and
-  regex translations plus conservative historical Android fallbacks;
+- applies current PC exact and regex translations plus conservative 3.8.1
+  fallbacks only for unchanged official source strings;
 - rebuilt and validated 278 Unity `TextAsset` objects, covering Almanacs,
   levels, custom levels, tutorials, tips, Abyss/configuration data, and other
   serialized player-facing text;
@@ -99,15 +103,17 @@ This project did not merely copy one old translated APK. For Android 3.8.1 it:
 - transplanted the complete PvZ-style TMP dependency set, not just a font file,
   including glyphs, character tables, SDF atlas, material, source-font links,
   and a CJK fallback;
-- corrected Android-only font sizes, wrapping, Almanac titles/descriptions,
-  footer collisions, the skin selector, Help/Hotkeys overlays, and credits;
+- preserves 3.9 plants, assets, menus, and data while correcting Android-only
+  font sizes, wrapping, Almanac layout, modifier-card structure, and labels;
+- restores the English Odyssey key, Return controls, pause-menu `MENU` texture,
+  and the exact `LETS ROCK` wave-start label;
+- removes em dashes from player-facing translated metadata and serialized text;
 - preserved creator/contributor names and internal CJK data that should not be
   translated blindly;
 - added deterministic reopen validation, remaining-CJK auditing, payload-only
   APK packaging, and a comparative release safety audit;
-- left the Android manifest, DEX bytecode, native libraries, resources, and all
-  other executable/application-shell content unchanged from the official
-  Chinese 3.8.1 APK shell.
+- leaves the Android manifest, DEX bytecode, native libraries, resources, and
+  all other application-shell content unchanged from official Android 3.9.
 
 The in-game Android-port credit is baked into the Help parchment as one clean
 line in the game's original embedded `fzjz` handwriting font:
@@ -201,21 +207,20 @@ Example layout (all ignored by Git):
 
 ```text
 artifacts/
-  ChineseAPK3.6.1/
-  ChineseAPK3.8.1/
-  JosephEnglish3.6.1/
-  ahaEnglish3.8.1/
+  ChineseAPK3.8.1.apk
+  ChineseAPK3.9.apk
+  PvZ-Fusion-3.8.1-English-Android-update6.apk
 translation-data/
+  PVZF-Translation/
 ```
 
 Example invocation:
 
 ```powershell
 python scripts/build_metadata_translation.py `
-  --base artifacts/ChineseAPK3.8.1/global-metadata.dat `
-  --strings-dir translation-data/PvZ_Fusion_Translator/Localization/English/Strings `
-  --reference-pair Joseph-3.6.1 artifacts/ChineseAPK3.6.1/global-metadata.dat artifacts/JosephEnglish3.6.1/global-metadata.dat `
-  --reference-pair aha-3.8.1 artifacts/ChineseAPK3.8.1/global-metadata.dat artifacts/ahaEnglish3.8.1/global-metadata.dat `
+  --base work/stage-39-chinese/assets/bin/Data/Managed/Metadata/global-metadata.dat `
+  --strings-dir translation-data/PVZF-Translation/Localization/English/Strings `
+  --reference-pair update6-3.8.1 work/stage-381-chinese/assets/bin/Data/Managed/Metadata/global-metadata.dat work/stage-381-update6/assets/bin/Data/Managed/Metadata/global-metadata.dat `
   --output generated/global-metadata.dat `
   --report generated/metadata-report.json
 ```
@@ -254,13 +259,15 @@ Available scripts:
   and character tables, SDF atlas pixels, material settings, source Font
   references, and an optional CJK fallback, all remapped into stable target
   object IDs.
-- `refine_almanac_layout.py` retargets only the three long 3.8.1 Almanac
-  description components from the handwriting TMP slot to the transplanted
-  Dynamic slot and normalizes the oversized plant-page title.
+- `refine_almanac_layout.py` aligns regular and modifier Almanac description
+  bodies at the same right-shifted margin and normalizes title metadata.
 - `polish_android_ui.py` removes PC-only Almanac size tags to match Joseph's
   Android data, translates visible configuration-backed labels, adds the
   credits staging text, cleans mixed-language UI defaults, and applies
   the final narrow title/layout corrections.
+- `apply_legacy_texture_translations.py` compares official 3.8.1, English
+  Update 6, and official 3.9 pixels. It carries an English texture forward only
+  when the official 3.9 texture is unchanged, preserving new or revised art.
 - `bake_help_credits.py` replaces the 1400×600 Help parchment texture with a
   deterministic pre-rendered version and blanks the former live credit layer.
 - `apply_pc_texture_translations.py` audits the complete PC English texture

@@ -25,6 +25,7 @@ from build_metadata_translation import (  # noqa: E402
     ANDROID_CONFIRMED_EXACT,
     ANDROID_REQUIRED_OVERRIDE_SOURCES,
     CJK_RE,
+    is_usable_pc_translation,
     load_pc_translations,
 )
 
@@ -658,7 +659,40 @@ def replace_nested_strings(value, replacements: dict[str, str]):
     return value
 
 
-def translate_serialized_fields(value, exact: dict[str, str], path=()):
+def collect_string_values(value, output: set[str]) -> None:
+    if isinstance(value, str):
+        output.add(value)
+    elif isinstance(value, dict):
+        for item in value.values():
+            collect_string_values(item, output)
+    elif isinstance(value, list):
+        for item in value:
+            collect_string_values(item, output)
+
+
+def collect_serialized_strings(bundle: Path, generator: TypeTreeGenerator) -> set[str]:
+    env = UnityPy.load(str(bundle))
+    env.typetree_generator = generator
+    result: set[str] = set()
+    for obj in env.objects:
+        if obj.type.name != "MonoBehaviour":
+            continue
+        try:
+            tree = obj.read_typetree(check_read=False)
+        except Exception:
+            continue
+        collect_string_values(tree, result)
+    del env
+    gc.collect()
+    return result
+
+
+def translate_serialized_fields(
+    value,
+    exact: dict[str, str],
+    previous_version_strings: set[str],
+    path=(),
+):
     """Translate only known player-facing configuration fields."""
     changes = []
     if isinstance(value, dict):
@@ -673,17 +707,37 @@ def translate_serialized_fields(value, exact: dict[str, str], path=()):
                 )
                 and (CJK_RE.search(item) or item in SERIALIZED_ANDROID_CORRECTIONS)
             ):
-                translated = exact.get(item, SERIALIZED_FIELD_FALLBACKS.get(item))
-                if translated is None and child_path[-1] in {"m_text", "m_Text"}:
+                translated = exact.get(item)
+                if translated is None and item in previous_version_strings:
+                    translated = SERIALIZED_FIELD_FALLBACKS.get(item)
+                if (
+                    translated is None
+                    and item in previous_version_strings
+                    and child_path[-1] in {"m_text", "m_Text"}
+                ):
                     translated = translate_visible_ui_pattern(item)
                 if translated is not None:
                     value[key] = translated
                     changes.append((child_path, item, translated))
             else:
-                changes.extend(translate_serialized_fields(item, exact, child_path))
+                changes.extend(
+                    translate_serialized_fields(
+                        item,
+                        exact,
+                        previous_version_strings,
+                        child_path,
+                    )
+                )
     elif isinstance(value, list):
         for index, item in enumerate(value):
-            changes.extend(translate_serialized_fields(item, exact, path + (index,)))
+            changes.extend(
+                translate_serialized_fields(
+                    item,
+                    exact,
+                    previous_version_strings,
+                    path + (index,),
+                )
+            )
     return changes
 
 
@@ -701,6 +755,15 @@ def main() -> int:
         "--reference-bundle",
         type=Path,
         help="3.8.1 bundle used only to resolve proven UI targets by hierarchy",
+    )
+    parser.add_argument(
+        "--previous-version-source-bundle",
+        required=True,
+        type=Path,
+        help=(
+            "official Chinese 3.8.1 bundle used to allow only inherited "
+            "Android fallback translations for unchanged source text"
+        ),
     )
     parser.add_argument("--dummy-dll-dir", required=True, type=Path)
     parser.add_argument(
@@ -799,11 +862,21 @@ def main() -> int:
         del reference_env
 
     changes = []
+    previous_version_strings = collect_serialized_strings(
+        args.previous_version_source_bundle,
+        generator,
+    )
     pc_exact, _, _, _ = load_pc_translations(args.strings_dir)
     # Current PC community translations remain authoritative. Reviewed
     # Android-only mappings fill exact gaps, including new 3.9 visible labels.
-    serialized_exact = dict(ANDROID_CONFIRMED_EXACT)
-    serialized_exact.update(pc_exact)
+    serialized_exact = {
+        source: translated
+        for source, translated in pc_exact.items()
+        if is_usable_pc_translation(translated)
+    }
+    for source, translated in ANDROID_CONFIRMED_EXACT.items():
+        if source in previous_version_strings:
+            serialized_exact.setdefault(source, translated)
     for source in ANDROID_REQUIRED_OVERRIDE_SOURCES:
         if source in ANDROID_CONFIRMED_EXACT:
             serialized_exact[source] = ANDROID_CONFIRMED_EXACT[source]
@@ -907,7 +980,11 @@ def main() -> int:
             tree = obj.read_typetree(check_read=False)
         except Exception:
             continue
-        object_changes = translate_serialized_fields(tree, serialized_exact)
+        object_changes = translate_serialized_fields(
+            tree,
+            serialized_exact,
+            previous_version_strings,
+        )
         if not object_changes:
             continue
         obj.save_typetree(tree)
@@ -1312,6 +1389,10 @@ def main() -> int:
         "changes": changes,
         "reference_path_id_mapping": path_id_mapping,
         "skipped_reference_targets": skipped_reference_targets,
+        "previous_version_source": {
+            "path": str(args.previous_version_source_bundle.resolve()),
+            "serialized_string_count": len(previous_version_strings),
+        },
     }
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

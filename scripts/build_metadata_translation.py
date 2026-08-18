@@ -21,6 +21,11 @@ from typing import Iterable
 
 MAGIC = b"\xaf\x1b\xb1\xfa"
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
+PLACEHOLDER_RE = re.compile(
+    r"(?:description[_ -]?missing|translation[_ -]?missing|missing[_ -]?description|"
+    r"\b(?:todo|tbd|wip)\b|currently bugged|^\?+$)",
+    re.IGNORECASE,
+)
 CSHARP_FORMAT_FIELD_RE = re.compile(r"\{(\d+)(?:,[^}:]+)?(?::[^}]+)?\}")
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
@@ -1121,7 +1126,7 @@ ANDROID_REQUIRED_OVERRIDE_SOURCES = {
     "生产间隔：{0}秒\n", "光照等级：{0}\n",
     "奖励1：<color=black>", "奖励1：<color=white>",
     "奖励2：<color=black>", "奖励2：<color=white>",
-    "一起摇滚吧！", "超级肥料", "\n版本：", "\n当前版本：",
+    "一起摇滚吧！", "\n版本：", "\n当前版本：",
 }
 
 
@@ -1148,28 +1153,10 @@ ANDROID_39_MODIFIER_TITLES = {
 # travel-buff names when they exist, then use these reviewed mobile fallbacks.
 # Keeping this separate from the descriptions lets body revisions continue to
 # inherit stable PC terminology without relying on a whole-string match.
-ANDROID_39_MODIFIER_TITLE_TRANSLATIONS = {
-    "鱼丸护体": "Giga Guardian",
-    "祝福-争强好胜": "Blessing - Competitive Spirit",
-    "祝福-千锤百炼": "Blessing - Tempered a Thousand Times",
-    "祝福-壹肆叁柒": "Blessing - 1437",
-    "祝福-见者有份": "Blessing - Share the Wealth",
-    "诅咒-争强好胜": "Curse - Competitive Spirit",
-    "诅咒-千锤百炼": "Curse - Tempered a Thousand Times",
-    "诅咒-壹肆叁柒": "Curse - 1437",
-    "诅咒-见者有份": "Curse - Share the Wealth",
-    "质变-万剑归宗": "Ascend: Myriad Blades",
-    "质变-人人有份": "Ascend: Share the Wealth",
-    "质变-固甲摧锋": "Ascend: Armorbreaker",
-    "质变-拿来吧你": "Ascend: Decryption",
-    "质变-杀戮光环": "Ascend: Killing Aura",
-    "质变-谁劈了我的瓜": "Ascend: Who Split My Melon?",
-    "质变-饱和弹射": "Ascend: Saturation Ricochet",
-}
+ANDROID_39_MODIFIER_TITLE_TRANSLATIONS: dict[str, str] = {}
 
 MODIFIER_CATEGORY_PREFIXES = ("祝福-", "诅咒-", "质变-")
 SP_EVOLUTION_SOURCE_TITLE = "【SP进化】"
-SP_EVOLUTION_TRANSLATED_TITLE = "[SP Evolution]"
 
 
 @dataclass(frozen=True)
@@ -1198,6 +1185,15 @@ class DefinitionLayout:
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def is_usable_pc_translation(value: str) -> bool:
+    """Return whether upstream contains real translated text, not a marker."""
+    return (
+        bool(value.strip())
+        and CJK_RE.search(value) is None
+        and PLACEHOLDER_RE.search(value.strip()) is None
+    )
 
 
 def parse_metadata(data: bytes) -> tuple[MetadataLayout, list[Literal]]:
@@ -1431,7 +1427,6 @@ def load_modifier_sources(
     for source_title, translated_title in ANDROID_39_MODIFIER_TITLE_TRANSLATIONS.items():
         if source_title not in ambiguous_title_translations:
             title_translations.setdefault(source_title, translated_title)
-    title_translations[SP_EVOLUTION_SOURCE_TITLE] = SP_EVOLUTION_TRANSLATED_TITLE
     for source in sources:
         source_title = clean_modifier_source_title(source)
         if source_title in title_translations:
@@ -1991,7 +1986,7 @@ def main() -> int:
             pc_authoritative = (
                 method is not None
                 and method.startswith("pc_")
-                and CJK_RE.search(translated_text) is None
+                and is_usable_pc_translation(translated_text)
             )
             if pc_authoritative:
                 new_39_pc_translated_occurrences += 1
@@ -2021,6 +2016,14 @@ def main() -> int:
         ):
             modifier_reason = None
         if modifier_reason is not None and preserved_new_39:
+            before_normalization = translated_text
+            translated_text, title_shrunk = normalize_modifier_translation(
+                translated_text,
+                None,
+            )
+            method = "preserved_new_39_chinese_structured"
+            audit_record["method"] = method
+            audit_record["translation"] = translated_text
             modifier_records.append(
                 {
                     "index": index,
@@ -2028,10 +2031,10 @@ def main() -> int:
                     "source_title": clean_modifier_source_title(literal.text),
                     "match_reason": modifier_reason,
                     "preferred_title": None,
-                    "before": literal.text,
-                    "translation": literal.text,
-                    "title_shrunk": False,
-                    "changed_by_final_parser": False,
+                    "before": before_normalization,
+                    "translation": translated_text,
+                    "title_shrunk": title_shrunk,
+                    "changed_by_final_parser": translated_text != before_normalization,
                     "preserved_new_39_chinese": True,
                 }
             )
@@ -2140,7 +2143,17 @@ def main() -> int:
     )
     for record in modifier_records:
         if bool(record.get("preserved_new_39_chinese")):
-            if record["translation"] != record["source"]:
+            translated = str(record["translation"])
+            parts = translated.split("：\n", 1)
+            translated_title = (
+                re.sub(r"<[^>]+>", "", parts[0]).strip() if len(parts) == 2 else ""
+            )
+            if (
+                len(parts) != 2
+                or not parts[1].strip()
+                or translated_title != clean_modifier_source_title(str(record["source"]))
+                or CJK_RE.search(translated) is None
+            ):
                 malformed_modifier_outputs.append(record)
             continue
         translated = str(record["translation"])
@@ -2213,9 +2226,15 @@ def main() -> int:
             record["new_39"] is True
             and record["translation"] != record["source"]
             and not (
-                isinstance(record["method"], str)
-                and str(record["method"]).startswith("pc_")
-                and CJK_RE.search(str(record["translation"])) is None
+                (
+                    isinstance(record["method"], str)
+                    and str(record["method"]).startswith("pc_")
+                    and is_usable_pc_translation(str(record["translation"]))
+                )
+                or (
+                    record["method"] == "preserved_new_39_chinese_structured"
+                    and CJK_RE.search(str(record["translation"])) is not None
+                )
             )
         )
         for record in sp_evolution_records

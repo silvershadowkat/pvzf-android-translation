@@ -27,6 +27,11 @@ from build_metadata_translation import ANDROID_CONFIRMED_EXACT
 
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
+PLACEHOLDER_RE = re.compile(
+    r"(?:description[_ -]?missing|translation[_ -]?missing|missing[_ -]?description|"
+    r"\b(?:todo|tbd|wip)\b|currently bugged|^\?+$|^[xy]$)",
+    re.IGNORECASE,
+)
 ALMANAC_FILES = {
     "LawnStrings": "LawnStringsTranslate.json",
     "ZombieStrings": "ZombieStringsTranslate.json",
@@ -66,62 +71,6 @@ ANDROID_39_DETAIL_ALIASES = {
     "僵尸机制-防具": ("基本机制-僵尸防具",),
     "僵尸机制-护甲": ("基本机制-护甲值",),
 }
-ANDROID_39_DETAIL_TITLES = {
-    "基本机制-植物占位": "Basic Mechanics - Plant Positions",
-    "基本机制-僵尸身位": "Basic Mechanics - Zombie Positions",
-    "基本机制-关卡难度": "Basic Mechanics - Level Difficulty",
-    "低矮、高大、巨型植物": "Plant Traits - Short, Tall, and Giant Plants",
-    "可密植、坚实、金属植物": "Plant Traits - Stackable, Defensive, and Metal Plants",
-    "植物机制-护盾": "Plant Systems - Shields",
-    "植物机制-寒冷与冻结状态": "Plant Systems - Chill and Freeze",
-    "植物机制-余烬状态": "Plant Systems - Irradiated Status",
-    "植物机制-水草值": "Plant Systems - Tangle Points",
-    "植物机制-红温状态": "Plant Systems - Enflamed Status",
-    "植物机制-光照等级": "Plant Systems - Lumos Levels",
-    "植物机制-磁力系统": "Plant Systems - Magnetic Systems",
-    "植物机制-中毒状态": "Plant Systems - Poison",
-    "植物机制-传送状态": "Plant Systems - Chronoshift",
-    "僵尸机制-临界值": "Zombie Mechanics - Critical Thresholds",
-    "僵尸机制-防具": "Zombie Mechanics - Armor Pieces",
-    "僵尸机制-护甲": "Zombie Mechanics - Damage Reduction",
-    "僵尸机制-BOSS及领袖": "Zombie Mechanics - Bosses and Leaders",
-}
-ANDROID_39_DETAIL_DESCRIPTIONS = {
-    "基本机制-植物占位": (
-        "Each tile has four plant positions: Main, Shell, Carrier, and Flying. "
-        "A position normally holds one plant, while stackable plants can share a position in groups of three.\n\n"
-        "<color=#77FFF8>Main:</color> Used by most plants.\n"
-        "<color=#77FFF8>Shell:</color> Usually occupied by Pumpkin-type plants.\n"
-        "<color=#77FFF8>Carrier:</color> Usually occupied by Lily Pad and Flower Pot-type plants.\n"
-        "<color=#77FFF8>Flying:</color> Usually occupied by Blover fusions and certain special plants."
-    ),
-    "基本机制-僵尸身位": (
-        "Zombies can occupy three positions: Ground, Air, and Underground. A zombie's position determines "
-        "whether certain plants can target it and whether certain attacks can hit it. Cherry Bombs, Doom-shrooms, "
-        "Jalapenos, Cob Cannon projectiles, and similar attacks ignore position restrictions.\n\n"
-        "<color=#77FFF8>Ground:</color> Most zombies on land or water.\n"
-        "<color=#77FFF8>Air:</color> Most flying zombies.\n"
-        "<color=#77FFF8>Underground:</color> Usually used by Miner-type zombies while entering the lawn."
-    ),
-    "基本机制-关卡难度": (
-        "Normal levels have six difficulty settings, from 0 to 5, which can be changed from Options or while playing. "
-        "Higher difficulties increase the number of zombies. Difficulty 4 and above also grant extra bonuses.\n\n"
-        "<color=#77FFF8>Difficulty 4:</color> Zombies gain 30% damage reduction and 0.1x movement speed.\n"
-        "<color=#77FFF8>Difficulty 5:</color> Damage reduction becomes 60% and the speed bonus becomes 0.2x. "
-        "Cherry explosions still splash when they hit Wall-nut-type plants. On levels with at least four flags, "
-        "the final wave also gains powerful special zombies.\n\n"
-        "Difficulty 6 is exclusive to Skin Challenges. In addition to Difficulty 5 rules, zombies gain 40% Toughness, "
-        "the first wave arrives after 3 seconds, and natural spawning occurs every 10 seconds."
-    ),
-    "僵尸机制-BOSS及领袖": (
-        "<color=#002461>Boss zombies</color> are exceptionally powerful. Fixed one-million-damage attacks, such as the "
-        "Mallet, deal at most 5000 damage to them. Hypnosis, swallowing, drowning, Tangle Point executions, ash "
-        "executions, umbrella conversion, shrinking, chronoshift executions, and similar instant-kill or weakening "
-        "effects do not work on bosses.\n\n<color=#002461>Leader zombies</color> are a boss subtype with 100 additional "
-        "DR. Outside Odyssey Survival, they lead huge waves from the third flag onward. In Odyssey: Evolved, their "
-        "Toughness is doubled."
-    ),
-}
 EXACT_FILES = ("translation_strings.json", "customlevel_strings.json", "abyss_buffs.json")
 REGEX_FILES = ("translation_regexs.json", "customlevel_regexs.json")
 
@@ -158,6 +107,16 @@ def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def is_usable_pc_translation(value: Any) -> bool:
+    """Reject empty, CJK-bearing, and explicit placeholder PC values."""
+    return (
+        isinstance(value, str)
+        and bool(value.strip())
+        and CJK_RE.search(value) is None
+        and PLACEHOLDER_RE.search(value.strip()) is None
+    )
+
+
 def parse_json_text(value: str) -> Any:
     # Joseph's translated TextAssets commonly retain a UTF-8 BOM as the first
     # decoded character. Unity accepts it, but Python's json.loads does not.
@@ -167,6 +126,7 @@ def parse_json_text(value: str) -> Any:
 def merge_android_almanac(
     asset_name: str,
     source_script: str,
+    pc_source_script: str,
     pc_script: str,
     overrides: dict[str, Any],
 ) -> tuple[str, dict[str, int]]:
@@ -178,11 +138,14 @@ def merge_android_almanac(
     """
     list_key, id_key = ALMANAC_SCHEMAS[asset_name]
     source_tree = parse_json_text(source_script)
+    pc_source_tree = parse_json_text(pc_source_script)
     pc_tree = parse_json_text(pc_script)
     if not isinstance(source_tree, dict) or not isinstance(source_tree.get(list_key), list):
         raise RuntimeError(f"official {asset_name} does not contain a {list_key} list")
     if not isinstance(pc_tree, dict) or not isinstance(pc_tree.get(list_key), list):
         raise RuntimeError(f"PC {asset_name} does not contain a {list_key} list")
+    if not isinstance(pc_source_tree, dict) or not isinstance(pc_source_tree.get(list_key), list):
+        raise RuntimeError(f"PC source {asset_name} does not contain a {list_key} list")
 
     def index_records(records: list[Any], label: str) -> dict[str, dict[str, Any]]:
         indexed: dict[str, dict[str, Any]] = {}
@@ -197,6 +160,7 @@ def merge_android_almanac(
 
     source_records = source_tree[list_key]
     source_by_id = index_records(source_records, "official")
+    pc_source_by_id = index_records(pc_source_tree[list_key], "PC source")
     pc_by_id = index_records(pc_tree[list_key], "PC")
     asset_overrides = overrides.get(asset_name, {})
     if not isinstance(asset_overrides, dict):
@@ -205,18 +169,83 @@ def merge_android_almanac(
     if unknown_overrides:
         raise RuntimeError(f"Android Almanac overrides reference unknown {asset_name} IDs: {unknown_overrides}")
 
+    # Placeholder commits sometimes seed multiple new records with the same
+    # unrelated English body. Detect one translation value aligned to multiple
+    # distinct Chinese sources and reject that field while retaining valid
+    # independently translated fields such as a plant name.
+    translated_sources: dict[tuple[str, str], set[str]] = collections.defaultdict(set)
+    translated_body_signatures: collections.Counter[tuple[tuple[str, str], ...]] = (
+        collections.Counter()
+    )
+    for stable_id, translated_record in pc_by_id.items():
+        pc_source_record = pc_source_by_id.get(stable_id)
+        if pc_source_record is None:
+            continue
+        for field, translated_value in translated_record.items():
+            source_value = pc_source_record.get(field)
+            if isinstance(source_value, str) and isinstance(translated_value, str):
+                translated_sources[(field, translated_value)].add(source_value)
+        body_signature = tuple(
+            sorted(
+                (field, value)
+                for field, value in translated_record.items()
+                if field not in {id_key, "name"} and isinstance(value, str) and value
+            )
+        )
+        if body_signature:
+            translated_body_signatures[body_signature] += 1
+
     merged_records: list[dict[str, Any]] = []
     pc_applied = 0
+    pc_fields_applied = 0
+    pc_placeholder_fields_rejected = 0
+    pc_unaligned_fields_rejected = 0
     override_applied = 0
     official_only = 0
     for source_record in source_records:
         stable_id = str(source_record[id_key])
         merged = dict(source_record)
         pc_record = pc_by_id.get(stable_id)
-        if pc_record is not None:
-            merged.update(pc_record)
+        pc_source_record = pc_source_by_id.get(stable_id)
+        applied_fields = 0
+        if pc_record is not None and pc_source_record is not None:
+            body_signature = tuple(
+                sorted(
+                    (field, value)
+                    for field, value in pc_record.items()
+                    if field not in {id_key, "name"} and isinstance(value, str) and value
+                )
+            )
+            repeated_record_body = translated_body_signatures[body_signature] > 1
+            for field, translated_value in pc_record.items():
+                if field == id_key:
+                    continue
+                official_value = source_record.get(field)
+                pc_source_value = pc_source_record.get(field)
+                if official_value != pc_source_value:
+                    pc_unaligned_fields_rejected += 1
+                    continue
+                duplicate_placeholder = (
+                    isinstance(pc_source_value, str)
+                    and isinstance(translated_value, str)
+                    and len(translated_sources[(field, translated_value)]) > 1
+                    and field != "name"
+                )
+                if (
+                    not is_usable_pc_translation(translated_value)
+                    or duplicate_placeholder
+                    or (repeated_record_body and field != "name")
+                ):
+                    pc_placeholder_fields_rejected += 1
+                    continue
+                merged[field] = translated_value
+                applied_fields += 1
             merged[id_key] = source_record[id_key]
-            pc_applied += 1
+            if applied_fields:
+                pc_applied += 1
+                pc_fields_applied += applied_fields
+            else:
+                official_only += 1
         else:
             official_only += 1
         override = asset_overrides.get(stable_id)
@@ -231,6 +260,9 @@ def merge_android_almanac(
     return json.dumps(source_tree, ensure_ascii=False, indent=4), {
         "official_records": len(source_records),
         "pc_records_applied": pc_applied,
+        "pc_fields_applied": pc_fields_applied,
+        "pc_placeholder_fields_rejected": pc_placeholder_fields_rejected,
+        "pc_unaligned_fields_rejected": pc_unaligned_fields_rejected,
         "android_overrides_applied": override_applied,
         "official_only_records": official_only,
         "pc_records_not_in_official": len(set(pc_by_id) - set(source_by_id)),
@@ -258,7 +290,16 @@ def merge_android_detail_strings(
         source_titles.append(title)
     if len(source_titles) != len(set(source_titles)):
         raise RuntimeError("official Android DetailStrings contains duplicate titles")
-    resolved_titles = set(pc_descriptions) | set(ANDROID_39_DETAIL_ALIASES) | set(ANDROID_39_DETAIL_DESCRIPTIONS)
+    resolved_titles: set[str] = set()
+    for source_title in source_titles:
+        translated_title = exact.get(source_title)
+        has_title = is_usable_pc_translation(translated_title)
+        has_description = source_title in pc_descriptions or (
+            source_title in ANDROID_39_DETAIL_ALIASES
+            and all(key in pc_descriptions for key in ANDROID_39_DETAIL_ALIASES[source_title])
+        )
+        if has_title and has_description:
+            resolved_titles.add(source_title)
     missing = sorted(set(source_titles) - resolved_titles)
     extra = sorted(set(pc_descriptions) - set(source_titles))
     if (missing or extra) and not allow_untranslated_new_content:
@@ -278,16 +319,14 @@ def merge_android_detail_strings(
             raise RuntimeError(
                 f"missing English Mechanics Almanac category for {source_type!r}"
             )
-        translated_title = ANDROID_39_DETAIL_TITLES.get(source_title, exact.get(source_title))
-        if not isinstance(translated_title, str) or CJK_RE.search(translated_title):
+        translated_title = exact.get(source_title)
+        if not is_usable_pc_translation(translated_title):
             raise RuntimeError(f"missing English Mechanics Almanac title for {source_title!r}")
-        if source_title in ANDROID_39_DETAIL_DESCRIPTIONS:
-            description = ANDROID_39_DETAIL_DESCRIPTIONS[source_title]
-        elif source_title in ANDROID_39_DETAIL_ALIASES:
+        if source_title in ANDROID_39_DETAIL_ALIASES:
             description = "\n\n".join(pc_descriptions[key] for key in ANDROID_39_DETAIL_ALIASES[source_title])
         else:
             description = pc_descriptions[source_title]
-        if not isinstance(description, str):
+        if not is_usable_pc_translation(description):
             raise RuntimeError(f"invalid PC Mechanics Almanac text for {source_title!r}")
         item["type"] = translated_type
         item["title"] = translated_title
@@ -372,7 +411,7 @@ def collect_bundle_cjk_strings(bundle: Path) -> set[str]:
 
 def collect_approved_pairs(source: Any, translated: Any, output: dict[str, set[str]]) -> None:
     if isinstance(source, str) and isinstance(translated, str):
-        if source != translated and CJK_RE.search(source) and not CJK_RE.search(translated):
+        if source != translated and CJK_RE.search(source) and is_usable_pc_translation(translated):
             output.setdefault(source, set()).add(translated)
         return
     if isinstance(source, dict) and isinstance(translated, dict):
@@ -475,7 +514,7 @@ def pc_regex_translation(
             continue
         dynamic = [pc_exact.get(group, group) for group in match.groups()]
         result = csharp_format(template, dynamic)
-        if result != value and not CJK_RE.search(result):
+        if result != value and is_usable_pc_translation(result):
             return result
     return None
 
@@ -492,11 +531,15 @@ def enforce_new_39_policy(
     if isinstance(source, str) and isinstance(candidate, str):
         if not CJK_RE.search(source) or source in previous_cjk or candidate == source:
             return candidate
-        if candidate in approved_pc_pairs.get(source, set()) and not CJK_RE.search(candidate):
+        if candidate in approved_pc_pairs.get(source, set()) and is_usable_pc_translation(candidate):
             counts["new_39_current_pc"] += 1
             return candidate
         regex_result = pc_regex_translation(source, pc_exact, regex_entries)
-        if regex_result is not None and candidate == regex_result:
+        if (
+            regex_result is not None
+            and candidate == regex_result
+            and is_usable_pc_translation(candidate)
+        ):
             counts["new_39_current_pc_regex"] += 1
             return candidate
         counts["new_39_preserved_chinese"] += 1
@@ -638,7 +681,7 @@ def main() -> int:
     approved_pc_pairs: dict[str, set[str]] = {
         source: {translated}
         for source, translated in pc_exact.items()
-        if source != translated and not CJK_RE.search(translated)
+        if source != translated and is_usable_pc_translation(translated)
     }
     exact = dict(ANDROID_CONFIRMED_EXACT)
     exact.update(pc_exact)
@@ -655,6 +698,12 @@ def main() -> int:
             exact.setdefault(source, translated)
     pc_almanac = {
         name: (args.localization_dir / "Almanac" / filename).read_text(encoding="utf-8-sig")
+        for name, filename in ALMANAC_FILES.items()
+    }
+    pc_almanac_sources = {
+        name: (args.localization_dir.parents[1] / "Dumps" / filename.replace("Translate", "")).read_text(
+            encoding="utf-8-sig"
+        )
         for name, filename in ALMANAC_FILES.items()
     }
     almanac_overrides: dict[str, Any] = {}
@@ -694,7 +743,7 @@ def main() -> int:
                 and isinstance(pc_description, str)
                 and source_description != pc_description
                 and CJK_RE.search(source_description)
-                and not CJK_RE.search(pc_description)
+                and is_usable_pc_translation(pc_description)
             ):
                 approved_pc_pairs.setdefault(source_description, set()).add(pc_description)
     merged_almanac: dict[str, str] = {}
@@ -706,11 +755,12 @@ def main() -> int:
         merged_almanac[asset_name], almanac_merge_stats[asset_name] = merge_android_almanac(
             asset_name,
             matches[0].script,
+            pc_almanac_sources[asset_name],
             pc_script,
             almanac_overrides,
         )
         official_tree = parse_json_text(matches[0].script)
-        current_pc_tree = parse_json_text(pc_script)
+        current_pc_tree = parse_json_text(merged_almanac[asset_name])
         list_key, id_key = ALMANAC_SCHEMAS[asset_name]
         if isinstance(official_tree, dict) and isinstance(current_pc_tree, dict):
             official_items = official_tree.get(list_key, [])

@@ -11,9 +11,22 @@ For new or changed 3.9 content, use this strict beta policy:
 2. Otherwise preserve the official Android 3.9 Chinese text.
 3. Do not create AI-assisted English fallbacks for new or changed 3.9 text.
 
-Reviewed Android-specific and context-assisted 3.8.1 translations may remain
-for source strings that are unchanged in 3.9. Historical Joseph/aha mappings
-remain conservative fallbacks for unchanged source strings.
+Reviewed Android-specific 3.8.1 Update 6 translations may remain for source
+strings that are unchanged in 3.9. Historical Joseph/aha mappings remain
+conservative fallbacks for unchanged source strings. Do not carry independently
+generated 3.9 prose from earlier prerelease branches into the clean rebuild.
+
+Clean Test 1 uses upstream branch `3.9` at commit
+`0747001d10b6f3b82f89ea1ee022f2e30f347791`. That branch was newer than `main`
+when selected. Always inspect upstream branches and record both branch and
+commit rather than assuming `main` is authoritative.
+
+Treat PC placeholders as untranslated. This includes `TODO`, `TBD`, `WIP`,
+all-question-mark values, `currently bugged` placeholders, repeated temporary
+descriptions reused across records, and literal `X`/`Y` names. Preserve the
+corresponding official Chinese field. Structured records may mix a valid PC
+name with an untranslated Chinese description only when each field is aligned
+to the matching official PC source dump.
 
 The metadata builder enforces this policy. Entries in
 `ANDROID_CONFIRMED_EXACT` are fallback-only unless their source is listed in

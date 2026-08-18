@@ -14,6 +14,9 @@ version.
 
 Pull the latest `Teyliu/PVZF-Translation` data and the associated translator
 source. Review which base game version the release supports before building.
+Inspect all upstream branches, not only `main`, and pin the exact selected
+commit in the build report. Clean Test 1 uses branch `3.9` at
+`0747001d10b6f3b82f89ea1ee022f2e30f347791`.
 
 The metadata builder consumes:
 
@@ -29,7 +32,9 @@ sources. Current PC translations always take precedence.
 
 For new or changed 3.9 content, the current PC project is the only English
 authority. If it has no translation, preserve the official Android 3.9 Chinese
-text. Do not generate AI-assisted English for new 3.9 content. Reviewed 3.8.1
+text. Placeholder values (`TODO`, `???`, all-question-mark text, repeated
+temporary descriptions, and literal `X`/`Y` names) are not translations. Do
+not generate AI-assisted English for new 3.9 content. Reviewed 3.8.1 Update 6
 Android translations may remain only for unchanged source strings.
 
 ## 3. Generate metadata deterministically
@@ -106,14 +111,27 @@ Planned asset stages:
    broader 3.6.1 delta.
 7. Reopen the rebuilt bundle and verify every intended object.
 
-For Android 3.8.1, run `scripts/apply_pc_texture_translations.py` after the
-final credits bake. It audits all PNGs in the PC English texture catalog but
-only serializes the eight exact-name, exact-size particle replacements. The
-pass verifies that each same-name Sprite still references its Texture2D and
-replaces its incompatible Chinese tight mesh with a full-canvas quad before
-reopening the output to validate the complete unclipped Sprite. It deliberately
-preserves the approved Android `thanks` parchment, skips the obsolete PC
-`Logo3.6` artwork, and does not touch the parked Abyss entrance.
+For Android 3.9, first run `scripts/apply_legacy_texture_translations.py`. It
+compares official 3.8.1 pixels, English Update 6 pixels, and official 3.9
+pixels, then carries a reviewed English texture forward only when the official
+3.9 texture is unchanged. This restores assets such as the Odyssey key, Return
+controls, and pause-menu `MENU` without overwriting new 3.9 artwork.
+
+Run `scripts/apply_pc_texture_translations.py` after that pass so current PC
+texture translations have final authority. The script requires compatible
+name and dimensions, repairs particle Sprite meshes where necessary, reopens
+the result, and validates the texture/Sprite relationship.
+
+Rebuild combined modifier records structurally even when they remain Chinese:
+the name belongs before the full-width colon and the description after it.
+Never use a description as a fallback name. Apply
+`scripts/refine_almanac_layout.py` so modifier, plant, and zombie description
+bodies share the same horizontal margin.
+
+Run `scripts/normalize_em_dashes.py` as the final bundle pass and require zero
+remaining em dashes in player-facing translated text. Metadata normalization is
+also mandatory and is applied before 3.9 integration as well as in the final
+metadata builder.
 
 ## 6. Package and sign
 

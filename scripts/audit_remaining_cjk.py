@@ -12,6 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_metadata_translation import (  # noqa: E402
+    is_usable_pc_translation,
     load_pc_translations,
     parse_metadata,
     translate_literal,
@@ -195,12 +196,25 @@ def main() -> int:
     pc_translatable_remnants = []
     pc_counts = None
     if args.pc_strings_dir is not None:
-        exact, regex_entries, pc_counts = load_pc_translations(args.pc_strings_dir)
+        exact, pc_exact_sources, regex_entries, pc_counts = load_pc_translations(
+            args.pc_strings_dir
+        )
         for index, literal in enumerate(literals):
             if not CJK_RE.search(literal.text):
                 continue
-            translated, method = translate_literal(literal.text, exact, {}, regex_entries)
-            if method is not None and translated != literal.text:
+            translated, method = translate_literal(
+                literal.text,
+                exact,
+                pc_exact_sources,
+                {},
+                regex_entries,
+            )
+            if (
+                method is not None
+                and method.startswith("pc_")
+                and translated != literal.text
+                and is_usable_pc_translation(translated)
+            ):
                 pc_translatable_remnants.append(
                     {
                         "index": index,

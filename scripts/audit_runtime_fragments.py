@@ -24,7 +24,7 @@ CJK_RE = re.compile(r"[\u3400-\u9fff]")
 
 
 def load_pc_exact(strings_dir: Path) -> dict[str, str]:
-    exact, _, _ = load_pc_translations(strings_dir)
+    exact, _, _, _ = load_pc_translations(strings_dir)
     return exact
 
 

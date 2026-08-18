@@ -28,29 +28,30 @@ serialized Unity text/UI and fonts in `data.unity3d`, then repackage/sign.
 Metadata replacement alone is insufficient. Almanac databases, TMP labels,
 font references, baked textures, and layout live in the Unity bundle.
 
-The working 3.8.1 pipeline combines:
+The clean 3.9 pipeline combines:
 
-1. current Teyliu PC translation dictionaries;
-2. conservative mappings learned from aligned Chinese/English Android pairs;
+1. Teyliu PC branch `3.9` pinned to a recorded commit;
+2. conservative mappings from English Android 3.8.1 Update 6, restricted to
+   official source strings that are unchanged in 3.9;
 3. same-version serialized UI translation;
 4. TextMesh Pro font and SDF atlas transplantation;
 5. narrow Android-specific layout fixes;
-6. post-build validation and comparative APK safety auditing.
+6. version-gated legacy textures followed by current PC textures;
+7. post-build validation and comparative APK safety auditing.
 
 See `docs/RESEARCH.md` for the full evidence and object-level discoveries.
 
-## Known local inputs for 3.8.1
+## Known local inputs for the clean 3.9 rebuild
 
 These files are deliberately absent from Git. A maintainer must supply legally
 obtained copies under the ignored local directories.
 
 | Purpose | Expected local path | SHA-256 |
 |---|---|---|
-| Official Chinese 3.8.1 APK shell/reference | `artifacts/ChineseAPK3.8.1.apk` | `1d6789a388621f544ea1c29778acfb12645933b67153ecaed4f54a48c7fa43c0` |
-| aha 3.8.1 Android translation reference | `artifacts/pvzrh3.8.1_a.apk` | `355b35304100b64e38ba66667eaecd8841b0f5aa8a2eb58f9f42e1cb9ba63657` |
-| Joseph English 3.6.1 reference | `artifacts/PvZFusion3.6.1-English-Beta1.11.apk` | verify locally |
-| PC Chinese 3.8.1 reference | `artifacts/PC_PVZ-Fusion-3.8.1.zip` | verify locally |
-| updated metadata donated for 3.8.1 | `artifacts/global-metadata.dat` | verify locally |
+| Official Chinese 3.9 APK shell/reference | `artifacts/ChineseAPK3.9.apk` | `a3adf7d8742d537f167217867e943e1b9faeaa361a868e33e388a373671320b0` |
+| Known-good English 3.8.1 baseline | `artifacts/PvZ-Fusion-3.8.1-English-Android-update6.apk` | `a8441c6792363e0475ad0d989ce2046ec6d536f3011ef9496dc8e1eaf6a35c93` |
+| Official Chinese 3.8.1 comparison | `artifacts/ChineseAPK3.8.1.apk` | `1d6789a388621f544ea1c29778acfb12645933b67153ecaed4f54a48c7fa43c0` |
+| PC English data | `translation-data/PVZF-Translation` branch `3.9` | `0747001d10b6f3b82f89ea1ee022f2e30f347791` |
 
 Never silently accept a hash mismatch. Upstream downloads are sometimes
 replaced without changing their filename.
@@ -83,23 +84,27 @@ explicitly designed as a final polish pass.
 4. Transplant fonts using `scripts/replace_unity_font_data.py` and
    `scripts/transplant_tmp_font_asset.py`.
 5. Refine Almanac typography with `scripts/refine_almanac_layout.py`.
-6. Apply Android-specific finishing work with `scripts/polish_android_ui.py`.
-7. Bake and validate the Help parchment with `scripts/bake_help_credits.py`.
-8. Bake validated PC particle translations with
+6. Apply Android-specific finishing work with `scripts/polish_android_ui.py`,
+   passing the official 3.8.1 source bundle so old Android fallbacks cannot
+   translate genuinely new 3.9 source text.
+7. Apply version-gated Update 6 textures with
+   `scripts/apply_legacy_texture_translations.py`.
+8. Apply validated current PC texture translations with
    `scripts/apply_pc_texture_translations.py`.
-9. Run `scripts/audit_remaining_cjk.py` and review every *visible* result.
-10. Package only the two payloads with `scripts/package_apk_payload.py`.
-11. Align, release-sign, and verify the APK.
-12. Run `scripts/audit_apk_release.py` against the chosen base APK.
+9. Apply the exact `LETS ROCK` UI fix and final em-dash normalization.
+10. Run `scripts/audit_remaining_cjk.py` and review every *visible* result.
+11. Package only the two payloads with `scripts/package_apk_payload.py`.
+12. Align, release-sign, and verify the APK.
+13. Run `scripts/audit_apk_release.py` against official Android 3.9.
 
 Every builder writes a JSON report and reopens/revalidates its generated file.
 Treat a failed validation as a real failure; do not delete checks to get a
 build through.
 
-## Current 3.8.1 final-polish specifics
+## Historical 3.8.1 final-polish specifics
 
-`scripts/polish_android_ui.py` followed by `scripts/bake_help_credits.py` is the
-authoritative final sequence. Important details:
+The following section records the Update 6 baseline mechanics. It is historical
+context, not the complete 3.9 stage order above. Important details:
 
 - Almanac PC `<size>` tags are removed because Android applies a different
   effective scale.
