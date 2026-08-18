@@ -18,6 +18,14 @@ from apply_pc_texture_translations import (
 )
 
 
+# TMP font atlases are not ordinary localized artwork. Their pixels are indexed
+# by the matching font asset's glyph and character tables and are also coupled
+# to a material. Copying only an old atlas into a newer bundle scrambles every
+# component that uses the newer tables. Font changes must go through the full
+# font transplant pipeline instead.
+FONT_ATLAS_SUFFIX = " atlas"
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -61,6 +69,9 @@ def main() -> int:
     validation_images: dict[str, object] = {}
     candidate_names = sorted(set(source_textures) & set(translated_textures))
     for name in candidate_names:
+        if name.casefold().endswith(FONT_ATLAS_SUFFIX):
+            skipped.append({"name": name, "reason": "font_atlas_requires_dependency_transplant"})
+            continue
         source_matches = source_textures[name]
         translated_matches = translated_textures[name]
         current_matches = current_textures.get(name, [])

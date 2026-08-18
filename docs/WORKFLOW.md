@@ -117,6 +117,13 @@ pixels, then carries a reviewed English texture forward only when the official
 3.9 texture is unchanged. This restores assets such as the Odyssey key, Return
 controls, and pause-menu `MENU` without overwriting new 3.9 artwork.
 
+The legacy pass must never copy a TMP `* Atlas` texture independently. Font
+atlas pixels are indexed by the matching glyph/character tables and coupled to
+the font material. Test 1 demonstrated that mixing the Update 6 `fzcq Atlas`
+with 3.9's larger table scrambles text across the game. Any future font change
+must use the complete font transplant pipeline and validate the table, atlas,
+material, and pointer chain together.
+
 Run `scripts/apply_pc_texture_translations.py` after that pass so current PC
 texture translations have final authority. The script requires compatible
 name and dimensions, repairs particle Sprite meshes where necessary, reopens

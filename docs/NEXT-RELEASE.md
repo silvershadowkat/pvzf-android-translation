@@ -1,7 +1,7 @@
-# Next release gate: Android 3.9 Clean Test 1
+# Next release gate: Android 3.9 Clean Test 2
 
 Do not publish this build until it completes a real-device first pass. The
-local candidate is `PvZ-Fusion-3.9-English-Android-clean-test1.apk`; its hash
+local candidate is `PvZ-Fusion-3.9-English-Android-clean-test2.apk`; its hash
 and provenance are recorded in `RELEASE-3.9-EN.md`.
 
 ## Required device checks
@@ -12,6 +12,8 @@ and provenance are recorded in `RELEASE-3.9-EN.md`.
 - Create a new save and check all version labels and `New Save File`.
 - Check the English Odyssey key, Return controls, pause-menu `MENU`, and exact
   `LETS ROCK` label.
+- Recheck the main-menu dialog, settings/configuration screen, general button
+  labels, and in-level overlays that showed scrambled glyphs in Test 1.
 - Open new 3.9 plants and items; confirm their art and context menus are intact.
 - Inspect new entries that remain Chinese and confirm they are complete source
   text, not PC placeholders or duplicated fallback wording.

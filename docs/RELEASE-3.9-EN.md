@@ -1,4 +1,4 @@
-# PvZ Fusion 3.9 English Android - Clean Test 1
+# PvZ Fusion 3.9 English Android - Clean Test 2
 
 This is a local first-pass test build. It has not been published as a GitHub
 release. Automated build and package audits pass, but real-device testing is
@@ -6,8 +6,8 @@ still required.
 
 ## Test file
 
-- File: `PvZ-Fusion-3.9-English-Android-clean-test1.apk`
-- SHA-256: `CF2FCBBA734F7EE3F7709C88BDAF4339EBD58946254A4C168D0B8851C86FC888`
+- File: `PvZ-Fusion-3.9-English-Android-clean-test2.apk`
+- SHA-256: `A98229B3A98BC03AF5601DCBCD54559D090402F2DC4C0EE37FF2BEF44DFAD836`
 - Package: `com.LanPiaoPiao.PlantsVsZombiesRH`
 - Version: `3.9`
 - Signing certificate SHA-256:
@@ -44,6 +44,11 @@ pinned PC branch does not yet contain usable English for them.
 
 ## Included fixes
 
+- Fixed the Test 1 glyph corruption. The legacy texture pass had copied the
+  Update 6 `fzcq Atlas` bitmap without its matching 703-entry glyph table into
+  a 3.9 font asset with a 1,740-entry table. Test 2 excludes all TMP font
+  atlases from ordinary texture inheritance and retains the complete official
+  3.9 font table, material, and atlas chain.
 - Preserved official 3.9 plants, menus, serialized data, and changed artwork.
 - Restored the English Odyssey key, Return controls, and pause-menu `MENU`
   texture where official 3.9 retained the same underlying art.
@@ -63,6 +68,9 @@ pinned PC branch does not yet contain usable English for them.
   non-signature entries match the official 3.9 APK byte-for-byte.
 - Only `global-metadata.dat` and `data.unity3d` differ from the official shell.
 - Metadata and Unity bundle reopen/round-trip validation passes.
+- All three inspected TMP font assets retain the official 3.9 glyph counts,
+  character counts, atlas hashes, and material/atlas pointers. The primary
+  `Dynamic` font contains every printable ASCII character.
 - No PC-translatable CJK metadata remnant was found; remaining Chinese is
   intentional untranslated/internal content.
 

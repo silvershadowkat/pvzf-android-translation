@@ -5,7 +5,7 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.9; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: a clean Android 3.9 Test 1 APK has been rebuilt from the official
+> Status: a clean Android 3.9 Test 2 APK has been rebuilt from the official
 > 3.9 shell and the known-good 3.8.1 English Update 6 baseline. Automated
 > metadata, bundle, signature, alignment, and comparative APK audits pass. It
 > has not been published and still requires a real-device smoke test.
