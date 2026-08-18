@@ -86,25 +86,35 @@ pinned PC branch does not yet contain usable English for them.
 - No PC-translatable CJK metadata remnant was found; remaining Chinese is
   intentional untranslated/internal content.
 
-## PC visual-comparison package
+## PC visual-comparison folder
 
-- File: `PvZ-Fusion-3.9-English-PC-branch-0747001d.zip`
-- Size: `957,391,047` bytes
-- SHA-256: `41466BD422B8D52384CE32A1014A48D9834F76E22CF7EE4182B152ED1C9C9E04`
-- Base: the user-supplied official PC 3.9 files
-- English project: `Teyliu/PVZF-Translation` branch `3.9`, commit `0747001d`
-- Loader: official MelonLoader 0.7.1 x64
+- Folder: `PvZ-Fusion-3.9-English-PC-static-d150f6f0`
+- Base: the user-supplied official PC 3.9 archive
+- English project: `Teyliu/PVZF-Translation` branch `3.9`, commit
+  `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`
+- Patched `data.unity3d` SHA-256:
+  `65359A4AE07A5750C4A976F9F51FEF767E675D55EE9C13063264F2C63E3479A2`
+- Patched `global-metadata.dat` SHA-256:
+  `FBA7B199CF7C1CA5D24F1440D705EAD776EF3F0F86E557CFE951D8A52E5D44B0`
+- Loader: none
 
-This is a local branch snapshot for hands-on comparison, not a published PC
-English 3.9 release. Run `Launch Game.bat` after extracting it to its own
-folder. Untranslated content in this package reflects the current PC branch
-and is useful evidence for what Android should leave Chinese.
+This is a local static visual reference, not a published PC English 3.9
+release. Run `Launch Game.bat` directly from the supplied folder. It is built
+only from official PC 3.9 and the current PC translation project. It contains
+no Android strings, reviewed Android UI mappings, Android fallbacks, Android
+fonts, or Android textures.
 
-The ZIP is built with `scripts/package_pc_comparison.py`, which preserves and
-validates UTF-8 entry names. Windows `tar -a` must not be used for this package:
-it replaces the translation project's Chinese texture filenames with question
-marks, creating duplicate archive paths that trigger replacement prompts in a
-clean extraction folder.
+The available translator DLL targets 3.8.1 APIs and fails on final PC 3.9, so
+MelonLoader and the DLL are intentionally absent. Upstream PC exact, regex,
+structured, Almanac, tips, UI, and compatible texture data are applied
+statically. Missing, placeholder, or incomplete PC entries retain the complete
+official PC text. Fifteen modifier regex candidates provide a title but discard
+their description; those incomplete candidates are deliberately not applied.
+
+The final bundle retains the official PC object inventory of 201,407 objects.
+Only 1,226 `MonoBehaviour`, 121 `TextAsset`, 47 `Texture2D`, and 8 `Sprite`
+objects differ; no font, shader, script, executable, or native-library object
+was replaced. All other files from the official PC archive are byte-identical.
 
 ## Installation warning
 

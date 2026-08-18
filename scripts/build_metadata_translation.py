@@ -1527,6 +1527,7 @@ def normalize_modifier_translation(
 
 def load_pc_translations(
     strings_dir: Path,
+    include_android_fallbacks: bool = True,
 ) -> tuple[
     dict[str, str],
     set[str],
@@ -1621,22 +1622,23 @@ def load_pc_translations(
 
     fallback_added = 0
     community_preferred = 0
-    for source, target in ANDROID_CONFIRMED_EXACT.items():
-        if source in ANDROID_REQUIRED_OVERRIDE_SOURCES:
-            exact[source] = target
-        elif source in exact:
-            community_preferred += 1
-        else:
-            exact[source] = target
-            fallback_added += 1
     reviewed_39_added = 0
     reviewed_39_superseded_by_pc = 0
-    for source, target in ANDROID_39_REVIEWED_UI_EXACT.items():
-        if source in pc_exact_sources:
-            reviewed_39_superseded_by_pc += 1
-        elif source not in exact:
-            exact[source] = target
-            reviewed_39_added += 1
+    if include_android_fallbacks:
+        for source, target in ANDROID_CONFIRMED_EXACT.items():
+            if source in ANDROID_REQUIRED_OVERRIDE_SOURCES:
+                exact[source] = target
+            elif source in exact:
+                community_preferred += 1
+            else:
+                exact[source] = target
+                fallback_added += 1
+        for source, target in ANDROID_39_REVIEWED_UI_EXACT.items():
+            if source in pc_exact_sources:
+                reviewed_39_superseded_by_pc += 1
+            elif source not in exact:
+                exact[source] = target
+                reviewed_39_added += 1
     counts["android_confirmed_exact"] = len(ANDROID_CONFIRMED_EXACT)
     counts["android_required_overrides"] = len(ANDROID_REQUIRED_OVERRIDE_SOURCES)
     counts["android_fallbacks_added"] = fallback_added
@@ -1644,6 +1646,7 @@ def load_pc_translations(
     counts["android_39_reviewed_ui"] = len(ANDROID_39_REVIEWED_UI_EXACT)
     counts["android_39_reviewed_ui_added"] = reviewed_39_added
     counts["android_39_reviewed_ui_superseded_by_pc"] = reviewed_39_superseded_by_pc
+    counts["pc_reference_only"] = int(not include_android_fallbacks)
 
     return exact, pc_exact_sources, regex_entries, counts
 
@@ -1815,6 +1818,7 @@ def translate_literal(
     pc_exact_sources: set[str],
     observed: dict[str, tuple[str, str]],
     regex_entries: list[tuple[str, str, re.Pattern[str], str]],
+    pc_reference_only: bool = False,
 ) -> tuple[str, str | None]:
     def resolve_chain(value: str) -> str:
         """Resolve exact/reference outputs that are themselves source keys.
@@ -1844,7 +1848,8 @@ def translate_literal(
     if text in exact:
         method = (
             "pc_exact"
-            if text in pc_exact_sources and text not in ANDROID_REQUIRED_OVERRIDE_SOURCES
+            if text in pc_exact_sources
+            and (pc_reference_only or text not in ANDROID_REQUIRED_OVERRIDE_SOURCES)
             else "android_confirmed_exact"
         )
         return resolve_chain(exact[text]), method
@@ -1930,11 +1935,22 @@ def main() -> int:
             "order sets priority after current PC/community translations"
         ),
     )
+    parser.add_argument(
+        "--pc-reference-only",
+        action="store_true",
+        help=(
+            "apply only current PC-project exact/structured/regex translations; "
+            "exclude Android fallbacks, reviewed UI, and Android display-enum patches"
+        ),
+    )
     args = parser.parse_args()
 
     base = args.base.read_bytes()
     layout, literals = parse_metadata(base)
-    exact, pc_exact_sources, regex_entries, pc_counts = load_pc_translations(args.strings_dir)
+    exact, pc_exact_sources, regex_entries, pc_counts = load_pc_translations(
+        args.strings_dir,
+        include_android_fallbacks=not args.pc_reference_only,
+    )
     previous_base = None
     previous_literals: list[MetadataLiteral] = []
     previous_literal_texts: set[str] = set()
@@ -2011,7 +2027,22 @@ def main() -> int:
             pc_exact_sources,
             observed,
             regex_entries,
+            args.pc_reference_only,
         )
+        if (
+            args.pc_reference_only
+            and method is not None
+            and method == "pc_regex"
+            and literal.text.startswith("<nobr>")
+            and "\n" in literal.text
+            and "\n" not in translated_text
+        ):
+            # Some upstream modifier regexes translate only the title and
+            # discard the entire description.  That is not a usable PC
+            # translation for a visual reference build: retain the complete
+            # official PC record and do not fill it from Android data.
+            translated_text = literal.text
+            method = "preserved_incomplete_pc_modifier_translation"
         is_new_39 = (
             args.previous_version_base is not None
             and CJK_RE.search(literal.text) is not None
@@ -2056,10 +2087,23 @@ def main() -> int:
             )
             audit_record["occurrences"] = int(audit_record["occurrences"]) + 1
         modifier_reason = modifier_source_reason(literal.text, modifier_sources)
+        if (
+            modifier_reason is None
+            and args.pc_reference_only
+            and clean_modifier_source_title(literal.text).startswith(
+                MODIFIER_CATEGORY_PREFIXES
+            )
+            and ("：" in literal.text or ":" in literal.text)
+        ):
+            modifier_reason = "pc_reference_untranslated_category"
         if modifier_reason is not None and not (
             "：" in translated_text or ":" in translated_text
         ):
-            modifier_reason = None
+            if args.pc_reference_only:
+                translated_text = literal.text
+                method = "preserved_unusable_pc_translation"
+            else:
+                modifier_reason = None
         if modifier_reason is not None and preserved_new_39:
             before_normalization = translated_text
             translated_text, title_shrunk = normalize_modifier_translation(
@@ -2090,10 +2134,23 @@ def main() -> int:
                 literal.text,
                 modifier_title_translations.get(source_title),
             )
-            translated_text, title_shrunk = normalize_modifier_translation(
-                translated_text,
-                preferred_title,
-            )
+            try:
+                translated_text, title_shrunk = normalize_modifier_translation(
+                    translated_text,
+                    preferred_title,
+                )
+            except ValueError:
+                if not args.pc_reference_only:
+                    raise
+                # An upstream placeholder with an empty name or description is
+                # not a usable PC translation. Keep the complete official PC
+                # Chinese record so the visual reference does not invent text.
+                translated_text, title_shrunk = normalize_modifier_translation(
+                    literal.text,
+                    None,
+                )
+                preferred_title = None
+                method = "preserved_unusable_pc_translation"
             modifier_records.append(
                 {
                     "index": index,
@@ -2125,21 +2182,27 @@ def main() -> int:
                 }
             )
 
-    synergy_fields = resolve_contiguous_enum_fields(
-        base,
-        ANDROID_381_SYNERGY_ENUM_FIELDS,
-        "Android affinity display",
-    )
-    invest_fields = resolve_contiguous_enum_fields(
-        base,
-        ANDROID_381_INVEST_ENUM_FIELDS,
-        "Android Investment display",
-    )
-    definition_patched_base, display_enum_changes = translate_validated_enum_fields(
-        base,
-        {**synergy_fields, **invest_fields},
-        "Android display",
-    )
+    if args.pc_reference_only:
+        synergy_fields = {}
+        invest_fields = {}
+        definition_patched_base = base
+        display_enum_changes = []
+    else:
+        synergy_fields = resolve_contiguous_enum_fields(
+            base,
+            ANDROID_381_SYNERGY_ENUM_FIELDS,
+            "Android affinity display",
+        )
+        invest_fields = resolve_contiguous_enum_fields(
+            base,
+            ANDROID_381_INVEST_ENUM_FIELDS,
+            "Android Investment display",
+        )
+        definition_patched_base, display_enum_changes = translate_validated_enum_fields(
+            base,
+            {**synergy_fields, **invest_fields},
+            "Android display",
+        )
     synergy_enum_changes = [
         change for change in display_enum_changes
         if int(change["field_index"]) in synergy_fields
@@ -2292,6 +2355,9 @@ def main() -> int:
     args.output.write_bytes(output)
     report = {
         "format_version": 1,
+        "translation_mode": (
+            "pc_reference_only" if args.pc_reference_only else "android_port"
+        ),
         "base": {
             "path": str(args.base.resolve()),
             "size": len(base),

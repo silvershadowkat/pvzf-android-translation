@@ -15,8 +15,9 @@ version.
 Pull the latest `Teyliu/PVZF-Translation` data and the associated translator
 source. Review which base game version the release supports before building.
 Inspect all upstream branches, not only `main`, and pin the exact selected
-commit in the build report. Clean Test 3 uses branch `3.9` at
-`0747001d10b6f3b82f89ea1ee022f2e30f347791`.
+commit in the build report. Android Clean Test 3 uses branch `3.9` at
+`0747001d10b6f3b82f89ea1ee022f2e30f347791`. The independent PC static
+reference uses the later `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`.
 
 The metadata builder consumes:
 
@@ -176,8 +177,21 @@ The preferred public deliverable is a patcher that accepts a user-supplied
 official APK and produces a locally signed translated build. Translation data
 must retain Teyliu project attribution and comply with CC BY-NC 4.0.
 
-For a local PC comparison package, use `scripts/package_pc_comparison.py`.
-Do not use Windows `tar -a`: its ZIP writer can replace non-ASCII texture names
-with question marks and collapse multiple source files onto one archive path.
-The PC packager requires an exact source/archive path match, UTF-8 flags for
+For a final-PC-3.9 visual reference, start from the untouched official PC
+archive and run the metadata, Unity text, UI, and texture tools with
+`--pc-reference-only`. This mode must exclude Android exact mappings, reviewed
+Android UI allowlists, historical Android fallbacks, Android fonts, and Android
+textures. Preserve incomplete or placeholder PC entries as official PC text.
+
+Do not install MelonLoader or the current `PvZ_Fusion_Translator.dll` into this
+reference: that DLL targets 3.8.1 APIs and fails on final 3.9. Apply only the
+current upstream PC data statically, retain the official PC font assets, and
+validate that the final bundle has the same object inventory as the official
+base. The only original files allowed to differ are `data.unity3d` and
+`global-metadata.dat`; a launcher and a provenance README may be added.
+
+When a ZIP is explicitly needed, use `scripts/package_pc_comparison.py`. Do not
+use Windows `tar -a`: its ZIP writer can replace non-ASCII texture names with
+question marks and collapse multiple source files onto one archive path. The
+PC packager requires an exact source/archive path match, UTF-8 flags for
 non-ASCII names, zero Windows path collisions, and a complete CRC pass.

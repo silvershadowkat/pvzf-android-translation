@@ -667,23 +667,43 @@ def main() -> int:
             "new or renamed upstream entries for a later reviewed pass"
         ),
     )
+    parser.add_argument(
+        "--pc-reference-only",
+        action="store_true",
+        help=(
+            "use only current PC-project translation data and exclude reviewed "
+            "Android exact-string and historical Android fallback mappings"
+        ),
+    )
     args = parser.parse_args()
 
     legacy_patches, legacy_leaf, legacy_conflicts, legacy_stats = learn_legacy_text_patches(
         args.legacy_base_bundle, args.legacy_translated_bundle
     )
+    if args.pc_reference_only:
+        legacy_patches = []
+        legacy_leaf = {}
+        legacy_conflicts = []
+        legacy_stats = {
+            **legacy_stats,
+            "disabled_for_pc_reference": True,
+        }
     patches_by_name: dict[str, list[LegacyPatch]] = collections.defaultdict(list)
     for patch in legacy_patches:
         patches_by_name[patch.source_name].append(patch)
 
     pc_exact, regex_entries, extras = load_pc_maps(args.localization_dir)
-    previous_cjk = collect_bundle_cjk_strings(args.previous_version_bundle)
+    previous_cjk = (
+        set()
+        if args.pc_reference_only
+        else collect_bundle_cjk_strings(args.previous_version_bundle)
+    )
     approved_pc_pairs: dict[str, set[str]] = {
         source: {translated}
         for source, translated in pc_exact.items()
         if source != translated and is_usable_pc_translation(translated)
     }
-    exact = dict(ANDROID_CONFIRMED_EXACT)
+    exact = {} if args.pc_reference_only else dict(ANDROID_CONFIRMED_EXACT)
     exact.update(pc_exact)
     if args.android_exact_map is not None:
         android_map = read_json(args.android_exact_map)
@@ -959,6 +979,9 @@ def main() -> int:
 
     report = {
         "format_version": 1,
+        "translation_mode": (
+            "pc_reference_only" if args.pc_reference_only else "android_port"
+        ),
         "base": {
             "path": str(args.base_bundle.resolve()),
             "size": args.base_bundle.stat().st_size,
@@ -982,7 +1005,11 @@ def main() -> int:
         "legacy_mapping_conflicts": legacy_conflicts,
         "pc_translation_entries": extras["source_counts"],
         "new_39_translation_policy": {
-            "previous_version_bundle": str(args.previous_version_bundle.resolve()),
+            "previous_version_bundle": (
+                None
+                if args.pc_reference_only
+                else str(args.previous_version_bundle.resolve())
+            ),
             "previous_version_cjk_string_count": len(previous_cjk),
             "approved_current_pc_source_count": len(approved_pc_pairs),
             "rule": "New 3.9 content uses current PC English only; otherwise official Chinese is preserved.",

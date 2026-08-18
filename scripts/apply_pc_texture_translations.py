@@ -186,6 +186,15 @@ def main() -> int:
         action="store_true",
         help="also apply non-particle PC textures with unique exact-name/dimension matches",
     )
+    parser.add_argument(
+        "--max-reopened-error",
+        type=float,
+        default=8.0,
+        help=(
+            "maximum mean pixel error after Unity texture recompression; any "
+            "platform-specific increase from the strict default must be explicit"
+        ),
+    )
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
     args = parser.parse_args()
 
@@ -304,7 +313,10 @@ def main() -> int:
         texture = check_textures[str(record["name"])][0].read()
         after_error = mean_pixel_error(source, texture.image)
         record["mean_pixel_error_after"] = round(after_error, 4)
-        if after_error >= float(record["mean_pixel_error_before"]) or after_error > 8.0:
+        if (
+            after_error >= float(record["mean_pixel_error_before"])
+            or after_error > args.max_reopened_error
+        ):
             raise RuntimeError(
                 f"reopened texture validation failed for {record['relative_source']}: "
                 f"before={record['mean_pixel_error_before']}, after={after_error:.4f}"
@@ -330,7 +342,10 @@ def main() -> int:
             )
         after_error = mean_pixel_error(source, texture.image)
         record["mean_pixel_error_after"] = round(after_error, 4)
-        if after_error >= float(record["mean_pixel_error_before"]) or after_error > 8.0:
+        if (
+            after_error >= float(record["mean_pixel_error_before"])
+            or after_error > args.max_reopened_error
+        ):
             raise RuntimeError(
                 f"reopened texture validation failed for {name}: "
                 f"before={record['mean_pixel_error_before']}, after={after_error:.4f}"
@@ -350,6 +365,7 @@ def main() -> int:
             "sha256": sha256_file(args.base_bundle),
         },
         "pc_texture_root": str(args.pc_texture_root.resolve()),
+        "max_reopened_error": args.max_reopened_error,
         "catalog_summary": {
             "pc_png_count": len(catalog_audit),
             "classifications": dict(sorted(classifications.items())),

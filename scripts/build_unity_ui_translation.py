@@ -172,6 +172,14 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
+    parser.add_argument(
+        "--pc-reference-only",
+        action="store_true",
+        help=(
+            "apply only current PC-project UI mappings; exclude Android runtime "
+            "backing labels, contextual corrections, and historical fallbacks"
+        ),
+    )
     args = parser.parse_args()
 
     env, objects = load_objects(args.base_bundle)
@@ -203,7 +211,7 @@ def main() -> int:
 
         if "3.8.1" in source and "版本更新" in source and len(source) > 500:
             target, method = changelog, "current_pc_changelog"
-        elif source == "关闭":
+        elif source == "关闭" and not args.pc_reference_only:
             hierarchy = hierarchy_for_component(source_objects, key)
             if any(name in {"Goback", "Close", "Quit"} for name in hierarchy):
                 target, method = "Close", "contextual_close"
@@ -211,9 +219,9 @@ def main() -> int:
                 target, method = exact.get(source, "Disabled"), "pc_exact"
         elif source in exact and exact[source] != source:
             target, method = exact[source], "pc_exact"
-        elif source in legacy_map:
+        elif source in legacy_map and not args.pc_reference_only:
             target, method = legacy_map[source], "joseph_fallback"
-        else:
+        elif not args.pc_reference_only:
             candidate = candidate_strings.get(key)
             if candidate is not None and candidate != source and not CJK_RE.search(candidate):
                 source_hierarchy = hierarchy_for_component(source_objects, key)
@@ -237,27 +245,30 @@ def main() -> int:
 
     runtime_backing_expected = {}
     runtime_backing_counts = collections.Counter()
-    for key, obj in sorted(objects.items()):
-        if obj.type.name != "MonoBehaviour":
-            continue
-        replaced = replace_runtime_backing_text(bytes(obj.get_raw_data()))
-        if replaced is None:
-            continue
-        updated, source, target = replaced
-        obj.set_raw_data(updated)
-        runtime_backing_expected[key] = target
-        runtime_backing_counts[source] += 1
-        changes.append({
-            "file": key[0],
-            "path_id": key[1],
-            "source": source,
-            "previous": source,
-            "translated": target,
-            "method": "android_runtime_backing",
-        })
-    missing_runtime_backings = set(ANDROID_RUNTIME_BACKING_EXACT) - set(runtime_backing_counts)
-    if missing_runtime_backings:
-        raise RuntimeError(f"missing Android runtime backing labels: {sorted(missing_runtime_backings)}")
+    if not args.pc_reference_only:
+        for key, obj in sorted(objects.items()):
+            if obj.type.name != "MonoBehaviour":
+                continue
+            replaced = replace_runtime_backing_text(bytes(obj.get_raw_data()))
+            if replaced is None:
+                continue
+            updated, source, target = replaced
+            obj.set_raw_data(updated)
+            runtime_backing_expected[key] = target
+            runtime_backing_counts[source] += 1
+            changes.append({
+                "file": key[0],
+                "path_id": key[1],
+                "source": source,
+                "previous": source,
+                "translated": target,
+                "method": "android_runtime_backing",
+            })
+        missing_runtime_backings = set(ANDROID_RUNTIME_BACKING_EXACT) - set(runtime_backing_counts)
+        if missing_runtime_backings:
+            raise RuntimeError(
+                f"missing Android runtime backing labels: {sorted(missing_runtime_backings)}"
+            )
 
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -279,6 +290,9 @@ def main() -> int:
 
     report = {
         "format_version": 1,
+        "translation_mode": (
+            "pc_reference_only" if args.pc_reference_only else "android_port"
+        ),
         "base": {"path": str(args.base_bundle.resolve()), "sha256": sha256_file(args.base_bundle)},
         "output": {"path": str(args.output.resolve()), "size": args.output.stat().st_size, "sha256": sha256_file(args.output)},
         "validated_ui_strings": len(expected),

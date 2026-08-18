@@ -35,9 +35,27 @@ plant or mechanics names. These mappings live in explicit reviewed allowlists,
 are counted separately in build reports, and automatically yield when the PC
 project later supplies an English value.
 
-The current rebuild pins `Teyliu/PVZF-Translation` branch `3.9` at commit
-`0747001d10b6f3b82f89ea1ee022f2e30f347791`. Reviewed Android translations
-from 3.8.1 Update 6 may remain only where the official source text is unchanged.
+Android Clean Test 3 pins `Teyliu/PVZF-Translation` branch `3.9` at commit
+`0747001d10b6f3b82f89ea1ee022f2e30f347791`. The separate PC visual-reference
+folder uses the newer commit `d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`;
+its newer English Almanac data must be incorporated into the next Android test
+build. Reviewed Android translations from 3.8.1 Update 6 may remain only where
+the official source text is unchanged.
+
+## PC 3.9 visual reference
+
+The local PC reference is built independently from the user-supplied official
+PC 3.9 archive and the latest upstream PC English data. It does not consume the
+Android APK, Android reviewed-UI allowlists, historical Android fallbacks,
+Android fonts, or Android textures. This separation makes side-by-side review
+meaningful: untranslated content in the PC reference indicates that the
+upstream PC project lacks a complete usable translation.
+
+The available runtime translator DLL targets 3.8.1 APIs and fails on final PC
+3.9, so the comparison folder applies upstream data statically and contains no
+MelonLoader or translator DLL. Official PC fonts remain intact; compare wording
+and translation coverage rather than assuming font layout represents a future
+runtime PC release.
 
 ## Moving saves without restoring old translation files
 
