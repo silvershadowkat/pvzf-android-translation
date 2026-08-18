@@ -35,6 +35,7 @@ ALMANAC_ASSETS = {"LawnStrings", "ZombieStrings"}
 SERIALIZED_ANDROID_CORRECTIONS = {
     "<size=20>Let's Rock!": "<size=20>LETS ROCK",
     "Let's Rock!": "LETS ROCK",
+    r"\u56fe\u9274" + "\ufffd\ufffd" + r"\u50f5\u5c38": "The Suburban Almanac - Zombies",
 }
 
 TEXT_ASSET_REPLACEMENTS = {
@@ -759,10 +760,21 @@ def main() -> int:
                 )
                 return None
 
-        TEXT_OVERRIDES = {remap(path_id, "m_text"): value for path_id, value in TEXT_OVERRIDES.items()}
-        LEGACY_TEXT_OVERRIDES = {
-            remap(path_id, "m_Text"): value for path_id, value in LEGACY_TEXT_OVERRIDES.items()
-        }
+        def remap_overrides(overrides, field):
+            remapped = {}
+            for path_id, value in overrides.items():
+                mapped = remap(path_id, field)
+                previous = remapped.get(mapped)
+                if previous is not None and previous != value:
+                    raise RuntimeError(
+                        f"conflicting {field} overrides remap to component {mapped}: "
+                        f"{previous!r} versus {value!r}"
+                    )
+                remapped[mapped] = value
+            return remapped
+
+        TEXT_OVERRIDES = remap_overrides(TEXT_OVERRIDES, "m_text")
+        LEGACY_TEXT_OVERRIDES = remap_overrides(LEGACY_TEXT_OVERRIDES, "m_Text")
         HANDLE_REPLACEMENTS = {
             mapped: value
             for path_id, value in HANDLE_REPLACEMENTS.items()
@@ -787,7 +799,7 @@ def main() -> int:
         del reference_env
 
     changes = []
-    pc_exact, _, _ = load_pc_translations(args.strings_dir)
+    pc_exact, _, _, _ = load_pc_translations(args.strings_dir)
     # Current PC community translations remain authoritative. Reviewed
     # Android-only mappings fill exact gaps, including new 3.9 visible labels.
     serialized_exact = dict(ANDROID_CONFIRMED_EXACT)
@@ -824,6 +836,7 @@ def main() -> int:
         raise RuntimeError(f"missing Almanac assets: {sorted(ALMANAC_ASSETS - found_assets)}")
 
     translated_config_assets = set()
+    expected_config_targets: dict[str, set[str]] = {}
     for obj in env.objects:
         if obj.type.name != "TextAsset":
             continue
@@ -833,18 +846,20 @@ def main() -> int:
             continue
         tree = json.loads(data.m_Script.lstrip("\ufeff"))
         serialized_before = json.dumps(tree, ensure_ascii=False)
+        applied_sources = {source for source in replacements if source in serialized_before}
         tree = replace_nested_strings(tree, replacements)
         serialized_after = json.dumps(tree, ensure_ascii=False)
         unresolved = [source for source in replacements if source in serialized_after]
         if unresolved:
             raise RuntimeError(f"visible translations remain in {data.m_Name}: {unresolved}")
-        if not args.allow_untranslated_new_content and serialized_before == serialized_after and not all(
-            target in serialized_after for target in replacements.values()
-        ):
-            raise RuntimeError(f"expected visible labels missing from {data.m_Name}")
+        expected_targets = {replacements[source] for source in applied_sources}
+        missing_targets = sorted(target for target in expected_targets if target not in serialized_after)
+        if missing_targets:
+            raise RuntimeError(f"translated labels missing from {data.m_Name}: {missing_targets}")
         data.m_Script = json.dumps(tree, ensure_ascii=False, indent=4)
         obj.save_typetree(data)
         translated_config_assets.add(data.m_Name)
+        expected_config_targets[data.m_Name] = expected_targets
         changes.append(
             {
                 "kind": "visible_text_asset_translation",
@@ -908,6 +923,17 @@ def main() -> int:
             }
             serialized_field_changes.append(change)
             changes.append(change)
+
+    # UnityPy does not merge separate typetree edits to the same component in
+    # memory. Save and reload the translated checkpoint before applying font,
+    # sizing, and layout edits so those later edits cannot restore old text.
+    checkpoint_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
+    del env, objects
+    gc.collect()
+    env = UnityPy.load(checkpoint_bytes)
+    del checkpoint_bytes
+    env.typetree_generator = generator
+    objects = object_map(env)
 
     port_credit_obj = objects[("resources.assets", PORT_CREDITS_COMPONENT)]
     port_credit_tree = port_credit_obj.read_typetree(check_read=False)
@@ -1097,6 +1123,34 @@ def main() -> int:
             }
         )
 
+    # UnityPy does not merge multiple unsaved typetree edits made to the same
+    # component.  Persist and reload the completed typography/layout pass before
+    # applying the final reviewed text overrides so those overrides cannot
+    # silently restore the component's older font and sizing fields.
+    layout_checkpoint_bytes = env.file.save(
+        packer=None if args.packer == "none" else args.packer
+    )
+    del env, objects
+    gc.collect()
+    env = UnityPy.load(layout_checkpoint_bytes)
+    del layout_checkpoint_bytes
+    if env.file is None:
+        raise RuntimeError("layout checkpoint reload did not produce a Unity file")
+    env.typetree_generator = generator
+    objects = object_map(env)
+
+    # Explicit, reviewed Android UI labels win over the broad serialized pass.
+    for path_id, replacement in TEXT_OVERRIDES.items():
+        obj = objects[("resources.assets", path_id)]
+        tree = obj.read_typetree(check_read=False)
+        tree["m_text"] = replacement
+        obj.save_typetree(tree)
+    for path_id, replacement in LEGACY_TEXT_OVERRIDES.items():
+        obj = objects[("resources.assets", path_id)]
+        tree = obj.read_typetree(check_read=False)
+        tree["m_Text"] = replacement
+        obj.save_typetree(tree)
+
     output_bytes = env.file.save(packer=None if args.packer == "none" else args.packer)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_bytes(output_bytes)
@@ -1110,19 +1164,45 @@ def main() -> int:
     for path_id, replacement in TEXT_OVERRIDES.items():
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_text"] != replacement:
-            raise RuntimeError(f"UI text validation failed for component {path_id}")
+            raise RuntimeError(
+                f"UI text validation failed for component {path_id}: "
+                f"expected={replacement!r}, actual={tree['m_text']!r}"
+            )
     for path_id, replacement in LEGACY_TEXT_OVERRIDES.items():
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if tree["m_Text"] != replacement:
-            raise RuntimeError(f"legacy UI text validation failed for component {path_id}")
+            raise RuntimeError(
+                f"legacy UI text validation failed for component {path_id}: "
+                f"expected={replacement!r}, actual={tree['m_Text']!r}"
+            )
     for change in serialized_field_changes:
+        # Explicit reviewed Android UI overrides are intentionally reasserted
+        # after the broad serialized-field translation pass. Do not validate
+        # the superseded generic value for the same text field.
+        is_explicit_text_override = (
+            change["file"] == "resources.assets"
+            and (
+                (
+                    change["path_id"] in TEXT_OVERRIDES
+                    and change["field_path"] == ["m_text"]
+                )
+                or (
+                    change["path_id"] in LEGACY_TEXT_OVERRIDES
+                    and change["field_path"] == ["m_Text"]
+                )
+            )
+        )
+        if is_explicit_text_override:
+            continue
         tree = check_objects[(change["file"], change["path_id"])].read_typetree(check_read=False)
         value = tree
         for part in change["field_path"]:
             value = value[part]
         if value != change["after"]:
             raise RuntimeError(
-                f"serialized field validation failed for component {change['path_id']}"
+                f"serialized field validation failed for component {change['path_id']}: "
+                f"file={change['file']!r}, field_path={change['field_path']!r}, "
+                f"expected={change['after']!r}, actual={value!r}"
             )
     port_credit_tree = check_objects[("resources.assets", PORT_CREDITS_COMPONENT)].read_typetree(
         check_read=False
@@ -1140,7 +1220,16 @@ def main() -> int:
         or abs(port_credit_rect_tree["m_AnchoredPosition"]["y"] - -2.35) > 0.001
         or abs(port_credit_rect_tree["m_SizeDelta"]["x"] - 30.0) > 0.001
     ):
-        raise RuntimeError("port-credit layout validation failed")
+        raise RuntimeError(
+            "port-credit layout validation failed: "
+            f"font_size={port_credit_tree['m_fontSize']!r}, "
+            f"auto_size={port_credit_tree['m_enableAutoSizing']!r}, "
+            f"word_wrap={port_credit_tree['m_enableWordWrapping']!r}, "
+            f"font={port_credit_tree['m_fontAsset']['m_PathID']!r}, "
+            f"material={port_credit_tree['m_sharedMaterial']['m_PathID']!r}, "
+            f"position={port_credit_rect_tree['m_AnchoredPosition']!r}, "
+            f"size={port_credit_rect_tree['m_SizeDelta']!r}"
+        )
     for path_id in HANDLE_REPLACEMENTS:
         tree = check_objects[("resources.assets", path_id)].read_typetree(check_read=False)
         if any(source in tree["m_text"] for source in HANDLE_REPLACEMENTS[path_id]):
@@ -1203,9 +1292,7 @@ def main() -> int:
         payload = data.m_Script
         if any(source in payload for source in replacements):
             raise RuntimeError(f"visible CJK labels remain in {data.m_Name}")
-        if not args.allow_untranslated_new_content and not all(
-            target in payload for target in replacements.values()
-        ):
+        if any(target not in payload for target in expected_config_targets[data.m_Name]):
             raise RuntimeError(f"translated labels missing from {data.m_Name}")
         validated_config_assets.add(data.m_Name)
     if validated_config_assets != set(TEXT_ASSET_REPLACEMENTS):

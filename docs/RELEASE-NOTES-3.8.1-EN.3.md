@@ -1,4 +1,4 @@
-# PvZ Fusion 3.8.1 — English Android Update 3
+# PvZ Fusion 3.8.1  -  English Android Update 3
 
 This release updates the English Android translation for PvZ Fusion 3.8.1.
 

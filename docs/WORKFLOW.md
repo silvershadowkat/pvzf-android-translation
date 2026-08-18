@@ -27,6 +27,11 @@ The metadata builder consumes:
 Historical Android Chinese/English metadata pairs are optional fallback
 sources. Current PC translations always take precedence.
 
+For new or changed 3.9 content, the current PC project is the only English
+authority. If it has no translation, preserve the official Android 3.9 Chinese
+text. Do not generate AI-assisted English for new 3.9 content. Reviewed 3.8.1
+Android translations may remain only for unchanged source strings.
+
 ## 3. Generate metadata deterministically
 
 Run `scripts/build_metadata_translation.py` against the clean metadata file.

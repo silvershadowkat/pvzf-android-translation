@@ -344,6 +344,46 @@ def collect_leaf_pairs(source: Any, translated: Any, output: dict[str, str], con
             collect_leaf_pairs(left, right, output, conflicts)
 
 
+def collect_cjk_strings(value: Any, output: set[str]) -> None:
+    if isinstance(value, str):
+        if CJK_RE.search(value):
+            output.add(value)
+        return
+    if isinstance(value, dict):
+        for item in value.values():
+            collect_cjk_strings(item, output)
+        return
+    if isinstance(value, list):
+        for item in value:
+            collect_cjk_strings(item, output)
+
+
+def collect_bundle_cjk_strings(bundle: Path) -> set[str]:
+    output: set[str] = set()
+    for record in read_text_records(bundle).values():
+        try:
+            tree = parse_json_text(record.script)
+        except (json.JSONDecodeError, TypeError):
+            collect_cjk_strings(record.script, output)
+        else:
+            collect_cjk_strings(tree, output)
+    return output
+
+
+def collect_approved_pairs(source: Any, translated: Any, output: dict[str, set[str]]) -> None:
+    if isinstance(source, str) and isinstance(translated, str):
+        if source != translated and CJK_RE.search(source) and not CJK_RE.search(translated):
+            output.setdefault(source, set()).add(translated)
+        return
+    if isinstance(source, dict) and isinstance(translated, dict):
+        for key in source.keys() & translated.keys():
+            collect_approved_pairs(source[key], translated[key], output)
+        return
+    if isinstance(source, list) and isinstance(translated, list):
+        for left, right in zip(source, translated):
+            collect_approved_pairs(left, right, output)
+
+
 def learn_legacy_text_patches(
     base_bundle: Path, translated_bundle: Path
 ) -> tuple[list[LegacyPatch], dict[str, str], list[dict[str, str]], dict[str, int]]:
@@ -422,6 +462,68 @@ def csharp_format(template: str, values: list[str]) -> str:
     return protected.replace(open_token, "{").replace(close_token, "}")
 
 
+def pc_regex_translation(
+    value: str,
+    pc_exact: dict[str, str],
+    regex_entries: list[tuple[str, str, re.Pattern[str], str]],
+) -> str | None:
+    for _pattern, template, compiled, anchor in regex_entries:
+        if anchor and anchor not in value:
+            continue
+        match = compiled.search(value)
+        if match is None:
+            continue
+        dynamic = [pc_exact.get(group, group) for group in match.groups()]
+        result = csharp_format(template, dynamic)
+        if result != value and not CJK_RE.search(result):
+            return result
+    return None
+
+
+def enforce_new_39_policy(
+    source: Any,
+    candidate: Any,
+    previous_cjk: set[str],
+    approved_pc_pairs: dict[str, set[str]],
+    pc_exact: dict[str, str],
+    regex_entries: list[tuple[str, str, re.Pattern[str], str]],
+    counts: collections.Counter[str],
+) -> Any:
+    if isinstance(source, str) and isinstance(candidate, str):
+        if not CJK_RE.search(source) or source in previous_cjk or candidate == source:
+            return candidate
+        if candidate in approved_pc_pairs.get(source, set()) and not CJK_RE.search(candidate):
+            counts["new_39_current_pc"] += 1
+            return candidate
+        regex_result = pc_regex_translation(source, pc_exact, regex_entries)
+        if regex_result is not None and candidate == regex_result:
+            counts["new_39_current_pc_regex"] += 1
+            return candidate
+        counts["new_39_preserved_chinese"] += 1
+        return source
+    if isinstance(source, dict) and isinstance(candidate, dict):
+        result = dict(candidate)
+        for key in source.keys() & candidate.keys():
+            result[key] = enforce_new_39_policy(
+                source[key], candidate[key], previous_cjk, approved_pc_pairs, pc_exact, regex_entries, counts
+            )
+        return result
+    if isinstance(source, list) and isinstance(candidate, list):
+        result = list(candidate)
+        for index, source_item in enumerate(source[: len(candidate)]):
+            result[index] = enforce_new_39_policy(
+                source_item,
+                candidate[index],
+                previous_cjk,
+                approved_pc_pairs,
+                pc_exact,
+                regex_entries,
+                counts,
+            )
+        return result
+    return candidate
+
+
 def translate_text(
     value: str,
     exact: dict[str, str],
@@ -491,6 +593,12 @@ def main() -> int:
         help="official bundle matching the target version; defaults to --preserve-fonts-from",
     )
     parser.add_argument(
+        "--previous-version-bundle",
+        required=True,
+        type=Path,
+        help="official Chinese 3.8.1 bundle used to identify content newly introduced in 3.9",
+    )
+    parser.add_argument(
         "--preserve-fonts-from",
         type=Path,
         help="optional official bundle whose matching Font objects replace modified base fonts",
@@ -526,6 +634,12 @@ def main() -> int:
         patches_by_name[patch.source_name].append(patch)
 
     pc_exact, regex_entries, extras = load_pc_maps(args.localization_dir)
+    previous_cjk = collect_bundle_cjk_strings(args.previous_version_bundle)
+    approved_pc_pairs: dict[str, set[str]] = {
+        source: {translated}
+        for source, translated in pc_exact.items()
+        if source != translated and not CJK_RE.search(translated)
+    }
     exact = dict(ANDROID_CONFIRMED_EXACT)
     exact.update(pc_exact)
     if args.android_exact_map is not None:
@@ -554,7 +668,8 @@ def main() -> int:
     source_bundle = args.source_bundle or args.preserve_fonts_from
     if source_bundle is None:
         raise RuntimeError("--source-bundle is required when --preserve-fonts-from is omitted")
-    source_text_records = list(read_text_records(source_bundle).values())
+    source_text_by_key = read_text_records(source_bundle)
+    source_text_records = list(source_text_by_key.values())
     source_detail_records = [record for record in source_text_records if record.name == "DetailStrings"]
     if len(source_detail_records) != 1:
         raise RuntimeError(
@@ -566,6 +681,22 @@ def main() -> int:
         exact,
         args.allow_untranslated_new_content,
     )
+    official_detail_tree = parse_json_text(source_detail_records[0].script)
+    if isinstance(official_detail_tree, dict):
+        for item in official_detail_tree.get("details", []):
+            if not isinstance(item, dict):
+                continue
+            title = item.get("title")
+            source_description = item.get("text")
+            pc_description = pc_detail_descriptions.get(title)
+            if (
+                isinstance(source_description, str)
+                and isinstance(pc_description, str)
+                and source_description != pc_description
+                and CJK_RE.search(source_description)
+                and not CJK_RE.search(pc_description)
+            ):
+                approved_pc_pairs.setdefault(source_description, set()).add(pc_description)
     merged_almanac: dict[str, str] = {}
     almanac_merge_stats: dict[str, dict[str, int]] = {}
     for asset_name, pc_script in pc_almanac.items():
@@ -578,6 +709,24 @@ def main() -> int:
             pc_script,
             almanac_overrides,
         )
+        official_tree = parse_json_text(matches[0].script)
+        current_pc_tree = parse_json_text(pc_script)
+        list_key, id_key = ALMANAC_SCHEMAS[asset_name]
+        if isinstance(official_tree, dict) and isinstance(current_pc_tree, dict):
+            official_items = official_tree.get(list_key, [])
+            pc_items = current_pc_tree.get(list_key, [])
+            if isinstance(official_items, list) and isinstance(pc_items, list):
+                pc_by_id = {
+                    item.get(id_key): item
+                    for item in pc_items
+                    if isinstance(item, dict) and item.get(id_key) is not None
+                }
+                for source_item in official_items:
+                    if not isinstance(source_item, dict):
+                        continue
+                    pc_item = pc_by_id.get(source_item.get(id_key))
+                    if isinstance(pc_item, dict):
+                        collect_approved_pairs(source_item, pc_item, approved_pc_pairs)
     tips_fs: dict[str, str] = extras["tips_fs"]
     tips_iz: dict[str, str] = extras["tips_iz"]
 
@@ -655,6 +804,38 @@ def main() -> int:
                 if tree_changed:
                     new_script = json.dumps(translated_tree, ensure_ascii=False, indent=4)
                     methods.append("structured_translation")
+
+        official_record = source_text_by_key.get((obj.assets_file.name, obj.path_id))
+        if official_record is not None:
+            try:
+                official_tree = parse_json_text(official_record.script)
+                candidate_tree = parse_json_text(new_script)
+            except (json.JSONDecodeError, TypeError):
+                policy_script = enforce_new_39_policy(
+                    official_record.script,
+                    new_script,
+                    previous_cjk,
+                    approved_pc_pairs,
+                    pc_exact,
+                    regex_entries,
+                    method_counts,
+                )
+                if policy_script != new_script:
+                    new_script = policy_script
+                    methods.append("new_39_pc_or_chinese_policy")
+            else:
+                policy_tree = enforce_new_39_policy(
+                    official_tree,
+                    candidate_tree,
+                    previous_cjk,
+                    approved_pc_pairs,
+                    pc_exact,
+                    regex_entries,
+                    method_counts,
+                )
+                if policy_tree != candidate_tree:
+                    new_script = json.dumps(policy_tree, ensure_ascii=False, indent=4)
+                    methods.append("new_39_pc_or_chinese_policy")
 
         if new_name == original_name and new_script == original_script:
             continue
@@ -750,6 +931,12 @@ def main() -> int:
         },
         "legacy_mapping_conflicts": legacy_conflicts,
         "pc_translation_entries": extras["source_counts"],
+        "new_39_translation_policy": {
+            "previous_version_bundle": str(args.previous_version_bundle.resolve()),
+            "previous_version_cjk_string_count": len(previous_cjk),
+            "approved_current_pc_source_count": len(approved_pc_pairs),
+            "rule": "New 3.9 content uses current PC English only; otherwise official Chinese is preserved.",
+        },
         "almanac_merge": almanac_merge_stats,
         "mechanics_almanac_merge": detail_merge,
         "method_counts": dict(sorted(method_counts.items())),

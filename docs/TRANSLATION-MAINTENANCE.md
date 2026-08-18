@@ -4,21 +4,23 @@ This is the repeatable path for updating the English Android build.
 
 ## Translation authority and provenance
 
-Use this priority order:
+For new or changed 3.9 content, use this strict beta policy:
 
-1. Current PC community translations from `Teyliu/PVZF-Translation`.
-2. Explicit Android-required overrides where Android semantics, rich-text
-   contrast, or runtime formatting differs from PC.
-3. Screenshot-confirmed Codex-assisted Android fallbacks only when the current
-   PC data has no exact translation.
-4. Historical Joseph/aha mappings only for unchanged source strings.
+1. Use the current PC community translation from
+   `Teyliu/PVZF-Translation` exactly when it exists.
+2. Otherwise preserve the official Android 3.9 Chinese text.
+3. Do not create AI-assisted English fallbacks for new or changed 3.9 text.
+
+Reviewed Android-specific and context-assisted 3.8.1 translations may remain
+for source strings that are unchanged in 3.9. Historical Joseph/aha mappings
+remain conservative fallbacks for unchanged source strings.
 
 The metadata builder enforces this policy. Entries in
 `ANDROID_CONFIRMED_EXACT` are fallback-only unless their source is listed in
 `ANDROID_REQUIRED_OVERRIDE_SOURCES`. Therefore, when the PC community later
-adds a translation for a Codex-assisted field, the PC value wins
+adds a translation for a previously Chinese 3.9 field, the PC value wins
 automatically. Do not promote stylistic preferences to Android-required
-overrides.
+overrides and do not translate untranslated 3.9 fields independently.
 
 Generate the provenance report after every PC-data refresh. The report records
 the upstream Git commit, origin URL, and dirty state automatically:

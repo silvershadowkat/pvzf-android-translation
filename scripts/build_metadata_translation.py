@@ -489,7 +489,7 @@ ANDROID_CONFIRMED_EXACT.update({
         "All non-Odyssey zombies have x2 HP and Attack, and x1.5 Speed"
     ),
     "定时炸弹：魅惑僵尸死亡时会产生爆炸，对附近僵尸造成自身1.5倍韧性的伤害": (
-        "When hypnotized zombies die, they explode and deal damage equal to "
+        "Blaze of Glory: When hypnotized zombies die, they explode and deal damage equal to "
         "150% of their max HP to nearby zombies"
     ),
     "开局积分归零": "Start with 0 Points",
@@ -1168,6 +1168,8 @@ ANDROID_39_MODIFIER_TITLE_TRANSLATIONS = {
 }
 
 MODIFIER_CATEGORY_PREFIXES = ("祝福-", "诅咒-", "质变-")
+SP_EVOLUTION_SOURCE_TITLE = "【SP进化】"
+SP_EVOLUTION_TRANSLATED_TITLE = "[SP Evolution]"
 
 
 @dataclass(frozen=True)
@@ -1366,14 +1368,18 @@ def aligned_string_pairs(source: object, translated: object) -> Iterable[tuple[s
 
 def clean_modifier_source_title(source: str) -> str:
     """Return the unformatted Chinese title before the runtime delimiter."""
-    title = source.split("：", 1)[0]
+    title = re.split(r"[:：]", source, maxsplit=1)[0]
     return re.sub(r"<[^>]+>", "", title).strip()
 
 
-def load_modifier_sources(strings_dir: Path) -> tuple[set[str], dict[str, str]]:
-    """Return exact modifier sources plus stable Chinese-to-English titles."""
+def load_modifier_sources(
+    strings_dir: Path,
+) -> tuple[set[str], dict[str, str], dict[str, str], dict[str, list[str]]]:
+    """Return modifier sources plus source-title and exact-record title maps."""
     sources: set[str] = set()
     title_translations: dict[str, str] = {}
+    exact_title_translations: dict[str, str] = {}
+    ambiguous_title_translations: dict[str, set[str]] = {}
     source_path = strings_dir.parents[2] / "Dumps" / "travel_buffs.json"
     translated_path = strings_dir / "travel_buffs.json"
     if not source_path.exists():
@@ -1391,20 +1397,20 @@ def load_modifier_sources(strings_dir: Path) -> tuple[set[str], dict[str, str]]:
                 continue
             description = record.get("desc")
             translated_record = translated_records.get(record_id, {})
-            if (
-                isinstance(description, str)
-                and (
-                    "：" in description
-                    or (
-                        isinstance(translated_record.get("desc"), str)
-                        and ": " in translated_record["desc"]
-                    )
-                )
-            ):
+            if isinstance(description, str) and ("：" in description or ":" in description):
                 sources.add(description)
                 translated_name = translated_record.get("name")
-                if isinstance(translated_name, str) and translated_name and "：" in description:
-                    title_translations[description.split("：", 1)[0]] = translated_name
+                if isinstance(translated_name, str) and translated_name:
+                    source_title = clean_modifier_source_title(description)
+                    prior_title = title_translations.get(source_title)
+                    if prior_title is not None and prior_title != translated_name:
+                        ambiguous_title_translations.setdefault(
+                            source_title, {prior_title}
+                        ).add(translated_name)
+                        title_translations.pop(source_title, None)
+                    elif source_title not in ambiguous_title_translations:
+                        title_translations[source_title] = translated_name
+                    exact_title_translations[description] = translated_name
 
     # Android 3.9 revises some bodies without updating the PC source dump.
     # Accept those exact fallbacks only when their parsed title agrees with the
@@ -1423,17 +1429,35 @@ def load_modifier_sources(strings_dir: Path) -> tuple[set[str], dict[str, str]]:
         ):
             sources.add(source)
     for source_title, translated_title in ANDROID_39_MODIFIER_TITLE_TRANSLATIONS.items():
-        title_translations.setdefault(source_title, translated_title)
-    return sources, title_translations
+        if source_title not in ambiguous_title_translations:
+            title_translations.setdefault(source_title, translated_title)
+    title_translations[SP_EVOLUTION_SOURCE_TITLE] = SP_EVOLUTION_TRANSLATED_TITLE
+    for source in sources:
+        source_title = clean_modifier_source_title(source)
+        if source_title in title_translations:
+            exact_title_translations.setdefault(source, title_translations[source_title])
+    return (
+        sources,
+        title_translations,
+        exact_title_translations,
+        {
+            source_title: sorted(translated_titles)
+            for source_title, translated_titles in sorted(
+                ambiguous_title_translations.items()
+            )
+        },
+    )
 
 
 def modifier_source_reason(source: str, exact_sources: set[str]) -> str | None:
     """Classify combined modifier strings without matching unrelated task text."""
     if source in exact_sources:
         return "exact_pc_or_reviewed_source"
-    if "：" not in source:
+    if "：" not in source and ":" not in source:
         return None
     source_title = clean_modifier_source_title(source)
+    if source_title == SP_EVOLUTION_SOURCE_TITLE:
+        return "sp_evolution"
     if source_title.startswith(MODIFIER_CATEGORY_PREFIXES):
         return "category_prefix"
     if source_title in ANDROID_39_MODIFIER_TITLES:
@@ -1446,20 +1470,32 @@ def normalize_modifier_translation(
     preferred_title: str | None = None,
 ) -> tuple[str, bool]:
     """Preserve the runtime delimiter while putting the body on its own line."""
-    preferred_delimiter = f"{preferred_title}: " if preferred_title else None
-    if preferred_delimiter and translated.startswith(preferred_delimiter):
-        title = preferred_title
-        body = translated[len(preferred_delimiter):]
-    elif "：" in translated:
-        title, body = translated.split("：", 1)
-    elif ": " in translated:
-        title, body = translated.split(": ", 1)
-    else:
+    delimiter_index = translated.find("：")
+    delimiter_length = 1
+    if delimiter_index < 0:
+        delimiter_index = translated.find(":")
+    if delimiter_index < 0:
         raise ValueError(f"modifier translation has no title delimiter: {translated!r}")
+    title = translated[:delimiter_index]
+    body = translated[delimiter_index + delimiter_length:]
     title = re.sub(r"</?(?:nobr|size)(?:=[^>]+)?>", "", title.strip())
+    title = re.sub(r"<[^>]+>", "", title).strip()
     if preferred_title:
-        title = preferred_title.strip()
+        title = preferred_title.strip().rstrip(":：").strip()
     body = body.lstrip("\r\n ")
+    title_variants = {title}
+    for separator in (": ", " - "):
+        if separator in title:
+            title_variants.add(title.rsplit(separator, 1)[-1].strip())
+    for title_variant in sorted(title_variants, key=len, reverse=True):
+        redundant_heading = re.match(
+            rf"^{re.escape(title_variant)}\s*[:：]\s*",
+            body,
+            flags=re.IGNORECASE,
+        )
+        if redundant_heading is not None:
+            body = body[redundant_heading.end():].lstrip("\r\n ")
+            break
     if not title or not body:
         raise ValueError(f"modifier translation has an empty title or body: {translated!r}")
     shrink_title = len(title) > 24
@@ -1471,7 +1507,12 @@ def normalize_modifier_translation(
 
 def load_pc_translations(
     strings_dir: Path,
-) -> tuple[dict[str, str], list[tuple[str, str, re.Pattern[str], str]], dict[str, int]]:
+) -> tuple[
+    dict[str, str],
+    set[str],
+    list[tuple[str, str, re.Pattern[str], str]],
+    dict[str, int],
+]:
     exact: dict[str, str] = {}
     regex_entries: list[tuple[str, str, re.Pattern[str], str]] = []
     counts: dict[str, int] = {}
@@ -1552,6 +1593,12 @@ def load_pc_translations(
             added += 1
         counts[filename] = added
 
+    # Capture provenance before Android-specific overrides and fallbacks are
+    # merged. New 3.9 content may use current PC English only; this set lets
+    # the final selection policy distinguish community translations from
+    # older Android or hand-written fallback text.
+    pc_exact_sources = set(exact)
+
     fallback_added = 0
     community_preferred = 0
     for source, target in ANDROID_CONFIRMED_EXACT.items():
@@ -1567,7 +1614,7 @@ def load_pc_translations(
     counts["android_fallbacks_added"] = fallback_added
     counts["android_fallbacks_superseded_by_pc"] = community_preferred
 
-    return exact, regex_entries, counts
+    return exact, pc_exact_sources, regex_entries, counts
 
 
 def observed_translations(
@@ -1734,6 +1781,7 @@ def translate_csharp_template_with_pc_regex(
 def translate_literal(
     text: str,
     exact: dict[str, str],
+    pc_exact_sources: set[str],
     observed: dict[str, tuple[str, str]],
     regex_entries: list[tuple[str, str, re.Pattern[str], str]],
 ) -> tuple[str, str | None]:
@@ -1763,7 +1811,12 @@ def translate_literal(
     if not CJK_RE.search(text):
         return text, None
     if text in exact:
-        return resolve_chain(exact[text]), "pc_exact"
+        method = (
+            "pc_exact"
+            if text in pc_exact_sources and text not in ANDROID_REQUIRED_OVERRIDE_SOURCES
+            else "android_confirmed_exact"
+        )
+        return resolve_chain(exact[text]), method
     if text in observed:
         translated, label = observed[text]
         return resolve_chain(translated), f"reference:{label}"
@@ -1815,6 +1868,15 @@ def build_metadata(base: bytes, layout: MetadataLayout, translated: list[bytes])
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True, type=Path, help="clean official global-metadata.dat")
+    parser.add_argument(
+        "--previous-version-base",
+        type=Path,
+        help=(
+            "clean metadata from the preceding official release; when supplied, "
+            "Chinese literals absent from it are treated as new content and may "
+            "use current PC English only"
+        ),
+    )
     parser.add_argument("--strings-dir", required=True, type=Path, help="PC English Strings directory")
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
@@ -1841,8 +1903,20 @@ def main() -> int:
 
     base = args.base.read_bytes()
     layout, literals = parse_metadata(base)
-    exact, regex_entries, pc_counts = load_pc_translations(args.strings_dir)
-    modifier_sources, modifier_title_translations = load_modifier_sources(args.strings_dir)
+    exact, pc_exact_sources, regex_entries, pc_counts = load_pc_translations(args.strings_dir)
+    previous_base = None
+    previous_literals: list[MetadataLiteral] = []
+    previous_literal_texts: set[str] = set()
+    if args.previous_version_base is not None:
+        previous_base = args.previous_version_base.read_bytes()
+        _, previous_literals = parse_metadata(previous_base)
+        previous_literal_texts = {literal.text for literal in previous_literals}
+    (
+        modifier_sources,
+        modifier_title_translations,
+        modifier_exact_title_translations,
+        modifier_ambiguous_title_translations,
+    ) = load_modifier_sources(args.strings_dir)
 
     observed: dict[str, tuple[str, str]] = {}
     reference_stats: list[dict[str, object]] = []
@@ -1888,21 +1962,86 @@ def main() -> int:
     method_counts: dict[str, int] = {}
     changes: list[dict[str, object]] = []
     modifier_records: list[dict[str, object]] = []
+    final_methods: list[str | None] = []
+    new_39_audit: dict[str, dict[str, object]] = {}
+    new_39_occurrences = 0
+    new_39_pc_translated_occurrences = 0
+    new_39_preserved_occurrences = 0
+    preserved_new_39_indexes: set[int] = set()
     cjk_before = 0
     cjk_after = 0
     for index, literal in enumerate(literals):
         if CJK_RE.search(literal.text):
             cjk_before += 1
-        translated_text, method = translate_literal(literal.text, exact, observed, regex_entries)
+        translated_text, method = translate_literal(
+            literal.text,
+            exact,
+            pc_exact_sources,
+            observed,
+            regex_entries,
+        )
+        is_new_39 = (
+            args.previous_version_base is not None
+            and CJK_RE.search(literal.text) is not None
+            and literal.text not in previous_literal_texts
+        )
+        preserved_new_39 = False
+        if is_new_39:
+            new_39_occurrences += 1
+            pc_authoritative = (
+                method is not None
+                and method.startswith("pc_")
+                and CJK_RE.search(translated_text) is None
+            )
+            if pc_authoritative:
+                new_39_pc_translated_occurrences += 1
+                outcome = "pc_english"
+            else:
+                translated_text = literal.text
+                method = "preserved_new_39_chinese"
+                preserved_new_39 = True
+                preserved_new_39_indexes.add(index)
+                new_39_preserved_occurrences += 1
+                outcome = "preserved_official_chinese"
+
+            audit_record = new_39_audit.setdefault(
+                literal.text,
+                {
+                    "source": literal.text,
+                    "outcome": outcome,
+                    "method": method,
+                    "translation": translated_text,
+                    "occurrences": 0,
+                },
+            )
+            audit_record["occurrences"] = int(audit_record["occurrences"]) + 1
         modifier_reason = modifier_source_reason(literal.text, modifier_sources)
         if modifier_reason is not None and not (
-            "：" in translated_text or ": " in translated_text
+            "：" in translated_text or ":" in translated_text
         ):
             modifier_reason = None
-        if modifier_reason is not None:
+        if modifier_reason is not None and preserved_new_39:
+            modifier_records.append(
+                {
+                    "index": index,
+                    "source": literal.text,
+                    "source_title": clean_modifier_source_title(literal.text),
+                    "match_reason": modifier_reason,
+                    "preferred_title": None,
+                    "before": literal.text,
+                    "translation": literal.text,
+                    "title_shrunk": False,
+                    "changed_by_final_parser": False,
+                    "preserved_new_39_chinese": True,
+                }
+            )
+        elif modifier_reason is not None:
             before_normalization = translated_text
             source_title = clean_modifier_source_title(literal.text)
-            preferred_title = modifier_title_translations.get(source_title)
+            preferred_title = modifier_exact_title_translations.get(
+                literal.text,
+                modifier_title_translations.get(source_title),
+            )
             translated_text, title_shrunk = normalize_modifier_translation(
                 translated_text,
                 preferred_title,
@@ -1918,9 +2057,11 @@ def main() -> int:
                     "translation": translated_text,
                     "title_shrunk": title_shrunk,
                     "changed_by_final_parser": translated_text != before_normalization,
+                    "preserved_new_39_chinese": False,
                 }
             )
         translated_text = translated_text.replace("\u2014", "-")
+        final_methods.append(method)
         if CJK_RE.search(translated_text):
             cjk_after += 1
         raw = translated_text.encode("utf-8")
@@ -1966,7 +2107,10 @@ def main() -> int:
     pc_exact_remnants = [
         {"index": index, "source": item.text, "expected": exact[item.text]}
         for index, item in enumerate(output_literals)
-        if CJK_RE.search(item.text) and item.text in exact and exact[item.text] != item.text
+        if CJK_RE.search(item.text)
+        and item.text in pc_exact_sources
+        and exact[item.text] != item.text
+        and index not in preserved_new_39_indexes
     ]
     if pc_exact_remnants:
         preview = json.dumps(pc_exact_remnants[:10], ensure_ascii=False)
@@ -1989,7 +2133,16 @@ def main() -> int:
         )
 
     malformed_modifier_outputs: list[dict[str, object]] = []
+    placeholder_re = re.compile(
+        r"(?:description[_ -]?missing|translation[_ -]?missing|missing[_ -]?description|"
+        r"\b(?:todo|tbd)\b|^\?+$)",
+        re.IGNORECASE,
+    )
     for record in modifier_records:
+        if bool(record.get("preserved_new_39_chinese")):
+            if record["translation"] != record["source"]:
+                malformed_modifier_outputs.append(record)
+            continue
         translated = str(record["translation"])
         parts = translated.split("：\n", 1)
         if len(parts) != 2:
@@ -1997,12 +2150,28 @@ def main() -> int:
             continue
         plain_title = re.sub(r"<[^>]+>", "", parts[0]).strip()
         body = parts[1].lstrip()
-        final_title_word = re.split(r"[ -]+", plain_title)[-1].rstrip("?")
+        title_variants = {plain_title}
+        for separator in (": ", " - "):
+            if separator in plain_title:
+                title_variants.add(plain_title.rsplit(separator, 1)[-1].strip())
+        preferred_title = record.get("preferred_title")
         if (
             not plain_title
             or not body
-            or body.startswith(f"{plain_title}:")
-            or body.startswith(f"{final_title_word}:")
+            or (
+                isinstance(preferred_title, str)
+                and preferred_title.strip().rstrip(":：").strip() != plain_title
+            )
+            or placeholder_re.search(plain_title) is not None
+            or placeholder_re.search(body) is not None
+            or any(
+                re.match(
+                    rf"^{re.escape(title_variant)}\s*[:：]",
+                    body,
+                    flags=re.IGNORECASE,
+                )
+                for title_variant in title_variants
+            )
             or re.match(r"^.{1,24}\?*\s*:\s*(?:\n|$)", body)
         ):
             malformed_modifier_outputs.append(record)
@@ -2013,18 +2182,46 @@ def main() -> int:
             f"{preview}"
         )
 
-    sp_evolution_outputs = [
-        output_literals[index].text
+    recognized_modifier_indexes = {int(record["index"]) for record in modifier_records}
+    missing_structured_modifier_records = [
+        {"index": index, "source": literal.text}
+        for index, literal in enumerate(literals)
+        if literal.text in modifier_sources and index not in recognized_modifier_indexes
+    ]
+    if missing_structured_modifier_records:
+        preview = json.dumps(missing_structured_modifier_records[:10], ensure_ascii=False)
+        raise RuntimeError(
+            "self-validation failed: structured PC modifier records escaped normalization: "
+            f"{preview}"
+        )
+
+    sp_evolution_records = [
+        {
+            "index": index,
+            "source": literals[index].text,
+            "translation": output_literals[index].text,
+            "method": final_methods[index],
+            "new_39": literals[index].text not in previous_literal_texts
+            if args.previous_version_base is not None
+            else None,
+        }
         for index in range(len(literals))
         if "【SP进化】" in literals[index].text
     ]
-    if len(sp_evolution_outputs) != 4 or any(
-        "Inherits the original conversion recipe" not in value
-        or "Unlock" not in value
-        for value in sp_evolution_outputs
+    if len(sp_evolution_records) != 4 or any(
+        (
+            record["new_39"] is True
+            and record["translation"] != record["source"]
+            and not (
+                isinstance(record["method"], str)
+                and str(record["method"]).startswith("pc_")
+                and CJK_RE.search(str(record["translation"])) is None
+            )
+        )
+        for record in sp_evolution_records
     ):
         raise RuntimeError(
-            "self-validation failed: one or more SP Evolution recipes are incomplete"
+            "self-validation failed: a new SP Evolution recipe did not follow PC-or-Chinese policy"
         )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -2051,6 +2248,29 @@ def main() -> int:
         },
         "pc_translation_entries": pc_counts,
         "pc_exact_source_remnants": 0,
+        "new_39_translation_policy": {
+            "enabled": args.previous_version_base is not None,
+            "rule": (
+                "Use current PC English for content introduced in 3.9; otherwise preserve "
+                "the official Chinese literal"
+            ),
+            "previous_version_base": None
+            if args.previous_version_base is None
+            else {
+                "path": str(args.previous_version_base.resolve()),
+                "size": len(previous_base or b""),
+                "sha256": sha256(previous_base or b""),
+                "literal_count": len(previous_literals),
+                "unique_literal_count": len(previous_literal_texts),
+            },
+            "new_cjk_literal_occurrences": new_39_occurrences,
+            "pc_english_occurrences": new_39_pc_translated_occurrences,
+            "preserved_official_chinese_occurrences": new_39_preserved_occurrences,
+            "unique_records": sorted(
+                new_39_audit.values(),
+                key=lambda record: str(record["source"]),
+            ),
+        },
         "android_affinity_enum": {
             "strategy": "validated field-name rename; enum values and all IL2CPP code unchanged",
             "changed_field_count": len(synergy_enum_changes),
@@ -2066,6 +2286,8 @@ def main() -> int:
         "modifier_almanac_parser": {
             "known_source_count": len(modifier_sources),
             "known_title_translation_count": len(modifier_title_translations),
+            "known_exact_title_translation_count": len(modifier_exact_title_translations),
+            "ambiguous_source_titles": modifier_ambiguous_title_translations,
             "parsed_literal_occurrences": len(modifier_records),
             "title_based_literal_occurrences": sum(
                 record["match_reason"] != "exact_pc_or_reviewed_source"
@@ -2086,7 +2308,8 @@ def main() -> int:
             ),
             "records": modifier_records,
         },
-        "sp_evolution_recipe_occurrences": len(sp_evolution_outputs),
+        "sp_evolution_recipe_occurrences": len(sp_evolution_records),
+        "sp_evolution_recipe_records": sp_evolution_records,
         "method_counts": dict(sorted(method_counts.items())),
         "changed_literal_occurrences": len(changes),
         "changes": changes,
