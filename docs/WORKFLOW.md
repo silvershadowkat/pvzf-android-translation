@@ -15,7 +15,7 @@ version.
 Pull the latest `Teyliu/PVZF-Translation` data and the associated translator
 source. Review which base game version the release supports before building.
 Inspect all upstream branches, not only `main`, and pin the exact selected
-commit in the build report. Clean Test 1 uses branch `3.9` at
+commit in the build report. Clean Test 3 uses branch `3.9` at
 `0747001d10b6f3b82f89ea1ee022f2e30f347791`.
 
 The metadata builder consumes:
@@ -30,12 +30,20 @@ The metadata builder consumes:
 Historical Android Chinese/English metadata pairs are optional fallback
 sources. Current PC translations always take precedence.
 
-For new or changed 3.9 content, the current PC project is the only English
-authority. If it has no translation, preserve the official Android 3.9 Chinese
-text. Placeholder values (`TODO`, `???`, all-question-mark text, repeated
-temporary descriptions, and literal `X`/`Y` names) are not translations. Do
-not generate AI-assisted English for new 3.9 content. Reviewed 3.8.1 Update 6
-Android translations may remain only for unchanged source strings.
+For new or changed 3.9 gameplay terminology, the current PC project is the
+only English authority. If it has no translation, preserve the official
+Android 3.9 Chinese text. Placeholder values (`TODO`, `???`, all-question-mark
+text, repeated temporary descriptions, and literal `X`/`Y` names) are not
+translations. Do not generate AI-assisted English for new gameplay content.
+Reviewed 3.8.1 Update 6 Android translations may remain only for unchanged
+source strings.
+
+Generic UI is a separate, narrow review layer. Settings, buttons,
+connection/status messages, and tutorial prompts may be translated only after
+their screen context is confirmed and only when they contain no unverified
+gameplay names or mechanics terminology. Keep them in explicit code allowlists,
+report their occurrences separately, and preserve PC translation precedence so
+future upstream English replaces the Android review layer automatically.
 
 ## 3. Generate metadata deterministically
 

@@ -39,6 +39,34 @@ SERIALIZED_ANDROID_CORRECTIONS = {
     r"\u56fe\u9274" + "\ufffd\ufffd" + r"\u50f5\u5c38": "The Suburban Almanac - Zombies",
 }
 
+# User-approved, deterministic Android UI labels introduced in 3.9. This is a
+# deliberately closed allowlist; other new 3.9 content still requires current
+# PC English and otherwise remains Chinese.
+CONFIRMED_NEW_39_UI = {
+    "禁用屏幕抖动": "Disable Screen Shake",
+    "伤害跳字": "Damage Numbers",
+    "互动出怪上限": "Interactive Spawn Limit",
+    "植物强化": "Plant Enhancement",
+    "名字：弹幕": "Name: Bullet Chat",
+    "关闭弹幕": "Disable Bullet Chat",
+    "子弹基础伤害": "Base Projectile Damage",
+    "点赞模式": "Like Mode",
+    "刷一只僵尸\n所需点赞数": "Likes Required\nto Spawn One Zombie",
+    "哔哩哔哩直播互动设置": "Bilibili Live Interaction Settings",
+    "弹幕模式": "Bullet Chat Mode",
+    "开启弹幕": "Enable Bullet Chat",
+    "断开连接": "Disconnect",
+    "刷怪模式": "Spawn Mode",
+    "下载游戏搜索：\n蓝飘飘fly（B站）\n": (
+        "To download the game, search:\n蓝飘飘fly (Bilibili)\n"
+    ),
+    "礼物模式": "Gift Mode",
+    "启用SC": "Enable Super Chat",
+    "连接直播间": "Connect to Live Room",
+    "其他设置": "Other Settings",
+    "弹幕刷怪单次上限": "Zombie Spawn Limit per Message",
+}
+
 TEXT_ASSET_REPLACEMENTS = {
     # Android retains category fields alongside the translated Mechanics
     # Almanac title/body. Translate them as well so future category/filter UI
@@ -880,6 +908,8 @@ def main() -> int:
     for source in ANDROID_REQUIRED_OVERRIDE_SOURCES:
         if source in ANDROID_CONFIRMED_EXACT:
             serialized_exact[source] = ANDROID_CONFIRMED_EXACT[source]
+    for source, translated in CONFIRMED_NEW_39_UI.items():
+        serialized_exact.setdefault(source, translated)
     serialized_exact.update(SERIALIZED_ANDROID_CORRECTIONS)
 
     found_assets = set()
@@ -1011,6 +1041,34 @@ def main() -> int:
     del checkpoint_bytes
     env.typetree_generator = generator
     objects = object_map(env)
+
+    # `关闭` is a generic word, and the PC dictionary's context-free
+    # "Disabled" is correct in some state labels but wrong on red-X close
+    # buttons. Apply this after the checkpoint reload so the generic serialized
+    # translation cannot be restored from UnityPy's pre-save object cache.
+    for obj in env.objects:
+        if obj.type.name != "MonoBehaviour":
+            continue
+        try:
+            tree = obj.read_typetree(check_read=False)
+        except Exception:
+            continue
+        if tree.get("m_text") != "Disabled":
+            continue
+        hierarchy = hierarchy_for_component(objects, obj)
+        if len(hierarchy) < 2 or hierarchy[0] != "text" or hierarchy[1] != "Goback":
+            continue
+        tree["m_text"] = "Close"
+        obj.save_typetree(tree)
+        change = {
+            "kind": "contextual_close_button",
+            "file": obj.assets_file.name,
+            "path_id": obj.path_id,
+            "hierarchy": list(hierarchy),
+            "before": "Disabled",
+            "after": "Close",
+        }
+        changes.append(change)
 
     port_credit_obj = objects[("resources.assets", PORT_CREDITS_COMPONENT)]
     port_credit_tree = port_credit_obj.read_typetree(check_read=False)
@@ -1252,6 +1310,11 @@ def main() -> int:
                 f"legacy UI text validation failed for component {path_id}: "
                 f"expected={replacement!r}, actual={tree['m_Text']!r}"
             )
+    contextual_close_path_ids = {
+        change["path_id"]
+        for change in changes
+        if change.get("kind") == "contextual_close_button"
+    }
     for change in serialized_field_changes:
         # Explicit reviewed Android UI overrides are intentionally reasserted
         # after the broad serialized-field translation pass. Do not validate
@@ -1271,6 +1334,12 @@ def main() -> int:
         )
         if is_explicit_text_override:
             continue
+        if (
+            change["file"] == "resources.assets"
+            and change["path_id"] in contextual_close_path_ids
+            and change["field_path"] == ["m_text"]
+        ):
+            continue
         tree = check_objects[(change["file"], change["path_id"])].read_typetree(check_read=False)
         value = tree
         for part in change["field_path"]:
@@ -1280,6 +1349,15 @@ def main() -> int:
                 f"serialized field validation failed for component {change['path_id']}: "
                 f"file={change['file']!r}, field_path={change['field_path']!r}, "
                 f"expected={change['after']!r}, actual={value!r}"
+            )
+    for path_id in contextual_close_path_ids:
+        value = check_objects[("resources.assets", path_id)].read_typetree(
+            check_read=False
+        )["m_text"]
+        if value != "Close":
+            raise RuntimeError(
+                f"contextual close-button validation failed for component {path_id}: "
+                f"expected='Close', actual={value!r}"
             )
     port_credit_tree = check_objects[("resources.assets", PORT_CREDITS_COMPONENT)].read_typetree(
         check_read=False

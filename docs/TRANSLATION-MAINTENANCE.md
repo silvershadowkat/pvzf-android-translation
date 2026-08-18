@@ -4,19 +4,27 @@ This is the repeatable path for updating the English Android build.
 
 ## Translation authority and provenance
 
-For new or changed 3.9 content, use this strict beta policy:
+For new or changed 3.9 gameplay content, use this strict beta policy:
 
 1. Use the current PC community translation from
    `Teyliu/PVZF-Translation` exactly when it exists.
 2. Otherwise preserve the official Android 3.9 Chinese text.
-3. Do not create AI-assisted English fallbacks for new or changed 3.9 text.
+3. Do not create AI-assisted English fallbacks for new or changed gameplay
+   text.
+
+Confirmed generic UI is the only exception to the PC-or-Chinese rule. A
+setting, button, connection/status message, or tutorial prompt may be
+translated after visual/context review when it contains no unverified plant,
+zombie, fusion, item, modifier, recipe, or mechanics term. Store these in the
+explicit 3.9 reviewed-UI allowlists, count them separately in reports, and
+keep them fallback-only so later PC English wins automatically.
 
 Reviewed Android-specific 3.8.1 Update 6 translations may remain for source
 strings that are unchanged in 3.9. Historical Joseph/aha mappings remain
 conservative fallbacks for unchanged source strings. Do not carry independently
 generated 3.9 prose from earlier prerelease branches into the clean rebuild.
 
-Clean Test 1 uses upstream branch `3.9` at commit
+Clean Test 3 uses upstream branch `3.9` at commit
 `0747001d10b6f3b82f89ea1ee022f2e30f347791`. That branch was newer than `main`
 when selected. Always inspect upstream branches and record both branch and
 commit rather than assuming `main` is authoritative.
@@ -158,11 +166,12 @@ check.
    enum results as internal identifiers, original proper names, non-player-
    facing diagnostics, or confirmed visible text.
 8. For confirmed visible gaps, first search the current PC data by underlying
-   ID, source string, call relationship, and data structure. Only then create a
-   concise GPT/Codex draft.
-9. Add a draft only after screenshot/context review. Record the source text,
-   target, game version, screen/scene, and why PC data did not cover it. Keep it
-   fallback-only unless Android truly requires different semantics.
+   ID, source string, call relationship, and data structure. Gameplay-bearing
+   gaps remain Chinese when PC English is unavailable.
+9. Add generic UI English only after screenshot/context review. Record the
+   source text, target, game version, screen/scene, and why PC data did not
+   cover it. Keep it fallback-only unless Android truly requires different
+   semantics.
 10. Rebuild from clean inputs, reopen every artifact, compare the APK against
     the official shell, and physically test before publishing.
 

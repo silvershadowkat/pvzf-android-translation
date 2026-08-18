@@ -1129,6 +1129,31 @@ ANDROID_REQUIRED_OVERRIDE_SOURCES = {
     "一起摇滚吧！", "\n版本：", "\n当前版本：",
 }
 
+# User-reviewed 3.9 interface and tutorial text. These strings do not assign
+# names or mechanics terminology to new plants, zombies, fusions, modifiers,
+# recipes, or items. Current PC English always takes priority when it appears.
+ANDROID_39_REVIEWED_UI_EXACT = {
+    "速度x{0:F2}": "Speed x{0:F2}",
+    "从多个植物中任选一个": "Choose one of the available plants",
+    "从多个选项中自选一株专家植物": "Choose one Expert Plant from the available options",
+    "共5轮，每轮从5个词条中自选一个僵尸词条": (
+        "5 rounds total. Each round, choose 1 of 5 Zombie Modifiers."
+    ),
+    "自选词条": "Choose a Modifier",
+    "炼狱难度需要选择：{0}/5个负面词条": (
+        "Purgatory requires selecting {0}/5 negative modifiers"
+    ),
+    "尝试重连   最大次数:{0}，当前次数:{1}": (
+        "Reconnecting   Maximum attempts: {0}, current attempt: {1}"
+    ),
+    "文件格式异常": "Invalid file format",
+    "游戏关闭": "Game closed",
+    "请在文件OpenBLive中填写数据": "Enter the required data in the OpenBLive file",
+    "连接失败": "Connection Failed",
+    "连接成功": "Connected",
+}
+ANDROID_CONFIRMED_NEW_39_SOURCES = set(ANDROID_39_REVIEWED_UI_EXACT)
+
 
 # These 3.9-only modifier titles are not present in the older PC travel-buff
 # dump. They still use Android's combined `title：description` runtime format,
@@ -1604,10 +1629,21 @@ def load_pc_translations(
         else:
             exact[source] = target
             fallback_added += 1
+    reviewed_39_added = 0
+    reviewed_39_superseded_by_pc = 0
+    for source, target in ANDROID_39_REVIEWED_UI_EXACT.items():
+        if source in pc_exact_sources:
+            reviewed_39_superseded_by_pc += 1
+        elif source not in exact:
+            exact[source] = target
+            reviewed_39_added += 1
     counts["android_confirmed_exact"] = len(ANDROID_CONFIRMED_EXACT)
     counts["android_required_overrides"] = len(ANDROID_REQUIRED_OVERRIDE_SOURCES)
     counts["android_fallbacks_added"] = fallback_added
     counts["android_fallbacks_superseded_by_pc"] = community_preferred
+    counts["android_39_reviewed_ui"] = len(ANDROID_39_REVIEWED_UI_EXACT)
+    counts["android_39_reviewed_ui_added"] = reviewed_39_added
+    counts["android_39_reviewed_ui_superseded_by_pc"] = reviewed_39_superseded_by_pc
 
     return exact, pc_exact_sources, regex_entries, counts
 
@@ -1961,6 +1997,7 @@ def main() -> int:
     new_39_audit: dict[str, dict[str, object]] = {}
     new_39_occurrences = 0
     new_39_pc_translated_occurrences = 0
+    new_39_confirmed_android_occurrences = 0
     new_39_preserved_occurrences = 0
     preserved_new_39_indexes: set[int] = set()
     cjk_before = 0
@@ -1988,9 +2025,17 @@ def main() -> int:
                 and method.startswith("pc_")
                 and is_usable_pc_translation(translated_text)
             )
+            confirmed_android_ui = (
+                literal.text in ANDROID_CONFIRMED_NEW_39_SOURCES
+                and method == "android_confirmed_exact"
+                and is_usable_pc_translation(translated_text)
+            )
             if pc_authoritative:
                 new_39_pc_translated_occurrences += 1
                 outcome = "pc_english"
+            elif confirmed_android_ui:
+                new_39_confirmed_android_occurrences += 1
+                outcome = "confirmed_android_ui"
             else:
                 translated_text = literal.text
                 method = "preserved_new_39_chinese"
@@ -2270,8 +2315,9 @@ def main() -> int:
         "new_39_translation_policy": {
             "enabled": args.previous_version_base is not None,
             "rule": (
-                "Use current PC English for content introduced in 3.9; otherwise preserve "
-                "the official Chinese literal"
+                "Use current PC English for content introduced in 3.9; permit only the "
+                "explicit reviewed Android UI allowlist; otherwise preserve the official "
+                "Chinese literal"
             ),
             "previous_version_base": None
             if args.previous_version_base is None
@@ -2284,6 +2330,7 @@ def main() -> int:
             },
             "new_cjk_literal_occurrences": new_39_occurrences,
             "pc_english_occurrences": new_39_pc_translated_occurrences,
+            "confirmed_android_ui_occurrences": new_39_confirmed_android_occurrences,
             "preserved_official_chinese_occurrences": new_39_preserved_occurrences,
             "unique_records": sorted(
                 new_39_audit.values(),

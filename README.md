@@ -5,7 +5,7 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.9; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: a clean Android 3.9 Test 2 APK has been rebuilt from the official
+> Status: a clean Android 3.9 Test 3 APK has been rebuilt from the official
 > 3.9 shell and the known-good 3.8.1 English Update 6 baseline. Automated
 > metadata, bundle, signature, alignment, and comparative APK audits pass. It
 > has not been published and still requires a real-device smoke test.
@@ -20,12 +20,20 @@ installation warning there before installing.
 
 ## 3.9 beta translation policy
 
-New or changed 3.9 text must match a usable value from the latest PC community
-translation exactly. Placeholder values such as `TODO`, `???`, repeated
-temporary descriptions, and literal `X`/`Y` names do not count as
-translations. If the PC project has no usable translation, keep the official
-Chinese Android field. Do not create context-aware or other AI-assisted
-English text for new 3.9 content.
+New or changed 3.9 gameplay terminology, including plant, zombie, item,
+fusion, modifier, recipe, name, and description text, must match a usable value
+from the latest PC community translation exactly. Placeholder values such as
+`TODO`, `???`, repeated temporary descriptions, and literal `X`/`Y` names do
+not count as translations. If the PC project has no usable translation, keep
+the official Chinese Android field. Do not create context-aware or other
+AI-assisted English gameplay text for new 3.9 content.
+
+Confirmed generic UI may be translated locally when its meaning is
+unambiguous and it does not introduce game terminology. This narrowly covers
+settings, buttons, connection/status messages, and tutorial prompts without
+plant or mechanics names. These mappings live in explicit reviewed allowlists,
+are counted separately in build reports, and automatically yield when the PC
+project later supplies an English value.
 
 The current rebuild pins `Teyliu/PVZF-Translation` branch `3.9` at commit
 `0747001d10b6f3b82f89ea1ee022f2e30f347791`. Reviewed Android translations
@@ -94,7 +102,8 @@ For the clean Android 3.9 rebuild, this project:
 - rebuilt the IL2CPP string-literal database deterministically from a clean
   metadata base, updating offsets and header sizes correctly;
 - applies current PC exact and regex translations plus conservative 3.8.1
-  fallbacks only for unchanged official source strings;
+  fallbacks only for unchanged official source strings, plus an auditable
+  reviewed allowlist for generic Android UI and safe tutorial prompts;
 - rebuilt and validated 278 Unity `TextAsset` objects, covering Almanacs,
   levels, custom levels, tutorials, tips, Abyss/configuration data, and other
   serialized player-facing text;

@@ -1,7 +1,7 @@
-# Next release gate: Android 3.9 Clean Test 2
+# Next release gate: Android 3.9 Clean Test 3
 
 Do not publish this build until it completes a real-device first pass. The
-local candidate is `PvZ-Fusion-3.9-English-Android-clean-test2.apk`; its hash
+local candidate is `PvZ-Fusion-3.9-English-Android-clean-test3.apk`; its hash
 and provenance are recorded in `RELEASE-3.9-EN.md`.
 
 ## Required device checks
