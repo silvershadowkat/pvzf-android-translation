@@ -116,6 +116,34 @@ Only 1,226 `MonoBehaviour`, 121 `TextAsset`, 47 `Texture2D`, and 8 `Sprite`
 objects differ; no font, shader, script, executable, or native-library object
 was replaced. All other files from the official PC archive are byte-identical.
 
+### PC presentation test 1
+
+- Folder: `PvZ-Fusion-3.9-English-PC-presentation-test1-d150f6f0`
+- Patched `data.unity3d` SHA-256:
+  `813F541C9C5F15BA6D497F9198886A55EF182357363FA68B465CC39F8E379684`
+- Patched `global-metadata.dat` SHA-256:
+  `FBA7B199CF7C1CA5D24F1440D705EAD776EF3F0F86E557CFE951D8A52E5D44B0`
+
+This is a separate, visually reviewed derivative of the strict PC reference.
+It uses `scripts/polish_pc_reference_ui.py` to enable auto-sizing and wrapping
+for 30 existing PC Settings components and to translate six duplicated/generic
+PC control components. The reviewed controls are Back to Menu, Toggle
+Fullscreen, Current Zoom, Disable Screen Shake, and Damage Numbers. They do not
+introduce gameplay terminology and are explicitly marked as local PC UI in the
+folder README.
+
+No Android translation, font, texture, fallback, or bundle is an input. The
+official PC font remains because the 3.8.1 translator's runtime-generated PvZ2
+font cannot be reproduced safely by merely swapping a TTF into a serialized TMP
+asset. The resulting presentation is improved but intentionally not described
+as a perfect recreation of the 3.8.1 runtime translator.
+
+The final bundle retains all 201,407 official PC objects. Relative to the
+official PC base, 1,232 `MonoBehaviour`, 121 `TextAsset`, 47 `Texture2D`, and 8
+`Sprite` objects differ. No font, shader, script, executable, or native library
+was replaced. The Settings screen passed a live visual check without the prior
+text collisions.
+
 ## Installation warning
 
 Back up saves before installing. Do not restore the old app's entire `files`

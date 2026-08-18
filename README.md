@@ -57,6 +57,12 @@ MelonLoader or translator DLL. Official PC fonts remain intact; compare wording
 and translation coverage rather than assuming font layout represents a future
 runtime PC release.
 
+`PvZ-Fusion-3.9-English-PC-presentation-test1-d150f6f0` is a separate local
+presentation build. It preserves the same PC-only translation provenance while
+enabling TMP auto-sizing and wrapping on the PC Settings screen. Six generic
+controls are reviewed locally and disclosed in its bundled README. The strict
+upstream-data reference remains available unchanged.
+
 ## Moving saves without restoring old translation files
 
 Do **not** copy the old app's entire `files` directory into a new English

@@ -190,6 +190,13 @@ validate that the final bundle has the same object inventory as the official
 base. The only original files allowed to differ are `data.unity3d` and
 `global-metadata.dat`; a launcher and a provenance README may be added.
 
+For a separate presentation test, run `scripts/polish_pc_reference_ui.py`
+against the completed strict PC bundle. Its closed scope is the PC Settings
+hierarchy: enable TMP auto-sizing/wrapping and apply only the generic control
+labels declared in that PC-only script. Do not import Android mappings or use an
+Android bundle as a font/layout donor. Keep the strict reference unchanged so
+translation coverage and local presentation edits remain distinguishable.
+
 When a ZIP is explicitly needed, use `scripts/package_pc_comparison.py`. Do not
 use Windows `tar -a`: its ZIP writer can replace non-ASCII texture names with
 question marks and collapse multiple source files onto one archive path. The
