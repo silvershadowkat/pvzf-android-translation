@@ -1,4 +1,4 @@
-# Translation v20 — Vasebreaker PVP
+# Translation v20  -  Vasebreaker PVP
 
 This translation test build addresses the dynamic text reported in Vasebreaker PVP.
 

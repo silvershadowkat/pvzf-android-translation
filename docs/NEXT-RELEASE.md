@@ -143,7 +143,7 @@ The complete external-storage path was not found as a literal in Fusion's
 IL2CPP metadata or `libil2cpp.so`, so this warning does not claim that the base
 game itself hardcodes that one path. Supporting a second package correctly
 would require auditing and rebuilding every package-qualified component and
-the added mod—not a one-field rename.
+the added mod - not a one-field rename.
 
 For a valid test, use the unchanged package ID and expected signed APK. Back up
 saves, remove the blindly renamed derivative, and ensure the original

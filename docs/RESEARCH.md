@@ -279,8 +279,8 @@ signing identity.
 
 ## Final 3.8.1 English release audit
 
-The final package uses the official Chinese 3.8.1 APK—not aha's repackaged
-shell—as its Android base. Comparative auditing proves the manifest, resource
+The final package uses the official Chinese 3.8.1 APK - not aha's repackaged
+shell - as its Android base. Comparative auditing proves the manifest, resource
 table, `classes.dex`, all eight ARM native libraries, and every other
 non-signature entry are byte-identical to the official APK. Only the two
 declared translation payloads differ:

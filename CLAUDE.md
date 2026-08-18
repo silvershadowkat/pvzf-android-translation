@@ -8,7 +8,7 @@ Read it completely, then read `README.md`, `docs/RESEARCH.md`, and
 
 The repository contains reproducible tooling for porting the PC English
 translation of *Plants vs. Zombies: Fusion* to the Android IL2CPP build. The
-current supported target is Android 3.8.1.
+current supported target is Android 3.9.
 
 The release is not a decompiled/recompiled Android application. It preserves
 the Android shell and replaces exactly two Unity/IL2CPP data files:
@@ -121,7 +121,7 @@ numbers. Do not assume an unchanged path ID points to the same object.
 ## Typography traps
 
 The game contains multiple superficially similar TMP assets. Do not use any of
-them for the parchment credit—the final renderer uses the embedded legacy
+them for the parchment credit - the final renderer uses the embedded legacy
 `fzjz` Font data directly and bakes pixels into the texture:
 
 - `Dynamic` (path `178475`, material `1`) – transplanted readable UI face;

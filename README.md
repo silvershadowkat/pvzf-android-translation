@@ -2,10 +2,10 @@
 
 Research and tooling for producing a repeatable English translation patch for
 the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
-is Android 3.8.1; the larger goal is a workflow that can be rerun when the game
+is Android 3.9; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: Android 3.8.1 release pipeline implemented and self-validating.
+> Status: Android 3.9 beta release pipeline implemented and self-validating.
 > Metadata, Unity text/UI reconstruction, TMP font transplantation, targeted
 > layout refinement, APK packaging, and comparative release auditing are
 > complete. Final releases still require a real-device smoke test.
@@ -14,9 +14,19 @@ This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
-The community APK is distributed separately on the
-[v3.8.1-en.3 release page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.8.1-en.3).
+The current community test APK is distributed separately on the
+[v3.9-release-5 prerelease page](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.9-release-5).
 Back up saves and read the installation warning there before installing.
+
+## 3.9 beta translation policy
+
+New or changed 3.9 text must match the current PC community translation
+exactly. If the PC project has not translated a 3.9 entry, keep the official
+Chinese Android text. Do not create AI-assisted English text for new 3.9
+content while the PC translation is still in beta.
+
+Reviewed Android-specific and context-assisted translations inherited from
+3.8.1 may remain when their original source text is unchanged.
 
 ## Moving saves without restoring old translation files
 
@@ -86,7 +96,7 @@ This project did not merely copy one old translated APK. For Android 3.8.1 it:
   serialized player-facing text;
 - translated serialized TextMesh Pro UI while resolving Android-specific
   context collisions such as `Close` versus `Disabled`;
-- transplanted the complete PvZ-style TMP dependency set—not just a font file—
+- transplanted the complete PvZ-style TMP dependency set, not just a font file,
   including glyphs, character tables, SDF atlas, material, source-font links,
   and a CJK fallback;
 - corrected Android-only font sizes, wrapping, Almanac titles/descriptions,
@@ -156,22 +166,22 @@ reported untranslated or poorly formatted screens.
 
 ## Related and parent projects
 
-- [Teyliu/PVZF-Translation](https://github.com/Teyliu/PVZF-Translation) —
+- [Teyliu/PVZF-Translation](https://github.com/Teyliu/PVZF-Translation):
   translation data, releases, credits, and community documentation.
-- [Teyliu/PVZFusionTranslation](https://github.com/Teyliu/PVZFusionTranslation) —
+- [Teyliu/PVZFusionTranslation](https://github.com/Teyliu/PVZFusionTranslation):
   PC runtime translator implementation used as an architectural/data reference.
-- [ArifRios1st/PVZ-Hyper-Fusion-Mod](https://github.com/ArifRios1st/PVZ-Hyper-Fusion-Mod) —
+- [ArifRios1st/PVZ-Hyper-Fusion-Mod](https://github.com/ArifRios1st/PVZ-Hyper-Fusion-Mod):
   credited by the PC translator as the original translation-mod predecessor.
-- [jozsefsallai/il2cpp-stringliteral-patcher](https://github.com/jozsefsallai/il2cpp-stringliteral-patcher) —
+- [jozsefsallai/il2cpp-stringliteral-patcher](https://github.com/jozsefsallai/il2cpp-stringliteral-patcher):
   documented IL2CPP append-and-redirect method that informed the independent
   deterministic metadata builder.
-- [K0lb3/UnityPy](https://github.com/K0lb3/UnityPy) — Unity asset parsing and
+- [K0lb3/UnityPy](https://github.com/K0lb3/UnityPy): Unity asset parsing and
   serialization used by this toolkit.
-- [UnityPy-Org/TypeTreeGeneratorAPI](https://github.com/UnityPy-Org/TypeTreeGeneratorAPI) —
+- [UnityPy-Org/TypeTreeGeneratorAPI](https://github.com/UnityPy-Org/TypeTreeGeneratorAPI):
   managed Unity type-tree generation used for IL2CPP MonoBehaviour editing.
-- [TrevTV/MelonLoader-AudioTools](https://github.com/TrevTV/MelonLoader-AudioTools) —
+- [TrevTV/MelonLoader-AudioTools](https://github.com/TrevTV/MelonLoader-AudioTools):
   upstream PC translation audio replacement credit; not bundled by this port.
-- [iBotPeaches/Apktool](https://github.com/iBotPeaches/Apktool) — local APK
+- [iBotPeaches/Apktool](https://github.com/iBotPeaches/Apktool): local APK
   inspection during research; the release packager itself performs surgical
   ZIP entry replacement and does not rebuild Android resources.
 
