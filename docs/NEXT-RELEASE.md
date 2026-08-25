@@ -1,14 +1,15 @@
-# Android 3.9 prerelease 5 test gate
+# Android 3.9 prerelease 6 candidate test gate
 
-Prerelease 5 uses the latest PC `3.9` branch at
-`d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`. It preserves the tested Android
-3.9 fixes while refreshing current PC Almanac and gameplay text.
+Prerelease 6 uses the PC `3.9` branch at
+`c2e8f962cb9974c3214d0db95fe98fea0634a2da`. It fixes the dangling Release 5
+TMP fallback-font pointers, refreshes current PC Almanac/gameplay text, and
+adds targeted regression checks for the reported Almanac failures.
 
 ## Required installation order
 
 1. Back up the app's `files` directory.
 2. Uninstall the currently installed game.
-3. Install prerelease 5 and launch it once.
+3. Install prerelease 6 and launch it once.
 4. Fully close the game, then restore save/progression files only.
 5. Do not restore or modify `il2cpp/`, `global-metadata.dat`, translated
    bundles, mods, caches, or unknown files from the old installation.
@@ -27,6 +28,12 @@ you intentionally want to erase app data.
   pause, plant selection, regular Almanac, and modifier Almanac screens.
 - Confirm the Odyssey key, Return, pause-menu `MENU`, and `LETS ROCK` art.
 - Confirm the tool-shop item no longer says `??? (Currently Bugged)`.
+- Reproduce the supplied Penny-shroom Almanac sequence and confirm it no longer
+  exits to the launcher.
+- Browse Cattail Girl, SP Phoenix Threepeater, Quetzalcoatl Blover, and SP
+  Phoenix Drone in different orders and confirm every description refreshes.
+- Exercise Odyssey modifier selection, Gods Evolution card selection, Solitary
+  Spear's zombie-HP toggle, and the reported Torchwood/peashooter combination.
 
 Do not report Chinese text by itself as a defect. Some current PC 3.9 fields
 are incomplete and intentionally remain in the official language. For a

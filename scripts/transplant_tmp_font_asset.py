@@ -73,7 +73,14 @@ def main() -> int:
     parser.add_argument("--unity-version", default="2022.3.62f1")
     parser.add_argument("--donor-font-asset", required=True)
     parser.add_argument("--target-font-asset", action="append", required=True)
-    parser.add_argument("--fallback-font-asset")
+    parser.add_argument(
+        "--fallback-font-asset",
+        required=True,
+        help=(
+            "existing target-bundle TMP font used for missing glyphs; required so "
+            "donor-bundle path IDs can never leak into the rebuilt bundle"
+        ),
+    )
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--packer", choices=("original", "lz4", "none"), default="original")
@@ -97,10 +104,8 @@ def main() -> int:
     donor_atlas_tree = donor_atlas_obj.read_typetree()
     donor_atlas_data_hash = sha256(bytes(donor_atlas_obj.read().image_data))
 
-    fallback_pointer = None
-    if args.fallback_font_asset:
-        fallback_obj = find_named_mono(objects, args.fallback_font_asset)
-        fallback_pointer = {"m_FileID": 0, "m_PathID": fallback_obj.path_id}
+    fallback_obj = find_named_mono(objects, args.fallback_font_asset)
+    fallback_pointer = {"m_FileID": 0, "m_PathID": fallback_obj.path_id}
 
     changes = []
     expected = {}
@@ -135,9 +140,8 @@ def main() -> int:
         transplanted["m_AtlasTextures"] = [{"m_FileID": 0, "m_PathID": atlas_id}]
         transplanted["m_AtlasTextureIndex"] = 0
         transplanted["m_IsMultiAtlasTexturesEnabled"] = 0
-        if fallback_pointer is not None:
-            transplanted["fallbackFontAssets"] = [fallback_pointer]
-            transplanted["m_FallbackFontAssetTable"] = [fallback_pointer]
+        transplanted["fallbackFontAssets"] = [fallback_pointer]
+        transplanted["m_FallbackFontAssetTable"] = [fallback_pointer]
         target_font_obj.save_typetree(transplanted)
 
         expected[target_name] = {
@@ -145,6 +149,8 @@ def main() -> int:
             "material_path_id": material_id,
             "atlas_path_id": atlas_id,
             "source_font_path_id": source_font_id,
+            "fallback_font_asset": args.fallback_font_asset,
+            "fallback_font_path_id": fallback_obj.path_id,
             "glyph_count": len(donor_font_tree["m_GlyphTable"]),
             "character_count": len(donor_font_tree["m_CharacterTable"]),
             "atlas_data_sha256": donor_atlas_data_hash,
@@ -170,6 +176,24 @@ def main() -> int:
             raise RuntimeError(f"TMP material validation failed for {name}")
         if tree["m_AtlasTextures"][0]["m_PathID"] != wanted["atlas_path_id"]:
             raise RuntimeError(f"TMP atlas pointer validation failed for {name}")
+        if tree["m_SourceFontFile"]["m_PathID"] != wanted["source_font_path_id"]:
+            raise RuntimeError(f"TMP source-font pointer validation failed for {name}")
+        expected_fallbacks = [{"m_FileID": 0, "m_PathID": wanted["fallback_font_path_id"]}]
+        for field in ("fallbackFontAssets", "m_FallbackFontAssetTable"):
+            actual = [
+                {"m_FileID": pointer["m_FileID"], "m_PathID": pointer["m_PathID"]}
+                for pointer in tree.get(field, [])
+            ]
+            if actual != expected_fallbacks:
+                raise RuntimeError(
+                    f"TMP fallback validation failed for {name}.{field}: "
+                    f"expected {expected_fallbacks}, got {actual}"
+                )
+        resolved_fallback = check_objects.get(
+            (obj.assets_file.name, wanted["fallback_font_path_id"])
+        )
+        if resolved_fallback is None or mono_name(resolved_fallback) != wanted["fallback_font_asset"]:
+            raise RuntimeError(f"TMP fallback object resolution failed for {name}")
         atlas_obj = check_objects[(obj.assets_file.name, wanted["atlas_path_id"])]
         if sha256(bytes(atlas_obj.read().image_data)) != wanted["atlas_data_sha256"]:
             raise RuntimeError(f"TMP atlas data validation failed for {name}")
@@ -181,6 +205,10 @@ def main() -> int:
         "base": {"path": str(args.base_bundle.resolve()), "sha256": sha256_file(args.base_bundle)},
         "donor": {"path": str(args.donor_bundle.resolve()), "sha256": sha256_file(args.donor_bundle)},
         "donor_font_asset": args.donor_font_asset,
+        "fallback_font_asset": {
+            "name": args.fallback_font_asset,
+            "path_id": fallback_obj.path_id,
+        },
         "output": {"path": str(args.output.resolve()), "size": args.output.stat().st_size, "sha256": sha256_file(args.output)},
         "validated_font_assets": len(expected),
         "changes": changes,

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import ntpath
 from pathlib import Path
 
 import UnityPy
@@ -20,12 +21,22 @@ def inventory(path: Path) -> dict[str, dict[str, object]]:
             continue
         clip = obj.parse_as_object()
         resource = clip.m_Resource
-        raw = get_resource_data(
-            resource.m_Source,
-            obj.assets_file,
-            resource.m_Offset,
-            resource.m_Size,
-        )
+        external_resource = path.parent / ntpath.basename(resource.m_Source)
+        if external_resource.is_file():
+            with external_resource.open("rb") as handle:
+                handle.seek(resource.m_Offset)
+                raw = handle.read(resource.m_Size)
+            if len(raw) != resource.m_Size:
+                raise RuntimeError(
+                    f"external resource ended early for {clip.m_Name}: {external_resource}"
+                )
+        else:
+            raw = get_resource_data(
+                resource.m_Source,
+                obj.assets_file,
+                resource.m_Offset,
+                resource.m_Size,
+            )
         clips[clip.m_Name] = {
             "size": len(raw),
             "sha256": hashlib.sha256(raw).hexdigest(),
@@ -42,7 +53,10 @@ def main() -> int:
     parser.add_argument("bundles", nargs="+", type=Path)
     args = parser.parse_args()
 
-    inventories = {path.parent.parent.parent.parent.name: inventory(path) for path in args.bundles}
+    labels = [path.stem for path in args.bundles]
+    if len(labels) != len(set(labels)):
+        raise RuntimeError(f"bundle filename stems must be unique: {labels}")
+    inventories = {label: inventory(path) for label, path in zip(labels, args.bundles)}
     labels = list(inventories)
     reference = inventories[labels[0]]
     comparisons: dict[str, object] = {}

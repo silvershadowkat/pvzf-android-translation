@@ -40,6 +40,11 @@ ALMANAC_SCHEMAS = {
     "LawnStrings": ("plants", "seedType"),
     "ZombieStrings": ("zombies", "theZombieType"),
 }
+# Only prose fields can plausibly contain the copied placeholder bodies this
+# heuristic was introduced to catch. Short structured fields such as ``cost``
+# are intentionally repeated across many plants and must never be rejected for
+# that reason.
+ALMANAC_NARRATIVE_FIELDS = {"introduce", "info"}
 DETAIL_STRINGS_FILE = "DetailStringsTranslate.json"
 DETAIL_TYPE_TRANSLATIONS = {
     "玩法": "Gameplay",
@@ -170,30 +175,22 @@ def merge_android_almanac(
         raise RuntimeError(f"Android Almanac overrides reference unknown {asset_name} IDs: {unknown_overrides}")
 
     # Placeholder commits sometimes seed multiple new records with the same
-    # unrelated English body. Detect one translation value aligned to multiple
-    # distinct Chinese sources and reject that field while retaining valid
-    # independently translated fields such as a plant name.
+    # unrelated English prose. Detect one narrative translation aligned to
+    # multiple distinct Chinese sources. Do not apply this to structured fields
+    # such as cost: sharing those strings is normal Almanac data.
     translated_sources: dict[tuple[str, str], set[str]] = collections.defaultdict(set)
-    translated_body_signatures: collections.Counter[tuple[tuple[str, str], ...]] = (
-        collections.Counter()
-    )
     for stable_id, translated_record in pc_by_id.items():
         pc_source_record = pc_source_by_id.get(stable_id)
         if pc_source_record is None:
             continue
         for field, translated_value in translated_record.items():
             source_value = pc_source_record.get(field)
-            if isinstance(source_value, str) and isinstance(translated_value, str):
+            if (
+                field in ALMANAC_NARRATIVE_FIELDS
+                and isinstance(source_value, str)
+                and isinstance(translated_value, str)
+            ):
                 translated_sources[(field, translated_value)].add(source_value)
-        body_signature = tuple(
-            sorted(
-                (field, value)
-                for field, value in translated_record.items()
-                if field not in {id_key, "name"} and isinstance(value, str) and value
-            )
-        )
-        if body_signature:
-            translated_body_signatures[body_signature] += 1
 
     merged_records: list[dict[str, Any]] = []
     pc_applied = 0
@@ -209,14 +206,6 @@ def merge_android_almanac(
         pc_source_record = pc_source_by_id.get(stable_id)
         applied_fields = 0
         if pc_record is not None and pc_source_record is not None:
-            body_signature = tuple(
-                sorted(
-                    (field, value)
-                    for field, value in pc_record.items()
-                    if field not in {id_key, "name"} and isinstance(value, str) and value
-                )
-            )
-            repeated_record_body = translated_body_signatures[body_signature] > 1
             for field, translated_value in pc_record.items():
                 if field == id_key:
                     continue
@@ -228,13 +217,12 @@ def merge_android_almanac(
                 duplicate_placeholder = (
                     isinstance(pc_source_value, str)
                     and isinstance(translated_value, str)
+                    and field in ALMANAC_NARRATIVE_FIELDS
                     and len(translated_sources[(field, translated_value)]) > 1
-                    and field != "name"
                 )
                 if (
                     not is_usable_pc_translation(translated_value)
                     or duplicate_placeholder
-                    or (repeated_record_body and field != "name")
                 ):
                     pc_placeholder_fields_rejected += 1
                     continue
@@ -322,10 +310,15 @@ def merge_android_detail_strings(
         translated_title = exact.get(source_title)
         if not is_usable_pc_translation(translated_title):
             raise RuntimeError(f"missing English Mechanics Almanac title for {source_title!r}")
-        if source_title in ANDROID_39_DETAIL_ALIASES:
-            description = "\n\n".join(pc_descriptions[key] for key in ANDROID_39_DETAIL_ALIASES[source_title])
-        else:
+        # Current Blooms data may add the exact Android 3.9 key after an older
+        # compatibility alias was introduced. The exact current key has final
+        # authority; aliases are fallback-only migrations.
+        if source_title in pc_descriptions:
             description = pc_descriptions[source_title]
+        else:
+            description = "\n\n".join(
+                pc_descriptions[key] for key in ANDROID_39_DETAIL_ALIASES[source_title]
+            )
         if not is_usable_pc_translation(description):
             raise RuntimeError(f"invalid PC Mechanics Almanac text for {source_title!r}")
         item["type"] = translated_type
@@ -792,6 +785,18 @@ def main() -> int:
         for item in official_detail_tree.get("details", []):
             if not isinstance(item, dict):
                 continue
+            source_type = item.get("type")
+            translated_type = DETAIL_TYPE_TRANSLATIONS.get(source_type)
+            if (
+                isinstance(source_type, str)
+                and isinstance(translated_type, str)
+                and source_type != translated_type
+            ):
+                # Category labels are structural Android adapters rather than
+                # entries in Blooms' exact-string dictionary. Mark the fixed,
+                # closed mapping as approved so the new-content policy does
+                # not restore the original Chinese category afterward.
+                approved_pc_pairs.setdefault(source_type, set()).add(translated_type)
             title = item.get("title")
             source_description = item.get("text")
             pc_description = pc_detail_descriptions.get(title)

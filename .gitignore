@@ -9,8 +9,11 @@
 !/docs/**
 !/scripts/
 !/scripts/*.py
+!/tests/
+!/tests/*.py
 !/assets/
 assets/*
+!/assets/audio-translation-map-3.9.json
 !/assets/credits-parchment-approved-3.8.1-testing.png
 
 # Never commit proprietary game builds, extracted game data, signing keys,

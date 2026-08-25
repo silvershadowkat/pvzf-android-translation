@@ -19,7 +19,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 
 
-DATA_ENTRIES = {
+DEFAULT_CHANGED_ENTRIES = {
     "assets/bin/Data/data.unity3d",
     "assets/bin/Data/Managed/Metadata/global-metadata.dat",
 }
@@ -82,7 +82,9 @@ def main() -> int:
     parser.add_argument("--release-apk", required=True, type=Path)
     parser.add_argument("--aapt2", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--expected-changed-entry", action="append")
     args = parser.parse_args()
+    expected_changed_entries = set(args.expected_changed_entry or DEFAULT_CHANGED_ENTRIES)
 
     with zipfile.ZipFile(args.base_apk) as base, zipfile.ZipFile(args.release_apk) as release:
         base_names = base.namelist()
@@ -111,7 +113,7 @@ def main() -> int:
             base_hash = hash_entry(base, name)
             release_hash = hash_entry(release, name)
             same = base_hash == release_hash
-            if name in DATA_ENTRIES:
+            if name in expected_changed_entries:
                 expected_payloads.append(
                     {"entry": name, "base_sha256": base_hash, "release_sha256": release_hash}
                 )
@@ -144,7 +146,7 @@ def main() -> int:
             manifest_identical,
             badging_identical,
             executable_identical,
-            payloads_changed == DATA_ENTRIES,
+            payloads_changed == expected_changed_entries,
         )
     )
     report = {

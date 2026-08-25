@@ -1,0 +1,28 @@
+{
+  "format_version": 1,
+  "pc_branch": "3.9",
+  "pc_commit": "c2e8f962cb9974c3214d0db95fe98fea0634a2da",
+  "included": [
+    "Boss2",
+    "Day_drum",
+    "Day",
+    "Fog_drum",
+    "Fog",
+    "Garden",
+    "IZ",
+    "MainMenu",
+    "Night_drum",
+    "Night",
+    "Pool_drum",
+    "Pool",
+    "Roof_drum",
+    "Roof_pre",
+    "Roof",
+    "SelectCard",
+    "UltimateBattle"
+  ],
+  "excluded": {
+    "loon": "The PC translator suppresses this replacement in the rhythm minigame.",
+    "Battle": "Official Android 3.9 has no same-name AudioClip target."
+  }
+}

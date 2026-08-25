@@ -21,6 +21,7 @@ from pathlib import Path
 
 DATA_ENTRY = "assets/bin/Data/data.unity3d"
 METADATA_ENTRY = "assets/bin/Data/Managed/Metadata/global-metadata.dat"
+RESOURCE_ENTRY = "assets/bin/Data/resources.resource"
 SIGNATURE_SUFFIXES = (".SF", ".RSA", ".DSA", ".EC")
 
 
@@ -62,11 +63,14 @@ def main() -> int:
     parser.add_argument("--base-apk", required=True, type=Path)
     parser.add_argument("--data-bundle", required=True, type=Path)
     parser.add_argument("--metadata", required=True, type=Path)
+    parser.add_argument("--resource", type=Path)
     parser.add_argument("--output", required=True, type=Path, help="unsigned output APK")
     parser.add_argument("--report", required=True, type=Path)
     args = parser.parse_args()
 
     replacements = {DATA_ENTRY: args.data_bundle, METADATA_ENTRY: args.metadata}
+    if args.resource is not None:
+        replacements[RESOURCE_ENTRY] = args.resource
     for name, path in replacements.items():
         if not path.is_file():
             raise FileNotFoundError(f"missing replacement for {name}: {path}")
