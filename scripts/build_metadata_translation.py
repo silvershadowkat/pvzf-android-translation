@@ -907,7 +907,6 @@ ANDROID_381_INVEST_ENUM_FIELDS = {
 # untouched. A future PC exact translation automatically takes priority.
 ANDROID_CONFIRMED_EXACT.update({
     "<color=red>【SP进化】</color>: ": "<color=red>[SP Evolution]</color>: ",
-    "\n\n伤害占比：{0:F2}%\n总词条数：{1}": "\n\nDamage Share: {0:F2}%\nTotal Modifiers: {1}",
     "\n\n难度积分：{0}": "\n\nDifficulty Score: {0}",
     "\n难度积分：{0}": "\nDifficulty Score: {0}",
     "<nobr>解锁<color=red>究极贪欲水草</color>\n超级水草+双子金盏花</nobr>\n<nobr>解锁<color=red>究极贪欲盒草</color></nobr>\n惊喜礼盒←→僵尸盲盒": (
@@ -1003,7 +1002,6 @@ ANDROID_CONFIRMED_EXACT.update({
     "幸运提高{0:F0}，幸运可以提高好词条出现概率\n当前幸运值：{1}/{2:F0}": "Luck +{0:F0}. Luck increases the chance of better modifiers\nCurrent Luck: {1}/{2:F0}",
     "廉价审美：木头、白银词条加成变为原来的110%，黄金，钻石词条加成变为原来的70%": "Cheap Taste: Wooden and Silver modifier bonuses become 110% of normal; Gold and Diamond bonuses become 70%",
     "开炮：解锁亚种铁豆突击队。铁豆小队的防空炮的击退幅度翻倍，伤害x3。铁豆突击队的伤害x3": "Open Fire: Unlock the Iron Pea Assault Team variant. Iron Pea Squad anti-air knockback is doubled and damage x3. Iron Pea Assault Team damage x3",
-    "当前幸运：{0}\n场上敌人数量：{1}": "Current Luck: {0}\nEnemies on the field: {1}",
     "恃强凌弱：场上植物数量为0/1/2/3/4/5/6及以上时，僵尸受到75%/80%/85%/90%/95%/100%/105%伤害": "Bully the Weak: With 0/1/2/3/4/5/6+ plants on the field, zombies take 75%/80%/85%/90%/95%/100%/105% damage",
     "恶贯满盈：黑袍小丑王施加的诅咒量翻倍，且投掷6秒后重新获得诅咒玩偶匣": "Utterly Wicked: Black-robed Jester King applies twice as much Curse and regains its Cursed Doll Box 6 seconds after throwing it",
     "成群结队：僵尸出现时，有概率额外出现一次（领袖和boss除外），概率随关卡波次提高": "Gathering Horde: Zombies have a chance to spawn an extra copy. Excludes mini-bosses and bosses. Chance rises with the wave",
@@ -1083,7 +1081,7 @@ ANDROID_CONFIRMED_EXACT.update({
     "试炼：": "Trial: ",
     "请在文件OpenBLive中填写数据": "Enter the required data in the OpenBLive file",
     "诸神进化：无尽，第{0}轮": "The Gods: Evolved - Endless, Round {0}",
-    "诸神进化：炼狱": "The Gods: Evolved - Purgatory",
+    "诸神进化：炼狱": "<size=80%><nobr>The Gods: Evolved - Purgatory</nobr></size>",
     "质变-万剑归宗：究极剑仙杨桃每有2发大剑，每次攻击额外发射1发旋转小剑": (
         "Ascend: Myriad Blades: For every 2 greatswords held by Ultimate Swordmaster "
         "Starfruit, each attack also fires 1 rotating small sword"
@@ -1125,12 +1123,34 @@ ANDROID_REQUIRED_OVERRIDE_SOURCES = {
     "奖励1：<color=black>", "奖励1：<color=white>",
     "奖励2：<color=black>", "奖励2：<color=white>",
     "一起摇滚吧！", "\n版本：", "\n当前版本：",
+    # September 10 Android footer: the PC newline puts Purgatory off-screen.
+    "诸神进化：炼狱",
 }
 
 # User-reviewed 3.9 interface and tutorial text. These strings do not assign
 # names or mechanics terminology to new plants, zombies, fusions, modifiers,
 # recipes, or items. Current PC English always takes priority when it appears.
 ANDROID_39_REVIEWED_UI_EXACT = {
+    # Starting-mode instructions, not an invented plant/modifier ability.
+    # No complete exact PC entry exists in the reviewed September 9 snapshot.
+    "以50的幸运开局，并使幸运上限增加至300，然后随机选择5个僵尸词条\n随机的5个词条只有在成功通关任意难度诸神进化后才会刷新": (
+        "Start with 50 Luck and raise the Luck cap to 300. Randomly select 5 Zombie Modifiers.\n"
+        "These 5 modifiers reroll only after clearing The Gods: Evolved on any difficulty."
+    ),
+    "诸神进化：炼狱": "<size=80%><nobr>The Gods: Evolved - Purgatory</nobr></size>",
+    # September 9 tester screenshot: plain numeric labels, no gameplay prose.
+    # PC lacks the damage/modifier pair; reuse its counter terms for Android's
+    # two-line luck/zombie block. Keep placeholders, precision and line breaks.
+    "\n\n伤害占比：{0:F2}%\n总词条数：{1}": (
+        "\n\nDamage Share: {0:F2}%\nTotal Modifiers: {1}"
+    ),
+    "当前幸运：{0}\n场上敌人数量：{1}": "Current Luck: {0}\nZombie(s): {1}",
+    "\n\n难度积分：{0}": "\n\nDifficulty Points: {0}",
+    "\n难度积分：{0}": "\nDifficulty Points: {0}",
+    "{0}获得随机速度增幅\n当前增幅：{1:F0}%": (
+        "{0} gains a random speed bonus\nCurrent bonus: {1:F0}%"
+    ),
+    "试炼：": "Trial: ",
     "速度x{0:F2}": "Speed x{0:F2}",
     "从多个植物中任选一个": "Choose one of the available plants",
     "从多个选项中自选一株专家植物": "Choose one Expert Plant from the available options",
@@ -1151,6 +1171,22 @@ ANDROID_39_REVIEWED_UI_EXACT = {
     "连接成功": "Connected",
 }
 ANDROID_CONFIRMED_NEW_39_SOURCES = set(ANDROID_39_REVIEWED_UI_EXACT)
+
+# September 9 modifier review: user requested original Chinese for unsupported
+# gameplay translations. This is a reviewed, exact-source list, not a blanket
+# reversion of historical English. A complete source-aligned PC entry wins.
+REVIEWED_MODIFIER_CHINESE_RESTORATIONS = {
+    "格挡反击：僵尸闪避时对附近植物造成100%反伤":
+        "PC source includes a 0.2-second cooldown absent from Android's source.",
+    "适应之力：僵尸每次受伤，获得相当于伤害量1%的护甲，有上限":
+        "PC source has a damage threshold and numerical cap absent from Android's source.",
+    "随从强化：非领袖僵尸获得30%速度加成和30%血量加成":
+        "No matching complete PC record or full-string translation.",
+    "霸凌弱者：植物因血量归零死亡时爆炸，对附近植物自身最大生命值的伤害":
+        "No matching complete PC record or full-string translation.",
+    "领袖强化：领袖僵尸获得30%速度加成和30%血量加成":
+        "No matching complete PC record or full-string translation.",
+}
 
 
 # These 3.9-only modifier titles are not present in the older PC travel-buff
@@ -1214,8 +1250,32 @@ def is_usable_pc_translation(value: str) -> bool:
     """Return whether upstream contains real translated text, not a marker."""
     return (
         bool(value.strip())
-        and CJK_RE.search(value) is None
+        and (
+            CJK_RE.search(value) is None
+            or is_reviewed_pc_credit_text(value)
+        )
         and PLACEHOLDER_RE.search(value.strip()) is None
+    )
+
+
+def is_reviewed_pc_credit_text(value: str) -> bool:
+    """Completed Melon Morph showcase instructions with upstream author names.
+
+    PC tips_fs.level1314, e24586aa: the only remaining CJK is in the
+    Special Thanks contributor list. Do not romanize names or allow arbitrary
+    mixed-language gameplay text. Re-review if upstream changes this field.
+    """
+    return sha256(value.encode("utf-8")) == (
+        "fa339904a1e0dfc6fd2b3f8646e0309c847349d5c536409f981326a9a443695c"
+    )
+
+
+def is_usable_modifier_description(value: object) -> bool:
+    """A subject label with no effect after its colon is not a description."""
+    return (
+        isinstance(value, str)
+        and is_usable_pc_translation(value)
+        and re.fullmatch(r"[^\n:：]+[:：]\s*", re.sub(r"<[^>]+>", "", value).strip()) is None
     )
 
 
@@ -1450,6 +1510,7 @@ def load_modifier_sources(
     for source_title, translated_title in ANDROID_39_MODIFIER_TITLE_TRANSLATIONS.items():
         if source_title not in ambiguous_title_translations:
             title_translations.setdefault(source_title, translated_title)
+    sources.update(REVIEWED_MODIFIER_CHINESE_RESTORATIONS)
     for source in sources:
         source_title = clean_modifier_source_title(source)
         if source_title in title_translations:
@@ -1570,6 +1631,10 @@ def load_pc_translations(
         translated_payload = read_json(translated_path)
         added = 0
         for source, translated in aligned_string_pairs(source_payload, translated_payload):
+            if filename == "travel_buffs.json":
+                # Modifier names/descriptions must be validated as one record.
+                # A translated subject followed by a colon is still unfinished.
+                continue
             if CJK_RE.search(source) and translated and source != translated and source not in exact:
                 exact[source] = translated
                 added += 1
@@ -1590,11 +1655,14 @@ def load_pc_translations(
                     source_desc = source_record.get("desc")
                     translated_name = translated_record.get("name")
                     translated_desc = translated_record.get("desc")
-                    if not all(isinstance(value, str) and value for value in (
-                        source_desc, translated_name, translated_desc
-                    )):
+                    if not isinstance(source_desc, str) or not CJK_RE.search(source_desc):
                         continue
-                    if CJK_RE.search(source_desc):
+                    if not is_usable_modifier_description(translated_desc):
+                        continue
+                    if section in {"unlocks", "investmentBuffs"}:
+                        exact[source_desc] = translated_desc
+                        added += 1
+                    elif isinstance(translated_name, str) and is_usable_pc_translation(translated_name):
                         exact[source_desc] = f"{translated_name}：\n{translated_desc}"
                         added += 1
         counts[f"structured:{filename}"] = added
@@ -1639,7 +1707,7 @@ def load_pc_translations(
         for source, target in ANDROID_39_REVIEWED_UI_EXACT.items():
             if source in pc_exact_sources:
                 reviewed_39_superseded_by_pc += 1
-            elif source not in exact:
+            else:
                 exact[source] = target
                 reviewed_39_added += 1
     counts["android_confirmed_exact"] = len(ANDROID_CONFIRMED_EXACT)
@@ -1652,6 +1720,31 @@ def load_pc_translations(
     counts["pc_reference_only"] = int(not include_android_fallbacks)
 
     return exact, pc_exact_sources, regex_entries, counts
+
+
+def load_reviewed_pc_records(path: Path) -> dict[str, str]:
+    """Read explicitly reviewed whole PC records without relaxing JSON parsing.
+
+    Used for a bounded import when another record makes the latest upstream
+    document invalid. Records retain their upstream commit/section/id in the
+    input manifest, whose hash is captured in the build report.
+    """
+    payload = read_json(path)
+    if payload.get("format_version") != 1 or not re.fullmatch(r"[0-9a-f]{40}", payload.get("pc_commit", "")):
+        raise ValueError("reviewed PC records require a version and exact upstream commit")
+    result = {}
+    for record in payload["records"]:
+        source, target = record["source"], record["translation"]
+        if not record.get("section") or not record.get("id"):
+            raise ValueError("reviewed PC record needs a stable section and ID")
+        if not isinstance(source, str) or not CJK_RE.search(source) or not isinstance(target, str) or not is_usable_pc_translation(target):
+            raise ValueError("reviewed PC record lacks a complete source/English pair")
+        if source in result:
+            raise ValueError("duplicate source in reviewed PC records")
+        if sorted(re.findall(r"\{\d+(?::[^{}]+)?\}", source)) != sorted(re.findall(r"\{\d+(?::[^{}]+)?\}", target)):
+            raise ValueError("reviewed PC record changes runtime placeholders")
+        result[source] = target
+    return result
 
 
 def observed_translations(
@@ -1819,6 +1912,53 @@ def translate_csharp_template_with_pc_regex(
     return None
 
 
+def translate_complete_pc_literal(
+    text: str,
+    exact: dict[str, str],
+    regex_entries: list[tuple[str, str, re.Pattern[str], str]],
+) -> tuple[str, str | None]:
+    """Resolve current PC wording without consuming partial Android records.
+
+    PC runtime regexes must cover the entire source. In particular, a Damage
+    rule must not replace a multi-line zombie description with its damage line.
+    Dynamic groups may use PC exact keys only, never historical Android names.
+    """
+    if text in exact and is_usable_pc_translation(exact[text]):
+        return exact[text], "pc_exact"
+    for _pattern, template, compiled, anchor in regex_entries:
+        if anchor and anchor not in text:
+            continue
+        match = compiled.search(text)
+        if match is None or match.span() != (0, len(text)):
+            continue
+        groups = [exact.get(group, group) for group in match.groups()]
+        target = csharp_format(template, groups)
+        seen = {target}
+        while target in exact and exact[target] not in seen:
+            target = exact[target]
+            seen.add(target)
+        if (
+            "You haven't discovered this plant yet!" in target
+            and (
+                (text.startswith("<nobr>") and "\u89e3\u9501" not in text)
+                or any(re.fullmatch(r"[+-]?[0-9]+(?:[.][0-9]+)?%?", group.strip()) for group in groups)
+            )
+        ):
+            # PC's generic hidden-plant wrapper also matches Android modifier
+            # cards. It must not introduce fusion instructions into a stat buff.
+            continue
+        if target != text and is_usable_pc_translation(target):
+            # A raw regex must not consume or change C# argument specifiers.
+            # The sentinel bridge below handles runtime argument reordering.
+            if sorted(CSHARP_FORMAT_FIELD_RE.findall(text)) != sorted(CSHARP_FORMAT_FIELD_RE.findall(target)):
+                continue
+            return target, "pc_regex"
+    target = translate_csharp_template_with_pc_regex(text, regex_entries)
+    if target is not None and is_usable_pc_translation(target):
+        return target, "pc_regex_csharp_template"
+    return text, None
+
+
 def translate_literal(
     text: str,
     exact: dict[str, str],
@@ -1852,6 +1992,11 @@ def translate_literal(
 
     if not CJK_RE.search(text):
         return text, None
+    if pc_reference_only or text not in ANDROID_REQUIRED_OVERRIDE_SOURCES:
+        pc_only = {key: exact[key] for key in pc_exact_sources if key in exact}
+        current_pc, pc_method = translate_complete_pc_literal(text, pc_only, regex_entries)
+        if pc_method is not None:
+            return current_pc, pc_method
     if text in exact:
         method = (
             "pc_exact"
@@ -1863,35 +2008,9 @@ def translate_literal(
     if text in observed:
         translated, label = observed[text]
         return resolve_chain(translated), f"reference:{label}"
-
-    for _pattern, template, compiled, anchor in regex_entries:
-        if anchor and anchor not in text:
-            continue
-        match = compiled.search(text)
-        if match is None:
-            continue
-        dynamic: list[str] = []
-        for group in match.groups():
-            if group in exact:
-                dynamic.append(exact[group])
-            elif group in observed:
-                dynamic.append(observed[group][0])
-            else:
-                dynamic.append(group)
-        result = csharp_format(template, dynamic)
-        # A broad PC regex can legitimately produce another PC source key.
-        # Example: 手推车挑战 becomes the intermediate mixed-language text
-        # "Fusion Challenge: 手推车", for which the community project has a
-        # more specific exact translation. Resolve that second stage before
-        # accepting the regex output.
-        result = resolve_chain(result)
-        if result != text:
-            return result, "pc_regex"
-
-    template_result = translate_csharp_template_with_pc_regex(text, regex_entries)
-    if template_result is not None:
-        template_result = resolve_chain(template_result)
-        return template_result, "pc_regex_csharp_template"
+    # The complete PC resolver has already tried safe regexes and C# templates.
+    # Do not retry rejected rules with historical captures: that bypasses the
+    # full-record and recipe-context checks or reintroduces old plant names.
     return text, None
 
 
@@ -1924,6 +2043,14 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument(
+        "--pc-records", type=Path,
+        help="explicitly reviewed whole PC records with upstream provenance; current complete PC entries take priority",
+    )
+    parser.add_argument(
+        "--preserve-release-report", type=Path,
+        help="same-version release report: retain shipped fields with no usable PC replacement",
+    )
+    parser.add_argument(
         "--reference-pair",
         action="append",
         nargs=3,
@@ -1953,11 +2080,33 @@ def main() -> int:
     args = parser.parse_args()
 
     base = args.base.read_bytes()
+    preserved_release = {}
+    if args.preserve_release_report is not None:
+        if args.pc_reference_only:
+            raise ValueError("release preservation is Android-only")
+        release_report = read_json(args.preserve_release_report)
+        if release_report["base"]["sha256"] != sha256(base):
+            raise ValueError("release report does not match the official metadata input")
+        for entry in release_report["changes"]:
+            preserved_release[int(entry["index"])] = entry
+    strict_pc_exact, _, strict_pc_regex, _ = load_pc_translations(
+        args.strings_dir, include_android_fallbacks=False,
+    )
     layout, literals = parse_metadata(base)
     exact, pc_exact_sources, regex_entries, pc_counts = load_pc_translations(
         args.strings_dir,
         include_android_fallbacks=not args.pc_reference_only,
     )
+    reviewed_pc_records = {} if args.pc_records is None else load_reviewed_pc_records(args.pc_records)
+    reviewed_pc_added = 0
+    for source, target in reviewed_pc_records.items():
+        _, existing_pc_method = translate_complete_pc_literal(source, strict_pc_exact, strict_pc_regex)
+        if existing_pc_method is None:
+            strict_pc_exact[source] = target
+            exact[source] = target
+            pc_exact_sources.add(source)
+            reviewed_pc_added += 1
+    pc_counts["reviewed_pc_records_added"] = reviewed_pc_added
     previous_base = None
     previous_literals: list[MetadataLiteral] = []
     previous_literal_texts: set[str] = set()
@@ -2172,7 +2321,48 @@ def main() -> int:
                     "preserved_new_39_chinese": False,
                 }
             )
+        if index in preserved_release:
+            shipped = preserved_release[index]
+            if shipped["source"] != literal.text:
+                raise ValueError(f"release report source/index mismatch at {index}")
+            _, complete_pc_method = translate_complete_pc_literal(
+                literal.text, strict_pc_exact, strict_pc_regex,
+            )
+            if complete_pc_method is None:
+                translated_text = shipped["translation"]
+                method = "preserved_release_wording"
+                if is_new_39:
+                    if audit_record["outcome"] == "preserved_official_chinese":
+                        new_39_preserved_occurrences -= 1
+                    audit_record["outcome"] = "preserved_release_wording"
+                    audit_record["method"] = method
+                    audit_record["translation"] = translated_text
+        if (
+            not args.pc_reference_only
+            and literal.text in REVIEWED_MODIFIER_CHINESE_RESTORATIONS
+            and translate_complete_pc_literal(
+                literal.text, strict_pc_exact, strict_pc_regex,
+            )[1] is None
+        ):
+            translated_text, title_shrunk = normalize_modifier_translation(literal.text, None)
+            method = "reviewed_modifier_chinese_restoration"
+            if modifier_records and modifier_records[-1]["index"] == index:
+                modifier_records[-1].update(
+                    translation=translated_text, preferred_title=None,
+                    title_shrunk=title_shrunk, preserved_new_39_chinese=True,
+                )
+            if is_new_39:
+                audit_record.update(
+                    outcome="preserved_official_chinese", method=method,
+                    translation=translated_text,
+                )
         translated_text = translated_text.replace("\u2014", "-")
+        # PC 9afdca02's speed rule opens a size tag without closing it.
+        # Scope the Android repair to this exact reviewed label; preserve the
+        # PC wording, multiplication sign and C# numeric format unchanged.
+        if (not args.pc_reference_only and literal.text == "速度x{0:F2}"
+                and translated_text == "<size=75%>Game Speed: ×{0:F2}"):
+            translated_text += "</size>"
         final_methods.append(method)
         if CJK_RE.search(translated_text):
             cjk_after += 1
@@ -2350,6 +2540,12 @@ def main() -> int:
                     record["method"] == "preserved_new_39_chinese_structured"
                     and CJK_RE.search(str(record["translation"])) is not None
                 )
+                or (
+                    record["method"] == "preserved_release_wording"
+                    and record["index"] in preserved_release
+                    and preserved_release[record["index"]]["source"] == record["source"]
+                    and preserved_release[record["index"]]["translation"].replace("\u2014", "-") == record["translation"]
+                )
             )
         )
         for record in sp_evolution_records
@@ -2384,7 +2580,25 @@ def main() -> int:
             "cjk_literal_occurrences": cjk_after,
         },
         "pc_translation_entries": pc_counts,
+        "reviewed_pc_records": None if args.pc_records is None else {
+            "path": str(args.pc_records.resolve()),
+            "sha256": sha256(args.pc_records.read_bytes()),
+            "pc_commit": read_json(args.pc_records)["pc_commit"],
+            "added": reviewed_pc_added,
+        },
         "pc_exact_source_remnants": 0,
+        "reviewed_modifier_chinese_restorations": [
+            {"index": index, "source": literals[index].text,
+             "reason": REVIEWED_MODIFIER_CHINESE_RESTORATIONS[literals[index].text]}
+            for index, method in enumerate(final_methods)
+            if method == "reviewed_modifier_chinese_restoration"
+        ],
+        "preserve_release_report": None if args.preserve_release_report is None else {
+            "path": str(args.preserve_release_report.resolve()),
+            "sha256": sha256(args.preserve_release_report.read_bytes()),
+            "retained_literal_occurrences": final_methods.count("preserved_release_wording"),
+            "reason": "Preserve shipped wording except the explicitly reviewed September 9 modifier Chinese restorations; complete PC replacements take priority.",
+        },
         "new_39_translation_policy": {
             "enabled": args.previous_version_base is not None,
             "rule": (
@@ -2402,9 +2616,10 @@ def main() -> int:
                 "unique_literal_count": len(previous_literal_texts),
             },
             "new_cjk_literal_occurrences": new_39_occurrences,
-            "pc_english_occurrences": new_39_pc_translated_occurrences,
-            "confirmed_android_ui_occurrences": new_39_confirmed_android_occurrences,
-            "preserved_official_chinese_occurrences": new_39_preserved_occurrences,
+            "pc_english_occurrences": sum(record["occurrences"] for record in new_39_audit.values() if record["outcome"] == "pc_english"),
+            "confirmed_android_ui_occurrences": sum(record["occurrences"] for record in new_39_audit.values() if record["outcome"] == "confirmed_android_ui"),
+            "preserved_official_chinese_occurrences": sum(record["occurrences"] for record in new_39_audit.values() if record["outcome"] == "preserved_official_chinese"),
+            "preserved_release_wording_occurrences": sum(record["occurrences"] for record in new_39_audit.values() if record["outcome"] == "preserved_release_wording"),
             "unique_records": sorted(
                 new_39_audit.values(),
                 key=lambda record: str(record["source"]),

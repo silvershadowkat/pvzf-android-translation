@@ -277,7 +277,7 @@ SERIALIZED_FIELD_FALLBACKS = {
     "黑夜：困难": "Night: Hard",
     "泳池：困难": "Pool: Hard",
     "冒险模式：第1关": "Adventure Mode: Level 1",
-    "诸神进化：炼狱": "The Gods: Evolved - Purgatory",
+    "诸神进化：炼狱": "The Gods: Evolved\nPurgatory",
     "疾速狂热": "Berserker I",
     "植物的攻击速度增加10%": "Increase the Attack Speed of all plants by 10%",
     "疾速狂热II": "Berserker II",

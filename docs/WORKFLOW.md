@@ -151,7 +151,46 @@ metadata builder.
 
 ## 6. Package and sign
 
+Before packaging, run the final source-aligned wording pass
+`scripts/reconcile_pc_english.py` **after all UI/layout/texture polishing**.
+Pass the clean official same-version bundle with `--source-bundle`, the fully
+polished candidate with `--base-bundle`, the pinned PC English directory with
+`--localization-dir`, and new `--output`/`--report` paths. This final pass
+refreshes stale English using original source keys and verifies that only
+intended serialized text bytes changed. It is not a substitute for rebuilding
+major stages from clean official inputs.
+
+When continuing release 6, pass its verified metadata report to
+`build_metadata_translation.py --preserve-release-report` in addition to the
+ordinary clean inputs and fallback sources. The builder requires the report's
+official-input SHA-256 and literal source/index pairs to match. This preserves
+already shipped wording where there is no usable PC replacement, while still
+allowing complete current PC translations to win. Record preserved wording
+separately; it is not newly PC-authored text.
+
+For this next-release candidate, also pass
+`--pc-records docs/pc-reviewed-records.json`. This explicitly imports reviewed,
+complete PC records newer than the main source pin, with their exact source,
+section/ID and upstream commit recorded. The current manifest contains
+`unlocks.14` for Kelptain Goldbeard / Sea-greed Zombox and `unlocks.27` for
+Firnessence Panacea. Omitting the flag would drop these corrections when
+rebuilding from the older PC pin. Current complete
+PC exact or full-regex translations take priority over the manifest. Do not
+turn malformed upstream JSON into a partially accepted production document;
+keep any scoped import explicit and validate its whole candidate delta.
+
+See `docs/ENGLISH-PARITY-2026-09-06.md` for the local continuation paths and
+the tester-feedback rule. No release is authorized by these workflow notes.
+
 Only after metadata and bundle tests pass:
+
+For the September 10 Purgatory caption correction, run
+`fix_purgatory_card_layout.py --input <candidate-bundle> --output <final-bundle> --report <report.json>`
+after the final PC reconciliation and before packaging. It checks the exact
+Android 3.9 object/hierarchy, changes only the title string, and reopens all
+objects to verify every other byte is preserved. The metadata builder applies
+the separate compact single-line footer; the menu and footer must not share
+one line-break policy.
 
 1. Run `package_apk_payload.py` to replace the two payload files in the chosen
    APK shell and remove its obsolete JAR signature entries.
@@ -202,3 +241,8 @@ use Windows `tar -a`: its ZIP writer can replace non-ASCII texture names with
 question marks and collapse multiple source files onto one archive path. The
 PC packager requires an exact source/archive path match, UTF-8 flags for
 non-ASCII names, zero Windows path collisions, and a complete CRC pass.
+
+
+## September 9 continuation input
+
+Use `scripts/prepare_reviewed_pc_strings.py --checkout translation-data/PVZF-Translation --output <snapshot>` for the pinned, strictly parsed September 9 JSON input. Supply its `PvZ_Fusion_Translator/Localization/English/Strings` to the metadata builder together with the existing Release 6 reference/preservation report and reviewed-record manifest. The older checkout pin alone no longer reproduces the current modifier candidate. See [testing/ALL-MODIFIERS-2026-09-09.md](testing/ALL-MODIFIERS-2026-09-09.md) and [testing/SHOWCASE-ALMANAC-2026-09-09.md](testing/SHOWCASE-ALMANAC-2026-09-09.md) for coverage, exceptions and pending device checks. Reconcile Almanacs against the three English Almanac JSON files from that same commit. No packaging or publishing is authorized by these notes.

@@ -4,6 +4,33 @@ This is the repeatable path for updating the English Android build.
 
 ## Translation authority and provenance
 
+### Current tester-feedback rule (2026-09-06)
+
+Maintain [RELEASE-NOTES-NEXT.md](RELEASE-NOTES-NEXT.md) as the single running
+release-notes draft. Every completed correction from this work and future
+tester feedback must be reflected there once. Combine related changes, explain
+them in familiar game terms, and distinguish prepared fixes from pending
+review or device testing. Keep technical evidence in the audit documents.
+
+For every tester finding, look up the exact source/record in the current PC
+3.9 translation before proposing English. If the PC project has no completed,
+usable translation for that field, tell the user **the PC project has not
+translated it yet**. On September 9 the user authorized straightforward,
+harmless UI labels after screenshot/context review even when PC lacks them.
+Keep these exact, fallback-only entries in the reviewed UI allowlist and
+document their provenance. Plant/zombie names, ability or modifier names,
+recipes and gameplay descriptions still require completed, source-aligned PC
+wording. Existing assisted wording is identified for review, not automatically
+reverted.
+
+This updated session rule permits the generic-UI exception below for reviewed
+feedback. Lack of an exact dictionary match alone is not proof of missing PC
+English: check structured Almanac records, tips, and applicable complete regexes.
+Never use a partial regex match to replace a whole description.
+
+The current parity pass and verification are documented in
+[ENGLISH-PARITY-2026-09-06.md](ENGLISH-PARITY-2026-09-06.md).
+
 For new or changed 3.9 gameplay content, use this strict beta policy:
 
 1. Use the current PC community translation from
@@ -35,6 +62,12 @@ descriptions reused across records, and literal `X`/`Y` names. Preserve the
 corresponding official Chinese field. Structured records may mix a valid PC
 name with an untranslated Chinese description only when each field is aligned
 to the matching official PC source dump.
+
+September 9 reviewed exception: Tyrannoflora Lux (951)'s complete PC `info`
+field contains an embedded "currently bugged" gameplay note. Its exact English
+SHA-256 is allowlisted in `REVIEWED_PC_COMPLETE_FIELD_HASHES` in the Unity text
+builder. All other placeholder checks remain active; unreviewed edits require
+another review. See [LUX-FIRNESSENCE-2026-09-09.md](testing/LUX-FIRNESSENCE-2026-09-09.md).
 
 The metadata builder enforces this policy. Entries in
 `ANDROID_CONFIRMED_EXACT` are fallback-only unless their source is listed in
@@ -227,3 +260,8 @@ Abyss is deliberately parked in Android 3.8.1. Dormant classes and an inactive
 Challenge-menu object exist in the shipped assets, but the translation project
 must not expose or shortcut that mode. Reassess only if a future upstream
 Android build officially enables it.
+
+
+## September 9 continuation input
+
+Use `scripts/prepare_reviewed_pc_strings.py --checkout translation-data/PVZF-Translation --output <snapshot>` for the pinned, strictly parsed September 9 JSON input. Supply its `PvZ_Fusion_Translator/Localization/English/Strings` to the metadata builder together with the existing Release 6 reference/preservation report and reviewed-record manifest. The older checkout pin alone no longer reproduces the current modifier candidate. See [testing/ALL-MODIFIERS-2026-09-09.md](testing/ALL-MODIFIERS-2026-09-09.md) and [testing/SHOWCASE-ALMANAC-2026-09-09.md](testing/SHOWCASE-ALMANAC-2026-09-09.md) for coverage, exceptions and pending device checks. Reconcile Almanacs against the three English Almanac JSON files from that same commit. No packaging or publishing is authorized by these notes.

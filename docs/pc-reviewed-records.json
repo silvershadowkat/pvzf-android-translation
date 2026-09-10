@@ -1,0 +1,20 @@
+{
+  "format_version": 1,
+  "pc_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
+  "source_file": "PvZ_Fusion_Translator/Dumps/travel_buffs.json",
+  "translation_file": "PvZ_Fusion_Translator/Localization/English/Strings/travel_buffs.json",
+  "records": [
+    {
+      "section": "unlocks",
+      "id": "14",
+      "source": "<nobr>解锁<color=red>究极贪欲水草</color>\n超级水草+双子金盏花</nobr>\n<nobr>解锁<color=red>究极贪欲盒草</color></nobr>\n惊喜礼盒←→僵尸盲盒",
+      "translation": "Unlock Kelptain Goldbeard: Twin Marigold > Hydra Kelp\nand its Subspecies Sea-greed Zombox\nConversion: Plant Giftbox <-> Zombie Giftbox"
+    },
+    {
+      "section": "unlocks",
+      "id": "27",
+      "source": "<nobr>解锁<color=red>究极小松炉</color>\n超级小松炉+雪棘芦荟</nobr>",
+      "translation": "Unlock Firnessence Panacea: Firnurse + Aloe Nivea"
+    }
+  ]
+}

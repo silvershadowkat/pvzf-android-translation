@@ -5,19 +5,17 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 3.9; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: Android 3.9 prerelease 5 is built from the official 3.9 shell with
-> the latest PC `3.9` translations and the known-good 3.8.1 Update 6 Android
-> fixes carried forward only where compatible. Metadata, bundle, signature,
-> alignment, and comparative APK audits pass. Real-device testing is still
-> required.
+> Status: [Android 3.9 prerelease 7](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.9-release-7)
+> includes the September 10 PC translations, complete modifier descriptions,
+> showcase tips, and targeted UI fixes. Automated APK checks and an initial
+> tester recheck passed; broader device testing remains welcome.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
-The current local test handoff is documented in
-[docs/RELEASE-3.9-EN.md](docs/RELEASE-3.9-EN.md). Back up saves and read the
-installation warning there before installing.
+See the [Release 7 notes](docs/RELEASE-NOTES-3.9-PRE7.md) for changes,
+verification, and known limitations. Save-migration guidance appears below.
 
 ## 3.9 beta translation policy
 
@@ -36,9 +34,10 @@ plant or mechanics names. These mappings live in explicit reviewed allowlists,
 are counted separately in build reports, and automatically yield when the PC
 project later supplies an English value.
 
-Android prerelease 5 pins `Teyliu/PVZF-Translation` branch `3.9` at commit
-`d150f6f0d5ea16622c4e0b5ee6ce798d60e9c5d1`, the newest remote branch commit
-available when built. Reviewed Android translations from 3.8.1 Update 6 may
+Android prerelease 7 uses `Teyliu/PVZF-Translation` branch `3.9` at reviewed
+commit `9afdca02ffba383582b44d5225be1fd9e62cc854`. See
+`docs/pc-translation-source.json` for snapshot provenance and build inputs.
+Reviewed Android translations from 3.8.1 Update 6 may
 remain only where the official source text is unchanged.
 
 ## PC 3.9 visual reference

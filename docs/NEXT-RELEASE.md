@@ -1,5 +1,14 @@
 # Android 3.9 prerelease 6 candidate test gate
 
+**Historical Release 6 checklist.** Current release:
+[Release 7](RELEASE-NOTES-3.9-PRE7.md), approved after the local test3 recheck.
+The older "not packaged" status notes below describe their original audit date.
+
+The single running, player-facing draft for changes **after Release 6** is
+[RELEASE-NOTES-NEXT.md](RELEASE-NOTES-NEXT.md). Add each completed tester
+correction there once, using plain language. The Release 6 test gate below is
+retained as background and must not be presented as newly completed work.
+
 Prerelease 6 uses the PC `3.9` branch at
 `c2e8f962cb9974c3214d0db95fe98fea0634a2da`. It fixes the dangling Release 5
 TMP fallback-font pointers, refreshes current PC Almanac/gameplay text, and
@@ -40,3 +49,25 @@ are incomplete and intentionally remain in the official language. For a
 translation report, identify the matching PC English text or explain why the
 screen is generic UI that can be translated safely without inventing gameplay
 terminology.
+
+## Parked feedback for the next fix batch
+
+- Verify the current PC Blooms 3.9 terminology for the Zen Garden fertilizer
+  item. Community feedback asks whether **Fertilizer** should be renamed to
+  **Super Fertilizer** on Android. Confirm the source wording and every affected
+  UI location before changing it.
+
+## Local PC refresh before the next tester fix batch
+
+The completed 2026-09-06 source refresh is documented in
+[PC-REFRESH-2026-09-06.md](PC-REFRESH-2026-09-06.md). The current local PC
+3.9 input is pinned in `pc-translation-source.json`. This is unpublished work
+from release 6; no new APK has been packaged.
+
+## English parity audit and crash-sensitive handling
+
+See [ENGLISH-PARITY-2026-09-06.md](ENGLISH-PARITY-2026-09-06.md) for the
+verified local text candidates, deferred UI/context items, provenance rules,
+and required device retests. No APK or release has been produced. If a tester
+field lacks completed PC English, tell the user it is not translated upstream
+yet; do not invent a replacement.

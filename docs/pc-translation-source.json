@@ -1,0 +1,56 @@
+{
+  "android_baseline_tag": "v3.9-release-6",
+  "android_baseline_commit": "d0b02fa751ebaf1e376a98c64bfeee91c7d49b72",
+  "pc_branch": "3.9",
+  "previous_pc_commit": "c2e8f962cb9974c3214d0db95fe98fea0634a2da",
+  "pc_commit": "5d3ca86876cafc38b70c4a8aa87f6f5cf54266f2",
+  "changed_english_files": [
+    "PvZ_Fusion_Translator/Localization/English/Almanac/DetailStringsTranslate.json",
+    "PvZ_Fusion_Translator/Localization/English/Almanac/LawnStringsTranslate.json"
+  ],
+  "repository": "https://github.com/Teyliu/PVZF-Translation",
+  "updated_on": "2026-09-10",
+  "reviewed_pc_record_import": {
+    "manifest": "docs/pc-reviewed-records.json",
+    "pc_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
+    "records": [
+      "unlocks.14",
+      "unlocks.27"
+    ],
+    "scope": "Two source-aligned complete unlock cards; the main PC checkout pin is unchanged.",
+    "required_builder_argument": "--pc-records docs/pc-reviewed-records.json"
+  },
+  "reviewed_complete_almanac_field": {
+    "record": "LawnStrings.plants.951.info",
+    "pc_commit_checked": "e24586aaf9feb85eae6fc30af3460237778558ff",
+    "english_sha256": "d766c7fcc2896d1e36dfb40ab1c46ea3b6a7d8e877c83479e91dff2845023cfb",
+    "reason": "Complete PC gameplay description contains an embedded known-bug note, not a missing-translation placeholder. This exact field is also present at the main source pin."
+  },
+  "status": "Release 7: tester-approved test3 APK, PC snapshot 9afdca02. Publication authorized September 10; source checkout remains intentionally pinned separately.",
+  "reviewed_september9_snapshot": {
+    "pc_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
+    "exporter": "scripts/prepare_reviewed_pc_strings.py",
+    "scope": "English Strings, matching Dumps and three English Almanac JSON files; checkout pin remains unchanged.",
+    "syntax_repair": "One hash-checked missing comma after Jinxed; no translation values changed.",
+    "required_strings_input": "work/modifier-review/pc-source/PvZ_Fusion_Translator/Localization/English/Strings",
+    "verified_report": "outputs/modifier-review-verified.json"
+  },
+  "reviewed_complete_showcase_field": {
+    "record": "tips_fs.level1314-磁力西瓜投手",
+    "pc_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
+    "english_sha256": "fa339904a1e0dfc6fd2b3f8646e0309c847349d5c536409f981326a9a443695c",
+    "reason": "Completed English instructions; Chinese only in contributor names."
+  },
+  "reviewed_september10_snapshot": {
+    "pc_commit": "9afdca02ffba383582b44d5225be1fd9e62cc854",
+    "previous_reviewed_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
+    "required_strings_input": "work/pc-refresh-sept10/pc-source/PvZ_Fusion_Translator/Localization/English/Strings",
+    "syntax_repairs": 0,
+    "changed_metadata_literals": [
+      17651,
+      18730
+    ],
+    "bundle_changes": 0,
+    "report": "outputs/PC-REFRESH-2026-09-10.json"
+  }
+}

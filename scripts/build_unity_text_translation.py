@@ -23,7 +23,7 @@ from typing import Any
 
 import UnityPy
 
-from build_metadata_translation import ANDROID_CONFIRMED_EXACT
+from build_metadata_translation import ANDROID_CONFIRMED_EXACT, is_reviewed_pc_credit_text
 
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
@@ -39,6 +39,12 @@ ALMANAC_FILES = {
 ALMANAC_SCHEMAS = {
     "LawnStrings": ("plants", "seedType"),
     "ZombieStrings": ("zombies", "theZombieType"),
+}
+# Reviewed whole PC fields whose embedded gameplay bug note is not a missing
+# translation marker. Tyrannoflora Lux (951), info, PC e24586aa; exact hash
+# keeps every other placeholder (and future unreviewed edits) rejected.
+REVIEWED_PC_COMPLETE_FIELD_HASHES = {
+    "d766c7fcc2896d1e36dfb40ab1c46ea3b6a7d8e877c83479e91dff2845023cfb",
 }
 # Only prose fields can plausibly contain the copied placeholder bodies this
 # heuristic was introduced to catch. Short structured fields such as ``cost``
@@ -117,8 +123,11 @@ def is_usable_pc_translation(value: Any) -> bool:
     return (
         isinstance(value, str)
         and bool(value.strip())
-        and CJK_RE.search(value) is None
-        and PLACEHOLDER_RE.search(value.strip()) is None
+        and (CJK_RE.search(value) is None or is_reviewed_pc_credit_text(value))
+        and (
+            PLACEHOLDER_RE.search(value.strip()) is None
+            or hashlib.sha256(value.encode("utf-8")).hexdigest() in REVIEWED_PC_COMPLETE_FIELD_HASHES
+        )
     )
 
 
@@ -126,6 +135,19 @@ def parse_json_text(value: str) -> Any:
     # Joseph's translated TextAssets commonly retain a UTF-8 BOM as the first
     # decoded character. Unity accepts it, but Python's json.loads does not.
     return json.loads(value.lstrip("\ufeff"))
+
+
+def repeated_narrative_is_placeholder(sources: set[str]) -> bool:
+    """Allow shared variant prose when the official bodies share a prefix.
+
+    Death Star's variants differ only by an appended fusion-recipe line.
+    Identical PC prose is valid there; unrelated copied bodies remain rejected.
+    """
+    if len(sources) < 2:
+        return False
+    bodies = [re.sub(r"<[^>]+>", "", source).strip() for source in sources]
+    shortest = min(bodies, key=len)
+    return not shortest or not all(body.startswith(shortest) for body in bodies)
 
 
 def merge_android_almanac(
@@ -218,7 +240,9 @@ def merge_android_almanac(
                     isinstance(pc_source_value, str)
                     and isinstance(translated_value, str)
                     and field in ALMANAC_NARRATIVE_FIELDS
-                    and len(translated_sources[(field, translated_value)]) > 1
+                    and repeated_narrative_is_placeholder(
+                        translated_sources[(field, translated_value)]
+                    )
                 )
                 if (
                     not is_usable_pc_translation(translated_value)
