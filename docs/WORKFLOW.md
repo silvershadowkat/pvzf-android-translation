@@ -192,6 +192,25 @@ objects to verify every other byte is preserved. The metadata builder applies
 the separate compact single-line footer; the menu and footer must not share
 one line-break policy.
 
+For the Release 8 Obsidian skin-challenge title correction, subsequently run
+`fix_obsidian_skin_challenge_caption.py --input <candidate-bundle> --output <final-bundle> --strings-dir <reviewed-PC-Strings> --report <report.json>`.
+This bridges only the reviewed Android line-wrapped source to the complete
+PC title. It validates that PC wording, the exact menu hierarchy, and every
+output object. Keep the separate runtime title unchanged; this script does not
+modify metadata.
+
+For Release 8 metadata, use the reviewed `708ffb136e33ccc6bb6db2fa67213170708934a9`
+snapshot (English inputs are identical to `9afdca02`). The metadata builder
+includes two exact-source PC regex adaptations for Luck/Respawn, six generic
+UI fields, and the user-approved Blast Protection shield clause. Compare against
+Release 7: literals 98, 119, 15725, 16209, 16697, 16954,
+17062, 18419, and 18711 change, plus the 43 closed, reviewed source matches in
+`scripts/reviewed_generic_text.py` (52 total). Named generic modifiers require
+the reviewed PC names; a missing or changed name cannot enable an old fallback.
+User-approved generic text takes priority over historical preservation only for
+these exact sources. Preserve format specifiers and the dynamic
+Luck cap; do not replace it with PC's fixed 250. See the Release 8 feedback review.
+
 1. Run `package_apk_payload.py` to replace the two payload files in the chosen
    APK shell and remove its obsolete JAR signature entries.
 2. Preserve all unrelated native libraries and launcher code.

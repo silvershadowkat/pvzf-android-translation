@@ -19,6 +19,46 @@ def rule(pattern, target):
 
 
 class PcAuthorityTests(unittest.TestCase):
+    def test_generic_effect_translation_requires_reviewed_pc_name(self):
+        with tempfile.TemporaryDirectory() as folder:
+            strings = Path(folder)
+            pc = strings / 'travel_buffs.json'
+            source = '护盾保护：持有护盾的植物每秒回复0.1%护盾量的生命值'
+            for name in ('Enchanted Shield', 'New PC Name', ''):
+                pc.write_text(json.dumps({'advancedBuffs': {'13001': {
+                    'name': name, 'desc': '持有护盾的植物每秒回复0.1%护盾量的生命值'
+                }}}), encoding='utf-8')
+                exact, _, _, _ = load_pc_translations(strings)
+                if name == 'Enchanted Shield':
+                    self.assertEqual(exact['护盾保护'], name)
+                    self.assertTrue(exact[source].startswith(name + '：'))
+                else:
+                    self.assertNotIn(source, exact)
+                    self.assertNotIn('护盾保护', exact)
+                strict, _, _, _ = load_pc_translations(strings, include_android_fallbacks=False)
+                self.assertNotIn(source, strict)
+
+    def test_reviewed_luck_variant_preserves_dynamic_cap_and_precision(self):
+        source = '幸运提高{0:F0}，幸运可以提高好词条出现概率\n当前幸运值：{1}/{2:F0}'
+        pattern = r'幸运提高(\d+)，幸运可以提高好词条出现概率' '\n' r'当前幸运值：(\d+)/250'
+        pc = 'Increases your luck by {0}. Luck increases the probability of rarer modifiers appearing.\nCurrent Luck: {1}/250'
+        result, method = translate_complete_pc_literal(source, {}, [rule(pattern, pc)])
+        self.assertEqual(result, 'Increases your luck by {0:F0}. Luck increases the probability of rarer modifiers appearing.\nCurrent Luck: {1}/{2:F0}')
+        self.assertEqual(method, 'pc_reviewed_android_template')
+        self.assertEqual(translate_complete_pc_literal(source, {}, []), (source, None))
+        self.assertEqual(translate_complete_pc_literal(source, {}, [rule(pattern, pc + ' Extra effect.')]), (source, None))
+
+    def test_reviewed_respawn_variant_keeps_standard_label(self):
+        source = '复活时间降低{0:F0}%\n当前标准复活时长：{1:F1}秒'
+        pattern = r'复活时间降低(\d+)%' '\n' r'当前复活时长：([\s\S]+)秒'
+        pc = 'Reduce plant respawn time by {0}%.\nCurrent respawn time: {1}s'
+        result, method = translate_complete_pc_literal(source, {}, [rule(pattern, pc)])
+        self.assertEqual(result, 'Reduce plant respawn time by {0:F0}%.\nCurrent standard respawn time: {1:F1}s')
+        self.assertEqual(method, 'pc_reviewed_android_template')
+        # The reviewed adapter must not consume extra Android gameplay prose.
+        extra = source + '\n并立即恢复生命值'
+        self.assertEqual(translate_complete_pc_literal(extra, {}, [rule(pattern, pc)]), (extra, None))
+
     def test_crossed_pc_styles_and_orphan_sizes_are_repaired(self):
         source = '<color=red><size=15></color>Tip</size>'
         expected = '<color=red><size=15></size></color><size=15>Tip</size>'

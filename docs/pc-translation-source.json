@@ -52,5 +52,13 @@
     ],
     "bundle_changes": 0,
     "report": "outputs/PC-REFRESH-2026-09-10.json"
+  },
+  "release8_preparation": {
+    "pc_commit_checked": "708ffb136e33ccc6bb6db2fa67213170708934a9",
+    "previous_reviewed_commit": "9afdca02ffba383582b44d5225be1fd9e62cc854",
+    "checked_on": "2026-09-11",
+    "english_or_dump_changes": 0,
+    "scope": "52 reviewed metadata text changes and one PC menu caption; signed APK audited, prerelease publication authorized September 11. Generic effects/UI use reviewed local English; PC names preserved.",
+    "review": "docs/testing/RELEASE8-FEEDBACK-2026-09-11.md"
   }
 }

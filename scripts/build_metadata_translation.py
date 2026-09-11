@@ -1131,6 +1131,20 @@ ANDROID_REQUIRED_OVERRIDE_SOURCES = {
 # names or mechanics terminology to new plants, zombies, fusions, modifiers,
 # recipes, or items. Current PC English always takes priority when it appears.
 ANDROID_39_REVIEWED_UI_EXACT = {
+    # Release 8 user-approved exception: keep PC's existing damage sentence,
+    # then translate the unambiguous Android-only shield clause. No new names.
+    "僵尸方的小丑爆炸伤害降低至1000，并立即获得3000护盾": (
+        "Reduce Zombie Jack-in-the-Box explosion damage to 1000. "
+        "Immediately gain 3000 Shield."
+    ),
+    # Release 8: generic counters/status fields. Preserve every argument and
+    # format specifier; these do not supply missing plant/effect descriptions.
+    "\n剩余{0}": "\nRemaining: {0}",
+    "\n还需{0}": "\nNeeded: {0}",
+    "当前游戏时长: {0}秒\n": "Elapsed time: {0}s\n",
+    "{0}费: {1:F0}%  ": "Cost {0}: {1:F0}%  ",
+    "诅咒任务：{0}\n": "Curse objective: {0}\n",
+    "选中: 音符#{0} | 轨道: {1} | 类型: {2}": "Note Selected: {0} | Track: {1} | Type: {2}",
     # Starting-mode instructions, not an invented plant/modifier ability.
     # No complete exact PC entry exists in the reviewed September 9 snapshot.
     "以50的幸运开局，并使幸运上限增加至300，然后随机选择5个僵尸词条\n随机的5个词条只有在成功通关任意难度诸神进化后才会刷新": (
@@ -1170,6 +1184,9 @@ ANDROID_39_REVIEWED_UI_EXACT = {
     "连接失败": "Connection Failed",
     "连接成功": "Connected",
 }
+from reviewed_generic_text import GENERIC_TEXT, PC_NAME_REQUIREMENTS
+
+ANDROID_39_REVIEWED_UI_EXACT.update(GENERIC_TEXT)
 ANDROID_CONFIRMED_NEW_39_SOURCES = set(ANDROID_39_REVIEWED_UI_EXACT)
 
 # September 9 modifier review: user requested original Chinese for unsupported
@@ -1704,7 +1721,17 @@ def load_pc_translations(
             else:
                 exact[source] = target
                 fallback_added += 1
+        pc_name_path = strings_dir / 'travel_buffs.json'
+        pc_named_records = read_json(pc_name_path) if pc_name_path.exists() else {}
         for source, target in ANDROID_39_REVIEWED_UI_EXACT.items():
+            if source in PC_NAME_REQUIREMENTS:
+                section, record_id, required_name = PC_NAME_REQUIREMENTS[source]
+                pc_record = pc_named_records.get(section, {}).get(record_id, {})
+                if pc_record.get('name') != required_name:
+                    # Do not fall back to the old invented modifier title.
+                    if source not in pc_exact_sources:
+                        exact.pop(source, None)
+                    continue
             if source in pc_exact_sources:
                 reviewed_39_superseded_by_pc += 1
             else:
@@ -1912,6 +1939,41 @@ def translate_csharp_template_with_pc_regex(
     return None
 
 
+def translate_reviewed_android_pc_template(text, regex_entries):
+    """Adapt two reviewed Android UI variants only while PC covers the effect.
+
+    Luck's cap is dynamic on Android; Respawn's current-time label additionally
+    says 'standard'. Never insert PC's fixed 250 cap or drop that qualification.
+    Exact source and upstream wording guards prevent fuzzy effect translation.
+    """
+    reviewed = {
+        "幸运提高{0:F0}，幸运可以提高好词条出现概率\n当前幸运值：{1}/{2:F0}": (
+            r"幸运提高(\d+)，幸运可以提高好词条出现概率" "\n" r"当前幸运值：(\d+)/250",
+            "Increases your luck by {0}. Luck increases the probability of rarer modifiers appearing.\nCurrent Luck: {1}/250",
+            "/250", r"/(\d+)", "/{2}",
+        ),
+        "复活时间降低{0:F0}%\n当前标准复活时长：{1:F1}秒": (
+            r"复活时间降低(\d+)%" "\n" r"当前复活时长：([\s\S]+)秒",
+            "Reduce plant respawn time by {0}%.\nCurrent respawn time: {1}s",
+            "当前复活时长", "当前标准复活时长", None,
+        ),
+    }
+    entry = reviewed.get(text)
+    if entry is None:
+        return None
+    pattern, expected, old, new, replacement = entry
+    if not any(p == pattern and target == expected for p, target, _, _ in regex_entries):
+        return None
+    target = (expected.replace(old, replacement) if replacement is not None else
+              expected.replace('Current respawn time:', 'Current standard respawn time:'))
+    adapted_pattern = pattern.replace(old, new)
+    adapted = [(adapted_pattern, target, re.compile(adapted_pattern, re.DOTALL), '')]
+    result = translate_csharp_template_with_pc_regex(text, adapted)
+    if result is None or sorted(CSHARP_FORMAT_FIELD_RE.findall(text)) != sorted(CSHARP_FORMAT_FIELD_RE.findall(result)):
+        return None
+    return result
+
+
 def translate_complete_pc_literal(
     text: str,
     exact: dict[str, str],
@@ -1956,6 +2018,9 @@ def translate_complete_pc_literal(
     target = translate_csharp_template_with_pc_regex(text, regex_entries)
     if target is not None and is_usable_pc_translation(target):
         return target, "pc_regex_csharp_template"
+    target = translate_reviewed_android_pc_template(text, regex_entries)
+    if target is not None and is_usable_pc_translation(target):
+        return target, "pc_reviewed_android_template"
     return text, None
 
 
@@ -2328,7 +2393,10 @@ def main() -> int:
             _, complete_pc_method = translate_complete_pc_literal(
                 literal.text, strict_pc_exact, strict_pc_regex,
             )
-            if complete_pc_method is None:
+            reviewed_generic = (
+                literal.text in GENERIC_TEXT and method == "android_confirmed_exact"
+            )
+            if complete_pc_method is None and not reviewed_generic:
                 translated_text = shipped["translation"]
                 method = "preserved_release_wording"
                 if is_new_39:
