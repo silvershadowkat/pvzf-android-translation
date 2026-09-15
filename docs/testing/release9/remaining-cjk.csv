@@ -1,0 +1,2448 @@
+﻿surface,location,category,current_text
+metadata,47,runtime_context_needed,"
+
+但"
+metadata,53,diagnostic_or_implementation_string,"
+--- 测试 "
+metadata,60,runtime_context_needed,"
+=== 存档槽位 ===
+"
+metadata,61,runtime_context_needed,"
+=== 所有羁绊统计 ===
+"
+metadata,62,diagnostic_or_implementation_string,"
+=== 扫雷求解器测试结束 ==="
+metadata,63,runtime_context_needed,"
+=== 激活的羁绊 ===
+"
+metadata,64,runtime_context_needed,"
+=== 示例10：导出 {0} 融合树可视化 ==="
+metadata,65,runtime_context_needed,"
+=== 示例2：查询融合配方 ==="
+metadata,66,runtime_context_needed,"
+=== 示例3：查询父节点 ==="
+metadata,67,runtime_context_needed,"
+=== 示例4：尝试融合 ==="
+metadata,68,runtime_context_needed,"
+=== 示例5：打印融合树 ==="
+metadata,69,runtime_context_needed,"
+=== 示例6：查询融合路径 ==="
+metadata,70,runtime_context_needed,"
+=== 示例7：查找从 {0} 到 {1} 的最佳路径 ==="
+metadata,71,runtime_context_needed,"
+=== 示例8：批量查询融合能力 ==="
+metadata,72,runtime_context_needed,"
+=== 示例9：查找 {0} 最有价值的融合目标 ==="
+metadata,89,runtime_context_needed,"
+✅ 验证:"
+metadata,92,runtime_context_needed,"
+中心3x3的数字："
+metadata,93,runtime_context_needed,"
+中心3x4区域的数字："
+metadata,94,diagnostic_or_implementation_string,"
+从(1,1)开始测试求解..."
+metadata,95,diagnostic_or_implementation_string,"
+从(1,2)开始测试求解..."
+metadata,96,diagnostic_or_implementation_string,"
+从(2,2)开始测试求解..."
+metadata,106,diagnostic_or_implementation_string,"
+概率计算:"
+metadata,114,runtime_context_needed,"
+融合能力最强的10个植物:"
+metadata,116,runtime_context_needed,"
+豌豆射手可以融合出机枪射手吗？ "
+metadata,117,runtime_context_needed,"
+豌豆射手总共可融合出 {0} 种植物（包括间接融合）"
+metadata,122,diagnostic_or_implementation_string,"
+🎲 测试3：蒙特卡洛模拟"
+metadata,123,diagnostic_or_implementation_string,"
+📈 测试2：概率分布"
+metadata,124,diagnostic_or_implementation_string,"
+📊 测试1：品质权重计算"
+metadata,125,runtime_context_needed,"
+📋 完整概率表格"
+metadata,126,runtime_context_needed,"
+🔍 验证 Lucky = 1.0"
+metadata,193,runtime_context_needed,"  - 词条: {0}, 次数: {1}"
+metadata,197,runtime_context_needed,  // Hold音符结束时间
+metadata,199,runtime_context_needed,  [{0}] {1} - {2}费
+metadata,204,runtime_context_needed,  {0}费植物: {1}个
+metadata,205,runtime_context_needed,  基础植物数量: {0}
+metadata,206,diagnostic_or_implementation_string,  总权重: {0:F1}
+metadata,207,diagnostic_or_implementation_string,  总权重: {0}
+metadata,208,runtime_context_needed,  总计:     {0:F1}% (应该=100%)
+metadata,209,runtime_context_needed,  总计: {0} 次
+metadata,210,runtime_context_needed,  普通:   50 × (1 + {0}) = {1}
+metadata,211,runtime_context_needed,  普通:   {0:F1} (50 × {1:F1})
+metadata,212,runtime_context_needed,  普通: {0} 次 ({1:F1}%)
+metadata,213,runtime_context_needed,  普通概率: {0:F1}%
+metadata,214,runtime_context_needed,  普通概率: {0} / {1} × 100 = {2:F1}%
+metadata,215,runtime_context_needed,"  最多子植物的植物: {0} ({1}个)
+"
+metadata,216,runtime_context_needed,"  最大树深度: {0}
+"
+metadata,217,diagnostic_or_implementation_string,  校验:   总权重应该 = 100 + 150 × {0:F1} = {1:F1}
+metadata,218,runtime_context_needed,"  植物类型总数: {0}
+"
+metadata,219,diagnostic_or_implementation_string,  结论: 金色权重和概率都是钻石的3倍 ✅
+metadata,220,runtime_context_needed,"  融合配方总数: {0}
+"
+metadata,221,runtime_context_needed,  豌豆射手 + {0} = {1}
+metadata,222,runtime_context_needed,  路径 {0}: {1}
+metadata,223,runtime_context_needed,  金色:   15 × (1 + {0}) = {1}
+metadata,224,runtime_context_needed,  金色:   {0:F1} (15 × {1:F1})
+metadata,225,runtime_context_needed,  金色: {0} 次 ({1:F1}%)
+metadata,226,diagnostic_or_implementation_string,  金色权重 / 钻石权重 = {0} / {1} = {2:F1}
+metadata,227,runtime_context_needed,  金色概率 / 钻石概率 = {0:F1}% / {1:F1}% = {2:F1}
+metadata,228,runtime_context_needed,  金色概率: {0:F1}%
+metadata,229,runtime_context_needed,  金色概率: {0} / {1} × 100 = {2:F1}%
+metadata,230,runtime_context_needed,  钻石:   5 × (1 + {0}) = {1}
+metadata,231,runtime_context_needed,  钻石:   {0:F1} (5 × {1:F1})
+metadata,232,runtime_context_needed,  钻石: {0} 次 ({1:F1}%)
+metadata,233,runtime_context_needed,  钻石概率: {0:F1}%
+metadata,234,runtime_context_needed,  钻石概率: {0} / {1} × 100 = {2:F1}%
+metadata,235,runtime_context_needed,  银色:   30 × (1 + {0}) = {1}
+metadata,236,runtime_context_needed,  银色:   {0:F1} (30 × {1:F1})
+metadata,237,runtime_context_needed,  银色: {0} 次 ({1:F1}%)
+metadata,238,runtime_context_needed,  银色概率: {0:F1}%
+metadata,239,runtime_context_needed,  银色概率: {0} / {1} × 100 = {2:F1}%
+metadata,250,runtime_context_needed, (原始ID: 
+metadata,251,diagnostic_or_implementation_string, (找不到映射)
+metadata,261,runtime_context_needed, -> 新ID: 
+metadata,453,runtime_context_needed, 从分组 
+metadata,454,runtime_context_needed, 从分组中移除
+metadata,460,runtime_context_needed, 已在分组中
+metadata,461,runtime_context_needed, 已清空，自动删除
+metadata,462,runtime_context_needed, 时发生错误: 
+metadata,463,runtime_context_needed, 未实现 GetPortValue，返回默认值
+metadata,464,runtime_context_needed, 添加到分组 
+metadata,467,diagnostic_or_implementation_string, 的anim组件为空
+metadata,468,runtime_context_needed, 的分组引用
+metadata,469,runtime_context_needed, 移除
+metadata,564,unicode_or_internal_table,"<size=90%>You haven't discovered this plant yet! You can find it by fusing:
+$% + ,0:<?A[^_`{|}~¢«¬­®·¸»¼¿ÀȡȢȴɐʮʰ˯̀͐͠ͰʹͶͺͻ΄·Έ΋Ό΍Ύ΢ΣϏϐϷЀ҇҈ӏӐӶӸӺԀԐԱ՗ՙ՚աֈֺֻ֑֢֣־ֿ׀ׁ׃ׅׄא׫װ׳ءػـٖ٠٪ٮ۔ە۝۞ۮ۰ۿܐܭܰ݋ހ޲ँऄअऺ़ॎॐॕक़।०॰ঁ঄অ঍এ঑ও঩প঱ল঳শ঺়ঽা৅ে৉োৎৗ৘ড়৞য়৤০৻ਂਃਅ਋ਏ਑ਓ਩ਪ਱ਲ਴ਵ਷ਸ਺਼਽ਾ੃ੇ੉ੋ੎ਖ਼੝ਫ਼੟੦ੵઁ઄અઌઍ઎એ઒ઓ઩પ઱લ઴વ઺઼૆ે૊ો૎ૐ૑ૠૡ૦૰ଁ଄ଅ଍ଏ଑ଓ଩ପ଱ଲ଴ଶ଺଼ୄେ୉ୋ୎ୖ୘ଡ଼୞ୟୢ୦ୱஂ஄அ஋எ஑ஒ஖ங஛ஜ஝ஞ஠ண஥ந஫மஶஷ஺ா௃ெ௉ொ௎ௗ௘௧௳ఁఄఅ఍ఎ఑ఒ఩పఴవ఺ా౅ె౉ొ౎ౕ౗ౠౢ౦౰ಂ಄ಅ಍ಎ಑ಒ಩ಪ಴ವ಺ಾ೅ೆ೉ೊ೎ೕ೗ೞ೟ೠೢ೦೰ംഄഅ഍എ഑ഒഩപഺാൄെ൉ൊൎൗ൘ൠൢ൦൰ං඄අ඗ක඲ඳ඼ල඾ව෇්෋ා෕ූ෗ෘ෠ෲ෴ก฻฿๏๐๚ກ຃ຄ຅ງຉຊ຋ຍຎດຘນຠມ຤ລ຦ວຨສຬອ຺ົ຾ເ໅ໆ໇່໎໐໚ໜໞༀ༄༓༺༾཈ཉཫཱ྅྆ྌྐ྘ྙ྽྾࿍࿏࿐ကဢဣဨဩါာဳံ်၀၊ၐၚႠ჆აჹᄀᅚᅟᆣᆨᇺሀሇለቇቈ቉ቊ቎ቐ቗ቘ቙ቚ቞በኇኈ኉ኊ኎ነኯኰ኱ኲ኶ኸ኿ዀ዁ዂ዆ወዏዐ዗ዘዯደጏጐ጑ጒ጖ጘጟጠፇፈ፛፩፽ᎠᏵᐁ᙭ᙯᙷᚁ᚛ᚠ᛫ᛮᛱᜀᜍᜎ᜕ᜠ᜵ᝀ᝔ᝠ᝭ᝮ᝱ᝲ᝴ក។ៗ៘៛៝០៪᠋᠎᠐᠚ᠠᡸᢀᢪḀẜẠỺἀ἖Ἐ἞ἠ὆Ὀ὎ὐ὘Ὑ὚Ὓ὜Ὕ὞Ὗ὾ᾀ᾵ᾶ῅ῆ῔ῖ῜῝῰ῲ῵ῶ῿⁄⁅⁒⁓⁰⁲⁴⁽ⁿ₍₠₲⃫⃐℀℻ℽ⅌⅓ↄ←〈⌫⎴⎷⏏␀␧⑀⑋①⓿─☔☖☘☙♾⚀⚊✁✅✆✊✌✨✩❌❍❎❏❓❖❗❘❟❡❨❶➕➘➰➱➿⟐⟦⟰⦃⦙⧘⧜⧼⧾⬀⺀⺚⺛⻴⼀⿖⿰⿼〄〈〒〔〠〰〱〽〾぀ぁ゗゙゠ァ・ー㄀ㄅㄭㄱ㆏㆐ㆸㇰ㈝㈠㉄㉑㉼㉿㋌㋐㋿㌀㍷㍻㏞㏠㏿㐀䶶一龦ꀀ꒍꒐꓇가힤豈郞侮恵ﬀ﬇ﬓ﬘יִ﬷טּ﬽מּ﬿נּ﭂ףּ﭅צּ﮲ﯓ﴾ﵐ﶐ﶒ﷈ﷰ﷽︀︐︠︤﹢﹣﹤﹧﹩﹪ﹰ﹵ﹶ﻽＄％＋，０：＜？Ａ［＾＿｀｛｜｝～｟ｦ﾿ￂ￈ￊ￐ￒ￘ￚ￝￠￧￨￯￼￾"
+metadata,685,runtime_context_needed,' 不存在，使用默认存档
+metadata,786,runtime_context_needed,'端口的节点
+metadata,866,protected_command_or_gift_token,(加|扣)(\d+\.?\d*)(幸运)
+metadata,940,runtime_context_needed,", 小标题: "
+metadata,1029,unicode_or_internal_table,-.09AZ__az··ÀÖØöøıĴľŁňŊžƀǃǍǰǴǵǺȗɐʨʻˁːˑ̀͠͡ͅΆΊΌΌΎΡΣώϐϖϚϚϜϜϞϞϠϠϢϳЁЌЎяёќўҁ҃҆ҐӄӇӈӋӌӐӫӮӵӸӹԱՖՙՙաֆֹֻֽֿֿׁׂ֑֣֡ׄׄאתװײءغـْ٠٩ٰڷںھۀێېۓە۪ۭۨ۰۹ँःअह़्॑॔क़ॣ०९ঁঃঅঌএঐওনপরললশহ়়াৄেৈো্ৗৗড়ঢ়য়ৣ০ৱਂਂਅਊਏਐਓਨਪਰਲਲ਼ਵਸ਼ਸਹ਼਼ਾੂੇੈੋ੍ਖ਼ੜਫ਼ਫ਼੦ੴઁઃઅઋઍઍએઑઓનપરલળવહ઼ૅેૉો્ૠૠ૦૯ଁଃଅଌଏଐଓନପରଲଳଶହ଼ୃେୈୋ୍ୖୗଡ଼ଢ଼ୟୡ୦୯ஂஃஅஊஎஐஒகஙசஜஜஞடணதநபமவஷஹாூெைொ்ௗௗ௧௯ఁఃఅఌఎఐఒనపళవహాౄెైొ్ౕౖౠౡ౦౯ಂಃಅಌಎಐಒನಪಳವಹಾೄೆೈೊ್ೕೖೞೞೠೡ೦೯ംഃഅഌഎഐഒനപഹാൃെൈൊ്ൗൗൠൡ൦൯กฮะฺเ๎๐๙ກຂຄຄງຈຊຊຍຍດທນຟມຣລລວວສຫອຮະູົຽເໄໆໆ່ໍ໐໙༘༙༠༩༹༹༵༵༷༷༾ཇཉཀྵ྄ཱ྆ྋྐྕྗྗྙྭྱྷྐྵྐྵႠჅაჶᄀᄀᄂᄃᄅᄇᄉᄉᄋᄌᄎᄒᄼᄼᄾᄾᅀᅀᅌᅌᅎᅎᅐᅐᅔᅕᅙᅙᅟᅡᅣᅣᅥᅥᅧᅧᅩᅩᅭᅮᅲᅳᅵᅵᆞᆞᆨᆨᆫᆫᆮᆯᆷᆸᆺᆺᆼᇂᇫᇫᇰᇰᇹᇹḀẛẠỹἀἕἘἝἠὅὈὍὐὗὙὙὛὛὝὝὟώᾀᾴᾶᾼιιῂῄῆῌῐΐῖΊῠῬῲῴῶῼ⃐⃜⃡⃡ΩΩKÅ℮℮ↀↂ々々〇〇〡〯〱〵ぁゔ゙゚ゝゞァヺーヾㄅㄬ一龥가힣
+metadata,1031,unicode_or_internal_table,-/0;A[_`a{·¸À×Ø÷øĲĴĿŁŉŊſƀǄǍǱǴǶǺȘɐʩʻ˂ː˒̀͆͢͠Ά΋Ό΍Ύ΢ΣϏϐϗϚϛϜϝϞϟϠϡϢϴЁЍЎѐёѝў҂҃҇ҐӅӇӉӋӍӐӬӮӶӸӺԱ՗ՙ՚աևֺֻ֑֢֣־ֿ׀ׁ׃ׅׄא׫װ׳ءػـٓ٠٪ٰڸںڿۀۏې۔ە۩۪ۮ۰ۺँऄअऺ़ॎ॑ॕक़।०॰ঁ঄অ঍এ঑ও঩প঱ল঳শ঺়ঽা৅ে৉োৎৗ৘ড়৞য়৤০৲ਂਃਅ਋ਏ਑ਓ਩ਪ਱ਲ਴ਵ਷ਸ਺਼਽ਾ੃ੇ੉ੋ੎ਖ਼੝ਫ਼੟੦ੵઁ઄અઌઍ઎એ઒ઓ઩પ઱લ઴વ઺઼૆ે૊ો૎ૠૡ૦૰ଁ଄ଅ଍ଏ଑ଓ଩ପ଱ଲ଴ଶ଺଼ୄେ୉ୋ୎ୖ୘ଡ଼୞ୟୢ୦୰ஂ஄அ஋எ஑ஒ஖ங஛ஜ஝ஞ஠ண஥ந஫மஶஷ஺ா௃ெ௉ொ௎ௗ௘௧௰ఁఄఅ఍ఎ఑ఒ఩పఴవ఺ా౅ె౉ొ౎ౕ౗ౠౢ౦౰ಂ಄ಅ಍ಎ಑ಒ಩ಪ಴ವ಺ಾ೅ೆ೉ೊ೎ೕ೗ೞ೟ೠೢ೦೰ംഄഅ഍എ഑ഒഩപഺാൄെ൉ൊൎൗ൘ൠൢ൦൰กฯะ฻เ๏๐๚ກ຃ຄ຅ງຉຊ຋ຍຎດຘນຠມ຤ລ຦ວຨສຬອຯະ຺ົ຾ເ໅ໆ໇່໎໐໚༘༚༠༪༵༶༷༸༹༺༾཈ཉཪཱ྅྆ྌྐྖྗ྘ྙྮྱྸྐྵྺႠ჆აჷᄀᄁᄂᄄᄅᄈᄉᄊᄋᄍᄎᄓᄼᄽᄾᄿᅀᅁᅌᅍᅎᅏᅐᅑᅔᅖᅙᅚᅟᅢᅣᅤᅥᅦᅧᅨᅩᅪᅭᅯᅲᅴᅵᅶᆞᆟᆨᆩᆫᆬᆮᆰᆷᆹᆺᆻᆼᇃᇫᇬᇰᇱᇹᇺḀẜẠỺἀ἖Ἐ἞ἠ὆Ὀ὎ὐ὘Ὑ὚Ὓ὜Ὕ὞Ὗ὾ᾀ᾵ᾶ᾽ι᾿ῂ῅ῆ῍ῐ῔ῖ῜ῠ῭ῲ῵ῶ´⃐⃝⃡⃢Ω℧Kℬ℮ℯↀↃ々〆〇〈〡〰〱〶ぁゕ゙゛ゝゟァ・ーヿㄅㄭ一龦가힤
+metadata,1124,runtime_context_needed,// 歌曲: 
+metadata,1125,runtime_context_needed,// 没有音符数据
+metadata,1126,runtime_context_needed,// 生成时间: {0:yyyy-MM-dd HH:mm:ss}
+metadata,1127,runtime_context_needed,// 音符数据 - 由踩点编辑器生成
+metadata,1128,runtime_context_needed,// 音符数量: {0}
+metadata,1493,diagnostic_or_implementation_string,: 求解器判定为【不可解】
+metadata,1494,diagnostic_or_implementation_string,: 求解器判定为【可解】
+metadata,1504,runtime_context_needed,:;A[_`a{À×Ø÷øĲĴĿŁŉŊſƀǄǍǱǴǶǺȘɐʩʻ˂Ά·Έ΋Ό΍Ύ΢ΣϏϐϗϚϛϜϝϞϟϠϡϢϴЁЍЎѐёѝў҂ҐӅӇӉӋӍӐӬӮӶӸӺԱ՗ՙ՚աևא׫װ׳ءػفًٱڸںڿۀۏې۔ەۖۥۧअऺऽाक़ॢঅ঍এ঑ও঩প঱ল঳শ঺ড়৞য়ৢৰ৲ਅ਋ਏ਑ਓ਩ਪ਱ਲ਴ਵ਷ਸ਺ਖ਼੝ਫ਼੟ੲੵઅઌઍ઎એ઒ઓ઩પ઱લ઴વ઺ઽાૠૡଅ଍ଏ଑ଓ଩ପ଱ଲ଴ଶ଺ଽାଡ଼୞ୟୢஅ஋எ஑ஒ஖ங஛ஜ஝ஞ஠ண஥ந஫மஶஷ஺అ఍ఎ఑ఒ఩పఴవ఺ౠౢಅ಍ಎ಑ಒ಩ಪ಴ವ಺ೞ೟ೠೢഅ഍എ഑ഒഩപഺൠൢกฯะัาิเๆກ຃ຄ຅ງຉຊ຋ຍຎດຘນຠມ຤ລ຦ວຨສຬອຯະັາິຽ຾ເ໅ཀ཈ཉཪႠ჆აჷᄀᄁᄂᄄᄅᄈᄉᄊᄋᄍᄎᄓᄼᄽᄾᄿᅀᅁᅌᅍᅎᅏᅐᅑᅔᅖᅙᅚᅟᅢᅣᅤᅥᅦᅧᅨᅩᅪᅭᅯᅲᅴᅵᅶᆞᆟᆨᆩᆫᆬᆮᆰᆷᆹᆺᆻᆼᇃᇫᇬᇰᇱᇹᇺḀẜẠỺἀ἖Ἐ἞ἠ὆Ὀ὎ὐ὘Ὑ὚Ὓ὜Ὕ὞Ὗ὾ᾀ᾵ᾶ᾽ι᾿ῂ῅ῆ῍ῐ῔ῖ῜ῠ῭ῲ῵ῶ´Ω℧Kℬ℮ℯↀↃ〇〈〡〪ぁゕァ・ㄅㄭ一龦가힤
+metadata,1835,runtime_context_needed,=== {0} 融合树 ===
+metadata,1836,runtime_context_needed,"=== 存档系统信息 ===
+"
+metadata,1837,diagnostic_or_implementation_string,"=== 扫雷求解器测试开始 ===
+"
+metadata,1838,runtime_context_needed,=== 植物融合树统计 ===
+metadata,1839,runtime_context_needed,=== 植物词条选择记录 ===
+metadata,1840,diagnostic_or_implementation_string,"=== 测试局面：211, 101, 311 ===
+"
+metadata,1841,diagnostic_or_implementation_string,"=== 测试局面：2111, 1001, 1123 ===
+"
+metadata,1842,runtime_context_needed,=== 示例1：查询豌豆射手可融合植物 ===
+metadata,1843,runtime_context_needed,"=== 羁绊系统信息 ===
+"
+metadata,1944,runtime_context_needed,AZ__azÀÖØöøıĴľŁňŊžƀǃǍǰǴǵǺȗɐʨʻˁΆΆΈΊΌΌΎΡΣώϐϖϚϚϜϜϞϞϠϠϢϳЁЌЎяёќўҁҐӄӇӈӋӌӐӫӮӵӸӹԱՖՙՙաֆאתװײءغفيٱڷںھۀێېۓەەۥۦअहऽऽक़ॡঅঌএঐওনপরললশহড়ঢ়য়ৡৰৱਅਊਏਐਓਨਪਰਲਲ਼ਵਸ਼ਸਹਖ਼ੜਫ਼ਫ਼ੲੴઅઋઍઍએઑઓનપરલળવહઽઽૠૠଅଌଏଐଓନପରଲଳଶହଽଽଡ଼ଢ଼ୟୡஅஊஎஐஒகஙசஜஜஞடணதநபமவஷஹఅఌఎఐఒనపళవహౠౡಅಌಎಐಒನಪಳವಹೞೞೠೡഅഌഎഐഒനപഹൠൡกฮะะาำเๅກຂຄຄງຈຊຊຍຍດທນຟມຣລລວວສຫອຮະະາຳຽຽເໄཀཇཉཀྵႠჅაჶᄀᄀᄂᄃᄅᄇᄉᄉᄋᄌᄎᄒᄼᄼᄾᄾᅀᅀᅌᅌᅎᅎᅐᅐᅔᅕᅙᅙᅟᅡᅣᅣᅥᅥᅧᅧᅩᅩᅭᅮᅲᅳᅵᅵᆞᆞᆨᆨᆫᆫᆮᆯᆷᆸᆺᆺᆼᇂᇫᇫᇰᇰᇹᇹḀẛẠỹἀἕἘἝἠὅὈὍὐὗὙὙὛὛὝὝὟώᾀᾴᾶᾼιιῂῄῆῌῐΐῖΊῠῬῲῴῶῼΩΩKÅ℮℮ↀↂ〇〇〡〩ぁゔァヺㄅㄬ一龥가힣
+metadata,1945,runtime_context_needed,AZazÀÖØöøıĴľŁňŊžƀǃǍǰǴǵǺȗɐʨʻˁΆΆΈΊΌΌΎΡΣώϐϖϚϚϜϜϞϞϠϠϢϳЁЌЎяёќўҁҐӄӇӈӋӌӐӫӮӵӸӹԱՖՙՙաֆאתװײءغفيٱڷںھۀێېۓەەۥۦअहऽऽक़ॡঅঌএঐওনপরললশহড়ঢ়য়ৡৰৱਅਊਏਐਓਨਪਰਲਲ਼ਵਸ਼ਸਹਖ਼ੜਫ਼ਫ਼ੲੴઅઋઍઍએઑઓનપરલળવહઽઽૠૠଅଌଏଐଓନପରଲଳଶହଽଽଡ଼ଢ଼ୟୡஅஊஎஐஒகஙசஜஜஞடணதநபமவஷஹఅఌఎఐఒనపళవహౠౡಅಌಎಐಒನಪಳವಹೞೞೠೡഅഌഎഐഒനപഹൠൡกฮะะาำเๅກຂຄຄງຈຊຊຍຍດທນຟມຣລລວວສຫອຮະະາຳຽຽເໄཀཇཉཀྵႠჅაჶᄀᄀᄂᄃᄅᄇᄉᄉᄋᄌᄎᄒᄼᄼᄾᄾᅀᅀᅌᅌᅎᅎᅐᅐᅔᅕᅙᅙᅟᅡᅣᅣᅥᅥᅧᅧᅩᅩᅭᅮᅲᅳᅵᅵᆞᆞᆨᆨᆫᆫᆮᆯᆷᆸᆺᆺᆼᇂᇫᇫᇰᇰᇹᇹḀẛẠỹἀἕἘἝἠὅὈὍὐὗὙὙὛὛὝὝὟώᾀᾴᾶᾼιιῂῄῆῌῐΐῖΊῠῬῲῴῶῼΩΩKÅ℮℮ↀↂ〇〇〡〩ぁゔァヺㄅㄬ一龥가힣
+metadata,1984,runtime_context_needed,AddCard: 尝试添加空卡片
+metadata,4315,diagnostic_or_implementation_string,FirePoint: next或fireWallPrefab为空，无法生成FireWall
+metadata,4748,diagnostic_or_implementation_string,HoldBar预制体加载成功
+metadata,4749,diagnostic_or_implementation_string,HoldBar预制体未找到，使用动态创建
+metadata,4751,runtime_context_needed,Hold尾部音符创建成功
+metadata,4752,diagnostic_or_implementation_string,"Hold拍子Perfect: 轨道{0}, 得分{1}, 连击{2}"
+metadata,4753,diagnostic_or_implementation_string,"Hold拍子判定: 轨道{0}, 时间={1:F3}"
+metadata,4754,diagnostic_or_implementation_string,"Hold音符初始化: BPM={0}, beatDuration={1:F4}s"
+metadata,4755,runtime_context_needed,Hold音符失败: 轨道{0} (松开过早)
+metadata,4756,diagnostic_or_implementation_string,"Hold音符完成: trackIndex={0}, duration={1:F2}s"
+metadata,4757,runtime_context_needed,"Hold音符完成: 轨道{0}, 得分{1}"
+metadata,4758,diagnostic_or_implementation_string,"Hold音符开始: 轨道{0}, 判定{1}"
+metadata,4759,diagnostic_or_implementation_string,Hold音符松开过早: trackIndex={0}
+metadata,4760,diagnostic_or_implementation_string,"Hold音符等待点击: trackIndex={0}, currentTime={1:F2}, targetTime={2:F2}"
+metadata,4761,diagnostic_or_implementation_string,"Hold音符错过: trackIndex={0}, currentTime={1:F2}, targetTime={2:F2}"
+metadata,5766,runtime_context_needed,Lucky = {0:F1} (模拟{1}次):
+metadata,5768,runtime_context_needed,Lucky值 | 普通概率 | 银色概率 | 金色概率 | 钻石概率
+metadata,9480,diagnostic_or_implementation_string,TimelineRendererLineRenderer: 初始化完成
+metadata,10669,diagnostic_namespace,"[AddMultipleChoiceOptionNode] 构建选项列表: {0}, 总数: {1}"
+metadata,10670,diagnostic_namespace,[AddMultipleChoiceOptionNode] 触发目标节点: 
+metadata,10671,diagnostic_namespace,[AddMultipleChoiceOptionNode] 选项被点击，触发输出端口: 
+metadata,10673,diagnostic_namespace,"[AddPlantCardNode] 使用默认数据 - 冷却: {0}, 价格: {1}"
+metadata,10674,diagnostic_namespace,[AddPlantCardNode] 创建卡牌失败: {0}，节点ID: {1}
+metadata,10675,diagnostic_namespace,[AddPlantCardNode] 成功添加卡牌到卡槽: {0}
+metadata,10676,diagnostic_namespace,[AddPlantCardNode] 添加卡牌到卡槽失败（卡槽已满）: {0}，节点ID: {1}
+metadata,10677,diagnostic_namespace,"[AddPlantCardNode] 添加植物卡牌: {0}, 冷却: {1}, 价格: {2}, 使用默认数据: {3}"
+metadata,10678,diagnostic_namespace,[AddPlantCardNode] 种植回调触发，植物: {0}
+metadata,10679,diagnostic_namespace,[AddPlantCardNode] 种植回调：植物对象为空，节点ID: 
+metadata,10680,diagnostic_namespace,"[AddPlantCardNode] 自定义属性 - 冷却: {0}, 价格: {1}"
+metadata,10681,diagnostic_namespace,[AddPlantCardNode] 触发目标节点: 
+metadata,10684,diagnostic_namespace,[AttributePanel] 删除变量: {0}
+metadata,10685,diagnostic_namespace,[AttributePanel] 变量项预制体或容器未设置
+metadata,10686,diagnostic_namespace,[AttributePanel] 当前没有节点图
+metadata,10687,diagnostic_namespace,[AttributePanel] 选中了变量：
+metadata,10688,diagnostic_namespace,[AutoChessLevel] 1/6 - 添加经济系统...
+metadata,10689,diagnostic_namespace,[AutoChessLevel] 2/6 - 添加商店系统...
+metadata,10690,diagnostic_namespace,[AutoChessLevel] 3/6 - 添加羁绊系统...
+metadata,10691,diagnostic_namespace,[AutoChessLevel] 4/6 - 添加回合系统...
+metadata,10692,diagnostic_namespace,[AutoChessLevel] 5/6 - 添加UI系统...
+metadata,10693,diagnostic_namespace,[AutoChessLevel] 6/6 - 添加存档系统...
+metadata,10694,diagnostic_namespace,[AutoChessLevel] ========== 手动启动自走棋系统 ==========
+metadata,10695,diagnostic_namespace,[AutoChessLevel] ========== 自走棋系统启动完成！===========
+metadata,10696,diagnostic_namespace,[AutoChessLevel] 自走棋系统启动失败: 
+metadata,10698,diagnostic_namespace,[AutoChessSaveSystem] 创建存档文件夹: 
+metadata,10699,diagnostic_namespace,[AutoChessSaveSystem] 删除存档失败: 
+metadata,10700,diagnostic_namespace,[AutoChessSaveSystem] 删除存档成功: 槽位{0}
+metadata,10701,diagnostic_namespace,[AutoChessSaveSystem] 删除自动存档失败: 
+metadata,10702,diagnostic_namespace,[AutoChessSaveSystem] 存档成功: 槽位{0} - {1}
+metadata,10703,diagnostic_namespace,[AutoChessSaveSystem] 存档数据应用完成 - 回合{0} 等级{1}
+metadata,10704,diagnostic_namespace,[AutoChessSaveSystem] 存档槽位初始化完成，共{0}个槽位
+metadata,10705,diagnostic_namespace,[AutoChessSaveSystem] 存档系统初始化完成
+metadata,10706,diagnostic_namespace,[AutoChessSaveSystem] 槽位索引无效: {0}
+metadata,10707,diagnostic_namespace,[AutoChessSaveSystem] 自动存档加载成功: 
+metadata,10708,diagnostic_namespace,[AutoChessSaveSystem] 自动存档失败: 
+metadata,10709,diagnostic_namespace,[AutoChessSaveSystem] 自动存档已删除
+metadata,10710,diagnostic_namespace,[AutoChessSaveSystem] 自动存档成功: 
+metadata,10711,diagnostic_namespace,[AutoChessSaveSystem] 自动存档文件不存在
+metadata,10712,diagnostic_namespace,[AutoChessSaveSystem] 读取槽位{0}失败: {1}
+metadata,10713,diagnostic_namespace,[AutoChessSaveSystem] 读档成功: 槽位{0} - {1}
+metadata,10714,diagnostic_namespace,[AutoChessUI] UI初始化完成
+metadata,10715,diagnostic_namespace,[AutoChessUI] 事件监听注册完成
+metadata,10716,diagnostic_namespace,[BejeweledManager] plantToMatch数量异常: {0}，可能是死循环前兆
+metadata,10717,diagnostic_namespace,[BejeweledManager] 单次匹配植物数量异常: {0}，可能存在位置错误
+metadata,10718,diagnostic_namespace,"[BejeweledManager] 植物位置越界: ({0}, {1})"
+metadata,10719,diagnostic_namespace,[BoolValueNode] 更新值: {0}
+metadata,10720,diagnostic_namespace,[BoolVariableNode] Asset类型错误：期望BoolVariableAsset，实际是
+metadata,10721,diagnostic_namespace,[BoolVariableNode] 变量Asset未设置，返回false，节点ID: 
+metadata,10723,diagnostic_namespace,[BuffRecord] {0} 选择了词条 {1}，累计 {2} 次
+metadata,10726,diagnostic_namespace,[CardSlotManager] 卡槽数量 {0} 超过最大值 {1}
+metadata,10727,diagnostic_namespace,[CardSlotManager] 尝试添加空卡牌
+metadata,10731,diagnostic_namespace,[CounterNode] 获取计数值: {0}
+metadata,10732,diagnostic_namespace,[CounterNode] 计数器初始化，起始值: {0}
+metadata,10733,diagnostic_namespace,[CounterNode] 计数器已重置为 0
+metadata,10734,diagnostic_namespace,[CounterNode] 计数器递增，当前值: {0}
+metadata,10735,diagnostic_namespace,[CounterNode] 计数器重置，起始值: {0}
+metadata,10736,diagnostic_namespace,"[CreateCherryExplodeNode] 创建樱桃爆炸，位置: ({0}, {1})，伤害: {2}"
+metadata,10737,diagnostic_namespace,"[CreateCraterNode] 在 ({0}, {1}) 创建了弹坑"
+metadata,10738,diagnostic_namespace,"[CreateDoomShroomEffectNode] 创建毁灭菇效果，位置: ({0}, {1})，伤害: {2}，创建弹坑: {3}"
+metadata,10739,diagnostic_namespace,"[CreateGraveNode] 在 ({0}, {1}) 创建了墓碑"
+metadata,10740,diagnostic_namespace,"[CreateIceBlockNode] 创建冰块失败在 ({0}, {1})，节点ID: {2}"
+metadata,10741,diagnostic_namespace,"[CreateIceBlockNode] 在 ({0}, {1}) 创建了冰块，冻住的植物: {2}"
+metadata,10742,diagnostic_namespace,[CreateIceShroomEffectNode] 创建寒冰菇效果，冻结时间: {0}秒
+metadata,10743,diagnostic_namespace,[CreateInfoCardNode] 创建信息卡牌 - 大标题: 
+metadata,10744,diagnostic_namespace,[CreateJalapenoEffectNode] 创建火爆辣椒效果，行: {0}，伤害: {1}
+metadata,10745,diagnostic_namespace,"[CreateLadderNode] 在 ({0}, {1}) 创建了梯子"
+metadata,10746,diagnostic_namespace,[CreateParticleNode] ParticleManager实例不存在，节点ID: 
+metadata,10747,diagnostic_namespace,"[CreateParticleNode] 在 ({0}, {1}) 创建RandomCloud粒子特效"
+metadata,10748,diagnostic_namespace,"[CreateZombieExplodeNode] 在 ({0}, {1}) 创建了小丑爆炸"
+metadata,10749,diagnostic_namespace,[CreateZombieNode] 创建僵尸失败，类型：{0}，行：{1}，节点ID: {2}
+metadata,10750,diagnostic_namespace,[CreateZombieNode] 在行 {0}，列 {1} 创建了僵尸：{2}
+metadata,10751,diagnostic_namespace,[CreateZombieNode] 在行 {0}，列 {1} 创建了魅惑僵尸：{2}
+metadata,10752,diagnostic_namespace,"[CustomMenuPage_event] 已保存节点图: {0} 个节点, {1} 条连接"
+metadata,10753,diagnostic_namespace,[CustomMenuPage_event] 节点编辑器初始化完成
+metadata,10755,diagnostic_namespace,[DamagePlantNode] 对植物造成 {0} 点伤害
+metadata,10756,diagnostic_namespace,[DamagePlantNode] 植物对象为空，无法造成伤害，节点ID: 
+metadata,10757,diagnostic_namespace,[DamageZombieNode] 僵尸对象为空，无法造成伤害，节点ID: 
+metadata,10758,diagnostic_namespace,[DamageZombieNode] 对僵尸造成 {0} 点伤害
+metadata,10762,diagnostic_namespace,[DeleteCardByTypeNode] 删除了卡牌: {0}
+metadata,10763,diagnostic_namespace,[DeleteCardByTypeNode] 删除完成，共删除了 {0} 张卡牌
+metadata,10764,diagnostic_namespace,[DeleteCardByTypeNode] 卡槽管理器不存在，节点ID: 
+metadata,10765,diagnostic_namespace,[DeleteCardByTypeNode] 开始删除卡槽上的植物卡牌: {0}
+metadata,10766,diagnostic_namespace,[DeleteCardByTypeNode] 触发目标节点: 
+metadata,10767,diagnostic_namespace,[DiePlantNode] 成功令植物死亡
+metadata,10768,diagnostic_namespace,[DiePlantNode] 植物对象为 null，无法执行死亡，节点ID: 
+metadata,10769,diagnostic_namespace,[DiePlantNode] 植物已经在死亡过程中，节点ID: 
+metadata,10771,diagnostic_namespace,[DivideNode] 除数为零！返回0，节点ID: 
+metadata,10772,diagnostic_namespace,[DynamicPlantEvolutionData] 解析了 {0} 个阶段的属性配置
+metadata,10773,diagnostic_namespace,[EconomyManager] 伤害值必须大于0: {0}
+metadata,10774,diagnostic_namespace,"[EconomyManager] 受到伤害: -{0}, 当前血量: {1}/{2}"
+metadata,10775,diagnostic_namespace,[EconomyManager] 已达到最高等级: {0}
+metadata,10776,diagnostic_namespace,[EconomyManager] 战斗胜利! 连胜: {0}
+metadata,10777,diagnostic_namespace,[EconomyManager] 植物费用必须大于0: {0}
+metadata,10778,diagnostic_namespace,"[EconomyManager] 治疗血量: +{0}, 当前: {1}/{2}"
+metadata,10779,diagnostic_namespace,[EconomyManager] 治疗量必须大于0: {0}
+metadata,10780,diagnostic_namespace,[EconomyManager] 游戏初始化完成 - 金币:{0} 等级:{1} 血量:{2}
+metadata,10781,diagnostic_namespace,[EconomyManager] 游戏结束 - 血量归零
+metadata,10782,diagnostic_namespace,[EconomyManager] 经验值必须大于0: {0}
+metadata,10783,diagnostic_namespace,"[EconomyManager] 花费金币: -{0}, 剩余: {1}"
+metadata,10784,diagnostic_namespace,[EconomyManager] 花费金额必须大于0: {0}
+metadata,10785,diagnostic_namespace,"[EconomyManager] 获得金币: +{0}, 当前: {1}"
+metadata,10786,diagnostic_namespace,[EconomyManager] 获得金额必须大于0: {0}
+metadata,10787,diagnostic_namespace,[EconomyManager] 购买升级: -{0}金币
+metadata,10788,diagnostic_namespace,"[EconomyManager] 金币不足! 需要: {0}, 当前: {1}"
+metadata,10789,diagnostic_namespace,[EconomyManager] 金币达到上限! 实际获得: {0}/{1}
+metadata,10790,diagnostic_namespace,[EventNodeCanvasInputHandler] 创建的节点不是VariableNode类型: 
+metadata,10791,diagnostic_namespace,[EventNodeCanvasInputHandler] 坐标转换失败
+metadata,10792,diagnostic_namespace,[EventNodeCanvasInputHandler] 开始平移
+metadata,10793,diagnostic_namespace,[EventNodeCanvasInputHandler] 开始框选
+metadata,10794,diagnostic_namespace,[EventNodeCanvasInputHandler] 拖拽创建节点: {0}，引用Asset: {1}，位置: {2}
+metadata,10795,diagnostic_namespace,[EventNodeCanvasInputHandler] 拖拽对象不是变量项，忽略
+metadata,10796,diagnostic_namespace,[EventNodeCanvasInputHandler] 拖拽的Asset为空
+metadata,10797,diagnostic_namespace,[EventNodeCanvasInputHandler] 未知的Asset类型: 
+metadata,10798,diagnostic_namespace,[EventNodeCanvasInputHandler] 框选完成，选中了 {0} 个节点
+metadata,10799,diagnostic_namespace,[EventNodeCanvasInputHandler] 点击空白区域，取消所有节点选中
+metadata,10800,diagnostic_namespace,[EventNodeCanvasInputHandler] 结束平移
+metadata,10801,diagnostic_namespace,[EventNodeCanvasInputHandler] 结束框选
+metadata,10802,diagnostic_namespace,[EventNodeCanvasInputHandler] 缩放: {0:F2} -> {1:F2}
+metadata,10803,diagnostic_namespace,[EventNodeCanvasInputHandler] 节点编辑器未初始化
+metadata,10804,diagnostic_namespace,[EventNodeCanvas] 框选矩形初始化完成
+metadata,10805,diagnostic_namespace,[EventNodeContextMenu] 创建节点: 
+metadata,10806,diagnostic_namespace,[EventNodeContextMenu] 删除节点: 
+metadata,10807,diagnostic_namespace,[EventNodeContextMenu] 刷新菜单显示状态
+metadata,10808,diagnostic_namespace,[EventNodeContextMenu] 功能按钮已实例化：创建节点、复制、粘贴、删除、分组
+metadata,10809,diagnostic_namespace,[EventNodeContextMenu] 没有可连接的节点
+metadata,10810,diagnostic_namespace,[EventNodeContextMenu] 没有选中的节点，无法删除
+metadata,10811,diagnostic_namespace,[EventNodeContextMenu] 自动连接成功: 
+metadata,10812,diagnostic_namespace,[EventNodeContextMenu] 节点 {0} 没有可用的 {1} 端口
+metadata,10813,diagnostic_namespace,[EventNodeContextMenu] 菜单结构初始化完成
+metadata,10814,diagnostic_namespace,"[EventNodeGraph] 创建分组: {0}, 包含 {1} 个节点"
+metadata,10815,diagnostic_namespace,[EventNodeGraph] 删除分组: 
+metadata,10816,diagnostic_namespace,[EventNodeGraph] 反向缓存未构建，使用慢速查询
+metadata,10817,diagnostic_namespace,"[EventNodeGraph] 构建缓存完成: {0} 个节点, {1} 条连接, {2} 个输出端口, {3} 个输入端口"
+metadata,10818,diagnostic_namespace,"[EventNodeGraph] 清空缓存完成: 释放 {0} 个节点引用, {1} 个输出端口, {2} 个输入端口"
+metadata,10819,diagnostic_namespace,[EventNodeGraph] 缓存未构建，使用慢速查询
+metadata,10820,diagnostic_namespace,[EventNodeGraph] 节点 
+metadata,10821,diagnostic_namespace,[EventNodeManager] OnMouseClick事件收到的数据不是MouseClickData对象，而是: 
+metadata,10822,diagnostic_namespace,[EventNodeManager] OnPlantClick事件收到的数据不是Plant对象，而是: 
+metadata,10823,diagnostic_namespace,[EventNodeManager] OnPlantCreate事件收到的数据不是Plant对象，而是: 
+metadata,10824,diagnostic_namespace,[EventNodeManager] OnPlantDeath事件收到的数据不是Plant对象，而是: 
+metadata,10825,diagnostic_namespace,[EventNodeManager] OnZombieDeath事件收到的数据不是Zombie对象，而是: 
+metadata,10826,diagnostic_namespace,[EventNodeManager] OnZombieSpawn事件收到的数据不是Zombie对象，而是: 
+metadata,10827,diagnostic_namespace,[EventNodeManager] 周期触发任务已取消: 
+metadata,10828,diagnostic_namespace,[EventNodeManager] 周期触发任务异常: 
+metadata,10829,diagnostic_namespace,[EventNodeManager] 周期触发节点: 
+metadata,10830,diagnostic_namespace,[EventNodeManager] 周期间隔过小 ({0}秒)，已自动调整为 {1}秒，节点: {2}
+metadata,10831,diagnostic_namespace,[EventNodeManager] 已停止所有协程
+metadata,10832,diagnostic_namespace,[EventNodeManager] 已初始化 {0} 个节点的连接引用
+metadata,10833,diagnostic_namespace,[EventNodeManager] 已取消注册
+metadata,10834,diagnostic_namespace,[EventNodeManager] 已注册BoardWaveAdd、OnPlantCreate、OnMouseClick、OnPlantClick、ZombieDeath、OnZombieSpawn和PlantZeroHealth事件监听
+metadata,10835,diagnostic_namespace,[EventNodeManager] 开始UniTask等待 {0} 秒，节点: {1}
+metadata,10836,diagnostic_namespace,[EventNodeManager] 开始周期性触发，间隔: {0}秒，目标节点数: {1}，节点: {2}
+metadata,10837,diagnostic_namespace,[EventNodeManager] 没有连接到'
+metadata,10838,diagnostic_namespace,[EventNodeManager] 等待任务已取消: 
+metadata,10839,diagnostic_namespace,[EventNodeManager] 等待任务异常: 
+metadata,10840,diagnostic_namespace,[EventNodeManager] 等待结束，触发节点: 
+metadata,10841,diagnostic_namespace,[EventNodeManager] 节点图已注册，共 {0} 个节点
+metadata,10842,diagnostic_namespace,[EventNodeManager] 触发 {0} 个僵尸死亡事件节点，僵尸类型: {1}
+metadata,10843,diagnostic_namespace,[EventNodeManager] 触发 {0} 个僵尸生成事件节点，僵尸类型: {1}
+metadata,10844,diagnostic_namespace,[EventNodeManager] 触发 {0} 个植物死亡事件节点，植物类型: {1}
+metadata,10845,diagnostic_namespace,"[EventNodeManager] 触发 {0} 个植物死亡完成事件节点，植物类型: {1}, 死亡原因: {2}"
+metadata,10846,diagnostic_namespace,[EventNodeManager] 触发 {0} 个植物点击事件节点，植物类型: {1}
+metadata,10847,diagnostic_namespace,[EventNodeManager] 触发 {0} 个植物种植事件节点，植物类型: {1}
+metadata,10848,diagnostic_namespace,[EventNodeManager] 触发 {0} 个波次事件节点，当前波次: {1}
+metadata,10849,diagnostic_namespace,"[EventNodeManager] 触发 {0} 个鼠标点击事件节点，位置: 行{1}, 列{2}, 手上物品: {3}, 按键: {4}"
+metadata,10850,diagnostic_namespace,[EventNodeManager] 触发节点: 
+metadata,10852,diagnostic_namespace,"[FloatToStringNode] {0} → ""{1}"" (保留{2}位小数)"
+metadata,10853,diagnostic_namespace,[FloatValueNode] 更新值: {0}
+metadata,10854,diagnostic_namespace,[FloatVariableNode] Asset类型错误：期望FloatVariableAsset，实际是
+metadata,10855,diagnostic_namespace,[FloatVariableNode] 变量Asset未设置，返回0，节点ID: 
+metadata,10856,diagnostic_namespace,[ForEachPlantNode] 处理第 {0} 个植物: {1}
+metadata,10857,diagnostic_namespace,[ForEachPlantNode] 开始遍历 {0} 个植物
+metadata,10858,diagnostic_namespace,[ForEachPlantNode] 植物列表为空或null，节点ID: 
+metadata,10859,diagnostic_namespace,[ForEachPlantNode] 遍历完成，共处理 {0} 个植物
+metadata,10860,diagnostic_namespace,[ForEachPlantTypeNode] 处理第 {0} 个植物类型: {1}
+metadata,10861,diagnostic_namespace,[ForEachPlantTypeNode] 开始遍历 {0} 个植物类型
+metadata,10862,diagnostic_namespace,[ForEachPlantTypeNode] 植物类型列表为空或null，节点ID: 
+metadata,10863,diagnostic_namespace,[ForEachPlantTypeNode] 遍历完成，共处理 {0} 个植物类型
+metadata,10864,diagnostic_namespace,[ForLoopNode] 开始循环，次数: {0}
+metadata,10865,diagnostic_namespace,[ForLoopNode] 循环第 {0} 次
+metadata,10866,diagnostic_namespace,[ForLoopNode] 循环结束，共执行 {0} 次
+metadata,10867,diagnostic_namespace,[GameAPP] 未找到音效 {0} (ID: {1})，请确保文件存在于 Resources/Audio/Sound/
+metadata,10868,diagnostic_namespace,[GameOverNode] 游戏结束，原因: 
+metadata,10869,diagnostic_namespace,[GameWinNode] 游戏胜利
+metadata,10870,diagnostic_namespace,[GetAllPlantsNode] Board不存在，节点ID: 
+metadata,10871,diagnostic_namespace,[GetAllPlantsNode] 获取场上全部植物，共{0}个
+metadata,10872,diagnostic_namespace,[GetBoolVariableValueNode] 变量节点未连接或获取失败，返回默认值，节点ID: 
+metadata,10873,diagnostic_namespace,[GetFloatVariableValueNode] 变量节点未连接或获取失败，返回默认值，节点ID: 
+metadata,10874,diagnostic_namespace,[GetIntVariableValueNode] 变量节点未连接或获取失败，返回默认值，节点ID: 
+metadata,10875,diagnostic_namespace,[GetMoneyNode] 获得了 {0} 金币
+metadata,10876,diagnostic_namespace,"[GetNearestZombieNode] 找到最近的僵尸: 行{0}, 列{1}, 僵尸类型: {2}"
+metadata,10877,diagnostic_namespace,"[GetNearestZombieNode] 未找到僵尸: 行{0}, 列{1}"
+metadata,10878,diagnostic_namespace,[GetPlantsInCellNode] 棋盘不存在，节点ID: 
+metadata,10879,diagnostic_namespace,"[GetPlantsInCellNode] 获取格子({0}, {1})内的植物，共{2}个"
+metadata,10880,diagnostic_namespace,[GetRandomPlantTypeNode] 从 {0} 个植物类型中随机选择: {1}
+metadata,10881,diagnostic_namespace,[GetRandomPlantTypeNode] 列表为空，返回默认值 Nothing，节点ID: 
+metadata,10882,diagnostic_namespace,[GetSunAmountNode] 当前阳光: {0}
+metadata,10883,diagnostic_namespace,[GetSunNode] 获得了 {0} 阳光
+metadata,10884,diagnostic_namespace,[GetTravelBuffNode] 词条未设置，节点ID:
+metadata,10885,diagnostic_namespace,[GetTravelEntryNode] 词条类型更改为: {0}
+metadata,10886,diagnostic_namespace,[GivePlantShieldNode] 植物对象为空，无法增加护盾，节点ID: 
+metadata,10887,diagnostic_namespace,[GivePlantShieldNode] 给植物增加 {0} 护盾值
+metadata,10888,diagnostic_namespace,[HealPlantNode] 为植物回血 {0} 点
+metadata,10889,diagnostic_namespace,[HealPlantNode] 植物对象为空，无法回血，节点ID: 
+metadata,10892,diagnostic_namespace,[IntDivideNode] 除数为零！返回0，节点ID: 
+metadata,10894,diagnostic_namespace,[IntModuloNode] 除数为零！返回0，节点ID: 
+metadata,10897,diagnostic_namespace,[IntValueNode] 更新值: {0}
+metadata,10898,diagnostic_namespace,[IntVariableNode] Asset类型错误：期望IntVariableAsset，实际是
+metadata,10899,diagnostic_namespace,[IntVariableNode] 变量Asset未设置，返回0，节点ID: 
+metadata,10901,diagnostic_namespace,[MergeMultipleChoiceOptionListsNode] Execute被调用（此节点无需Execute）
+metadata,10902,diagnostic_namespace,"[MergeMultipleChoiceOptionListsNode] 合并列表，list1.Count={0}, list2.Count={1}, merged.Count={2}"
+metadata,10903,diagnostic_namespace,[MergePlantTypeListsNode] 合并植物类型列表，列表A数量: {0}，列表B数量: {1}，合并后数量: {2}
+metadata,10904,diagnostic_namespace,[Minesweeper] Board组件未找到！
+metadata,10905,diagnostic_namespace,"[Minesweeper] 创建罐子失败：({0}, {1})"
+metadata,10906,diagnostic_namespace,[Minesweeper] 可用位置不足：{0} < {1}，减少地雷数量
+metadata,10907,diagnostic_namespace,"[Minesweeper] 地雷位置：({0}, {1})"
+metadata,10908,diagnostic_namespace,[Minesweeper] 地雷已经生成过了，跳过
+metadata,10909,diagnostic_namespace,[ModifyPlantAttackNode] 修改植物攻击力加成{0}%
+metadata,10910,diagnostic_namespace,[ModifyPlantAttackNode] 植物对象为空，无法修改攻击力，节点ID: 
+metadata,10911,diagnostic_namespace,[ModifyPlantHealthNode] 修改植物血量加成{0}%
+metadata,10912,diagnostic_namespace,[ModifyPlantHealthNode] 植物对象为空，无法修改血量，节点ID: 
+metadata,10913,diagnostic_namespace,[ModifyZombieHealthNode] 修改僵尸血量倍率{0}
+metadata,10914,diagnostic_namespace,[ModifyZombieHealthNode] 僵尸对象为空，无法修改血量，节点ID: 
+metadata,10916,diagnostic_namespace,"[MovePlantNode] 成功移动植物 {0} 到 ({1}, {2})"
+metadata,10917,diagnostic_namespace,[MovePlantNode] 植物对象为 null，无法移动，节点ID: 
+metadata,10918,diagnostic_namespace,"[MovePlantNode] 移动植物失败 {0} 到 ({1}, {2})"
+metadata,10919,diagnostic_namespace,[MoveZombieNode] 僵尸对象为 null，无法移动，节点ID: 
+metadata,10920,diagnostic_namespace,"[MoveZombieNode] 成功移动僵尸 {0} 到 ({1}, {2})"
+metadata,10921,diagnostic_namespace,"[MoveZombieNode] 移动僵尸失败 {0} 到 ({1}, {2})"
+metadata,10923,diagnostic_namespace,[NodeGroupUIInputHandler] 开始拖拽分组: 
+metadata,10924,diagnostic_namespace,[NodeGroupUIInputHandler] 结束拖拽分组: 
+metadata,10925,diagnostic_namespace,[NodeGroupUIInputHandler] 节点 
+metadata,10926,diagnostic_namespace,[NodeGroupUI] 分组 {0} 折叠状态: {1}
+metadata,10927,diagnostic_namespace,[NodeInfoPanel] 分组为空
+metadata,10928,diagnostic_namespace,[NodeInfoPanel] 变量编辑面板或名称编辑器未设置
+metadata,10929,diagnostic_namespace,[NodeInfoPanel] 未找到节点类型信息: 
+metadata,10930,diagnostic_namespace,[NodeInfoPanel] 节点为空
+metadata,10931,diagnostic_namespace,[NodeInfoPanel] 面板对象未设置
+metadata,10932,diagnostic_namespace,[NodeInfoPanel] 面板或变量编辑面板未设置
+metadata,10936,diagnostic_namespace,[OnBoardStartNode] Board.Instance 为 null，无法触发关卡开始事件，节点ID: 
+metadata,10937,diagnostic_namespace,[OnBoardStartNode] 触发关卡开始事件
+metadata,10938,diagnostic_namespace,[OnGameStartNode] Board.Instance 为 null，无法触发关卡开始事件，节点ID: 
+metadata,10939,diagnostic_namespace,[OnGameStartNode] 触发关卡开始事件
+metadata,10940,diagnostic_namespace,[OnKeyPressNode] targetKey 为 None，无法触发按键事件，节点ID: 
+metadata,10941,diagnostic_namespace,[OnKeyPressNode] 按键输入正常取消
+metadata,10942,diagnostic_namespace,[OnKeyPressNode] 触发按键事件: {0}
+metadata,10943,diagnostic_namespace,[OnKeyPressNode] 设置按键为: {0}
+metadata,10944,diagnostic_namespace,[OnMouseClickNode] clickData 为 null，无法触发鼠标点击事件，节点ID: 
+metadata,10945,diagnostic_namespace,[OnPlantClickNode] clickedPlant 为 null，无法触发植物点击事件，节点ID: 
+metadata,10946,diagnostic_namespace,[OnPlantClickNode] 触发植物点击事件: {0}
+metadata,10947,diagnostic_namespace,[OnPlantCreateNode] currentPlant 为 null，无法触发植物种植事件，节点ID: 
+metadata,10948,diagnostic_namespace,[OnPlantDeathCompleteNode] currentPlant 为 null，无法触发植物死亡完成事件，节点ID: 
+metadata,10949,diagnostic_namespace,"[OnPlantDeathCompleteNode] 触发植物死亡完成事件: {0}, 死亡原因: {1}"
+metadata,10950,diagnostic_namespace,[OnPlantDieNode] currentPlant 为 null，无法触发植物死亡事件，节点ID: 
+metadata,10951,diagnostic_namespace,[OnPlantDieNode] 触发植物死亡事件: {0}
+metadata,10952,diagnostic_namespace,[OnZombieDieNode] currentZombie 为 null，无法触发僵尸死亡事件，节点ID: 
+metadata,10953,diagnostic_namespace,[OnZombieDieNode] 触发僵尸死亡事件: {0}
+metadata,10954,diagnostic_namespace,[OnZombieSpawnNode] currentZombie 为 null，无法触发僵尸生成事件，节点ID: 
+metadata,10955,diagnostic_namespace,[OnZombieSpawnNode] 触发僵尸生成事件: {0}
+metadata,10957,diagnostic_namespace,[PlantMixTreeManager] 已经初始化过了，跳过重复初始化
+metadata,10958,diagnostic_namespace,[PlantMixTreeManager] 开始初始化融合树...
+metadata,10959,diagnostic_namespace,[PlantMixTreeManager] 未初始化，请先调用 Init()
+metadata,10960,diagnostic_namespace,[PlantMixTreeManager] 未找到植物 {0} 的融合树
+metadata,10961,diagnostic_namespace,[PlantMixTreeManager] 融合树初始化完成！
+metadata,10962,diagnostic_namespace,[PlantSplitNode] 植物对象为空，返回默认值，节点ID: 
+metadata,10963,diagnostic_namespace,[PlantTypeListStorageNode] 初始化为空列表
+metadata,10964,diagnostic_namespace,[PlantTypeListStorageNode] 删除植物类型: {0}，删除数量: {1}，当前大小: {2}
+metadata,10965,diagnostic_namespace,[PlantTypeListStorageNode] 操作类型更改为: {0}
+metadata,10966,diagnostic_namespace,[PlantTypeListStorageNode] 添加植物类型: {0}，当前大小: {1}
+metadata,10967,diagnostic_namespace,[PlantTypeListStorageNode] 设置列表，大小: {0}
+metadata,10968,diagnostic_namespace,[PlantTypeValueNode] 植物类型更改为: {0}
+metadata,10969,diagnostic_namespace,[PlaySoundNode] 播放音效，音效ID: {0}
+metadata,10970,diagnostic_namespace,[PlayZombieAnimNode] 僵尸 
+metadata,10971,diagnostic_namespace,[PlayZombieAnimNode] 僵尸对象为空，无法播放动画，节点ID: 
+metadata,10972,diagnostic_namespace,[PlayZombieAnimNode] 动画名称更改为: 
+metadata,10973,diagnostic_namespace,[PlayZombieAnimNode] 播放僵尸动画: 
+metadata,10974,diagnostic_namespace,[PositionCategoryContainer] 清除索引{0}中的level={1}菜单
+metadata,10975,diagnostic_namespace,[PositionCategoryContainer] 空间不足，向下移动 {0}
+metadata,10976,diagnostic_namespace,[PositionCategoryContainer] 菜单过高，向下移动 {0}
+metadata,10979,diagnostic_namespace,[PulseNode] 脉冲自动重置，状态变为: {0}
+metadata,10980,diagnostic_namespace,[PulseNode] 脉冲触发，状态变为: {0}
+metadata,10981,diagnostic_namespace,[RandomFloatNode] 生成随机浮点数: {0:F2} (范围: {1:F2}-{2:F2})
+metadata,10982,diagnostic_namespace,[RandomIntNode] 生成随机整数: {0} (范围: {1}-{2})
+metadata,10983,diagnostic_namespace,"[RandomTriggerNode] 开始随机触发，总节点数: {0}, 触发数量: {1}, 允许重复: {2}"
+metadata,10984,diagnostic_namespace,"[RandomTriggerNode] 第 {0} 次触发，选择索引: {1}, 节点: {2}"
+metadata,10985,diagnostic_namespace,[RandomTriggerNode] 触发数量无效: {0}
+metadata,10986,diagnostic_namespace,[RandomTriggerNode] 输出端口没有连接任何节点
+metadata,10987,diagnostic_namespace,[RandomTriggerNode] 随机触发完成
+metadata,10988,diagnostic_namespace,[ReinforcePlant] 应用 JSON 配置属性: {0} - HP:{1} DMG:{2}
+metadata,10989,diagnostic_namespace,[ReinforcePlant] 未找到植物 {0} 的属性配置
+metadata,10990,diagnostic_namespace,[RemovePlantTypeNode] 删除 {0}，{1}，列表大小: {2} → {3}
+metadata,10991,diagnostic_namespace,[RemovePlantTypeNode] 输入列表为 null，节点ID: 
+metadata,10992,diagnostic_namespace,[RoundManager] 战斗胜利！获得胜利奖励
+metadata,10993,diagnostic_namespace,[RuntimeEventNodeEditor] 克隆节点失败: 
+metadata,10994,diagnostic_namespace,[RuntimeEventNodeEditor] 分组 
+metadata,10995,diagnostic_namespace,[RuntimeEventNodeEditor] 分组预制体未设置
+metadata,10996,diagnostic_namespace,"[RuntimeEventNodeEditor] 创建分组UI: {0}, 包含 {1} 个节点"
+metadata,10997,diagnostic_namespace,[RuntimeEventNodeEditor] 创建分组失败：节点列表为空
+metadata,10998,diagnostic_namespace,[RuntimeEventNodeEditor] 删除分组: 
+metadata,10999,diagnostic_namespace,[RuntimeEventNodeEditor] 删除节点 {0} 上的 {1} 条连线
+metadata,11000,diagnostic_namespace,[RuntimeEventNodeEditor] 剪贴板为空，无法粘贴
+metadata,11001,diagnostic_namespace,"[RuntimeEventNodeEditor] 加载分组UI: {0}, 包含 {1} 个节点"
+metadata,11002,diagnostic_namespace,[RuntimeEventNodeEditor] 加载现有节点图
+metadata,11003,diagnostic_namespace,[RuntimeEventNodeEditor] 取消选中节点: {0}，当前选中数量: {1}
+metadata,11004,diagnostic_namespace,[RuntimeEventNodeEditor] 变量节点克隆完成，保持Asset引用: 
+metadata,11005,diagnostic_namespace,[RuntimeEventNodeEditor] 复制连接: 
+metadata,11006,diagnostic_namespace,[RuntimeEventNodeEditor] 已复制 {0} 个节点和 {1} 条连接到剪贴板
+metadata,11007,diagnostic_namespace,[RuntimeEventNodeEditor] 已粘贴 {0} 个节点和 {1} 条连接，并选中 {2} 个新节点
+metadata,11008,diagnostic_namespace,[RuntimeEventNodeEditor] 无法重建连接: 
+metadata,11009,diagnostic_namespace,[RuntimeEventNodeEditor] 没有选中的节点，无法复制
+metadata,11010,diagnostic_namespace,[RuntimeEventNodeEditor] 清除所有选中节点
+metadata,11011,diagnostic_namespace,[RuntimeEventNodeEditor] 清除节点 
+metadata,11012,diagnostic_namespace,[RuntimeEventNodeEditor] 画布或目标Transform未设置，无法跳转
+metadata,11013,diagnostic_namespace,[RuntimeEventNodeEditor] 粘贴节点: 
+metadata,11014,diagnostic_namespace,[RuntimeEventNodeEditor] 粘贴节点失败: 
+metadata,11015,diagnostic_namespace,[RuntimeEventNodeEditor] 节点 
+metadata,11016,diagnostic_namespace,[RuntimeEventNodeEditor] 节点搜索输入框已设置
+metadata,11017,diagnostic_namespace,[RuntimeEventNodeEditor] 节点搜索输入框未设置
+metadata,11018,diagnostic_namespace,[RuntimeEventNodeEditor] 跳转到节点: 
+metadata,11019,diagnostic_namespace,[RuntimeEventNodeEditor] 选中节点: {0}，当前选中数量: {1}
+metadata,11020,diagnostic_namespace,[RuntimeEventNodeEditor] 重建连接: 
+metadata,11021,diagnostic_namespace,[RuntimeNodeUIInputHandler] 中键点击节点 
+metadata,11022,diagnostic_namespace,[RuntimeNodeUIInputHandler] 开始多选拖动，共 {0} 个节点
+metadata,11023,diagnostic_namespace,[RuntimeNodeUI] 节点 {0} 选中状态: {1}
+metadata,11024,diagnostic_namespace,[RuntimePortUIInputHandler] 停留在: 
+metadata,11025,diagnostic_namespace,[RuntimePortUIInputHandler] 开始拖拽端口: 
+metadata,11026,diagnostic_namespace,[RuntimePortUIInputHandler] 找到了目标端口
+metadata,11027,diagnostic_namespace,[RuntimePortUIInputHandler] 拖到空白处，打开右键菜单
+metadata,11028,diagnostic_namespace,[RuntimePortUIInputHandler] 松开鼠标
+metadata,11029,diagnostic_namespace,[RuntimePortUIInputHandler] 端口类型不兼容，无法连接
+metadata,11031,diagnostic_namespace,[SetBoolVariableValueNode] 变量节点未连接，节点ID: 
+metadata,11032,diagnostic_namespace,[SetBoolVariableValueNode] 设置变量值为: {0}
+metadata,11033,diagnostic_namespace,[SetFloatVariableValueNode] 变量节点未连接，节点ID: 
+metadata,11034,diagnostic_namespace,[SetFloatVariableValueNode] 设置变量值为: {0}
+metadata,11035,diagnostic_namespace,[SetIntVariableValueNode] 变量节点未连接，节点ID: 
+metadata,11036,diagnostic_namespace,[SetIntVariableValueNode] 设置变量值为: {0}
+metadata,11037,diagnostic_namespace,"[SetPlantNode] 创建植物失败 在 ({0}, {1})"
+metadata,11038,diagnostic_namespace,"[SetPlantNode] 成功创建植物 {0} 在 ({1}, {2})"
+metadata,11039,diagnostic_namespace,[SetZombieMindControlledNode] 僵尸对象为空，无法魅惑，节点ID: 
+metadata,11040,diagnostic_namespace,[SetZombieMindControlledNode] 僵尸被魅惑
+metadata,11041,diagnostic_namespace,[ShopManager] 商店刷新完成 
+metadata,11042,diagnostic_namespace,[ShopManager] 商店已锁定，跳过刷新
+metadata,11043,diagnostic_namespace,[ShopManager] 商店系统初始化完成
+metadata,11044,diagnostic_namespace,[ShopManager] 新回合开始，刷新次数已重置
+metadata,11045,diagnostic_namespace,[ShopManager] 无法生成{0}费植物，池子为空
+metadata,11046,diagnostic_namespace,[ShopManager] 本回合刷新次数已达上限: {0}
+metadata,11047,diagnostic_namespace,[ShopManager] 植物池初始化完成:
+metadata,11048,diagnostic_namespace,[ShopManager] 植物费用异常: {0} - {1}费
+metadata,11049,diagnostic_namespace,[ShopManager] 金币不足! 需要: {0}
+metadata,11050,diagnostic_namespace,"[ShowMultipleChoiceMenuNode] 显示多选菜单，选项数量: {0}, 窗口数量: {1}"
+metadata,11051,diagnostic_namespace,[ShowMultipleChoiceMenuNode] 菜单刷新，触发输出端口: 
+metadata,11052,diagnostic_namespace,[ShowMultipleChoiceMenuNode] 菜单退出，触发输出端口: 
+metadata,11053,diagnostic_namespace,[ShowMultipleChoiceMenuNode] 触发目标节点: 
+metadata,11054,diagnostic_namespace,"[ShowTextNode] 显示文本: {0}, 持续时间: {1}秒"
+metadata,11056,diagnostic_namespace,[SinglePlantTypeListNode] 创建植物类型列表，类型: {0}
+metadata,11057,diagnostic_namespace,[SinglePlantTypeListNode] 植物列表添加了: {0}
+metadata,11058,diagnostic_namespace,[SinglePlantTypeListNode] 植物类型更改为: {0}
+metadata,11062,diagnostic_namespace,[StringValueNode] 更新值: 
+metadata,11067,diagnostic_namespace,[SynergyManager] 尝试添加空植物
+metadata,11068,diagnostic_namespace,[SynergyManager] 所有羁绊已重新计算
+metadata,11069,diagnostic_namespace,[SynergyManager] 添加植物: 
+metadata,11070,diagnostic_namespace,[SynergyManager] 羁绊失效: 
+metadata,11071,diagnostic_namespace,[SynergyManager] 羁绊激活: {0} {1}级 ({2}个植物)
+metadata,11072,diagnostic_namespace,[SynergyManager] 羁绊系统初始化完成
+metadata,11073,diagnostic_namespace,[SynergyManager] 羁绊配置初始化完成，共{0}种羁绊
+metadata,11074,diagnostic_namespace,[SynergyManager] 羁绊降级: {0} {1}级 → {2}级
+metadata,11076,diagnostic_namespace,[ToggleCycleNode] 切换到关闭状态
+metadata,11077,diagnostic_namespace,[ToggleCycleNode] 切换到开启状态，周期间隔: {0}秒
+metadata,11078,diagnostic_namespace,[ToggleNode] 状态切换，当前值: {0}
+metadata,11082,diagnostic_namespace,[UseMoneyNode] 成功消耗 {0} 金币，剩余 {1}
+metadata,11083,diagnostic_namespace,[UseMoneyNode] 金币不足！需要 {0}，当前只有 {1}
+metadata,11084,diagnostic_namespace,[UseSunNode] 成功消耗 {0} 阳光，剩余 {1}
+metadata,11085,diagnostic_namespace,[UseSunNode] 阳光不足！需要 {0}，当前只有 {1}
+metadata,11086,diagnostic_namespace,[VariableItemDragHandler] 开始拖拽变量: 
+metadata,11087,diagnostic_namespace,[VariableItemDragHandler] 没有可拖拽的Asset
+metadata,11088,diagnostic_namespace,[VariableItemDragHandler] 结束拖拽
+metadata,11090,diagnostic_namespace,[WaitNode] 开始等待 {0} 秒
+metadata,11091,diagnostic_namespace,[WaveEventNode] Board.Instance 为 null，无法触发波次事件，节点ID: 
+metadata,11092,diagnostic_namespace,[WaveEventNode] 触发波次事件，当前波次: {0}
+metadata,11093,diagnostic_namespace,[ZombieSplitNode] 僵尸对象为空，返回默认值，节点ID: 
+metadata,11094,diagnostic_namespace,[ZombieSplitNode] 获取僵尸类型: {0}
+metadata,11095,diagnostic_namespace,[ZombieSplitNode] 获取列: {0}
+metadata,11096,diagnostic_namespace,[ZombieSplitNode] 获取是否被魅惑: {0}
+metadata,11097,diagnostic_namespace,[ZombieSplitNode] 获取行: {0}
+metadata,11098,diagnostic_namespace,[ZombieTypeValueNode] 僵尸类型更改为: {0}
+metadata,11111,diagnostic_namespace,[{0}] 触发 '{1}' 端口，共 {2} 个节点
+metadata,11117,runtime_context_needed,[在线关卡] 已加载 {0} 个关卡列表
+metadata,11118,runtime_context_needed,[在线关卡] 成功加载关卡: 
+metadata,11119,runtime_context_needed,[在线关卡] 正在下载关卡: 
+metadata,11151,diagnostic_or_implementation_string,] EventNodeManager.Instance 或 CurrentGraph 为 null
+metadata,11168,runtime_context_needed,] 没有连接到'
+metadata,11169,runtime_context_needed,] 端口 
+metadata,11170,runtime_context_needed,] 触发节点: 
+metadata,13008,diagnostic_or_implementation_string,finalWavePrefab预制体加载错误
+metadata,13337,diagnostic_or_implementation_string,hugeWavePrefab预制体加载错误
+metadata,13603,diagnostic_or_implementation_string,json数据解析异常 rawMessage: 
+metadata,14285,runtime_context_needed,plant为空单target不为空
+metadata,14500,diagnostic_or_implementation_string,sampleName 未设置，无法设置默认存档按钮
+metadata,14501,diagnostic_or_implementation_string,sampleName 预制体上未找到 TheButton 组件
+metadata,14502,diagnostic_or_implementation_string,sampleName 预制体未设置，无法创建按钮
+metadata,15550,culture_format_or_possible_identifier,yyyy年MM月dd日HH时mm分ss秒
+metadata,15712,runtime_context_needed,{0}没有对应数据
+metadata,15852,unicode_or_internal_table,␀ ﾻ꿿￿蟿￾߿
+metadata,15863,runtime_context_needed,"⚠️ 不匹配目标：211, 101, 311"
+metadata,15866,runtime_context_needed,⚠️ 超过目标时间，强制校正 | 设置: {0:F3}s
+metadata,15869,runtime_context_needed,✅ UI事件绑定完成
+metadata,15870,runtime_context_needed,"✅ 匹配目标：211, 101, 311"
+metadata,15871,diagnostic_or_implementation_string,✅ 子系统初始化完成
+metadata,15876,diagnostic_or_implementation_string,✅ 所有测试完成
+metadata,15877,diagnostic_or_implementation_string,✅ 求解器判定：可解
+metadata,15878,runtime_context_needed,✅ 结束Hold音符: 轨道{0} 结束时间:{1:F3}s
+metadata,15879,diagnostic_or_implementation_string,✅ 编辑器初始化：已加载音乐 {0}
+metadata,15880,runtime_context_needed,✅ 记录音符: 轨道{0} 时间:{1:F3}s
+metadata,15881,runtime_context_needed,✅ 记录音符: 轨道{0} 时间:{1:F3}s | 第{2}.{3}拍
+metadata,15884,diagnostic_or_implementation_string,❌ 求解器判定：不可解
+metadata,15910,runtime_context_needed,㌀㐀
+metadata,15911,runtime_context_needed,㐀䷀
+metadata,15912,runtime_context_needed,䷀一
+metadata,15919,runtime_context_needed,一ꀀ
+metadata,15920,culture_format_or_possible_identifier,万
+metadata,15996,culture_format_or_possible_identifier,中華民國
+metadata,15997,culture_format_or_possible_identifier,中華民國曆
+metadata,16025,protected_command_or_gift_token,人气票
+metadata,16048,protected_command_or_gift_token,令
+metadata,16091,protected_command_or_gift_token,你
+metadata,16147,runtime_context_needed,使用了超级肥料
+metadata,16163,runtime_context_needed,保存花园数据：
+metadata,16188,requires_pc_translation_or_terminology_review,"<nobr>倒反天罡</nobr>：
+究极植物的倍率降为原来的10%，非究极植物的倍率提高到原来的400%，并获得2倍速度增幅"
+metadata,16195,requires_pc_translation_or_terminology_review,傲雪残梅
+metadata,16237,culture_format_or_possible_identifier,元
+metadata,16257,requires_pc_translation_or_terminology_review,全域封禁
+metadata,16267,culture_format_or_possible_identifier,公司
+metadata,16319,requires_pc_translation_or_terminology_review,冰雪之志
+metadata,16329,requires_pc_translation_or_terminology_review,冷月寒光
+metadata,16352,requires_pc_translation_or_terminology_review,击破·快速射击
+metadata,16355,culture_format_or_possible_identifier,分
+metadata,16356,runtime_context_needed,分布1
+metadata,16357,diagnostic_or_implementation_string,分布1的地雷网格：
+metadata,16358,runtime_context_needed,分布2
+metadata,16359,diagnostic_or_implementation_string,分布2的地雷网格：
+metadata,16360,runtime_context_needed,分布3
+metadata,16361,diagnostic_or_implementation_string,分布3的地雷网格：
+metadata,16367,diagnostic_or_implementation_string,切换场景失败：场景对象为null
+metadata,16368,diagnostic_or_implementation_string,切换场景失败：找不到场景类型 {0} 对应的场景对象
+metadata,16369,diagnostic_or_implementation_string,切换场景失败：目标场景为null
+metadata,16380,requires_pc_translation_or_terminology_review,列车同行
+metadata,16382,runtime_context_needed,创建了节点：
+metadata,16385,runtime_context_needed,创建关卡存档文件夹: {0}
+metadata,16394,runtime_context_needed,创建存档数据，id：{0}，路径：{1}
+metadata,16395,runtime_context_needed,创建存档文件夹：
+metadata,16396,runtime_context_needed,创建存档路径：
+metadata,16424,requires_pc_translation_or_terminology_review,利益交换
+metadata,16452,protected_command_or_gift_token,加
+metadata,16454,runtime_context_needed,加载关卡类型 
+metadata,16457,runtime_context_needed,加载存档：
+metadata,16458,runtime_context_needed,加载第{0}页数据，植物数量: {1}
+metadata,16504,requires_pc_translation_or_terminology_review,博弈论
+metadata,16507,requires_pc_translation_or_terminology_review,"<nobr>卧薪尝胆</nobr>：
+令全场植物的独立伤害增幅和速度增幅翻倍"
+metadata,16518,requires_pc_translation_or_terminology_review,双子奇兵
+metadata,16519,diagnostic_or_implementation_string,反序列化失败，数据为空
+metadata,16526,runtime_context_needed,发现重复关卡：{0}-{1}，已覆盖
+metadata,16535,diagnostic_or_implementation_string,可以使用 Graphviz 或在线工具（如 http://viz-js.com/）查看
+metadata,16578,runtime_context_needed,启动时间：
+metadata,16612,protected_command_or_gift_token,在(\d+)路放置(\d+)个(.+)
+metadata,16625,requires_pc_translation_or_terminology_review,在回溯时被超时空豌豆射手击中了
+metadata,16643,diagnostic_or_implementation_string,在注册表中更新了关卡：{0}，总计{1}关
+metadata,16644,diagnostic_or_implementation_string,在注册表中添加了新的关卡：{0}，总计{1}关
+metadata,16651,runtime_context_needed,地雷分布（*=雷，.=安全）：
+metadata,16690,runtime_context_needed,备份现有统一存档: 
+metadata,16701,requires_pc_translation_or_terminology_review,夜之半神
+metadata,16703,culture_format_or_possible_identifier,大
+metadata,16709,requires_pc_translation_or_terminology_review,大嘴一咬，福祸自招
+metadata,16730,requires_pc_translation_or_terminology_review,大捷！大捷！
+metadata,16732,culture_format_or_possible_identifier,大正
+metadata,16740,requires_pc_translation_or_terminology_review,天河本怒涛
+metadata,16764,runtime_context_needed,存档 
+metadata,16772,runtime_context_needed,存档文件夹: 
+metadata,16793,runtime_context_needed,"实际数字：
+"
+metadata,16849,culture_format_or_possible_identifier,小数
+metadata,16856,protected_command_or_gift_token,小花花
+metadata,16860,runtime_context_needed,尝试地图外面放置僵尸
+metadata,16861,runtime_context_needed,尝试生成错误的种植预览
+metadata,16876,requires_pc_translation_or_terminology_review,巡海游侠
+metadata,16929,culture_format_or_possible_identifier,布尔
+metadata,16940,culture_format_or_possible_identifier,平
+metadata,16944,culture_format_or_possible_identifier,平成
+metadata,16948,culture_format_or_possible_identifier,年
+metadata,16957,requires_pc_translation_or_terminology_review,幻想崩坏
+metadata,16967,requires_pc_translation_or_terminology_review,开启晶矿可以获得强化
+metadata,16969,runtime_context_needed,开始拖拽端口: 
+metadata,16970,runtime_context_needed,"开始过场发生错误, "
+metadata,17052,runtime_context_needed,当前密钥正确，将加载待审核关卡
+metadata,17053,runtime_context_needed,当前密钥错误，将加载已过审关卡
+metadata,17068,runtime_context_needed,当文本被修改时的事件为空
+metadata,17117,runtime_context_needed,成功加载实例：
+metadata,17118,runtime_context_needed,成功加载植物进化配置，包含 {0} 个植物
+metadata,17121,diagnostic_or_implementation_string,成功迁移第{0}页数据，植物数量: {1}
+metadata,17152,requires_pc_translation_or_terminology_review,战争进化史
+metadata,17155,requires_pc_translation_or_terminology_review,战技点·吞咽
+metadata,17173,protected_command_or_gift_token,扣
+metadata,17181,requires_pc_translation_or_terminology_review,护你左右
+metadata,17202,runtime_context_needed,指定路径：
+metadata,17213,diagnostic_or_implementation_string,按钮上未找到 TextMeshProUGUI 组件
+metadata,17282,runtime_context_needed,文件夹不存在，正在创建: 
+metadata,17283,runtime_context_needed,文件夹已打开: 
+metadata,17294,culture_format_or_possible_identifier,新的变量
+metadata,17338,diagnostic_or_implementation_string,无法创建Hold尾部音符：notePrefab未找到
+metadata,17339,runtime_context_needed,无法创建节点类型: 
+metadata,17341,diagnostic_or_implementation_string,无法加载卡片预制体
+metadata,17342,diagnostic_or_implementation_string,无法加载植物进化配置文件！请检查 Assets/Resources/PlantEvolutionData.json
+metadata,17347,runtime_context_needed,无法获取植物 {0} 的原始数据
+metadata,17348,diagnostic_or_implementation_string,无法解析JSON文件！
+metadata,17349,runtime_context_needed,无法解析植物类型: 
+metadata,17358,culture_format_or_possible_identifier,日
+metadata,17360,culture_format_or_possible_identifier,时
+metadata,17364,culture_format_or_possible_identifier,明
+metadata,17365,culture_format_or_possible_identifier,明治
+metadata,17371,requires_pc_translation_or_terminology_review,星核猎手
+metadata,17460,requires_pc_translation_or_terminology_review,星间旅人
+metadata,17461,culture_format_or_possible_identifier,昭
+metadata,17462,culture_format_or_possible_identifier,昭和
+metadata,17470,requires_pc_translation_or_terminology_review,昼之半神
+metadata,17474,culture_format_or_possible_identifier,時
+metadata,17506,culture_format_or_possible_identifier,月
+metadata,17518,diagnostic_or_implementation_string,未找到 PlantEvolutionData.json，将使用硬编码数据
+metadata,17519,diagnostic_or_implementation_string,未找到与 Head 匹配的段索引。
+metadata,17520,diagnostic_or_implementation_string,未找到植物类型 {0} 的数据
+metadata,17521,diagnostic_or_implementation_string,未找到节点ID: 
+metadata,17525,runtime_context_needed,未知的节点类型: 
+metadata,17534,requires_pc_translation_or_terminology_review,本坚果保护你！
+metadata,17551,requires_pc_translation_or_terminology_review,杀虫、音乐
+metadata,17552,diagnostic_or_implementation_string,权重字典不能为空
+metadata,17553,diagnostic_or_implementation_string,权重计算:
+metadata,17582,requires_pc_translation_or_terminology_review,"<nobr>格挡反击</nobr>：
+僵尸闪避时对附近植物造成100%反伤"
+metadata,17616,runtime_context_needed,模拟次数: {0}
+metadata,17628,culture_format_or_possible_identifier,次
+metadata,17632,requires_pc_translation_or_terminology_review,欧拉！
+metadata,17754,requires_pc_translation_or_terminology_review,沐浴神血
+metadata,17759,diagnostic_or_implementation_string,没有找到fallbackTarget
+metadata,17760,diagnostic_or_implementation_string,没有找到window或选项数据
+metadata,17761,diagnostic_or_implementation_string,没有找到{0}的轴心，名称为Shadow
+metadata,17764,diagnostic_or_implementation_string,没有找到类型
+metadata,17765,diagnostic_or_implementation_string,没有找到类型为{0}的{1}
+metadata,17766,diagnostic_or_implementation_string,没有找到类型为{0}的场地物品
+metadata,17767,diagnostic_or_implementation_string,没有找到类型为{0}的子弹，编号为{1}
+metadata,17768,diagnostic_or_implementation_string,没有找到类型为{0}的植物Prefab
+metadata,17769,diagnostic_or_implementation_string,没有找到类型为{0}的植物Preview
+metadata,17770,diagnostic_or_implementation_string,没有找到类型为{0}的物品
+metadata,17795,requires_pc_translation_or_terminology_review,流量为王
+metadata,17797,diagnostic_or_implementation_string,"测试 1: 211, 101, 311 局面 (5x5地图)"
+metadata,17798,diagnostic_or_implementation_string,测试自定义网格：
+metadata,17799,requires_pc_translation_or_terminology_review,浓墨的喷
+metadata,17820,requires_pc_translation_or_terminology_review,深海回响
+metadata,17866,requires_pc_translation_or_terminology_review,火箭发射
+metadata,17867,requires_pc_translation_or_terminology_review,火菜炮的诅咒效果反转了
+metadata,17884,requires_pc_translation_or_terminology_review,点燃大海
+metadata,17900,requires_pc_translation_or_terminology_review,燃血
+metadata,17901,requires_pc_translation_or_terminology_review,燎烟古方
+metadata,17914,requires_pc_translation_or_terminology_review,爱与黄金
+metadata,17915,requires_pc_translation_or_terminology_review,爱的礼物
+metadata,17917,protected_command_or_gift_token,牛哇牛哇
+metadata,17926,requires_pc_translation_or_terminology_review,狼狩
+metadata,17928,requires_pc_translation_or_terminology_review,猪市
+metadata,17933,requires_pc_translation_or_terminology_review,玉石俱焚
+metadata,17985,requires_pc_translation_or_terminology_review,生瓜蛋子
+metadata,18008,diagnostic_or_implementation_string,的预制体
+metadata,18010,requires_pc_translation_or_terminology_review,盛会之星
+metadata,18028,requires_pc_translation_or_terminology_review,石破天惊
+metadata,18030,requires_pc_translation_or_terminology_review,破甲尖刺
+metadata,18037,requires_pc_translation_or_terminology_review,磁力坚果的基础伤害x3
+metadata,18038,requires_pc_translation_or_terminology_review,磁力坚果的诅咒效果反转了
+metadata,18043,runtime_context_needed,示例文本
+metadata,18051,requires_pc_translation_or_terminology_review,神威
+metadata,18059,requires_pc_translation_or_terminology_review,禁忌之力
+metadata,18065,diagnostic_or_implementation_string,禅境花园数据迁移完成！共迁移 {0} 页数据，总植物数量: {1}
+metadata,18077,culture_format_or_possible_identifier,秒
+metadata,18112,requires_pc_translation_or_terminology_review,窥视奥纪
+metadata,18140,runtime_context_needed,等级 {0} 的概率配置总和为 {1}%，不是100%
+metadata,18141,runtime_context_needed,"等级{0}植物分布:
+"
+metadata,18148,runtime_context_needed,类型为{0}的植物没有第{1}种皮肤
+metadata,18149,protected_command_or_gift_token,粉丝团灯牌
+metadata,18201,diagnostic_or_implementation_string,网格初始化: {0}×{1} = {2}个格子
+metadata,18213,requires_pc_translation_or_terminology_review,群攻
+metadata,18239,runtime_context_needed,自动切换场景失败：场景对象不完整，需要 main、night、morning 都存在
+metadata,18273,diagnostic_or_implementation_string,节点预制体未设置！
+metadata,18288,requires_pc_translation_or_terminology_review,英雄
+metadata,18298,requires_pc_translation_or_terminology_review,荒芜流淌
+metadata,18311,requires_pc_translation_or_terminology_review,获取火红莲币
+metadata,18323,requires_pc_translation_or_terminology_review,获得一个神秘大炮
+metadata,18349,requires_pc_translation_or_terminology_review,菜菜与共
+metadata,18395,runtime_context_needed,警告：面板数量({0})与阶段数量({1})不匹配
+metadata,18421,requires_pc_translation_or_terminology_review,诅咒：争强好胜
+metadata,18422,requires_pc_translation_or_terminology_review,诅咒：千锤百炼
+metadata,18423,requires_pc_translation_or_terminology_review,诅咒：壹肆叁柒
+metadata,18424,requires_pc_translation_or_terminology_review,诅咒：见者有份
+metadata,18438,attribution_and_creator_handle,"该视频仅在中国哔哩哔哩发布
+其他均为假冒
+认准UP主：蓝飘飘fly"
+metadata,18439,attribution_and_creator_handle,"该视频仅在中国抖音发布
+其他均为假冒
+认准UP主：蓝飘飘fly"
+metadata,18491,runtime_context_needed,豌豆射手 + 向日葵 = {0}
+metadata,18492,runtime_context_needed,豌豆射手 + 豌豆射手 = {0}
+metadata,18493,runtime_context_needed,豌豆射手可直接融合出 {0} 种植物:
+metadata,18494,runtime_context_needed,豌豆射手有 {0} 个融合配方:
+metadata,18498,requires_pc_translation_or_terminology_review,贝洛伯格
+metadata,18499,requires_pc_translation_or_terminology_review,货币战争
+metadata,18500,requires_pc_translation_or_terminology_review,质变
+metadata,18560,requires_pc_translation_or_terminology_review,贪婪之手
+metadata,18623,requires_pc_translation_or_terminology_review,超质变：神秘大炮
+metadata,18628,requires_pc_translation_or_terminology_review,距离其他究极小松炉太近
+metadata,18671,runtime_context_needed,"这个局面有两个0，理论上会让周围12个格子都安全
+"
+metadata,18681,runtime_context_needed,进入存档：id：{0}，路径：{1}
+metadata,18686,requires_pc_translation_or_terminology_review,进化：究极
+metadata,18694,runtime_context_needed,连接节点: 
+metadata,18703,requires_pc_translation_or_terminology_review,追击·追踪子弹
+metadata,18709,requires_pc_translation_or_terminology_review,"<nobr>适应之力</nobr>：
+僵尸每次受伤，获得相当于伤害量1%的护甲，有上限"
+metadata,18758,requires_pc_translation_or_terminology_review,量子同频·冷却
+metadata,18764,requires_pc_translation_or_terminology_review,金瓜如梦
+metadata,18782,requires_pc_translation_or_terminology_review,银河学者
+metadata,18787,runtime_context_needed,错误：尝试在{0}行放置{1}类型的僵尸
+metadata,18820,requires_pc_translation_or_terminology_review,"<nobr>随从强化</nobr>：
+非领袖僵尸获得30%速度加成和30%血量加成"
+metadata,18876,requires_pc_translation_or_terminology_review,"<nobr>霸凌弱者</nobr>：
+植物因血量归零死亡时爆炸，对附近植物自身最大生命值的伤害"
+metadata,18879,runtime_context_needed,面板 {0} 的输入框数量不足
+metadata,18891,requires_pc_translation_or_terminology_review,"<nobr>领袖强化</nobr>：
+领袖僵尸获得30%速度加成和30%血量加成"
+metadata,18904,requires_pc_translation_or_terminology_review,飞雷紫
+metadata,18905,requires_pc_translation_or_terminology_review,饱和式提问
+metadata,18907,runtime_context_needed,首次运行创建初始存档
+metadata,18909,requires_pc_translation_or_terminology_review,"香蒲 + 猫瓜
+使用闪电洋葱、香蒲进行亚种切换"
+metadata,18912,runtime_context_needed,验证中心3x3区域的数字：
+metadata,18944,requires_pc_translation_or_terminology_review,黄油投手
+metadata,18964,requires_pc_translation_or_terminology_review,黑洞领域
+metadata,18968,requires_pc_translation_or_terminology_review,龙灵在天
+metadata,18981,runtime_context_needed,🎯 开始拖动头部: 音符{0}
+metadata,18982,runtime_context_needed,🎯 开始拖动尾部: 音符{0}
+metadata,18983,runtime_context_needed,🎵 开始Hold音符: 轨道{0} 开始时间:{1:F3}s
+metadata,18986,diagnostic_or_implementation_string,🎵 音游踩点编辑器已初始化
+metadata,18991,runtime_context_needed,🔍 尝试自动检测音频格式: 
+metadata,18996,diagnostic_or_implementation_string,🧪 Lucky系统测试开始
+metadata,19050,runtime_context_needed,，删除了该节点上的所有连线
+metadata,19052,diagnostic_or_implementation_string,，无法设置值，节点ID: 
+metadata,19054,diagnostic_or_implementation_string,，返回0，节点ID: 
+metadata,19055,diagnostic_or_implementation_string,，返回false，节点ID: 
+bundle,resources.assets:3292:tips,attribution_and_creator_handle,"<size=18>Making Waves 3-3<size=12>
+<alpha=#60>(Level made by 树桩上的火炎, edited by MirteorShower)
+<alpha=#04>Best Solution: 850 Sun left
+<alpha=#00>.<alpha=#FF><size=18>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<size=9>
+<size=18>Beluga Rider Yeti can only be placed in water lanes but vaults an extremely
+long distance (4 tiles!) and then turn around to attack plants from behind.
+Unsure with which plant to fuse your Squashes? Consider the vanilla plants on the field. (Except Sunflowers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<size=9>
+"
+bundle,resources.assets:3297:,embedded_document_or_data_table,"# UI Shader 使用说明
+
+## 创建的Shader文件
+
+本目录包含3个支持Unity UI Mask遮罩的自定义Shader：
+
+### 1. **UIHighlightWithMaskSupport.shader** - 高亮Shader
+**用途：** 为UI元素添加高亮效果，同时支持Mask遮罩
+
+**Properties：**
+- `Highlight Color` - 高亮颜色（默认黄色）
+- `Highlight Intensity` - 高亮强度（0-2）
+
+**使用示例：**
+```csharp
+// 运行时创建材质
+Material highlightMaterial = new Material(Shader.Find(""Custom/UI/UIHighlightWithMaskSupport""));
+highlightMaterial.SetColor(""_HighlightColor"", Color.yellow);
+highlightMaterial.SetFloat(""_HighlightIntensity"", 0.8f);
+
+// 应用到Image组件
+image.material = highlightMaterial;
+```
+
+---
+
+### 2. **UIBasicWithMaskSupport.shader** - 基础Shader
+**用途：** 替代Unity默认的UI/Default Shader，完全兼容但支持自定义
+
+**特点：**
+- 与Unity内置UI/Default完全相同的功能
+- 支持Mask遮罩
+- 支持透明度、颜色混合
+- 支持Sprite Atlas
+
+**使用示例：**
+```csharp
+// 创建基础材质
+Material basicMaterial = new Material(Shader.Find(""Custom/UI/UIBasicWithMaskSupport""));
+basicMaterial.SetColor(""_Color"", Color.red);
+
+// 应用到Image组件
+image.material = basicMaterial;
+```
+
+---
+
+### 3. **UIOutlineWithMaskSupport.shader** - 描边Shader
+**用途：** 为UI元素添加描边/轮廓效果，同时支持Mask遮罩
+
+**Properties：**
+- `Outline Color` - 描边颜色（默认黄色）
+- `Outline Width` - 描边宽度（0-10）
+- `Outline Strength` - 描边强度（0-1）
+
+**使用示例：**
+```csharp
+// 创建描边材质
+Material outlineMaterial = new Material(Shader.Find(""Custom/UI/UIOutlineWithMaskSupport""));
+outlineMaterial.SetColor(""_OutlineColor"", Color.cyan);
+outlineMaterial.SetFloat(""_OutlineWidth"", 3);
+outlineMaterial.SetFloat(""_OutlineStrength"", 0.7f);
+
+// 应用到Image组件
+image.material = outlineMaterial;
+```
+
+---
+
+## 关键技术说明
+
+### Stencil Buffer配置
+所有Shader都包含以下Stencil配置，这是支持Mask的关键：
+
+```hlsl
+Stencil
+{
+    Ref [_Stencil]           // 参考值
+    Comp [_StencilComp]       // 比较函数
+    Pass [_StencilOp]         // 通过操作
+    ReadMask [_StencilReadMask]   // 读取掩码
+    WriteMask [_StencilWriteMask] // 写入掩码
+}
+```
+
+**工作原理：**
+1. Mask组件设置Stencil值为特定值（如1）
+2. Shader检查Stencil值，只渲染匹配的区域
+3. 超出Mask范围的像素被裁剪
+
+---
+
+## Unity Editor中使用
+
+### 方法1：通过Inspector设置
+1. 选择UI Image组件
+2. 在Material属性中点击""点选""圆点
+3. 创建新材质，选择上述任意Shader
+4. 调整Shader参数
+
+### 方法2：代码动态创建
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIHighlighter : MonoBehaviour
+{
+    public Image targetImage;
+    public Color highlightColor = Color.yellow;
+
+    void Start()
+    {
+        // 创建高亮材质
+        Material material = new Material(Shader.Find(""Custom/UI/UIHighlightWithMaskSupport""));
+        material.SetColor(""_HighlightColor"", highlightColor);
+        material.SetFloat(""_HighlightIntensity"", 1.0f);
+
+        // 应用材质
+        targetImage.material = material;
+    }
+}
+```
+
+---
+
+## 常见问题
+
+### Q1: 为什么我的自定义Shader不支持Mask？
+**A:** Shader缺少Stencil Buffer配置。参考上述Shader添加Stencil块。
+
+### Q2: 高亮效果不明显怎么办？
+**A:** 调整`Highlight Intensity`参数，建议值0.5-1.5
+
+### Q3: 如何切换回默认材质？
+**A:** 将Image的Material设置为None，会自动使用默认材质
+
+### Q4: 性能如何？
+**A:** 这些Shader经过优化，性能与Unity内置Shader相当。描边Shader略高，建议谨慎使用。
+
+### Q5: 支持Text组件吗？
+**A:** 支持，但Text组件建议使用Unity自带的Outline组件，性能更好。
+
+---
+
+## 推荐使用场景
+
+| Shader | 适用场景 | 性能 |
+|--------|---------|------|
+| UIBasicWithMaskSupport | 所有UI元素的默认选择 | ⭐⭐⭐⭐⭐ |
+| UIHighlightWithMaskSupport | 需要高亮、发光效果 | ⭐⭐⭐⭐ |
+| UIOutlineWithMaskSupport | 需要描边、轮廓效果 | ⭐⭐⭐ |
+
+---
+
+## 注意事项
+
+1. ✅ **所有Shader都支持Mask遮罩**
+2. ✅ **支持RectTransform裁剪（RectMask2D）**
+3. ✅ **支持透明度和混合模式**
+4. ⚠️ **避免频繁创建和销毁Material，建议缓存复用**
+5. ⚠️ **描边Shader在某些复杂Sprite上可能效果不佳**
+
+---
+
+## 测试代码
+
+完整的测试脚本示例：
+
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIShaderTest : MonoBehaviour
+{
+    public Image testImage;
+    private Material highlightMaterial;
+    private Material outlineMaterial;
+
+    void Start()
+    {
+        // 测试高亮
+        TestHighlight();
+    }
+
+    void TestHighlight()
+    {
+        highlightMaterial = new Material(Shader.Find(""Custom/UI/UIHighlightWithMaskSupport""));
+        highlightMaterial.SetColor(""_HighlightColor"", Color.yellow);
+        highlightMaterial.SetFloat(""_HighlightIntensity"", 1.0f);
+        testImage.material = highlightMaterial;
+    }
+
+    void TestOutline()
+    {
+        outlineMaterial = new Material(Shader.Find(""Custom/UI/UIOutlineWithMaskSupport""));
+        outlineMaterial.SetColor(""_OutlineColor"", Color.cyan);
+        outlineMaterial.SetFloat(""_OutlineWidth"", 3);
+        outlineMaterial.SetFloat(""_OutlineStrength"", 0.7f);
+        testImage.material = outlineMaterial;
+    }
+
+    void OnDestroy()
+    {
+        // 清理材质
+        if (highlightMaterial) Destroy(highlightMaterial);
+        if (outlineMaterial) Destroy(outlineMaterial);
+    }
+}
+```
+
+---
+
+**创建日期：** 2026-05-03
+**版本：** 1.0
+**Unity版本：** 2019.4+
+"
+bundle,resources.assets:3300:tips,attribution_and_creator_handle,"<size=18><color=#FFAF60>All Roads Lead to Roof 5-3<size=12>
+<alpha=#60>(Level made with help from 小董玩得好, edited by MirteorShower)</color>
+<alpha=#04>Best Solution: 650 Sun left
+<alpha=#FF><size=320>
+<size=18><color=#990000>Lifelink Ladder Zombie</color> has a ladder that cannot be attracted by Magnet-shroom plants and continuously adds <color=#b30000>curse stacks</color> onto the plant it is placed on. If a plant has more <color=#b30000>curse stacks</color> than its current HP, it will instantly die.
+Note that if you kill the Lifelink Ladder Zombie itself, the ladder also disappears, so make sure to keep the zombie alive for as long as possible.<alpha=#FF>Tip: Do not hesitate to use your <color=#FFFF00>Coffe Beans</color>! You practically have unlimited money in this level.<alpha=#FF>
+<size=360>
+"
+bundle,resources.assets:3330:tips,attribution_and_creator_handle,"<size=18>Polarity Shift  4-6<size=12>
+<alpha=#60>(Level made by help from 树桩上的火炎, edited by MirteorShower)
+<alpha=#03>Best Solution: 700 Sun left
+<alpha=#FF><size=320>
+<size=18>Pogo Zombies can jump over most plants, but they also just hop off the lawn instead of eating the brains.
+If blocked by Tall-nuts or disarmed by Magnet-shrooms, they'll be knocked down and start attacking normally
+(and yes, they can eat brains then).
+Tip: Breaking magnetic links can massively reduce Pumpkin Morph's damage!<alpha=#FF>
+<size=360>
+"
+bundle,resources.assets:3333:tips,attribution_and_creator_handle,"<size=18>Polarity Shift  4-2<size=12>
+<alpha=#60>(Level made by help from 小董玩的好)
+<alpha=#04>Best Solution: 750 Sun left
+<alpha=#FF><size=330>
+<size=18>Bucknut-copter Zombies are a Balloon Zombie variant that can resist some anti-air attacks without being popped.
+However, they can still be intercepted by Thorn-nuts. Although, getting shot down midway isn't always a bad thing.<alpha=#FF>
+<size=370>
+"
+bundle,resources.assets:3340:tips,attribution_and_creator_handle,"<size=18><color=#FFAF60>All Roads Lead to Roof 5-4<size=12>
+<alpha=#00>(Level made by help from 树桩上的火炎, edited by MirteorShower)</color>
+<alpha=#04>Best Solution: 600 Sun left
+<alpha=#FF><size=320>
+<size=17><color=#FF0000>Explode-o-pult Zombie</color> throws <color=#FF0000>Explosive Cherries basketballs</color> at the leftmost plant,
+dealing massive splash damage and breaking through most Umbrellas.
+However, <color=#00FF00>Umbrella Rinds</color> and <color=#FF0000>Bombrellas</color> are very resistant to cherry explosion; targeting them with cherries may not be wise.
+Tip: Coins are limited in this level! If you run out, you can spend 25 Sun to deploy a <color=#F8F8F860>Silver Statue Zombie</color> for an extra 1000 coins.<alpha=#FF>
+<size=360>
+"
+bundle,resources.assets:3372:,embedded_document_or_data_table,"\udcbd\udca9ʬ\udcc0\udce0\udcd0\udccd,\udcb9\udca5\udcbb\udcf7\udcc1\udca6,\udcb1\udcbe\udccc\udce5Ѫ\udcc1\udcbf,һ\udcc0\udce0Ѫ\udcc1\udcbf,\udcb6\udcfe\udcc0\udce0Ѫ\udcc1\udcbf,\udcbc۸\udcf1,\udcb3\udcf6\udcb9ֵȼ\udcb6,\udcb3\udcf6\udcb9\udcd6Ȩ\udcd6\udcd8,\udcb7\udcc0\udcd3\udcf9\udcc1\udca6,\udcb1\udcb8ע
+0,50,270,0,0,50,1,4000,0,\udcc6ս\udca9
+1,50,270,0,0,75,1,1000,0,\udcc6\udcec\udcd6Ľ\udca9ʬ
+2,50,270,370,0,75,2,4000,0,·\udcd5\udccf
+3,50,720,0,0,100,2,2000,0,\udcb3Ÿ\udccb
+4,50,270,1100,0,125,4,3000,0,\udccc\udcfaͰ
+5,50,270,0,200,75,2,1000,0,\udcb6\udcc1\udcb1\udca8
+6,50,720,0,0,400,5,1500,0,\udcce\udce8\udccd\udcf5\udcb3Ÿ\udccb
+7,50,270,0,0,75,1,2000,0,\udcb0\udce9\udcce\udce8\udcb3Ÿ\udccb
+8,50,270,0,1100,100,4,3500,0,\udccc\udcfa\udcc3\udcc5
+9,50,270,1400,0,175,7,2000,0,\udce9\udccf\udce9\udcad\udcc7\udcf2
+10,50,720,0,0,600,7,1000,0,\udcce\udce8\udccd\udcf5
+11,50,270,0,0,50,1,4000,0,\udcc6ս\udca9Ѽ\udcd7\udcd3
+12,50,270,370,0,75,2,4000,0,·\udcd5\udccfѼ\udcd7\udcd3
+13,50,270,1100,0,125,4,3000,0,\udccc\udcfaͰѼ\udcd7\udcd3
+14,500,1350,0,0,275,7,1000,0,\udcbb\udcfaе\udcba\udca3\udceb\udce0
+15,400,720,0,1100,200,7,1000,0,ѧ\udcd5\udcdf
+16,500,1350,0,0,200,7,2000,0,\udcb1\udcf9\udcb3\udcb5
+17,50,270,0,0,100,3,2000,0,Ǳˮ
+18,500,2700,0,0,225,3,2000,0,\udcba쳵
+19,50,720,0,0,125,3,1500,0,\udcba\udca3\udceb\udce0
+20,50,720,0,0,100,2,2000,0,\udcc8\udcfd\udcb2\udce6\udcea\udcaa
+21,50,2000,3000,0,225,7,1000,0,\udcd7\udceaʯ\udccc\udcd7\udccd\udcde
+22,50,2000,1350,0,175,6,1500,0,\udcbd\udcf0\udccc\udcd7\udccd\udcde
+23,50,2000,720,0,125,5,2000,0,\udcd2\udcf8\udccc\udcd7\udccd\udcde
+24,50,720,0,0,150,3,1000,0,С\udcb3\udcf3
+25,50,270,20,0,125,2,2000,0,\udcc6\udcf8\udcc7\udcf2
+26,500,1350,0,0,500,5,1000,0,\udcb7\udcc9ͧ
+27,50,720,0,0,200,5,1000,0,ѩ\udcc8˺\udca3\udceb\udce0
+28,50,720,0,0,125,4,1000,0,\udcbf\udcf3\udcb9\udca4
+29,50,270,500,0,200,7,1000,0,\udccc\udcfaͰ\udcc6\udcf8\udcc7\udcf2
+30,50,720,370,0,200,7,1000,0,С\udcb3\udcf3\udccd\udcf5
+31,500,850,0,0,200,5,1500,0,\udcc0\udcba\udcc7\udcf2
+32,50,720,0,0,100,4,1000,0,\udccc\udcf8\udccc\udcf8
+33,50,720,0,720,150,4,1000,0,\udcb7\udcf6\udccc\udcdd
+34,50,720,1100,0,150,7,1000,0,\udcb9\udccf\udccc\udcf8
+35,1800,3000,0,0,300,10,1500,0,\udcb0\udcd7\udcd1۾\udcde\udcc8\udccb
+36,1800,6000,0,0,450,10,2000,0,\udcba\udcec\udcd1۾\udcde\udcc8\udccb
+37,50,270,0,0,50,10,1000,0,С\udcb9\udced
+38,500,3000,0,0,250,10,1500,0,\udcbb\udcfaе\udcb0\udcd7\udcd1\udcdb
+39,500,6000,0,0,350,10,2000,0,\udcbb\udcfaе\udcba\udcec\udcd1\udcdb
+40,1000,1350,0,0,300,7,1000,0,\udcbb\udcfaе\udcb1\udca3\udcc1\udce4\udcc7\udcf2
+41,0,200,0,0,25,1,1000,0,\udcd2\udcf8\udcbd\udca9ʬ
+42,0,300,0,0,50,1,1000,0,\udcbd\udcf0\udcbd\udca9ʬ
+43,3600,8000,24000,0,800,15,1000,0,\udcce\udce4װ\udcbe\udcde\udcc8\udccb
+44,0,45000,0,0,9999,10,1000,0,\udcbd\udca9\udccd\udcf5\udcb2\udca9ʿ
+45,0,720,0,0,125,3,1000,0,\udcb1ļ\udcab\udcbd\udca9ʬ
+46,0,45000,0,0,9999,10,1000,0,\udcbd\udcb1\udcb1\udcad\udcbd\udca9\udccd\udcf5
+47,50,1350,0,0,200,4,1000,0,ѩ\udcc8\udccb
+48,50,8888,8888,0,300,10,1000,0,\udcc4\udcea\udcca\udcde
+49,50,720,0,0,500,3,1000,0,ѩǹ
+50,50,720,0,2200,200,4,1500,0,ѩ\udcb6\udcdc
+51,50,720,0,0,200,2,2000,0,ѩ\udcb2\udce6
+52,50,270,0,200,200,4,2000,0,\udcb3\udcacʱ\udcbfս\udca9ʬ
+53,50,720,0,0,300,4,1000,0,ѩ\udcc8˷ɵ\udcfa
+54,0,10000,0,0,0,1,1000,0,ѵ\udcc1\udcb7\udcbc\udcd9\udcc8\udccb
+55,50,270,370,0,75,2,3000,0,\udcb1\udcf9\udcbf齩ʬ
+56,500,1350,0,0,200,5,1500,0,ѩ\udcca\udcde
+57,500,3000,0,0,300,7,1000,0,ѩ\udcca\udcde\udccd\udcf5
+58,50,720,1400,0,125,2,2000,0,\udcb8\udce4\udcd7\udcd3
+59,50,720,0,720,125,3,1000,0,\udcba\udca3\udceb\udce0\udcb6\udcc1\udcb1\udca8
+60,0,1000,0,0,500,1,1000,0,\udcbd\udca9ʬ\udcc5ڵ\udcaf
+61,50,720,1400,0,175,7,1000,0,\udcba\udca3\udceb\udce0\udce9\udccf\udce9\udcad\udcc7\udcf2
+62,50,300,0,0,125,2,4000,0,\udcc3\udcd4\udcc4\udce3ѩ\udcca\udcde
+63,50,1350,0,0,300,1,0,0,\udcbd\udcf0\udcb1ļ\udcab
+64,50,720,0,0,450,5,1000,0,ɳ̲\udcce\udce8\udccd\udcf5
+65,50,500,0,0,25,1,4000,0,\udcb0\udce9\udcce\udce8ʯ\udccf\udcf1
+66,50,720,1400,0,225,7,1000,0,\udcc6\udcec\udcd6\udcc4\udce9\udccf\udce9\udcad\udcc7\udcf2
+67,50,300,0,0,175,3,3000,0,\udcc3\udcd4\udcc4\udce3ɳ\udcca\udcde
+68,50,500,0,0,175,5,1000,0,\udcbc\udca6\udcc6\udcefʿ
+69,50,720,0,0,200,7,1000,0,\udcc6\udcef\udcb1\udcf8
+70,50,1800,0,1400,300,7,0,0,\udce9\udccf\udce9\udcad\udcc7\udcf2\udcc6\udcef\udcb1\udcf8\udccdų\udca4
+71,50,1350,0,0,125,5,1000,0,\udcbf\udcecͧС\udcb9\udced
+72,50,720,0,1350,175,5,1000,0,\udcd6\udce4\udcccݽ\udca9ʬ
+73,50,1,0,0,200,5,1000,0,\udcbd\udca9ʬ\udcbb\udcf0\udcba\udcec\udcc1\udcab
+74,50,720,0,0,125,4,1000,0,\udcf7Ȼ\udcf3\udcc0\udcb1\udcbd\udcb7\udcbd\udca9ʬ
+75,50,1500,0,0,225,5,1000,0,\udcf7Ȼ\udcf3\udcbf\udcf3\udcb9\udca4\udcc0\udcb1\udcbd\udcb7\udcbd\udca9ʬ
+76,1800,3000,0,0,300,10,1500,0,ˮ·\udcbe\udcde\udcc8\udccb
+77,50,1350,0,0,225,7,1000,0,\udcb9ھ\udcfc\udcb3Ÿ\udccb
+78,50,270,1400,0,275,7,1000,0,\udcb0\udcd7ɫ\udce9\udccf\udce9\udcad\udcc7\udcf2
+79,50,270,1400,0,225,7,1000,0,\udcbb\udcc6ɫ\udce9\udccf\udce9\udcad\udcc7\udcf2
+80,50,720,1100,0,225,5,1500,0,\udcb3\udcacʱ\udcbfճŸ\udccb
+81,50,720,0,720,150,5,1500,0,\udcb3Ÿ˽\udccc\udcc1\udcb7\udcb6\udcfeү
+82,50,270,1100,1100,225,5,1000,0,\udccc\udcfaͰ\udcb6\udcfeү
+83,100,1350,0,0,200,5,1500,0,\udcc6\udcf3\udcb6콩ʬ
+84,50,270,0,0,50,1,4000,0,ѩԭ\udcc6ս\udca9
+85,50,270,1100,0,125,4,3000,0,ѩԭ\udccc\udcfaͰ
+86,500,1440,0,0,300,10,1000,0,\udcb5\udcdb\udccd\udcf5\udcc6\udcf3\udcb6\udcec
+87,50,270,1470,0,150,4,2500,0,\udccc\udcfa·\udcd5Ͻ\udca9ʬ
+88,1800,6000,0,0,0,10,1000,0,ս\udccf\udcf3
+89,100,1350,0,0,0,5,1500,0,\udcbd\udca9ʬ\udcb1\udca3\udcc1\udce4\udcc7\udcf2
+90,200,2700,0,0,0,7,1000,0,\udcba\udcec\udcd1۽\udca9ʬ\udcb1\udca3\udcc1\udce4\udcc7\udcf2
+91,50,720,1400,0,275,7,2000,0,\udcb3Ÿ\udccb\udce9\udccf\udce9\udcad\udcc7\udcf2
+100,50,270,0,0,75,4,4000,0,\udccd㶹\udcbd\udca9ʬ
+101,50,500,0,0,100,4,3000,0,ӣ\udccc\udcd2\udcc9\udce4\udccaֽ\udca9ʬ
+102,50,720,0,0,300,4,2000,0,\udcb3\udcac\udcbc\udcb6ӣ\udccc\udcd2\udcc9\udce4\udccaֽ\udca9ʬ
+103,50,270,1100,0,125,4,3000,0,\udcbc\udce1\udcb9\udcfb\udcbd\udca9ʬ
+104,50,1500,0,200,1000,7,1000,0,ӣ\udcccҶ\udcc1\udcb1\udca8
+105,50,270,370,0,200,4,4000,0,ä\udcbaн\udca9ʬ
+106,50,270,2200,0,150,4,2000,0,\udccc\udcfaͰ\udcbc\udce1\udcb9\udcfb\udcbd\udca9ʬ
+107,50,270,1100,0,125,4,1000,0,ӣ\udcccҼ\udce1\udcb9\udcfb\udcbd\udca9ʬ
+108,50,1350,0,0,175,4,1000,0,\udccc\udcfaͰ\udccd㶹\udcbd\udca9ʬ
+109,50,270,4400,0,250,7,1500,0,\udce9\udccf\udce9\udcad\udcc7\udcf2\udcb8߼\udce1\udcb9\udcfb\udcbd\udca9ʬ
+110,50,270,720,0,300,4,3000,0,\udcbbƽ\udcf0ä\udcbaн\udca9ʬ
+111,50,270,2200,0,175,4,2000,0,\udcba\udcae\udcb1\udcf9\udcb8߼\udce1\udcb9\udcfb\udcbd\udca9ʬ
+112,50,1350,0,0,200,7,1000,0,\udcb1\udcac\udcc6\udcc6\udcc0\udcba\udcc7\udcf2\udcb3\udcb5
+113,50,720,0,0,125,7,1000,0,\udccd㶹ѩ\udcc8˺\udca3\udceb\udce0
+114,50,1350,1100,1100,225,5,1500,0,\udcc8\udcfdү
+115,50,500,0,0,100,4,2000,0,\udcceѹϽ\udca9ʬ
+116,50,1500,0,0,250,4,1000,0,\udcbb\udcf0\udcb1\udcac\udcceѹϽ\udca9ʬ
+117,50,500,0,0,100,4,1000,0,\udcc0\udcb1\udcbd\udcb7\udcbd\udca9ʬ
+118,50,270,1400,0,250,7,1500,0,\udcbb\udcfaǹ\udce9\udccf\udce9\udcad\udcc7\udcf2
+119,50,1350,500,0,225,4,1000,0,\udccc\udcfaͰ\udccd㶹\udcc6\udcf8\udcc7\udcf2
+120,50,1500,0,0,125,4,2000,0,\udcbb\udcd9\udcc3𹽽\udca9ʬ
+121,1800,3000,1100,0,500,10,1000,0,\udccb\udce6\udcbb\udcfa\udcbe\udcde\udcc8\udccb
+122,1800,3000,0,0,450,10,1500,0,\udcc0\udcb6\udcd1۾\udcde\udcc8\udccb
+123,1800,3000,0,0,450,10,1500,0,\udcc2\udccc\udcd1۾\udcde\udcc8\udccb
+124,1800,3000,0,0,450,10,1500,0,\udcbb\udcc6\udcd1۾\udcde\udcc8\udccb
+125,50,9527,0,0,600,7,1000,0,ЦЦ\udccb\udcd5
+126,100,270,2200,0,225,4,1500,0,\udcbb\udcf0\udcd1\udce6\udcb8߼\udce1\udcb9\udcfb\udcbd\udca9ʬ
+127,200,1500,4500,0,400,4,1500,900,\udcba\udcda\udcea\udcd7ʯ\udcb8߼\udce1\udcb9\udcfb\udcbd\udca9ʬ
+128,50,270,1100,0,75,4,2000,0,\udcd1\udcf4\udcb9\udce2\udcbc\udce1\udcb9\udcfb\udcbd\udca9ʬ
+129,50,270,1100,0,25,4,2000,0,\udcd1\udcf4\udcb9\udce2\udcb5۹\udcfb\udcbd\udca9ʬ
+130,50,500,0,0,150,4,4000,0,\udcbb\udcfaǹ\udcbd\udca9ʬ
+131,50,500,0,0,200,4,1000,0,\udcba\udcae\udcb1\udcf9\udcbb\udcfaǹ\udcbd\udca9ʬ
+132,50,160000,0,0,0,4,1000,0,\udcbb\udcf9\udcd1\udcd2ѩ\udcc8˽\udca9ʬ
+133,50,1500,0,0,250,4,1000,0,è\udcb9Ͻ\udca9ʬ
+200,500,3000,0,0,0,5,1000,0,\udcbb\udcfa\udcd3\udce3
+201,500,12000,0,0,0,5,1000,0,\udcce\udce8\udccd\udcf5\udcb1\udcf9\udcb3\udcb5
+202,50,720,7500,0,0,5,1000,0,\udcb3\udcac\udcbc\udcb6\udcc8\udcfd\udcb2\udce6\udcea\udcaa
+203,400,1500,0,1500,0,5,1000,0,\udcbb\udcfaǹ\udcb6\udcfeү
+204,100,3000,12000,0,0,5,1000,0,\udcba\udcda\udce9\udccf\udce9\udcad
+205,500,3000,0,0,0,5,1000,0,\udcbb\udcf9\udcc2\udce5\udcb7\udcf2\udcb7\udcc9ͧ
+206,500,500,0,0,0,5,1000,0,\udcc3\udcd4\udcc4\udce3\udcbb\udcf9\udcc2\udce5\udcb7\udcf2
+207,50,3000,0,0,0,5,1000,0,\udcb0\udcd7\udcce\udce8\udccd\udcf5
+208,500,3000,0,0,0,5,1000,0,ʬ\udccd\udcf5
+209,50,720,4400,0,0,5,1000,0,\udcb3\udcf3\udccc\udcf8
+210,1000,1350,0,0,0,5,1000,0,\udcd3㵰
+211,500,3000,0,0,0,5,1000,0,\udcb5\udcd8\udcd3\udce3
+212,7200,32000,32000,0,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcbaھ\udcde
+213,200,1500,0,0,0,5,1000,0,\udcba\udcda\udcea\udcd7ʯС\udcb9\udced
+214,50,1500,0,0,0,5,1000,0,\udcbb\udcfaǹ\udcba\udca3\udceb\udce0
+215,50,20000,1100,0,0,5,2000,0,\udcd7\udceaʯä\udcba\udcd0
+216,50,1350,4400,0,0,5,1000,0,\udcb2泵
+217,50,3000,0,0,0,5,1000,0,\udcb0׳Ÿ\udccb
+218,50,24000,24000,0,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcc2\udced\udcb3\udcac
+219,50,300000,0,0,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcd3\udce3\udccd\udce8
+220,200,24000,24000,0,0,5,0,100,\udcba\udcda\udce9\udccf魽\udcab\udcbe\udcfc
+221,500,15000,0,0,0,5,0,100,\udcc1ѿջ\udcfa\udcbc\udcd7
+222,500,48000,0,0,0,5,0,100,\udcb0׳\udcb5
+223,500,6000,15000,3000,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcb6\udcfeү
+224,500,48000,0,0,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcb3\udcf3\udcbb\udcca
+225,100,3000,3000,0,0,5,1000,0,\udcba\udcda\udce9\udccf魻\udcfaǹ
+226,500,6000,0,6000,0,5,1000,0,\udcb0\udca2\udcb6\udcfb\udcb7\udca8
+227,300,270,1100,0,0,5,1000,0,ѩצ
+228,1000,64000,0,0,0,5,0,100,ѩ\udcbb\udcca
+229,500,36000,0,0,0,5,0,100,\udcb4\udcf3˧
+230,500,18000,18000,0,0,5,0,100,\udcba\udcda\udce9\udccf魻\udcfaǹ2
+231,500,90000,0,0,0,5,0,0,\udcba\udcda\udce9\udccf\udce9\udcadʬ\udcc6\udcefʿ
+232,500,15000,0,0,0,5,1000,0,\udcba\udcda\udce9\udccf\udce9\udcad\udcc6\udcefʿ\udcb5\udcc4\udcc1\udce9\udcbb\udcea
+233,3600,16000,16000,0,0,5,1000,0,С\udcbf\udcad\udcbe\udcde
+234,500,48000,0,0,0,5,0,100,\udcbe\udcbf\udcbc\udcabС\udcb9\udced\udcbf\udcecͧ
+235,50,12000,0,0,0,5,0,100,С\udcb9\udced\udcb9\udcfa\udccd\udcf5\udcbf\udcecͧ
+236,300,3000,0,0,0,5,1000,0,\udcc0\udcd8\udcc9\udce4\udcd3ĸ\udca1
+237,500,9000,0,0,0,5,1000,0,\udcbb\udcfa\udcb1\udcac\udcbe\udca8\udcd3\udce3\udcd6\udcd8ͧ
+238,500,9000,0,0,0,5,1000,0,ѩ\udcca\udcde\udcc6\udcefʿ
+239,50,6000,0,0,0,5,1000,0,ˮ\udcb3\udcf3\udccc\udcf8
+240,3600,18000,0,0,0,5,1000,0,\udcbe\udcbf\udcbc\udcabˮ·\udcbe\udcde\udcc8\udccb
+241,4800,18000,18000,0,0,5,500,0,\udcbbƽ\udcf0\udcbe\udcde
+242,400,1500,0,1500,0,5,500,0,\udcbb\udcd9\udcc3\udcf0\udcbb\udcfaǹ\udcb6\udcfeү
+243,500,30000,0,30000,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcb0\udca2\udcb6\udcfb\udcb7\udca8
+244,1000,15000,0,0,0,5,0,100,\udcbe\udcbf\udcbc\udcabʬ\udcbb\udcca
+245,1000,4500,0,0,0,5,1000,0,\udcbe\udcbf\udcbc\udcab\udcd3\udce3\udcd0ͷɵ\udcfa
+246,500,3000,3000,0,0,5,1000,0,\udcb0\udca2\udcb6\udcfb\udcb7\udca8\udcbeѻ\udcf7\udcb1\udcf8
+247,50,10000,0,0,0,0,0,0,\udcce׶\udcbe\udccd\udcde\udccd޽\udca9ʬ
+248,1000,720,4400,0,0,5,1000,0,\udcbe\udcbf\udcbc\udcabѩצ
+249,300,48000,0,0,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcba\udca3\udcebཀྵʬ
+250,50,3000,6000,0,0,5,1000,0,\udcbe\udcbf\udcbc\udcab\udcb3\udcacʱ\udcbfռ\udce1\udcb9\udcfb\udcc6\udcf8\udcc7\udcf2
+251,200,3000,0,6000,0,5,1000,0,\udcba\udcda\udce9\udccf\udce9\udcad\udcc6\udcef\udcb1\udcf8
+252,200,4500,0,9000,0,5,500,0,\udcba\udcda\udce9\udccf\udce9\udcad\udcc6\udcef\udcb1\udcf8\udccdų\udca4
+253,50,720,4400,0,0,5,1000,0,\udcbaڳ\udcf3\udccd\udcf5
+254,1800,18000,0,0,0,5,0,0,\udcbe\udcab\udcc8\udcf1ս\udccf\udcf3
+255,500,3000,0,0,0,5,1000,0,\udcba\udcdaѩ\udcc7\udcc1\udcb3\udcb5С\udcb6\udcd3
+256,100,3000,6000,0,0,5,1000,0,\udcc6\udcec\udcd6ĺ\udcda\udce9\udccf\udce9\udcad
+257,200,3000,12000,0,0,5,1000,0,\udcc6\udcec\udcd6ĺ\udcda\udce9\udccf魸߼\udce1\udcb9\udcfb\udcbd\udca9ʬ
+258,200,1500,0,0,0,5,1000,0,\udcee\udcf8\udcbc\udcd7С\udcb9\udced
+259,100,48000,0,0,0,5,0,100,\udcbe\udcbf\udcbc\udcab\udcbd\udca9ʬ\udcbb\udcf0\udcba\udcec\udcc1\udcab
+260,500,90000,0,0,0,5,0,0,\udcba\udcda\udce9\udccf魽\udcab\udcbe\udcfcboss
+261,500,90000,0,0,0,5,0,0,\udcce\udce8̨\udcb3\udcb5boss
+300,400,1500,0,1500,0,4,1000,0,1\udcbc\udcb6\udcb6\udcfeү
+301,400,3000,0,3000,0,5,600,0,2\udcbc\udcb6\udcb6\udcfeү
+302,400,6000,0,6000,0,6,300,0,3\udcbc\udcb6\udcb6\udcfeү
+303,50,6000,6000,0,0,4,1000,0,1\udcbc\udcb6\udcba\udcda\udce9\udccf\udce9\udcad
+304,100,12000,12000,0,0,5,600,0,2\udcbc\udcb6\udcba\udcda\udce9\udccf\udce9\udcad
+305,200,24000,24000,0,0,6,300,0,3\udcbc\udcb6\udcba\udcda\udce9\udccf\udce9\udcad
+306,200,24000,24000,0,0,6,300,0,3\udcbc\udcb6\udcbaڻ\udcfaǹ
+307,50,3000,0,0,0,4,1000,0,1\udcbc\udcb6\udcc2\udcf3ޢ
+308,50,6000,0,0,0,5,600,0,2\udcbc\udcb6\udcc2\udcf3ޢ
+309,50,12000,0,0,0,6,300,0,3\udcbc\udcb6\udcc2\udcf3ޢ
+310,500,3000,0,0,0,4,1000,0,1\udcbc\udcb6\udcd3\udce3
+311,500,6000,0,0,0,5,600,0,2\udcbc\udcb6\udcd3\udce3
+312,500,6000,0,0,0,5,600,0,2\udcbc\udcb6\udcd3\udce32
+313,500,12000,0,0,0,6,300,0,3\udcbc\udcb6\udcd3\udce3
+314,500,12000,0,0,0,7,300,0,3\udcbc\udcb6\udcd3\udce32
+315,50,3000,3000,0,0,4,1000,0,1\udcbc\udcb6\udcc2\udced\udcb3\udcac
+316,50,6000,6000,0,0,5,600,0,2\udcbc\udcb6\udcc2\udced\udcb3\udcac
+317,50,12000,12000,0,0,6,300,0,3\udcbc\udcb6\udcc2\udced\udcb3\udcac
+318,50,3000,3000,0,0,4,1000,0,1\udcbc\udcb6\udcbf\udcf3\udcb9\udca4
+319,50,6000,6000,0,0,5,600,0,2\udcbc\udcb6\udcbf\udcf3\udcb9\udca4
+320,50,12000,12000,0,0,6,300,0,3\udcbc\udcb6\udcbf\udcf3\udcb9\udca4
+321,500,6000,0,0,0,4,1000,100,1\udcbc\udcb6\udcbaڳ\udcb5
+322,500,12000,0,0,0,5,600,200,2\udcbc\udcb6\udcbaڳ\udcb5
+323,500,24000,0,0,0,6,300,300,3\udcbc\udcb6\udcbaڳ\udcb5
+324,50,3000,3000,0,0,4,1000,0,1\udcbc\udcb6\udcb3\udcf3\udccc\udcf8
+325,50,6000,6000,0,0,5,600,0,2\udcbc\udcb6\udcb3\udcf3\udccc\udcf8
+326,50,12000,12000,0,0,6,300,0,3\udcbc\udcb6\udcb3\udcf3\udccc\udcf8
+327,500,3000,0,0,0,4,1000,0,1\udcbc\udcb6\udcb7\udcc9ͧ
+328,5000,6000,0,0,0,5,600,0,2\udcbc\udcb6\udcb7\udcc9ͧ
+329,500,12000,0,0,0,6,300,0,3\udcbc\udcb6\udcb7\udcc9ͧ
+330,250,3000,0,0,0,4,1000,0,1\udcbc\udcb6ʬ\udccd\udcf5
+331,500,6000,0,0,0,5,600,0,2\udcbc\udcb6ʬ\udccd\udcf5
+332,1000,12000,0,0,0,6,300,0,3\udcbc\udcb6ʬ\udccd\udcf5
+333,500,3000,0,0,0,4,1000,0,1\udcbc\udcb6\udcb2泵
+334,500,3000,3000,0,0,5,600,0,2\udcbc\udcb6\udcb2泵
+335,500,6000,6000,0,0,6,300,0,3\udcbc\udcb6\udcb2泵
+336,1800,18000,0,0,0,4,1000,0,1\udcbc\udcb6\udccf\udcf3
+337,3600,36000,0,0,0,5,600,0,2\udcbc\udcb6\udccf\udcf3
+338,7200,72000,0,0,0,6,300,0,3\udcbc\udcb6\udccf\udcf3
+"
+bundle,resources.assets:3382:tips,attribution_and_creator_handle,"<size=18>Making Waves 3-6B<size=12>
+<alpha=#FF>Level Maker: 爱嗑猫薄荷, Best Solution: 525 Sun left
+<alpha=#88>
+<alpha=#00>.<alpha=#FF><size=18>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Oh no, the plants have set up a full-on death trap for the Football Knight Captain.
+But wait - they brought Pyro Cannons too? Check the map carefully for fusion opportunities.
+Tip: Maybe SP Twin Solar-nut can help generate more Sun? Maybe hypnotizing a zombie from afar lets others slip through?
+PS: Every plant that can be fused actually matters. Think carefully.<size=18>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+bundle,resources.assets:3388:tips,attribution_and_creator_handle,"<size=18>
+
+Thank you for Playing!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<size=18>This has been I, Zombie Adventure
+<size=12>Main Director & Contributor: MirteorShower                 With  help from: 43056721, 树桩上的火炎
+<size=18>Special Thanks to:
+<size=12>蓝飘飘fly and all other Fusion developers
+<u>爱嗑猫薄荷, 红烧黛鱼 (beta-testing)</u>    <u>Infinity75, 听雨夜荷, 梧萱梦汐X (Better I,Z Editor)</u>
+English Translators: MamoruKun, cassidy
+And you - for making it all the way here.
+<size=18>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+bundle,resources.assets:3413:,embedded_document_or_data_table,"ֲ\udcce\udcef\udcc0\udce0\udcd0\udccd,\udcb9\udca5\udcbb\udcf7\udcbc\udce4\udcb8\udcf4,\udcc9\udcfa\udcb2\udcfa\udcbc\udce4\udcb8\udcf4,\udcb9\udca5\udcbb\udcf7\udcc1\udca6,\udcd7\udcee\udcb4\udcf3\udcc9\udcfa\udcc3\udcfcֵ,\udcc0\udce4ȴʱ\udcbc\udce4,\udcbc۸\udcf1,\udcb1\udcb8ע
+0,1.5,0,20,300,7.5,100,\udccd㶹\udcc9\udce4\udcca\udcd6
+1,0,25,0,300,7.5,50,\udccf\udcf2\udcc8տ\udcfb
+2,0,0,1800,300,50,150,ӣ\udccc\udcd2ը\udcb5\udcaf
+3,0,0,0,4000,30,50,\udcbc\udce1\udcb9\udcfb
+4,0,0,1800,300,30,25,\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+5,0,0,0,300,7.5,150,\udcb4\udcf3\udcd7컨
+6,1.5,0,20,300,7.5,0,С\udcc5繽
+7,1.5,0,20,300,7.5,75,\udcb4\udcf3\udcc5繽
+8,0,0,0,300,30,75,\udcf7Ȼ\udcf3\udcb9\udcbd
+9,1.5,0,20,300,7.5,25,\udcb5\udca8С\udcb9\udcbd
+10,0,0,0,300,50,75,\udcba\udcae\udcb1\udcf9\udcb9\udcbd
+11,0,0,1800,300,50,125,\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+12,0,0,0,300,7.5,25,˯\udcc1\udcab
+13,0,0,1800,300,30,50,\udcceѹ\udccf
+14,1.5,0,20,300,7.5,275,\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+15,0,0,0,300,30,25,\udcb2\udcf8\udcc8\udcc6ˮ\udcb2\udcdd
+16,0,0,1800,300,50,125,\udcbb\udcf0\udcb1\udcac\udcc0\udcb1\udcbd\udcb7
+17,1,0,20,300,7.5,100,\udcb5ش\udccc
+18,0,0,0,300,7.5,175,\udcbb\udcf0\udcbe\udce6\udcca\udcf7׮
+19,1.5,0,20,300,7.5,0,\udcba\udca3Ģ\udcb9\udcbd
+20,0,0,0,300,15,25,·\udcb5ƻ\udca8
+21,1.5,0,20,300,7.5,125,\udccf\udcc9\udcc8\udccb\udcd5\udcc6
+22,0,0,0,300,15,100,\udcc8\udcfdҶ\udcb2\udcdd
+23,1.5,0,20,300,7.5,125,\udcd1\udcee\udccc\udcd2
+24,0,0,0,4000,30,125,\udcc4Ϲ\udccf
+25,0,0,0,300,7.5,100,\udcb4\udcc5\udcc1\udca6\udcb9\udcbd
+26,3,0,40,300,7.5,100,\udcbe\udced\udcd0Ĳ\udccbͶ\udcca\udcd6
+27,0,0,0,300,7.5,25,\udcbb\udca8\udcc5\udce8
+28,3,0,20,300,7.5,100,\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+29,0,0,0,300,7.5,50,\udcb4\udcf3\udccb\udce2
+30,0,0,0,1000,7.5,100,Ҷ\udcd7ӱ\udca3\udcbb\udca4ɡ
+31,0,25,0,300,7.5,25,\udcbd\udcf0յ\udcbb\udca8
+32,3,0,80,300,7.5,300,\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+33,0,0,8,300,7.5,100,\udcb8\udcd6Ҷ\udcb2\udcdd
+34,1.5,0,100,300,7.5,225,\udcc9\udcc1\udcb5\udce7\udcd1\udcf3\udcb4\udcd0
+35,0,0,0,300,7.5,25,С\udccb\udcc9¯
+36,1.5,0,20,300,7.5,125,\udcd4\udcc6ɼ\udcb9\udcad\udcca\udcd6
+37,0,0,0,300,30,50,\udcba\udcae\udcb1\udcf9\udcc1\udcab\udcbb\udca8
+38,3,0,20,300,7.5,75,ˮ\udcb5\udcce«\udcdc\udcf6
+39,0,0,0,1500,15,50,\udcb6\udcac\udccb\udcf1·\udcd5\udccf
+40,0,0,600,300,30,100,ѩ\udcbc\udcac\udcb2\udcdd
+212,0,0,0,1000,50,200,С\udcb3\udcf3\udcba\udcd0
+213,0,0,0,1000,7.5,50,\udcbf󹤸\udce4
+214,0,0,0,1000,50,200,ʱ\udcbf\udcd5\udccb\udce9Ƭ
+215,0,0,0,1000,50,200,\udcbb\udcfaе\udccb\udce9Ƭ
+216,0,0,0,1000,90,300,\udcb3\udcac\udcbc\udcb6\udcbb\udcfaе\udccb\udce9Ƭ
+217,0,0,0,4000,30,50,ȫϢ\udcbc\udce1\udcb9\udcfb
+218,0,0,0,300,7.5,75,\udcb7\udcb4\udcb5\udcafҶ\udcc2\udccc\udcc7\udcf2
+219,0,0,0,300,0.5,0,\udcbc\udcfdͷ
+220,0,0,0,300,30,200,\udcbbƽ\udcf0\udcb9\udcde\udcd7\udcd3
+221,0,0,0,300,7.5,0,\udcc8ںϹ\udcfd\udcb3\udccc
+222,0,0,300,300,50,275,\udcc1\udcd2\udcd1汬\udcd6\udcf1
+223,0,0,0,300,50,150,ƽ\udcb0\udcb2\udcb9\udcfb
+224,0,0,0,2000,30,100,\udccc\udcfaͰ
+225,0,0,0,4000,50,200,\udce9\udccf\udce9\udcadñ
+226,0,0,0,300,15,75,ɥʬ\udcbb\udca8\udcc5\udce8
+227,0,0,0,300,15,25,\udcd7\udceaʯģ\udcb7\udcc2\udcd5\udcdf
+228,0,0,0,300,50,-125,\udcbd\udca9ʬ\udcbb\udcf0\udcba\udcec\udcc1\udcab
+229,0,0,0,300,50,200,\udcd0\udcd2\udcd4\udccb\udccb\udcc4Ҷ\udcb2\udcdd
+230,0,25,0,300,7.5,25,ө\udcbb\udcf0\udcd1\udcf4\udcb9⹽\udca1\udca4ө\udcb9\udce2\udce8\udcad\udce8\udcb2
+231,0,25,0,300,7.5,50,ө\udcbb\udcf0\udcd1\udcf4\udcb9⹽\udca1\udca4ө\udcbb\udcf0Ʈ\udccb\udce6
+232,0,25,0,300,7.5,75,ө\udcbb\udcf0\udcd1\udcf4\udcb9⹽\udca1\udca4\udcc1\udcf7ө\udcb7׷\udcc9
+233,0,0,0,300,30,50,\udcb1\udcf9\udcbf\udce9\udcc0\udcf1\udcba\udcd0
+234,0,0,0,32000,90,400,\udcd7\udceaʯ\udccd\udcc1\udcb6\udcb9\udcbc\udce1\udcb9\udcfb
+235,3,0,40,300,7.5,100,\udcb0\udcd9\udccf\udce3˫\udccf\udcec\udcc5\udcda
+236,0,0,20,4000,30,150,\udcb6\udcb3\udcc0\udce6
+237,1.5,0,20,300,7.5,325,\udcb1\udcf9\udcc8\udcd0ѩ\udcc1\udcab
+238,0,0,0,300,50,100,\udcc7\udce5\udcc8\udcef\udcc7\udcef\udcbe\udcd5
+239,0,0,0,300,7.5,75,Ĺ\udcb1\udcae\udccd\udccc\udcca\udcc9\udcd5\udcdf
+240,0,0,0,4000,70,500,\udcba\udcda\udcea\udcd7ʯ\udcb4\udcf3\udcc2\udcf3
+241,0,0,0,300,30,100,\udcbc\udcab\udcba\udcae\udcb1\udcf9\udcb6\udcb9
+242,3,0,50,1000,90,200,\udcbb\udcf0\udcba\udcec\udcc1\udcabŮ\udccd\udcf5
+243,3,25,20,1000,30,125,\udcba\udcba\udcb1\udca4\udccd\udcf5
+244,0,0,0,300,30,50,\udcc8ں\udccf\udcd1\udcf3\udcd3\udcf3
+245,0,0,0,300,300,100,ģ\udcb7\udcc2\udcd5\udcdf
+246,0,0,0,300,30,100,\udcb4\udcc5\udcc1\udca6\udcba\udcd0\udcd7\udcd3
+247,0,0,0,300,3,0,\udcb4\udcc5\udcc1\udca6\udcbdӿ\udcda
+248,0,0,1800,300,30,125,è\udcb9\udccf
+249,6,0,200,300,30,325,\udcbd\udca3\udccf\udcc9\udcd1\udcee\udccc\udcd2
+250,0,0,0,300,50,-100,\udcbd\udca9ʬä\udcba\udcd0
+251,0,0,600,4000,30,100,\udcbe\udcde\udcd0\udccd\udcd1\udcf4\udcb9\udce2\udcbc\udce1\udcb9\udcfb
+252,1.5,0,40,300,50,125,ħ\udcb7\udca8è\udcc4\udcef
+253,0,0,0,300,30,50,\udcb4\udcf3\udcc2\udcf3
+254,0,0,0,300,50,125,\udcbb\udcf0\udcba\udcec\udcc1\udcab
+255,0,0,600,4000,30,100,\udcbe\udcde\udcd0ͼ\udce1\udcb9\udcfb
+256,0,0,0,300,15,100,\udcbe\udcaaϲ\udcc0\udcf1\udcba\udcd0
+300,6,0,1800,300,50,750,\udcbe\udcbf\udcbc\udcab\udcbd\udca3\udccf\udcc9\udcd1\udcee\udccc\udcd2
+301,0.5,0,300,300,90,1000,\udcbe\udcbf\udcbc\udcab\udccb\udcd9\udcc9\udce4ӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6
+302,2,0,300,300,50,850,\udcbe\udcbf\udcbc\udcabѪ\udcd4\udcc2\udcc9\udcf1\udcbe\udced\udcd0Ĳ\udccb
+303,0,0,0,300,90,500,\udcbe\udcbf\udcbc\udcabģ\udcb7\udcc2\udcd5ߴ\udcf3\udcc2\udcf3
+304,0,3,1800,300,90,800,\udcbe\udcbf\udcbc\udcab\udcb3\udce3\udcd1\udcf4\udccf\udcf2\udcc8տ\udcfb
+305,0,0,0,300,90,1500,\udcce\udcde\udccd\udcfd\udcb9\udcbd
+306,0.5,0,20,300,90,850,\udcba쿨\udcb4\udcf3\udcc5繽
+307,0,0,0,4000,50,150,ԭʼ\udcd1\udcf4\udcb9\udce2\udcb5۹\udcfb
+308,0,0,0,640000,90,900,\udcbe\udcbf\udcbc\udcab\udcbb\udcf9\udcd1Ҹ߼\udce1\udcb9\udcfb
+309,1.5,0,1800,8000,90,800,\udcba쿨\udcbb\udcfaǹ\udcbeѻ\udcf7\udcb4\udcf3\udcd7컨
+310,0,0,0,64000,90,750,\udcbe\udcbf\udcbc\udcab\udcbb\udcfaе\udcbc\udce1\udcb9\udcfb
+350,1.5,0,20,300,7.5,200,\udccd㶹\udccf\udcf2\udcc8տ\udcfb[\udccb\udcfe\udcb7\udcc0]
+351,20,0,0,300,7.5,150,\udcd1\udcf4\udcb9\udce2\udcb4\udcf3Ģ\udcb9\udcbd[\udccb\udcfe\udcb7\udcc0]
+352,3,0,20,300,50,400,\udcb3\udcac\udcbc\udcb6ӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6[\udccb\udcfe\udcb7\udcc0]
+353,0,0,10,4000,30,200,\udcd1\udcee\udcccҼ\udce1\udcb9\udcfb[\udccb\udcfe\udcb7\udcc0]
+354,0,0,1000,300,50,25,\udcd1\udcf4\udcb9\udce2\udccd\udcc1\udcb6\udcb9\udcc0\udcd7[\udccb\udcfe\udcb7\udcc0]
+355,3.8,0,5,300,7.5,200,\udcba\udcae\udcb1\udcf9\udcd3\udcc7\udcd3\udcf4\udcb9\udcbd[\udccb\udcfe\udcb7\udcc0]
+356,0,0,1000,300,50,500,ӣ\udcccҴ\udcf3\udcd7컨[\udccb\udcfe\udcb7\udcc0]
+357,1.5,0,20,300,7.5,300,\udcc9\udcc1\udcb5\udce7\udcd1\udcf3\udcb4\udcd0[\udccb\udcfe\udcb7\udcc0]
+358,1.5,0,10,300,7.5,50,\udccd㶹С\udcc5繽[\udccb\udcfe\udcb7\udcc0]
+359,25,0,0,300,7.5,25,\udcd1\udcf4\udcb9⹽[\udccb\udcfe\udcb7\udcc0]
+360,60,0,1000,300,50,500,\udcbb\udcd9\udcc3\udcf0\udcb4\udcf3\udcc5繽[\udccb\udcfe\udcb7\udcc0]
+361,0,0,0,300,50,0,Ĺ\udcb1\udcae\udccd\udccc\udcca\udcc9\udcd5\udcdf[\udccb\udcfe\udcb7\udcc0]
+362,1.5,0,20,300,7.5,200,\udcb5\udca8\udcb4\udcf3\udcb9\udcbd[\udccb\udcfe\udcb7\udcc0]
+363,0,0,1,300,50,125,\udcba\udcae\udcb1\udcf9\udcc8\udcfdҶ\udcb2\udcdd[\udccb\udcfe\udcb7\udcc0]
+364,0,0,1000,300,90,175,\udcbb\udcd9\udcc3\udcf0\udcd1\udcee\udccc\udcd2[\udccb\udcfe\udcb7\udcc0]
+365,3,0,40,300,7.5,300,\udcd6\udced\udcc1\udcfd\udcb2\udcdd\udcc6Ȼ\udcf7\udcc5\udcda[\udccb\udcfe\udcb7\udcc0]
+366,0,0,0,300,7.5,25,˯\udcc1\udcab[\udccb\udcfe\udcb7\udcc0]
+367,0,0,80,1000,30,75,\udcceѹϼ\udce1\udcb9\udcfb[\udccb\udcfe\udcb7\udcc0]
+368,1.5,0,20,300,30,400,\udcc8\udcfd\udccf\udcdf\udccd\udcc1\udcb6\udcb9\udcc0\udcd7[\udccb\udcfe\udcb7\udcc0]
+900,0,0,0,300,50,150,\udcf7ȵ۹\udcbd
+901,1.5,0,300,300,90,950,\udcbe\udcbf\udcbc\udcabӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6
+902,0,0,1800,300,90,600,\udcbe\udcbf\udcbc\udcab\udcbb\udcf0\udcb1\udcac\udcceѾ\udce6
+903,0,0,1000,8000,90,600,\udcbe\udcbf\udcbc\udcabӣ\udccc\udcd2ս\udcc9\udcf1
+904,0.5,0,100,300,90,425,\udcbe\udcbf\udcbc\udcab\udcb4\udcf3\udcc5繽
+905,0,0,0,4000,50,150,\udcd1\udcf4\udcb9\udce2\udcb5۹\udcfb
+906,1,0,300,8000,50,650,\udcd0\udcfe\udcb8ֵش\udccc\udccd\udcf5
+907,1.5,0,300,300,50,525,\udcbb\udcd9\udcc3𹽻\udcfaǹ\udcc9\udce4\udcca\udcd6
+908,1.5,0,20,300,30,125,\udcba\udcae\udcb1\udcf9\udcbb\udcfaǹС\udcc5繽
+909,1,0,30,300,90,450,\udcbe\udcbf\udcbc\udcab\udcd1\udcee\udcccҴ\udcf3\udcb5\udcdb
+910,1.9,0,100,300,90,525,\udcbe\udcbf\udcbc\udcab\udcd3\udcc7\udcd3\udcf4\udcb9\udcbd
+911,0,0,200,16000,50,525,\udcbe\udcbf\udcbc\udcab\udcbc\udca4\udcb9\udce2\udcc4Ϲ\udccf
+912,1.5,0,200,300,50,200,\udcbe\udcbf\udcbc\udcab\udcbc\udca4\udcb9\udce2\udcce\udcde\udcc8˻\udcfa
+913,0,0,0,32000,90,450,\udcbe\udcbf\udcbc\udcab\udcba\udcda\udcea\udcd7ʯ\udcb8߼\udce1\udcb9\udcfb
+914,2,0,120,300,90,900,\udcbe\udcbf\udcbc\udcabͶ\udcca\udcd6
+915,35,0,1800,300,90,575,\udcbe\udcbf\udcbc\udcab\udcc0\udce4\udcbcż\udcd3ũ\udcc5\udcda
+916,0,0,0,4000,90,475,\udcc2̱\udca6ʯɡ
+917,0,0,0,300,50,150,\udcf7Ⱥ\udcf3\udcb9\udcbd
+918,0,0,0,300,50,400,\udcbbҽ\udcfd\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+919,1.5,0,160,300,90,650,ԡ\udcbb\udcf0\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+920,0,0,0,300,90,450,\udcbe\udcbf\udcbc\udcab\udcce\udce5Ҷ\udcb2\udcdd
+921,0,0,1000,8000,90,600,\udcbe\udcbf\udcbc\udcab\udcb6\udcbe\udccb\udce2ս\udcc9\udcf1
+922,0,0,0,16000,50,525,\udcbe\udcbf\udcbc\udcab\udcb4ű\udcac\udcc4Ϲ\udccf
+923,0,0,80,4000,90,475,\udcba챦ʯɡ
+924,2,0,120,300,90,350,\udcbe\udcbf\udcbc\udcab\udcf7Ȼ\udcf3\udcb9\udcbd
+925,0,0,0,32000,90,350,\udcbe\udcbf\udcbc\udcab\udcba\udcda\udcea\udcd7ʯ\udccd\udcc1\udcb6\udcb9\udcbc\udce1\udcb9\udcfb
+926,1.5,0,160,300,50,250,ħ\udcb7\udca8èβ\udcb2\udcdd
+927,0.5,0,80,8000,90,1000,\udcbe\udcbf\udcbc\udcab\udcbb\udcfaǹ\udcc5\udcdą
+928,0,0,0,300,90,325,\udcbb\udcc3\udcc3\udcf0\udcb9\udcbd
+929,1.5,0,20,300,50,125,\udcd1\udcf4\udcb9\udce2\udcbb\udcfaǹС\udcc5繽
+930,1.5,0,300,300,50,525,\udcbb\udcd9\udcc3\udcf0\udcbb\udcfaǹ\udcb5\udca8С\udcb9\udcbd
+931,0,0,0,16000,50,450,\udcd0\udcfe\udcb8ֵش̼\udce1\udcb9\udcfb
+932,0,0,0,300,50,575,ҡǮ\udcc8\udcfd\udccf߻\udcf0\udcbe\udce6
+933,1.5,0,300,300,90,425,\udcbe\udcbf\udcbc\udcab\udccf\udcc9\udcc8\udccb\udcd5\udcc6
+934,2,0,300,300,50,375,\udcbe\udcbf\udcbc\udcab̫\udcd1\udcf4\udcc9\udcf1\udcbe\udced\udcd0Ĳ\udccb
+935,0,0,0,8000,50,325,\udcb6๦\udcc4\udcdc\udcc4Ϲ\udccf
+936,0,15,0,300,50,500,̫\udcd1\udcf4\udcc4ܻ\udca8\udcc5\udce8
+937,1,0,300,1000,50,275,\udcc1\udcf7\udcb9\udce2\udccf\udcc9өɡ
+938,0,0,0,300,90,325,̰\udcd3\udcfb\udcb9\udcbd
+939,1.5,0,300,300,90,950,\udcbe\udcbf\udcbc\udcab\udcb8\udca1\udcbf\udcd5ӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6
+940,6,0,300,3000,90,500,\udcbe\udcbf\udcbc\udcab\udcbb\udcf0\udcc9񵯵\udcaf\udcb9\udcbd
+941,5,0,40,300,90,400,\udcbe\udcbf\udcbc\udcab̰\udcd3\udcfbˮ\udcb2\udcdd
+942,1,0,80,6000,50,475,\udccc\udcfa\udcb6\udcb9С\udcb6\udcd3
+943,2,0,300,300,90,525,\udcbe\udcbf\udcbc\udcab\udcb3\udcacʱ\udcbf\udcd5\udcd3\udcf1\udcc3\udcd7
+944,0,0,300,300,50,375,\udcb4\udcc5\udcc1\udca6\udcb9\udcbd\udccd\udcf5
+945,0,0,0,16000,90,525,\udcbe\udcbf\udcbc\udcab\udcb3\udcacʱ\udcbfռ\udce1\udcb9\udcfb
+946,3,0,300,8000,90,1000,\udcbe\udcbf\udcbc\udcab\udcbc\udca4\udcb9\udce2\udcc5\udcdą
+947,1.5,0,60,300,90,525,\udcbe\udcbf\udcbc\udcab\udcd4\udcc6ɼ
+948,0,0,1800,300,90,600,\udcbe\udcbf\udcbc\udcab\udcbb\udcf0\udcb1\udcac\udcd0Ǿ\udce6
+949,0,0,600,300,90,525,\udcbe\udcbf\udcbc\udcab·\udcb5ƻ\udca8
+950,0,15,0,300,50,500,̫\udcd1\udcf4\udcc4\udcdc˯\udcc1\udcab
+951,0,0,0,8000,7.5,625,\udcbe\udcbf\udcbc\udcab\udcb5\udcc6\udcc1\udcfd\udcbe\udcde\udcd7컨
+952,3,0,60,300,7.5,900,\udcbe\udcbf\udcbc\udcabСͶ\udcca\udcd6
+953,35,0,3600,300,90,700,\udcbe\udcbf\udcbc\udcab\udcb1\udcac\udcc6Ƽ\udcd3ũ\udcc5\udcda
+954,0,3,1800,300,90,350,\udcbe\udcbf\udcbc\udcab\udccf\udcf2\udcc8տ\udcfb
+955,2,0,300,300,50,375,\udcbe\udcbf\udcbc\udcab\udcd4\udcc2\udcc1\udcc1\udcc9\udcf1\udcbe\udced\udcd0Ĳ\udccb
+956,0,0,1800,300,50,425,\udccb\udcc0\udcc9\udcf1\udcb4\udcf3\udcd7컨
+957,0.5,0,300,300,90,875,\udcbe\udcbf\udcbc\udcab\udcb1\udcf9\udcc9\udcf1\udcce\udcf7\udcb9\udccf
+958,0.5,0,300,300,90,500,\udcbe\udcbf\udcbc\udcab\udcb1\udcac\udcec\udccdèβ\udcb2\udcdd
+959,0,0,3600,300,90,425,\udcba˱\udcacӣ\udccc\udcd2
+960,1.5,0,300,8000,90,150,\udcbe\udcbf\udcbc\udcab\udcba\udca3\udcd1\udcfd\udcb9\udcbd
+961,0,0,80,6000,50,475,\udccc\udcfa\udcb6\udcb9ͻ\udcbb\udcf7\udcb6\udcd3
+962,3,0,160,300,90,650,\udcb7ɻ\udcf0\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+963,0,0,0,4000,50,200,\udcbe\udcbf\udcbc\udcab\udcd1\udcf4\udcb9\udce2\udcb5۹\udcfb
+964,35,0,1800,300,90,575,\udcbe\udcbf\udcbc\udcab\udcc0\udce4\udcbc\udcc5\udcc1\udcf1\udcb5\udcaf\udcc5\udcda
+965,0,0,3600,300,90,425,\udcba˱\udcac\udcceѹ\udccf
+966,0.75,0,300,300,90,700,\udcbe\udcbf\udcbc\udcab\udcb1\udcac\udcc6\udcc6\udcc6Ȼ\udcf7\udcc5\udcda
+967,2,0,120,4000,90,350,\udcbe\udcbf\udcbc\udcab\udcf7Ȼ\udcf3\udcc4Ϲ\udccf
+968,0,0,0,4000,50,150,\udcbb\udcf0\udcd1\udce6\udcb5۹\udcfb
+969,0,0,0,4000,50,200,\udcbe\udcbf\udcbc\udcab\udcbb\udcf0\udcd1\udce6\udcb5۹\udcfb
+970,1.5,0,40,300,50,350,\udcce\udcd1\udcd3͵۴\udccc
+971,1.5,0,300,300,50,650,\udcbe\udcbf\udcbc\udcab\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd\udcc9\udce4\udcca\udcd6
+972,1.5,0,300,300,50,650,\udcbe\udcbf\udcbc\udcab\udcbb\udcd9\udcc3\udcf0\udcb5\udca8С\udcb9\udcbd
+973,1.5,0,100,300,7.5,225,ħ\udcb7\udca8\udccdö\udcfa\udcb4\udcd0
+974,0,25,0,300,50,375,\udcb4\udcc5\udcc1\udca6\udcb9\udcbd\udcba\udcf3
+975,0.5,0,80,1000,50,275,\udcba\udcae\udcbe\udca7\udccf\udcc9өɡ
+976,1.5,0,160,300,7.5,325,\udcb6๦\udcc4\udcdc\udcd1\udcee\udccc\udcd2
+977,0,0,3600,64000,90,400,\udcbe\udcbf\udcbc\udcab\udcba\udcda\udcea\udcd7ʯ\udcc0\udcb1\udcbd\udcb7\udcb9\udcbd
+978,0,0,300,300,7.5,350,\udcce\udcd1\udcd3͵\udcdb\udcc5\udce8
+979,4,0,200,300,90,550,\udcc1\udcd2\udcd1\udce6\udcd6\udcf1\udcc1\udcfa
+980,0,0,0,8000,90,575,\udcbe\udcbf\udcbc\udcab\udcb6\udcac\udccb\udcf1
+981,0,0,3600,300,90,875,\udcbe\udcbf\udcbc\udcab\udcb1\udcf9\udcc9\udcf1\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+982,0,0,0,300,50,575,ҡǮ\udcc8\udcfd\udccf\udcdf·\udcb5ƻ\udca8
+983,0,0,1800,300,50,425,\udccb\udcc0\udcc9\udcf1\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+984,0.5,0,40,300,90,525,\udcbe\udcbf\udcbc\udcab\udcc1\udcf7\udcb9\udce2\udcc9\udce4\udcca\udcd6
+985,1.5,0,80,4000,50,700,\udcbe\udcbf\udcbc\udcab\udcba\udcda\udce9\udccf魻\udcfaǹ
+986,3,0,900,300,50,700,\udcbe\udcbf\udcbc\udcab\udcb3\udcacʱ\udcbfվѻ\udcf7
+987,1.5,0,40,300,30,150,\udcbe\udcbf\udcbc\udcab\udcba\udcae\udcb1\udcf9\udcbb\udcfaǹС\udcc5繽
+988,1.5,0,40,300,30,150,\udcbe\udcbf\udcbc\udcab\udcd1\udcf4\udcb9\udce2\udcbb\udcfaǹС\udcc5繽
+989,1.5,0,40,300,90,525,\udcbe\udcbf\udcbc\udcabӰ\udcca\udcc9\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+990,0,0,1800,8000,30,150,С\udcbaڽ\udcb7
+991,6,0,300,3000,90,500,\udcbe\udcbf\udcbc\udcab\udcbb\udcf0\udcc9\udcf1\udcf0\udca4𤹽
+992,1.5,0,300,300,50,200,\udcc0\udce4\udcbcź\udcae\udcb1\udcf9\udcb9\udcbd
+993,1.5,0,300,300,90,275,\udcbe\udcbf\udcbc\udcab\udcf7Ȼ\udcf3è\udcc4\udcef
+994,1.5,0,300,300,90,275,\udcbe\udcbf\udcbc\udcab\udcf7Ȼ\udcf3è\udcc4\udcef½\udcb5\udcd8
+995,0,0,300,300,50,200,\udcc0\udce4\udcbcź\udcae\udcb1\udcf9\udcb9\udcbd2
+996,0.5,0,100,300,50,500,\udcbe\udcbf\udcbc\udcab\udcb1\udcac\udcd1׺\udca3Ģ\udcb9\udcbd
+997,0,0,0,64000,90,525,\udcbe\udcbf\udcbc\udcab\udcb1\udca4\udcc0ݼ\udce1\udcb9\udcfb
+998,3,0,0,300,30,300,\udcbe\udcab\udcc8\udcf1쫷\udce7\udcc8\udcfdҶ\udcb2\udcdd
+999,1.5,0,180,300,90,775,spԡ\udcbb\udcf0
+1000,1.5,25,30,300,7.5,150,\udccd㶹\udccf\udcf2\udcc8տ\udcfb
+1001,1.5,0,40,300,50,250,ӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6
+1002,0,0,1800,300,50,200,\udcd1\udcf4\udcb9\udce2ը\udcb5\udcaf
+1003,0,0,0,4000,50,200,ӣ\udcccҼ\udce1\udcb9\udcfb
+1004,1.5,0,20,4000,30,150,\udcbc\udce1\udcb9\udcfb\udcc9\udce4\udcca\udcd6
+1005,3,0,300,300,50,400,\udcb3\udcac\udcbc\udcb6ӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6
+1006,0,15,0,4000,30,100,\udcd1\udcf4\udcb9\udce2\udcbc\udce1\udcb9\udcfb
+1007,1.5,0,30,300,30,75,\udccd㶹\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1008,1.5,0,40,300,50,350,ӣ\udccc\udcd2˫\udcb7\udca2\udcc9\udce4\udcca\udcd6
+1009,0,15,1800,300,30,50,\udcd1\udcf4\udcb9\udce2\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1010,0,0,0,4000,30,75,\udccd\udcc1\udcb6\udcb9\udcbc\udce1\udcb9\udcfb
+1011,3,0,80,300,7.5,250,\udccd㶹\udcb4\udcf3\udcd7컨
+1012,0,0,0,4000,30,200,\udcb4\udcf3\udcd7\udcec\udcbc\udce1\udcb9\udcfb
+1013,0,0,200,4000,30,300,\udcb3\udcac\udcbc\udcb6\udcb4\udcf3\udcd7컨
+1014,0,0,0,300,7.5,200,\udcd1\udcf4\udcb9\udce2\udcb4\udcf3\udcd7컨
+1015,0,0,0,300,30,100,\udccd\udcc1\udcb6\udcb9\udcb4\udcf3\udcd7컨
+1016,0,0,1800,300,50,300,ӣ\udcccҴ\udcf3\udcd7컨
+1017,1.5,0,40,300,50,550,ӣ\udcccһ\udcfaǹ\udcc9\udce4\udcca\udcd6
+1018,2.25,0,20,300,7.5,25,\udccd㶹С\udcc5繽
+1019,2.25,0,20,300,7.5,50,˫\udcb7\udca2С\udcc5繽
+1020,1.5,0,80,2000,7.5,200,\udccc\udcfaͰ\udccd㶹\udcc9\udce4\udcca\udcd6
+1021,0,0,0,2000,30,25,\udcbc\udce1\udcb9\udcfbСĢ\udcb9\udcbd
+1022,0,0,0,300,30,25,\udcf7Ȼ\udcf3СĢ\udcb9\udcbd
+1023,1.5,0,40,300,30,150,\udcf7Ȼ\udcf3\udcb4\udcf3\udcc5繽
+1024,1.5,0,40,300,30,100,\udcf7Ȼ\udcf3\udcb5\udca8С\udcb9\udcbd
+1025,1.5,0,30,300,7.5,100,\udcb5\udca8\udcb4\udcf3\udcb9\udcbd
+1026,3,0,120,300,30,175,\udcb3\udcac\udcbc\udcb6\udcf7Ȼ\udcf3\udcb9\udcbd
+1027,0,0,0,8000,50,125,\udcb8߼\udce1\udcb9\udcfb
+1028,0,0,0,16000,50,175,\udce9\udccf魸߼\udce1\udcb9\udcfb
+1029,0,0,0,8000,50,100,\udccc\udcfaͰ\udcbc\udce1\udcb9\udcfb
+1030,1.5,0,20,300,7.5,200,˫\udcb7\udca2\udcc9\udce4\udcca\udcd6
+1031,0,25,0,300,7.5,25,\udcd1\udcf4\udcb9⹽
+1032,1.5,0,20,300,7.5,400,\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1033,0,20,0,300,7.5,100,˫\udcd7\udcd3\udccf\udcf2\udcc8տ\udcfb
+1034,1.5,0,20,300,7.5,175,\udcba\udcae\udcb1\udcf9\udcc9\udce4\udcca\udcd6
+1035,2.25,0,20,300,7.5,50,\udcba\udcae\udcb1\udcf9С\udcc5繽
+1036,0,0,0,300,7.5,25,\udcba\udcae\udcb1\udcf9СĢ\udcb9\udcbd
+1037,1.5,0,40,300,7.5,150,\udcba\udcae\udcb1\udcf9\udcb4\udcf3\udcc5繽
+1038,1.5,0,40,300,7.5,100,\udcba\udcae\udcb1\udcf9\udcb5\udca8С\udcb9\udcbd
+1039,0,0,0,8000,50,200,\udcba\udcae\udcb1\udcf9\udcb8߼\udce1\udcb9\udcfb
+1040,0,0,1800,300,90,200,\udcba\udcae\udcb1\udcf9\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+1041,0,0,0,300,50,150,\udcba\udcae\udcb1\udcf9\udcf7Ȼ\udcf3\udcb9\udcbd
+1042,1.5,0,20,300,50,150,\udcbb\udcd9\udcc3\udcf0\udcb5\udca8С\udcb9\udcbd
+1043,60,0,1800,300,50,200,\udcbb\udcd9\udcc3\udcf0\udcb4\udcf3\udcc5繽
+1044,0,0,1800,300,30,25,\udcbb\udcd9\udcc3\udcf0СĢ\udcb9\udcbd
+1045,0,0,0,300,50,200,\udcbb\udcd9\udcc3\udcf0\udcf7Ȼ\udcf3\udcb9\udcbd
+1046,3,0,20,300,50,275,\udcb3\udcac\udcbc\udcb6\udcb4\udcf3\udcc5繽
+1047,3,0,40,300,7.5,325,\udcc8\udcfd\udccf\udcdf\udcceѹ\udccf\udcc9\udce4\udcca\udcd6
+1048,0,0,0,4000,30,150,\udcb5ش̼\udce1\udcb9\udcfb
+1049,0,0,1800,300,30,125,\udcbb𱬲\udcf8\udcc8\udcc6ˮ\udcb2\udcdd
+1050,0,0,600,300,30,75,\udcceѹ\udccfˮ\udcb2\udcdd
+1051,1.5,0,30,300,30,300,\udcc8\udcfd\udccf\udcdfˮ\udcb2\udcdd\udcc9\udce4\udcca\udcd6
+1052,0,0,40,300,50,425,\udcb3\udcac\udcbc\udcb6\udcbb\udcf0\udcbe\udce6\udcca\udcf7׮
+1053,0,0,0,300,30,300,\udcbb\udcf0\udcb1\udcac\udcca\udcf7׮
+1054,0,0,1800,300,50,175,\udcbb\udcf0\udcb1\udcac\udcceѹ\udccf
+1055,0,0,0,300,7.5,450,\udcc8\udcfd\udccf߻\udcf0\udcbe\udce6\udcca\udcf7׮
+1056,0,0,0,300,30,175,\udcbb\udcf0\udcbe\udce6ˮ\udcb2\udcdd
+1057,0,0,1800,300,30,50,\udcd1\udce6\udcb9\udce2\udcceѹ\udccf
+1058,1.5,0,40,300,50,400,\udcbd\udcb9\udcba\udcda\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+1059,0,0,0,300,7.5,225,\udcceѹϻ\udcf0\udcbe\udce6\udcca\udcf7׮
+1060,1,0,20,450,50,125,\udcb5ش\udccc\udccd\udcf5
+1061,1,0,40,300,7.5,275,\udcbb\udcf0\udcbe\udce6\udcb5ش\udccc
+1062,1,0,40,300,50,225,\udcbb\udcf0\udcd1\udce6\udcb5ش\udccc
+1063,1.5,0,20,300,7.5,150,\udcceѹϵش\udccc
+1064,1.5,0,5,300,7.5,375,\udcc8\udcfd\udccfߵش\udccc\udcc9\udce4\udcca\udcd6
+1065,2.25,0,20,300,50,100,\udcbb\udcfaǹС\udcc5繽
+1066,3,0,40,300,30,350,\udcb3\udcac\udcbc\udcb6ˮ\udcb2\udcdd
+1067,1.5,0,20,300,50,125,èβ\udcb2\udcdd
+1068,1.5,0,40,300,50,200,\udcba\udcae\udcb1\udcf9èβ\udcb2\udcdd
+1069,1.5,0,40,300,50,225,\udcbb\udcf0\udcd1\udce6èβ\udcb2\udcdd
+1070,1.9,0,20,300,30,125,\udcd3\udcc7\udcd3\udcf4\udcb9\udcbd
+1071,1.9,0,40,300,50,250,\udcbb\udcf0\udcd1\udce6\udcd3\udcc7\udcd3\udcf4\udcb9\udcbd
+1072,1.9,0,40,300,50,200,\udcba\udcae\udcb1\udcf9\udcd3\udcc7\udcd3\udcf4\udcb9\udcbd
+1073,0,0,0,8000,50,250,\udcbb\udcf0\udcd1\udce6\udcb8߼\udce1\udcb9\udcfb
+1074,1,0,40,450,50,300,\udcba\udcae\udcb1\udcf9\udcb5ش\udccc\udccd\udcf5
+1075,1,0,40,450,50,350,\udcbb\udcf0\udcd1\udce6\udcb5ش\udccc\udccd\udcf5
+1076,1.5,0,20,300,7.5,25,\udccf\udcc9\udcc8\udccb\udcd5ƺ\udca3Ģ\udcb9\udcbd
+1077,0,15,0,300,7.5,25,\udcd1\udcf4\udcb9⺣Ģ\udcb9\udcbd
+1078,0,0,0,300,7.5,25,\udcba\udca3\udcb5ƹ\udcbd
+1079,1.5,0,30,300,7.5,150,\udcc1\udcf7\udcb9\udce2\udccf\udcc9\udcc8\udccb\udcd5\udcc6
+1080,0,0,0,300,7.5,125,\udcc1\udcf7\udcb9\udce2\udcc8\udcfdҶ\udcb2\udcdd
+1081,3,0,60,300,7.5,150,\udcc1\udcf7\udcb9\udce2\udcd1\udcee\udccc\udcd2
+1082,1.5,0,30,300,7.5,100,\udcb8\udca1\udcbf\udcd5\udccf\udcc9\udcc8\udccb\udcc7\udcf2
+1083,1.5,0,20,300,7.5,75,\udcd1\udcee\udcccҺ\udca3Ģ\udcb9\udcbd
+1084,0,0,0,300,15,225,\udcd1\udcee\udccc\udcd2\udcce\udce5Ҷ\udcb2\udcdd
+1085,1.5,0,20,300,7.5,250,\udccf\udcc9\udcc8\udccb\udcd5\udcc6\udcd1\udcee\udccc\udcd2
+1086,0,0,0,300,15,50,\udcc8\udcfdҶ\udcba\udca3Ģ\udcb9\udcbd
+1087,0,0,0,4000,30,150,\udcc1\udcf7\udcc3\udcf7\udcc4Ϲ\udccf
+1088,0,0,0,4000,30,250,\udccf\udcc9\udcc8\udccb\udcd5\udcc6\udcc4Ϲ\udccf
+1089,0,0,0,4000,30,250,\udcd1\udcee\udccc\udcd2\udcc4Ϲ\udccf
+1090,1.5,0,20,300,7.5,300,\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+1091,0,0,0,4000,30,225,\udcc8\udcfdҶ\udcc4Ϲ\udccf
+1092,0,0,20,4000,30,225,\udcb4\udcc5\udcc1\udca6\udcc4Ϲ\udccf
+1093,1.5,0,40,300,7.5,225,\udcb4\udcc5\udcc1\udca6\udcd1\udcee\udccc\udcd2
+1094,1.5,0,40,300,7.5,275,\udccd\udce6ż\udcd1\udcee\udccc\udcd2
+1095,1.5,0,40,300,7.5,275,\udcbf\udcf3\udcb9\udca4\udcd1\udcee\udccc\udcd2
+1096,1.5,0,80,2000,7.5,275,\udccc\udcfaͰ\udcd1\udcee\udccc\udcd2
+1097,0,0,0,8000,30,275,\udccc\udcfaͰ\udcc4Ϲ\udccf
+1098,0,0,0,4000,30,275,\udccd\udce6ż\udcc4Ϲ\udccf
+1099,0,0,0,4000,30,275,\udcbf\udcf3\udcb9\udca4\udcc4Ϲ\udccf
+1100,0,0,200,300,7.5,125,\udcc1\udcf7\udcb9\udce2\udcb4\udcc5\udcc1\udca6\udcb9\udcbd
+1101,0,0,0,300,7.5,50,\udcba\udca3\udcb4\udcc5\udcc1\udca6\udcb9\udcbd
+1102,0,0,0,300,7.5,200,\udcb4\udcc5\udcc1\udca6\udcc8\udcfdҶ\udcb2\udcdd
+1103,1.5,0,40,300,7.5,225,\udcb4\udcc5\udcc1\udca6\udccf\udcc9\udcc8\udccb\udcd5\udcc6
+1104,3,0,60,300,7.5,250,\udcb3\udcac\udcbc\udcb6\udcd1\udcee\udccc\udcd2
+1105,1.5,0,20,300,7.5,275,\udcba\udcae\udcb1\udcf9˫\udcb7\udca2\udcc9\udce4\udcca\udcd6
+1106,1.5,0,20,300,7.5,475,\udcba\udcae\udcb1\udcf9\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1107,1.5,0,20,300,7.5,375,\udcba\udcae\udcb1\udcf9\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+1108,1.5,0,40,300,50,450,ӣ\udccc\udcd2\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+1109,3,0,500,300,7.5,600,\udcbeѻ\udcf7\udcc9\udce4\udcca\udcd6
+1110,0,0,0,4000,30,325,\udcb3\udcac\udcbc\udcb6\udcc4Ϲ\udccf
+1111,5,0,50,300,7.5,50,\udcd1\udcf4\udcb9\udce2\udcbe\udced\udcd0Ĳ\udccbͶ\udcca\udcd6
+1112,0,0,0,300,7.5,100,\udcbe\udced\udcd0Ĳ˻\udca8\udcc5\udce8
+1113,3,0,40,300,7.5,200,\udcd3\udcf1\udcc3׾\udcedͶ\udcca\udcd6
+1114,0,0,0,300,7.5,100,\udcd3\udcf1\udcc3׻\udca8\udcc5\udce8
+1115,0,0,0,1000,7.5,200,\udcbb\udcc6\udcd3ͱ\udca3\udcbb\udca4ɡ
+1116,3,0,80,300,50,375,\udcb1\udcf9\udcb9\udccf
+1117,3,0,40,300,7.5,150,\udccb\udce2\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1118,3,0,40,300,7.5,150,\udccb\udce2\udcbe\udced\udcd0Ĳ\udccbͶ\udcca\udcd6
+1119,3,0,100,300,7.5,350,\udccb\udce2\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1120,35,0,1800,300,50,300,\udcd3\udcf1\udcc3׼\udcd3ũ\udcc5\udcda
+1121,3,0,140,300,7.5,400,\udcd3\udcf1\udcc3׹\udccfͶ\udcca\udcd6
+1122,35,0,3240,300,50,425,\udcbb\udcf0\udcd1\udce6\udcbc\udcd3ũ\udcc5\udcda
+1123,35,0,3240,300,50,375,\udcba\udcae\udcb1\udcf9\udcbc\udcd3ũ\udcc5\udcda
+1124,3,0,80,300,7.5,400,\udcbe\udced\udcd0Ĺ\udccfͶ\udcca\udcd6
+1125,0,0,0,300,7.5,100,\udcce\udcf7\udcb9ϻ\udca8\udcc5\udce8
+1126,5,0,140,300,7.5,500,\udcb3\udcac\udcbc\udcb6Ͷ\udcca\udcd6
+1127,0,0,0,1000,7.5,150,\udcb4\udcf3\udccbⱣ\udcbb\udca4ɡ
+1128,0,0,0,1000,7.5,200,\udcbe\udced\udcd0Ĳ˱\udca3\udcbb\udca4ɡ
+1129,0,0,0,4000,50,100,\udcbb\udcfaе\udcbc\udce1\udcb9\udcfb
+1130,0,0,0,300,7.5,50,\udcb4\udcf3\udccb⻨\udcc5\udce8
+1131,0,0,80,2000,7.5,400,\udcce\udcf7\udcb9ϱ\udca3\udcbb\udca4ɡ
+1132,35,0,200,1000,50,750,\udcce\udcf7\udcb9\udccf\udcc1\udcf1\udcb5\udcaf\udcc5\udcda
+1133,0,0,0,300,7.5,100,\udcb1\udca3\udcbb\udca4ɡ\udcbb\udca8\udcc5\udce8
+1134,3,0,60,300,7.5,125,\udcd2\udcf8\udcbe\udced\udcd0Ĳ\udccbͶ\udcca\udcd6
+1135,3,0,80,300,7.5,225,\udcbd\udcf0\udcbe\udced\udcd0Ĳ\udccbͶ\udcca\udcd6
+1136,0,25,0,300,7.5,0,\udcd2\udcf8\udcbb\udca8\udcc5\udce8
+1137,0,25,0,300,90,9999,\udcbd\udcf0\udcbb\udca8\udcc5\udce8
+1138,3,0,40,300,7.5,125,\udcd2\udcf8\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1139,3,0,60,300,7.5,225,\udcbd\udcf0\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1140,0,20,0,300,7.5,50,˫\udcd7ӽ\udcf0յ\udcbb\udca8
+1141,3,0,100,300,7.5,325,\udcd2\udcf8\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1142,3,0,120,300,7.5,525,\udcbd\udcf0\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1143,0,0,0,1000,7.5,125,\udcd2\udcf8\udcb1\udca3\udcbb\udca4ɡ
+1144,0,0,0,1000,15,225,\udcbd𱣻\udca4ɡ
+1145,0,0,0,600,7.5,75,\udcd2\udcf8\udccb\udce2
+1146,0,0,0,900,15,125,\udcbd\udcf0\udccb\udce2
+1147,0,0,0,4000,30,125,\udcf7Ȼ\udcf3\udcbc\udce1\udcb9\udcfb
+1148,0,0,0,4000,30,275,\udcb3\udcac\udcbc\udcb6\udcb1\udca3\udcbb\udca4ɡ
+1149,3,0,120,300,7.5,425,\udcbb\udcf0\udcb9\udccf
+1150,0,0,0,300,7.5,200,\udcce\udcfc\udcbd\udcf0\udcb4\udcc5
+1151,0,0,0,8000,30,600,\udcb3\udcac\udcbc\udcb6\udcbb\udcfaе\udcbc\udce1\udcb9\udcfb
+1152,2.25,0,80,1000,7.5,125,\udccc\udcfa\udcb6\udcb9С\udcc5繽
+1153,2.25,0,20,300,7.5,75,\udcc1Ѽ\udcd4С\udcc5繽
+1154,0,25,0,300,7.5,150,\udcd1\udcf4\udcb9\udce2\udcb4\udcc5\udcc1\udca6\udcb9\udcbd
+1155,1,0,20,300,7.5,100,\udcd1\udce6\udcb9\udce2\udcb5ش\udccc
+1156,0,0,0,300,30,25,\udcd1\udce6\udcb9\udce2\udcb2\udcf8\udcc8\udcc6ˮ\udcb2\udcdd
+1157,0,0,0,300,30,175,\udcf7Ȼ\udcf3\udcb4\udcc5\udcc1\udca6\udcb9\udcbd
+1158,1.5,0,40,300,7.5,175,\udcb4\udcc5\udcc1\udca6\udcb4\udcf3\udcc5繽
+1159,1.5,0,50,2000,7.5,225,\udccc\udcfaͰ\udcb4\udcf3\udcc5繽
+1160,1.5,0,100,3000,7.5,300,\udce9\udccf魴\udcf3\udcc5繽
+1161,0.5,0,20,1000,30,800,\udcbb\udcfaǹ\udccd㶹\udcc5\udcdą
+1162,0,0,0,300,50,175,ӣ\udccc\udcd2\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1163,0,0,0,300,50,150,\udcc0\udcb1\udcbd\udcb7\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1164,0,0,0,4000,30,275,ӣ\udccc\udcd2\udcc4Ϲ\udccf
+1165,1.5,0,20,300,50,675,\udcba\udcae\udcb1\udcf9\udcb3\udcac\udcbc\udcb6\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1166,0,0,300,300,7.5,250,ӣ\udcccҴ\udcc5\udcc1\udca6\udcb9\udcbd
+1167,3,0,300,300,30,725,\udcbb\udcf0\udcd1\udce6\udcbeѻ\udcf7\udcc9\udce4\udcca\udcd6
+1168,1.5,0,20,300,50,600,\udcb3\udcac\udcbc\udcb6\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1169,0,0,0,12000,50,450,\udcce\udce4װ\udcc4Ϲ\udccf
+1170,2,0,20,300,7.5,25,\udccd\udcc1\udcb6\udcb9С\udcc5繽
+1171,3,0,600,300,30,50,\udccd\udcc1\udcb6\udcb9\udcb5\udca8С\udcb9\udcbd
+1172,1.5,0,30,300,7.5,125,\udcb4\udcf3\udccb\udce2\udcc5繽
+1173,0,0,1800,32000,50,200,\udcba\udcda\udcea\udcd7ʯ\udcc0\udcb1\udcbd\udcb7\udcb9\udcbd
+1174,0,0,0,1000,7.5,450,\udcbe\udcde\udcd0ʹ\udcf3\udcd7컨
+1175,1.5,0,20,1000,30,150,\udcba\udca3\udcd1\udcfd\udcb9\udcbd
+1176,0,0,0,300,30,175,\udcf7Ȼ\udcf3\udcc8\udcfdҶ\udcb2\udcdd
+1177,1.5,0,8,300,7.5,200,˫\udcd7Ӹ\udcd6Ҷ\udcb2\udcdd
+1178,0,0,0,300,50,325,ӣ\udccc\udcd2\udcca\udcf7׮
+1179,0,0,300,300,30,275,ӣ\udccc\udcd2\udcc0\udcb1\udcbd\udcb7
+1180,1,0,40,300,7.5,175,\udcba\udcae\udcb1\udcf9\udcb5ش\udccc
+1181,0,0,0,300,15,150,\udccb\udce2\udcc8\udcfdҶ\udcb2\udcdd
+1182,0,0,0,300,7.5,250,\udcbc\udcab\udcba\udcae\udcca\udcf7׮
+1183,2.25,0,20,300,7.5,50,\udcd1\udcee\udccc\udcd2СĢ\udcb9\udcbd
+1184,0,25,0,300,7.5,25,\udcd1\udcf4\udcb9⻨\udcc5\udce8
+1185,0,0,0,1000,7.5,125,\udcb9\udce2Ҷ\udcb1\udca3\udcbb\udca4ɡ
+1186,0,0,0,1000,7.5,225,\udccf\udcc9\udcc8\udccb\udcd5Ʊ\udca3\udcbb\udca4ɡ
+1187,0,15,0,300,7.5,75,\udcd2\udcf8\udccf\udcf2\udcc8տ\udcfb
+1188,0,0,0,300,7.5,9999,\udcbd\udcf0\udccf\udcf2\udcc8տ\udcfb
+1189,0,0,0,4000,30,125,\udcba\udcae\udcb1\udcf9\udcbc\udce1\udcb9\udcfb
+1190,0,0,0,4000,30,150,\udccd\udcc1\udcb6\udcb9\udcc4Ϲ\udccf
+1191,1.5,0,40,300,7.5,250,\udcbb\udcd9\udcc3\udcf0\udccf\udcc9\udcc8\udccb\udcd5\udcc6
+1192,0,0,1800,300,30,275,\udcbb\udcd9\udcc3\udcf0\udcb4\udcf3\udcd7컨
+1193,1.5,0,1,300,7.5,200,\udcbb\udcf0\udcd1\udce6\udcb4\udcf3\udcc5繽
+1194,1.5,0,40,300,30,225,\udcbb\udcd9\udcc3\udcf0\udccd㶹\udcc9\udce4\udcca\udcd6
+1195,0,0,0,300,7.5,25,\udcc1\udcf7\udcb9⻨\udcc5\udce8
+1196,3,0,120,300,7.5,375,\udcce\udcf7\udcb9ϵ\udcaf\udcb5\udcaf\udcb9\udcbd
+1197,0,0,0,300,7.5,300,\udcd1\udcee\udccc\udcd2\udcca\udcf7׮
+1198,0,0,1800,300,50,250,\udcbb\udcf0\udcb1\udcac\udcd1\udcee\udccc\udcd2
+1199,0,0,0,300,7.5,300,\udcd3\udce0\udcbd\udcfd\udcca\udcf7׮
+1200,0,0,0,2000,30,150,׳\udcb5\udca8\udcc4Ϲ\udccf
+1201,0.75,0,20,300,7.5,150,\udcd1\udcee\udcccҵ\udca8С\udcb9\udcbd
+1202,0,0,0,4000,30,175,\udcceѹ\udccf\udcc4Ϲ\udccf
+1203,3,0,20,300,7.5,25,\udcd3\udcf1\udcc3\udcd7СͶ\udcca\udcd6
+1204,0,0,0,300,7.5,175,\udcb8\udca1\udcbfձ\udca3\udcbb\udca4ɡ
+1205,0,0,0,4000,30,200,\udcf7Ȼ\udcf3\udcc4Ϲ\udccf
+1206,0,0,0,4000,30,150,\udcbc\udce1\udcb9\udcfb\udcb1\udca3\udcbb\udca4ɡ
+1207,0,0,300,600,7.5,250,ӣ\udcccұ\udca3\udcbb\udca4ɡ
+1208,1,0,0,300,7.5,200,\udcb3\udcacʱ\udcbf\udcd5\udccd㶹\udcc9\udce4\udcca\udcd6
+1209,3,0,60,300,7.5,200,\udcb4\udcc5\udcc1\udca6\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1210,3,0,80,300,7.5,300,\udcb3\udcacʱ\udcbf\udcd5\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1211,3,0,80,2000,7.5,250,\udccc\udcfaͰ\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1212,0,0,1800,300,50,225,\udcba\udcae\udcb1\udcf9ӣ\udccc\udcd2
+1213,0,0,0,300,50,225,\udcb4\udcc5\udcc1\udca6\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+1214,0,0,3240,300,50,325,\udcb3\udcacʱ\udcbfջ\udcd9\udcc3\udcf0\udcb9\udcbd
+1215,0,0,0,4000,30,150,\udcb3\udcacʱ\udcbfռ\udce1\udcb9\udcfb
+1216,1.5,0,20,300,7.5,200,\udcb8\udca1\udcbf\udcd5\udccd㶹\udcc9\udce4\udcca\udcd6
+1217,3,0,80,300,7.5,275,\udcb8\udcd6ľ\udcb9\udcad\udcca\udcd6
+1218,0,0,8,300,7.5,175,ˮҶ\udcb2\udcdd
+1219,1.5,0,50,300,7.5,250,ˮ\udcb5\udcce\udcc9\udce4\udcca\udcd6
+1220,3,0,5,300,7.5,300,\udcb3\udcac\udcbc\udcb6\udcd4\udcc6ɼ
+1221,0,0,100,300,30,175,\udcc1\udcab\udcbb\udca8\udcd4\udcc6ɼ
+1222,0,0,0,300,30,150,\udcb8\udcd6Ҷ\udcc1\udcab\udcbb\udca8
+1223,0,0,0,300,7.5,150,\udcd4\udcc6ɼ\udccb\udcc9¯
+1224,0,0,0,300,7.5,125,\udcb8\udcd6Ҷ\udccb\udcc9¯
+1225,0,0,0,300,7.5,75,\udcc1\udcab\udcbb\udca8\udccb\udcc9¯
+1226,0,0,0,300,7.5,100,«\udcdc\udcf6\udccb\udcc9¯
+1227,0,0,0,300,30,125,«\udcdc\udcf6ҽʦ
+1228,0,0,1800,300,30,125,\udcba\udcae\udcb1\udcf9\udcceѹ\udccf
+1229,0,0,1800,300,30,125,\udcf7Ȼ\udcf3\udcceѹ\udccf
+1230,0,0,0,300,7.5,125,\udcf7Ȼ\udcf3\udcb4\udcf3\udccb\udce2
+1231,0,0,1800,300,30,100,\udcf7Ȼ\udcf3\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1232,0,0,600,300,30,50,\udcb2\udcf8\udcc8Ƶ\udcd8\udcc0\udcd7
+1233,0,0,600,300,30,50,\udcb2\udcf8\udcc8\udcc6ˮ\udcc0\udcd7
+1234,0,0,0,300,30,150,\udcb3\udcac\udcbc\udcb6С\udccb\udcc9¯
+1235,0,0,0,4000,30,175,\udcbb\udcf0\udcd1\udce6\udcbc\udce1\udcb9\udcfb
+1236,0,0,1800,4000,50,175,\udcbb\udcd9\udcc3\udcf0\udcbc\udce1\udcb9\udcfb
+1237,1,0,20,300,7.5,125,\udcb2\udcf8\udcc8\udcc6ˮ\udcb4\udccc
+1238,1,0,20,300,7.5,125,\udcb2\udcf8\udcc8Ƶش\udccc
+1239,0,0,3240,300,50,175,\udccc\udcfaͰ\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+1240,1.5,0,30,300,7.5,300,\udcc8\udcfd\udccf\udcdf\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1241,0,0,0,300,7.5,175,\udcb5\udcc6\udcc1\udcfd\udcb4\udcf3\udcd7컨
+1242,0,0,3240,300,50,175,\udccd\udce6ż\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+1243,0,0,300,300,30,175,ӣ\udcccһ\udca8\udcc5\udce8
+1244,0,0,300,300,30,250,\udcc8\udcfdҶСӣ\udccc\udcd2
+1245,0,20,0,300,7.5,125,\udcd1\udcf4\udcb9\udce2\udcb4\udcf3Ģ\udcb9\udcbd
+1246,0,25,0,300,7.5,75,\udcd1\udcf4\udcb9⵨С\udcb9\udcbd
+1247,3,0,80,300,50,300,\udcd4\udcc6ɼ\udce5\udcf3\udcc5\udcda
+1248,0,50,0,300,50,175,\udcbb\udcd9\udcc3\udcf0\udccf\udcf2\udcc8տ\udcfb
+1249,0,0,0,300,50,0,\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd\udce6\udcdf\udcd7\udcd3
+1250,0,0,160,4000,30,100,\udcceѹϼ\udce1\udcb9\udcfb
+1251,0,0,1800,300,50,150,\udcd2\udcf8\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+1252,0,0,1800,300,50,250,\udcbd\udcf0\udcbb\udcd9\udcc3\udcf0\udcb9\udcbd
+1253,0,0,3240,1000,30,100,\udccc\udcfaͰ\udcceѹ\udccf
+1254,1,0,80,300,50,375,\udcba\udca3Х\udcd4\udcc6ɼ\udce5\udcf3\udcc5\udcda
+1255,0,0,0,4000,30,150,\udcc8\udcfdҶ\udcbc\udce1\udcb9\udcfb
+1256,0,0,0,4000,30,175,\udccf\udcc9\udcc8\udccb\udcd5Ƽ\udce1\udcb9\udcfb
+1257,0,0,20,4000,30,175,\udcd1\udcee\udcccҼ\udce1\udcb9\udcfb
+1258,0,0,0,1500,15,100,\udcc1\udcab\udcbb\udca8\udcb6\udcac\udccb\udcf1·\udcd5\udccf
+1259,0,0,0,1500,15,125,ˮ\udcb5ζ\udcac\udccb\udcf1·\udcd5\udccf
+1260,3,0,60,1800,7.5,175,\udcb6\udcac\udccb\udcf1\udcb9\udcad\udcca\udcd6
+1261,0,0,0,8000,30,350,\udcce\udcf7\udcb9ϼ\udce1\udcb9\udcfb
+1262,0,0,0,4000,30,150,\udcbe\udced\udcd0Ĳ˼\udce1\udcb9\udcfb
+1263,0,0,0,4000,30,150,\udcbb\udcc6\udcd3ͼ\udce1\udcb9\udcfb
+1264,0,0,0,1500,15,150,\udcb8\udcd6Ҷ\udcb6\udcac\udccb\udcf1·\udcd5\udccf
+1265,0,0,0,300,30,75,\udcb6\udcac\udccb\udcf1\udccb\udcc9¯
+1266,0,0,0,32000,50,325,\udcb1\udca4\udcc0ݼ\udce1\udcb9\udcfb
+1267,1.5,0,30,300,7.5,175,\udcf7Ȼ\udcf3\udccd㶹\udcc9\udce4\udcca\udcd6
+1268,1.5,0,30,300,7.5,275,\udcf7Ȼ\udcf3˫\udcb7\udca2\udcc9\udce4\udcca\udcd6
+1269,1.5,0,30,300,7.5,375,\udcf7Ȼ\udcf3\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+1270,1.5,0,30,300,7.5,475,\udcf7Ȼ\udcf3\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1271,1.5,0,20,300,50,875,\udcc8\udcfd\udccf߳\udcac\udcbc\udcb6\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1272,0.3,0,100,300,50,675,\udccb\udcc0\udcc9\udcf1\udcbeѻ\udcf7\udcc9\udce4\udcca\udcd6
+1273,0,0,0,300,7.5,125,\udcc8\udcfdҶ\udcb5\udca8С\udcb9\udcbd
+1274,1.5,0,40,300,7.5,175,ӣ\udcccҵ\udca8С\udcb9\udcbd
+1275,0,0,180,300,50,225,\udcbb\udcd9\udcc3\udcf0\udcc8\udcfdҶ\udcb2\udcdd
+1276,0,0,1,300,50,175,\udcba\udcae\udcb1\udcf9\udcc8\udcfdҶ\udcb2\udcdd
+1277,0,0,1800,300,50,250,\udcbb\udcd9\udcc3\udcf0\udcd1\udcee\udccc\udcd2
+1278,0,0,0,4000,30,100,\udcb4\udcf3\udccb\udce2\udcbc\udce1\udcb9\udcfb
+1279,0,0,0,4000,30,150,\udcb4\udcc5\udcc1\udca6\udcbc\udce1\udcb9\udcfb
+1280,3,0,80,300,7.5,100,\udcce\udcf7\udcb9\udccfСͶ\udcca\udcd6
+1281,3,0,40,300,7.5,50,\udcbe\udced\udcd0Ĳ\udccbСͶ\udcca\udcd6
+1282,0,0,0,300,7.5,225,\udcbc\udce1\udcb9\udcfb\udcbb\udcf0\udcbe\udce6\udcca\udcf7׮
+1283,0,0,0,4000,30,50,\udcd1\udce6\udcb9\udce2\udcbc\udce1\udcb9\udcfb
+1284,0,0,0,6000,30,75,\udcd2\udcf8\udcbc\udce1\udcb9\udcfb
+1285,0,0,0,8000,30,100,\udcbd\udcf0\udcbc\udce1\udcb9\udcfb
+1286,3,0,120,300,7.5,375,\udcf7Ȼ\udcf3\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1287,0,0,0,300,7.5,75,\udcba\udcae\udcb1\udcf9\udcbb\udca8\udcc5\udce8
+1288,0,0,0,4000,30,300,\udcbb\udcf0\udcbe\udce6\udcc4Ϲ\udccf
+1289,0,0,0,4000,30,125,\udcd1\udce6\udcb9\udce2\udcc4Ϲ\udccf
+1290,3,0,500,300,7.5,200,\udcbeѻ\udcf7С\udcb6\udcd3
+1291,1.5,0,20,300,7.5,75,\udcba\udca3\udcf6\udce8\udcb4\udcf3\udcc5繽
+1292,1.5,0,30,300,50,675,\udcf7Ȼ󳬼\udcb6\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1293,0,0,600,2000,30,50,\udcba\udca3Ģ\udcb9\udcbd\udcbc\udce1\udcb9\udcfb
+1294,0.5,0,20,300,7.5,25,\udcba\udca3\udcc2ݵ\udca8С\udcb9\udcbd
+1295,1.5,0,20,12000,30,325,\udca1\udcb0\udcb8ߡ\udcb1\udcbc\udce1\udcb9\udcfb\udcc9\udce4\udcca\udcd6
+1296,0,0,1800,300,30,50,Ѱ\udcb1\udca6\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1297,0,0,0,300,50,75,\udcba\udcae\udcb1\udcf9\udcb4\udccc\udceb๽
+1298,1.5,0,20,300,7.5,175,\udccd㶹\udcb4\udcf3\udcc5繽
+1299,0,0,0,8000,30,175,\udcbc\udce1\udcb9\udcfb\udcc4Ϲ\udccf
+1300,1.9,0,20,1000,7.5,300,\udcbe\udcdeĢ\udcb9\udcbd
+1301,0,0,0,300,7.5,25,\udcb1\udca3\udcbb\udca4ɡСĢ\udcb9\udcbd
+1302,1.5,0,20,300,7.5,0,\udcba\udca3Ģ\udcb9\udcbdȺ
+1303,0,0,600,300,7.5,125,\udcbb\udcd9\udcc3𺣾\udca8\udcb9\udcbd
+1304,0,25,0,300,7.5,225,\udcbb\udcf0\udcbe\udce6\udccf\udcf2\udcc8տ\udcfb
+1305,0,0,0,300,7.5,75,ˮĸ\udcf7Ȼ\udcf3\udcb9\udcbd
+1306,2,0,80,3000,30,500,\udce9\udccf魻\udcfaǹ\udcc9\udce4\udcca\udcd6
+1307,0,0,100,300,7.5,175,\udcd1\udcf4\udcb9\udce2\udcd1\udcee\udccc\udcd2
+1308,0,0,1800,300,50,175,\udcd1\udcf4\udcb9\udce2\udcc0\udcb1\udcbd\udcb7
+1309,0,0,0,4000,30,75,\udcc1\udcf7\udcc3\udcf7\udcbc\udce1\udcb9\udcfb
+1310,0,0,0,4000,30,75,\udcb5\udca8С\udcbc\udce1\udcb9\udcfb
+1311,0,0,0,300,30,75,\udcbc\udce1\udcb9\udcfb\udcbb\udca8\udcc5\udce8
+1312,3,0,20,4000,30,125,\udcbc\udce1\udcb9\udcfb\udcb4\udcf3Ģ\udcb9\udcbd
+1313,0,0,0,4000,30,75,ˮ\udcb2ݼ\udce1\udcb9\udcfb
+1314,3,0,120,300,7.5,400,\udcb4\udcc5\udcc1\udca6\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1315,3,0,200,2000,7.5,450,\udccc\udcfaͰ\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1316,3,0,80,300,7.5,500,\udcb3\udcacʱ\udcbf\udcd5\udcce\udcf7\udcb9\udccfͶ\udcca\udcd6
+1317,0,0,1800,300,50,250,\udcbb\udcd9\udcc3\udcf0\udcc0\udcb1\udcbd\udcb7
+1318,0,0,0,4000,30,225,\udccd㶹\udcc4Ϲ\udccf
+1319,1.5,0,30,300,7.5,225,\udcbb\udcf0\udcc0\udcb1\udccd㶹\udcc9\udce4\udcca\udcd6
+1320,1.5,0,30,300,7.5,325,\udcbb\udcf0\udcc0\udcb1˫\udcb7\udca2\udcc9\udce4\udcca\udcd6
+1321,1.5,0,30,300,7.5,425,\udcbb\udcf0\udcc0\udcb1\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+1322,1.5,0,30,300,7.5,525,\udcbb\udcf0\udcc0\udcb1\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1323,0,0,0,4000,30,175,\udcb4\udcf3\udccb\udce2\udcc4Ϲ\udccf
+1324,0,25,0,4000,30,175,\udcd1\udcf4\udcb9\udce2\udcc4Ϲ\udccf
+1325,0,25,0,300,50,125,\udcd1\udcf4\udcb9⺮\udcb1\udcf9\udcb9\udcbd
+1326,0,25,200,300,30,125,\udcd1\udcf4\udcb9\udce2\udcf7Ȼ\udcf3\udcb9\udcbd
+1327,0,0,0,4000,30,275,\udcb4\udcf3\udcd7\udcec\udcc4Ϲ\udccf
+1328,1.5,0,30,300,7.5,325,\udccbⶾ\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+1329,3,0,500,300,7.5,650,\udcb2\udca1\udcb6\udcbe\udcbeѻ\udcf7\udcc9\udce4\udcca\udcd6
+1330,1.5,0,20,300,7.5,425,ӣ\udccc\udcd2\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+1331,1.5,0,20,300,50,750,ӣ\udcccҳ\udcac\udcbc\udcb6\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1332,0,0,1800,300,50,275,\udcbb\udcd9\udcc3\udcf0ӣ\udccc\udcd2
+1333,0,0,0,300,30,225,ӣ\udccc\udcd2\udcf7Ȼ\udcf3\udcb9\udcbd
+1334,0,0,0,4000,30,125,\udcba\udca3Ģ\udcb9\udcbd\udcc4Ϲ\udccf
+1335,0,0,0,300,7.5,225,\udcf7Ȼ\udcf3\udcb4\udcf3\udcd7컨
+1336,0,0,1800,300,50,200,\udcf7Ȼ\udcf3\udcc0\udcb1\udcbd\udcb7
+1337,0,0,0,300,7.5,200,\udcbb\udcc6\udcd3͵ش\udccc
+1338,0,0,0,300,15,100,\udcba\udcae\udcb1\udcf9·\udcb5ƻ\udca8
+1339,0,0,1800,300,30,25,\udcba\udca3Ģ\udcb9\udcbd\udcb5\udcd8\udcc0\udcd7
+1340,0,0,1800,300,30,25,\udcba\udca3Ģ\udcb9\udcbdˮ\udcc0\udcd7
+1341,0,0,0,300,15,150,\udcbb\udcd9\udcc3\udcf0·\udcb5ƻ\udca8
+1342,0.75,0,40,1000,30,400,\udcbe\udced\udcd0Ĳ\udccb\udcc6Ȼ\udcf7\udcc5\udcda
+1343,3,0,120,300,15,350,\udcce\udcf7\udcb9\udccf\udcce\udcd1\udcce\udcd1Ͷ\udcca\udcd6
+1344,0,0,1800,300,50,200,ӣ\udccc\udcd2\udcceѹ\udccf
+1345,0,0,1800,300,50,250,\udcbb\udcd9\udcc3\udcf0\udcceѹ\udccf
+1346,0,0,40,300,7.5,175,\udcbb\udcc6\udcd3\udccd\udcf0\udca4𤹽
+1347,1.5,0,20,300,7.5,375,\udccc\udcd8\udcd6\udcd6\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+1348,0,0,10,300,15,150,\udcd1\udcf4\udcb9\udce2\udcc8\udcfdҶ\udcb2\udcdd
+1349,0,0,0,4000,30,125,СĢ\udcb9\udcbd\udcc4Ϲ\udccf
+1350,1.5,0,20,4000,30,200,\udcb4\udcf3\udcc5繽\udcc4Ϲ\udccf
+1351,0,0,1800,300,30,100,\udcd1\udcf4\udcb9\udce2\udcceѹ\udccf
+1352,0,0,80,4000,30,425,\udcce\udcf7\udcb9\udccf\udcc4Ϲ\udccf
+1353,0,0,1800,300,30,75,\udccd\udcc1\udcb6\udcb9\udcceѹϿ龥
+1354,0,0,1800,300,30,50,\udccd\udcc1\udcb6\udcb9\udcceѹ\udccf
+1355,0,0,0,300,30,150,\udcbb\udcd9\udcc3\udcf0\udcb4\udcf3\udccb\udce2
+1356,1.5,0,20,300,7.5,200,\udcd1\udcee\udcccҴ\udcf3Ģ\udcb9\udcbd
+1357,0,0,0,300,7.5,25,\udcb5\udca8С\udcbb\udca8\udcc5\udce8
+1358,1.5,0,10,300,7.5,100,\udcc1\udcf7\udcb9\udce2\udcb4\udcf3\udcb5ƹ\udcbd
+1359,3,0,40,300,7.5,200,\udcbe\udced\udcd0Ĳ˸\udca1ͧ
+1360,3,0,20,300,7.5,200,\udcd3\udcf1\udcc3׸\udca1ͧ
+1361,3,0,80,300,7.5,400,\udcce\udcf7\udcb9ϸ\udca1ͧ
+1362,1.5,0,30,300,7.5,100,\udccd\udcc1\udcb6\udcb9\udcb4\udcf3\udcc5繽
+1363,3,0,60,300,7.5,150,\udcd3\udcf1\udcc3\udcd7\udcce\udcd1\udcce\udcd1Ͷ\udcca\udcd6
+1364,0,0,1800,300,50,150,\udcbb\udcd9\udcc3\udcf0\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1365,0,0,20,300,30,200,\udcd1\udcee\udccc\udcd2\udcf7Ȼ\udcf3\udcb9\udcbd
+1366,0,0,1800,300,30,150,\udccd㶹\udcceѹ\udccf
+1367,0,0,0,300,50,100,\udcd2\udcf8\udcba\udcae\udcb1\udcf9\udcb9\udcbd
+1368,0,0,200,300,50,200,\udcbd𺮱\udcf9\udcb9\udcbd
+1369,0,0,40,300,7.5,175,\udcbe\udced\udcd0Ĳ\udccbƹ\udcc5ҹ\udcbd
+1370,0,0,300,300,7.5,25,С\udcceѹ\udccf
+1371,0,0,0,4000,50,250,\udcbb\udcd9\udcc3\udcf0\udcc4Ϲ\udccf
+1372,1,0,20,300,7.5,100,\udcb5ش̻\udca8\udcc5\udce8
+1373,1.5,0,10,300,7.5,125,\udcc1\udcf7\udcb9\udce2\udccd㶹\udcc9\udce4\udcca\udcd6
+1374,0,0,100,300,30,150,\udcc8\udcfdҶ\udcceѹ\udccf
+1375,3,0,40,300,7.5,175,\udcba\udcae\udcb1\udcf9\udcbe\udced\udcd0Ĳ\udccbͶ\udcca\udcd6
+1376,3,0,20,300,7.5,175,\udcba\udcae\udcb1\udcf9\udcd3\udcf1\udcc3\udcd7Ͷ\udcca\udcd6
+1377,0,0,20,300,7.5,25,ˮ\udcb2\udcdd\udcc3\udce7
+1378,3,0,60,300,7.5,150,\udcbe\udced\udcd0Ĳ\udccb\udcce\udcd1\udcce\udcd1Ͷ\udcca\udcd6
+1379,0,0,30,300,7.5,250,\udcc8\udcfd\udccf\udcdf·\udcb5\udcc6
+1380,0,0,0,300,7.5,75,\udcf7Ȼ\udcf3\udcbb\udca8\udcc5\udce8
+1381,1.5,0,10,300,7.5,225,\udcc1\udcf7\udcb9\udce2˫\udcb7\udca2\udcc9\udce4\udcca\udcd6
+1382,1.5,0,10,300,7.5,325,\udcc1\udcf7\udcb9\udce2\udcc1Ѽ\udcd4\udcc9\udce4\udcca\udcd6
+1383,1.5,0,10,300,7.5,425,\udcc1\udcf7\udcb9\udce2\udcbb\udcfaǹ\udcc9\udce4\udcca\udcd6
+1384,0,0,600,300,7.5,50,С\udcc5\udce7\udcc0\udcb1\udcbd\udcb7
+1385,1.5,0,30,300,7.5,150,\udccb\udce2\udccd㶹
+1386,1.5,0,30,300,7.5,250,\udccb\udce2˫\udcb7\udca2
+1387,1.5,0,30,300,7.5,350,\udccb\udce2\udcc1Ѽ\udcd4
+1388,1.5,0,30,300,7.5,450,\udccb\udce2\udcbb\udcfaǹ
+1389,0,0,0,300,7.5,250,\udcbb\udcf0\udcbe\udce6\udcb4\udcf3\udcc5繽
+1390,0,0,1800,300,30,200,\udcb4\udcf3\udcd7\udcec\udcceѹ\udccf
+1391,0,0,0,300,7.5,225,\udcb4\udcf3\udccb\udce2\udcbb\udcf0\udcbe\udce6
+1392,0,0,1800,300,30,50,\udcba\udca3\udcceѹ\udccf
+1393,1.5,0,40,300,7.5,200,\udccf\udcc9\udcc8\udccb\udcd5ƴ\udcf3\udcc5繽
+1394,0,0,0,300,7.5,200,\udcf7Ȼ\udcf3\udcbb\udcf0\udcbe\udce6
+1395,3,0,30,300,7.5,100,ˮ\udcb2ݴ\udcf3\udcc5\udce7
+1396,1.5,0,20,300,7.5,75,\udcc0\udca9ɢ\udcb4\udcf3\udcc5繽
+1397,0,0,0,300,30,75,\udcf7Ȼ\udcf3\udcb9\udcbd
+1398,3,0,60,300,7.5,225,\udcbb\udcf0\udcbe\udced\udcd0Ĳ\udccb
+1399,15,0,1800,300,7.5,225,\udcbb\udcd9\udcc3\udcf0\udcbe\udced\udcd0Ĳ\udccb
+1400,3,0,30,300,7.5,225,\udcbb\udcf0\udcd3\udcf1\udcc3\udcd7
+1401,0,0,1800,300,30,100,\udcba\udcae\udcb1\udcf9\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1402,0,0,100,1500,15,150,ѩ\udcbc\udcac\udcb6\udcac\udccb\udcf1
+1403,0,0,0,300,30,100,ѩ\udcbc\udcac\udcc1\udcab
+1404,0,0,0,300,7.5,125,\udccd㶹\udcbb\udca8\udcc5\udce8
+1405,0,0,0,300,30,625,\udcbeѻ\udcf7\udcbb\udca8\udcc5\udce8
+1406,0,0,200,300,7.5,225,ѩ\udcbc\udcac\udcd4\udcc6ɼ
+1407,3,0,20,4000,30,725,\udcb4\udcf3\udcb8\udce7\udcc4Ϲ\udccf
+1408,3,0,1800,300,50,425,\udcbb\udcd9\udcc3\udcf0\udcce\udcf7\udcb9\udccf
+1409,1.5,0,40,300,7.5,175,ѩ\udcbc\udcac«\udcdc\udcf6
+1410,0,0,0,8000,30,250,\udcc4Ϲϴ\udca2\udcce\udcef\udccf\udce4
+1411,3,0,40,300,7.5,225,\udcbb\udcd9\udcc3\udcf0\udcd3\udcf1\udcc3\udcd7
+1412,1.5,0,20,300,7.5,225,\udcd0\udcc7\udcd0\udcc7\udccd㶹
+1413,0,0,20,4000,30,250,\udcbb\udcf0\udcb1\udcac\udcc4Ϲ\udccf
+1414,0,0,1800,300,30,150,ˮ\udcb2ݻ\udcd9\udcc3\udcf0\udcb9\udcbd
+1415,1,0,20,300,7.5,225,\udccf\udcc9\udcc8\udccb\udcd5Ƶش\udccc
+1416,0,0,5,300,7.5,200,ѩ\udcbc\udcac\udcb8\udcd6Ҷ\udcb2\udcdd
+1417,1,0,40,300,7.5,200,\udcb2˴\udccc
+1418,1.5,0,80,300,7.5,400,\udcb9ϴ\udccc
+1419,1,0,20,300,7.5,150,\udcd1\udcf4\udcb9\udce2\udcb5ش\udccc
+1420,3,0,0,300,7.5,200,쫷\udce7\udcc8\udcfdҶ\udcb2\udcdd
+1421,0,0,1800,300,30,200,\udcbb\udcf0\udcbe\udce6\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1422,0,0,1800,300,30,25,\udcbb\udcf0\udcd1\udce6\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1423,1.5,0,30,8000,50,650,\udcb3\udcac\udcbc\udcb6\udcbb\udcfaǹ\udcbc\udce1\udcb9\udcfb\udcc9\udce4\udcca\udcd6
+1424,3,0,500,300,7.5,750,\udcb4\udcf3\udcd7\udcec\udcbeѻ\udcf7
+1425,1.5,0,20,300,7.5,125,\udccd㶹\udcb5\udca8С\udcb9\udcbd
+1426,0,0,1800,300,30,125,\udcb8\udca1\udcbf\udcd5\udccd\udcc1\udcb6\udcb9\udcc0\udcd7
+1427,1.5,0,20,300,7.5,200,\udcba\udcae\udcb1\udcf9\udccf\udcc9\udcc8\udccb\udcd5\udcc6
+1428,1.5,0,40,300,7.5,225,ӣ\udcccҴ\udcf3\udcc5繽
+1429,3,0,500,300,7.5,725,\udcd1\udcee\udcccҾѻ\udcf7
+1430,0,0,0,300,7.5,175,\udcbb\udcf0\udcbe溣Ģ\udcb9\udcbd
+1431,1.5,0,20,300,7.5,0,\udcd1\udce6\udcb9⺣Ģ\udcb9\udcbd
+1432,1.5,0,30,300,50,625,\udccd\udcc1\udcb6\udcb9\udcb4\udcf3\udcb8\udce7
+1433,1.5,0,80,300,7.5,575,\udcc8\udcfd\udccf\udcdf\udcce\udcf7\udcb9\udccf
+1434,1.5,0,20,300,7.5,375,\udcc8\udcfd\udccf\udcdf\udcd3\udcf1\udcc3\udcd7
+1435,0,0,0,4000,0,400,\udcc8\udcfd\udccf\udcdf\udcc4Ϲ\udccf
+1436,0,0,0,4000,30,200,\udcba\udcae\udcb1\udcf9\udcc4Ϲ\udccf
+1437,0,0,0,300,7.5,125,\udcc8\udcfdҶ\udcbb\udca8\udcc5\udce8
+1438,1.5,0,40,300,7.5,175,\udcb5ش̴\udcf3\udcc5繽
+1439,1.5,0,40,300,7.5,375,\udcc8\udcfd\udccf߾\udced\udcd0Ĳ\udccb
+1440,1.5,0,40,300,7.5,400,\udcbb\udcd9\udcc3\udcf0\udcc8\udcfd\udccf\udcdf\udcc9\udce4\udcca\udcd6
+1441,0,0,900,300,30,175,\udcd1\udcee\udccc\udcd2\udcceѹ\udccf
+1442,0,0,0,300,7.5,275,\udcc8\udcfd\udccf߻\udca8\udcc5\udce8
+1443,1.5,0,40,300,7.5,275,ħ\udcb7\udca8\udcba\udcae\udcb1\udcf9\udcc9\udce4\udcca\udcd6
+1444,0,0,0,4000,30,125,ĩӰ\udcc4Ϲ\udccfͷ
+1445,1.5,0,20,300,7.5,675,\udcb4\udcf3\udcb8\udce7\udccd㶹\udcb4\udcf3\udcc5繽
+1446,0,25,0,300,7.5,25,\udcbd\udcf0յ\udcb9\udcbd
+1447,0,50,0,300,7.5,100,\udcb4\udcf3\udcbd\udcf0յ\udcb9\udcbd
+1448,3,0,500,300,30,625,\udcbeѻ\udcf7\udcb5\udca8С\udcb9\udcbd
+1449,0,0,0,300,30,100,\udcd2\udcf8\udcf7Ȼ\udcf3\udcb9\udcbd
+1450,0,0,0,300,30,200,\udcbd\udcf0\udcf7Ȼ\udcf3\udcb9\udcbd
+1451,0,0,900,300,30,50,Сӣ\udccc\udcd2
+1452,1.5,0,40,300,7.5,175,\udcb4\udcf3\udcd7쵨С\udcb9\udcbd
+1453,0,0,40,1000,7.5,175,\udcb4\udcf3\udcc5籣\udcbb\udca4ɡ
+1454,0,0,0,300,30,150,\udcbb\udcd9\udcc3\udcf0\udcbb\udca8\udcc5\udce8
+1455,0,0,80,1000,7.5,225,\udcbb\udcd9\udcc3𱣻\udca4ɡ
+1456,0,0,40,300,7.5,150,\udcba\udca3Ģ\udcb9\udcbd\udcb4\udcf3\udcd7컨
+1457,1.5,0,20,300,7.5,200,\udcba\udcae\udcb1\udcf9\udcd1\udcee\udccc\udcd2
+1458,1.5,0,20,300,7.5,225,\udcb4\udcf3\udcc5\udce7\udcb4\udcf3\udcd7컨
+1459,0,0,200,300,7.5,50,С\udcc5\udce7\udcb4\udcf3\udcd7컨
+1460,0,0,0,300,7.5,25,\udcba\udca3Ģ\udcb9\udcbd\udcbb\udca8\udcc5\udce8
+1461,1.5,0,30,300,7.5,150,\udccb\udce2\udcd1\udcee\udccc\udcd2
+3000,3,0,1,300,7.5,950,\udcd0¾\udcbf\udcbc\udcabӣ\udccc\udcd2\udcc9\udce4\udcca\udcd6
+5000,3,0,180,300,50,775,spԡ\udcbb\udcf02
+5001,1.5,0,40,300,50,275,ħ\udcb7\udca8\udcba\udcae\udcb1\udcf9\udcc9\udce4\udcca\udcd62
+5002,0,0,0,16000,50,400,ĩӰ\udccf\udce4\udcd7\udcd3
+5003,5,0,40,300,90,400,\udcbe\udcbf\udcbc\udcabˮ\udcb2\udcdd\udcd1\udcc7\udcd6\udcd6
+5004,0,0,0,300,50,325,\udcbe\udcbf\udcbc\udcabС\udccb\udcc9¯
+"
+bundle,resources.assets:3420:tips,attribution_and_creator_handle,"<color=#66B3FF><size=18>Shroomshade 2-8B / Prerequisite: 3-3<size=12>
+<alpha=#FF>Level Maker: 树桩上的火炎, Best Solution: 550 Sun left</color>
+<alpha=#00>Best Solution: 800 Sun left
+<alpha=#00>.<alpha=#FF><size=18>
+<size=310>
+<size=18>Some B-Side levels may make use of mechanics from later chapters early.
+It is recommended to clear the level marked as <color=yellow>Prerequisite</color> first before attempting this level.
+<size=18><color=#FFBFFF>Hypno Chomper</color> can devour hypnotized zombies and produce Hypno-shroom seed packets.
+But if the zombie was cursed by a Curse-shroom, it will detonate.</color>
+<size=12>If you don't want the cursed zombie to detonate too soon, you can deliberately feed zombies to Hypno Chomper to trigger digestion, temporarily pausing its targeting.<size=18>
+<size=360>
+"
+bundle,resources.assets:3440:tips,attribution_and_creator_handle,"<color=#A8A8FF><size=18>Polarity Shift 4-7B<size=12>
+<alpha=#FF>Level Makers: 憋坏灯磁 x MirteorShower, Best Solution: 475 Sun left</color>
+<alpha=#00>Best Solution: 800 Sun left
+<alpha=#00>.<alpha=#FF><size=18>
+<size=310>
+<size=15>Besides Buckets, <color=yellow>Digger' Pickaxes (obtained via Magnet-shrooms)</color> can also fuse with certain magnetic plants for special effects. For example,
+[Starmorph + Pickaxe → Starpick]: no longer blocks zombies
+[Pumpkin Morph + Pickaxe → Miner Pumpkin]: forces Diggers to surface
+If you fuse the Miner Pumpkin when the Digger is mid-tile, it won't be targeted by plants inside the Pumpkin.</color>
+<size=360>
+"
+bundle,resources.assets:3441:tips,attribution_and_creator_handle,"
+
+
+
+
+
+
+
+
+Trying giving Buckets or Chrono Cores to Melon Morphs!
+Metal-pult dishes out enormous damage while Chrono Melon spreads Chronoshift!
+Perfect matches for Buckshooter (for knockback) and Chrono Pea (Chronoshift source)!
+
+
+
+
+==============Fusion Showcase==============
+Special Thanks: 冰蓝色微笑、红烧黛鱼、卡波姆、Mengluo、Miku喵、裴璃Daze、Raykilling、若致萝卜、零只羊、一盆游戏菌
+emememek、咕咕之鸽、路人·无名、罗太のqueen、手机被占、托卡马克、窝不想取名字、弦海青鱼、心明
+English Translators: MamoruKun, cassidy, revo,
+and you the players!"
+bundle,resources.assets:3447:plants.0.value.routes.0.routeName,requires_pc_translation_or_terminology_review,机枪路线
+bundle,resources.assets:3447:plants.0.value.routes.1.routeName,requires_pc_translation_or_terminology_review,樱桃路线
+bundle,resources.assets:3447:plants.0.value.routes.2.routeName,requires_pc_translation_or_terminology_review,寒冰路线
+bundle,resources.assets:3447:plants.0.value.routes.3.routeName,requires_pc_translation_or_terminology_review,毁灭路线
+bundle,resources.assets:3447:plants.1.value.routes.0.routeName,requires_pc_translation_or_terminology_review,黑高路线
+bundle,resources.assets:3447:plants.1.value.routes.1.routeName,requires_pc_translation_or_terminology_review,灾果路线
+bundle,resources.assets:3447:plants.2.value.routes.0.routeName,requires_pc_translation_or_terminology_review,大喷路线
+bundle,resources.assets:3447:plants.2.value.routes.1.routeName,requires_pc_translation_or_terminology_review,忧郁路线
+bundle,resources.assets:3447:plants.3.value.routes.0.routeName,requires_pc_translation_or_terminology_review,大帝路线
+bundle,resources.assets:3447:plants.3.value.routes.1.routeName,requires_pc_translation_or_terminology_review,剑仙路线
+bundle,resources.assets:3447:plants.4.value.routes.0.routeName,requires_pc_translation_or_terminology_review,战神路线
+bundle,resources.assets:3447:plants.5.value.routes.0.routeName,requires_pc_translation_or_terminology_review,毁胆路线
+bundle,resources.assets:3447:plants.5.value.routes.1.routeName,requires_pc_translation_or_terminology_review,魅胆路线
+bundle,resources.assets:3447:plants.6.value.routes.0.routeName,requires_pc_translation_or_terminology_review,魅后路线
+bundle,resources.assets:3447:plants.7.value.routes.0.routeName,requires_pc_translation_or_terminology_review,冰炮路线
+bundle,resources.assets:3447:plants.7.value.routes.1.routeName,requires_pc_translation_or_terminology_review,火炮路线
+bundle,resources.assets:3447:plants.8.value.routes.0.routeName,requires_pc_translation_or_terminology_review,火神路线
+bundle,resources.assets:3447:plants.8.value.routes.1.routeName,requires_pc_translation_or_terminology_review,究投路线
+bundle,resources.assets:3447:plants.8.value.routes.2.routeName,requires_pc_translation_or_terminology_review,瓜炮路线
+bundle,resources.assets:3447:plants.9.value.routes.0.routeName,requires_pc_translation_or_terminology_review,菜炮路线
+bundle,resources.assets:3447:plants.10.value.routes.0.routeName,requires_pc_translation_or_terminology_review,大哥路线
+bundle,resources.assets:3447:plants.10.value.routes.1.routeName,requires_pc_translation_or_terminology_review,浴火路线
+bundle,resources.assets:3447:plants.11.value.routes.0.routeName,requires_pc_translation_or_terminology_review,绿伞路线
+bundle,resources.assets:3447:plants.12.value.routes.0.routeName,requires_pc_translation_or_terminology_review,玄钢路线
+bundle,resources.assets:3447:plants.12.value.routes.1.routeName,requires_pc_translation_or_terminology_review,刺果路线
+bundle,resources.assets:3447:plants.13.value.routes.0.routeName,requires_pc_translation_or_terminology_review,爆竹路线
+bundle,resources.assets:3447:plants.13.value.routes.1.routeName,requires_pc_translation_or_terminology_review,黑曜路线
+bundle,resources.assets:3489:zombies.38.introduce,requires_pc_translation_or_terminology_review,"<color=#3D1400>机械巨人僵尸，埃德加博士的最新发明，继飞艇之后又一大战争武器。“老实说，它们并没有思想。”埃德加博士如是说道，“因此，它们也更和平，不会给植物留下心灵创伤，反映了我族一贯爱好和平的立场。”不过，被压扁的坚果可就没那么好说话了。
+</color>"
+bundle,resources.assets:3489:zombies.39.introduce,requires_pc_translation_or_terminology_review,"<color=#3D1400>历时数月，僵王博士的最新作品-第二代机械巨人闪亮登场。和前作相比，新型号的机械巨兽换装了更坚固的合金装甲，更稳定的钢制架构，以及便于区分型号而在眼睛里安装的红色LED灯泡。
+</color>"
+bundle,resources.assets:3497:tips,attribution_and_creator_handle,"<size=18>Making Waves 3-8<size=12>
+<alpha=#60>(Level made by 树桩上的火炎, edited by MirteorShower)
+<alpha=#04>Best Solution: 625 Sun left
+<alpha=#00>.<alpha=#FF><size=18>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spicy Squash Zombie can instantly wipe an entire lane, as long as it isn't chilled. (See the Almanac for details)
+<alpha=#FF>Keep it warm. Use fertilizer and ice-fire conflict to prevent it from getting chilled.
+Tip: Bugs may occur when using the Spicy Squash Zombie along with a higher game speed. If you are using the Spicy Squash Zombie, please do not try to enable higher game speeds...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+bundle,resources.assets:3524:tips,attribution_and_creator_handle,"<size=18>Polarity Shift  4-3<size=12>
+<alpha=#60>(Level made by help from 小董玩的好, edited by MirteorShower)
+<alpha=#04>Best Solution: 725 Sun left
+<alpha=#FF><size=322>
+<size=18>Zomppelins are powerful flying units with high HP that can bomb an entire lane.
+Their downside is their high cost and inability to eat brains, so they're best used only when truly needed.<alpha=#FF>
+<size=16>Tip: When using Lumos Angler's lane-switching, make sure its lane is empty (if zombies are already present, switching won't trigger).
+<size=362>
+"
+bundle,resources.assets:3528:tips,attribution_and_creator_handle,"<size=18><color=#FFAF60>All Roads Lead to Roof 5-2<size=12>
+<alpha=#60>(Level made by help from 树桩上的火炎, edited by MirteorShower)</color>
+<alpha=#04>Best Solution: 650 Sun left
+<alpha=#FF><size=320>
+<size=18>	<color=#00BD00>Melon Pogo Zombie</color> will charge for a while after being placed, then leap forward about 4 tiles (ignoring most plants along the way).
+	Like Pogo Zombies, they won't eat brains while on their Pogos: you'll need to knock them down with Umbrella Leaves or Tall-nuts.
+<alpha=#FF>Tip: Try using the fusion techniques you learned from Chapter 3 on plants placed on <color=#00E3E3>Ice Pots</color>.<alpha=#FF>
+<size=360>
+"
+bundle,resources.assets:3565:talentDatas.12.name,hidden_placeholder,<size=0><size=0><size=0><size=0><size=0><size=0><size=0><size=0><size=0><size=0>至极手速
+bundle,resources.assets:3567:tips,attribution_and_creator_handle,"<size=18>Polarity Shift  4-7<size=12>
+<alpha=#60>(Level made with help from 小董玩得好, edited by MirteorShower)
+<alpha=#04>Best Solution: 650 Sun left
+<alpha=#FF><size=320>
+<size=18>Buck-shooter zombies won't get insta-killed by Magnet-shrooms but they still take damage from Pumpkin Morphs.
+Also, Buckshoot-copter zombies can be deployed over water. Sure, they'll disappear eventually,
+but not before doing some serious damage to the frontline.
+Tip: Zombies killed by Doomplate-shroom drop more Iron Buckets.<alpha=#FF>
+<size=360>
+"
+bundle,resources.assets:180478:m_Name,asset_or_font_identifier,菜伞改 Skeleton
+bundle,resources.assets:180488:m_Name,asset_or_font_identifier,土豆雷 Skeleton
+bundle,resources.assets:180504:m_Name,asset_or_font_identifier,究喷-火神连携 Skeleton
+bundle,resources.assets:180514:m_Name,asset_or_font_identifier,抽卡券 Skeleton
+bundle,resources.assets:180517:m_Name,asset_or_font_identifier,领袖血条 Skeleton
+bundle,resources.assets:180570:m_Name,asset_or_font_identifier,究极僵尸火红莲 Skeleton
+bundle,resources.assets:180580:m_Name,asset_or_font_identifier,僵尸肥料 Skeleton
+bundle,resources.assets:180585:m_Name,asset_or_font_identifier,小小雪皇 Skeleton
+bundle,resources.assets:180604:m_Name,asset_or_font_identifier,锁链2 Skeleton
+bundle,resources.assets:180608:m_Name,asset_or_font_identifier,月出平顶山 Skeleton
+bundle,resources.assets:180622:m_Name,asset_or_font_identifier,血 Skeleton
+bundle,resources.assets:180657:m_Name,asset_or_font_identifier,向日葵土豆雷 Skeleton
+bundle,resources.assets:180669:m_Name,asset_or_font_identifier,樱桃坚果 Skeleton
+bundle,resources.assets:180686:m_Name,asset_or_font_identifier,版本更新 Skeleton
+bundle,resources.assets:180691:m_Name,asset_or_font_identifier,贴图补充 Skeleton
+bundle,resources.assets:180710:m_Name,asset_or_font_identifier,推荐关卡入口 Skeleton
+bundle,resources.assets:180740:m_Name,asset_or_font_identifier,扶梯僵尸 Skeleton
+bundle,resources.assets:180746:m_Name,asset_or_font_identifier,铠甲小鬼 Skeleton
+bundle,resources.assets:180762:m_Name,asset_or_font_identifier,坚果加农炮 Skeleton
+bundle,resources.assets:180782:m_Name,asset_or_font_identifier,普僵 Skeleton
+bundle,resources.assets:180785:m_Name,asset_or_font_identifier,毁灭二爷 (1) Skeleton
+bundle,resources.assets:180791:m_Name,asset_or_font_identifier,二爷 Skeleton
+bundle,resources.assets:180793:m_Name,asset_or_font_identifier,无色僵尸 Skeleton
+bundle,resources.assets:180830:m_Name,asset_or_font_identifier,向日葵坚果 Skeleton
+bundle,resources.assets:180842:m_Name,asset_or_font_identifier,机枪鲸鱼-旅行 Skeleton
+bundle,resources.assets:180844:m_Name,asset_or_font_identifier,土豆坚果 Skeleton
+bundle,resources.assets:180853:m_Name,asset_or_font_identifier,火倭瓜 Skeleton
+bundle,resources.assets:180901:m_Name,asset_or_font_identifier,究极投手哥 Skeleton
+bundle,resources.assets:180910:m_Name,asset_or_font_identifier,毁灭二爷 Skeleton
+bundle,resources.assets:180930:m_Name,asset_or_font_identifier,日落平顶山 (1) Skeleton
+bundle,resources.assets:180950:m_Name,asset_or_font_identifier,时空玉米新特效·黑洞 Skeleton
+bundle,resources.assets:180954:m_Name,asset_or_font_identifier,头 Skeleton
+bundle,resources.assets:180958:m_Name,asset_or_font_identifier,三个新植物 Skeleton
+bundle,resources.assets:180969:m_Name,asset_or_font_identifier,阳光 Skeleton
+bundle,resources.assets:180971:m_Name,asset_or_font_identifier,盲盒巨人+不同颜色的眼睛 Skeleton
+bundle,resources.assets:181006:m_Name,asset_or_font_identifier,sp浴火 sp飞火 Skeleton
+bundle,resources.assets:181017:m_Name,asset_or_font_identifier,锁链 Skeleton
+bundle,resources.assets:181025:m_Name,asset_or_font_identifier,黄橄榄 Skeleton
+bundle,resources.assets:181029:m_Name,asset_or_font_identifier,僵王二阶段奖杯 Skeleton
+bundle,resources.assets:181053:m_Name,asset_or_font_identifier,橄榄补充 Skeleton
+bundle,resources.assets:181056:m_Name,asset_or_font_identifier,僵王二阶段奖杯 1 Skeleton
+bundle,resources.assets:181060:m_Name,asset_or_font_identifier,花 Skeleton
+bundle,resources.assets:181064:m_Name,asset_or_font_identifier,巨人灰烬 Skeleton
+bundle,resources.assets:181079:m_Name,asset_or_font_identifier,旗帜 Skeleton
+bundle,resources.assets:181105:m_Name,asset_or_font_identifier,钥匙经典 Skeleton
+bundle,resources.assets:181111:m_Name,asset_or_font_identifier,机枪鲸鱼-旅行2 Skeleton
+bundle,resources.assets:181119:m_Name,asset_or_font_identifier,巨大花园第一版 Skeleton
+bundle,resources.assets:181154:m_Name,asset_or_font_identifier,究火炬新过火子弹 Skeleton
+bundle,resources.assets:181166:m_Name,asset_or_font_identifier,长地图3 Skeleton
+bundle,resources.assets:181179:m_Name,asset_or_font_identifier,海妖菇 Skeleton
+bundle,resources.assets:181190:m_Name,asset_or_font_identifier,新黑将军贴图 Skeleton
+bundle,resources.assets:181221:m_Name,asset_or_font_identifier,究魅三级特效 Skeleton
+bundle,resources.assets:181224:m_Name,asset_or_font_identifier,超级肥料 Skeleton
+bundle,resources.assets:181235:m_Name,asset_or_font_identifier,鱼叉胖胖僵尸 Skeleton
+bundle,resources.assets:181240:m_Name,asset_or_font_identifier,小推车 Skeleton
+bundle,resources.assets:181255:m_Name,asset_or_font_identifier,深渊入口 Skeleton
+bundle,resources.assets:181274:m_Name,asset_or_font_identifier,小光机 Skeleton
+bundle,resources.assets:181289:m_Name,asset_or_font_identifier,连携子弹冰玉蒜 Skeleton
+bundle,resources.assets:181299:m_Name,asset_or_font_identifier,连携陨石 Skeleton
+bundle,resources.assets:181328:m_Name,asset_or_font_identifier,小鬼国王陆地 Skeleton
+bundle,resources.assets:181360:m_Name,asset_or_font_identifier,汉仪夏日体W SDF
+bundle,resources.assets:181361:m_Name,asset_or_font_identifier,黑体
+bundle,resources.assets:181875:m_text,attribution_and_creator_handle,"<align=center><size=16>Credits</size>
+<size=12>蓝飘飘fly - Direction, Code & Animation
+机鱼吐司 - Art & Visual Direction
+梦珞 - Video Editing
+射命丸文 - Animation Support
+蓝蝶 - Art Support</size></align>"
+bundle,resources.assets:188019:m_text,requires_pc_translation_or_terminology_review,"弹幕模式：
+发送弹幕【行数a数量】，可在指定行放置指定数量的僵尸
+如1a3：在1路放置3个僵尸，注意，必须是小写字母a，大写A无效
+发送弹幕【行数b类型】，可在指定行发射指定类型的子弹
+类型对应子弹：1：超级樱桃、2：黑铁豆、3：究极冰刺
+如1b3：在1路发射究极冰刺，子弹伤害和数量随波次提高
+
+礼物模式：
+人气票：2路放5个僵尸	粉丝团灯牌：3路放5个僵尸
+小花花：4路放5个僵尸	牛哇牛哇：5路放5个僵尸
+
+SC开启时：
+发送任意SC，获得实际消费金额（元）/3次机会，如发送30元的SC获得10次机会
+每次发送弹幕，如果符合规则，则消耗1次机会执行效果
+
+规则：
+【加xx幸运】，【扣xx幸运】，幸运单次操作上限为1000，如：加1000幸运
+【在xx路放置xx个xxx】，单次放置僵尸上限为100，如：在5路放置5个究极黑曜石巨人，僵尸名以图鉴为准
+
+备注：发送的弹幕不需要加【】，在这里只是提醒强调"
+bundle,resources.assets:190080:m_text,attribution_and_creator_handle,"<align=center><size=20>Disclaimer</size></align>
+The Official source of PvZ Fusion is only on the dev, 蓝飘飘fly's Bilibili</color>
+The only valid source of this translation is from this community: <color=#64DD17>discord.gg/DPAC5ZVJ8T</color> and the associated GitHub pages.
+Stay away from other sources like <color=#8B0000>pvzfusion.net</color> or <color=#8B0000>pvzfusion.pro</color> as they redistribute our work without permission.
+
+Please visit our community for future updates and support.
+
+<align=center><size=130%>Plants VS. Zombies: Fusion - Update 3.9 Changelog</size></align>
+
+1. The Gods: Evolved
+- Added a new Purgatory Mode
+- Added new Trial Modifiers. These start off as debuffs but after completing the trials they turn into buffs.
+- Access from Recommended Levels
+
+2. New Plants
+- Basic Fusions:
+  - Ender Pumpkin
+  - Penny-shroom (Marigold > Puff-shroom)
+  - Loan-shroom (Fume-shroom + Marigold)
+  - Silver Hypno-shroom (Hypno-shroom + Marigold)
+  - Golden Hypno-shroom
+  - Cherry Pop (Cherry Bomb > Puff-shroom)
+  - Hungry-shroom (Chomper + Scaredy-shroom)
+  - Bush-shroom (Fume-shroom + Umbrella Leaf)
+  - Doom Pot (Doom-shroom > Flower Pot)
+  - Doombrella (Doom-shroom + Umbrella Leaf)
+  - Gulper-shroom (Chomper > Sea-shroom)
+  - Winter Starfruit (Ice-shroom + Starfruit)
+  - Belch-shroom (Chomper + Fume-shroom)
+  - Nibble-shroom (Chomper > Puff-shroom)
+  - Sea Pot (Sea-shroom > Flower Pot)
+  - Starlic (Starfruit + Garlic)
+- Odyssey Fusions:
+  - Common:
+    - Firnessence Panacea (Firnurse + Aloe Nivea)
+  - Epic:
+    - Sea-greed Zombox (Kelptain Goldbeard + Zombie Giftbox)
+  - Unique:
+    - Flurry Commando (Pea-storm Commando + Fume-shroom)
+    - Fearmonger Snipea (Snipea + Scaredy-shroom)
+
+3. New Zombies
+- Common:
+  - Pole Vaulting Football Zombie
+  - Nyan Squash Zombie
+  - Boss:
+    - Last Striker (finished)
+    - Jackson Universe
+
+4. Modifiers
+- 6 new Zombie Modifiers
+
+5. New Skin
+- Obsidian Barrier Reef skin
+
+6. Noteworthy Balance Changes
+- Snow mechanic rework: Vanilla base plants now cost 75 more Sun on Snow maps, see Mechanics almanac for details. Also check out updated entries for Firnace, Frost Legion Snowball Launcher & Trident Thrower
+- Fallout Blover: No longer deals double damage to Irradiated zombies
+- Doom Cactus: Projectiles now pierce twice and inflict Irradiated
+- Doom-shroom explosions now leave a Doom Pad on water tiles, see Lily Pad's entry for detailed explanations
+- Doomwarp-shroom & Fungularity: Nerfed Chronoshift duration, but massively increased Chronoshift effect (by means of increasing elapsed time) to zombies already in Chronoshift
+- SP Fusions: Now require dedicated Unlock Modifiers after obtaining the 2 corresponding Modifiers to unlock
+- Epic Odyssey Fusion Unlock Modifiers are now more expensive in Cursed Odyssey
+- Curse of Pride is now a Cursed Odyssey shop exclusive Modifier and no longer a Zombie Modifier
+
+7. QOL Optimizations
+- New function to show damage indicators (toggleable in the settings)
+- New option in settings to disable screen shake effects (from Jalapenos & Doom-shrooms)
+- New game speed settings that can be more fine-tuned
+- New Insta-grow Fertilizer in Zen Garden Tool Shop, instantly maxes out a Plant
+
+8. Miscellaneous bug fixes and optimizations."
+bundle,resources.assets:192337:m_text,attribution_and_creator_handle,"To download the game, search:
+蓝飘飘fly (Bilibili)
+"

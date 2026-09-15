@@ -1,0 +1,64 @@
+{
+  "scope": "Chinese-origin field occurrences, not words, screens, pixels or verified runtime paths. Repeated field occurrences count separately.",
+  "metadata_literals_scanned": 19061,
+  "unity_objects_scanned": 201406,
+  "serialized_fields_scanned": 35659,
+  "serialized_type_read_failures": [
+    {
+      "file": "globalgamemanagers.assets",
+      "id": 3741,
+      "error": "read_str out of bounds"
+    },
+    {
+      "file": "resources.assets",
+      "id": 181399,
+      "error": "File unity default resources not found in C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf"
+    },
+    {
+      "file": "resources.assets",
+      "id": 181410,
+      "error": "File unity default resources not found in C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf"
+    },
+    {
+      "file": "resources.assets",
+      "id": 182092,
+      "error": "read_str out of bounds"
+    }
+  ],
+  "metadata_categories": {
+    "translated": 3118,
+    "runtime_context_needed": 167,
+    "diagnostic_or_implementation_string": 88,
+    "unicode_or_internal_table": 4,
+    "protected_command_or_gift_token": 10,
+    "diagnostic_namespace": 387,
+    "culture_format_or_possible_identifier": 25,
+    "requires_pc_translation_or_terminology_review": 83,
+    "attribution_and_creator_handle": 2
+  },
+  "bundle_categories": {
+    "translated": 5090,
+    "attribution_and_creator_handle": 17,
+    "embedded_document_or_data_table": 3,
+    "requires_pc_translation_or_terminology_review": 30,
+    "hidden_placeholder": 1,
+    "asset_or_font_identifier": 62,
+    "hidden_or_empty_field": 3
+  },
+  "pc_dependent_backlog_fields": 113,
+  "runtime_context_review_fields": 167,
+  "source_field_estimate_percent": 98.64,
+  "conservative_estimate_with_uncertain_fields_percent": 96.7,
+  "estimate_translated_fields": 8208,
+  "estimate_denominator_without_uncertain": 8321,
+  "serialized_player_text_percent": 99.41,
+  "definition_enum_count": 18,
+  "cjk_enum_member_count": 628,
+  "limitations": [
+    "Metadata visibility is inferred; translated diagnostics can remain in the numerator, so this is a text-resource estimate, not whole-game completion.",
+    "Runtime-only text, downloaded/user-authored levels, graphics/pixels and four unreadable serialized type trees are not covered by the percentage.",
+    "CJK member identifiers are inventoried separately; most are code identifiers and cannot be translated safely without confirmed display-only use.",
+    "PC English may contain existing factual inaccuracies; language coverage is not a mechanics accuracy score."
+  ],
+  "remaining_cjk_occurrences_in_current_payloads": 879
+}

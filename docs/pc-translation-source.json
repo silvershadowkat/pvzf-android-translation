@@ -9,7 +9,7 @@
     "PvZ_Fusion_Translator/Localization/English/Almanac/LawnStringsTranslate.json"
   ],
   "repository": "https://github.com/Teyliu/PVZF-Translation",
-  "updated_on": "2026-09-10",
+  "updated_on": "2026-09-15",
   "reviewed_pc_record_import": {
     "manifest": "docs/pc-reviewed-records.json",
     "pc_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
@@ -26,7 +26,7 @@
     "english_sha256": "d766c7fcc2896d1e36dfb40ab1c46ea3b6a7d8e877c83479e91dff2845023cfb",
     "reason": "Complete PC gameplay description contains an embedded known-bug note, not a missing-translation placeholder. This exact field is also present at the main source pin."
   },
-  "status": "Release 7: tester-approved test3 APK, PC snapshot 9afdca02. Publication authorized September 10; source checkout remains intentionally pinned separately.",
+  "status": "Release 8 remains published. Release 9 text payloads are prepared locally on agent/translation-3.9-release9; no APK or publication.",
   "reviewed_september9_snapshot": {
     "pc_commit": "e24586aaf9feb85eae6fc30af3460237778558ff",
     "exporter": "scripts/prepare_reviewed_pc_strings.py",
@@ -60,5 +60,20 @@
     "english_or_dump_changes": 0,
     "scope": "52 reviewed metadata text changes and one PC menu caption; signed APK audited, prerelease publication authorized September 11. Generic effects/UI use reviewed local English; PC names preserved.",
     "review": "docs/testing/RELEASE8-FEEDBACK-2026-09-11.md"
+  },
+  "reviewed_september15_snapshot": {
+    "pc_commit": "d9c05a39e7c0abb09f84ddfb15582885d60a0efe",
+    "previous_pc_commit": "708ffb136e33ccc6bb6db2fa67213170708934a9",
+    "provenance": "docs/testing/release9/pc-snapshot-provenance.json",
+    "syntax_only_comma_edits": 10,
+    "changed_english_files": [
+      "translation_strings.json",
+      "translation_regexs.json",
+      "travel_buffs.json",
+      "gods_evolved.json (duplicate file removed upstream)"
+    ],
+    "metadata_changes": 143,
+    "bundle_text_changes": 2,
+    "status": "prepared, not published"
   }
 }

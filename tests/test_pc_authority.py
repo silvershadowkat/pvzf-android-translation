@@ -19,6 +19,58 @@ def rule(pattern, target):
 
 
 class PcAuthorityTests(unittest.TestCase):
+    def test_all_release9_fallbacks_yield_to_future_exact_pc_translations(self):
+        from audit_release9_fallbacks import release9_entries, audit
+        entries = release9_entries()
+        self.assertEqual(len(entries), 117)
+        future_pc = {source: 'PC reviewed: ' + target for source, target in entries.items()}
+        with tempfile.TemporaryDirectory() as folder:
+            strings = Path(folder)
+            (strings / 'translation_strings.json').write_text(
+                json.dumps(future_pc), encoding='utf-8')
+            exact, sources, _, _ = load_pc_translations(strings)
+            for source, target in future_pc.items():
+                with self.subTest(source=source):
+                    self.assertIn(source, sources)
+                    self.assertEqual(exact[source], target)
+            rows = audit(strings)
+            self.assertEqual(len(rows), 117)
+            self.assertTrue(all(row['status'] == 'pc_candidate_available' for row in rows))
+
+    def test_firewall_runtime_name_suffix_requires_complete_reviewed_pc_field(self):
+        key = '火焰狙击射手的火墙密度+3\n需要重新手动建立火墙'
+        suffix = '的火墙密度+3\n需要重新手动建立火墙'
+        pc = 'Blazer Snipea: Gains +3 Firewall links.\nThe Firewall will have to be manually rebuilt after picking this modifier.'
+        with tempfile.TemporaryDirectory() as folder:
+            strings = Path(folder)
+            for target in (pc, pc + ' Another effect.', ''):
+                (strings / 'translation_strings.json').write_text(
+                    json.dumps({key: target}), encoding='utf-8')
+                exact, sources, _, _ = load_pc_translations(strings, False)
+                if target == pc:
+                    self.assertEqual('Blazer Snipea' + exact[suffix], pc)
+                    self.assertIn(suffix, sources)
+                else:
+                    self.assertNotIn(suffix, exact)
+
+    def test_generic_release9_text_preserves_format_arguments_and_line_breaks(self):
+        from reviewed_release9_text import GENERIC_RELEASE9
+        from build_metadata_translation import CSHARP_FORMAT_FIELD_RE
+        for source, target in GENERIC_RELEASE9.items():
+            with self.subTest(source=source):
+                self.assertEqual(sorted(CSHARP_FORMAT_FIELD_RE.findall(source)),
+                                 sorted(CSHARP_FORMAT_FIELD_RE.findall(target)))
+                self.assertEqual(source.count('\n'), target.count('\n'))
+        self.assertEqual(GENERIC_RELEASE9['◀️ 回到上一小拍: {0}.{1}'],
+                         '◀️ Back to the previous subdivision: {0}.{1}')
+
+    def test_syntax_repair_rejects_unreviewed_upstream_bytes(self):
+        from prepare_reviewed_pc_strings import repair_september15_json, SEPT15_COMMIT
+        raw = b'{"key": "value"}'
+        with self.assertRaises(ValueError):
+            repair_september15_json(raw, 'translation_strings.json', SEPT15_COMMIT)
+        self.assertEqual(repair_september15_json(raw, 'translation_strings.json', 'other'), (raw, 0))
+
     def test_generic_effect_translation_requires_reviewed_pc_name(self):
         with tempfile.TemporaryDirectory() as folder:
             strings = Path(folder)

@@ -1702,6 +1702,19 @@ def load_pc_translations(
             added += 1
         counts[filename] = added
 
+    # Android assembles these two descriptions by prefixing the runtime plant
+    # name. PC stores a complete sentence. Require the exact reviewed PC field
+    # and retain its entire description after the name; never truncate a match.
+    for fragment, pc_key, expected in (
+        ("的火墙密度+3\n需要重新手动建立火墙",
+         "火焰狙击射手的火墙密度+3\n需要重新手动建立火墙",
+         "Blazer Snipea: Gains +3 Firewall links.\nThe Firewall will have to be manually rebuilt after picking this modifier."),
+        ("的火墙顶点数加2", "火焰狙击射手的火墙顶点数加2",
+         "Blazer Snipea: Firewall can now be chained together an additional 2 times."),
+    ):
+        if exact.get(pc_key) == expected:
+            exact[fragment] = expected.removeprefix("Blazer Snipea")
+
     # Capture provenance before Android-specific overrides and fallbacks are
     # merged. New 3.9 content may use current PC English only; this set lets
     # the final selection policy distinguish community translations from
@@ -2424,6 +2437,16 @@ def main() -> int:
                     outcome="preserved_official_chinese", method=method,
                     translation=translated_text,
                 )
+        # Keep the source's five-round selection instructions; the September 15
+        # PC summary drops that interaction detail. Correct a generic plural too.
+        if not args.pc_reference_only:
+            if literal.text == "共5轮，每轮从5个词条中自选一个僵尸词条":
+                translated_text = "5 rounds total. Choose 1 Zombie Modifier from 5 each round"
+                method = "reviewed_android_instruction"
+            elif (literal.text == "解锁条件：\n累计通关达20次"
+                  and translated_text == "Unlock Condition:\nComplete this minigame a total of 20 time."):
+                translated_text = "Unlock Condition:\nComplete this minigame a total of 20 times."
+                method = "reviewed_pc_generic_grammar"
         translated_text = translated_text.replace("\u2014", "-")
         # PC 9afdca02's speed rule opens a size tag without closing it.
         # Scope the Android repair to this exact reviewed label; preserve the

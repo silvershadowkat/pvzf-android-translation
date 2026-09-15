@@ -1,0 +1,173 @@
+{
+  "pc_commit": "d9c05a39e7c0abb09f84ddfb15582885d60a0efe",
+  "files": [
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/AbyssBuffData.json",
+      "upstream_sha256": "2d14fc3153d631d76831df5f4639e6a6a0030bfa50d8ea0766931660e483f17f",
+      "snapshot_sha256": "2d14fc3153d631d76831df5f4639e6a6a0030bfa50d8ea0766931660e483f17f",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/AchievementsText.json",
+      "upstream_sha256": "8b9d49e9af9bb0100700d81c444f36dd78144821d27826e5bb5af4730e611a8d",
+      "snapshot_sha256": "8b9d49e9af9bb0100700d81c444f36dd78144821d27826e5bb5af4730e611a8d",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/CustomLevels.json",
+      "upstream_sha256": "2a0cab5962f9fc85137ca61da9beeb9845cf77c8f27b588f6a0771fa55466115",
+      "snapshot_sha256": "2a0cab5962f9fc85137ca61da9beeb9845cf77c8f27b588f6a0771fa55466115",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/DetailStrings.json",
+      "upstream_sha256": "1e6d6ae8c09526b4fdedf7cbec2828fdb7f045c7345f67a27cec2e13a5b3337d",
+      "snapshot_sha256": "1e6d6ae8c09526b4fdedf7cbec2828fdb7f045c7345f67a27cec2e13a5b3337d",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/LawnStrings.json",
+      "upstream_sha256": "29dcfd3edec17a69b36c9a9179944d4336668ac35ea7f8db1932e0bf11e56ae2",
+      "snapshot_sha256": "29dcfd3edec17a69b36c9a9179944d4336668ac35ea7f8db1932e0bf11e56ae2",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/MD5.json",
+      "upstream_sha256": "525fce25858f60a032db75704f718de1384db21d6f49c6d674c56cc647b95927",
+      "snapshot_sha256": "525fce25858f60a032db75704f718de1384db21d6f49c6d674c56cc647b95927",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/ZombieStrings.json",
+      "upstream_sha256": "3c3627e8e79c67dce52a01ac38bf0b4047e560bad7e7656d11f934ded7314617",
+      "snapshot_sha256": "3c3627e8e79c67dce52a01ac38bf0b4047e560bad7e7656d11f934ded7314617",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/custom_level_data.json",
+      "upstream_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "snapshot_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/custom_level_strings.json",
+      "upstream_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "snapshot_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/tips_fs.json",
+      "upstream_sha256": "e0a82f3323e62bd456c439f8ad70cb5c61d3f6de1edf39ac07e46d9bc9606bdd",
+      "snapshot_sha256": "e0a82f3323e62bd456c439f8ad70cb5c61d3f6de1edf39ac07e46d9bc9606bdd",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/tips_iz.json",
+      "upstream_sha256": "f14be5fd6d636a20a551719001c186097cee4b471f4b3b33a1618b16ef78023b",
+      "snapshot_sha256": "f14be5fd6d636a20a551719001c186097cee4b471f4b3b33a1618b16ef78023b",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Dumps/travel_buffs.json",
+      "upstream_sha256": "742719410cdac9ccebaeeb2925873d0632454bcfccf0f1324c44dc6b6659e814",
+      "snapshot_sha256": "742719410cdac9ccebaeeb2925873d0632454bcfccf0f1324c44dc6b6659e814",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Almanac/DetailStringsTranslate.json",
+      "upstream_sha256": "ec582fa0c47778de9d1054cd114ae5866eef8cbd4390e0ca1393184c9d15e72b",
+      "snapshot_sha256": "ec582fa0c47778de9d1054cd114ae5866eef8cbd4390e0ca1393184c9d15e72b",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Almanac/LawnStringsTranslate.json",
+      "upstream_sha256": "4a295739e04f204a7375a6e3746a2a086f696f85b96ded7f40ca434c076e036f",
+      "snapshot_sha256": "4a295739e04f204a7375a6e3746a2a086f696f85b96ded7f40ca434c076e036f",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Almanac/ZombieStringsTranslate.json",
+      "upstream_sha256": "1af6ec8a87fbf2b8f02cf808b32199ae6555411de86478d0935e0ec83c8e68f5",
+      "snapshot_sha256": "1af6ec8a87fbf2b8f02cf808b32199ae6555411de86478d0935e0ec83c8e68f5",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/abyss_buffs.json",
+      "upstream_sha256": "767d8930e3125d99675bd33807525c1a3a7e0a7ab315161312fe03d7e95156e9",
+      "snapshot_sha256": "767d8930e3125d99675bd33807525c1a3a7e0a7ab315161312fe03d7e95156e9",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/custom_level_data.json",
+      "upstream_sha256": "c1d9fab2ee03947a9f6548c115bfb7d16ad844665bcddf7cd04ab715d452b8b5",
+      "snapshot_sha256": "c1d9fab2ee03947a9f6548c115bfb7d16ad844665bcddf7cd04ab715d452b8b5",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/customlevel_regexs.json",
+      "upstream_sha256": "a58ff367261341f0359edb97aebf455e695e7b53938a3bf7312e8f286e788131",
+      "snapshot_sha256": "a58ff367261341f0359edb97aebf455e695e7b53938a3bf7312e8f286e788131",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/customlevel_strings.json",
+      "upstream_sha256": "99a3f512e5f6e3c8fca7a01c448a822219dab60d63ca835d11595b5191ffc669",
+      "snapshot_sha256": "99a3f512e5f6e3c8fca7a01c448a822219dab60d63ca835d11595b5191ffc669",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/tips_fs.json",
+      "upstream_sha256": "2c7934f9beb24a7d0210dcac795957abc0445786ecac50724138a920ae3695ec",
+      "snapshot_sha256": "2c7934f9beb24a7d0210dcac795957abc0445786ecac50724138a920ae3695ec",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/tips_iz.json",
+      "upstream_sha256": "71bb119b6331228e1b22f39ae31255f2282fc00abc69f972ac0574a6c2d82ee9",
+      "snapshot_sha256": "71bb119b6331228e1b22f39ae31255f2282fc00abc69f972ac0574a6c2d82ee9",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/translation_regexs.json",
+      "upstream_sha256": "20b8cacf35d0a212ce9d9e9ae4600dc0a70a930a7226f7db0c1cd39bf7f2a8c0",
+      "snapshot_sha256": "20801f334aa8f7c55400858372a9e160cea0fb98a80b439b30f131aea189cd91",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 2
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/translation_strings.json",
+      "upstream_sha256": "3373ecdff1e344377c116ca8410f88bc723f433f9696bab213370d4b63355703",
+      "snapshot_sha256": "8768639fd4cc9c23ec314e31362df38663e223a92dd39738d31dc4f363235fa9",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 8
+    },
+    {
+      "file": "PvZ_Fusion_Translator/Localization/English/Strings/travel_buffs.json",
+      "upstream_sha256": "67869073a9ea46880a8eb1152abfdbb61c7f162b78b62e0cbbe00d21c6172d2a",
+      "snapshot_sha256": "67869073a9ea46880a8eb1152abfdbb61c7f162b78b62e0cbbe00d21c6172d2a",
+      "missing_comma_repaired": false,
+      "reviewed_comma_only_edits": 0
+    }
+  ]
+}

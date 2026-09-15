@@ -4,7 +4,7 @@ This is the repeatable path for updating the English Android build.
 
 ## Translation authority and provenance
 
-### Current tester-feedback rule (2026-09-06)
+### Current tester-feedback rule (updated 2026-09-15)
 
 Maintain [RELEASE-NOTES-NEXT.md](RELEASE-NOTES-NEXT.md) as the single running
 release-notes draft. Every completed correction from this work and future
@@ -15,12 +15,15 @@ review or device testing. Keep technical evidence in the audit documents.
 For every tester finding, look up the exact source/record in the current PC
 3.9 translation before proposing English. If the PC project has no completed,
 usable translation for that field, tell the user **the PC project has not
-translated it yet**. On September 9 the user authorized straightforward,
-harmless UI labels after screenshot/context review even when PC lacks them.
+translated it yet**. The user's September 11 and September 15 instructions
+also authorize straightforward navigation, counters, status text and basic,
+unambiguous effects after context review even when PC lacks them.
 Keep these exact, fallback-only entries in the reviewed UI allowlist and
 document their provenance. Plant/zombie names, ability or modifier names,
-recipes and gameplay descriptions still require completed, source-aligned PC
-wording. Existing assisted wording is identified for review, not automatically
+recipes and specialized or ambiguous gameplay descriptions still require completed,
+source-aligned PC wording. Basic effects may use a verified PC modifier name
+with a faithful contextual translation of the Android effect. Do not invent
+names or infer missing mechanics. Existing assisted wording is identified for review, not automatically
 reverted.
 
 This updated session rule permits the generic-UI exception below for reviewed
@@ -39,12 +42,16 @@ For new or changed 3.9 gameplay content, use this strict beta policy:
 3. Do not create AI-assisted English fallbacks for new or changed gameplay
    text.
 
-Confirmed generic UI is the only exception to the PC-or-Chinese rule. A
+Confirmed generic UI and unambiguous basic effects are exceptions to the PC-or-Chinese rule. A
 setting, button, connection/status message, or tutorial prompt may be
 translated after visual/context review when it contains no unverified plant,
 zombie, fusion, item, modifier, recipe, or mechanics term. Store these in the
-explicit 3.9 reviewed-UI allowlists, count them separately in reports, and
-keep them fallback-only so later PC English wins automatically.
+explicit 3.9 reviewed-UI allowlists and count them separately in reports.
+Prefer later complete PC English, but retain clear Android-specific instructions
+when a shortened PC label would omit required steps. Document any such exception.
+Validate placeholders, numeric precision, parser delimiters and component bytes.
+Never translate command tokens, enum/storage identifiers or default filenames
+without proving they are display-only.
 
 Reviewed Android-specific 3.8.1 Update 6 translations may remain for source
 strings that are unchanged in 3.9. Historical Joseph/aha mappings remain
@@ -239,6 +246,38 @@ those separators. For example, the SolarNova inspection fields for HP, damage,
 production cooldown, and Lumos level each retain the official trailing newline.
 Removing it causes adjacent labels and values to run together even though the
 individual words are correctly translated.
+
+## Release 9 provisional UI tracking
+
+The user approved retaining all 117 contextual translations, including
+"higher-quality zombies" in the red-vase Crisis Mode message. These are
+provisional English, not PC-authored terminology. The two Travel Store
+placeholder labels are separate from the 117 entries.
+
+[The tracker](testing/release9/provisional-ui-tracker.json) records every exact
+Chinese source, provisional English, PC-name requirement, PC commit checked,
+and complete PC match, if available. Existing metadata indices and actual
+rendered targets are in [the change report](testing/release9/metadata-changes.json).
+Use source text as the stable key; indices may move in later game versions.
+
+On every PC translation refresh, run this against the newly reviewed, strictly
+parsed English Strings snapshot:
+
+```text
+python scripts/audit_release9_fallbacks.py --strings-dir <reviewed-English-Strings> --pc-commit <commit> --output docs/testing/release9/provisional-ui-tracker.json
+```
+
+Review `pc_candidate_available` entries for full-source coverage, preserved
+format arguments, and terminology. The metadata builder already gives usable
+exact PC entries priority over these fallbacks. Complete PC regex/template
+candidates must also pass the normal full-record build review. Never replace
+from a partial or fuzzy match. Keep the provisional mapping as historical
+fallback provenance, and regenerate the tracker and payload verification when
+adopting PC text. The comparison command only writes its report.
+
+At commit `d9c05a39e7c0abb09f84ddfb15582885d60a0efe`, none of these 117 entries
+has a complete usable PC match. A regression test verifies that all 117 yield
+to future exact PC translations, including the PC-name-gated result message.
 
 ## Required audits before a release
 

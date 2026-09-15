@@ -50,6 +50,10 @@ GENERIC_TEXT = {
     "，下次启动将自动加载此存档": "; this save will load automatically next time",
 }
 
+from reviewed_release9_text import GENERIC_RELEASE9
+GENERIC_TEXT.update(GENERIC_RELEASE9)
+GENERIC_TEXT["命运无常：获得了{0}幸运"] = "Whims of Fate：Gained {0} Luck"
+
 PC_NAME_REQUIREMENTS = {
     source: ('advancedBuffs', '13001', 'Enchanted Shield')
     for source in GENERIC_TEXT if source.startswith('护盾保护') or source.startswith('持有护盾的植物')
@@ -58,3 +62,4 @@ PC_NAME_REQUIREMENTS.update({
     source: ('advancedBuffs', '13100', 'No Pains No Gains')
     for source in GENERIC_TEXT if source.startswith('不破不立：')
 })
+PC_NAME_REQUIREMENTS["命运无常：获得了{0}幸运"] = ('debuffs', '10044', 'Whims of Fate')

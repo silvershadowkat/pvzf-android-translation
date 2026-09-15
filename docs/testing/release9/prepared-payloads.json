@@ -1,0 +1,28 @@
+{
+  "status": "Prepared local text payloads; APK packaging, signing, device testing and release publication remain pending",
+  "base_release": "v3.9-release-8",
+  "branch": "agent/translation-3.9-release9",
+  "pc_commit": "d9c05a39e7c0abb09f84ddfb15582885d60a0efe",
+  "metadata": {
+    "path": "C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf-android\\work\\release9-prep\\global-metadata.dat",
+    "sha256": "99ebdd04bb67b23b273f6d27ad56b35cdc947fac02f583582b39f4f1be86f11a"
+  },
+  "bundle": {
+    "path": "C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf-android\\work\\release9-prep\\data-release9.unity3d",
+    "sha256": "bfc4a9fdd4f8f6b886e21f3428341539fd0a6098a24641595690c7d13edfffc0"
+  },
+  "metadata_changes": 143,
+  "bundle_text_changes": 2,
+  "tests": 28,
+  "android_device_tested": false,
+  "code_save_logic_and_gameplay_unchanged": true,
+  "complete_pc_matches_left_in_chinese": 0,
+  "process_cleanup": "All commands used for this preparation exited; no background service, emulator or game was started.",
+  "rebuild_instructions": {
+    "metadata_driver": "C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf-android\\work\\release9-prep\\build_metadata.py",
+    "snapshot_exporter": "scripts/prepare_reviewed_pc_strings.py",
+    "bundle_script": "scripts/fix_release9_ui_placeholders.py",
+    "coverage_driver": "C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf-android\\work\\release9-prep\\coverage.py",
+    "typetree_inventory_driver": "C:\\Users\\plim\\Documents\\Codex\\2026-09-06\\https-github-com-silvershadowkat-pvzf-android\\work\\release9-prep\\scan_bundle.py"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "objects_verified": 201406,
+  "changes": [
+    {
+      "key": [
+        "resources.assets",
+        190545
+      ],
+      "hierarchy": [
+        "InvestText",
+        "Content",
+        "Viewport",
+        "Scroll View",
+        "TravelStore"
+      ],
+      "before": "词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条",
+      "after": "Modifiers"
+    },
+    {
+      "key": [
+        "resources.assets",
+        191192
+      ],
+      "hierarchy": [
+        "InvestText_shadow",
+        "Content",
+        "Viewport",
+        "Scroll View",
+        "TravelStore"
+      ],
+      "before": "词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条词条",
+      "after": "Modifiers"
+    }
+  ],
+  "all_other_object_and_component_bytes_unchanged": true,
+  "device_tested": false,
+  "sha256": "bfc4a9fdd4f8f6b886e21f3428341539fd0a6098a24641595690c7d13edfffc0"
+}

@@ -1,0 +1,866 @@
+{
+  "changes": [
+    {
+      "index": 45,
+      "source": "\n\n<b>节点ID:</b> ",
+      "before": "\n\n<b>节点ID:</b> ",
+      "after": "\n\n<b>Node ID:</b> "
+    },
+    {
+      "index": 91,
+      "source": "\n不死：{0}秒",
+      "before": "\n不死：{0}秒",
+      "after": "\nInvulnerability: {0}s"
+    },
+    {
+      "index": 103,
+      "source": "\n待审核",
+      "before": "\n待审核",
+      "after": "\nPending review"
+    },
+    {
+      "index": 113,
+      "source": "\n获得植物：",
+      "before": "\n获得植物：",
+      "after": "\nObtained plant: "
+    },
+    {
+      "index": 118,
+      "source": "\n路径: ",
+      "before": "\n路径: ",
+      "after": "\nPath: "
+    },
+    {
+      "index": 120,
+      "source": "\n追踪：",
+      "before": "\n追踪：",
+      "after": "\nTracking: "
+    },
+    {
+      "index": 447,
+      "source": " | 开始: {0:F3}s ({1}.{2}拍)",
+      "before": " | 开始: {0:F3}s ({1}.{2}拍)",
+      "after": " | Start: {0:F3}s ({1}.{2} beat)"
+    },
+    {
+      "index": 448,
+      "source": " | 持续: {0:F3}s",
+      "before": " | 持续: {0:F3}s",
+      "after": " | Duration: {0:F3}s"
+    },
+    {
+      "index": 450,
+      "source": " | 结束: {0:F3}s ({1}.{2}拍)",
+      "before": " | 结束: {0:F3}s ({1}.{2}拍)",
+      "after": " | End: {0:F3}s ({1}.{2} beat)"
+    },
+    {
+      "index": 11115,
+      "source": "[{0}级] {1}",
+      "before": "[{0}级] {1}",
+      "after": "[Lv. {0}] {1}"
+    },
+    {
+      "index": 11116,
+      "source": "[{0}级] {1} ({2}个): {3}\n",
+      "before": "[{0}级] {1} ({2}个): {3}\n",
+      "after": "[Lv. {0}] {1} ({2} plants): {3}\n"
+    },
+    {
+      "index": 15234,
+      "source": "up刷新倒计时：\n{0}",
+      "before": "up刷新倒计时：\n{0}",
+      "after": "Featured pool refresh countdown:\n{0}"
+    },
+    {
+      "index": 15651,
+      "source": "{0}. {1} (深度: {2})",
+      "before": "{0}. {1} (深度: {2})",
+      "after": "{0}. {1} (Depth: {2})"
+    },
+    {
+      "index": 15652,
+      "source": "{0}. {1}: {2} 种可融合植物",
+      "before": "{0}. {1}: {2} 种可融合植物",
+      "after": "{0}. {1}: {2} possible fusion plants"
+    },
+    {
+      "index": 15681,
+      "source": "{0}: {1}个\n",
+      "before": "{0}: {1}个\n",
+      "after": "{0}: {1} plants\n"
+    },
+    {
+      "index": 15682,
+      "source": "{0}: 可融合出 {1} 种植物",
+      "before": "{0}: 可融合出 {1} 种植物",
+      "after": "{0}: Can fuse into {1} plants"
+    },
+    {
+      "index": 15707,
+      "source": "{0}{1} (深度:{2}, 直接子节点:{3})",
+      "before": "{0}{1} (深度:{2}, 直接子节点:{3})",
+      "after": "{0}{1} (Depth:{2}, Direct children:{3})"
+    },
+    {
+      "index": 15713,
+      "source": "{0}混池模式（已选{1}个场景）",
+      "before": "{0}混池模式（已选{1}个场景）",
+      "after": "{0} Mixed Pool Mode ({1} scenes selected)"
+    },
+    {
+      "index": 15845,
+      "source": "⏭️ 跳转到 {0:F3}s",
+      "before": "⏭️ 跳转到 {0:F3}s",
+      "after": "⏭️ Jump to {0:F3}s"
+    },
+    {
+      "index": 15846,
+      "source": "⏸️ 已播放一小拍，自动暂停 | 当前: {0:F3}s",
+      "before": "⏸️ 已播放一小拍，自动暂停 | 当前: {0:F3}s",
+      "after": "⏸️ Played one subdivision; paused automatically | Current: {0:F3}s"
+    },
+    {
+      "index": 15847,
+      "source": "⏸️ 已暂停",
+      "before": "⏸️ 已暂停",
+      "after": "⏸️ Paused"
+    },
+    {
+      "index": 15848,
+      "source": "⏸️ 立即暂停 | 设置: {0:F3}s",
+      "before": "⏸️ 立即暂停 | 设置: {0:F3}s",
+      "after": "⏸️ Pause immediately | Set: {0:F3}s"
+    },
+    {
+      "index": 15849,
+      "source": "⏹️ 停止录制音符",
+      "before": "⏹️ 停止录制音符",
+      "after": "⏹️ Stop recording notes"
+    },
+    {
+      "index": 15850,
+      "source": "⏹️ 停止录制！共记录 {0} 个音符",
+      "before": "⏹️ 停止录制！共记录 {0} 个音符",
+      "after": "⏹️ Recording stopped! {0} notes recorded"
+    },
+    {
+      "index": 15851,
+      "source": "⏹️ 停止拖动: 音符{0}",
+      "before": "⏹️ 停止拖动: 音符{0}",
+      "after": "⏹️ Stopped dragging: Note {0}"
+    },
+    {
+      "index": 15859,
+      "source": "▶️ 播放一小拍: 从 {0}.{1} 开始",
+      "before": "▶️ 播放一小拍: 从 {0}.{1} 开始",
+      "after": "▶️ Play one subdivision: Start at {0}.{1}"
+    },
+    {
+      "index": 15860,
+      "source": "▶️ 继续播放",
+      "before": "▶️ 继续播放",
+      "after": "▶️ Resume playback"
+    },
+    {
+      "index": 15861,
+      "source": "◀️ 回到上一小拍: {0}.{1}",
+      "before": "Back to 上一小拍:",
+      "after": "◀️ Back to the previous subdivision: {0}.{1}"
+    },
+    {
+      "index": 15864,
+      "source": "⚠️ 没有选中的音符可以删除",
+      "before": "⚠️ 没有选中的音符可以删除",
+      "after": "⚠️ No selected notes to delete"
+    },
+    {
+      "index": 15865,
+      "source": "⚠️ 请在同一轨道完成Hold音符",
+      "before": "⚠️ 请在同一轨道完成Hold音符",
+      "after": "⚠️ Complete Hold notes in the same track"
+    },
+    {
+      "index": 15872,
+      "source": "✅ 已恢复预设音乐: {0}",
+      "before": "✅ 已恢复预设音乐: {0}",
+      "after": "✅ Restored preset music: {0}"
+    },
+    {
+      "index": 15873,
+      "source": "✅ 已选中音符: {0}",
+      "before": "✅ 已选中音符: {0}",
+      "after": "✅ Selected note: {0}"
+    },
+    {
+      "index": 15874,
+      "source": "✅ 成功加载: ",
+      "before": "✅ 成功加载: ",
+      "after": "✅ Loaded: "
+    },
+    {
+      "index": 15875,
+      "source": "✅ 成功加载谱面: {0} ({1}个音符)",
+      "before": "✅ 成功加载谱面: {0} ({1}个音符)",
+      "after": "✅ Loaded chart: {0} ({1} notes)"
+    },
+    {
+      "index": 15883,
+      "source": "❌ 无法加载音频文件（尝试了所有格式）: ",
+      "before": "❌ 无法加载音频文件（尝试了所有格式）: ",
+      "after": "❌ Cannot load audio (tried all formats): "
+    },
+    {
+      "index": 15885,
+      "source": "❌ 没有找到保存的谱面文件",
+      "before": "❌ 没有找到保存的谱面文件",
+      "after": "❌ No saved chart file found"
+    },
+    {
+      "index": 15886,
+      "source": "❌ 请先加载BGM！",
+      "before": "❌ 请先加载BGM！",
+      "after": "❌ Load BGM first!"
+    },
+    {
+      "index": 15918,
+      "source": "一等奖！发财了！",
+      "before": "一等奖！发财了！",
+      "after": "First prize! Jackpot!"
+    },
+    {
+      "index": 15940,
+      "source": "上传失败\n可以前往QQ群：",
+      "before": "上传失败\n可以前往QQ群：",
+      "after": "Upload failed\nYou can visit the QQ group: "
+    },
+    {
+      "index": 15941,
+      "source": "上传成功",
+      "before": "上传成功",
+      "after": "Upload successful"
+    },
+    {
+      "index": 15942,
+      "source": "上传成功！关卡正在等待审核\n可以前往QQ群：",
+      "before": "上传成功！关卡正在等待审核\n可以前往QQ群：",
+      "after": "Upload successful! Level awaiting review\nYou can visit the QQ group: "
+    },
+    {
+      "index": 15943,
+      "source": "上传用户关卡时发生错误: ",
+      "before": "上传用户关卡时发生错误: ",
+      "after": "Error uploading user level: "
+    },
+    {
+      "index": 15961,
+      "source": "不破不立：杀死你的全部植物，并将全场植物的独立伤害增幅和速度增幅减半\n在20波后重复这一操作，但改为增幅翻倍",
+      "before": "<nobr>No Pains No Gains</nobr>：\nKill all your plants and halve all plants' independent damage and speed bonuses.\nAfter 20 waves, repeat this operation, but double the bonuses instead.",
+      "after": "<nobr>No Pains No Gains</nobr>：\nKill all of your plants, and halve the independent damage and speed buffs for all your plants;\nThe same will happen after 20 waves, but this time the buffs are doubled"
+    },
+    {
+      "index": 16031,
+      "source": "从多个植物中任选一个",
+      "before": "Choose one from several plants",
+      "after": "Choose any from the selection"
+    },
+    {
+      "index": 16032,
+      "source": "从多个选项中自选一株专家植物",
+      "before": "Choose one Expert Plant from several options",
+      "after": "Pick from a random assortment of Reinforcement plants"
+    },
+    {
+      "index": 16056,
+      "source": "以50的幸运开局，并使幸运上限增加至300，然后随机选择5个僵尸词条\n随机的5个词条只有在成功通关任意难度诸神进化后才会刷新",
+      "before": "Start with 50 Luck and raise the Luck cap to 300. Randomly select 5 Zombie Modifiers.\nThese 5 modifiers reroll only after clearing The Gods: Evolved on any difficulty.",
+      "after": "Start with 50 Luck and increase the Luck cap to 300, but take 5 random Zombie modifiers.\nThe chosen modifiers will change every time The Gods: Evolved is beaten."
+    },
+    {
+      "index": 16209,
+      "source": "僵尸方的小丑爆炸伤害降低至1000，并立即获得3000护盾",
+      "before": "Reduce Zombie Jack-in-the-Box explosion damage to 1000. Immediately gain 3000 Shield.",
+      "after": "Jack-in-the-box explosions now deal 1000 damage, and every plant gains 3000 shield."
+    },
+    {
+      "index": 16253,
+      "source": "全体植物获得{0}护盾，复活后依然生效",
+      "before": "All plants gain {0} Shield HP, which is given back even after they revive.",
+      "after": "All plants gain {0} Shield HP, which is fully restored even after they revive."
+    },
+    {
+      "index": 16254,
+      "source": "全体植物获得抵御碾压的能力，复活后依然生效，并立即获得3000护盾",
+      "before": "All plants become immune to crushing, even after revival, and immediately gain 3000 Shield.",
+      "after": "All plants gain a permanent anti-crush ability (persists after respawns) and 3000 Shield immediately"
+    },
+    {
+      "index": 16270,
+      "source": "共触发",
+      "before": "共触发",
+      "after": "Total activations"
+    },
+    {
+      "index": 16276,
+      "source": "关卡删除失败: ",
+      "before": "关卡删除失败: ",
+      "after": "Failed to delete level: "
+    },
+    {
+      "index": 16342,
+      "source": "出保底了，当前保底阈值：{0}",
+      "before": "Guaranteed reward triggered. Current threshold: {0}",
+      "after": "Pity system activated! Current pity system threshold: {0}"
+    },
+    {
+      "index": 16393,
+      "source": "创建存档失败",
+      "before": "创建存档失败",
+      "after": "Failed to create save"
+    },
+    {
+      "index": 16414,
+      "source": "删除关卡失败: {0}",
+      "before": "删除关卡失败: {0}",
+      "after": "Failed to delete level: {0}"
+    },
+    {
+      "index": 16415,
+      "source": "删除关卡时发生错误: ",
+      "before": "删除关卡时发生错误: ",
+      "after": "Error deleting level: "
+    },
+    {
+      "index": 16419,
+      "source": "删除存档失败：",
+      "before": "删除存档失败：",
+      "after": "Failed to delete save: "
+    },
+    {
+      "index": 16420,
+      "source": "删除文件失败: ",
+      "before": "删除文件失败: ",
+      "after": "Failed to delete file: "
+    },
+    {
+      "index": 16422,
+      "source": "删除用户关卡异常: ",
+      "before": "删除用户关卡异常: ",
+      "after": "Error deleting user level: "
+    },
+    {
+      "index": 16428,
+      "source": "刷新存档列表时出错：",
+      "before": "刷新存档列表时出错：",
+      "after": "Error refreshing save list: "
+    },
+    {
+      "index": 16455,
+      "source": "加载在线关卡列表时发生错误: ",
+      "before": "加载在线关卡列表时发生错误: ",
+      "after": "Error loading online level list: "
+    },
+    {
+      "index": 16456,
+      "source": "加载失败: ",
+      "before": "加载失败: ",
+      "after": "Failed to load: "
+    },
+    {
+      "index": 16459,
+      "source": "加载统一存档失败: ",
+      "before": "加载统一存档失败: ",
+      "after": "Failed to load unified save: "
+    },
+    {
+      "index": 16460,
+      "source": "加载自动存档失败: ",
+      "before": "加载自动存档失败: ",
+      "after": "Failed to load autosave: "
+    },
+    {
+      "index": 16509,
+      "source": "危机模式已开启，红色罐子开出的僵尸品质概率大幅提高",
+      "before": "危机模式已开启，红色罐子开出的僵尸品质概率大幅提高",
+      "after": "Crisis Mode enabled. Red vases are much more likely to contain higher-quality zombies."
+    },
+    {
+      "index": 16545,
+      "source": "右键",
+      "before": "右键",
+      "after": "Right mouse button"
+    },
+    {
+      "index": 16586,
+      "source": "命运无常：每次抽取词条时，随机获得-27~23幸运",
+      "before": "<nobr>Whims of Fate</nobr>：\nRandomly receive -27-33 points of Luck with every Modifier draw",
+      "after": "<nobr>Whims of Fate</nobr>：\nRandomly lose 27 to 33 points of Luck with every Modifier draw"
+    },
+    {
+      "index": 16587,
+      "source": "命运无常：获得了{0}幸运",
+      "before": "<nobr>命运无常</nobr>：\n获得了{0}幸运",
+      "after": "<nobr>Whims of Fate</nobr>：\nGained {0} Luck"
+    },
+    {
+      "index": 16696,
+      "source": "复活时间降低99%\n当前标准复活时长：0秒",
+      "before": "Plant respawn time is reduced by 99%.\nCurrent standard respawn time: 0s",
+      "after": "Reduce plant respawn time by 99%\nCurrent respawn time: 0s"
+    },
+    {
+      "index": 16697,
+      "source": "复活时间降低{0:F0}%\n当前标准复活时长：{1:F1}秒",
+      "before": "Reduce plant respawn time by {0:F0}%.\nCurrent standard respawn time: {1:F1}s",
+      "after": "Reduce plant respawn time by {0:F0}%\nCurrent respawn time: {1:F1}s"
+    },
+    {
+      "index": 16769,
+      "source": "存档失败: ",
+      "before": "存档失败: ",
+      "after": "Failed to save: "
+    },
+    {
+      "index": 16883,
+      "source": "左键",
+      "before": "左键",
+      "after": "Left mouse button"
+    },
+    {
+      "index": 16909,
+      "source": "已添加：",
+      "before": "已添加：",
+      "after": "Added: "
+    },
+    {
+      "index": 16914,
+      "source": "已移除：",
+      "before": "已移除：",
+      "after": "Removed: "
+    },
+    {
+      "index": 17005,
+      "source": "强化：密集火焰",
+      "before": "Upgrade: Dense Flames",
+      "after": "Upgrade: Firewall"
+    },
+    {
+      "index": 17084,
+      "source": "循环次数必须大于0",
+      "before": "循环次数必须大于0",
+      "after": "Repeat count must be greater than 0"
+    },
+    {
+      "index": 17103,
+      "source": "总后代数: {0}",
+      "before": "总后代数: {0}",
+      "after": "Total descendants: {0}"
+    },
+    {
+      "index": 17115,
+      "source": "成功保存文件到:",
+      "before": "成功保存文件到:",
+      "after": "File saved to:"
+    },
+    {
+      "index": 17116,
+      "source": "成功加载: {0}\nBPM: {1}\n音符数量: {2}",
+      "before": "成功加载: {0}\nBPM: {1}\n音符数量: {2}",
+      "after": "Loaded: {0}\nBPM: {1}\nNotes: {2}"
+    },
+    {
+      "index": 17160,
+      "source": "所有后代: {0} 种",
+      "before": "所有后代: {0} 种",
+      "after": "All descendants: {0} types"
+    },
+    {
+      "index": 17169,
+      "source": "打开文件夹失败: ",
+      "before": "打开文件夹失败: ",
+      "after": "Failed to open folder: "
+    },
+    {
+      "index": 17170,
+      "source": "打砖块",
+      "before": "打砖块",
+      "after": "Brick Breaker"
+    },
+    {
+      "index": 17171,
+      "source": "打砖块2",
+      "before": "打砖块2",
+      "after": "Brick Breaker 2"
+    },
+    {
+      "index": 17172,
+      "source": "打砖块无尽版",
+      "before": "打砖块无尽版",
+      "after": "Endless Brick Breaker"
+    },
+    {
+      "index": 17185,
+      "source": "护盾保护：持有护盾的植物每秒回复0.1%护盾量的生命值",
+      "before": "<nobr>Enchanted Shield</nobr>：\nShielded plants recover HP equal to 0.1% of their Shield each second.",
+      "after": "<nobr>Enchanted Shield</nobr>：\nPlants with Shield recover HP equal to 0.1% of their Shield every second"
+    },
+    {
+      "index": 17195,
+      "source": "持有护盾的植物每秒回复0.1%护盾量的生命值，并立即获得6000护盾",
+      "before": "Shielded plants recover HP equal to 0.1% of their Shield each second and immediately gain 6000 Shield.",
+      "after": "Plants with Shield recover HP equal to 0.1% of their Shield every second, and gain 6000 Shield immediately"
+    },
+    {
+      "index": 17277,
+      "source": "文件不存在: ",
+      "before": "文件不存在: ",
+      "after": "File not found: "
+    },
+    {
+      "index": 17362,
+      "source": "时间间隔必须大于0",
+      "before": "时间间隔必须大于0",
+      "after": "Time interval must be greater than 0"
+    },
+    {
+      "index": 17484,
+      "source": "暂无描述信息\n\n<b>节点ID:</b> ",
+      "before": "暂无描述信息\n\n<b>节点ID:</b> ",
+      "after": "No description available\n\n<b>Node ID:</b> "
+    },
+    {
+      "index": 17503,
+      "source": "最短路径（{0}次融合）:",
+      "before": "最短路径（{0}次融合）:",
+      "after": "Shortest path ({0} fusions):"
+    },
+    {
+      "index": 17505,
+      "source": "最长路径（{0}次融合）:",
+      "before": "最长路径（{0}次融合）:",
+      "after": "Longest path ({0} fusions):"
+    },
+    {
+      "index": 17527,
+      "source": "未知节点",
+      "before": "未知节点",
+      "after": "Unknown node"
+    },
+    {
+      "index": 17533,
+      "source": "本地导入",
+      "before": "本地导入",
+      "after": "Import locally"
+    },
+    {
+      "index": 17574,
+      "source": "查看草坪发生错误, ",
+      "before": "View 草坪发生错误,",
+      "after": "Error viewing the lawn, "
+    },
+    {
+      "index": 17609,
+      "source": "植物进化配置已重新加载",
+      "before": "植物进化配置已重新加载",
+      "after": "Plant evolution configuration reloaded"
+    },
+    {
+      "index": 17610,
+      "source": "植物进化配置缓存已清除",
+      "before": "植物进化配置缓存已清除",
+      "after": "Plant evolution configuration cache cleared"
+    },
+    {
+      "index": 17714,
+      "source": "每次攻击多掉落一枚钱币",
+      "before": "Each attack drops one additional coin.",
+      "after": "Drop 1 extra Coin with each attack"
+    },
+    {
+      "index": 17773,
+      "source": "没有记录的数据",
+      "before": "没有记录的数据",
+      "after": "No recorded data"
+    },
+    {
+      "index": 17832,
+      "source": "添加：",
+      "before": "添加：",
+      "after": "Add: "
+    },
+    {
+      "index": 17892,
+      "source": "炼狱难度需要选择：{0}/5个负面词条",
+      "before": "Purgatory requires selecting {0}/5 negative modifiers",
+      "after": "{0}/5 Zombie modifiers selected"
+    },
+    {
+      "index": 17988,
+      "source": "用户关卡上传失败: ",
+      "before": "用户关卡上传失败: ",
+      "after": "User level upload failed: "
+    },
+    {
+      "index": 17989,
+      "source": "用户关卡上传成功: ",
+      "before": "用户关卡上传成功: ",
+      "after": "User level uploaded: "
+    },
+    {
+      "index": 18005,
+      "source": "的火墙密度+3\n需要重新手动建立火墙",
+      "before": "的火墙密度+3\n需要重新手动建立火墙",
+      "after": ": Gains +3 Firewall links.\nThe Firewall will have to be manually rebuilt after picking this modifier."
+    },
+    {
+      "index": 18006,
+      "source": "的火墙顶点数加2",
+      "before": "的火墙顶点数加2",
+      "after": ": Firewall can now be chained together an additional 2 times."
+    },
+    {
+      "index": 18016,
+      "source": "直接加载关卡时发生错误: ",
+      "before": "直接加载关卡时发生错误: ",
+      "after": "Error loading level directly: "
+    },
+    {
+      "index": 18041,
+      "source": "磁力：{0}",
+      "before": "磁力：{0}",
+      "after": "Magnetism: {0}"
+    },
+    {
+      "index": 18120,
+      "source": "端口类型不兼容！{0} → {1}",
+      "before": "端口类型不兼容！{0} → {1}",
+      "after": "Incompatible port types! {0} → {1}"
+    },
+    {
+      "index": 18126,
+      "source": "第{0}行",
+      "before": "第{0}行",
+      "after": "Row {0}"
+    },
+    {
+      "index": 18260,
+      "source": "自选词条",
+      "before": "Choose Modifier",
+      "after": "Custom Modifiers"
+    },
+    {
+      "index": 18271,
+      "source": "节点ID为空，无法跳转",
+      "before": "节点ID为空，无法跳转",
+      "after": "Node ID is empty; cannot navigate"
+    },
+    {
+      "index": 18272,
+      "source": "节点UI为空，无法跳转",
+      "before": "节点UI为空，无法跳转",
+      "after": "Node UI is missing; cannot navigate"
+    },
+    {
+      "index": 18299,
+      "source": "获取关卡列表失败: ",
+      "before": "获取关卡列表失败: ",
+      "after": "Failed to retrieve level list: "
+    },
+    {
+      "index": 18300,
+      "source": "获取关卡列表时发生错误: ",
+      "before": "获取关卡列表时发生错误: ",
+      "after": "Error retrieving level list: "
+    },
+    {
+      "index": 18301,
+      "source": "获取到最新版本：",
+      "before": "获取到最新版本：",
+      "after": "Latest version found: "
+    },
+    {
+      "index": 18307,
+      "source": "获取更多消息",
+      "before": "获取更多消息",
+      "after": "More information"
+    },
+    {
+      "index": 18322,
+      "source": "获得{0}次词条刷新的机会",
+      "before": "Gain {0} rerolls for Modifiers.",
+      "after": "Gain {0} reroll(s) for Modifiers."
+    },
+    {
+      "index": 18326,
+      "source": "获得了{0:F0}%力量增幅",
+      "before": "Gained a {0:F0}% power bonus",
+      "after": "{0:F0}% damage buff gained!"
+    },
+    {
+      "index": 18360,
+      "source": "融合价值最高的 {0} 个目标:",
+      "before": "融合价值最高的 {0} 个目标:",
+      "after": "Top {0} fusion targets:"
+    },
+    {
+      "index": 18362,
+      "source": "融合树已导出到: ",
+      "before": "融合树已导出到: ",
+      "after": "Fusion tree exported to: "
+    },
+    {
+      "index": 18363,
+      "source": "融合树统计:\n",
+      "before": "融合树统计:\n",
+      "after": "Fusion tree statistics:\n"
+    },
+    {
+      "index": 18388,
+      "source": "解锁新植物",
+      "before": "Unlock this plant (new)",
+      "after": "Obtain a new plant"
+    },
+    {
+      "index": 18389,
+      "source": "解锁条件：\n累计通关达20次",
+      "before": "Unlock condition:\nComplete 20 total runs",
+      "after": "Unlock Condition:\nComplete this minigame a total of 20 times."
+    },
+    {
+      "index": 18468,
+      "source": "诸神进化：无尽，第{0}轮",
+      "before": "诸神进化：无尽，第{0}轮",
+      "after": "The Gods: Evolved - Endless, Round {0}"
+    },
+    {
+      "index": 18485,
+      "source": "读档失败: ",
+      "before": "读档失败: ",
+      "after": "Failed to load save: "
+    },
+    {
+      "index": 18525,
+      "source": "质变：人人有份",
+      "before": "Ascend: Share the Wealth",
+      "after": "Ascend: Golden Barrage"
+    },
+    {
+      "index": 18532,
+      "source": "质变：固甲摧锋",
+      "before": "Ascend: Armorbreaker",
+      "after": "Ascend: Hardened Saw"
+    },
+    {
+      "index": 18546,
+      "source": "质变：烈焰迸发",
+      "before": "Ascend: Flame Burst",
+      "after": "Ascend: Wildfire"
+    },
+    {
+      "index": 18655,
+      "source": "迁移第{0}页数据失败: {1}",
+      "before": "迁移第{0}页数据失败: {1}",
+      "after": "Failed to migrate page {0}: {1}"
+    },
+    {
+      "index": 18786,
+      "source": "错误信息：",
+      "before": "错误信息：",
+      "after": "Error: "
+    },
+    {
+      "index": 18881,
+      "source": "音游开始！",
+      "before": "音游开始！",
+      "after": "Rhythm game started!"
+    },
+    {
+      "index": 18882,
+      "source": "音游恢复 (暂停了{0:F2}s)",
+      "before": "音游恢复 (暂停了{0:F2}s)",
+      "after": "Rhythm game resumed (paused for {0:F2}s)"
+    },
+    {
+      "index": 18883,
+      "source": "音游暂停 (BGM时间: {0:F2}s)",
+      "before": "音游暂停 (BGM时间: {0:F2}s)",
+      "after": "Rhythm game paused (BGM time: {0:F2}s)"
+    },
+    {
+      "index": 18887,
+      "source": "预览（前20行）:",
+      "before": "预览（前20行）:",
+      "after": "Preview (first 20 lines):"
+    },
+    {
+      "index": 18984,
+      "source": "🎵 开始录制音符",
+      "before": "🎵 开始录制音符",
+      "after": "🎵 Start recording notes"
+    },
+    {
+      "index": 18985,
+      "source": "🎵 开始踩点录制！BPM: {0}",
+      "before": "🎵 开始踩点录制！BPM: {0}",
+      "after": "🎵 Beat recording started! BPM: {0}"
+    },
+    {
+      "index": 18987,
+      "source": "🎵 音频偏移已更新: {0}秒",
+      "before": "🎵 音频偏移已更新: {0}秒",
+      "after": "🎵 Audio offset updated: {0}s"
+    },
+    {
+      "index": 18988,
+      "source": "🎹 按键盘 1/2/3/4 打点",
+      "before": "🎹 按键盘 1/2/3/4 打点",
+      "after": "🎹 Use keyboard keys 1/2/3/4 to record beats"
+    },
+    {
+      "index": 18989,
+      "source": "📋 已复制{0}个音符的C#代码到剪贴板",
+      "before": "📋 已复制{0}个音符的C#代码到剪贴板",
+      "after": "📋 Copied C# code for {0} notes to clipboard"
+    },
+    {
+      "index": 18992,
+      "source": "🗑️ 已删除音符 #{0} | 时间: {1:F3}s, 轨道: {2}",
+      "before": "🗑️ 已删除音符 #{0} | 时间: {1:F3}s, 轨道: {2}",
+      "after": "🗑️ Deleted note #{0} | Time: {1:F3}s, Track: {2}"
+    },
+    {
+      "index": 18993,
+      "source": "🗑️ 已清空所有记录的音符数据",
+      "before": "🗑️ 已清空所有记录的音符数据",
+      "after": "🗑️ Cleared all recorded notes"
+    },
+    {
+      "index": 18994,
+      "source": "🚫 已取消选中音符",
+      "before": "🚫 已取消选中音符",
+      "after": "🚫 Note deselected"
+    },
+    {
+      "index": 18995,
+      "source": "🚫 点击外部区域，已取消选中音符",
+      "before": "🚫 点击外部区域，已取消选中音符",
+      "after": "🚫 Clicked outside; note deselected"
+    },
+    {
+      "index": 19045,
+      "source": "（无激活羁绊）\n",
+      "before": "（无激活羁绊）\n",
+      "after": "(No active synergies)\n"
+    },
+    {
+      "index": 19049,
+      "source": "，僵尸: ",
+      "before": "，僵尸: ",
+      "after": ", Zombies: "
+    }
+  ],
+  "count": 143,
+  "non_literal_metadata_unchanged": true,
+  "placeholders_preserved": true,
+  "sha256": "99ebdd04bb67b23b273f6d27ad56b35cdc947fac02f583582b39f4f1be86f11a"
+}

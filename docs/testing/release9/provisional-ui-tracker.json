@@ -1,0 +1,947 @@
+{
+  "pc_commit": "d9c05a39e7c0abb09f84ddfb15582885d60a0efe",
+  "tracked": 117,
+  "pc_candidates": 0,
+  "entries": [
+    {
+      "source": "打砖块",
+      "provisional_english": "Brick Breaker",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "打砖块2",
+      "provisional_english": "Brick Breaker 2",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "打砖块无尽版",
+      "provisional_english": "Endless Brick Breaker",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "诸神进化：无尽，第{0}轮",
+      "provisional_english": "The Gods: Evolved - Endless, Round {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "\n\n<b>节点ID:</b> ",
+      "provisional_english": "\n\n<b>Node ID:</b> ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "\n不死：{0}秒",
+      "provisional_english": "\nInvulnerability: {0}s",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "\n待审核",
+      "provisional_english": "\nPending review",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "\n获得植物：",
+      "provisional_english": "\nObtained plant: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "\n路径: ",
+      "provisional_english": "\nPath: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "\n追踪：",
+      "provisional_english": "\nTracking: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": " | 开始: {0:F3}s ({1}.{2}拍)",
+      "provisional_english": " | Start: {0:F3}s ({1}.{2} beat)",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": " | 持续: {0:F3}s",
+      "provisional_english": " | Duration: {0:F3}s",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": " | 结束: {0:F3}s ({1}.{2}拍)",
+      "provisional_english": " | End: {0:F3}s ({1}.{2} beat)",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "[{0}级] {1}",
+      "provisional_english": "[Lv. {0}] {1}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "[{0}级] {1} ({2}个): {3}\n",
+      "provisional_english": "[Lv. {0}] {1} ({2} plants): {3}\n",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "up刷新倒计时：\n{0}",
+      "provisional_english": "Featured pool refresh countdown:\n{0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "{0}. {1} (深度: {2})",
+      "provisional_english": "{0}. {1} (Depth: {2})",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "{0}. {1}: {2} 种可融合植物",
+      "provisional_english": "{0}. {1}: {2} possible fusion plants",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "{0}: {1}个\n",
+      "provisional_english": "{0}: {1} plants\n",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "{0}: 可融合出 {1} 种植物",
+      "provisional_english": "{0}: Can fuse into {1} plants",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "{0}{1} (深度:{2}, 直接子节点:{3})",
+      "provisional_english": "{0}{1} (Depth:{2}, Direct children:{3})",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "{0}混池模式（已选{1}个场景）",
+      "provisional_english": "{0} Mixed Pool Mode ({1} scenes selected)",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏭️ 跳转到 {0:F3}s",
+      "provisional_english": "⏭️ Jump to {0:F3}s",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏸️ 已播放一小拍，自动暂停 | 当前: {0:F3}s",
+      "provisional_english": "⏸️ Played one subdivision; paused automatically | Current: {0:F3}s",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏸️ 已暂停",
+      "provisional_english": "⏸️ Paused",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏸️ 立即暂停 | 设置: {0:F3}s",
+      "provisional_english": "⏸️ Pause immediately | Set: {0:F3}s",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏹️ 停止录制音符",
+      "provisional_english": "⏹️ Stop recording notes",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏹️ 停止录制！共记录 {0} 个音符",
+      "provisional_english": "⏹️ Recording stopped! {0} notes recorded",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⏹️ 停止拖动: 音符{0}",
+      "provisional_english": "⏹️ Stopped dragging: Note {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "▶️ 播放一小拍: 从 {0}.{1} 开始",
+      "provisional_english": "▶️ Play one subdivision: Start at {0}.{1}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "▶️ 继续播放",
+      "provisional_english": "▶️ Resume playback",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "◀️ 回到上一小拍: {0}.{1}",
+      "provisional_english": "◀️ Back to the previous subdivision: {0}.{1}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⚠️ 没有选中的音符可以删除",
+      "provisional_english": "⚠️ No selected notes to delete",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "⚠️ 请在同一轨道完成Hold音符",
+      "provisional_english": "⚠️ Complete Hold notes in the same track",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "✅ 已恢复预设音乐: {0}",
+      "provisional_english": "✅ Restored preset music: {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "✅ 已选中音符: {0}",
+      "provisional_english": "✅ Selected note: {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "✅ 成功加载: ",
+      "provisional_english": "✅ Loaded: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "✅ 成功加载谱面: {0} ({1}个音符)",
+      "provisional_english": "✅ Loaded chart: {0} ({1} notes)",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "❌ 无法加载音频文件（尝试了所有格式）: ",
+      "provisional_english": "❌ Cannot load audio (tried all formats): ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "❌ 没有找到保存的谱面文件",
+      "provisional_english": "❌ No saved chart file found",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "❌ 请先加载BGM！",
+      "provisional_english": "❌ Load BGM first!",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "一等奖！发财了！",
+      "provisional_english": "First prize! Jackpot!",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "上传失败\n可以前往QQ群：",
+      "provisional_english": "Upload failed\nYou can visit the QQ group: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "上传成功",
+      "provisional_english": "Upload successful",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "上传成功！关卡正在等待审核\n可以前往QQ群：",
+      "provisional_english": "Upload successful! Level awaiting review\nYou can visit the QQ group: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "上传用户关卡时发生错误: ",
+      "provisional_english": "Error uploading user level: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "共触发",
+      "provisional_english": "Total activations",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "关卡删除失败: ",
+      "provisional_english": "Failed to delete level: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "创建存档失败",
+      "provisional_english": "Failed to create save",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "删除关卡失败: {0}",
+      "provisional_english": "Failed to delete level: {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "删除关卡时发生错误: ",
+      "provisional_english": "Error deleting level: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "删除存档失败：",
+      "provisional_english": "Failed to delete save: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "删除文件失败: ",
+      "provisional_english": "Failed to delete file: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "删除用户关卡异常: ",
+      "provisional_english": "Error deleting user level: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "刷新存档列表时出错：",
+      "provisional_english": "Error refreshing save list: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "加载在线关卡列表时发生错误: ",
+      "provisional_english": "Error loading online level list: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "加载失败: ",
+      "provisional_english": "Failed to load: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "加载统一存档失败: ",
+      "provisional_english": "Failed to load unified save: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "加载自动存档失败: ",
+      "provisional_english": "Failed to load autosave: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "危机模式已开启，红色罐子开出的僵尸品质概率大幅提高",
+      "provisional_english": "Crisis Mode enabled. Red vases are much more likely to contain higher-quality zombies.",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "右键",
+      "provisional_english": "Right mouse button",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "存档失败: ",
+      "provisional_english": "Failed to save: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "左键",
+      "provisional_english": "Left mouse button",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "已添加：",
+      "provisional_english": "Added: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "已移除：",
+      "provisional_english": "Removed: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "循环次数必须大于0",
+      "provisional_english": "Repeat count must be greater than 0",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "总后代数: {0}",
+      "provisional_english": "Total descendants: {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "成功保存文件到:",
+      "provisional_english": "File saved to:",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "成功加载: {0}\nBPM: {1}\n音符数量: {2}",
+      "provisional_english": "Loaded: {0}\nBPM: {1}\nNotes: {2}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "所有后代: {0} 种",
+      "provisional_english": "All descendants: {0} types",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "打开文件夹失败: ",
+      "provisional_english": "Failed to open folder: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "文件不存在: ",
+      "provisional_english": "File not found: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "时间间隔必须大于0",
+      "provisional_english": "Time interval must be greater than 0",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "暂无描述信息\n\n<b>节点ID:</b> ",
+      "provisional_english": "No description available\n\n<b>Node ID:</b> ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "最短路径（{0}次融合）:",
+      "provisional_english": "Shortest path ({0} fusions):",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "最长路径（{0}次融合）:",
+      "provisional_english": "Longest path ({0} fusions):",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "未知节点",
+      "provisional_english": "Unknown node",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "本地导入",
+      "provisional_english": "Import locally",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "查看草坪发生错误, ",
+      "provisional_english": "Error viewing the lawn, ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "植物进化配置已重新加载",
+      "provisional_english": "Plant evolution configuration reloaded",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "植物进化配置缓存已清除",
+      "provisional_english": "Plant evolution configuration cache cleared",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "没有记录的数据",
+      "provisional_english": "No recorded data",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "添加：",
+      "provisional_english": "Add: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "用户关卡上传失败: ",
+      "provisional_english": "User level upload failed: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "用户关卡上传成功: ",
+      "provisional_english": "User level uploaded: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "直接加载关卡时发生错误: ",
+      "provisional_english": "Error loading level directly: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "磁力：{0}",
+      "provisional_english": "Magnetism: {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "端口类型不兼容！{0} → {1}",
+      "provisional_english": "Incompatible port types! {0} → {1}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "第{0}行",
+      "provisional_english": "Row {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "节点ID为空，无法跳转",
+      "provisional_english": "Node ID is empty; cannot navigate",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "节点UI为空，无法跳转",
+      "provisional_english": "Node UI is missing; cannot navigate",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "获取关卡列表失败: ",
+      "provisional_english": "Failed to retrieve level list: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "获取关卡列表时发生错误: ",
+      "provisional_english": "Error retrieving level list: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "获取到最新版本：",
+      "provisional_english": "Latest version found: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "获取更多消息",
+      "provisional_english": "More information",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "融合价值最高的 {0} 个目标:",
+      "provisional_english": "Top {0} fusion targets:",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "融合树已导出到: ",
+      "provisional_english": "Fusion tree exported to: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "融合树统计:\n",
+      "provisional_english": "Fusion tree statistics:\n",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "读档失败: ",
+      "provisional_english": "Failed to load save: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "迁移第{0}页数据失败: {1}",
+      "provisional_english": "Failed to migrate page {0}: {1}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "错误信息：",
+      "provisional_english": "Error: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "音游开始！",
+      "provisional_english": "Rhythm game started!",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "音游恢复 (暂停了{0:F2}s)",
+      "provisional_english": "Rhythm game resumed (paused for {0:F2}s)",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "音游暂停 (BGM时间: {0:F2}s)",
+      "provisional_english": "Rhythm game paused (BGM time: {0:F2}s)",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "预览（前20行）:",
+      "provisional_english": "Preview (first 20 lines):",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🎵 开始录制音符",
+      "provisional_english": "🎵 Start recording notes",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🎵 开始踩点录制！BPM: {0}",
+      "provisional_english": "🎵 Beat recording started! BPM: {0}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🎵 音频偏移已更新: {0}秒",
+      "provisional_english": "🎵 Audio offset updated: {0}s",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🎹 按键盘 1/2/3/4 打点",
+      "provisional_english": "🎹 Use keyboard keys 1/2/3/4 to record beats",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "📋 已复制{0}个音符的C#代码到剪贴板",
+      "provisional_english": "📋 Copied C# code for {0} notes to clipboard",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🗑️ 已删除音符 #{0} | 时间: {1:F3}s, 轨道: {2}",
+      "provisional_english": "🗑️ Deleted note #{0} | Time: {1:F3}s, Track: {2}",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🗑️ 已清空所有记录的音符数据",
+      "provisional_english": "🗑️ Cleared all recorded notes",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🚫 已取消选中音符",
+      "provisional_english": "🚫 Note deselected",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "🚫 点击外部区域，已取消选中音符",
+      "provisional_english": "🚫 Clicked outside; note deselected",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "（无激活羁绊）\n",
+      "provisional_english": "(No active synergies)\n",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "，僵尸: ",
+      "provisional_english": ", Zombies: ",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": null
+    },
+    {
+      "source": "命运无常：获得了{0}幸运",
+      "provisional_english": "Whims of Fate：Gained {0} Luck",
+      "status": "awaiting_pc_translation",
+      "pc_english": null,
+      "pc_match_method": null,
+      "pc_name_requirement": [
+        "debuffs",
+        "10044",
+        "Whims of Fate"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+[
+  {
+    "index": 17170,
+    "source": "打砖块",
+    "target": "Brick Breaker",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17171,
+    "source": "打砖块2",
+    "target": "Brick Breaker 2",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17172,
+    "source": "打砖块无尽版",
+    "target": "Endless Brick Breaker",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18468,
+    "source": "诸神进化：无尽，第{0}轮",
+    "target": "The Gods: Evolved - Endless, Round {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 45,
+    "source": "\n\n<b>节点ID:</b> ",
+    "target": "\n\n<b>Node ID:</b> ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 91,
+    "source": "\n不死：{0}秒",
+    "target": "\nInvulnerability: {0}s",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 103,
+    "source": "\n待审核",
+    "target": "\nPending review",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 113,
+    "source": "\n获得植物：",
+    "target": "\nObtained plant: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 118,
+    "source": "\n路径: ",
+    "target": "\nPath: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 120,
+    "source": "\n追踪：",
+    "target": "\nTracking: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 447,
+    "source": " | 开始: {0:F3}s ({1}.{2}拍)",
+    "target": " | Start: {0:F3}s ({1}.{2} beat)",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 448,
+    "source": " | 持续: {0:F3}s",
+    "target": " | Duration: {0:F3}s",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 450,
+    "source": " | 结束: {0:F3}s ({1}.{2}拍)",
+    "target": " | End: {0:F3}s ({1}.{2} beat)",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 11115,
+    "source": "[{0}级] {1}",
+    "target": "[Lv. {0}] {1}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 11116,
+    "source": "[{0}级] {1} ({2}个): {3}\n",
+    "target": "[Lv. {0}] {1} ({2} plants): {3}\n",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15234,
+    "source": "up刷新倒计时：\n{0}",
+    "target": "Featured pool refresh countdown:\n{0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15651,
+    "source": "{0}. {1} (深度: {2})",
+    "target": "{0}. {1} (Depth: {2})",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15652,
+    "source": "{0}. {1}: {2} 种可融合植物",
+    "target": "{0}. {1}: {2} possible fusion plants",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15681,
+    "source": "{0}: {1}个\n",
+    "target": "{0}: {1} plants\n",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15682,
+    "source": "{0}: 可融合出 {1} 种植物",
+    "target": "{0}: Can fuse into {1} plants",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15707,
+    "source": "{0}{1} (深度:{2}, 直接子节点:{3})",
+    "target": "{0}{1} (Depth:{2}, Direct children:{3})",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15713,
+    "source": "{0}混池模式（已选{1}个场景）",
+    "target": "{0} Mixed Pool Mode ({1} scenes selected)",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15845,
+    "source": "⏭️ 跳转到 {0:F3}s",
+    "target": "⏭️ Jump to {0:F3}s",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15846,
+    "source": "⏸️ 已播放一小拍，自动暂停 | 当前: {0:F3}s",
+    "target": "⏸️ Played one subdivision; paused automatically | Current: {0:F3}s",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15847,
+    "source": "⏸️ 已暂停",
+    "target": "⏸️ Paused",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15848,
+    "source": "⏸️ 立即暂停 | 设置: {0:F3}s",
+    "target": "⏸️ Pause immediately | Set: {0:F3}s",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15849,
+    "source": "⏹️ 停止录制音符",
+    "target": "⏹️ Stop recording notes",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15850,
+    "source": "⏹️ 停止录制！共记录 {0} 个音符",
+    "target": "⏹️ Recording stopped! {0} notes recorded",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15851,
+    "source": "⏹️ 停止拖动: 音符{0}",
+    "target": "⏹️ Stopped dragging: Note {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15859,
+    "source": "▶️ 播放一小拍: 从 {0}.{1} 开始",
+    "target": "▶️ Play one subdivision: Start at {0}.{1}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15860,
+    "source": "▶️ 继续播放",
+    "target": "▶️ Resume playback",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15861,
+    "source": "◀️ 回到上一小拍: {0}.{1}",
+    "target": "◀️ Back to the previous subdivision: {0}.{1}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15864,
+    "source": "⚠️ 没有选中的音符可以删除",
+    "target": "⚠️ No selected notes to delete",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15865,
+    "source": "⚠️ 请在同一轨道完成Hold音符",
+    "target": "⚠️ Complete Hold notes in the same track",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15872,
+    "source": "✅ 已恢复预设音乐: {0}",
+    "target": "✅ Restored preset music: {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15873,
+    "source": "✅ 已选中音符: {0}",
+    "target": "✅ Selected note: {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15874,
+    "source": "✅ 成功加载: ",
+    "target": "✅ Loaded: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15875,
+    "source": "✅ 成功加载谱面: {0} ({1}个音符)",
+    "target": "✅ Loaded chart: {0} ({1} notes)",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15883,
+    "source": "❌ 无法加载音频文件（尝试了所有格式）: ",
+    "target": "❌ Cannot load audio (tried all formats): ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15885,
+    "source": "❌ 没有找到保存的谱面文件",
+    "target": "❌ No saved chart file found",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15886,
+    "source": "❌ 请先加载BGM！",
+    "target": "❌ Load BGM first!",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15918,
+    "source": "一等奖！发财了！",
+    "target": "First prize! Jackpot!",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15940,
+    "source": "上传失败\n可以前往QQ群：",
+    "target": "Upload failed\nYou can visit the QQ group: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15941,
+    "source": "上传成功",
+    "target": "Upload successful",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15942,
+    "source": "上传成功！关卡正在等待审核\n可以前往QQ群：",
+    "target": "Upload successful! Level awaiting review\nYou can visit the QQ group: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 15943,
+    "source": "上传用户关卡时发生错误: ",
+    "target": "Error uploading user level: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16270,
+    "source": "共触发",
+    "target": "Total activations",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16276,
+    "source": "关卡删除失败: ",
+    "target": "Failed to delete level: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16393,
+    "source": "创建存档失败",
+    "target": "Failed to create save",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16414,
+    "source": "删除关卡失败: {0}",
+    "target": "Failed to delete level: {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16415,
+    "source": "删除关卡时发生错误: ",
+    "target": "Error deleting level: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16419,
+    "source": "删除存档失败：",
+    "target": "Failed to delete save: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16420,
+    "source": "删除文件失败: ",
+    "target": "Failed to delete file: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16422,
+    "source": "删除用户关卡异常: ",
+    "target": "Error deleting user level: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16428,
+    "source": "刷新存档列表时出错：",
+    "target": "Error refreshing save list: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16455,
+    "source": "加载在线关卡列表时发生错误: ",
+    "target": "Error loading online level list: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16456,
+    "source": "加载失败: ",
+    "target": "Failed to load: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16459,
+    "source": "加载统一存档失败: ",
+    "target": "Failed to load unified save: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16460,
+    "source": "加载自动存档失败: ",
+    "target": "Failed to load autosave: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16509,
+    "source": "危机模式已开启，红色罐子开出的僵尸品质概率大幅提高",
+    "target": "Crisis Mode enabled. Red vases are much more likely to contain higher-quality zombies.",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16545,
+    "source": "右键",
+    "target": "Right mouse button",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16769,
+    "source": "存档失败: ",
+    "target": "Failed to save: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16883,
+    "source": "左键",
+    "target": "Left mouse button",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16909,
+    "source": "已添加：",
+    "target": "Added: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 16914,
+    "source": "已移除：",
+    "target": "Removed: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17084,
+    "source": "循环次数必须大于0",
+    "target": "Repeat count must be greater than 0",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17103,
+    "source": "总后代数: {0}",
+    "target": "Total descendants: {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17115,
+    "source": "成功保存文件到:",
+    "target": "File saved to:",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17116,
+    "source": "成功加载: {0}\nBPM: {1}\n音符数量: {2}",
+    "target": "Loaded: {0}\nBPM: {1}\nNotes: {2}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17160,
+    "source": "所有后代: {0} 种",
+    "target": "All descendants: {0} types",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17169,
+    "source": "打开文件夹失败: ",
+    "target": "Failed to open folder: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17277,
+    "source": "文件不存在: ",
+    "target": "File not found: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17362,
+    "source": "时间间隔必须大于0",
+    "target": "Time interval must be greater than 0",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17484,
+    "source": "暂无描述信息\n\n<b>节点ID:</b> ",
+    "target": "No description available\n\n<b>Node ID:</b> ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17503,
+    "source": "最短路径（{0}次融合）:",
+    "target": "Shortest path ({0} fusions):",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17505,
+    "source": "最长路径（{0}次融合）:",
+    "target": "Longest path ({0} fusions):",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17527,
+    "source": "未知节点",
+    "target": "Unknown node",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17533,
+    "source": "本地导入",
+    "target": "Import locally",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17574,
+    "source": "查看草坪发生错误, ",
+    "target": "Error viewing the lawn, ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17609,
+    "source": "植物进化配置已重新加载",
+    "target": "Plant evolution configuration reloaded",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17610,
+    "source": "植物进化配置缓存已清除",
+    "target": "Plant evolution configuration cache cleared",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17773,
+    "source": "没有记录的数据",
+    "target": "No recorded data",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17832,
+    "source": "添加：",
+    "target": "Add: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17988,
+    "source": "用户关卡上传失败: ",
+    "target": "User level upload failed: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 17989,
+    "source": "用户关卡上传成功: ",
+    "target": "User level uploaded: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18016,
+    "source": "直接加载关卡时发生错误: ",
+    "target": "Error loading level directly: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18041,
+    "source": "磁力：{0}",
+    "target": "Magnetism: {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18120,
+    "source": "端口类型不兼容！{0} → {1}",
+    "target": "Incompatible port types! {0} → {1}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18126,
+    "source": "第{0}行",
+    "target": "Row {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18271,
+    "source": "节点ID为空，无法跳转",
+    "target": "Node ID is empty; cannot navigate",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18272,
+    "source": "节点UI为空，无法跳转",
+    "target": "Node UI is missing; cannot navigate",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18299,
+    "source": "获取关卡列表失败: ",
+    "target": "Failed to retrieve level list: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18300,
+    "source": "获取关卡列表时发生错误: ",
+    "target": "Error retrieving level list: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18301,
+    "source": "获取到最新版本：",
+    "target": "Latest version found: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18307,
+    "source": "获取更多消息",
+    "target": "More information",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18360,
+    "source": "融合价值最高的 {0} 个目标:",
+    "target": "Top {0} fusion targets:",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18362,
+    "source": "融合树已导出到: ",
+    "target": "Fusion tree exported to: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18363,
+    "source": "融合树统计:\n",
+    "target": "Fusion tree statistics:\n",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18485,
+    "source": "读档失败: ",
+    "target": "Failed to load save: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18655,
+    "source": "迁移第{0}页数据失败: {1}",
+    "target": "Failed to migrate page {0}: {1}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18786,
+    "source": "错误信息：",
+    "target": "Error: ",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18881,
+    "source": "音游开始！",
+    "target": "Rhythm game started!",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18882,
+    "source": "音游恢复 (暂停了{0:F2}s)",
+    "target": "Rhythm game resumed (paused for {0:F2}s)",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18883,
+    "source": "音游暂停 (BGM时间: {0:F2}s)",
+    "target": "Rhythm game paused (BGM time: {0:F2}s)",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18887,
+    "source": "预览（前20行）:",
+    "target": "Preview (first 20 lines):",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18984,
+    "source": "🎵 开始录制音符",
+    "target": "🎵 Start recording notes",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18985,
+    "source": "🎵 开始踩点录制！BPM: {0}",
+    "target": "🎵 Beat recording started! BPM: {0}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18987,
+    "source": "🎵 音频偏移已更新: {0}秒",
+    "target": "🎵 Audio offset updated: {0}s",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18988,
+    "source": "🎹 按键盘 1/2/3/4 打点",
+    "target": "🎹 Use keyboard keys 1/2/3/4 to record beats",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18989,
+    "source": "📋 已复制{0}个音符的C#代码到剪贴板",
+    "target": "📋 Copied C# code for {0} notes to clipboard",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18992,
+    "source": "🗑️ 已删除音符 #{0} | 时间: {1:F3}s, 轨道: {2}",
+    "target": "🗑️ Deleted note #{0} | Time: {1:F3}s, Track: {2}",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18993,
+    "source": "🗑️ 已清空所有记录的音符数据",
+    "target": "🗑️ Cleared all recorded notes",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18994,
+    "source": "🚫 已取消选中音符",
+    "target": "🚫 Note deselected",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 18995,
+    "source": "🚫 点击外部区域，已取消选中音符",
+    "target": "🚫 Clicked outside; note deselected",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 19045,
+    "source": "（无激活羁绊）\n",
+    "target": "(No active synergies)\n",
+    "category": "generic_ui_or_status"
+  },
+  {
+    "index": 19049,
+    "source": "，僵尸: ",
+    "target": ", Zombies: ",
+    "category": "generic_ui_or_status"
+  }
+]
