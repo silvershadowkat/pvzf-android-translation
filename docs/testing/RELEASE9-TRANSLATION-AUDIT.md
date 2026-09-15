@@ -1,6 +1,7 @@
 # Release 9 translation audit, September 15
 
-Prepared from Release 8. No APK was built or published.
+Prepared from Release 8. APK build and signature evidence is recorded in
+[RELEASE9-BUILD.json](RELEASE9-BUILD.json). Android device testing remains pending.
 
 The user approved all 117 provisional UI/status translations, including
 "higher-quality zombies". Their exact source/target pairs and upstream status
@@ -66,9 +67,30 @@ The [complete remaining-field CSV](release9/remaining-cjk.csv) records every rem
 
 ## Verification and handoff
 
-- All 27 automated tests pass, including exact-PC suffix guards, JSON-repair hash rejection and contextual placeholder/line-break checks.
+- All 28 automated tests pass, including exact-PC suffix guards, JSON-repair hash rejection, PC fallback replacement priority and contextual placeholder/line-break checks.
 - All 143 changed metadata entries preserve original C# argument IDs and formats. Non-literal metadata is identical to Release 8. No English field reverted to Chinese.
 - All 201,406 Unity objects were hash-checked after saving; only two expected placeholder text fields changed. All other bytes in those components, including layout settings, were retained.
-- Source JSON parses strictly after the reviewed punctuation repair. No APK, DEX, native game logic or save logic was changed. Device rendering and gameplay tests remain pending.
+- Source JSON parses strictly after the reviewed punctuation repair. DEX, native game logic and save logic are unchanged. Device rendering and gameplay tests remain pending.
+
+### Final formatting review before publication
+
+All 143 changed strings passed actual .NET composite formatting with numeric
+sample arguments. Their source argument IDs/format specifiers are preserved,
+rich-text tags balance, and no NUL, replacement character, or unexpected control
+characters were introduced. All 19,061 metadata literals decode as strict UTF-8.
+The 117 provisional strings match the reviewed list, and the Whims of Fate
+result retains its required title delimiter and balanced `nobr` wrapper.
+
+One inherited difference at metadata index 15731 omits the source's `{0}`
+display-name field: `Remaining time: {1:F0}s`. It is byte-identical to Release 8,
+and skipping an unused format argument is valid. No new argument mismatch was
+introduced. Earlier display-enum metadata differences from the Chinese build
+are also preserved; non-literal metadata is identical to Release 8.
+
+The Unity bundle was rebuilt and reopened before packaging: all 201,406 objects
+match Release 8 except the two expected placeholder text fields. These checks
+found no new malformed text; they do not substitute for Android gameplay tests.
+See [text verification](release9/text-safety-verification.json) and
+[bundle verification](release9/bundle-verification.json).
 
 Exact payload paths and hashes: [prepared payloads](release9/prepared-payloads.json). The original Release 8 payloads and APK remain intact.

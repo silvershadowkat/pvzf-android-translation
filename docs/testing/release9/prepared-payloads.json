@@ -1,5 +1,5 @@
 {
-  "status": "Prepared local text payloads; APK packaging, signing, device testing and release publication remain pending",
+  "status": "Packaged and signed; see ../RELEASE9-BUILD.json. Android device testing remains pending.",
   "base_release": "v3.9-release-8",
   "branch": "agent/translation-3.9-release9",
   "pc_commit": "d9c05a39e7c0abb09f84ddfb15582885d60a0efe",

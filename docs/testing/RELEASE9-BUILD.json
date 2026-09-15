@@ -1,0 +1,36 @@
+{
+  "size_bytes": 621562784,
+  "sha256": "d45f25d748b42aac71d36b0706e386b27d1d6ea8fc56a48e350891449ac384c5",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "signature_schemes_verified": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "zip_alignment_verified": true,
+  "release8_audit_passed": true,
+  "original_audit_passed": true,
+  "package": {
+    "package": "com.LanPiaoPiao.PlantsVsZombiesRH",
+    "version_code": "1",
+    "version_name": "3.9",
+    "application_label": "PlantsVsZombiesRH",
+    "permissions": [
+      "android.permission.INTERNET",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.WRITE_EXTERNAL_STORAGE"
+    ],
+    "native_code": "'arm64-v8a' 'armeabi-v7a'"
+  },
+  "payloads": {
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat": "99ebdd04bb67b23b273f6d27ad56b35cdc947fac02f583582b39f4f1be86f11a",
+    "assets/bin/Data/data.unity3d": "bfc4a9fdd4f8f6b886e21f3428341539fd0a6098a24641595690c7d13edfffc0"
+  },
+  "device_tested": false,
+  "apk": "PvZ-Fusion-3.9-English-Android-prerelease9.apk",
+  "tag": "v3.9-release-9",
+  "pc_commit": "d9c05a39e7c0abb09f84ddfb15582885d60a0efe",
+  "tests_passed": 28,
+  "metadata_literal_changes_since_release8": 143,
+  "additional_tmp_placeholder_changes": 2
+}
