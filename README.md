@@ -5,11 +5,13 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 4.0; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Development: Android 4.0 English prerelease 1 is a local test candidate.
-> It starts from official Android 4.0 and imports source-aligned English.
-> Automated checks passed; Android device testing and publication are pending.
-> The stable migration baseline is Android 3.9 prerelease 9.
-> See the [4.0 migration audit and test checklist](docs/testing/ANDROID40-PRE1.md).
+[Download Android 4.0 English prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0-release-1)
+
+This early prerelease includes current PC English, matching 3.9 translations and presentation fixes, and 17 PC music tracks. Clear generic UI, Gods Almanac effects, and ordinary changelog text also use tracked context-aware AI translations. Unverified plant names and specialized descriptions remain Chinese. Official gameplay, saves, code, and permissions are unchanged.
+
+The maintainer tested and approved the exact published APK. Automated structure, formatting, signing, and alignment checks passed; this is not exhaustive device coverage. Read [the concise release notes](docs/RELEASE-NOTES-4.0-PRE1.md), [audit and test locations](docs/testing/ANDROID40-PRE1.md), and save instructions below before upgrading.
+
+Maintainers: use the 4.0 branch `agent/translation-4.0-prerelease1` and the tagged 4.0 handoff. Older 3.9 workflow examples below are historical.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
@@ -19,30 +21,30 @@ See the [3.9 Release 9 notes](docs/RELEASE-NOTES-3.9-PRE9.md) for the stable
 baseline and the [4.0 audit](docs/testing/ANDROID40-PRE1.md) for current work.
 Save-migration guidance appears below.
 
-## 3.9 beta translation policy
+## Translation policy
 
-New or changed 3.9 gameplay terminology, including plant, zombie, item,
+New or changed gameplay terminology, including plant, zombie, item,
 fusion, modifier, recipe, name, and description text, must match a usable value
 from the latest PC community translation exactly. Placeholder values such as
 `TODO`, `???`, repeated temporary descriptions, and literal `X`/`Y` names do
 not count as translations. If the PC project has no usable translation, keep
 the official Chinese Android field. Do not create context-aware or other
-AI-assisted English gameplay text for new 3.9 content.
+AI-assisted English gameplay text for new specialized content.
 
-Confirmed generic UI may be translated locally when its meaning is
+Confirmed generic UI and basic numeric effects may use context-aware AI English when their meaning is
 unambiguous and it does not introduce game terminology. This narrowly covers
 settings, buttons, connection/status messages, and tutorial prompts without
-plant or mechanics names. These mappings live in explicit reviewed allowlists,
+unverified plant, fusion, skill, or other specialized names. These mappings live in explicit reviewed allowlists,
 are counted separately in build reports, and automatically yield when the PC
 project later supplies an English value.
 
-Android prerelease 7 uses `Teyliu/PVZF-Translation` branch `3.9` at reviewed
+Historical Android 3.9 prerelease 7 uses `Teyliu/PVZF-Translation` branch `3.9` at reviewed
 commit `9afdca02ffba383582b44d5225be1fd9e62cc854`. See
 `docs/pc-translation-source.json` for snapshot provenance and build inputs.
 Reviewed Android translations from 3.8.1 Update 6 may
 remain only where the official source text is unchanged.
 
-## PC 3.9 visual reference
+## Historical PC 3.9 visual reference
 
 The local PC reference is built independently from the user-supplied official
 PC 3.9 archive and the latest upstream PC English data. It does not consume the
@@ -100,7 +102,7 @@ translation files, mod directories, `tombstone_*`, `unity.ver`, logs, caches,
 or unknown files installed by another mod. These are not normal progression
 saves and can override or break the English translation.
 
-## What is known
+## Historical implementation background
 
 Joseph Franci's Android 3.6.1 build and aha's unfinished Android 3.8.1 build
 use the same basic architecture:
@@ -233,7 +235,7 @@ See [THIRD_PARTY.md](THIRD_PARTY.md) for license-oriented attribution. These
 links acknowledge lineage and tooling; they do not imply endorsement of this
 independent Android release.
 
-## Metadata builder
+## Metadata builder (historical 3.9 example)
 
 `scripts/build_metadata_translation.py` uses only the Python standard library.
 It starts from a clean official metadata file every time, applies current PC

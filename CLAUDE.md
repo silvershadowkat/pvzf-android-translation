@@ -3,19 +3,13 @@
 ## Active 4.0 development
 
 The active Android-only upgrade is on `agent/translation-4.0-prerelease1`.
-Read `docs/testing/ANDROID40-PRE1.md` before using the historical 3.9 pipeline
-below. A signed local revision 2 candidate includes contextual navigation fixes,
-generic Gods Almanac/changelog text, and 17 reviewed PC music replacements.
-Revision 2 device testing and publication are pending. Its audit allows three
-payloads, including resources.resource; historical two-payload guidance below
-does not apply to this music-enabled candidate. PC archives are references only. Do not build a PC release or publish
-the Android candidate without a further user request.
+Read `docs/testing/ANDROID40-PRE1.md` and `ANDROID40-PRE1-BUILD.json` in that directory before using the historical 3.9 pipeline below. Release `v4.0-release-1` publishes the maintainer-approved revision 2 APK unchanged. Its three allowed payloads include resources.resource for 17 reviewed PC music replacements. PC archives are references only; do not build a PC release. Future releases still require user authorization. Provisional context-aware AI UI rules, navigation overrides, source pins, known PC conflicts, and upgrade guards are documented in the 4.0 handoff.
 
 This file is the fastest way to resume the PvZ Fusion Android English port.
 Read it completely, then read `README.md`, `docs/RESEARCH.md`, and
 `docs/WORKFLOW.md` before changing build logic.
 
-## Objective and current result
+## Historical 3.9 objective and result
 
 The repository contains reproducible tooling for porting the PC English
 translation of *Plants vs. Zombies: Fusion* to the Android IL2CPP build. The
@@ -83,7 +77,7 @@ python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-## Build order
+## Historical 3.9 build order
 
 The important rule is to begin each major stage from its documented clean
 input. Do not repeatedly mutate an already-generated asset unless the stage is
@@ -164,7 +158,7 @@ For each newly seen Chinese string:
 4. add the narrowest deterministic transformation;
 5. validate the rebuilt file and retest that screen.
 
-## Release safety and signing
+## Historical release safety and signing
 
 `scripts/audit_apk_release.py` proves that the manifest, DEX, native `.so`
 libraries, resources, and all other non-signature entries are byte-identical

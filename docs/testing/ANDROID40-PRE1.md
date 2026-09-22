@@ -1,17 +1,18 @@
 # Android 4.0 English prerelease 1
 
-Prepared September 22, 2026. Local signed candidate only. Android device testing and GitHub publication are pending. PC archives are references only.
+Release `v4.0-release-1`, September 22, 2026. The maintainer tested and approved local revision 2 for publication as a prerelease. Device model and Android version were not supplied. PC archives are references only.
 
-## Local revision 2
+## Published revision 2
 
-The first candidate received a positive initial user check. Revision 2 needs a new device check and remains unpublished. It keeps the first candidate available separately.
+The first candidate received a positive initial user check. The maintainer subsequently tested and approved revision 2. It keeps the first candidate available separately.
 
 - Corrected 24 exact navigation text objects (including shadow labels) from Disabled to Back or Close, based on their button actions. The global PC mapping and genuine disabled states remain unchanged.
 - Reviewed 56 additional generic UI mappings. Applied 29 metadata occurrences, 23 Gods Almanac fields, and 5 other serialized labels. Plant reference tokens and runtime formatting remain intact.
 - Translated 36 changelog lines using ordinary English and PC Almanac names resolved by ID. An unverified story line and specialized names remain Chinese. The new currency name also remains Chinese until PC supplies it.
 - Restored 17 PC replacement music tracks using the previously verified Android encoding. Every source audio blob at the pinned PC 4.0 commit matches the source used for those 3.9 encodes. References and offsets were remapped to fresh 4.0 AudioClips. The other 157 audio clips are byte-identical to official 4.0; the full official resource prefix is preserved and music is appended. The rhythm exception `loon` stays original, and `Battle` has no same-name 4.0 target.
 - 35 tests pass. All 206,358 Unity objects and 301 JSON assets validate. All 306 changed runtime templates pass actual .NET formatting; no introduced tag, argument, or plant-token errors.
-- Signed APK: `PvZ-Fusion-4.0-English-Android-prerelease1-rev2.apk`; SHA-256 `0894dd8fc2dbbcb65166bf0243736c935c3c7738408f971d798bf626a298ad25`.
+- Signed APK: `PvZ-Fusion-4.0-English-Android-prerelease1.apk` (identical to tested local `prerelease1-rev2.apk`); SHA-256 `0894dd8fc2dbbcb65166bf0243736c935c3c7738408f971d798bf626a298ad25`.
+- Windows Defender custom APK scan on September 22, 2026 reported no threats. This is supporting evidence, not a safety guarantee.
 - Signature v1/v2/v3, alignment, and the official-APK comparison pass. Exactly three non-signature entries differ: the Unity bundle, metadata, and `assets/bin/Data/resources.resource`. Manifest, permissions, executable code, and save logic remain official 4.0.
 
 Rules and provenance: `assets/ui-feedback-4.0.json` and `assets/audio-translation-map-4.0.json`. Exact local drivers, field-level reports, safety checks and APK audit are under `work/upgrade40/feedback1`. Run `apply_android_ui_feedback.py` after the initial candidate, then `transplant_android_audio_clips.py` with its explicit donor resource and reviewed 17-track allowlist. Do not transplant an old complete bundle or resource file.
@@ -98,3 +99,14 @@ Stages:
 Key reports: `inputs.json`, `metadata-report.json`, `metadata-carryover-audit.json`, `text-bundle-report.json`, `almanac-source-delta.json`, `font-report.json`, `layout-report.json`, `textures-report.json`, `generic-ui-report.json`, `new-art-report.json`, `safety-audit.json`, `dotnet-format-audit.json`, and `apk/audit-original.json`.
 
 UnityPy pitfall: after saving a tree, `get_raw_data()` and `read_typetree()` still use the original reader. Before saving the bundle, validate `obj.data` or the returned serialized bytes. Reopen the saved bundle for final validation.
+
+## Future fixes and upgrades
+
+- Release tag: `v4.0-release-1`. The APK contains exactly the tested revision 2 bytes; the public filename omits the local revision suffix. See `ANDROID40-PRE1-BUILD.json` for hashes and provenance.
+- Keep official Chinese inputs, previous-version Chinese/English references, PC pin, generated types, and intermediate reports separate. Never use a translated bundle as a new-version structural base.
+- Review new PC translations against their Chinese sources, IDs and field paths. Recheck duplicate IDs before importing. Do not guess the conflicting plant ID 5003/5005 mapping.
+- Track provisional context-aware AI wording in `assets/provisional-ui-4.0.json` and `assets/ui-feedback-4.0.json`. Complete applicable PC English has priority. Navigation overrides are scoped to exact button hierarchies because the global PC value for the Chinese close/off label is ambiguous.
+- Preserve complete format specifiers, argument counts, rich-text fragments, `[[plant:...]]` tokens, JSON shapes, IDs and non-text values. Reopen generated bundles; do not validate edits through UnityPy's original reader.
+- For music, check current PC source blob hashes before reusing old Android encodes. Remap reviewed clips onto fresh Android objects and append to the official resource file. Preserve all unmapped clips. New or renamed tracks need individual review.
+- Rerun tests, structural/string audits, actual .NET formatting, APK comparison, signing and alignment checks. Publish only the exact device-tested APK unless a new build is explicitly tested.
+- Keep changes after this release in `docs/RELEASE-NOTES-NEXT.md`. No outstanding gameplay bug fix is claimed by this release.

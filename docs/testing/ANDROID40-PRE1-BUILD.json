@@ -1,0 +1,51 @@
+{
+  "size_bytes": 642300832,
+  "sha256": "0894dd8fc2dbbcb65166bf0243736c935c3c7738408f971d798bf626a298ad25",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "signature_schemes_verified": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "zip_alignment_verified": true,
+  "official40_audit_passed": true,
+  "package": {
+    "package": "com.LanPiaoPiao.PlantsVsZombiesRH",
+    "version_code": "1",
+    "version_name": "4.0",
+    "application_label": "PlantsVsZombiesRH",
+    "permissions": [
+      "android.permission.INTERNET",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.WRITE_EXTERNAL_STORAGE"
+    ],
+    "native_code": "'arm64-v8a' 'armeabi-v7a'"
+  },
+  "payloads": {
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat": "5791ffcc55cff63965b2d4fa69837b616e8695fd109da3351a36ae2a3acd1f78",
+    "assets/bin/Data/data.unity3d": "4d45a526e12b7018d0379a41a038e26a7c1ab1506c48e55cc01cd9c873d4c496",
+    "assets/bin/Data/resources.resource": "5677f14899bc2a815fb24996909c2c8f68ac152755d2c601d64fc3383cf03bab"
+  },
+  "apk": "PvZ-Fusion-4.0-English-Android-prerelease1.apk",
+  "tag": "v4.0-release-1",
+  "implementation_commit": "c3b582d68d953e389a25bbf791a6a857987ff782",
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "device_test": {
+    "status": "Maintainer tested and approved exact local revision 2",
+    "device_model": "not supplied",
+    "android_version": "not supplied",
+    "scope": "User-reported check, not exhaustive coverage"
+  },
+  "tests_passed": 35,
+  "dotnet_templates_checked": 306,
+  "unity_objects_checked": 206358,
+  "json_assets_checked": 301,
+  "music_replaced": 17,
+  "audio_clips_unchanged": 157,
+  "malware_scan": {
+    "scanner": "Windows Defender",
+    "date": "2026-09-22",
+    "exit_code": 0,
+    "result": "No threats reported"
+  }
+}

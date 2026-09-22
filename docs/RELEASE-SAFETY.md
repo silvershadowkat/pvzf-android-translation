@@ -1,5 +1,8 @@
 # Release safety notes
 
+Current release: [Android 4.0 English prerelease 1](RELEASE-NOTES-4.0-PRE1.md). Use [the 4.0 upgrade handoff](testing/ANDROID40-PRE1.md) and [build verification record](testing/ANDROID40-PRE1-BUILD.json) for current work. The version-specific examples below are historical. The current APK changes exactly three payloads: Unity text/assets, metadata, and the audio resource. All executable code, permissions, and save logic remain official Android 4.0.
+
+
 ## What the release audit establishes
 
 The 3.8.1 English release is built from the official Chinese 3.8.1 Android APK

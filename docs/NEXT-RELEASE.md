@@ -1,5 +1,8 @@
 # Android 3.9 prerelease 6 candidate test gate
 
+Current release: [Android 4.0 English prerelease 1](RELEASE-NOTES-4.0-PRE1.md). Use [the 4.0 upgrade handoff](testing/ANDROID40-PRE1.md) and [build verification record](testing/ANDROID40-PRE1-BUILD.json) for current work. The version-specific examples below are historical. The current APK changes exactly three payloads: Unity text/assets, metadata, and the audio resource. All executable code, permissions, and save logic remain official Android 4.0.
+
+
 **Historical Release 6 checklist.** Current release:
 [Release 7](RELEASE-NOTES-3.9-PRE7.md), approved after the local test3 recheck.
 The older "not packaged" status notes below describe their original audit date.
