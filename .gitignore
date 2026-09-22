@@ -15,6 +15,8 @@
 assets/*
 !/assets/audio-translation-map-3.9.json
 !/assets/provisional-ui-4.0.json
+!/assets/ui-feedback-4.0.json
+!/assets/audio-translation-map-4.0.json
 !/assets/credits-parchment-approved-3.8.1-testing.png
 
 # Never commit proprietary game builds, extracted game data, signing keys,

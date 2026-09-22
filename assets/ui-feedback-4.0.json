@@ -1,0 +1,366 @@
+{
+  "version": "4.0",
+  "policy": "Context-specific display text only. Names come from the pinned same-ID PC Almanac; missing/conflicting names remain Chinese. No global change of 关闭/Disabled.",
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "buttons": [
+    {
+      "hierarchy": [
+        "text",
+        "Image2",
+        "InputKeyMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text (1)",
+        "Image2",
+        "InputKeyMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "Text_shadow",
+        "Quit",
+        "TravelLookMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "Text_shadow",
+        "Quit",
+        "TravelStore"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "AlmanacMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "AlmanacZombieMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "AlmanacSelectMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "Text",
+        "Quit",
+        "TravelLookMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "Text",
+        "Quit",
+        "TravelStore"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "Label",
+        "ExitButton",
+        "Design1920",
+        "GeneratedShootingAlmanac",
+        "AlmanacShootingMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "PlantDamageMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "UIConfigMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "LevelResultMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Close",
+        "GardenBagMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Close",
+        "PlantInfoMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text2",
+        "Close",
+        "GardenBagMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "TravelSynergyMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "AlmanacPlantMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "Text",
+        "Quit",
+        "EveBuffMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text2",
+        "Close",
+        "PlantInfoMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "SampleButton",
+        "PumpinerChestMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "AlmanacBuffMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "text",
+        "Goback",
+        "AlmanacShootingMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Back"
+    },
+    {
+      "hierarchy": [
+        "Text_shadow",
+        "Quit",
+        "EveBuffMenu"
+      ],
+      "source": "关闭",
+      "current": "Disabled",
+      "target": "Close"
+    }
+  ],
+  "generic": {
+    "图鉴——诸神进化": "The Gods Almanac",
+    "浏览植物进化路线与诸神模式的各类词条": "Browse plant evolution paths and modifiers for The Gods: Evolved.",
+    "终端词条": "Final Modifiers",
+    "当前诸神币：0": "Current 诸神币: 0",
+    "是否消耗 100 诸神币解锁该植物？": "Spend 100 诸神币 to unlock this plant?",
+    "通用战术": "General Tactics",
+    "锤子的伤害降低，但冷却时间降低至3秒": "The hammer deals less damage, but its cooldown is reduced to 3 seconds.",
+    "锤子的攻击范围大幅增加": "The hammer has a much larger attack area.",
+    "进一步降低锤子的冷却时间": "Further reduces the hammer cooldown.",
+    "立即使你当前幸运与幸运值上限翻倍\n若为负数则取绝对值后再翻倍，如-50幸运时：-50→100": "Immediately doubles your current Luck and Luck cap.\nNegative values become positive before doubling. For example: -50 Luck becomes 100.",
+    "闪电将为你作战，间歇性对场上僵尸造成伤害": "Lightning periodically damages zombies on the field.",
+    "闪电的持续时间提高100%": "Lightning lasts 100% longer.",
+    "闪电的攻击频率提高100%": "Lightning attacks 100% more frequently.",
+    "全体植物受到的伤害降低20%": "All plants take 20% less damage.",
+    "全体植物受到的伤害降低40%": "All plants take 40% less damage.",
+    "全体植物受到的伤害降低60%": "All plants take 60% less damage.",
+    "获得一次500幸运的词条抽取机会，随后扣除你25幸运": "Draw modifiers once with 500 Luck, then lose 25 Luck.",
+    "获得一次1000幸运的词条抽取机会，随后扣除你50幸运": "Draw modifiers once with 1000 Luck, then lose 50 Luck.",
+    "获得一次1500幸运的词条抽取机会，随后扣除你75幸运": "Draw modifiers once with 1500 Luck, then lose 75 Luck.",
+    "立即生成一波2倍血量和速度的僵尸，全部消灭后获得一次500幸运的词条抽取机会": "Immediately spawns a wave of zombies with 2x HP and speed. Defeat them all to draw modifiers once with 500 Luck.",
+    "立即生成一波3倍血量和速度的僵尸，全部消灭后获得一次1000幸运的词条抽取机会": "Immediately spawns a wave of zombies with 3x HP and speed. Defeat them all to draw modifiers once with 1000 Luck.",
+    "立即生成一波4倍血量和速度的僵尸，全部消灭后获得一次1500幸运的词条抽取机会": "Immediately spawns a wave of zombies with 4x HP and speed. Defeat them all to draw modifiers once with 1500 Luck.",
+    "获得新植物：[[plant:UltimateMinigun]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:UltimateMinigun]]\nView all of its exclusive modifiers.",
+    "获得新植物：[[plant:UltimateBlover]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:UltimateBlover]]\nView all of its exclusive modifiers.",
+    "获得新植物：[[plant:EmeraldUmbrella]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:EmeraldUmbrella]]\nView all of its exclusive modifiers.",
+    "获得新植物：[[plant:UltimateStarTorch]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:UltimateStarTorch]]\nView all of its exclusive modifiers.",
+    "获得新植物：[[plant:UltimateSniperGatling]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:UltimateSniperGatling]]\nView all of its exclusive modifiers.",
+    "获得新植物：[[plant:SuperThreePeater_sp]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:SuperThreePeater_sp]]\nView all of its exclusive modifiers.",
+    "\n<size=85%>本局获得：{0}诸神币": "\n<size=85%>Earned this run: {0} 诸神币",
+    " · 未购买 · {0}诸神币": " · Not purchased · {0} 诸神币",
+    "{0} 条进化路线 · 点击卡牌查看词条": "{0} evolution paths · Select a card to view modifiers",
+    "主动放弃不发放诸神币。": "Quitting a run awards no 诸神币.",
+    "当前模式未配置诸神币奖励。": "This mode has no 诸神币 reward configured.",
+    "当前诸神币：{0}": "Current 诸神币: {0}",
+    "无法识别诸神币补偿状态。": "Unable to determine the 诸神币 compensation status.",
+    "是否消耗 {0} 诸神币永久解锁“{1}”？\n\n{2}": "Spend {0} 诸神币 to permanently unlock \"{1}\"?\n\n{2}",
+    "是否消耗 {0} 诸神币解锁植物“{1}”？": "Spend {0} 诸神币 to unlock \"{1}\"?",
+    "是否消耗 {0} 诸神币解锁该升级路线？\n{1}": "Spend {0} 诸神币 to unlock this upgrade path?\n{1}",
+    "未到第1轮第15波，本局不发放诸神币。": "No 诸神币 awarded: this run did not reach round 1, wave 15.",
+    "本局获得：{0} 诸神币": "Earned this run: {0} 诸神币",
+    "查看信息": "View Information",
+    "每完成一轮获得25诸神币，未完成的轮次不发放奖励。": "Earn 25 诸神币 for each completed round. Incomplete rounds award nothing.",
+    "沿路线继续进化，点击终端卡牌查看可获得的词条。": "Continue evolving along the path. Select the final card to view available modifiers.",
+    "满阶未购买 · {0}诸神币": "Maximum tier not purchased · {0} 诸神币",
+    "点击路线中的卡牌，解锁后查看植物词条": "Select a card in the path. Unlock it to view its plant modifiers.",
+    "第{0}轮完成，获得{1}诸神币": "Round {0} complete. Earned {1} 诸神币.",
+    "获取更多植物：图鉴 → 诸神图鉴\n在图鉴中消耗诸神币可购买\n购买一次之后不再显示该界面": "Get more plants: Almanac → The Gods Almanac\nSpend 诸神币 there to unlock plants.\nThis screen disappears after your first purchase.",
+    "解锁保存失败，诸神币未扣除，请重试。": "Could not save the unlock. No 诸神币 were spent. Please try again.",
+    "解锁后可查看植物词条": "Unlock to view plant modifiers",
+    "解锁后可查看词条效果": "Unlock to view modifier effects",
+    "解锁后可查看词条效果。": "Unlock to view modifier effects.",
+    "解锁后查看详情": "Unlock to view details",
+    "诸神币不足": "Not enough 诸神币",
+    "诸神币不足，还需要 {0} 诸神币": "Not enough 诸神币. You need {0} more.",
+    "诸神币不足，需要 {0} 诸神币。": "Not enough 诸神币. Requires {0}.",
+    "诸神币暂未保存，正在等待重试。": "诸神币 have not been saved yet. Waiting to retry."
+  },
+  "changelog": {
+    "source_sha256": "2bfe6e9b3827f89b7a984e0ddf5bae18e8a1a98a07986f8ed1fb30b7eb120f10",
+    "hierarchy": [
+      "Text",
+      "Content",
+      "Viewport",
+      "Scroll View",
+      "NoticePauseMenu"
+    ],
+    "lines": {
+      "【融合版4.0版本更新】": "PvZ Fusion 4.0 Update",
+      "更新内容：": "What is new:",
+      "1. 雪原黑夜更新": "1. Snowy Night updates",
+      "在推荐关卡处进入": "Access this from Recommended Levels.",
+      "2. 无尽模式更新": "2. Endless mode updates",
+      "新增诅咒系列植物，种植后会在关卡内带来负面效果。": "Added Evil Plants. Planting them applies negative effects during the level.",
+      "未来的更新中，会推出诅咒商店，为那些勇于挑战诅咒之人提供奖励": "A shop is planned for a future update, with rewards for players who take on these challenges.",
+      "3. 诸神：进化更新": "3. The Gods: Evolved updates",
+      "优化调整了关卡流程，现在关卡结算时可获得诸神币": "Adjusted level progression. Completing a level now awards 诸神币.",
+      "新增诸神图鉴，可查阅植物进化路线与词条介绍，并可消耗诸神币解锁相关内容": "Added The Gods Almanac. Browse plant evolution paths and modifier descriptions, and spend 诸神币 to unlock content.",
+      "若曾通关过诸神进化，本版本会获得2000诸神币": "If you previously completed The Gods: Evolved, this version grants you 2000 诸神币.",
+      "4. 新植物": "4. New plants",
+      "基础植物：雪滚草、刃刃菇、盾盾菇、霜衣": "Base plants: @plant:41@, @plant:42@, @plant:43@, @plant:44@",
+      "白卡植物：咖啡豆": "Utility Plants: @plant:211@",
+      "诅咒植物：诅咒豌豆射手、诅咒向日葵、诅咒南瓜": "Evil Plants: @plant:3500@, @plant:3501@, @plant:3502@",
+      "普通系列：寒冰大嘴花、仙人掌窝瓜、地刺南瓜、刃滚草、盾滚草、刃盾菇、水滚草、水刃菇、水盾菇、三线大喷菇、火焰花盆、霜滚草、刃霜衣、盾霜衣、水滴霜衣、雪棘松炉、雪滚松炉、刃松炉、盾松炉": "Basic Plants: @plant:1462@, @plant:1463@, @plant:1464@, @plant:1465@, @plant:1466@, @plant:1467@, @plant:1468@, @plant:1469@, @plant:1470@, @plant:1472@, @plant:1474@, @plant:1475@, @plant:1476@, @plant:1477@, @plant:1479@, @plant:1480@, @plant:1481@, @plant:1482@, @plant:1483@",
+      "究极系列：究极星辰大帝、浮空超级机枪射手、狙击睡莲、狙击猫尾草、烈焰盘龙盆": "Odyssey Plants: @plant:311@, @plant:1471@, @plant:1473@, @plant:1478@, @plant:5005@",
+      "5. 新僵尸": "5. New zombies",
+      "普通敌人：失落机关、失落机关-盾构型、失落机关-强袭型、失落机关企鹅、失落机关雪兽、雪蟹、失落机关-射手型": "Regular enemies: @zombie:92@, @zombie:93@, @zombie:94@, @zombie:95@, @zombie:96@, @zombie:97@, @zombie:99@",
+      "中立生物：雪行鸟": "Neutral creatures: 雪行鸟",
+      "究极僵尸：冰封三叉戟僵尸": "Odyssey Zombies: @zombie:262@",
+      "6. 关卡更新": "6. Level updates",
+      "·超级随机：刮刮乐（在推荐关卡处进入）": "- Odyssey Gacha: Scratch Off! (access from Recommended Levels)",
+      "·解密模式增加了一些关卡": "- Added more Puzzle Mode levels.",
+      "7. 平衡性调整": "7. Balance adjustments",
+      "·小松炉：基础冷却增加。高热小松炉持续时间延长，利于降低关卡内操作量": "- @plant:35@: Increased base cooldown. 高热小松炉 lasts longer, reducing repeated actions during a level.",
+      "·超级魅惑菇&究极魅惑菇：下调子弹伤害提升攻速": "- @plant:1026@ and @plant:924@: Reduced projectile damage and increased attack speed.",
+      "·撑杆教练僵尸：距离增幅效果不会叠加": "- @zombie:81@: Distance bonuses no longer stack.",
+      "·毁灭水草：爆炸后不会留下毁灭睡莲": "- @plant:1414@: No longer leaves 毁灭睡莲 behind after exploding.",
+      "·连携词条：星神合一、星月护符重做": "- Synergy Modifiers: Reworked 星神合一 and 星月护符.",
+      "·究极五叶草：可以享受原种词条的加成": "- @plant:920@: Now benefits from the modifiers of its original form.",
+      "·究极Z教授：增强了其持续作战带来的威胁": "- @zombie:223@: Becomes more threatening during prolonged combat.",
+      "8. 其他优化": "8. Other improvements",
+      "·优化 了词条图鉴的描述和标识": "- Improved modifier descriptions and labels in the Almanac.",
+      "9. 修复了一些已知的bug，优化了游戏体验": "9. Fixed known bugs and improved the gameplay experience.",
+      "修复了魅惑僵尸能受到僵尸方攻击力加成的bug": "Fixed a bug that allowed hypnotized zombies to receive enemy attack bonuses."
+    },
+    "retained_chinese_terms": [
+      "雪原女皇",
+      "阿尔法小队",
+      "诸神币",
+      "烈焰盘龙盆",
+      "雪行鸟",
+      "高热小松炉",
+      "毁灭睡莲",
+      "星神合一",
+      "星月护符"
+    ]
+  }
+}

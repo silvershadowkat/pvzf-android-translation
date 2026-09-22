@@ -2,7 +2,23 @@
 
 Prepared September 22, 2026. Local signed candidate only. Android device testing and GitHub publication are pending. PC archives are references only.
 
-## Inputs
+## Local revision 2
+
+The first candidate received a positive initial user check. Revision 2 needs a new device check and remains unpublished. It keeps the first candidate available separately.
+
+- Corrected 24 exact navigation text objects (including shadow labels) from Disabled to Back or Close, based on their button actions. The global PC mapping and genuine disabled states remain unchanged.
+- Reviewed 56 additional generic UI mappings. Applied 29 metadata occurrences, 23 Gods Almanac fields, and 5 other serialized labels. Plant reference tokens and runtime formatting remain intact.
+- Translated 36 changelog lines using ordinary English and PC Almanac names resolved by ID. An unverified story line and specialized names remain Chinese. The new currency name also remains Chinese until PC supplies it.
+- Restored 17 PC replacement music tracks using the previously verified Android encoding. Every source audio blob at the pinned PC 4.0 commit matches the source used for those 3.9 encodes. References and offsets were remapped to fresh 4.0 AudioClips. The other 157 audio clips are byte-identical to official 4.0; the full official resource prefix is preserved and music is appended. The rhythm exception `loon` stays original, and `Battle` has no same-name 4.0 target.
+- 35 tests pass. All 206,358 Unity objects and 301 JSON assets validate. All 306 changed runtime templates pass actual .NET formatting; no introduced tag, argument, or plant-token errors.
+- Signed APK: `PvZ-Fusion-4.0-English-Android-prerelease1-rev2.apk`; SHA-256 `0894dd8fc2dbbcb65166bf0243736c935c3c7738408f971d798bf626a298ad25`.
+- Signature v1/v2/v3, alignment, and the official-APK comparison pass. Exactly three non-signature entries differ: the Unity bundle, metadata, and `assets/bin/Data/resources.resource`. Manifest, permissions, executable code, and save logic remain official 4.0.
+
+Rules and provenance: `assets/ui-feedback-4.0.json` and `assets/audio-translation-map-4.0.json`. Exact local drivers, field-level reports, safety checks and APK audit are under `work/upgrade40/feedback1`. Run `apply_android_ui_feedback.py` after the initial candidate, then `transplant_android_audio_clips.py` with its explicit donor resource and reviewed 17-track allowlist. Do not transplant an old complete bundle or resource file.
+
+Quick retest: listen on the main menu, plant selection, and one daytime/nighttime level; open and scroll the update notice; use Back in each Almanac; inspect Gods Almanac paths, unlock prompts, and generic modifier effects.
+
+## Initial candidate inputs
 
 | Input | SHA-256 or Git commit |
 |---|---|
@@ -15,7 +31,7 @@ Prepared September 22, 2026. Local signed candidate only. Android device testing
 
 PC 3.9 has no new commits since Release 9. All 26 PC 4.0 JSON files parse without the comma repairs needed by the old snapshot. Fresh Android 4.0 metadata and ARM64 IL2CPP generated the matching 66 Dummy DLLs. Unity is now `2022.3.62f1c1`.
 
-## Migration results
+## Initial migration results
 
 - 3,208 metadata literal occurrences and 6,043 serialized text fields differ from official Android 4.0.
 - Current source-matched PC English takes priority. Historical Android prose carries only when its Chinese source still matches. Almanacs use entity ID and field; serialized UI uses hierarchy and field.
@@ -30,13 +46,13 @@ PC 3.9 has no new commits since Release 9. All 26 PC 4.0 JSON files parse withou
 ## Known gaps and exclusions
 
 - PC `LawnStringsTranslate.json` contains two conflicting records for plant ID 5003: Sea-greed Zombox and Pyroboros Pot. Both PC records are quarantined. Old wording can carry only where ID/field/source still matches. ID 5003's changed description and ID 5005's name, lore, and description stay Chinese. Do not guess a replacement ID.
-- The new shooting Almanac includes untranslated tactics and mechanics. New currency terminology, specialized instructions, 4.0 update notes, and unavailable PC descriptions remain Chinese.
+- The new shooting Almanac includes untranslated tactics and mechanics. New currency terminology, specialized instructions, and unavailable PC descriptions remain Chinese. Revision 2 translates ordinary update-note text with verified names.
 - Two unchanged zombie lore fields, IDs 38 and 39, still lack usable PC English. These are not new 4.0 regressions.
 - Raw remaining-Chinese counts include internal tables, identifiers, credits, and editor documentation. They are not a player-visible completion percentage.
-- Official 4.0 audio is retained. Old 3.9 music/resource replacements are not required for English text and could overwrite changed content.
+- The initial candidate retained official audio. Revision 2 restores the requested music through an explicit clip allowlist, preserving new 4.0 content.
 - Four existing unreadable/non-display MonoBehaviours remain byte-identical. No old schema was used to rewrite them.
 
-## Safety checks
+## Initial candidate safety checks
 
 - 31 regression tests pass, including duplicate-ID quarantine, complete runtime format specifiers, and rich-text normalization.
 - All 206,358 Unity objects remain present. Changes are limited to text, reviewed presentation fields, font dependencies, and translated artwork.

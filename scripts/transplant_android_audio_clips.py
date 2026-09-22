@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Transplant Android-encoded AudioClips into a same-version Unity bundle."""
+"""Transplant allowlisted Android-encoded music into a fresh Unity bundle."""
 
 from __future__ import annotations
 
@@ -63,6 +63,10 @@ def main() -> int:
     parser.add_argument("--base-bundle", required=True, type=Path)
     parser.add_argument("--base-resource", required=True, type=Path)
     parser.add_argument("--donor-bundle", required=True, type=Path)
+    parser.add_argument("--donor-resource", type=Path,
+                        help="Explicit external resource for a reviewed Android donor")
+    parser.add_argument("--allow-unmapped-donor-clips", action="store_true",
+                        help="Use only mapped music from a full reviewed Android donor")
     parser.add_argument("--mapping", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--output-resource", required=True, type=Path)
@@ -82,7 +86,7 @@ def main() -> int:
     donor_index = audio_clips(donor_env)
     missing_donor = sorted(set(names) - set(donor_index))
     extra_donor = sorted(set(donor_index) - set(names))
-    if missing_donor or extra_donor:
+    if missing_donor or (extra_donor and not args.allow_unmapped_donor_clips):
         raise RuntimeError(
             f"donor inventory differs from mapping: missing={missing_donor}, extra={extra_donor}"
         )
@@ -90,14 +94,21 @@ def main() -> int:
     for name in names:
         obj, tree = donor_index[name]
         resource = tree["m_Resource"]
-        payload = bytes(
-            get_resource_data(
-                resource["m_Source"],
-                obj.assets_file,
-                resource["m_Offset"],
-                resource["m_Size"],
+        if args.donor_resource:
+            if ntpath.basename(resource['m_Source']) != args.donor_resource.name:
+                raise RuntimeError(f'Unexpected donor resource for {name}')
+            with args.donor_resource.open('rb') as handle:
+                handle.seek(resource['m_Offset'])
+                payload = handle.read(resource['m_Size'])
+        else:
+            payload = bytes(
+                get_resource_data(
+                    resource["m_Source"],
+                    obj.assets_file,
+                    resource["m_Offset"],
+                    resource["m_Size"],
+                )
             )
-        )
         if len(payload) != resource["m_Size"] or not payload:
             raise RuntimeError(f"invalid donor payload for {name}")
         donors[name] = {

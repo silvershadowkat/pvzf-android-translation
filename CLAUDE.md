@@ -4,8 +4,11 @@
 
 The active Android-only upgrade is on `agent/translation-4.0-prerelease1`.
 Read `docs/testing/ANDROID40-PRE1.md` before using the historical 3.9 pipeline
-below. A signed local 4.0 candidate exists; device testing and publication are
-pending. PC archives are references only. Do not build a PC release or publish
+below. A signed local revision 2 candidate includes contextual navigation fixes,
+generic Gods Almanac/changelog text, and 17 reviewed PC music replacements.
+Revision 2 device testing and publication are pending. Its audit allows three
+payloads, including resources.resource; historical two-payload guidance below
+does not apply to this music-enabled candidate. PC archives are references only. Do not build a PC release or publish
 the Android candidate without a further user request.
 
 This file is the fastest way to resume the PvZ Fusion Android English port.

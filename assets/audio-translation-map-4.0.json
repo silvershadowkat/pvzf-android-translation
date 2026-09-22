@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "pc_branch": "4.0",
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "included": [
+    "Boss2",
+    "Day_drum",
+    "Day",
+    "Fog_drum",
+    "Fog",
+    "Garden",
+    "IZ",
+    "MainMenu",
+    "Night_drum",
+    "Night",
+    "Pool_drum",
+    "Pool",
+    "Roof_drum",
+    "Roof_pre",
+    "Roof",
+    "SelectCard",
+    "UltimateBattle"
+  ],
+  "excluded": {
+    "loon": "The PC translator suppresses this replacement in the rhythm minigame.",
+    "Battle": "Official Android 4.0 has no same-name AudioClip target."
+  },
+  "android_encoded_reference": "3.9 prerelease 9; same PC source blobs and Android codec",
+  "source_blob_ids": {
+    "PvZ_Fusion_Translator/[Custom Audios]/Battle.mp3": "d8c63db4dfba28f22e28f53d5719358c08054ebe",
+    "PvZ_Fusion_Translator/[Custom Audios]/Boss2.mp3": "e4e24855af4ec3284aaf8d421fc87c2671500903",
+    "PvZ_Fusion_Translator/[Custom Audios]/Credits.txt": "bae42d9a933b36608baa30998cbd2e9dbc94df9a",
+    "PvZ_Fusion_Translator/[Custom Audios]/Day.mp3": "f01e7681bcf828be3927d98ed1ca1a55782223cb",
+    "PvZ_Fusion_Translator/[Custom Audios]/Day_drum.mp3": "5a4e6e75f8dbe4d1e55bdb3b380c44d2c41a5e1a",
+    "PvZ_Fusion_Translator/[Custom Audios]/Fog.mp3": "ddee986b9a70609fd77b7b8368353c4c95275864",
+    "PvZ_Fusion_Translator/[Custom Audios]/Fog_drum.mp3": "8a41c3f68cad7b77d4c82be40ac4d3b55fcbc7eb",
+    "PvZ_Fusion_Translator/[Custom Audios]/Garden.ogg": "f921e688a0c17874375a1415505d2cf4ca654809",
+    "PvZ_Fusion_Translator/[Custom Audios]/IZ.mp3": "d507f28782c41ae9bec31e76ac5ed16f5807060b",
+    "PvZ_Fusion_Translator/[Custom Audios]/MainMenu.ogg": "facde03175d30225fbbc37e7f7d4d4f1a824bdcb",
+    "PvZ_Fusion_Translator/[Custom Audios]/Night.mp3": "1f87f5644b53d1c1dd121c64269318c187db3d3d",
+    "PvZ_Fusion_Translator/[Custom Audios]/Night_drum.mp3": "262da40210d65102353b34d9f2085a7e3575efe7",
+    "PvZ_Fusion_Translator/[Custom Audios]/Pool.mp3": "42cc2308398688e20eb9f312e36b543edc96bbc3",
+    "PvZ_Fusion_Translator/[Custom Audios]/Pool_drum.mp3": "e6a609e6669f0f20994445240c47c8092a0fd56b",
+    "PvZ_Fusion_Translator/[Custom Audios]/Roof.mp3": "b452f6c8c7c8e509ce7c5a72e21709a10120adea",
+    "PvZ_Fusion_Translator/[Custom Audios]/Roof_drum.mp3": "1eff212c606531c6310257eb3d87801f2e21529e",
+    "PvZ_Fusion_Translator/[Custom Audios]/Roof_pre.mp3": "aeac791b11b3523d1980a8927e3a35188d92319b",
+    "PvZ_Fusion_Translator/[Custom Audios]/SelectCard.mp3": "3d7fc1d81db4c4246bbb259ffe697ac6914c7648",
+    "PvZ_Fusion_Translator/[Custom Audios]/UltimateBattle.mp3": "90641f8c1ceccf64aa46d87732ae8b85d5c72fb3",
+    "PvZ_Fusion_Translator/[Custom Audios]/loon.mp3": "f8c2274581bbc825df4aca84b9333618e2914eac"
+  }
+}
