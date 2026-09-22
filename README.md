@@ -2,20 +2,22 @@
 
 Research and tooling for producing a repeatable English translation patch for
 the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
-is Android 3.9; the larger goal is a workflow that can be rerun when the game
+is Android 4.0; the larger goal is a workflow that can be rerun when the game
 updates.
 
-> Status: [Android 3.9 prerelease 7](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v3.9-release-7)
-> includes the September 10 PC translations, complete modifier descriptions,
-> showcase tips, and targeted UI fixes. Automated APK checks and an initial
-> tester recheck passed; broader device testing remains welcome.
+> Development: Android 4.0 English prerelease 1 is a local test candidate.
+> It starts from official Android 4.0 and imports source-aligned English.
+> Automated checks passed; Android device testing and publication are pending.
+> The stable migration baseline is Android 3.9 prerelease 9.
+> See the [4.0 migration audit and test checklist](docs/testing/ANDROID40-PRE1.md).
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
-See the [Release 7 notes](docs/RELEASE-NOTES-3.9-PRE7.md) for changes,
-verification, and known limitations. Save-migration guidance appears below.
+See the [3.9 Release 9 notes](docs/RELEASE-NOTES-3.9-PRE9.md) for the stable
+baseline and the [4.0 audit](docs/testing/ANDROID40-PRE1.md) for current work.
+Save-migration guidance appears below.
 
 ## 3.9 beta translation policy
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Carry unchanged 3.8.1 translated textures into a newer Android bundle."""
+"""Carry translated artwork only when the newer official pixels are unchanged."""
 
 from __future__ import annotations
 
@@ -77,6 +77,12 @@ def main() -> int:
         current_matches = current_textures.get(name, [])
         if len(source_matches) != 1 or len(translated_matches) != 1:
             continue
+        # Inline texture bytes that are identical cannot contain a translation.
+        # Streamed textures still need their external pixel payload compared.
+        if source_matches[0].get_raw_data() == translated_matches[0].get_raw_data():
+            probe = source_matches[0].read()
+            if not getattr(getattr(probe, 'm_StreamData', None), 'size', 0):
+                continue
         source = source_matches[0].read()
         translated = translated_matches[0].read()
         source_hash = pixel_sha256(source.image)
@@ -99,7 +105,7 @@ def main() -> int:
             skipped.append(
                 {
                     "name": name,
-                    "reason": "official_3.9_pixels_changed",
+                    "reason": "official_pixels_changed",
                     "previous_source_pixel_sha256": source_hash,
                     "current_pixel_sha256": current_hash,
                 }
@@ -124,6 +130,11 @@ def main() -> int:
             != bytes(old_translated_sprites[0].get_raw_data())
         ):
             target_sprite = target_sprites[0].read()
+            old_sprite = old_source_sprites[0].read()
+            # Retain a newly redesigned sprite, even if the texture is reused.
+            if any(getattr(target_sprite, field) != getattr(old_sprite, field)
+                   for field in ('m_Rect', 'm_Pivot', 'm_PixelsToUnits')):
+                raise RuntimeError(f'Sprite geometry changed and requires review: {name}')
             expand_sprite_to_full_rect(target_sprite, current.m_Width, current.m_Height)
             target_sprites[0].save_typetree(target_sprite)
             sprite_mesh_expanded = True

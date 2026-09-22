@@ -1,5 +1,13 @@
 # Maintainer handoff for Claude and other coding agents
 
+## Active 4.0 development
+
+The active Android-only upgrade is on `agent/translation-4.0-prerelease1`.
+Read `docs/testing/ANDROID40-PRE1.md` before using the historical 3.9 pipeline
+below. A signed local 4.0 candidate exists; device testing and publication are
+pending. PC archives are references only. Do not build a PC release or publish
+the Android candidate without a further user request.
+
 This file is the fastest way to resume the PvZ Fusion Android English port.
 Read it completely, then read `README.md`, `docs/RESEARCH.md`, and
 `docs/WORKFLOW.md` before changing build logic.
