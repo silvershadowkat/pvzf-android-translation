@@ -1,0 +1,40 @@
+{
+  "size_bytes": 642247584,
+  "sha256": "d6307ea7caeaa1f52b7536df964df27a27d1da949c911b1f0e33541ab7f5bc5f",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "signature_schemes_verified": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "zip_alignment_verified": true,
+  "official40_audit_passed": true,
+  "package": {
+    "package": "com.LanPiaoPiao.PlantsVsZombiesRH",
+    "version_code": "1",
+    "version_name": "4.0",
+    "application_label": "PlantsVsZombiesRH",
+    "permissions": [
+      "android.permission.INTERNET",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.WRITE_EXTERNAL_STORAGE"
+    ],
+    "native_code": "'arm64-v8a' 'armeabi-v7a'"
+  },
+  "payloads": {
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat": "5791ffcc55cff63965b2d4fa69837b616e8695fd109da3351a36ae2a3acd1f78",
+    "assets/bin/Data/data.unity3d": "d56f2539f44bd0c6062e99c38222841603cab75e0df63bba4c545379300460fa",
+    "assets/bin/Data/resources.resource": "5677f14899bc2a815fb24996909c2c8f68ac152755d2c601d64fc3383cf03bab"
+  },
+  "apk": "PvZ-Fusion-4.0-English-Android-prerelease2-test1.apk",
+  "status": "Local test only; not published",
+  "device_tested": false,
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "tests_passed": 42,
+  "format_templates_checked": 306,
+  "compared_to_prerelease1": "Only data.unity3d changed outside signatures",
+  "catalog_reflection_references_verified": 374,
+  "restored_internal_strings": 97,
+  "corrected_almanac_fields": 14,
+  "defender_exit_code": 0
+}

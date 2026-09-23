@@ -3,10 +3,23 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from migrate_version_text import quarantine_duplicate_pc_ids, same_arguments, normalized
+from migrate_version_text import quarantine_duplicate_pc_ids, same_arguments, normalized, is_display_asset_field
 
 
 class MajorVersionMigrationTests(unittest.TestCase):
+    def test_catalog_reflection_and_lookup_strings_are_not_display_text(self):
+        for path in (('plants', 23, 'buffs', 2, 'type'), ('plants', 0, 'configType'),
+                     ('roots', 0), ('entries', 0, 'category'), ('entries', 0, 'quality'),
+                     ('entries', 0, 'id'), ('portraits', 0, 'resourcePath')):
+            self.assertFalse(is_display_asset_field('ShootingAlmanacIndex', path))
+        self.assertTrue(is_display_asset_field('ShootingAlmanacIndex', ('entries', 0, 'description')))
+        self.assertTrue(is_display_asset_field('ShootingAlmanacIndex', ('entries', 0, 'title')))
+
+    def test_unknown_type_fields_and_line_break_tables_are_protected(self):
+        self.assertFalse(is_display_asset_field('AnotherCatalog', ('items', 0, 'type')))
+        self.assertFalse(is_display_asset_field('LineBreaking Leading Characters', ()))
+        self.assertTrue(is_display_asset_field('level123', ('tips',)))
+
     def test_conflicting_pc_ids_are_quarantined_without_guessing(self):
         source = {'plants': [{'seedType': 5003, 'name': 'A'},
                              {'seedType': 5003, 'name': 'B'},

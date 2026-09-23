@@ -22,6 +22,21 @@ from audit_remaining_cjk import walk_strings
 DISPLAY_FIELDS = {('m_text',), ('m_Text',), ('data', 'name'), ('data', 'description'), ('group', 'title')}
 
 
+def is_display_asset_field(asset, path):
+    """Allow display prose, never reflection types or Unity parsing tables."""
+    if asset.startswith('LineBreaking '):
+        return False
+    if asset == 'ShootingAlmanacIndex':
+        # The other strings include Type.GetType names, enum names, resource
+        # paths and identifiers. A PC fusion regex also matches nested types
+        # such as GameLevel.RogueShooting.AbyssSwordStar+UniqueUpgrade.
+        return (len(path) == 3 and path[0] == 'entries'
+                and isinstance(path[1], int)
+                and path[2] in ('title', 'description', 'condition'))
+    return bool(path) and path[-1] in (
+        'tips', 'name', 'description', 'title', 'text', 'introduce', 'info', 'cost')
+
+
 def read_json(path):
     return json.loads(path.read_text(encoding='utf-8-sig'))
 
@@ -130,7 +145,7 @@ def main():
         if not isinstance(source, str):
             return source
         # Never translate serialized names/keys used to locate a level or asset.
-        if path and path[-1] not in ('tips', 'name', 'description', 'title', 'text', 'type', 'introduce', 'info', 'cost'):
+        if not is_display_asset_field(asset, path):
             return source
         target, method = choose(source, old, eng)
         tip = tips.get((asset, source)) if path == ('tips',) else None

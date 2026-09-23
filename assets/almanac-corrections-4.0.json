@@ -1,0 +1,147 @@
+{
+  "version": "4.0",
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "policy": "Narrow official-Chinese factual corrections requested by maintainer. Source hash and exact stale English guards prevent applying these to changed upstream wording. Preserve PC entity names. Re-review when PC changes.",
+  "corrections": [
+    {
+      "asset": "LawnStrings",
+      "id": 235,
+      "field": "info",
+      "name": "Doubleblast Passionfruit",
+      "source_sha256": "0b236b4f149f4b5a88baf8677e03157e26ffaf531520e1b194b536f60890c52e",
+      "before": "Doubleblast Passionfruit is a floating passionfruit that fires seeds at enemies.\n\n<color=blue>SHUTTLE Collab Plant</color>\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Flying plant.\n<color=black>•</color> Each hit deals an extra damage equal to 10% of the zombie's max Toughness to the zombie's headgear armor (Type 1).\n<color=black>Ultimate: </color>Costs 3000 Coins, Cooldown: 2s; launches a giant passionfruit seed that deals damage to armor equivalent to 20% of current HP.</color>",
+      "after": "Doubleblast Passionfruit is a floating passionfruit that fires seeds at enemies.\n\n<color=blue>SHUTTLE Collab Plant</color>\n<color=black>Damage: </color><color=#8B0000>40/3s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Flying plant.\n<color=black>•</color> Each hit deals an extra damage equal to 10% of the zombie's max Toughness to the zombie's headgear armor (Type 1).\n<color=black>Ultimate: </color>Costs 3000 Coins, Cooldown: 2s; launches a giant passionfruit seed that deals damage to armor equivalent to 20% of current HP.</color>",
+      "reason": "Official damage interval is 3 seconds."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1035,
+      "field": "info",
+      "name": "Icicle-shroom",
+      "source_sha256": "dc0696f1747de1afe8c9f764155789d18b39abe3535a1289b5d0795851289237",
+      "before": "Icicle-shroom fires icicles that slow down and pierce enemies.\n\n<color=black>Damage: </color><color=#8B0000>20/1.5s</color>\n<color=#0077b6>Cryo System: </color><color=#8B0000>Inflicts chill and adds 5 Cryo points for every icicle hit. Pierce 2 times. Deals ×4 damage to frozen and chill-immune zombies.</color>\n<color=black>Special: </color><color=#8B0000>Short plant (evades straight-firing projectiles).</color>",
+      "after": "Icicle-shroom fires icicles that slow down and pierce enemies.\n\n<color=black>Damage: </color><color=#8B0000>20/2.25s</color>\n<color=#0077b6>Cryo System: </color><color=#8B0000>Inflicts chill and adds 5 Cryo points for every icicle hit. Pierce 2 times. Deals ×4 damage to frozen and chill-immune zombies.</color>\n<color=black>Special: </color><color=#8B0000>Short plant (evades straight-firing projectiles).</color>",
+      "reason": "Official damage interval is 2.25 seconds. Replaces the previously documented stale PC value."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1121,
+      "field": "info",
+      "name": "Cob-pult",
+      "source_sha256": "8d5818ffaf09c13da42b073dac2937066101068ce41cb754b5c42539552ac187",
+      "before": "Cob-pult throws large corns at the zombies; sometimes they're buttered, which can immobilize all zombies in an area!\n\n<color=black>Damage: </color><color=#8B0000>120/3s</color>\n<color=black>Special: </color><color=#8B0000>Has a 1/4 chance to throw a Buttered Corn with 140 damage, immobilizing the main target for 4 seconds and zombies in the splash range for (4 / total splash spread) seconds (minimum of 0.5).</color>",
+      "after": "Cob-pult throws large corns at the zombies; sometimes they're buttered, which can immobilize all zombies in an area!\n\n<color=black>Damage: </color><color=#8B0000>140/3s</color>\n<color=black>Special: </color><color=#8B0000>Has a 1/4 chance to throw a Buttered Corn with 140 damage, immobilizing the main target for 4 seconds and zombies in the splash range for (4 / total splash spread) seconds (minimum of 0.5).</color>",
+      "reason": "Official damage is 140 per 3 seconds."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1170,
+      "field": "info",
+      "name": "Nugget-shroom",
+      "source_sha256": "13c843c7ff849f35d4f38edaa5010e385a546bbc553499f09831b4413aceb666",
+      "before": "Nugget-shroom can reproduce itself onto the same tile!\n\n<color=black>Damage: </color><color=#8B0000>20/1.5s</color>\n<color=black>Special: </color><color=#8B0000>Short plant. Spawns a new Nugget-shroom in the same tile after 20 Seconds. Each Nugget-shroom can only reproduce once. Upon death, it deals 300 damage to nearby zombies</color>",
+      "after": "Nugget-shroom can reproduce itself onto the same tile!\n\n<color=black>Damage: </color><color=#8B0000>20/2.25s</color>\n<color=black>Special: </color><color=#8B0000>Short plant. Spawns a new Nugget-shroom in the same tile after 20 Seconds. Each Nugget-shroom can only reproduce once. Upon death, it deals 300 damage to nearby zombies</color>",
+      "reason": "Official damage interval is 2.25 seconds, reproduction remains 20 seconds."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1171,
+      "field": "info",
+      "name": "Spuddy-shroom",
+      "source_sha256": "057d20dced4902425ac2b872ce85a7f0b92952b87dac74b0940c4dea012aea5e",
+      "before": "Spuddy-shroom consumes his own Toughness to fire high-damage spores!\n\n<color=black>Damage: </color><color=#8B0000>600/3s</color>\n<color=black>Special: </color><color=#8B0000>Each attack costs 75 Toughness. If kept alive for 20 seconds after being planted, his red light will turn off with attack power reduced by 90%, but attacks will no longer cost Toughness. Upon death, it deals 600 damage to nearby zombies.</color>",
+      "after": "Spuddy-shroom consumes his own Toughness to fire high-damage spores!\n\n<color=black>Damage: </color><color=#8B0000>60/3s</color>\n<color=black>Special: </color><color=#8B0000>Each attack costs 75 Toughness. If kept alive for 20 seconds after being planted, his red light will turn off with attack power reduced by 90%, but attacks will no longer cost Toughness. Upon death, it deals 600 damage to nearby zombies.</color>",
+      "reason": "Official damage is 60 per 3 seconds."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1196,
+      "field": "info",
+      "name": "Spring Melon",
+      "source_sha256": "992dac021bc968da429fa55c5d9846b0a50e84508e0680554275525e583b9b7d",
+      "before": "Spring Melon charges its attack when no zombies are near, then uses that energy to launch a powerful melon when they get close!\n\n<color=black>Damage: </color><color=#8B0000>120/4s</color>\n<color=black>Range:</color><color=#8B0000> 4 tiles ahead</color>\n<color=black>Special: </color><color=#8B0000>Charges when not attacking for at least 4.5s to increase damage to (1 + charge time × 0.5) times the base damage. Maximum charge time: 30s.</color>",
+      "after": "Spring Melon charges its attack when no zombies are near, then uses that energy to launch a powerful melon when they get close!\n\n<color=black>Damage: </color><color=#8B0000>120/3s</color>\n<color=black>Range:</color><color=#8B0000> 4 tiles ahead</color>\n<color=black>Special: </color><color=#8B0000>Charges when not attacking for at least 4.5s to increase damage to (1 + charge time × 0.5) times the base damage. Maximum charge time: 30s.</color>",
+      "reason": "Official damage interval is 3 seconds."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 212,
+      "field": "info",
+      "name": "Jack-in-the-Box",
+      "source_sha256": "2ed91ee737c5b075e7c1fc92e2d1c6dd12d6140d9b89b6f709ceb55ce2238e27",
+      "before": "The Jack-in-the-Box can fuse with certain plants, allowing them to generate or defend against Jack-in-the-Box explosions.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "after": "The Jack-in-the-Box can fuse with certain plants, allowing them to generate or defend against Jack-in-the-Box explosions.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 213,
+      "field": "info",
+      "name": "Pickaxe",
+      "source_sha256": "01902b218d6967e066e5b16a56182acd24ee228d4b11b91b33f91a22b73df145",
+      "before": "The Pickaxe can fuse with certain plants, enabling them to block Digger Zombies from progressing or attack zombies while being concealed underground.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "after": "The Pickaxe can fuse with certain plants, enabling them to block Digger Zombies from progressing or attack zombies while being concealed underground.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 214,
+      "field": "info",
+      "name": "Chrono Core",
+      "source_sha256": "62938f4e14f7de899318358ecd4d561e520b609aeef77c1b01072d6ffcb1795e",
+      "before": "The Chrono Core can fuse with certain plants, letting them inherit the powers of chronoshift.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "after": "The Chrono Core can fuse with certain plants, letting them inherit the powers of chronoshift.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 215,
+      "field": "info",
+      "name": "Mecha Fragment",
+      "source_sha256": "d7557863234f889aabf97c4a1027dd2f79ec36f51e396d4a51698758f2fea7d3",
+      "before": "The Mecha Fragment can fuse with Wall-nut, allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "after": "The Mecha Fragment can fuse with Wall-nut, allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 216,
+      "field": "info",
+      "name": "Giga Mecha Fragment",
+      "source_sha256": "b7350250b60cd998ffbee14818d9cc3fb87ea6477d002485ca6726ca904176ac",
+      "before": "The Giga Mecha Fragment can fuse with Wall-nut, granting it a massive amount of HP and allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "after": "The Giga Mecha Fragment can fuse with Wall-nut, granting it a massive amount of HP and allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1202,
+      "field": "info",
+      "name": "Squash Pumpkin",
+      "source_sha256": "9c4d8acee47100a82ce1565e9e91e2e4018d923b6c918e5f6edfdd308aaf3ec9",
+      "before": "Squash Pumpkin can take the attack properties of Squash plants inside and use them to summon Squash minions!\n\n<color=black>Toughness: </color><color=#8B0000>4000</color>\n<color=black>Damage: </color><color=#8B0000>225</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Squash plants in Squash Pumpkins lose their ability to detect enemies.\n<color=black>•</color> When there are Squash or Squashwood plants in Squash Pumpkin, a baby squash with a maximum jump distance of 1.5 tiles is spawned and jumps forward, damaging zombies when it lands. It disappears after 6 jumps and regenerates 3s after the last baby squash disappears.\n<color=black>•</color> Depending on the type of Squash inside it, the baby squashes have different effects:\n- Squashes and Squash-nut: Baby squash does 1/8 the original damage.\n- Gourd-pult: Baby squash drops a melon on landing that does the same damage.\n- Squashwood: Baby squash does 225 damage.\n- Butternut-pult: Baby squash has a 25% chance to drop a butter on landing that does the same damage.\n- Infernal Squashwood: Baby squash does 1800 damage and releases a Jalapeno effect each time it lands.\n- Big Crunch Squash: Baby squash releases a Cherry Bomb effect each time it lands and also a ring of 12 pieces of Cosmic Debris the last time. Both do 1/8 the original damage.\n<color=black>•</color> Abilities do not work in water lanes.</color>",
+      "after": "Squash Pumpkin can take the attack properties of Squash plants inside and use them to summon Squash minions!\n\n<color=black>Toughness: </color><color=#8B0000>4000</color>\n<color=black>Damage: </color><color=#8B0000>225</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Squash plants in Squash Pumpkins lose their ability to detect enemies.\n<color=black>•</color> When there are Squash or Squashwood plants in Squash Pumpkin, a baby squash is summoned every 2.5 seconds, with at most one active at a time per Squash Pumpkin. It detects zombies up to 1.1 tiles to its right, damages them when it lands, and disappears after 6 attacks.\n<color=black>•</color> Depending on the type of Squash inside it, the baby squashes have different effects:\n- Squashes and Squash-nut: Baby squash does 1/8 the original damage.\n- Gourd-pult: Baby squash drops a melon on landing that does the same damage.\n- Squashwood: Baby squash does 225 damage.\n- Butternut-pult: Baby squash has a 25% chance to drop a butter on landing that does the same damage.\n- Infernal Squashwood: Baby squash does 1800 damage and releases a Jalapeno effect each time it lands.\n- Big Crunch Squash: Multiple baby squashes can be active at once. Baby squash releases a Cherry Bomb effect each time it lands and also a ring of 12 pieces of Cosmic Debris the last time. Both do 1/8 the original damage.\n<color=black>•</color> Abilities do not work in water lanes.</color>",
+      "reason": "Official text says every 2.5 seconds, one active per shell except the named variant, target range 1.1 tiles to the right and 6 attacks. Existing PC names retained."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1095,
+      "field": "info",
+      "name": "Starpick",
+      "source_sha256": "a181ca9933d7e6b2fd8da25fd081fde6f36fbb5ae54b4be4aac96b17c179c310",
+      "before": "Starpick hides underground, therefore zombies will not attack it.\n\n<color=black>Damage: </color><color=#8B0000>40×5/1.5s</color>\n<color=black>Special: </color><color=#8B0000>Cannot be attacked and does not block zombies. You can use metal objects on it to heal it by 500.</color>",
+      "after": "Starpick hides underground, therefore zombies will not attack it.\n\n<color=black>Damage: </color><color=#8B0000>40×5/1.5s</color>\n<color=black>Special: </color><color=#8B0000>Cannot be targeted by zombies, does not block them, and is immune to crushing and damage. You can use metal objects on it to heal it by 500.</color>",
+      "reason": "Official 4.0 adds damage immunity."
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1452,
+      "field": "info",
+      "name": "Hungry-shroom",
+      "source_sha256": "6cd8f0602fa2569fd336498e66b420668bda616e4f03ae8728d8c644a44caa1f",
+      "before": "When scared, Hungry-shroom swallows nearby Zombies and spits out chunks of corpses to attack once the threat has passed.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>When scared, swallows up to 3 Zombies within a 3×3 area. This effect then enters a 40s CD, during which it fires ground-rolling chunks of corpses with infinite pierce.</color>",
+      "after": "When scared, Hungry-shroom swallows nearby Zombies and spits out chunks of corpses to attack once the threat has passed.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>When scared, swallows up to 3 Zombies within a 3×3 area. Whether swallowing succeeds or fails, this effect enters a 40s CD, during which it fires ground-rolling chunks of corpses with infinite pierce.</color>",
+      "reason": "Official 4.0 explicitly starts the cooldown whether swallowing succeeds or fails."
+    }
+  ]
+}

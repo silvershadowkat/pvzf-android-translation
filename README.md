@@ -11,7 +11,7 @@ This early prerelease includes current PC English, matching 3.9 translations and
 
 The maintainer tested and approved the exact published APK. Automated structure, formatting, signing, and alignment checks passed; this is not exhaustive device coverage. Read [the concise release notes](docs/RELEASE-NOTES-4.0-PRE1.md), [audit and test locations](docs/testing/ANDROID40-PRE1.md), and save instructions below before upgrading.
 
-Maintainers: use the 4.0 branch `agent/translation-4.0-prerelease1` and the tagged 4.0 handoff. Older 3.9 workflow examples below are historical.
+Maintainers: ongoing fixes are on `agent/translation-4.0-prerelease2`. Read [the prerelease 2 investigation](docs/testing/ANDROID40-PRE2.md), especially the protected catalog-string checks. The public download remains prerelease 1 until the next candidate is approved. Older 3.9 workflow examples below are historical.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained

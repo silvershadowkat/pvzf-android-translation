@@ -1,7 +1,12 @@
-# Next Android 4.0 prerelease
+# Android 4.0 English prerelease 2 candidate
 
-Current release: [4.0 English prerelease 1](RELEASE-NOTES-4.0-PRE1.md).
+Local preparation only. Not published.
 
-No additional changes are queued. Add only completed changes after the tested revision 2 baseline. Keep notes concise and distinguish PC imports, reviewed context-aware AI text, fixes, checks, and intentional omissions.
+- Fixed 96 translated internal class references that could leave The Gods Almanac empty, and added explicit checks to prevent recurrence.
+- Corrected 14 plant descriptions against official 4.0 text, including Nugget-shroom, Icicle-shroom, Spuddy-shroom, and Squash Pumpkin. Kept established PC names.
+- Verified Coffee Bean's “exempt” wording; it correctly describes the price-increase exemption and is unchanged.
+- Checked PC 4.0 updates; no new upstream commits to import.
+- Passed 42 tests, 306 runtime-format checks, catalog-reference checks, structural audits, and APK verification. Device retest pending.
+- Preserved gameplay, save handling, music, and executable code. Vague mode/death-sprite reports remain unverified.
 
-See [the current audit and upgrade handoff](testing/ANDROID40-PRE1.md) before rebuilding. Always start from official Android 4.0 and preserve the source gates and 17-track music allowlist.
+[Investigation, exact corrections, and device test steps](testing/ANDROID40-PRE2.md).

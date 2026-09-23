@@ -2,7 +2,7 @@
 
 ## Active 4.0 development
 
-The active Android-only upgrade is on `agent/translation-4.0-prerelease1`.
+The active Android-only fix branch is `agent/translation-4.0-prerelease2`. Read `docs/testing/ANDROID40-PRE2.md` first. It fixes a confirmed prerelease 1 catalog-string regression; the current candidate is local and unpublished.
 Read `docs/testing/ANDROID40-PRE1.md` and `ANDROID40-PRE1-BUILD.json` in that directory before using the historical 3.9 pipeline below. Release `v4.0-release-1` publishes the maintainer-approved revision 2 APK unchanged. Its three allowed payloads include resources.resource for 17 reviewed PC music replacements. PC archives are references only; do not build a PC release. Future releases still require user authorization. Provisional context-aware AI UI rules, navigation overrides, source pins, known PC conflicts, and upgrade guards are documented in the 4.0 handoff.
 
 This file is the fastest way to resume the PvZ Fusion Android English port.
