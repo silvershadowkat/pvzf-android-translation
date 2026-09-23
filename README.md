@@ -12,7 +12,7 @@ This early prerelease includes current PC English, matching 3.9 translations and
 The maintainer tested and approved the exact published APK. Automated structure, formatting, signing, and alignment checks passed; this is not exhaustive device coverage. Read [the concise release notes](docs/RELEASE-NOTES-4.0-PRE1.md), [audit and test locations](docs/testing/ANDROID40-PRE1.md), and save instructions below before upgrading.
 
 Maintainers: ongoing fixes are on `agent/translation-4.0-prerelease2`. Read [the prerelease 2 investigation](docs/testing/ANDROID40-PRE2.md), especially the protected catalog-string checks. The public download remains prerelease 1 until the next candidate is approved. Older 3.9 workflow examples below are historical.
-The local prerelease 2 rev 2 candidate adds reviewed generic Gods Almanac labels and availability instructions. Its rules preserve PC terminology and leave unknown names unchanged. The previous local candidate's catalog repair and Nugget-shroom correction have been confirmed by the maintainer.
+The local prerelease 2 rev 3 candidate adds reviewed generic Gods Almanac labels and availability instructions, the maintainer-approved provisional currency name God Coins, and small level labels. Its rules preserve PC terminology and leave other unknown names unchanged. The previous local candidate's catalog repair and Nugget-shroom correction have been confirmed by the maintainer. See [the rev 3 review](docs/testing/ANDROID40-PRE2-REV3.md).
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained

@@ -2,6 +2,8 @@
 
 Status: local test candidate, not published. Based on released `v4.0-release-1`, commit `be2e48f`. New branch: `agent/translation-4.0-prerelease2`.
 
+Latest local revision: [prerelease 2 rev 3](ANDROID40-PRE2-REV3.md), adding the explicitly approved God Coins wording and another narrow generic UI pass. The test1 and rev 2 results below remain historical records.
+
 ## Empty Gods Almanac
 
 The user reports the empty page consistently, including with a fresh save after Unlock Everything. The Chinese comparison shows populated cards and six category buttons; the English comparison shows 0/0 roots and no category buttons.

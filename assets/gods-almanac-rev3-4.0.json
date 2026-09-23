@@ -1,0 +1,469 @@
+{
+  "version": "4.0",
+  "revision": "prerelease 2 rev 3",
+  "policy": "Exact reviewed display rules only. God Coins is user-approved provisional terminology. Never modify save keys, reflection types, group IDs or other runtime strings.",
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "currency": {
+    "source": "诸神币",
+    "target": "God Coins",
+    "status": "User-approved context-aware fallback; replace when PC supplies canonical wording"
+  },
+  "terminology_evidence": {
+    "Solar Reactor": "PC translation_strings.json: Sun God / Stellar Prophecy, 阳光反应器 => Solar Reactor",
+    "Level": "Official Android EntryMeta constructs 第 + tier + 级 solely for its display; observed literal references are in that method",
+    "50币 and 100币": "Observed native references are Gods Almanac RefreshCatalog and SelectRoot"
+  },
+  "metadata": [
+    {
+      "index": 60,
+      "source": "\n<size=85%>本局获得：{0}诸神币",
+      "before": "\n<size=85%>Earned this run: {0} 诸神币",
+      "target": "\n<size=85%>Earned this run: {0} God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 460,
+      "source": " · 50诸神币",
+      "before": " · 50诸神币",
+      "target": " · 50 God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 468,
+      "source": " · 未购买 · {0}诸神币",
+      "before": " · Not purchased · {0} 诸神币",
+      "target": " · Not purchased · {0} God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 491,
+      "source": " 级",
+      "before": " 级",
+      "target": "",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 1363,
+      "source": "100币",
+      "before": "100币",
+      "target": "100 God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 1382,
+      "source": "1次轮回，最终面临僵王的挑战\n通关获得75诸神币\n\n",
+      "before": "1次轮回，最终面临僵王的挑战\n通关获得75诸神币\n\n",
+      "target": "1次轮回，最终面临僵王的挑战\n通关获得75 God Coins\n\n",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 1459,
+      "source": "2次轮回，最终面临黄金僵王的挑战\n通关获得100诸神币\n\n",
+      "before": "2次轮回，最终面临黄金僵王的挑战\n通关获得100诸神币\n\n",
+      "target": "2次轮回，最终面临黄金僵王的挑战\n通关获得100 God Coins\n\n",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 1495,
+      "source": "50币",
+      "before": "50币",
+      "target": "50 God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 15793,
+      "source": "{0} · {1}诸神币",
+      "before": "{0} · {1}诸神币",
+      "target": "{0} · {1} God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 16095,
+      "source": "【诸神币】",
+      "before": "【诸神币】",
+      "target": "[God Coins]",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 16211,
+      "source": "主动放弃不发放诸神币。",
+      "before": "Quitting a run awards no 诸神币.",
+      "target": "Quitting a run awards no God Coins.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17362,
+      "source": "当前模式未配置诸神币奖励。",
+      "before": "This mode has no 诸神币 reward configured.",
+      "target": "This mode has no God Coins reward configured.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17374,
+      "source": "当前诸神币：{0}",
+      "before": "Current 诸神币: {0}",
+      "target": "Current God Coins: {0}",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17666,
+      "source": "无尽模式，你能撑到第几轮？\n每完成一轮获得25诸神币\n\n最大轮数：{0}",
+      "before": "无尽模式，你能撑到第几轮？\n每完成一轮获得25诸神币\n\n最大轮数：{0}",
+      "target": "Endless mode: how many rounds can you survive?\nEarn 25 God Coins for each completed round.\n\nMaximum rounds: {0}",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17690,
+      "source": "无法识别诸神币补偿状态。",
+      "before": "Unable to determine the 诸神币 compensation status.",
+      "target": "Unable to determine the God Coins compensation status.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17808,
+      "source": "是否消耗 {0} 诸神币永久解锁“{1}”？\n\n{2}",
+      "before": "Spend {0} 诸神币 to permanently unlock \"{1}\"?\n\n{2}",
+      "target": "Spend {0} God Coins to permanently unlock \"{1}\"?\n\n{2}",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17809,
+      "source": "是否消耗 {0} 诸神币解锁植物“{1}”？",
+      "before": "Spend {0} 诸神币 to unlock \"{1}\"?",
+      "target": "Spend {0} God Coins to unlock \"{1}\"?",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17810,
+      "source": "是否消耗 {0} 诸神币解锁该升级路线？\n{1}",
+      "before": "Spend {0} 诸神币 to unlock this upgrade path?\n{1}",
+      "target": "Spend {0} God Coins to unlock this upgrade path?\n{1}",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17851,
+      "source": "最终面临大帅的挑战\n通关获得50诸神币\n\n",
+      "before": "最终面临大帅的挑战\n通关获得50诸神币\n\n",
+      "target": "最终面临大帅的挑战\n通关获得50 God Coins\n\n",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17867,
+      "source": "未到第1轮第15波，本局不发放诸神币。",
+      "before": "No 诸神币 awarded: this run did not reach round 1, wave 15.",
+      "target": "No God Coins awarded: this run did not reach round 1, wave 15.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 17887,
+      "source": "本局获得：{0} 诸神币",
+      "before": "Earned this run: {0} 诸神币",
+      "target": "Earned this run: {0} God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18079,
+      "source": "每完成一轮获得25诸神币，未完成的轮次不发放奖励。",
+      "before": "Earn 25 诸神币 for each completed round. Incomplete rounds award nothing.",
+      "target": "Earn 25 God Coins for each completed round. Incomplete rounds award nothing.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18244,
+      "source": "满阶未购买 · {0}诸神币",
+      "before": "Maximum tier not purchased · {0} 诸神币",
+      "target": "Maximum tier not purchased · {0} God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18534,
+      "source": "第 ",
+      "before": "第 ",
+      "target": "Level ",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18542,
+      "source": "第{0}轮完成，获得{1}诸神币",
+      "before": "Round {0} complete. Earned {1} 诸神币.",
+      "target": "Round {0} complete. Earned {1} God Coins.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18591,
+      "source": "经典的诸神进化\n通关获得25诸神币\n\n",
+      "before": "经典的诸神进化\n通关获得25诸神币\n\n",
+      "target": "Classic The Gods: Evolved\nComplete the level to earn 25 God Coins.\n\n",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18722,
+      "source": "获取更多植物：图鉴 → 诸神图鉴\n在图鉴中消耗诸神币可购买\n购买一次之后不再显示该界面",
+      "before": "Get more plants: Almanac → The Gods Almanac\nSpend 诸神币 there to unlock plants.\nThis screen disappears after your first purchase.",
+      "target": "Get more plants: Almanac → The Gods Almanac\nSpend God Coins there to unlock plants.\nThis screen disappears after your first purchase.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18811,
+      "source": "解锁保存失败，诸神币未扣除，请重试。",
+      "before": "Could not save the unlock. No 诸神币 were spent. Please try again.",
+      "target": "Could not save the unlock. No God Coins were spent. Please try again.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18926,
+      "source": "诸神币不足",
+      "before": "Not enough 诸神币",
+      "target": "Not enough God Coins",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18927,
+      "source": "诸神币不足，还需要 {0} 诸神币",
+      "before": "Not enough 诸神币. You need {0} more.",
+      "target": "Not enough God Coins. You need {0} more.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18928,
+      "source": "诸神币不足，需要 {0} 诸神币。",
+      "before": "Not enough 诸神币. Requires {0}.",
+      "target": "Not enough God Coins. Requires {0}.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18929,
+      "source": "诸神币保存失败，将自动重试：",
+      "before": "诸神币保存失败，将自动重试：",
+      "target": "God Coins could not be saved. Retrying automatically: ",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18930,
+      "source": "诸神币暂未保存，正在等待重试。",
+      "before": "诸神币 have not been saved yet. Waiting to retry.",
+      "target": "God Coins have not been saved yet. Waiting to retry.",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    },
+    {
+      "index": 18931,
+      "source": "诸神币：{0}",
+      "before": "诸神币：{0}",
+      "target": "God Coins: {0}",
+      "reason": "User-approved currency wording or reviewed generic display text. Existing named content retained."
+    }
+  ],
+  "catalog": [
+    {
+      "index": 25,
+      "id": "Tactics:Shooting_木桩Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 26,
+      "id": "Tactics:Shooting_烈阳1",
+      "field": "description",
+      "source": "在场上生成一个阳光反应器，周期性对全场僵尸造成伤害",
+      "before": "在场上生成一个阳光反应器，周期性对全场僵尸造成伤害",
+      "target": "Spawns a Solar Reactor on the field that periodically damages all zombies.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 27,
+      "id": "Tactics:Shooting_烈阳2",
+      "field": "description",
+      "source": "阳光反应器的攻击间隔降低50%",
+      "before": "阳光反应器的攻击间隔降低50%",
+      "target": "The Solar Reactor attacks at intervals that are 50% shorter.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 28,
+      "id": "Tactics:Shooting_烈阳3",
+      "field": "description",
+      "source": "阳光反应器的伤害提高100%",
+      "before": "阳光反应器的伤害提高100%",
+      "target": "The Solar Reactor deals 100% more damage.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 29,
+      "id": "Tactics:Shooting_烈阳Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 33,
+      "id": "Tactics:Shooting_战锤Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 33,
+      "id": "Tactics:Shooting_战锤Max",
+      "field": "description",
+      "source": "锤子命中僵尸后，在原地生成一个大锤子，持续对僵尸造成伤害，一段时间后消失",
+      "before": "锤子命中僵尸后，在原地生成一个大锤子，持续对僵尸造成伤害，一段时间后消失",
+      "target": "After the hammer hits a zombie, a large hammer appears at that location and continually damages zombies. It disappears after a while.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 37,
+      "id": "Tactics:Shooting_裂空Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 41,
+      "id": "Tactics:Shooting_明月Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 45,
+      "id": "Tactics:Shooting_硬化Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 49,
+      "id": "Tactics:Shooting_交易Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 53,
+      "id": "Tactics:Shooting_宝藏Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 57,
+      "id": "Tactics:Shooting_业火Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 58,
+      "id": "Tactics:Shooting_光棱1",
+      "field": "description",
+      "source": "获得一艘机械飞船，持续锁定并攻击最靠左的僵尸",
+      "before": "获得一艘机械飞船，持续锁定并攻击最靠左的僵尸",
+      "target": "Gain a mechanical ship that continuously targets and attacks the leftmost zombie.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 61,
+      "id": "Tactics:Shooting_光棱Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    },
+    {
+      "index": 65,
+      "id": "Tactics:Shooting_天罚Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Approved currency label, generic hammer/ship instruction, or basic Solar Reactor effect using established PC terminology."
+    }
+  ],
+  "serialized_currency": [
+    {
+      "file": "resources.assets",
+      "id": 191447,
+      "field": "m_text",
+      "hierarchy": [
+        "PurchaseBalance",
+        "PurchaseDialog",
+        "PurchaseLayer",
+        "Design1920",
+        "GeneratedShootingAlmanac",
+        "AlmanacShootingMenu"
+      ],
+      "source_sha256": "3b4ba753d2f7c3d6a58339a48159405772f52be918a83b4f39f0927606b238c3",
+      "before_sha256": "3320e59eb00780d2c923c73fbea77adbb75d7a8b3f6015ae89d1fb68cfea261b",
+      "occurrences": 1,
+      "reason": "Currency-only replacement in a verified UI field; all surrounding text remains unchanged."
+    },
+    {
+      "file": "resources.assets",
+      "id": 194825,
+      "field": "m_text",
+      "hierarchy": [
+        "Text",
+        "Content",
+        "Viewport",
+        "Scroll View",
+        "NoticePauseMenu"
+      ],
+      "source_sha256": "2bfe6e9b3827f89b7a984e0ddf5bae18e8a1a98a07986f8ed1fb30b7eb120f10",
+      "before_sha256": "e4bd964a332192bfbf6133111edf341384d6287cbc6302b7797f892032f5804e",
+      "occurrences": 3,
+      "reason": "Currency-only replacement in a verified UI field; all surrounding text remains unchanged."
+    },
+    {
+      "file": "resources.assets",
+      "id": 199059,
+      "field": "m_text",
+      "hierarchy": [
+        "CoinBalance",
+        "Design1920",
+        "GeneratedShootingAlmanac",
+        "AlmanacShootingMenu"
+      ],
+      "source_sha256": "2738c2da5d60676a599f515c4c2d7a8ea9769e4c73c04f0e5bfa7709c977db96",
+      "before_sha256": "2738c2da5d60676a599f515c4c2d7a8ea9769e4c73c04f0e5bfa7709c977db96",
+      "occurrences": 1,
+      "reason": "Currency-only replacement in a verified UI field; all surrounding text remains unchanged."
+    },
+    {
+      "file": "resources.assets",
+      "id": 199854,
+      "field": "m_text",
+      "hierarchy": [
+        "PurchaseMessage",
+        "PurchaseDialog",
+        "PurchaseLayer",
+        "Design1920",
+        "GeneratedShootingAlmanac",
+        "AlmanacShootingMenu"
+      ],
+      "source_sha256": "f4f9270729a80618a4376e0b41e0f05d10dd66a2bfbad4db6dd5239002881598",
+      "before_sha256": "20b5ea144101ee3db19960f8e8444d608374330476866ffa8c675121cb09fd28",
+      "occurrences": 1,
+      "reason": "Currency-only replacement in a verified UI field; all surrounding text remains unchanged."
+    }
+  ]
+}

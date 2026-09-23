@@ -10,7 +10,7 @@ from pathlib import Path
 import UnityPy
 from build_metadata_translation import parse_metadata, build_metadata, load_pc_translations
 from migrate_version_text import same_arguments, text_records
-from polish_android_ui import object_map
+from polish_android_ui import make_generator, object_map
 from repair_android40_catalog import validate_catalog
 
 
@@ -40,17 +40,26 @@ def patch_catalog(original, current, rules, exact):
     result = copy.deepcopy(current)
     changes = []
     for rule in rules:
-        # This pass is deliberately narrower than the general display allowlist.
-        assert rule['field'] == 'condition', 'Only condition fields are authorized'
+        # Only individually reviewed entry prose. Never category/group/type/ID.
+        field = rule['field']
+        assert field in ('condition', 'description'), 'Only reviewed entry prose is authorized'
         i = rule['index']
         assert original['entries'][i]['id'] == current['entries'][i]['id'] == rule['id'], 'Entry changed'
-        before = current['entries'][i]['condition']
-        after, method = choose(original['entries'][i]['condition'], before, rule, exact)
-        result['entries'][i]['condition'] = after
-        changes.append({'kind': 'catalog', 'index': i, 'id': rule['id'], 'field': 'condition',
+        before = current['entries'][i][field]
+        after, method = choose(original['entries'][i][field], before, rule, exact)
+        result['entries'][i][field] = after
+        changes.append({'kind': 'catalog', 'index': i, 'id': rule['id'], 'field': field,
                         'source': rule['source'], 'before': before, 'target': after,
                         'method': method, 'changed': before != after})
     return result, changes
+
+
+def currency_ui(before, rule):
+    assert hashlib.sha256(before.encode()).hexdigest() == rule['before_sha256'], 'UI text changed; review required'
+    assert before.count('诸神币') == rule['occurrences']
+    target = re.sub(r'(?<=[0-9}])God Coins', ' God Coins', before.replace('诸神币', 'God Coins'))
+    target = target.replace('God Coins：', 'God Coins: ')
+    return valid_text(before, target)
 
 
 def main():
@@ -58,6 +67,8 @@ def main():
     for name in ('source', 'official', 'metadata', 'official-metadata', 'rules', 'strings', 'dump',
                  'output', 'output-metadata', 'report'):
         p.add_argument('--' + name, type=Path, required=True)
+    p.add_argument('--dlls', type=Path)
+    p.add_argument('--inventory', type=Path)
     a = p.parse_args()
     rules = json.loads(a.rules.read_text(encoding='utf8'))
     exact, _, _, _ = load_pc_translations(a.strings, include_android_fallbacks=False)
@@ -84,10 +95,35 @@ def main():
     original = text_records(a.official)['ShootingAlmanacIndex']
     dump = a.dump.read_text(encoding='utf8')
     env = UnityPy.load(str(a.source))
+    serialized = {}
+    if rules.get('serialized_currency'):
+        assert a.dlls and a.inventory
+        env.typetree_generator = make_generator('2022.3.62f1c1', a.dlls)
+        inventory = {(r['file'], r['id']): r for r in json.loads(a.inventory.read_text(encoding='utf8'))['fields']
+                     if r['kind'] == 'MonoBehaviour' and r['field'] == ['m_text']}
+        for rule in rules['serialized_currency']:
+            assert rule['field'] == 'm_text'
+            key = rule['file'], rule['id']
+            assert key not in serialized
+            source = inventory[key]
+            assert source['hierarchy'] == rule['hierarchy']
+            assert hashlib.sha256(source['text'].encode()).hexdigest() == rule['source_sha256']
+            serialized[key] = rule
     objects = object_map(env)
     expected = {k: hashlib.sha256(o.get_raw_data()).hexdigest() for k, o in objects.items()}
     count = 0
     for key, obj in objects.items():
+        if key in serialized:
+            assert obj.type.name == 'MonoBehaviour'
+            tree = obj.read_typetree(check_read=True)
+            assert obj.save_typetree(tree) == obj.get_raw_data(), 'UI roundtrip changed bytes'
+            before = tree['m_text']
+            tree['m_text'] = currency_ui(before, serialized[key])
+            obj.save_typetree(tree)
+            expected[key] = hashlib.sha256(obj.data).hexdigest()
+            changes.append({'kind': 'serialized_currency', 'object': key, 'before': before,
+                            'target': tree['m_text'], 'changed': before != tree['m_text']})
+            continue
         if obj.type.name != 'TextAsset':
             continue
         asset = obj.read()
@@ -111,6 +147,7 @@ def main():
     for key, obj in check.items():
         assert hashlib.sha256(obj.get_raw_data()).hexdigest() == expected[key], key
     report = {'metadata_rules': len(rules['metadata']), 'catalog_rules': len(rules['catalog']),
+              'serialized_currency_rules': len(serialized),
               'changed_fields': sum(c['changed'] for c in changes), 'verified_objects': len(check),
               'catalog_validation': catalog_check, 'changes': changes}
     a.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf8')
