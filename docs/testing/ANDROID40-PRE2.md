@@ -6,6 +6,8 @@ Published revision: [prerelease 2 rev 3](ANDROID40-PRE2-REV3.md), adding the exp
 
 ## Empty Gods Almanac
 
+Follow-up: [metadata safety review](ANDROID40-METADATA-SAFETY.md). The developer's protected-key warning is tracked separately. The reporter later confirmed the missing-choice screenshots were from an earlier version. Native inspection also connects this catalog to mode startup and core modifier choices; the historical catalog repair is relevant beyond the Almanac page.
+
 The user reports the empty page consistently, including with a fresh save after Unlock Everything. The Chinese comparison shows populated cards and six category buttons; the English comparison shows 0/0 roots and no category buttons.
 
 Confirmed porting defect: the broad PC fusion regex matched nested runtime class names containing `+`. The generic asset importer treated a JSON field named `type` as display text. It changed 96 `ShootingAlmanacIndex.plants[*].buffs[*].type` values into discovery-tip prose. These are reflection class names, not labels. That can prevent catalog initialization before cards and category buttons are populated.

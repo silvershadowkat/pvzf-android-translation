@@ -11,6 +11,7 @@ from build_metadata_translation import load_pc_translations, translate_complete_
 from migrate_version_text import same_arguments, normalized, set_field
 from polish_android_ui import make_generator, object_map
 from reconcile_pc_english import balance_pc_rich_text
+from protected_metadata import PROTECTED_METADATA_STRINGS
 
 
 def main():
@@ -45,6 +46,8 @@ def main():
         # tags closed. Preserve deliberately open runtime fragments verbatim.
         if value != originals[i].text and balance_pc_rich_text(originals[i].text) == originals[i].text:
             value = balance_pc_rich_text(value)
+        if originals[i].text in PROTECTED_METADATA_STRINGS:
+            value = originals[i].text
         output.append(value.encode('utf8'))
         if value != literal.text:
             changes.append({'kind': 'metadata', 'index': i, 'source': literal.text, 'target': value})

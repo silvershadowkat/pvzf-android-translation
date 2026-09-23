@@ -10,6 +10,12 @@ God Coins is a specifically approved provisional name for `诸神币`, not gener
 
 The older version-specific instructions below are historical context.
 
+## Gods: Evolved metadata safety follow-up
+
+Read [the metadata safety review](testing/ANDROID40-METADATA-SAFETY.md) before the next build. `scripts/protected_metadata.py` contains 31 reported runtime-sensitive exact literals. Keep them original in metadata even when PC English exists. Separately verified display-only fields may still use English. Do not restore every sentence containing one of these words or translate internal names through a display helper.
+
+The translator and UI passes preserve these keys; `package_apk_payload.py` checks final active literal slots against the official same-version APK before writing output. Always use the official APK as the base. Old prerelease 2 metadata contains four translated protected slots and must pass the explicit restoration step documented in the review before packaging. The local diagnostic candidate is not a published release or a proven gameplay fix.
+
 ## Translation authority and provenance
 
 ### Current tester-feedback rule (updated 2026-09-15)

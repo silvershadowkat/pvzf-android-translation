@@ -12,6 +12,7 @@ from build_metadata_translation import parse_metadata, build_metadata, load_pc_t
 from migrate_version_text import same_arguments, text_records
 from polish_android_ui import make_generator, object_map
 from repair_android40_catalog import validate_catalog
+from protected_metadata import PROTECTED_METADATA_STRINGS
 
 
 def valid_text(source, target):
@@ -84,6 +85,8 @@ def main():
         assert i not in seen, 'Duplicate metadata slot'
         seen.add(i)
         target, method = choose(original_literals[i].text, literals[i].text, rule, exact)
+        if original_literals[i].text in PROTECTED_METADATA_STRINGS:
+            target, method = original_literals[i].text, 'protected_runtime_metadata'
         output[i] = target.encode('utf8')
         changes.append({'kind': 'metadata', 'index': i, 'source': rule['source'],
                         'before': literals[i].text, 'target': target, 'method': method,

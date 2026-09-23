@@ -17,6 +17,7 @@ import shutil
 import tempfile
 import zipfile
 from pathlib import Path
+from protected_metadata import verify_metadata
 
 
 DATA_ENTRY = "assets/bin/Data/data.unity3d"
@@ -74,6 +75,11 @@ def main() -> int:
     for name, path in replacements.items():
         if not path.is_file():
             raise FileNotFoundError(f"missing replacement for {name}: {path}")
+
+    # Check against original literal slots, not a search of unused string bytes.
+    # Run before creating any output, so late UI passes cannot bypass the guard.
+    with zipfile.ZipFile(args.base_apk) as original:
+        verify_metadata(original.read(METADATA_ENTRY), args.metadata.read_bytes())
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     temporary_handle, temporary_name = tempfile.mkstemp(

@@ -17,6 +17,7 @@ import struct
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
+from protected_metadata import PROTECTED_METADATA_STRINGS
 
 
 MAGIC = b"\xaf\x1b\xb1\xfa"
@@ -2045,6 +2046,9 @@ def translate_literal(
     regex_entries: list[tuple[str, str, re.Pattern[str], str]],
     pc_reference_only: bool = False,
 ) -> tuple[str, str | None]:
+    if not pc_reference_only and text in PROTECTED_METADATA_STRINGS:
+        return text, 'protected_runtime_metadata'
+
     def resolve_chain(value: str) -> str:
         """Resolve exact/reference outputs that are themselves source keys.
 
@@ -2454,6 +2458,9 @@ def main() -> int:
         if (not args.pc_reference_only and literal.text == "速度x{0:F2}"
                 and translated_text == "<size=75%>Game Speed: ×{0:F2}"):
             translated_text += "</size>"
+        if not args.pc_reference_only and literal.text in PROTECTED_METADATA_STRINGS:
+            translated_text = literal.text
+            method = 'protected_runtime_metadata'
         final_methods.append(method)
         if CJK_RE.search(translated_text):
             cjk_after += 1

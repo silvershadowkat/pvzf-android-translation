@@ -13,6 +13,7 @@ from build_unity_text_translation import ALMANAC_SCHEMAS
 from migrate_version_text import quarantine_duplicate_pc_ids, same_arguments, set_field
 from polish_android_ui import make_generator, object_map
 from reconcile_pc_english import balance_pc_rich_text
+from protected_metadata import PROTECTED_METADATA_STRINGS
 
 
 def navigation_label(value, hierarchy, rules):
@@ -82,7 +83,7 @@ def main():
     layout, literals = parse_metadata(raw)
     translated = []
     for i, literal in enumerate(literals):
-        target = generic(literal.text)
+        target = literal.text if literal.text in PROTECTED_METADATA_STRINGS else generic(literal.text)
         translated.append(target.encode())
         if target != literal.text:
             changes.append({'kind': 'metadata', 'index': i, 'source': literal.text, 'target': target})
