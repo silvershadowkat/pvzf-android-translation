@@ -15,7 +15,7 @@ Confirmed porting defect: the broad PC fusion regex matched nested runtime class
 - Validated all 374 catalog reflection references against 209 types in the matching official 4.0 type dump. Preserved 20 roots, 109 plant records, and 70 entries.
 - Added regression tests for corrupted nested class references, missing reflection targets, protected values, nested-type namespace resolution, and stale correction guards.
 
-The previous checks proved JSON shape and numeric-data integrity, but did not prove that internal string values still named valid types. That gap is now explicitly checked across the catalog and other non-Almanac TextAssets. Device confirmation of restored menus is still required; no device rendering or crash-free claim is made.
+The previous checks proved JSON shape and numeric-data integrity, but did not prove that internal string values still named valid types. That gap is now explicitly checked across the catalog and other non-Almanac TextAssets. On September 22, the maintainer confirmed that the test1 Gods Almanac works and Nugget-shroom is corrected. The supplied screenshots show populated tabs, cards, routes and purchase dialogs. This is specific device feedback, not exhaustive crash-free coverage.
 
 ## Official 4.0 factual corrections
 
@@ -66,7 +66,7 @@ Local detailed review files are in `work/upgrade40/pre2`: `almanac-source-delta`
 
 Do not replace the existing public prerelease asset. This local candidate requires user approval before a separate prerelease 2 publication.
 
-## Local candidate verification
+## Original test1 verification
 
 - APK: `PvZ-Fusion-4.0-English-Android-prerelease2-test1.apk`.
 - SHA-256: `d6307ea7caeaa1f52b7536df964df27a27d1da949c911b1f0e33541ab7f5bc5f`.
@@ -74,4 +74,34 @@ Do not replace the existing public prerelease asset. This local candidate requir
 - All 206,358 Unity objects and 301 JSON assets passed the full audit, including protected runtime strings. No introduced tag, argument, or plant-token errors.
 - Only LawnStrings, ShootingAlmanacIndex, and the internal line-breaking TextAsset differ from prerelease 1 within the bundle. Metadata, music resource, all executable code and other APK content remain unchanged from prerelease 1, except signatures.
 - Official-4.0 and prerelease-1 APK comparisons, alignment, and v1/v2/v3 signatures passed. Same signing certificate as prerelease 1. Full build record: `ANDROID40-PRE2-BUILD.json`.
-- Pending: user device retest of catalog population, tabs, and descriptions. No GitHub release was created or changed.
+- User confirmed catalog operation and Nugget-shroom on September 22. No GitHub release was created or changed.
+
+## Prerelease 2 rev 2: generic Gods Almanac UI
+
+Requested after the maintainer's 15 screenshots of the working catalog. This is a local APK revision, not a new published release. Test1 remains the device-confirmed baseline.
+
+- 51 metadata display literals: six tabs, base/final/evolution-stage labels, search and empty states, entry counts, selection caps, first-three-levels-free notices, purchase/unlock status and prompts, path headings, availability label, and repeated damage/speed bonus fragments with their quality disclaimer.
+- 70 catalog condition fields: Luck requirements, ownership checks, tactic-level prerequisites, maximum-tier purchase requirements, Reinforcement availability, Apex selection chance, and Trial/Purgatory availability. Some remain partly Chinese where they reference an unconfirmed name or zombie type.
+- Names use existing PC or already displayed terms: Reinforcement, Apex, Purgatory, Upgrade: Anti-crush, Blast Protection and Enchanted Shield. No plant names, named tactic effects, recipes or specialized descriptions were newly translated.
+- Retained the unconfirmed currency name `诸神币`, tactic/group names, named Apex content, two zombie-type condition lines, and short ordinal fragments whose other runtime contexts were not verified. Translating a generic instruction must not rename its referenced content or its internal group key.
+
+Rules and provenance: `assets/gods-almanac-ui-4.0.json`. Every rule records the original source, expected prior English, target and reason. Metadata rules also pin the literal index. Catalog rules pin the entry ID and modify only `condition`. Complete exact PC English takes priority over a fallback; malformed PC format strings are rejected. Changed source aborts the pass. Separately changed English is preserved for review. These rules do not use fuzzy, substring or general regex translation.
+
+Rebuild rev 2 after the catalog repair and factual correction stage, using `scripts/apply_gods_almanac_ui.py`. Supply the repaired test1 bundle/metadata, official 4.0 bundle/metadata, matching type dump, rules, and pinned PC `Strings` directory. Runtime catalog fields must validate before and after the pass. Only the ShootingAlmanacIndex TextAsset changes in this stage; all other Unity objects are hash-verified unchanged. Metadata changes are restricted to the 51 reviewed literal slots. Keep the existing music resource unchanged.
+
+Local work and verbose audits: `work/upgrade40/pre2-ui` in the task workspace. This includes `ui-report.json`, `safety-audit.json`, `dotnet-format-audit.json`, `tests.log`, and APK audit logs. The tracked rev 2 build record is `ANDROID40-PRE2-REV2-BUILD.json`.
+
+Rev 2 automated verification: 46 tests, 312 actual .NET format templates, 206,358 Unity objects, 301 JSON assets, and all 374 catalog reflection references passed. No introduced format, tag or plant-token issues were found. Android rendering and interaction testing of this revision is still pending.
+
+- APK: `PvZ-Fusion-4.0-English-Android-prerelease2-rev2.apk`.
+- SHA-256: `fe9e1d587108b1b705dd7969b6af5bde3276c03e9b033efb1854edfab145d069`.
+- APK comparisons against official 4.0 and test1 passed. Only the bundle and metadata differ from test1 outside signatures. Music, executable code, package details and other content remain unchanged.
+- v1/v2/v3 signatures and ZIP alignment passed using the existing signing certificate. Defender completed with exit code 0.
+
+Quick device retest:
+
+1. Open Almanac > The Gods Almanac. Check all six tabs and the Reinforcement search field, including label fit.
+2. Select a base plant and a final plant. Check paths, damage/speed text and maximum selection counts. Open a locked plant's purchase dialog without purchasing and check the first-path explanation.
+3. Open Tactic Modifiers, Other Modifiers and Trial Modifiers. Check availability requirements, first-three-levels-free notices and maximum-tier status. Return and reopen the catalog.
+
+Do not infer a currency or tactic translation from a partly translated condition. These deliberately retained names should be replaced only after verified PC wording is available. No gameplay, saves, executable code, audio, or layout changes were requested for rev 2.

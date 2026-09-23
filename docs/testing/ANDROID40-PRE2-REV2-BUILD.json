@@ -1,0 +1,45 @@
+{
+  "status": "Local Android 4.0 English prerelease 2 rev 2 candidate; device testing pending",
+  "size_bytes": 642476960,
+  "sha256": "fe9e1d587108b1b705dd7969b6af5bde3276c03e9b033efb1854edfab145d069",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "signature_schemes_verified": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "zip_alignment_verified": true,
+  "official40_audit_passed": true,
+  "package": {
+    "package": "com.LanPiaoPiao.PlantsVsZombiesRH",
+    "version_code": "1",
+    "version_name": "4.0",
+    "application_label": "PlantsVsZombiesRH",
+    "permissions": [
+      "android.permission.INTERNET",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.WRITE_EXTERNAL_STORAGE"
+    ],
+    "native_code": "'arm64-v8a' 'armeabi-v7a'"
+  },
+  "payloads": {
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat": "6147cdb18e441ca152716fc1ad10077be2ab99b1b81b19ae043f24c2f6facd2f",
+    "assets/bin/Data/data.unity3d": "4d315e350f774136cdcb877a232bc071c816f67d8d07fb1886dcbf896726fca9",
+    "assets/bin/Data/resources.resource": "5677f14899bc2a815fb24996909c2c8f68ac152755d2c601d64fc3383cf03bab"
+  },
+  "device_tested": false,
+  "github_published": false,
+  "apk": "PvZ-Fusion-4.0-English-Android-prerelease2-rev2.apk",
+  "tests_passed": 46,
+  "format_templates_checked": 312,
+  "catalog_reflection_references_verified": 374,
+  "metadata_ui_fields": 51,
+  "catalog_condition_fields": 70,
+  "defender_exit_code": 0,
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "compared_to_test1": "Only data.unity3d and global-metadata.dat changed outside signatures",
+  "test1_user_verified": [
+    "Gods Almanac works",
+    "Nugget-shroom corrected"
+  ]
+}

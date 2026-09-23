@@ -1,0 +1,1010 @@
+{
+  "version": "4.0",
+  "revision": "prerelease 2 rev 2",
+  "policy": "Reviewed exact display text only. Preserve all runtime data, unknown proper names, currencies, and specialized descriptions. Complete exact PC English wins; changed source or already translated English requires review.",
+  "pc_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "terminology_anchors": {
+    "专家邀请": "Reinforcement",
+    "超质变：步步高升": "Apex: Greed",
+    "超质变：腐化": "Apex: Corruption",
+    "炼狱": "Purgatory"
+  },
+  "retained": [
+    "诸神币: currency name lacks approved PC wording",
+    "Tactic names and specialized tactic descriptions",
+    "Zombie-type conditions on the two shield entries",
+    "Specialized unconfirmed Apex modifier name",
+    "Short ordinal fragments shared with unknown runtime contexts"
+  ],
+  "metadata": [
+    {
+      "index": 103,
+      "source": "\n同时解锁首条进化路线：\n",
+      "before": "\n同时解锁首条进化路线：\n",
+      "target": "\nAlso unlocks the first evolution path:\n",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 112,
+      "source": "\n点击中栏此词条，可永久解锁该组的满阶战术。",
+      "before": "\n点击中栏此词条，可永久解锁该组的满阶战术。",
+      "target": "\nSelect this modifier in the middle panel to permanently unlock the maximum tier for this group.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 461,
+      "source": " · 专家植物",
+      "before": " · 专家植物",
+      "target": " · Reinforcement Plant",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 462,
+      "source": " · 先解锁基础植物",
+      "before": " · 先解锁基础植物",
+      "target": " · Unlock the base plant first",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 463,
+      "source": " · 免费",
+      "before": " · 免费",
+      "target": " · Free",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 464,
+      "source": " · 已解锁",
+      "before": " · 已解锁",
+      "target": " · Unlocked",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 465,
+      "source": " · 已购买",
+      "before": " · 已购买",
+      "target": " · Purchased",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 471,
+      "source": " 个词条 · 前三级免费\n",
+      "before": " 个词条 · 前三级免费\n",
+      "target": " modifiers · First three levels free\n",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 15792,
+      "source": "{0} · {1} / {2} 项",
+      "before": "{0} · {1} / {2} 项",
+      "target": "{0} · {1} / {2} entries",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 15794,
+      "source": "{0} · 可选词条 {1} 项\n{2}",
+      "before": "{0} · 可选词条 {1} 项\n{2}",
+      "target": "{0} · {1} available modifiers\n{2}",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 15795,
+      "source": "{0} · 最多 {1} 次{2}",
+      "before": "{0} · 最多 {1} 次{2}",
+      "target": "{0} · Max {1} selections{2}",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 15887,
+      "source": "{0}获得{1:F0}%",
+      "before": "{0}获得{1:F0}%",
+      "target": "{0} gains {1:F0}% ",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16177,
+      "source": "专家",
+      "before": "专家",
+      "target": "Reinforcement",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16178,
+      "source": "专家植物可直接使用，无需购买。",
+      "before": "专家植物可直接使用，无需购买。",
+      "target": "Reinforcement plants are available without purchase.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16179,
+      "source": "专家词条",
+      "before": "专家词条",
+      "target": "Reinforcement Modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16242,
+      "source": "仅战术满阶词条需要购买，1至3级可直接使用。",
+      "before": "仅战术满阶词条需要购买，1至3级可直接使用。",
+      "target": "Only the maximum tactic tier requires purchase. Levels 1 to 3 are free.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16249,
+      "source": "从已购买的植物中任选一个\n更多植物可前往「图鉴 → 诸神图鉴」购买解锁",
+      "before": "从已购买的植物中任选一个\n更多植物可前往「图鉴 → 诸神图鉴」购买解锁",
+      "target": "Choose any one of your purchased plants.\nUnlock more plants in Almanac > The Gods Almanac.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16537,
+      "source": "其他词条",
+      "before": "其他词条",
+      "target": "Other Modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16582,
+      "source": "出现条件：",
+      "before": "出现条件：",
+      "target": "Availability: ",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16683,
+      "source": "前三级免费 · ",
+      "before": "前三级免费 · ",
+      "target": "First three levels free · ",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16800,
+      "source": "可获得词条  {0} 项",
+      "before": "可获得词条  {0} 项",
+      "target": "Available modifiers: {0}",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16946,
+      "source": "基础",
+      "before": "基础",
+      "target": "Base",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 16948,
+      "source": "基础植物 · ",
+      "before": "基础植物 · ",
+      "target": "Base Plant · ",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17143,
+      "source": "尚未解锁的专家植物",
+      "before": "尚未解锁的专家植物",
+      "target": "Locked Reinforcement Plants",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17144,
+      "source": "尚未解锁的词条",
+      "before": "尚未解锁的词条",
+      "target": "Locked Modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17365,
+      "source": "当前没有可选词条，可继续战斗\n更多植物和路线可前往「图鉴 → 诸神图鉴」购买解锁",
+      "before": "当前没有可选词条，可继续战斗\n更多植物和路线可前往「图鉴 → 诸神图鉴」购买解锁",
+      "target": "No modifiers are available. You can continue fighting.\nUnlock more plants and paths in Almanac > The Gods Almanac.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17468,
+      "source": "战术词条",
+      "before": "战术词条",
+      "target": "Tactic Modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17553,
+      "source": "搜索专家植物",
+      "before": "搜索专家植物",
+      "target": "Search Reinforcement Plants",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17830,
+      "source": "暂无基础植物",
+      "before": "暂无基础植物",
+      "target": "No Base Plants",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 17953,
+      "source": "植物图鉴",
+      "before": "植物图鉴",
+      "target": "Plant Almanac",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18147,
+      "source": "没有匹配的专家植物",
+      "before": "没有匹配的专家植物",
+      "target": "No matching Reinforcement plants",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18149,
+      "source": "没有匹配的词条",
+      "before": "没有匹配的词条",
+      "target": "No matching modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18242,
+      "source": "满阶",
+      "before": "满阶",
+      "target": "Maximum Tier",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18243,
+      "source": "满阶已购买",
+      "before": "满阶已购买",
+      "target": "Maximum tier purchased",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18328,
+      "source": "独立伤害增幅",
+      "before": "独立伤害增幅",
+      "target": "independent damage bonus",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18583,
+      "source": "终端",
+      "before": "终端",
+      "target": "Final",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18584,
+      "source": "终端植物",
+      "before": "终端植物",
+      "target": "Final Plant",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18812,
+      "source": "解锁升级路线",
+      "before": "解锁升级路线",
+      "target": "Unlock Evolution Path",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18820,
+      "source": "解锁满阶战术",
+      "before": "解锁满阶战术",
+      "target": "Unlock Maximum Tactic Tier",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18863,
+      "source": "试炼词条",
+      "before": "试炼词条",
+      "target": "Trial Modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18866,
+      "source": "该专家植物暂无专属词条",
+      "before": "该专家植物暂无专属词条",
+      "target": "This Reinforcement plant has no plant-specific modifiers.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18867,
+      "source": "该升级路线不在可解锁目录中。",
+      "before": "该升级路线不在可解锁目录中。",
+      "target": "This evolution path is not available to unlock.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18868,
+      "source": "该升级路线已经解锁。",
+      "before": "该升级路线已经解锁。",
+      "target": "This evolution path is already unlocked.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18870,
+      "source": "该战术满阶已经解锁。",
+      "before": "该战术满阶已经解锁。",
+      "target": "This tactic's maximum tier is already unlocked.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18881,
+      "source": "该终端植物暂无专属词条",
+      "before": "该终端植物暂无专属词条",
+      "target": "This final plant has no plant-specific modifiers.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 18894,
+      "source": "请先解锁这条路线的基础植物。",
+      "before": "请先解锁这条路线的基础植物。",
+      "target": "Unlock the base plant for this path first.",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 19099,
+      "source": "超质变",
+      "before": "超质变",
+      "target": "Apex Modifiers",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 19113,
+      "source": "路线 {0}  /  {1}",
+      "before": "路线 {0}  /  {1}",
+      "target": "Path {0} / {1}",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 19166,
+      "source": "进化途中的植物",
+      "before": "进化途中的植物",
+      "target": "Plant on Evolution Path",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 19217,
+      "source": "速度增幅",
+      "before": "速度增幅",
+      "target": "speed bonus",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    },
+    {
+      "index": 19556,
+      "source": "（普通品质基准，实际增幅随品质变化）。",
+      "before": "（普通品质基准，实际增幅随品质变化）。",
+      "target": " (Common quality values; actual bonuses depend on quality).",
+      "reason": "Generic Gods Almanac display text; PC-established category terms retained."
+    }
+  ],
+  "catalog": [
+    {
+      "index": 0,
+      "id": "Other:幸运:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n幸运尚未达到上限时可出现。\n尚未获得“交易-孤注一掷”时可出现。",
+      "before": "抽取概率受幸运影响。\n幸运尚未达到上限时可出现。\n尚未获得“交易-孤注一掷”时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable while Luck is below its maximum.\nAvailable if you have not obtained \"交易-孤注一掷\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 1,
+      "id": "Other:伤害增幅:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。",
+      "before": "抽取概率受幸运影响。",
+      "target": "Selection chance is affected by Luck.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 2,
+      "id": "Other:合理投资:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n尚未获得“交易-孤注一掷”时可出现。",
+      "before": "抽取概率受幸运影响。\n尚未获得“交易-孤注一掷”时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"交易-孤注一掷\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 3,
+      "id": "Other:保护:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n僵尸类型不是豌豆僵尸或随机僵尸时生效。",
+      "before": "抽取概率受幸运影响。\n僵尸类型不是豌豆僵尸或随机僵尸时生效。",
+      "target": "Selection chance is affected by Luck.\n僵尸类型不是豌豆僵尸或随机僵尸时生效。",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 4,
+      "id": "Other:保护:0:variant:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n僵尸类型为豌豆僵尸或随机僵尸时生效。",
+      "before": "抽取概率受幸运影响。\n僵尸类型为豌豆僵尸或随机僵尸时生效。",
+      "target": "Selection chance is affected by Luck.\n僵尸类型为豌豆僵尸或随机僵尸时生效。",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 5,
+      "id": "Other:复活:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n已获得“超质变：步步高升”时可出现。",
+      "before": "抽取概率受幸运影响。\n已获得“超质变：步步高升”时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have obtained \"Apex: Greed\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 6,
+      "id": "Other:复活:1",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n尚未获得“超质变：步步高升”时可出现。",
+      "before": "抽取概率受幸运影响。\n尚未获得“超质变：步步高升”时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"Apex: Greed\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 7,
+      "id": "Other:碾压保护:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n尚未获得碾压保护时可出现。",
+      "before": "抽取概率受幸运影响。\n尚未获得碾压保护时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"Upgrade: Anti-crush\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 8,
+      "id": "Other:爆炸保护:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n尚未获得“爆炸保护”时可出现。",
+      "before": "抽取概率受幸运影响。\n尚未获得“爆炸保护”时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"Blast Protection\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 9,
+      "id": "Other:护盾保护:0",
+      "field": "condition",
+      "source": "抽取概率受幸运影响。\n尚未获得“护盾保护”时可出现。",
+      "before": "抽取概率受幸运影响。\n尚未获得“护盾保护”时可出现。",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"Enchanted Shield\".",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 10,
+      "id": "SuperUpgrade:超质变：腐化:0",
+      "field": "condition",
+      "source": "每次判定有 0.01% 概率进入超质变抽取。",
+      "before": "每次判定有 0.01% 概率进入超质变抽取。",
+      "target": "Each check has a 0.01% chance to select from Apex modifiers.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 11,
+      "id": "SuperUpgrade:超质变：步步高升:0",
+      "field": "condition",
+      "source": "每次判定有 0.01% 概率进入超质变抽取。",
+      "before": "每次判定有 0.01% 概率进入超质变抽取。",
+      "target": "Each check has a 0.01% chance to select from Apex modifiers.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 12,
+      "id": "SuperUpgrade:超质变：力量会给予希望:0",
+      "field": "condition",
+      "source": "每次判定有 0.01% 概率进入超质变抽取。",
+      "before": "每次判定有 0.01% 概率进入超质变抽取。",
+      "target": "Each check has a 0.01% chance to select from Apex modifiers.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 13,
+      "id": "SuperUpgrade:超质变：神秘大炮:0",
+      "field": "condition",
+      "source": "每次判定有 0.01% 概率进入超质变抽取。",
+      "before": "每次判定有 0.01% 概率进入超质变抽取。",
+      "target": "Each check has a 0.01% chance to select from Apex modifiers.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 14,
+      "id": "Expert:invitation:专家邀请",
+      "field": "condition",
+      "source": "仍有尚未获得的专家植物时有概率出现，概率受幸运影响。",
+      "before": "仍有尚未获得的专家植物时有概率出现，概率受幸运影响。",
+      "target": "Can appear while there are Reinforcement plants you have not obtained. The chance is affected by Luck.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 15,
+      "id": "Expert:plant:UltimateMinigun",
+      "field": "condition",
+      "source": "尚未获得此专家植物时可选择。",
+      "before": "尚未获得此专家植物时可选择。",
+      "target": "Available if you have not obtained this Reinforcement plant.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 16,
+      "id": "Expert:plant:UltimateBlover",
+      "field": "condition",
+      "source": "尚未获得此专家植物时可选择。",
+      "before": "尚未获得此专家植物时可选择。",
+      "target": "Available if you have not obtained this Reinforcement plant.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 17,
+      "id": "Expert:plant:EmeraldUmbrella",
+      "field": "condition",
+      "source": "尚未获得此专家植物时可选择。",
+      "before": "尚未获得此专家植物时可选择。",
+      "target": "Available if you have not obtained this Reinforcement plant.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 18,
+      "id": "Expert:plant:UltimateStarTorch",
+      "field": "condition",
+      "source": "尚未获得此专家植物时可选择。",
+      "before": "尚未获得此专家植物时可选择。",
+      "target": "Available if you have not obtained this Reinforcement plant.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 19,
+      "id": "Expert:plant:UltimateSniperGatling",
+      "field": "condition",
+      "source": "尚未获得此专家植物时可选择。",
+      "before": "尚未获得此专家植物时可选择。",
+      "target": "Available if you have not obtained this Reinforcement plant.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 20,
+      "id": "Expert:plant:SuperThreePeater_sp",
+      "field": "condition",
+      "source": "尚未获得此专家植物时可选择。",
+      "before": "尚未获得此专家植物时可选择。",
+      "target": "Available if you have not obtained this Reinforcement plant.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 21,
+      "id": "Tactics:invitation:通用战术",
+      "field": "condition",
+      "source": "抽取通用战术时有概率出现，概率受幸运影响；可自选一种仍有可领取等级的战术。",
+      "before": "抽取通用战术时有概率出现，概率受幸运影响；可自选一种仍有可领取等级的战术。",
+      "target": "Can appear when selecting General Tactics. The chance is affected by Luck. Choose a tactic that still has an available level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 22,
+      "id": "Tactics:Shooting_木桩1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 23,
+      "id": "Tactics:Shooting_木桩2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 24,
+      "id": "Tactics:Shooting_木桩3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 25,
+      "id": "Tactics:Shooting_木桩Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 26,
+      "id": "Tactics:Shooting_烈阳1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 27,
+      "id": "Tactics:Shooting_烈阳2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 28,
+      "id": "Tactics:Shooting_烈阳3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 29,
+      "id": "Tactics:Shooting_烈阳Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 30,
+      "id": "Tactics:Shooting_战锤1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 31,
+      "id": "Tactics:Shooting_战锤2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 32,
+      "id": "Tactics:Shooting_战锤3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 33,
+      "id": "Tactics:Shooting_战锤Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 34,
+      "id": "Tactics:Shooting_裂空1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 35,
+      "id": "Tactics:Shooting_裂空2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 36,
+      "id": "Tactics:Shooting_裂空3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 37,
+      "id": "Tactics:Shooting_裂空Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 38,
+      "id": "Tactics:Shooting_明月1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 39,
+      "id": "Tactics:Shooting_明月2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 40,
+      "id": "Tactics:Shooting_明月3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 41,
+      "id": "Tactics:Shooting_明月Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 42,
+      "id": "Tactics:Shooting_硬化1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 43,
+      "id": "Tactics:Shooting_硬化2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 44,
+      "id": "Tactics:Shooting_硬化3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 45,
+      "id": "Tactics:Shooting_硬化Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 46,
+      "id": "Tactics:Shooting_交易1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 47,
+      "id": "Tactics:Shooting_交易2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 48,
+      "id": "Tactics:Shooting_交易3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 49,
+      "id": "Tactics:Shooting_交易Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 50,
+      "id": "Tactics:Shooting_宝藏1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 51,
+      "id": "Tactics:Shooting_宝藏2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 52,
+      "id": "Tactics:Shooting_宝藏3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 53,
+      "id": "Tactics:Shooting_宝藏Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 54,
+      "id": "Tactics:Shooting_业火1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 55,
+      "id": "Tactics:Shooting_业火2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 56,
+      "id": "Tactics:Shooting_业火3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 57,
+      "id": "Tactics:Shooting_业火Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 58,
+      "id": "Tactics:Shooting_光棱1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 59,
+      "id": "Tactics:Shooting_光棱2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 60,
+      "id": "Tactics:Shooting_光棱3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 61,
+      "id": "Tactics:Shooting_光棱Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 62,
+      "id": "Tactics:Shooting_天罚1",
+      "field": "condition",
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 63,
+      "id": "Tactics:Shooting_天罚2",
+      "field": "condition",
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 64,
+      "id": "Tactics:Shooting_天罚3",
+      "field": "condition",
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 65,
+      "id": "Tactics:Shooting_天罚Max",
+      "field": "condition",
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 诸神币. You must not already have the modifier for this level.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 66,
+      "id": "Trials:Shooting_不破不立",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。\n轮回阶段不超过 1；仅第 20 / 40 / 60 / 80 波可出现。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。\n轮回阶段不超过 1；仅第 20 / 40 / 60 / 80 波可出现。",
+      "target": "Available only in Purgatory mode, if you have not obtained this Trial modifier.\nReincarnation stage must be 1 or lower. Available only on waves 20 / 40 / 60 / 80.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 67,
+      "id": "Trials:Shooting_两极分化",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "target": "Available only in Purgatory mode, if you have not obtained this Trial modifier.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 68,
+      "id": "Trials:Shooting_傲慢之罚",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "target": "Available only in Purgatory mode, if you have not obtained this Trial modifier.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    },
+    {
+      "index": 69,
+      "id": "Trials:Shooting_嫉妒之惩",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "target": "Available only in Purgatory mode, if you have not obtained this Trial modifier.",
+      "reason": "Generic availability requirements only. Named references use existing English titles or retain Chinese."
+    }
+  ]
+}
