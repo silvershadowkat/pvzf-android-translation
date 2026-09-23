@@ -1,6 +1,6 @@
 # Android 4.0 prerelease 2 rev 3
 
-Local test revision. No GitHub publication authorized. Based on rev 2, commit `d57d500bcee458579b159ab08554c74d2440989e`.
+Published unchanged as Android 4.0 English prerelease 2 (`v4.0-release-2`) after explicit maintainer approval. Based on rev 2, commit `d57d500bcee458579b159ab08554c74d2440989e`. The public filename omits the local `-rev3` suffix; bytes and SHA-256 are identical. See `ANDROID40-PRE2-RELEASE-BUILD.json`.
 
 ## Approved scope
 
@@ -46,6 +46,6 @@ See `ANDROID40-PRE2-REV3-BUILD.json` for the final build hash and check results.
 - Official-4.0 and rev-2 APK comparisons passed. Only bundle and metadata changed relative to rev 2 outside signatures. Package details, code, music and other content are unchanged.
 - ZIP alignment and v1/v2/v3 signatures passed using the existing certificate. Defender completed with exit code 0.
 
-On Android, check the God Coins balance, locked-plant dialog, route/card costs, and tactic maximum-tier purchase prompt. Check that `Level 1/2/3` fits on the cards. Open the Solar Reactor, mechanical ship and hammer effects, then return and reopen the menu. Avoid spending currency merely to test the text. Rev 3 rendering and interaction testing is pending.
+On Android, check the God Coins balance, locked-plant dialog, route/card costs, and tactic maximum-tier purchase prompt. Check that `Level 1/2/3` fits on the cards. Open the Solar Reactor, mechanical ship and hammer effects, then return and reopen the menu. Avoid spending currency merely to test the text. The maintainer approved this revision as-is. Earlier screenshots confirm catalog operation; exhaustive rev 3 interaction testing and the device model/Android version were not supplied.
 
-Builds remain local until the maintainer explicitly approves publication. Gameplay, saves, executable code, music, and layout are unchanged from rev 2.
+Publication was explicitly approved for prerelease 2. Future releases require their own authorization. Gameplay, saves, executable code, music, and layout are unchanged from rev 2.

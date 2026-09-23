@@ -5,21 +5,20 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 4.0; the larger goal is a workflow that can be rerun when the game
 updates.
 
-[Download Android 4.0 English prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0-release-1)
+[Download Android 4.0 English prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0-release-2)
 
-This early prerelease includes current PC English, matching 3.9 translations and presentation fixes, and 17 PC music tracks. Clear generic UI, Gods Almanac effects, and ordinary changelog text also use tracked context-aware AI translations. Unverified plant names and specialized descriptions remain Chinese. Official gameplay, saves, code, and permissions are unchanged.
+This prerelease fixes the empty Gods Almanac and corrects 14 plant descriptions, including Nugget-shroom. It adds tracked context-aware AI English for generic Almanac navigation, availability text and basic effects, plus the approved provisional currency name **God Coins**. Unverified tactic names and specialized descriptions remain Chinese to avoid conflicting with PC terminology. The previous translation, presentation fixes and 17 PC music tracks are retained.
 
-The maintainer tested and approved the exact published APK. Automated structure, formatting, signing, and alignment checks passed; this is not exhaustive device coverage. Read [the concise release notes](docs/RELEASE-NOTES-4.0-PRE1.md), [audit and test locations](docs/testing/ANDROID40-PRE1.md), and save instructions below before upgrading.
+The maintainer confirmed the Almanac and Nugget-shroom fixes and approved the final rev 3 APK for publication unchanged. Automated structure, formatting, signing and alignment checks passed; device coverage is not exhaustive. Read [the release notes](docs/RELEASE-NOTES-4.0-PRE2.md), [fixes and known gaps](docs/testing/ANDROID40-PRE2.md), [the translation review](docs/testing/ANDROID40-PRE2-REV3.md), and save instructions below before upgrading.
 
-Maintainers: ongoing fixes are on `agent/translation-4.0-prerelease2`. Read [the prerelease 2 investigation](docs/testing/ANDROID40-PRE2.md), especially the protected catalog-string checks. The public download remains prerelease 1 until the next candidate is approved. Older 3.9 workflow examples below are historical.
-The local prerelease 2 rev 3 candidate adds reviewed generic Gods Almanac labels and availability instructions, the maintainer-approved provisional currency name God Coins, and small level labels. Its rules preserve PC terminology and leave other unknown names unchanged. The previous local candidate's catalog repair and Nugget-shroom correction have been confirmed by the maintainer. See [the rev 3 review](docs/testing/ANDROID40-PRE2-REV3.md).
+Maintainers: source is on `agent/translation-4.0-prerelease2`, tagged `v4.0-release-2`. The public APK is byte-identical to local prerelease 2 rev 3. Read [the release build record](docs/testing/ANDROID40-PRE2-RELEASE-BUILD.json) and protected catalog-string checks before future changes. Older 3.9 workflow examples below are historical.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.
 
 See the [3.9 Release 9 notes](docs/RELEASE-NOTES-3.9-PRE9.md) for the stable
-baseline and the [4.0 audit](docs/testing/ANDROID40-PRE1.md) for current work.
+baseline and the [4.0 prerelease 2 investigation](docs/testing/ANDROID40-PRE2.md) for current work.
 Save-migration guidance appears below.
 
 ## Translation policy

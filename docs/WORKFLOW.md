@@ -1,6 +1,6 @@
 # Repeatable update workflow
 
-Current release: [Android 4.0 English prerelease 1](RELEASE-NOTES-4.0-PRE1.md). Use [the 4.0 upgrade handoff](testing/ANDROID40-PRE1.md) and [build verification record](testing/ANDROID40-PRE1-BUILD.json) for current work. The version-specific examples below are historical. The current APK changes exactly three payloads: Unity text/assets, metadata, and the audio resource. All executable code, permissions, and save logic remain official Android 4.0.
+Current release: [Android 4.0 English prerelease 2](RELEASE-NOTES-4.0-PRE2.md). Use [the prerelease 2 investigation](testing/ANDROID40-PRE2.md), [rev 3 translation review](testing/ANDROID40-PRE2-REV3.md), and [release build record](testing/ANDROID40-PRE2-RELEASE-BUILD.json) for current work. The version-specific examples below are historical. The current APK changes exactly three payloads: Unity text/assets, metadata, and the audio resource. All executable code, permissions, and save logic remain official Android 4.0.
 
 
 ## 1. Preserve clean inputs

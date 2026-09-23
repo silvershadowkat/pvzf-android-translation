@@ -1,8 +1,8 @@
 # Android 4.0 prerelease 2 investigation and local test
 
-Status: local test candidate, not published. Based on released `v4.0-release-1`, commit `be2e48f`. New branch: `agent/translation-4.0-prerelease2`.
+Release: `v4.0-release-2`, using the maintainer-approved rev 3 APK unchanged. Based on `v4.0-release-1`, commit `be2e48f`. Source branch: `agent/translation-4.0-prerelease2`. See [release notes](../RELEASE-NOTES-4.0-PRE2.md) and `ANDROID40-PRE2-RELEASE-BUILD.json` for the public artifact. Earlier local-test status statements below are historical.
 
-Latest local revision: [prerelease 2 rev 3](ANDROID40-PRE2-REV3.md), adding the explicitly approved God Coins wording and another narrow generic UI pass. The test1 and rev 2 results below remain historical records.
+Published revision: [prerelease 2 rev 3](ANDROID40-PRE2-REV3.md), adding the explicitly approved God Coins wording and another narrow generic UI pass. The test1 and rev 2 results below remain historical records.
 
 ## Empty Gods Almanac
 

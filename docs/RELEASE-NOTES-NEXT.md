@@ -1,17 +1,7 @@
-# Android 4.0 English prerelease 2 rev 3 candidate
+# Changes after Android 4.0 English prerelease 2
 
-Local preparation only. Not published.
+Current release: [prerelease 2](RELEASE-NOTES-4.0-PRE2.md), the approved local rev 3 APK published unchanged as `v4.0-release-2`.
 
-- Fixed 96 translated internal class references that could leave The Gods Almanac empty, and added explicit checks to prevent recurrence.
-- Corrected 14 plant descriptions against official 4.0 text, including Nugget-shroom, Icicle-shroom, Spuddy-shroom, and Squash Pumpkin. Kept established PC names.
-- Verified Coffee Bean's “exempt” wording; it correctly describes the price-increase exemption and is unchanged.
-- Checked PC 4.0 updates; no new upstream commits to import.
-- Added context-aware English for 51 generic Gods Almanac UI fields and availability text on 70 entries. Kept established PC terminology.
-- Added the maintainer-approved provisional name God Coins to balances, costs, rewards and prompts. Translated small level labels and five clear effect descriptions using existing PC names.
-- Left unconfirmed tactic names and specialized descriptions unchanged to avoid misleading players.
-- Maintainer confirmed the catalog fix and Nugget-shroom. Rev 3 UI testing is pending.
-- Passed 48 tests, 315 runtime-format checks, catalog-reference checks, structural audits, APK comparisons, signing and alignment checks.
-- Preserved gameplay, save handling, music, and executable code. Vague mode/death-sprite reports remain unverified.
+No additional changes are queued. Record future completed fixes here once. Keep [the investigation](testing/ANDROID40-PRE2.md) and [rev 3 review](testing/ANDROID40-PRE2-REV3.md) as historical evidence; do not count their fixes again in the next release.
 
-[Investigation, exact corrections, and device test steps](testing/ANDROID40-PRE2.md).
-[Rev 3 screenshot review and naming decision](testing/ANDROID40-PRE2-REV3.md).
+Unconfirmed tactic names and specialized effects still await verified PC wording. God Coins is an explicit provisional naming exception. Exact valid PC English takes priority over tracked fallbacks. Vague mode glitches and lingering zombie sprites remain unverified reports, not confirmed translation defects.

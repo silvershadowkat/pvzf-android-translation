@@ -2,6 +2,14 @@
 
 This is the repeatable path for updating the English Android build.
 
+## Current Android 4.0 baseline
+
+Release `v4.0-release-2` publishes local prerelease 2 rev 3 unchanged. Read [the catalog repair](testing/ANDROID40-PRE2.md), [rev 3 review](testing/ANDROID40-PRE2-REV3.md), and [release build record](testing/ANDROID40-PRE2-RELEASE-BUILD.json). Apply the protected-catalog repair and source-checked factual corrections before the rev 2 and rev 3 UI allowlists. Never translate runtime types, IDs, group keys, resource paths or save fields.
+
+God Coins is a specifically approved provisional name for `诸神币`, not general permission to invent terminology. Other tactic names and specialized effects stay Chinese without verified PC English. Preserve the exact source/previous-English guards and prefer complete valid PC translations when they become available. Do not carry old factual corrections forward blindly when either source changes.
+
+The older version-specific instructions below are historical context.
+
 ## Translation authority and provenance
 
 ### Current tester-feedback rule (updated 2026-09-15)
