@@ -1,0 +1,35 @@
+{
+  "checked_on": "2026-09-23",
+  "repository": "https://github.com/Teyliu/PVZF-Translation",
+  "branch": "4.0",
+  "previous_commit": "9a170fdfa999e4e8dc6fe45e31c0806a1271577d",
+  "reviewed_commit": "e6f597488b4756d1cc43ff223198feae24df64ae",
+  "commits": [
+    "e6f597488b4756d1cc43ff223198feae24df64ae 2026-09-23 some 4.0 fixes and additions",
+    "69def0d90a0bfa367007bc6df319d9de5f5e8ba5 2026-09-22 4.0 updated dll and stuff",
+    "25d0680dcc8b29f1e84b59b443172ac3407887df 2026-09-23 4.0 Changelog"
+  ],
+  "changed_files": [
+    "PvZ_Fusion_Translator.dll",
+    "PvZ_Fusion_Translator/Localization/English/Strings/changelog.txt",
+    "PvZ_Fusion_Translator/Localization/English/Strings/custom_level_data.json",
+    "PvZ_Fusion_Translator/Localization/English/Strings/customlevel_regexs.json",
+    "PvZ_Fusion_Translator/Localization/English/Strings/customlevel_strings.json",
+    "PvZ_Fusion_Translator/Localization/English/Strings/translation_strings.json",
+    "PvZ_Fusion_Translator/Localization/English/Strings/travel_buffs.json"
+  ],
+  "exact_dictionary_changed_keys": 21,
+  "matching_android_display_candidates": 7,
+  "already_matching_candidates": 2,
+  "new_pc_exact_edits": 5,
+  "catalog_pending_cjk_fields_reviewed": 74,
+  "catalog_complete_pc_matches": 0,
+  "dispositions": {
+    "pc_dll": "Reference only; not imported into Android.",
+    "changelog": "Five names adopted; retained Android-specific content and unresolved named forms.",
+    "custom_levels": "New Bombershroom text and title records have no matching Android display fields in the reviewed snapshot. Resource IDs were not renamed.",
+    "tactics": "Names and specialized descriptions still lack complete usable PC wording.",
+    "plants_5003_5005": "PC Almanac contains two records with seedType 5003. Both descriptions remain quarantined. Only Pyroboros Pot name is independently confirmed by new changelog.",
+    "gods_evolved_json": "Empty object at reviewed revision."
+  }
+}

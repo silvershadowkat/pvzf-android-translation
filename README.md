@@ -13,6 +13,8 @@ The maintainer confirmed the Almanac and Nugget-shroom fixes and approved the fi
 
 Maintainers: source is on `agent/translation-4.0-prerelease2`, tagged `v4.0-release-2`. The public APK is byte-identical to local prerelease 2 rev 3. Read [the release build record](docs/testing/ANDROID40-PRE2-RELEASE-BUILD.json) and protected catalog-string checks before future changes. Older 3.9 workflow examples below are historical.
 
+Local follow-up: [prerelease 3 test 1](docs/testing/ANDROID40-PRE3.md) incorporates the September 23 PC check, reviewed screenshot fixes and metadata protections. It is prepared on `agent/translation-4.0-prerelease3`, awaiting device testing and publication approval. The public download above remains prerelease 2.
+
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.

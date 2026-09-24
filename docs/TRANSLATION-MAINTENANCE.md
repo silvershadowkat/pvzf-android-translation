@@ -16,6 +16,12 @@ Read [the metadata safety review](testing/ANDROID40-METADATA-SAFETY.md) before t
 
 The translator and UI passes preserve these keys; `package_apk_payload.py` checks final active literal slots against the official same-version APK before writing output. Always use the official APK as the base. Old prerelease 2 metadata contains four translated protected slots and must pass the explicit restoration step documented in the review before packaging. The local diagnostic candidate is not a published release or a proven gameplay fix.
 
+## September 23 prerelease 3 review
+
+Read [the 32-screenshot triage](testing/ANDROID40-PRE3.md). PC 4.0 advanced to `e6f597488b4756d1cc43ff223198feae24df64ae`; export both localization files and Dumps for source-aligned lookups. Apply `assets/prerelease3-display-4.0.json` using `scripts/apply_reviewed_display_patch.py` after the protected-metadata restoration. This pass has 11 reviewed display edits; its source and previous-text guards must both match.
+
+The current PC tactic catalog still lacks complete usable wording. Two plant descriptions exist in PC but have duplicate IDs, so report the alignment conflict instead of saying they are untranslated. Puzzle label names also serve as loading keys and require a separate display solution. Never rename resources to translate labels. The local test APK passed 57 tests and static safety/signature/alignment checks; device testing and publication approval remain outstanding.
+
 ## Translation authority and provenance
 
 ### Current tester-feedback rule (updated 2026-09-15)

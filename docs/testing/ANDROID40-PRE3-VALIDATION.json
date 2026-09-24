@@ -1,0 +1,99 @@
+{
+  "display_pass": {
+    "metadata_edits": 6,
+    "asset_edits": 2,
+    "ui_edits": 3,
+    "verified_objects": 206358,
+    "protected_metadata": {
+      "protected_strings": 31,
+      "present_strings": 17,
+      "verified_slots": 17,
+      "absent_strings": [
+        "ShootingAlmanacIndex",
+        "\u4e0d\u7834\u4e0d\u7acb",
+        "\u4e24\u6781\u5206\u5316",
+        "\u50b2\u6162\u4e4b\u7f5a",
+        "\u5927\u5e1d\u795d\u798f",
+        "\u5927\u5e1d\u8bc5\u5492",
+        "\u5ac9\u5992\u4e4b\u60e9",
+        "\u706b\u83dc\u70ae\u795d\u798f",
+        "\u706b\u83dc\u70ae\u8bc5\u5492",
+        "\u78c1\u575a\u795d\u798f",
+        "\u78c1\u575a\u8bc5\u5492",
+        "\u7a76\u6a31\u795d\u798f",
+        "\u7a76\u6a31\u8bc5\u5492",
+        "\u8bd5\u70bc"
+      ]
+    },
+    "applied": [
+      {
+        "asset": "LawnStrings",
+        "path": [
+          "plants",
+          715,
+          "name"
+        ]
+      },
+      {
+        "asset": "ShootingAlmanacIndex",
+        "path": [
+          "entries",
+          12,
+          "description"
+        ]
+      },
+      {
+        "file": "resources.assets",
+        "id": 194735,
+        "field": [
+          "m_text"
+        ]
+      },
+      {
+        "file": "resources.assets",
+        "id": 198191,
+        "field": [
+          "m_text"
+        ]
+      },
+      {
+        "file": "resources.assets",
+        "id": 194825,
+        "field": [
+          "m_text"
+        ]
+      }
+    ]
+  },
+  "safety": {
+    "metadata_literals": 19573,
+    "metadata_changed": 3302,
+    "display_enum_names": 60,
+    "nontext_metadata_unchanged": true,
+    "unity_objects": 206358,
+    "changed_object_types": {
+      "Material": 2,
+      "Texture2D": 51,
+      "TextAsset": 297,
+      "AudioClip": 17,
+      "Font": 2,
+      "Sprite": 8,
+      "RectTransform": 4,
+      "MonoBehaviour": 1823
+    },
+    "json_assets": 301,
+    "all_json_shapes_ids_and_nontext_values_preserved": true,
+    "format_issues": [],
+    "protected_asset_strings_unchanged": true,
+    "catalog_references": {
+      "reflection_references": 374,
+      "unique_reflection_types": 209,
+      "roots": 20,
+      "plants": 109,
+      "entries": 70,
+      "all_runtime_fields_preserved": true
+    },
+    "changed_strings_count": 9355,
+    "changed_objects_count": 2204
+  }
+}
