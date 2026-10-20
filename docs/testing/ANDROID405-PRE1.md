@@ -1,7 +1,7 @@
 # Android 4.0.5 prerelease 1 local test
 
 Prepared October 20, 2026 on `agent/translation-4.0.5-prerelease1`, based on `ac8989b5d345c65f87df005d04ef4b8d1b8003b5`.
-Not published or device-tested. User approval after a smoke test is required before publication.
+Publication update, October 20: the maintainer completed an S26 Ultra smoke test, reported generally smooth behavior with no obvious issues, and approved this APK unchanged for prerelease publication. Gods Almanac/tactics translation gaps remain. See `ANDROID405-PRE1-RELEASE-BUILD.json`. The preparation record below describes checks performed before that device test.
 
 ## Local handoff
 
@@ -91,4 +91,4 @@ Persistent repository changes include the metadata normalizer, protected-remnant
 4. Open the drawing/editor screens if accessible. Check compact controls, scrolling, navigation and text clipping. No additional Android gameplay support was added.
 5. Listen for music and watch for new lag during a representative busy wave.
 
-Do not publish until the user approves this exact local build after testing. Any fixes require a new local artifact and checks.
+The user subsequently approved this exact local build after testing. Publish unchanged as `v4.0.5-release-1`; any later fixes require a new artifact and checks.

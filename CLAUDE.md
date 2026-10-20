@@ -1,8 +1,8 @@
 # Maintainer handoff for Claude and other coding agents
 
-## Active 4.0.5 development
+## Current 4.0.5 prerelease
 
-The current branch is `agent/translation-4.0.5-prerelease1`. Read `docs/testing/ANDROID405-PRE1.md` and its BUILD, VALIDATION and UPSTREAM records. The local APK is built and signed, but not published or device-tested. Wait for the user's smoke-test approval. Use the new official 4.0.5 files and latest PC pin `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Do not reuse older metadata or object IDs wholesale. Preserve internal keys. Exact current-source factual corrections are in `assets/factual-review-4.0.5.json`; UI and music manifests have the same version suffix. Detailed local stage paths and logs are in the handoff. No task-owned build, Java, Python or emulator process should remain running.
+Branch `agent/translation-4.0.5-prerelease1`, release tag `v4.0.5-release-1`. The maintainer approved the existing local test 1 APK unchanged after an S26 Ultra smoke test: generally smooth, no obvious issues, Gods Almanac/tactics still substantially untranslated. Read `docs/testing/ANDROID405-PRE1.md` and the RELEASE-BUILD record. Preserve the exact artifact hash and signature when handling publication. The latest reviewed PC pin is `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Current-source factual corrections, UI and music manifests use the 4.0.5 suffix. Do not reuse old metadata/object IDs wholesale or translate internal keys. Smoke testing is not exhaustive device validation.
 
 ## Historical 4.0 development
 

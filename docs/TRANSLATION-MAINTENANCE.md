@@ -2,9 +2,9 @@
 
 This is the repeatable path for updating the English Android build.
 
-## Current 4.0.5 local candidate
+## Current 4.0.5 prerelease
 
-Read [the 4.0.5 handoff](testing/ANDROID405-PRE1.md) before rebuilding or publishing. Latest reviewed PC source is `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Local prerelease 1 test 1 awaits the user's smoke test and approval. Current Chinese source takes precedence over stale numeric claims in PC English; corrections require explicit source and previous-English guards. Balance only complete display strings, preserving intentionally open runtime fragments. Old object IDs are not portable translation identifiers.
+Read [the 4.0.5 handoff](testing/ANDROID405-PRE1.md) before rebuilding or publishing. Latest reviewed PC source is `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. The maintainer approved local prerelease 1 test 1 unchanged after an S26 Ultra smoke test for publication as `v4.0.5-release-1`. See the release build record. Current Chinese source takes precedence over stale numeric claims in PC English; corrections require explicit source and previous-English guards. Balance only complete display strings, preserving intentionally open runtime fragments. Old object IDs are not portable translation identifiers.
 
 ## Published Android 4.0 baseline
 

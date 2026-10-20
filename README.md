@@ -5,15 +5,13 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 4.0.5; the larger goal is a workflow that can be rerun when the game
 updates.
 
-[Download Android 4.0 English prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0-release-2)
+[Download Android 4.0.5 English prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-1)
 
-This prerelease fixes the empty Gods Almanac and corrects 14 plant descriptions, including Nugget-shroom. It adds tracked context-aware AI English for generic Almanac navigation, availability text and basic effects, plus the approved provisional currency name **God Coins**. Unverified tactic names and specialized descriptions remain Chinese to avoid conflicting with PC terminology. The previous translation, presentation fixes and 17 PC music tracks are retained.
+Updated to the official 4.0.5 release with the latest available PC translations, reviewed balance descriptions, drawing/editor UI and carried-forward presentation fixes. The Gods Almanac still has untranslated areas, especially tactics. Unverified specialized text and puzzle labels that also act as loading keys remain Chinese.
 
-The maintainer confirmed the Almanac and Nugget-shroom fixes and approved the final rev 3 APK for publication unchanged. Automated structure, formatting, signing and alignment checks passed; device coverage is not exhaustive. Read [the release notes](docs/RELEASE-NOTES-4.0-PRE2.md), [fixes and known gaps](docs/testing/ANDROID40-PRE2.md), [the translation review](docs/testing/ANDROID40-PRE2-REV3.md), and save instructions below before upgrading.
+The maintainer approved this APK unchanged after a generally smooth S26 Ultra smoke test with no obvious new issues. Automated structure, formatting, signing and alignment checks passed; device coverage is not exhaustive. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE1.md), [verification details](docs/testing/ANDROID405-PRE1.md), and save instructions below before upgrading.
 
-Maintainers: source is on `agent/translation-4.0-prerelease2`, tagged `v4.0-release-2`. The public APK is byte-identical to local prerelease 2 rev 3. Read [the release build record](docs/testing/ANDROID40-PRE2-RELEASE-BUILD.json) and protected catalog-string checks before future changes. Older 3.9 workflow examples below are historical.
-
-Local follow-up: [Android 4.0.5 prerelease 1 test 1](docs/testing/ANDROID405-PRE1.md) is prepared on `agent/translation-4.0.5-prerelease1`. It uses the October 20 PC source check and reviewed 4.0.5 changes. Device testing and publication approval are pending. The public download above remains 4.0 prerelease 2.
+Maintainers: source is on `agent/translation-4.0.5-prerelease1`, tagged `v4.0.5-release-1`. The public APK is byte-identical to local prerelease 1 test 1, with only its filename changed. See [the publication build record](docs/testing/ANDROID405-PRE1-RELEASE-BUILD.json). Older workflow examples below are historical.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
