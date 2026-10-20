@@ -1,0 +1,146 @@
+{
+  "pc_commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+  "translator_sha256": "108c1d91c3b2d6f00d861de18b75678a6a64e9475072c7c5bea1e4b2fab2d198",
+  "pc_ui_path": [
+    "TextMeshProUGUI_Patch.OnEnable reads TMP_Text.text and calls TranslateText",
+    "StringStore.TranslateText translates the current visible string and assigns TMP_Text.text"
+  ],
+  "specific_group_handler_found": false,
+  "bare_group_matches": [
+    {
+      "source": "",
+      "target": "",
+      "method": null
+    },
+    {
+      "source": "业火",
+      "target": "业火",
+      "method": null
+    },
+    {
+      "source": "交易",
+      "target": "交易",
+      "method": null
+    },
+    {
+      "source": "光棱",
+      "target": "光棱",
+      "method": null
+    },
+    {
+      "source": "全能",
+      "target": "全能",
+      "method": null
+    },
+    {
+      "source": "天罚",
+      "target": "天罚",
+      "method": null
+    },
+    {
+      "source": "宝藏",
+      "target": "宝藏",
+      "method": null
+    },
+    {
+      "source": "战锤",
+      "target": "战锤",
+      "method": null
+    },
+    {
+      "source": "明月",
+      "target": "明月",
+      "method": null
+    },
+    {
+      "source": "木桩",
+      "target": "木桩",
+      "method": null
+    },
+    {
+      "source": "烈阳",
+      "target": "烈阳",
+      "method": null
+    },
+    {
+      "source": "硬化",
+      "target": "硬化",
+      "method": null
+    },
+    {
+      "source": "裂空",
+      "target": "裂空",
+      "method": null
+    }
+  ],
+  "decision": "No dedicated group mapping or portable data-only display alias found. Keep Android group fields and native literals unchanged. Adding a PC-style runtime hook requires separate native integration and stability validation.",
+  "ordinal_references": {
+    "slots": {
+      "79210760": 485,
+      "79356232": 18675,
+      "77872176": 485,
+      "77872184": 18675
+    },
+    "references": [
+      {
+        "index": 485,
+        "address": "0x24c7634",
+        "slot": "0x4a43c30",
+        "method": "private static string EntryMeta(ShootingAlmanacEntry entry) { }",
+        "method_rva": "0x24c75f0"
+      },
+      {
+        "index": 18675,
+        "address": "0x24c764c",
+        "slot": "0x4a43c38",
+        "method": "private static string EntryMeta(ShootingAlmanacEntry entry) { }",
+        "method_rva": "0x24c75f0"
+      },
+      {
+        "index": 18675,
+        "address": "0x24c776c",
+        "slot": "0x4a43c38",
+        "method": "private static string EntryMeta(ShootingAlmanacEntry entry) { }",
+        "method_rva": "0x24c75f0"
+      },
+      {
+        "index": 485,
+        "address": "0x24c7774",
+        "slot": "0x4a43c30",
+        "method": "private static string EntryMeta(ShootingAlmanacEntry entry) { }",
+        "method_rva": "0x24c75f0"
+      }
+    ]
+  },
+  "patch_manifest": "C:\\Users\\plim\\Documents\\Codex\\Projects\\Plants-Vs-Zombies-Fusion\\source\\pvzf-android-translation\\assets\\prerelease2-screenshot-labels-4.0.5.json",
+  "verification": {
+    "metadata_only_changed_slot": 485,
+    "suffix_removed": true,
+    "catalog_only_changed_fields": [
+      [
+        "entries",
+        70,
+        "condition"
+      ],
+      [
+        "entries",
+        71,
+        "condition"
+      ],
+      [
+        "entries",
+        72,
+        "condition"
+      ],
+      [
+        "entries",
+        73,
+        "condition"
+      ]
+    ],
+    "unity_objects_verified": 208662,
+    "runtime_fields_preserved": true,
+    "format_templates_checked": 315
+  },
+  "device_tested": false
+}

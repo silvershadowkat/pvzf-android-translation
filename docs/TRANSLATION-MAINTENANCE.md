@@ -4,7 +4,7 @@ This is the repeatable path for updating the English Android build.
 
 ## 4.0.5 prerelease 2 coverage correction
 
-Read [the follow-up audit](testing/ANDROID405-PRE2.md). Do not use an empty `gods_evolved.json` as proof that PC has no translations: inspect complete `travel_buffs.json` records, separate Almanac title/body fields, and embedded display overrides. Require full Chinese record identity; protect all adjacent runtime fields. Duplicate PC IDs still require quarantine unless an explicit reviewed identity exception is recorded. The local test 2 APK is not published or device-tested.
+Read [the follow-up audit](testing/ANDROID405-PRE2.md). Do not use an empty `gods_evolved.json` as proof that PC has no translations: inspect complete `travel_buffs.json` records, separate Almanac title/body fields, and embedded display overrides. Require full Chinese record identity; protect all adjacent runtime fields. Duplicate PC IDs still require quarantine unless an explicit reviewed identity exception is recorded. Test 2 was installed on the S26 Ultra and reviewed through screenshots. Test 3 adds four trial conditions and the reviewed empty ordinal suffix, and is not published or device-tested. Preserve intentional empty display fragments during future version migration only after confirming their current native references; do not relax generic nonempty or protected-key guards.
 
 ## Published 4.0.5 prerelease 1
 

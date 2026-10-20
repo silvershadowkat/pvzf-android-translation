@@ -1,6 +1,6 @@
 # Android 4.0.5 English prerelease 2
 
-Local test candidate. Not published or device-tested.
+Local test 3 candidate. Not published; this revision awaits device testing.
 
 ## Gods Almanac
 
@@ -8,6 +8,8 @@ Local test candidate. Not published or device-tested.
 - Translated 26 embedded curse and upgrade descriptions that the earlier importer missed.
 - Updated trial wording and older modifier names to match the PC translation.
 - Filled four new tactic availability labels and two modifier cross-references.
+- Translated all four trial availability descriptions, including their stage and wave requirements.
+- Removed a leftover Chinese suffix from tactic level labels.
 
 ## Plant descriptions
 

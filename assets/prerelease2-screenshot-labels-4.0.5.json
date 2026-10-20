@@ -1,0 +1,59 @@
+{
+  "version": "4.0.5",
+  "revision": "prerelease 2 test 3",
+  "policy": "Screenshot-confirmed display corrections only. Preserve native code, tactic group identifiers, entry IDs, saves and gameplay fields.",
+  "pc_commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+  "terminology_evidence": {
+    "Purgatory": "PC translation_strings.json: 炼狱 => Purgatory",
+    "Reincarnation": "PC translation_strings.json: 轮回 => Reincarnation",
+    "Level suffix": "4.0.5 ARM64 literal-reference scan found both ordinal literals only in EntryMeta at RVA 0x24c75f0. Prefix 18675 already reads Level; remove redundant suffix 485. Restores the equivalent reviewed 4.0 fix."
+  },
+  "metadata": [
+    {
+      "index": 485,
+      "source": " 级",
+      "before": " 级",
+      "target": "",
+      "reason": "Remove Chinese ordinal suffix after already-translated Level prefix. Exact display-only references reviewed on Android 4.0.5."
+    }
+  ],
+  "catalog": [
+    {
+      "index": 70,
+      "id": "Trials:Shooting_不破不立",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。\n轮回阶段不超过 1；仅第 20 / 40 / 60 / 80 波可出现。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。\n轮回阶段不超过 1；仅第 20 / 40 / 60 / 80 波可出现。",
+      "target": "Only available in Purgatory mode, if you have not already obtained this trial modifier.\nReincarnation stage must be 1 or lower. Only available at waves 20 / 40 / 60 / 80.",
+      "reason": "Translate the complete source eligibility sentence using established PC mode names; preserve the additional stage and wave restrictions on No Pains No Gains."
+    },
+    {
+      "index": 71,
+      "id": "Trials:Shooting_两极分化",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "target": "Only available in Purgatory mode, if you have not already obtained this trial modifier.",
+      "reason": "Translate the complete source eligibility sentence using established PC mode names; preserve the additional stage and wave restrictions on No Pains No Gains."
+    },
+    {
+      "index": 72,
+      "id": "Trials:Shooting_傲慢之罚",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "target": "Only available in Purgatory mode, if you have not already obtained this trial modifier.",
+      "reason": "Translate the complete source eligibility sentence using established PC mode names; preserve the additional stage and wave restrictions on No Pains No Gains."
+    },
+    {
+      "index": 73,
+      "id": "Trials:Shooting_嫉妒之惩",
+      "field": "condition",
+      "source": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "before": "仅炼狱模式可出现；尚未获得此试炼词条。",
+      "target": "Only available in Purgatory mode, if you have not already obtained this trial modifier.",
+      "reason": "Translate the complete source eligibility sentence using established PC mode names; preserve the additional stage and wave restrictions on No Pains No Gains."
+    }
+  ],
+  "serialized_currency": []
+}

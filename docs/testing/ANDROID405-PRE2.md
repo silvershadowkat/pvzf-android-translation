@@ -1,7 +1,22 @@
 # Android 4.0.5 prerelease 2 coverage audit
 
 Prepared October 20, 2026 on `agent/translation-4.0.5-prerelease2`, starting from `51e76484108912de8492dca7797ba2def3a07fa2`.
-Local test 2 is the candidate to test. Test 1 is superseded by four additional source-identical availability labels. Neither candidate has been published or installed on a device.
+Local test 3 is the candidate to test. Tests 1 and 2 are superseded. Test 2 was installed fresh on the S26 Ultra on October 20 and the user supplied three screenshots. Test 3 has not been installed or published.
+
+## Screenshot follow-up: test 3
+
+- APK: `C:\Users\plim\Documents\Codex\Projects\Plants-Vs-Zombies-Fusion\releases\4.0.5-English\prerelease-2\PvZ-Fusion-4.0.5-English-Android-prerelease2-test3.apk`
+- SHA-256: `3a2318c29d6da4ed8a2f7f7a1017f6c766c16f471cd6f8c2eae7aaf66863899d`.
+- Apply `assets/prerelease2-screenshot-labels-4.0.5.json` after the test 2 manifest using `scripts/apply_gods_almanac_ui.py`. Its existing source guards support the explicitly reviewed empty suffix; generic display patch safeguards remain unchanged.
+- Four trial `condition` fields are translated. No Pains No Gains retains the extra Reincarnation stage and wave restrictions. Purgatory and Reincarnation are established PC terms, not new names.
+- Metadata literal 485 (` 级`) becomes empty after the already-translated `Level ` prefix. The 4.0.5 ARM64 reference scan found both ordinal fragments only in `EntryMeta` at RVA `0x24c75f0`. This restores the equivalent reviewed 4.0 fix that was missed during migration.
+- The pinned PC translator DLL uses `TextMeshProUGUI_Patch.OnEnable` and `StringStore.TranslateText` to read and replace visible TMP text. No dedicated ShootingAlmanac group handler or matching English mapping for any of the 12 bare group names was found. This is evidence about the inspected version, not a claim of verified PC rendering. Android has no corresponding runtime hook layer. Internal group values and native code remain unchanged.
+- Exact comparison with test 2 confirms only these four catalog fields and one metadata literal changed. All 208,662 Unity objects were verified, 66 tests passed, and 315 .NET format templates passed. Catalog runtime strings and references remain protected. APK signatures, existing certificate, alignment, original-APK comparison, test-2 comparison and Defender checks passed.
+- Total changes from public prerelease 1: 140 JSON display fields and 16 metadata literals.
+- Evidence: `work\upgrade405\pre2\followup` in the task workspace. See `ANDROID405-PRE2-TEST3-BUILD.json` and `ANDROID405-PRE2-TEST3-REVIEW.json` beside this document. Task stage runners are `work\fix405_screenshot_labels.py` and `work\package405_screenshot_labels.py`.
+- Device check: confirm tactic levels read Level 1/2/3 without `级`, and all four Trial Modifiers show English eligibility text. The tactic group headings are still a documented limitation. Publication still requires approval.
+
+The sections below record the test 2 baseline.
 
 ## Artifacts and source
 
