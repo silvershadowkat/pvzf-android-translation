@@ -18,6 +18,7 @@ from build_unity_text_translation import read_text_records, merge_android_almana
 from polish_android_ui import make_generator, object_map, hierarchy_for_component
 from reconcile_pc_english import balance_pc_rich_text
 from audit_remaining_cjk import walk_strings
+from project_pc_modifier_records import project_catalog_entries
 
 DISPLAY_FIELDS = {('m_text',), ('m_Text',), ('data', 'name'), ('data', 'description'), ('group', 'title')}
 
@@ -30,9 +31,12 @@ def is_display_asset_field(asset, path):
         # The other strings include Type.GetType names, enum names, resource
         # paths and identifiers. A PC fusion regex also matches nested types
         # such as GameLevel.RogueShooting.AbyssSwordStar+UniqueUpgrade.
-        return (len(path) == 3 and path[0] == 'entries'
+        return ((len(path) == 3 and path[0] == 'entries'
                 and isinstance(path[1], int)
                 and path[2] in ('title', 'description', 'condition'))
+                or (len(path) == 5 and path[0] == 'plants'
+                    and isinstance(path[1], int) and path[2] == 'buffs'
+                    and isinstance(path[3], int) and path[4] == 'descriptionOverride'))
     return bool(path) and path[-1] in (
         'tips', 'name', 'description', 'title', 'text', 'introduce', 'info', 'cost')
 
@@ -118,6 +122,8 @@ def main():
                      if key in target and isinstance(value, str) and is_usable_pc_translation(target[key])})
     pc_details_source = read_json(dumps / 'DetailStrings.json')
     pc_details = read_json(args.localization / 'Almanac' / 'DetailStringsTranslate.json')
+    pc_modifier_sources = read_json(dumps / 'travel_buffs.json')
+    pc_modifiers = read_json(args.localization / 'Strings' / 'travel_buffs.json')
     changes, pending, blocked = [], [], []
     counts = collections.Counter()
 
@@ -233,6 +239,29 @@ def main():
                             pending.append({'kind': 'TextAsset', 'asset': name, 'id': title, 'field': field, 'source': value})
             else:
                 target = leaves(source, previous, eng, name)
+                if name == 'ShootingAlmanacIndex':
+                    for projection in project_catalog_entries(
+                            source, pc_modifier_sources, pc_modifiers, is_usable_pc_translation):
+                        index = projection['index']
+                        for field in ('title', 'description'):
+                            value = source['entries'][index][field]
+                            candidate = normalized(projection[field])
+                            if not same_arguments(value, candidate):
+                                blocked.append({'asset': name, 'field': ['entries', index, field],
+                                                'reason': 'format_arguments'})
+                                continue
+                            if target['entries'][index][field] == candidate:
+                                continue
+                            target['entries'][index][field] = candidate
+                            method = 'pc_complete_modifier_record'
+                            counts[method] += 1
+                            path = ['entries', index, field]
+                            changes.append({'kind': 'TextAsset', 'asset': name, 'field': path,
+                                            'source': value, 'target': candidate, 'method': method,
+                                            'pc_section': projection['pc_section'],
+                                            'pc_id': projection['pc_id']})
+                            pending[:] = [item for item in pending
+                                          if not (item.get('asset') == name and item.get('field') == path)]
             if target != source:
                 data.m_Script = target if isinstance(target, str) else json.dumps(target, ensure_ascii=False, indent=4)
                 data.save()

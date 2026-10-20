@@ -13,6 +13,8 @@ The maintainer approved this APK unchanged after a generally smooth S26 Ultra sm
 
 Maintainers: source is on `agent/translation-4.0.5-prerelease1`, tagged `v4.0.5-release-1`. The public APK is byte-identical to local prerelease 1 test 1, with only its filename changed. See [the publication build record](docs/testing/ANDROID405-PRE1-RELEASE-BUILD.json). Older workflow examples below are historical.
 
+Local follow-up: [4.0.5 prerelease 2 test 2](docs/testing/ANDROID405-PRE2.md) fixes missed PC tactic and embedded Almanac text. It is built locally and awaits device testing; the public download above remains prerelease 1.
+
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
 game files locally and clone the translation project separately.

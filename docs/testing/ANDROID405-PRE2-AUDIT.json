@@ -1,0 +1,84 @@
+{
+  "changed_json_fields": 136,
+  "changed_metadata_literals": 15,
+  "tactic_records_english": 48,
+  "trial_records_projected": 4,
+  "description_overrides_english": 26,
+  "metadata_pc_residuals": [
+    {
+      "index": 16622,
+      "source": "\u5347\u7ea7",
+      "protected": true
+    },
+    {
+      "index": 17530,
+      "source": "\u62a4\u76fe\u4fdd\u62a4",
+      "protected": true
+    },
+    {
+      "index": 18419,
+      "source": "\u7206\u70b8\u4fdd\u62a4",
+      "protected": true
+    }
+  ],
+  "unprotected_exact_pc_residuals": 0,
+  "remaining_asset_display_fields": 35,
+  "remaining_by_asset": {
+    "LevelCreatorHelp": 11,
+    "306CustomIZ3-3": 1,
+    "506CustomIZ5-3": 1,
+    "413CustomIZ4-6": 1,
+    "405CustomIZ4-2": 1,
+    "507CustomIZ5-4": 1,
+    "704CustomIZ3-6B": 1,
+    "601CustomIZ\u7279\u522b\u611f\u8c22": 1,
+    "703CustomIZ2-8B": 1,
+    "705CustomIZ4-7B": 1,
+    "level1314-\u78c1\u529b\u897f\u74dc\u6295\u624b": 1,
+    "ShootingAlmanacIndex": 8,
+    "ZombieStrings": 2,
+    "315CustomIZ3-8": 1,
+    "407CustomIZ4-3": 1,
+    "504CustomIZ5-2": 1,
+    "415CustomIZ4-7": 1
+  },
+  "pc_images": {
+    "files": 60,
+    "carried": 47,
+    "no_android_name_match": 13,
+    "unmapped_present": []
+  },
+  "source_pin": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+  "pc_update_since_prerelease1": false,
+  "tests_passed": 66,
+  "formatting": {
+    "failures": [],
+    "checked": 315
+  },
+  "reviewed_changes": {
+    "counts": {
+      "catalog_projection": 100,
+      "description_override": 26,
+      "existing_condition_reuse": 4,
+      "condition_reference": 2,
+      "resolved_plant_description": 4
+    },
+    "metadata_edits": 15,
+    "asset_edits": 136,
+    "held_bare_title_conflicts": 4
+  },
+  "protected_catalog": {
+    "reflection_references": 380,
+    "unique_reflection_types": 212,
+    "roots": 20,
+    "plants": 110,
+    "entries": 74,
+    "all_runtime_fields_preserved": true
+  },
+  "apk_comparison_from_prerelease1_passed": true,
+  "native_code_unchanged": true,
+  "gameplay_fields_unchanged": true,
+  "defender_exit_code": 0,
+  "device_tested": false,
+  "published": false
+}

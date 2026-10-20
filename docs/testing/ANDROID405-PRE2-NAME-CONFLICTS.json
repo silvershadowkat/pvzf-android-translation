@@ -1,0 +1,26 @@
+[
+  {
+    "index": 18719,
+    "source": "精准打击",
+    "before": "Precision Strike I",
+    "target": "Sundering Smite"
+  },
+  {
+    "index": 18845,
+    "source": "至极手速",
+    "before": "Quick Hands I",
+    "target": "Quick Hands"
+  },
+  {
+    "index": 18963,
+    "source": "蒜毒骤发",
+    "before": "Toxicity",
+    "target": "Toxic Overdose"
+  },
+  {
+    "index": 19448,
+    "source": "连锁反应",
+    "before": "Chain Reaction",
+    "target": "Combustion Cycle"
+  }
+]

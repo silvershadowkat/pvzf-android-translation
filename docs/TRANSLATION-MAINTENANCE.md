@@ -2,7 +2,11 @@
 
 This is the repeatable path for updating the English Android build.
 
-## Current 4.0.5 prerelease
+## 4.0.5 prerelease 2 coverage correction
+
+Read [the follow-up audit](testing/ANDROID405-PRE2.md). Do not use an empty `gods_evolved.json` as proof that PC has no translations: inspect complete `travel_buffs.json` records, separate Almanac title/body fields, and embedded display overrides. Require full Chinese record identity; protect all adjacent runtime fields. Duplicate PC IDs still require quarantine unless an explicit reviewed identity exception is recorded. The local test 2 APK is not published or device-tested.
+
+## Published 4.0.5 prerelease 1
 
 Read [the 4.0.5 handoff](testing/ANDROID405-PRE1.md) before rebuilding or publishing. Latest reviewed PC source is `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. The maintainer approved local prerelease 1 test 1 unchanged after an S26 Ultra smoke test for publication as `v4.0.5-release-1`. See the release build record. Current Chinese source takes precedence over stale numeric claims in PC English; corrections require explicit source and previous-English guards. Balance only complete display strings, preserving intentionally open runtime fragments. Old object IDs are not portable translation identifiers.
 

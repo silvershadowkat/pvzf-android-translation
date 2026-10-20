@@ -1,0 +1,18 @@
+[
+  {
+    "android_id": 5003,
+    "pc_declared_id": 5003,
+    "pc_name": "Sea-greed Zombox",
+    "source_record_sha256": "acdf6f2a128c67b7c20aefa0c988f45bb7a4d6a2aea08a22ec950d90f173ae54",
+    "pc_record_sha256": "b80b5f651560ce24578dc92056b6bc293accf9cb247ab62d5bac3ac39567f4b6",
+    "review": "Unique verified English name and exact Chinese PC dump; bilingual description, recipe and numeric mechanics reviewed. Explicitly leave seedType unchanged."
+  },
+  {
+    "android_id": 5005,
+    "pc_declared_id": 5003,
+    "pc_name": "Pyroboros Pot",
+    "source_record_sha256": "1571c2845fe0ffe36ca10c503394b20f3ad31047acdb061ab1f09bd0154891fc",
+    "pc_record_sha256": "e9c61831cc81e51501a3920dac3fc477e3c7d0d174fe96f6914323d9d2160a28",
+    "review": "Unique verified English name and exact Chinese PC dump; bilingual description, recipe and numeric mechanics reviewed. Explicitly leave seedType unchanged."
+  }
+]

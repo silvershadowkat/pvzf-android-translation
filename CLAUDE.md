@@ -1,6 +1,10 @@
 # Maintainer handoff for Claude and other coding agents
 
-## Current 4.0.5 prerelease
+## Active 4.0.5 prerelease 2 audit
+
+Branch `agent/translation-4.0.5-prerelease2`. Local test 2 is the current candidate; test 1 is superseded. Read `docs/testing/ANDROID405-PRE2.md` and its audit/build records. It adds 136 reviewed JSON display edits and 15 metadata changes. The previous claim that PC lacked most tactic text was incomplete: those records exist in `travel_buffs.json` and need full-record projection into split Android fields. Only the exact `descriptionOverride` path is newly display-editable; all runtime fields remain guarded. Two plant duplicate-ID exceptions have explicit bilingual identity reviews. Four bare PC name conflicts remain held. Public prerelease 1 is unchanged. Await device testing and explicit publication approval.
+
+## Published 4.0.5 prerelease 1
 
 Branch `agent/translation-4.0.5-prerelease1`, release tag `v4.0.5-release-1`. The maintainer approved the existing local test 1 APK unchanged after an S26 Ultra smoke test: generally smooth, no obvious issues, Gods Almanac/tactics still substantially untranslated. Read `docs/testing/ANDROID405-PRE1.md` and the RELEASE-BUILD record. Preserve the exact artifact hash and signature when handling publication. The latest reviewed PC pin is `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Current-source factual corrections, UI and music manifests use the 4.0.5 suffix. Do not reuse old metadata/object IDs wholesale or translate internal keys. Smoke testing is not exhaustive device validation.
 

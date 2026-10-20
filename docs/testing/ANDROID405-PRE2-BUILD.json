@@ -1,0 +1,48 @@
+{
+  "status": "Local 4.0.5 prerelease 2 test 2, awaiting device smoke test and explicit publication approval",
+  "apk": "C:\\Users\\plim\\Documents\\Codex\\Projects\\Plants-Vs-Zombies-Fusion\\releases\\4.0.5-English\\prerelease-2\\PvZ-Fusion-4.0.5-English-Android-prerelease2-test2.apk",
+  "size_bytes": 655272864,
+  "sha256": "769e2a2ff7b63df54a30da3579c217101c1f1657da70ee21f3af043a416dfdd8",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "signature_schemes_verified": [
+    "v1",
+    "v2",
+    "v3"
+  ],
+  "alignment_verified": true,
+  "tests_passed": 66,
+  "protected_metadata": {
+    "protected_strings": 31,
+    "present_strings": 17,
+    "verified_slots": 17,
+    "absent_strings": [
+      "ShootingAlmanacIndex",
+      "\u4e0d\u7834\u4e0d\u7acb",
+      "\u4e24\u6781\u5206\u5316",
+      "\u50b2\u6162\u4e4b\u7f5a",
+      "\u5927\u5e1d\u795d\u798f",
+      "\u5927\u5e1d\u8bc5\u5492",
+      "\u5ac9\u5992\u4e4b\u60e9",
+      "\u706b\u83dc\u70ae\u795d\u798f",
+      "\u706b\u83dc\u70ae\u8bc5\u5492",
+      "\u78c1\u575a\u795d\u798f",
+      "\u78c1\u575a\u8bc5\u5492",
+      "\u7a76\u6a31\u795d\u798f",
+      "\u7a76\u6a31\u8bc5\u5492",
+      "\u8bd5\u70bc"
+    ]
+  },
+  "official_apk_comparison_passed": true,
+  "changed_payloads": {
+    "assets/bin/Data/data.unity3d": "a25a859268fcb970b5e574ca27fe10c960a8b2e48f49e84407a99e9a47a06332",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat": "bb617d37c0054215665c05ada26cf85be562ca4a26fb450618da5aa9dfc7ddcf",
+    "assets/bin/Data/resources.resource": "5677f14899bc2a815fb24996909c2c8f68ac152755d2c601d64fc3383cf03bab"
+  },
+  "pc_commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+  "device_tested": false,
+  "github_published": false,
+  "compared_to_prerelease1": "Only data.unity3d and global-metadata.dat changed outside signatures",
+  "changed_json_display_fields": 136,
+  "changed_metadata_literals": 15,
+  "defender_exit_code": 0
+}

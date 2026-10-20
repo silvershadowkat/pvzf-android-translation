@@ -1,8 +1,12 @@
 # Changes after Android 4.0.5 English prerelease 1
 
-Current release: [Android 4.0.5 English prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-1).
-The maintainer approved publication of the tested APK unchanged after an S26 Ultra smoke test.
-No additional fixes are prepared after this release.
+Public release remains [prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-1).
 
-Known gaps include the Gods Almanac, especially tactics, two ambiguous plant descriptions, and puzzle labels that also serve as loading keys.
-See [the release notes](RELEASE-NOTES-4.0.5-PRE1.md) and [build evidence](testing/ANDROID405-PRE1.md).
+[Prerelease 2 test 2](testing/ANDROID405-PRE2.md) is prepared locally, not published:
+
+- Added 48 tactic-level names/effects, 26 embedded curse/upgrade descriptions, current PC modifier names and trial wording.
+- Resolved the two reviewed plant-description ID conflicts without changing Android IDs.
+- Added missing availability text and retained source-reviewed numeric corrections.
+
+The PC revision is unchanged. These are importer/coverage omissions, not newly published PC translations. Some internal group headings and unsupported terms remain Chinese.
+Read [the release notes](RELEASE-NOTES-4.0.5-PRE2.md). Device smoke testing and publication approval are pending.

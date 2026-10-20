@@ -1,0 +1,1906 @@
+{
+  "version": "4.0.5",
+  "revision": "prerelease 2 test 2",
+  "pc_commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+  "policy": "Complete PC Chinese record identity, or explicit reviewed entity alignment. Display fields only; no runtime IDs, groups, types, arguments, resources or save keys.",
+  "metadata": [
+    {
+      "index": 19066,
+      "source": "诅咒：争强好胜",
+      "before": "Curse: Competitive Spirit",
+      "target": "Curse of Aggression",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19067,
+      "source": "诅咒：千锤百炼",
+      "before": "Curse: Tempered a Thousand Times",
+      "target": "Curse of Endurance",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19068,
+      "source": "诅咒：壹肆叁柒",
+      "before": "Curse: 1437",
+      "target": "Curse of MCDXXXVII",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19069,
+      "source": "诅咒：见者有份",
+      "before": "Curse: Share the Wealth",
+      "target": "Curse of Equity",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19240,
+      "source": "质变：万剑归宗",
+      "before": "Ascension: *10k",
+      "target": "Ascend: Swordsmanship",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19246,
+      "source": "质变：勃然大怒",
+      "before": "质变：勃然大怒",
+      "target": "Ascend: Sorrow",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19253,
+      "source": "质变：小鬼当家",
+      "before": "Ascend: Little but Nimble",
+      "target": "Ascend: Evocation",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19257,
+      "source": "质变：拿来吧你",
+      "before": "Ascend: Coldsnap Wisdom",
+      "target": "Ascend: Decryption",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19264,
+      "source": "质变：激光炮",
+      "before": "质变：激光炮",
+      "target": "Ascend: Magical Index",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19266,
+      "source": "质变：烈火燎原",
+      "before": "质变：烈火燎原",
+      "target": "Ascend: Conflagration",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19275,
+      "source": "质变：虚无黑曜",
+      "before": "质变：虚无黑曜",
+      "target": "Ascend: Gigantism",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 19278,
+      "source": "质变：饱和弹射",
+      "before": "Ascend: Saturation Ricochet",
+      "target": "Ascend: Total Eruption",
+      "reason": "Qualified modifier title matches a unique PC travel record after delimiter normalization; replaces older wording or untranslated title."
+    },
+    {
+      "index": 16330,
+      "source": "光棱-一枪穿雲：光凌改为无限穿透，且折射可重复命中同一目标",
+      "before": "<nobr>Prism Fighter - X</nobr>：\nMecha Figher's Prism attacks gain infinite pierce, and refractions can hit the same target repeatedly",
+      "target": "<nobr>Prism Fighter - X</nobr>：\nMecha Fighter's Prism attacks gain infinite pierce, and refractions can hit the same target repeatedly",
+      "reason": "Correct a PC typographical error in the same verified modifier record."
+    },
+    {
+      "index": 18572,
+      "source": "硬化-坚不可摧：全体植物受到的伤害降低90%，生命值降低时在原地发射一枚攻击力等同于自身最大生命值的豌豆子弹\n若拥有僵尸词条正当防卫则改为受到的伤害降低99%",
+      "before": "<nobr>Iron Curtain - X</nobr>：\nReduces damage taken by all plants by 90%; whenever a plant loses HP, it fires a pea projectile from its position with damage equal to its max H | If the zombie has the Counterstrike Modifier, effect is changed to reducing damage taken by 99%",
+      "target": "<nobr>Iron Curtain - X</nobr>：\nReduces damage taken by all plants by 90%; whenever a plant loses HP, it fires a pea projectile from its position with damage equal to its max HP | If the zombie has the Counterstrike Modifier, effect is changed to reducing damage taken by 99%",
+      "reason": "Correct a PC typographical error in the same verified modifier record."
+    },
+    {
+      "index": 19222,
+      "source": "质变-拿来吧你：普通攻击叠加解读的概率翻倍。敌方目标进入战斗时，魔法寒冰射手对其施加3层“解读”。每一波开始时，对全场血量最高的僵尸施加100层“解读”，每层解读额外使本次伤害提高100%，僵尸死亡后，将剩余解读层数传递给其他僵尸",
+      "before": "<nobr>Ascend: Decryption</nobr>：\nZombies that spawn will be cursed with 3 stacks of Decryption Magic. Every wave, the zombie with the highest HP will gain 100 stacks of Decryption. Each stack increases the damage a zombie takes by 100%, and when a zombie cursed with Decryption dies their stacks will be spread to nearby zombies.",
+      "target": "Ascend: Decryption：\nThe chance for normal attacks to add a Decryption stack is doubled. Zombies that spawn will be cursed with 3 stacks of Decryption Magic. Every wave, the zombie with the highest HP will gain 100 stacks of Decryption. Each stack increases the damage a zombie takes by 100%, and when a zombie cursed with Decryption dies their stacks will be spread to other zombies.",
+      "reason": "Same complete Chinese description as the reviewed Almanac override; restore omitted doubled normal-attack chance and preserve current PC terminology."
+    }
+  ],
+  "assets": [
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        22,
+        "title"
+      ],
+      "source": "群攻-木桩",
+      "before": "群攻-木桩",
+      "target": "Voodoo Dummy",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13002"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        22,
+        "description"
+      ],
+      "source": "在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n无法转移魅惑僵尸造成的伤害",
+      "before": "在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n无法转移魅惑僵尸造成的伤害",
+      "target": "Summons a Dummy Zombie on the lawn which distributes 60% of the damage it takes among all zombies; can be moved with the Zombie Glove; cannot transfer damage dealt by Hypnotized Zombies",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13002"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        23,
+        "title"
+      ],
+      "source": "群攻-木桩",
+      "before": "群攻-木桩",
+      "target": "Voodoo Dummy - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13003"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        23,
+        "description"
+      ],
+      "source": "木桩僵尸的均摊比例提升至100%",
+      "before": "木桩僵尸的均摊比例提升至100%",
+      "target": "The Dummy Zombie now distributes 100% of the damage it takes among all zombies",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13003"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        24,
+        "title"
+      ],
+      "source": "群攻-木桩",
+      "before": "群攻-木桩",
+      "target": "Voodoo Dummy - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13004"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        24,
+        "description"
+      ],
+      "source": "在场上多生成一个木桩僵尸",
+      "before": "在场上多生成一个木桩僵尸",
+      "target": "Summons an additional Dummy Zombie",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13004"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        25,
+        "title"
+      ],
+      "source": "木桩-弱点洞悉",
+      "before": "木桩-弱点洞悉",
+      "target": "Voodoo Dummy - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13005"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        25,
+        "description"
+      ],
+      "source": "木桩僵尸受到伤害时会额外对全场血量最高的僵尸造成100%伤害",
+      "before": "木桩僵尸受到伤害时会额外对全场血量最高的僵尸造成100%伤害",
+      "target": "When the Dummy Zombie takes damage, it also deals 100% of that damage to the zombie with the highest HP on the lawn",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13005"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        26,
+        "title"
+      ],
+      "source": "群攻-烈阳",
+      "before": "群攻-烈阳",
+      "target": "Solar Blast",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13006"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        26,
+        "description"
+      ],
+      "source": "在场上生成一个阳光反应器，周期性对全场僵尸造成伤害",
+      "before": "Spawns a Solar Reactor on the field that periodically damages all zombies.",
+      "target": "Summons a Solar Reactor that periodically damages all zombies on the lawn",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13006"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        27,
+        "title"
+      ],
+      "source": "群攻-烈阳",
+      "before": "群攻-烈阳",
+      "target": "Solar Blast - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13007"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        27,
+        "description"
+      ],
+      "source": "阳光反应器的攻击间隔降低50%",
+      "before": "The Solar Reactor attacks at intervals that are 50% shorter.",
+      "target": "Reduces the Solar Reactor's attack CD by 50%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13007"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        28,
+        "title"
+      ],
+      "source": "群攻-烈阳",
+      "before": "群攻-烈阳",
+      "target": "Solar Blast - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13008"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        28,
+        "description"
+      ],
+      "source": "阳光反应器的伤害提高100%",
+      "before": "The Solar Reactor deals 100% more damage.",
+      "target": "Increases the Solar Reactor's damage by 100%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13008"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        29,
+        "title"
+      ],
+      "source": "烈阳-撕裂长空",
+      "before": "烈阳-撕裂长空",
+      "target": "Solar Blast - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13009"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        29,
+        "description"
+      ],
+      "source": "阳光反应器攻击时额外释放太阳神流星落下",
+      "before": "阳光反应器攻击时额外释放太阳神流星落下",
+      "target": "The Solar Reactor additionally calls down a Helios Meteor whenever it attacks",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13009"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        30,
+        "title"
+      ],
+      "source": "不朽-战锤",
+      "before": "不朽-战锤",
+      "target": "Warhammer",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13010"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        30,
+        "description"
+      ],
+      "source": "锤子的伤害降低，但冷却时间降低至3秒",
+      "before": "The hammer deals less damage, but its cooldown is reduced to 3 seconds.",
+      "target": "Reduces the Mallet's damage, but reduces its CD to 3s",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13010"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        31,
+        "title"
+      ],
+      "source": "不朽-战锤",
+      "before": "不朽-战锤",
+      "target": "Warhammer - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13011"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        31,
+        "description"
+      ],
+      "source": "锤子的攻击范围大幅增加",
+      "before": "The hammer has a much larger attack area.",
+      "target": "Greatly increases the effective range of the Mallet's attack",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13011"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        32,
+        "title"
+      ],
+      "source": "不朽-战锤",
+      "before": "不朽-战锤",
+      "target": "Warhammer - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13012"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        32,
+        "description"
+      ],
+      "source": "进一步降低锤子的冷却时间",
+      "before": "Further reduces the hammer cooldown.",
+      "target": "Further reduces the Mallet's CD",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13012"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        33,
+        "title"
+      ],
+      "source": "战锤-千锤百炼",
+      "before": "战锤-千锤百炼",
+      "target": "Warhammer - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13013"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        33,
+        "description"
+      ],
+      "source": "锤子命中僵尸后，在原地生成一个大锤子，持续对僵尸造成伤害，一段时间后消失",
+      "before": "After the hammer hits a zombie, a large hammer appears at that location and continually damages zombies. It disappears after a while.",
+      "target": "When the Mallet hits a zombie, summons a large hammer at its location that continuously damages zombies before disappearing after a while",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13013"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        34,
+        "title"
+      ],
+      "source": "支援-飞艇",
+      "before": "支援-飞艇",
+      "target": "G-fish Bomber",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13014"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        34,
+        "description"
+      ],
+      "source": "获得一个迷你鱼型裂空机甲",
+      "before": "获得一个迷你鱼型裂空机甲",
+      "target": "A Skyglider Mecha will fight for you",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13014"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        35,
+        "title"
+      ],
+      "source": "支援-裂空",
+      "before": "支援-裂空",
+      "target": "G-fish Bomber - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13015"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        35,
+        "description"
+      ],
+      "source": "迷你鱼型裂空机甲齐射所需攻击数-1",
+      "before": "迷你鱼型裂空机甲齐射所需攻击数-1",
+      "target": "Number of attacks required for Skyglider Mecha to fire a Barrage -1",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13015"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        36,
+        "title"
+      ],
+      "source": "支援-裂空",
+      "before": "支援-裂空",
+      "target": "G-fish Bomber - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13016"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        36,
+        "description"
+      ],
+      "source": "迷你鱼型裂空机甲攻击间隔降低",
+      "before": "迷你鱼型裂空机甲攻击间隔降低",
+      "target": "Reduces Skyglider Mecha's attack CD",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13016"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        37,
+        "title"
+      ],
+      "source": "裂空-苍穹之跃",
+      "before": "裂空-苍穹之跃",
+      "target": "G-fish Bomber - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13017"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        37,
+        "description"
+      ],
+      "source": "迷你鱼型裂空机甲齐射时的子弹在空中可持续分裂",
+      "before": "迷你鱼型裂空机甲齐射时的子弹在空中可持续分裂",
+      "target": "Barrage shells from Skyglider Mecha can keep splitting while airborne",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13017"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        38,
+        "title"
+      ],
+      "source": "铁幕-明月",
+      "before": "铁幕-明月",
+      "target": "Moonlight Veil",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13018"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        38,
+        "description"
+      ],
+      "source": "在场上生成一个月光反应器，周期性为全场植物回复生命值",
+      "before": "在场上生成一个月光反应器，周期性为全场植物回复生命值",
+      "target": "Summons a Lunar Reactor that periodically restores HP to all plants on the lawn",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13018"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        39,
+        "title"
+      ],
+      "source": "铁幕-明月",
+      "before": "铁幕-明月",
+      "target": "Moonlight Veil - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13019"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        39,
+        "description"
+      ],
+      "source": "月光反应器的恢复量大幅提高",
+      "before": "月光反应器的恢复量大幅提高",
+      "target": "Greatly increases the amount of HP restored by the Lunar Reactor",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13019"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        40,
+        "title"
+      ],
+      "source": "铁幕-明月",
+      "before": "铁幕-明月",
+      "target": "Moonlight Veil - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13020"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        40,
+        "description"
+      ],
+      "source": "月光反应器生效时为全场植物赋予1000护盾",
+      "before": "月光反应器生效时为全场植物赋予1000护盾",
+      "target": "Grants all plants on the lawn a 1000-HP shield whenever the Lunar Reactor activates",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13020"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        41,
+        "title"
+      ],
+      "source": "明月-照彻万川",
+      "before": "明月-照彻万川",
+      "target": "Moonlight Veil - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13021"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        41,
+        "description"
+      ],
+      "source": "月光反应器生效时，为全场每株植物降下月华\n月华会秒杀3x3范围内的普通僵尸，并使植物无敌一段时间",
+      "before": "月光反应器生效时，为全场每株植物降下月华\n月华会秒杀3x3范围内的普通僵尸，并使植物无敌一段时间",
+      "target": "Whenever the Lunar Reactor activates, moonlight descends upon every plant on the lawn, which instantly kills regular Zombies within a 3x3 area and makes plants invincible for a short time",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13021"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        42,
+        "title"
+      ],
+      "source": "铁幕-硬化",
+      "before": "铁幕-硬化",
+      "target": "Iron Curtain",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13022"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        42,
+        "description"
+      ],
+      "source": "全体植物受到的伤害降低20%",
+      "before": "All plants take 20% less damage.",
+      "target": "Reduces damage taken by all plants by 20%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13022"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        43,
+        "title"
+      ],
+      "source": "铁幕-硬化",
+      "before": "铁幕-硬化",
+      "target": "Iron Curtain - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13023"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        43,
+        "description"
+      ],
+      "source": "全体植物受到的伤害降低40%",
+      "before": "All plants take 40% less damage.",
+      "target": "Reduces damage taken by all plants by 40%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13023"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        44,
+        "title"
+      ],
+      "source": "铁幕-硬化",
+      "before": "铁幕-硬化",
+      "target": "Iron Curtain - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13024"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        44,
+        "description"
+      ],
+      "source": "全体植物受到的伤害降低60%",
+      "before": "All plants take 60% less damage.",
+      "target": "Reduces damage taken by all plants by 60%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13024"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        45,
+        "title"
+      ],
+      "source": "硬化-坚不可摧",
+      "before": "硬化-坚不可摧",
+      "target": "Iron Curtain - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13025"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        45,
+        "description"
+      ],
+      "source": "全体植物受到的伤害降低90%，生命值降低时在原地发射一枚攻击力等同于自身最大生命值的豌豆子弹\n若拥有僵尸词条正当防卫则改为受到的伤害降低99%",
+      "before": "全体植物受到的伤害降低90%，生命值降低时在原地发射一枚攻击力等同于自身最大生命值的豌豆子弹\n若拥有僵尸词条正当防卫则改为受到的伤害降低99%",
+      "target": "Reduces damage taken by all plants by 90%; whenever a plant loses HP, it fires a pea projectile from its position with damage equal to its max HP | If the zombie has the Counterstrike Modifier, effect is changed to reducing damage taken by 99%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13025"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        46,
+        "title"
+      ],
+      "source": "幸运-交易",
+      "before": "幸运-交易",
+      "target": "Luck • Loan",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13026"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        46,
+        "description"
+      ],
+      "source": "获得一次500幸运的词条抽取机会，随后扣除你25幸运",
+      "before": "Draw modifiers once with 500 Luck, then lose 25 Luck.",
+      "target": "Gain one Modifier draw at 500 Luck, then lose 25 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13026"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        47,
+        "title"
+      ],
+      "source": "幸运-交易",
+      "before": "幸运-交易",
+      "target": "Luck • Loan - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13027"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        47,
+        "description"
+      ],
+      "source": "获得一次1000幸运的词条抽取机会，随后扣除你50幸运",
+      "before": "Draw modifiers once with 1000 Luck, then lose 50 Luck.",
+      "target": "Gain one Modifier draw at 1000 Luck, then lose 50 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13027"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        48,
+        "title"
+      ],
+      "source": "幸运-交易",
+      "before": "幸运-交易",
+      "target": "Luck • Loan - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13028"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        48,
+        "description"
+      ],
+      "source": "获得一次1500幸运的词条抽取机会，随后扣除你75幸运",
+      "before": "Draw modifiers once with 1500 Luck, then lose 75 Luck.",
+      "target": "Gain one Modifier draw at 1500 Luck, then lose 75 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13028"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        49,
+        "title"
+      ],
+      "source": "交易-孤注一掷",
+      "before": "交易-孤注一掷",
+      "target": "Luck • Loan - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13029"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        49,
+        "description"
+      ],
+      "source": "立即将你的幸运设置为250，刷新机会设置为5，并使幸运上限x3，且从此不再能抽取幸运与合理投资\n每次抽取词条时，获得25幸运，并额外获得当前幸运20%的幸运（最高100），选择木头、白银、黄金/随机、钻石/棱彩/诅咒将分别扣除20/40/60/100幸运，每次刷新消耗50幸运",
+      "before": "立即将你的幸运设置为250，刷新机会设置为5，并使幸运上限x3，且从此不再能抽取幸运与合理投资\n每次抽取词条时，获得25幸运，并额外获得当前幸运20%的幸运（最高100），选择木头、白银、黄金/随机、钻石/棱彩/诅咒将分别扣除20/40/60/100幸运，每次刷新消耗50幸运",
+      "target": "Set your Luck to 250 immediately and Rerolls to 5, triple your Luck cap, and permanently prevent you from selecting Luck Modifiers and [Resourcefulness]\nEach Modifier draw grants 25 Luck, plus an additional amount equal to 20% of your current Luck (up to 100); choosing Bronze, Silver, Gold/Random, or Diamond/Prismatic/Curse costs 20/40/60/100 Luck respectively; each reroll costs 50 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13029"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        50,
+        "title"
+      ],
+      "source": "幸运-宝藏",
+      "before": "幸运-宝藏",
+      "target": "Luck • Bounty",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13030"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        50,
+        "description"
+      ],
+      "source": "立即生成一波2倍血量和速度的僵尸，全部消灭后获得一次500幸运的词条抽取机会",
+      "before": "Immediately spawns a wave of zombies with 2x HP and speed. Defeat them all to draw modifiers once with 500 Luck.",
+      "target": "Immediately spawns a wave of zombies with 2× HP and speed; defeating all of them grants a Modifier draw at 500 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13030"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        51,
+        "title"
+      ],
+      "source": "幸运-宝藏",
+      "before": "幸运-宝藏",
+      "target": "Luck • Bounty - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13031"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        51,
+        "description"
+      ],
+      "source": "立即生成一波3倍血量和速度的僵尸，全部消灭后获得一次1000幸运的词条抽取机会",
+      "before": "Immediately spawns a wave of zombies with 3x HP and speed. Defeat them all to draw modifiers once with 1000 Luck.",
+      "target": "Immediately spawns a wave of zombies with 3× HP and speed; defeating all of them grants a Modifier draw at 1000 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13031"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        52,
+        "title"
+      ],
+      "source": "幸运-宝藏",
+      "before": "幸运-宝藏",
+      "target": "Luck • Bounty - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13032"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        52,
+        "description"
+      ],
+      "source": "立即生成一波4倍血量和速度的僵尸，全部消灭后获得一次1500幸运的词条抽取机会",
+      "before": "Immediately spawns a wave of zombies with 4x HP and speed. Defeat them all to draw modifiers once with 1500 Luck.",
+      "target": "Immediately spawns a wave of zombies with 4× HP and speed; defeating all of them grants a Modifier draw at 1500 Luck",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13032"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        53,
+        "title"
+      ],
+      "source": "宝藏-双倍幸运",
+      "before": "宝藏-双倍幸运",
+      "target": "Luck • Bounty - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13033"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        53,
+        "description"
+      ],
+      "source": "立即使你当前幸运与幸运值上限翻倍\n若为负数则取绝对值后再翻倍，如-50幸运时：-50→100",
+      "before": "Immediately doubles your current Luck and Luck cap.\nNegative values become positive before doubling. For example: -50 Luck becomes 100.",
+      "target": "Immediately doubles your current Luck and Luck cap (if your Luck is negative, its absolute value is taken before doubling, e.g.: -50 Luck → 100)",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13033"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        54,
+        "title"
+      ],
+      "source": "不朽-业火",
+      "before": "不朽-业火",
+      "target": "Infernal Combustion",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13034"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        54,
+        "description"
+      ],
+      "source": "点击任意地方时，在点击位置释放业火爆炸，这个技能有10秒的冷却，如果击杀了僵尸则将冷却降为1秒",
+      "before": "点击任意地方时，在点击位置释放业火爆炸，这个技能有10秒的冷却，如果击杀了僵尸则将冷却降为1秒",
+      "target": "Clicking anywhere releases an Infernal Combustion at the clicked location, with a 10s CD, or 1 second if it kills a zombie",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13034"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        55,
+        "title"
+      ],
+      "source": "不朽-业火",
+      "before": "不朽-业火",
+      "target": "Infernal Combustion - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13035"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        55,
+        "description"
+      ],
+      "source": "业火获得100%伤害加成",
+      "before": "业火获得100%伤害加成",
+      "target": "Increases Infernal Combustion damage by 100%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13035"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        56,
+        "title"
+      ],
+      "source": "不朽-业火",
+      "before": "不朽-业火",
+      "target": "Infernal Combustion - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13036"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        56,
+        "description"
+      ],
+      "source": "业火的冷却和击杀冷却降低50%",
+      "before": "业火的冷却和击杀冷却降低50%",
+      "target": "Decreases Infernal Combustion CD and CD on kill by 50%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13036"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        57,
+        "title"
+      ],
+      "source": "业火-燃尽此生",
+      "before": "业火-燃尽此生",
+      "target": "Infernal Combustion - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13037"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        57,
+        "description"
+      ],
+      "source": "业火可对植物造成伤害，击杀植物后后在全场释放火爆辣椒效果并刷新冷却，伤害基于该植物拿的总词条数而提高",
+      "before": "业火可对植物造成伤害，击杀植物后后在全场释放火爆辣椒效果并刷新冷却，伤害基于该植物拿的总词条数而提高",
+      "target": "Infernal Combustion can now damage plants; killing a plant triggers Jalapeno effects on all lanes and refreshes the CD; damage increases based on the total number of Modifiers the plant has",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13037"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        58,
+        "title"
+      ],
+      "source": "支援-光棱",
+      "before": "支援-光棱",
+      "target": "Prism Fighter",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13038"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        58,
+        "description"
+      ],
+      "source": "获得一艘机械飞船，持续锁定并攻击最靠左的僵尸",
+      "before": "Gain a mechanical ship that continuously targets and attacks the leftmost zombie.",
+      "target": "Gains a Mecha Fighter that continuously locks onto and attacks the leftmost zombie",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13038"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        59,
+        "title"
+      ],
+      "source": "支援-光棱",
+      "before": "支援-光棱",
+      "target": "Prism Fighter - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13039"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        59,
+        "description"
+      ],
+      "source": "机械飞船的折射次数+1",
+      "before": "机械飞船的折射次数+1",
+      "target": "Increases the number of refractions of Mecha Fighter's attack by 1",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13039"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        60,
+        "title"
+      ],
+      "source": "支援-光棱",
+      "before": "支援-光棱",
+      "target": "Prism Fighter - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13040"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        60,
+        "description"
+      ],
+      "source": "机械飞船的折射次数+2",
+      "before": "机械飞船的折射次数+2",
+      "target": "Increases the number of refractions of Mecha Fighter's attack by 2",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13040"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        61,
+        "title"
+      ],
+      "source": "光棱-一枪穿雲",
+      "before": "光棱-一枪穿雲",
+      "target": "Prism Fighter - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13041"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        61,
+        "description"
+      ],
+      "source": "光凌改为无限穿透，且折射可重复命中同一目标",
+      "before": "光凌改为无限穿透，且折射可重复命中同一目标",
+      "target": "Mecha Fighter's Prism attacks gain infinite pierce, and refractions can hit the same target repeatedly",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13041"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        62,
+        "title"
+      ],
+      "source": "护航-天罚",
+      "before": "护航-天罚",
+      "target": "Lightning Storm",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13042"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        62,
+        "description"
+      ],
+      "source": "闪电将为你作战，间歇性对场上僵尸造成伤害",
+      "before": "Lightning periodically damages zombies on the field.",
+      "target": "Summons Lightning Bolts to fight for you, periodically damaging zombies on the lawn",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13042"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        63,
+        "title"
+      ],
+      "source": "护航-天罚",
+      "before": "护航-天罚",
+      "target": "Lightning Storm - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13043"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        63,
+        "description"
+      ],
+      "source": "闪电的持续时间提高100%",
+      "before": "Lightning lasts 100% longer.",
+      "target": "Increases Lightning Bolt duration by 100%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13043"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        64,
+        "title"
+      ],
+      "source": "护航-天罚",
+      "before": "护航-天罚",
+      "target": "Lightning Storm - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13044"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        64,
+        "description"
+      ],
+      "source": "闪电的攻击频率提高100%",
+      "before": "Lightning attacks 100% more frequently.",
+      "target": "Increases Lightning Bolt attack frequency by 100%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13044"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        65,
+        "title"
+      ],
+      "source": "天罚-闪电风暴",
+      "before": "天罚-闪电风暴",
+      "target": "Lightning Storm - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13045"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        65,
+        "description"
+      ],
+      "source": "闪电风暴将不间断的发动攻击",
+      "before": "闪电风暴将不间断的发动攻击",
+      "target": "The Lightning Bolts now attack continuously without interruption",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13045"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        66,
+        "title"
+      ],
+      "source": "沉淀-全能",
+      "before": "沉淀-全能",
+      "target": "Omnipotence",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13046"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        66,
+        "description"
+      ],
+      "source": "幸运提高25，全体伤害增幅提高10%，获得1次刷新机会，复活时间降低10%",
+      "before": "幸运提高25，全体伤害增幅提高10%，获得1次刷新机会，复活时间降低10%",
+      "target": "Increase Luck by 25, overall attack damage by 10%, 1 reroll, and respawn timer reduction by 10%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13046"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        67,
+        "title"
+      ],
+      "source": "沉淀-全能",
+      "before": "沉淀-全能",
+      "target": "Omnipotence - A",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13047"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        67,
+        "description"
+      ],
+      "source": "幸运提高50，全体伤害增幅提高20%，获得2次刷新机会，复活时间降低20%",
+      "before": "幸运提高50，全体伤害增幅提高20%，获得2次刷新机会，复活时间降低20%",
+      "target": "Increase Luck by 50, overall attack damage by 20%, 2 rerolls, and respawn timer reduction by 20%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13047"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        68,
+        "title"
+      ],
+      "source": "沉淀-全能",
+      "before": "沉淀-全能",
+      "target": "Omnipotence - B",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description. Preserve the reviewed 30% source correction from prerelease 1.",
+      "pc_record": "advancedBuffs:13048"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        68,
+        "description"
+      ],
+      "source": "幸运提高75，全体伤害增幅提高30%，获得3次刷新机会，复活时间降低30%",
+      "before": "幸运提高75，全体伤害增幅提高30%，获得3次刷新机会，复活时间降低30%",
+      "target": "Increase Luck by 75, overall attack damage by 30%, 3 rerolls, and respawn timer reduction by 30%",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description. Preserve the reviewed 30% source correction from prerelease 1.",
+      "pc_record": "advancedBuffs:13048"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        69,
+        "title"
+      ],
+      "source": "全能-无懈可击",
+      "before": "全能-无懈可击",
+      "target": "Omnipotence - X",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13049"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        69,
+        "description"
+      ],
+      "source": "在场的全体植物获得500%生命值加成，300%独立伤害增幅，200%速度增幅，60%幸运一击率，150%幸运一击伤害",
+      "before": "在场的全体植物获得500%生命值加成，300%独立伤害增幅，200%速度增幅，60%幸运一击率，150%幸运一击伤害",
+      "target": "All plants on the lawn receive 500% bonus HP, 300% independent bonus attack damage, 200% bonus attack speed, 60% crit chance and 150% crit damage",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:13049"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        70,
+        "title"
+      ],
+      "source": "试炼：不破不立",
+      "before": "Trial: No Pains No Gains",
+      "target": "No Pains No Gains",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:14000"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        71,
+        "title"
+      ],
+      "source": "试炼：两极分化",
+      "before": "Trial: All or Nothing",
+      "target": "All or Nothing",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:14001"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        72,
+        "title"
+      ],
+      "source": "试炼：傲慢",
+      "before": "Trial: High Grounds",
+      "target": "High Grounds",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:14002"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        73,
+        "title"
+      ],
+      "source": "试炼：嫉妒",
+      "before": "Trial: Predator Instinct",
+      "target": "Predator Instinct",
+      "reason": "Complete combined Chinese title and body match the PC source record; project only title and description.",
+      "pc_record": "advancedBuffs:14003"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        23,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-万剑归宗：究极剑仙杨桃每有2发大剑，每次攻击额外发射1发旋转小剑",
+      "before": "质变-万剑归宗：究极剑仙杨桃每有2发大剑，每次攻击额外发射1发旋转小剑",
+      "target": "Ascend: Swordsmanship：\nFor every 2 giant swords summoned Swordsage Starfruit, each attack additionally fires 1 spinning shortsword",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        25,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-小鬼当家：魅惑黑曜石巨人砸击时会生成魅惑黑曜石小鬼僵尸",
+      "before": "质变-小鬼当家：魅惑黑曜石巨人砸击时会生成魅惑黑曜石小鬼僵尸",
+      "target": "Ascend: Evocation：\nHypnotized Abyssal Gargantuar spawns hypnotized Abyssal Imp when smashing",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        28,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-精英：魅帝菇召唤的僵尸强度大幅提高",
+      "before": "质变-精英：魅帝菇召唤的僵尸强度大幅提高",
+      "target": "Ascend: Veterancy：\nEmpress-shroom now summons zombies with greatly increased stats",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        29,
+        "buffs",
+        4,
+        "descriptionOverride"
+      ],
+      "source": "诅咒-争强好胜：究极樱桃射手发射的子弹伤害降低50%，累计造成3亿伤害后反转诅咒\n反转效果：究极樱桃射手每次攻击，额外从屏幕左方发射若干樱桃子弹，攻击力等同于其他植物已造成伤害的0.0001%",
+      "before": "诅咒-争强好胜：究极樱桃射手发射的子弹伤害降低50%，累计造成3亿伤害后反转诅咒\n反转效果：究极樱桃射手每次攻击，额外从屏幕左方发射若干樱桃子弹，攻击力等同于其他植物已造成伤害的0.0001%",
+      "target": "Curse of Aggression：\nGatling Cherrybomber's damage is reduced by 50%. After dealing a cumulative 300M damage, reverse the curse\nReversal effect: Each time Gatling Cherrybomber attacks, it additionally fires several projectiles from the left side of the screen, with attack equal to 0.0001% of the cumulative damage dealt by other plants",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        32,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-流血：被任意地刺王命中的僵尸会在2秒内持续损失相当于本次伤害400%的生命值",
+      "before": "质变-流血：被任意地刺王命中的僵尸会在2秒内持续损失相当于本次伤害400%的生命值",
+      "target": "Ascend: Hemorrhage：\nZombies targeted by any Spikerock continuously lose HP equal to 400% the attack for 2s",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        34,
+        "buffs",
+        5,
+        "descriptionOverride"
+      ],
+      "source": "诅咒-壹肆叁柒：究极杨桃大帝的攻击间隔翻倍，在攻击1437次后反转诅咒，每轮攻击计入5次\n反转效果：发射的多功能子弹额外获得1437点基础伤害",
+      "before": "诅咒-壹肆叁柒：究极杨桃大帝的攻击间隔翻倍，在攻击1437次后反转诅咒，每轮攻击计入5次\n反转效果：发射的多功能子弹额外获得1437点基础伤害",
+      "target": "Curse of MCDXXXVII：\nMagnetar's attack speed is halved. After 1,437 attacks, reverse the curse, with each volley counting as 5 attacks\nReversal effect: Quasar projectiles from Magnetar gain an additional 1,437 base damage",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        36,
+        "buffs",
+        2,
+        "descriptionOverride"
+      ],
+      "source": "质变-虚无黑曜：究极黑曜石高坚果及其分身的碰撞体积大幅增加，且免疫boss碾压\n回血间隔15→10秒",
+      "before": "质变-虚无黑曜：究极黑曜石高坚果及其分身的碰撞体积大幅增加，且免疫boss碾压\n回血间隔15→10秒",
+      "target": "Ascend: Gigantism：\nObsidian Tall-nut and its holographic projections have vastly larger hitboxes and are immune to crushing from bosses\nHealing CD: 15s → 10s",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        47,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-光盾：流光伞会消耗能量击退3x3范围内的僵尸，普攻目标数x3",
+      "before": "质变-光盾：流光伞会消耗能量击退3x3范围内的僵尸，普攻目标数x3",
+      "target": "Ascend: Shield of Light：\nPharos Umbrella can consume energy to knock back zombies in a 3×3 area and regular attacks can have ×3 targets",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        49,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-反弹：铁豆小队的狙击不再能爆头，但弹道触碰场地边缘后会反弹，反弹数为穿透数+2",
+      "before": "质变-反弹：铁豆小队的狙击不再能爆头，但弹道触碰场地边缘后会反弹，反弹数为穿透数+2",
+      "target": "Ascend: Ricochet：\nBuck-shroom Squad can no longer headshot but projectiles ricochet on lawn edges (like Split Pea), up to (number of pierces + 2) times",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        50,
+        "buffs",
+        2,
+        "descriptionOverride"
+      ],
+      "source": "质变-引力：黑洞会吸引生命值低于50%的僵尸",
+      "before": "质变-引力：黑洞会吸引生命值低于50%的僵尸",
+      "target": "Ascend: Gravity：\nBlack holes will attract zombies with less than 50% max HP",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        51,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-激光炮：究极激光炮台发射不间断的激光射线",
+      "before": "质变-激光炮：究极激光炮台发射不间断的激光射线",
+      "target": "Ascend: Magical Index：\nApeacalypse Railgun now fires a continuous light beam",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        52,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-固甲摧锋：究极云杉发射的子弹额外附带当前护盾量0.6%的攻击力，最高不超过基础攻击力的300%",
+      "before": "质变-固甲摧锋：究极云杉发射的子弹额外附带当前护盾量0.6%的攻击力，最高不超过基础攻击力的300%",
+      "target": "Ascend: Hardened Saw：\nLifereaver Spruce's projectiles gain an additional 0.6% of its current Shield as Attack Damage, capped at 300% of its base Attack",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        54,
+        "buffs",
+        2,
+        "descriptionOverride"
+      ],
+      "source": "质变-吞噬：巨嘴花吞咽后的吸引范围大幅增加",
+      "before": "质变-吞噬：巨嘴花吞咽后的吸引范围大幅增加",
+      "target": "Ascend: The Maw：\nTyrannoflora Lux attraction range after digestion is vastly increased",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        57,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-饱和弹射：火菜炮索敌范围上下额外拓展1行，同时向所有目标发射子弹。若索敌目标数小于最大散射数，将剩余弹药平均分配给索敌目标。子弹飞行时间降低50%",
+      "before": "质变-饱和弹射：火菜炮索敌范围上下额外拓展1行，同时向所有目标发射子弹。若索敌目标数小于最大散射数，将剩余弹药平均分配给索敌目标。子弹飞行时间降低50%",
+      "target": "Ascend: Total Eruption：\nKaledera Eruptor's targeting range is +1 lane above and below, and fires at all targets simultaneously (if the number of targets is less than the max scatter count, the leftover shots are evenly distributed among the targets) | Projectile flight time reduced by 50%",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        57,
+        "buffs",
+        4,
+        "descriptionOverride"
+      ],
+      "source": "诅咒-见者有份：究极火菜炮每有一个目标，发射的子弹伤害降低1%，最低降低为原来的30%，累计通过此方式降低50000%后反转诅咒\n反转效果：究极火菜炮每有一个目标，发射的子弹伤害增加1%",
+      "before": "诅咒-见者有份：究极火菜炮每有一个目标，发射的子弹伤害降低1%，最低降低为原来的30%，累计通过此方式降低50000%后反转诅咒\n反转效果：究极火菜炮每有一个目标，发射的子弹伤害增加1%",
+      "target": "Curse of Equity：\nFor each target Kaledera Eruptor has, its projectile damage is reduced by 1%, up to a max reduction of 70%. After a cumulative reduction of 50,000% through this effect, reverse the curse\nReversal effect: For each target Kaledera Eruptor has, its projectile damage is increased by 1%",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        58,
+        "buffs",
+        1,
+        "descriptionOverride"
+      ],
+      "source": "【<nobr>真正的毁灭菇</nobr>】：毁灭菇子弹会在命中时释放毁灭菇爆炸（不留坑洞）",
+      "before": "【<nobr>真正的毁灭菇</nobr>】：毁灭菇子弹会在命中时释放毁灭菇爆炸（不留坑洞）",
+      "target": "Doomsday：\nTrue Doom-shroom: Doom Shells will now release a craterless Doom-shroom explosion upon impact",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        59,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-烈火燎原：烈焰竹龙的吐息时额外在全场释放火爆辣椒效果",
+      "before": "质变-烈火燎原：烈焰竹龙的吐息时额外在全场释放火爆辣椒效果",
+      "target": "Ascend: Conflagration：\nDragonbreath Torcher's attacks additionally release Jalapeno effects in all lanes",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        60,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-大运：究极冬笋路障会跟随鼠标移动，速度可提高移动速度，且遇到僵尸后强制执行撞击",
+      "before": "质变-大运：究极冬笋路障会跟随鼠标移动，速度可提高移动速度，且遇到僵尸后强制执行撞击",
+      "target": "Ascend: Fortune：\nSoulrender Bamboo can now follow mouse movements with attack speed upgrades increasing the movement speed, deal damage to any zombies caught in its way",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        61,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-湮灭之核：相邻的两束天网之间会定期释放迷你黑洞爆炸",
+      "before": "质变-湮灭之核：相邻的两束天网之间会定期释放迷你黑洞爆炸",
+      "target": "Ascend: Chaos Beam：\nAdjacent 2 Celestial Beams releases mini black hole explosions periodically",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        62,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-致密：超级黑橄榄机枪射手的大招会发射更强大的巨型子弹",
+      "before": "质变-致密：超级黑橄榄机枪射手的大招会发射更强大的巨型子弹",
+      "target": "Ascend: Density：\nBuckshot Commando shoots even larger, stronger projectiles during Ultimate Moves",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        85,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-人人有份：金瓜大招额外给全场僵尸发射西瓜，且大招分裂数x2",
+      "before": "质变-人人有份：金瓜大招额外给全场僵尸发射西瓜，且大招分裂数x2",
+      "target": "Ascend: Golden Barrage：\nGolden Melon's Ultimate additionally launches Golden melons at all zombies, and the Ultimate's split count ×2",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        100,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-谁劈了我的瓜：西瓜坚果发射的西瓜飞到最高点时会瞬间炸开，并分裂成若干个小西瓜扔向全场僵尸",
+      "before": "质变-谁劈了我的瓜：西瓜坚果发射的西瓜飞到最高点时会瞬间炸开，并分裂成若干个小西瓜扔向全场僵尸",
+      "target": "Ascend: Clusterbomb：\nMelon-nut's projectile explodes mid-air and splits into several Mini Watermelons thrown at zombies across the field",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        103,
+        "buffs",
+        4,
+        "descriptionOverride"
+      ],
+      "source": "质变-杀戮光环：磁力坚果发射的子弹可无限穿透，但存在时间降低为10秒",
+      "before": "质变-杀戮光环：磁力坚果发射的子弹可无限穿透，但存在时间降低为10秒",
+      "target": "Ascend: Circle of Death：\nProjectiles surrounding Mag-nut can now pierce infinitely, but their duration is reduced to 10s",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        103,
+        "buffs",
+        5,
+        "descriptionOverride"
+      ],
+      "source": "诅咒-千锤百炼：磁力坚果不再发射子弹，累计吸引5000发子弹后反转诅咒\n反转效果：每次攻击时，额外发射一颗已吸引子弹中数量最多的类型的子弹",
+      "before": "诅咒-千锤百炼：磁力坚果不再发射子弹，累计吸引5000发子弹后反转诅咒\n反转效果：每次攻击时，额外发射一颗已吸引子弹中数量最多的类型的子弹",
+      "target": "Curse of Endurance：\nMag-nut no longer fires projectiles. After attracting 5,000 projectiles, reverse the curse\nReversal effect: Each time Mag-nut attacks, it additionally fires one projectile of the type it has attracted the most",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        108,
+        "buffs",
+        3,
+        "descriptionOverride"
+      ],
+      "source": "质变-勃然大怒：超级机枪忧郁菇每次攻击一定释放大招，但大招子弹数减半",
+      "before": "质变-勃然大怒：超级机枪忧郁菇每次攻击一定释放大招，但大招子弹数减半",
+      "target": "Ascend: Sorrow：\nMelancholy Commando now always unleashes its Ultimate, but with half the projectiles",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "plants",
+        109,
+        "buffs",
+        4,
+        "descriptionOverride"
+      ],
+      "source": "质变-拿来吧你：普通攻击叠加解读的概率翻倍。敌方目标进入战斗时，魔法寒冰射手对其施加3层“解读”。每一波开始时，对全场血量最高的僵尸施加100层“解读”，每层解读额外使本次伤害提高100%，僵尸死亡后，将剩余解读层数传递给其他僵尸",
+      "before": "质变-拿来吧你：普通攻击叠加解读的概率翻倍。敌方目标进入战斗时，魔法寒冰射手对其施加3层“解读”。每一波开始时，对全场血量最高的僵尸施加100层“解读”，每层解读额外使本次伤害提高100%，僵尸死亡后，将剩余解读层数传递给其他僵尸",
+      "target": "Ascend: Decryption：\nThe chance for normal attacks to add a Decryption stack is doubled. Zombies that spawn will be cursed with 3 stacks of Decryption Magic. Every wave, the zombie with the highest HP will gain 100 stacks of Decryption. Each stack increases the damage a zombie takes by 100%, and when a zombie cursed with Decryption dies their stacks will be spread to other zombies.",
+      "reason": "PC full source record matches the complete display override. Runtime buff type and arguments are preserved. Restore the explicit doubled normal-attack chance omitted by PC and avoid adding an unsupported nearby-target restriction."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        66,
+        "condition"
+      ],
+      "source": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "before": "尚未获得本组战术时可出现。尚未获得此级词条。",
+      "target": "Requires that you have not obtained any tactic from this group, including the modifier for this level.",
+      "reason": "Reuse the already-reviewed English availability text from an identical Chinese condition in the same tactic category."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        67,
+        "condition"
+      ],
+      "source": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 1 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires level 1 of this group. You must not already have the modifier for this level.",
+      "reason": "Reuse the already-reviewed English availability text from an identical Chinese condition in the same tactic category."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        68,
+        "condition"
+      ],
+      "source": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "before": "已获得本组前 2 级词条后可出现。尚未获得此级词条。",
+      "target": "Requires levels 1 and 2 of this group. You must not already have the modifier for this level.",
+      "reason": "Reuse the already-reviewed English availability text from an identical Chinese condition in the same tactic category."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        69,
+        "condition"
+      ],
+      "source": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "before": "已获得本组前 3 级词条后可出现。尚未获得此级词条。需在图鉴消耗300诸神币购买本战术满阶后才可出现。",
+      "target": "Requires levels 1 to 3 of this group and purchase of the maximum tier in the Almanac for 300 God Coins. You must not already have the modifier for this level.",
+      "reason": "Reuse the already-reviewed English availability text from an identical Chinese condition in the same tactic category."
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        0,
+        "condition"
+      ],
+      "source": "抽取概率受幸运影响。\n幸运尚未达到上限时可出现。\n尚未获得“交易-孤注一掷”时可出现。",
+      "before": "Selection chance is affected by Luck.\nAvailable while Luck is below its maximum.\nAvailable if you have not obtained \"交易-孤注一掷\".",
+      "target": "Selection chance is affected by Luck.\nAvailable while Luck is below its maximum.\nAvailable if you have not obtained \"Luck • Loan - X\".",
+      "reason": "Use the unique PC name of the referenced modifier in the existing English condition.",
+      "pc_record": "advancedBuffs:13029"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        2,
+        "condition"
+      ],
+      "source": "抽取概率受幸运影响。\n尚未获得“交易-孤注一掷”时可出现。",
+      "before": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"交易-孤注一掷\".",
+      "target": "Selection chance is affected by Luck.\nAvailable if you have not obtained \"Luck • Loan - X\".",
+      "reason": "Use the unique PC name of the referenced modifier in the existing English condition.",
+      "pc_record": "advancedBuffs:13029"
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        717,
+        "info"
+      ],
+      "source": "在陆上招来乌合之众，可用于壮大战友的全覆盖打击规模。\n<color=blue>究极贪欲水草亚种</color>\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式购买配方</color>\n<color=#3D1400>转换配方：</color><color=red>惊喜礼盒←→僵尸盲盒</color>\n<color=#3D1400>伤害：</color><color=red>40×3/5秒</color>\n<color=#3D1400>特点：①</color><color=red>不会阻挡僵尸</color>\n<color=#3D1400>②</color><color=red>在场时生成的水草苗，爆出的子弹变为贪欲水草子弹</color>\n<color=#3D1400>③</color><color=red>每轮攻击前，生成一个黄金套娃僵尸，若在10秒内将其消灭，会爆出3发贪欲水草子弹</color>\n<color=#3D1400>词条1：</color><color=red>厚积薄发：每拥有1000积分，获得1%速度加成</color>\n<color=#3D1400>词条2：</color><color=red>匣中惊喜：通过染金僵尸获得的积分上限翻倍。种植僵尸盲盒时有概率生成究极贪欲盒草卡牌</color>",
+      "before": "在陆上招来乌合之众，可用于壮大战友的全覆盖打击规模。\n<color=blue>究极贪欲水草亚种</color>\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式购买配方</color>\n<color=#3D1400>转换配方：</color><color=red>惊喜礼盒←→僵尸盲盒</color>\n<color=#3D1400>伤害：</color><color=red>40×3/5秒</color>\n<color=#3D1400>特点：①</color><color=red>不会阻挡僵尸</color>\n<color=#3D1400>②</color><color=red>在场时生成的水草苗，爆出的子弹变为贪欲水草子弹</color>\n<color=#3D1400>③</color><color=red>每轮攻击前，生成一个黄金套娃僵尸，若在10秒内将其消灭，会爆出3发贪欲水草子弹</color>\n<color=#3D1400>词条1：</color><color=red>厚积薄发：每拥有1000积分，获得1%速度加成</color>\n<color=#3D1400>词条2：</color><color=red>匣中惊喜：通过染金僵尸获得的积分上限翻倍。种植僵尸盲盒时有概率生成究极贪欲盒草卡牌</color>",
+      "target": "Sea-greed Zombox summons an undead crew on land, allowing plants to expand their full-field offensive coverage.\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable with Kelptain Goldbeard</color>\n<color=black>Damage: </color><color=#8B0000>40×3/5s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Subspecies of Kelptain Goldbeard. Does not block zombies.\n<color=black>•</color> Any Tingle Kelp generated while it is on the lawn bursts into Greed Kelp projectiles instead.\n<color=black>•</color> Before each attack, spawns a Gold-box Zombie. If it is defeated within 10s, it will burst into 3 Greed Kelp projectiles.\n<color=black>Odyssey Modifiers:\n</color><color=#8B0000>1. Gain 1% Attack Speed for every 1000 points owned\n2. Point reward cap from defeating Gilded zombies is doubled | Using a Zombie Giftbox on an empty tile has a chance to spawn a seed packet for Sea-greed Zombox</color></color>",
+      "reason": "Explicit bilingual review resolves the PC duplicate ID using the verified unique entity name; original Android ID retained. The PC cost field moves the same conversion recipe from Chinese info.",
+      "pc_record": "Sea-greed Zombox"
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        719,
+        "introduce"
+      ],
+      "source": "<color=#3D1400>“在我小的时候，我可是很期待过年的。”烈焰盘龙盆慢慢地说，曾经的他可是出了名的调皮，只有过年时他才不会因为搞破坏被批评。如今，年老的他只想舒服地休息，一边咀嚼过去的时光，一边看着孩子们欢快地玩耍、就像每天都在过年一样。\n</color>",
+      "before": "<color=#3D1400>“在我小的时候，我可是很期待过年的。”烈焰盘龙盆慢慢地说，曾经的他可是出了名的调皮，只有过年时他才不会因为搞破坏被批评。如今，年老的他只想舒服地休息，一边咀嚼过去的时光，一边看着孩子们欢快地玩耍、就像每天都在过年一样。\n</color>",
+      "target": "<align=left><color=black>\"When I was little, I really looked forward to the New Year.\" Pyroboros Pot said slowly. He used to be notoriously mischievous, and New Year was the only time he wouldn't get scolded for causing trouble. Now that he's old, all he wants is to rest comfortably, chewing over memories of the past while watching the children happily play, as if every day were New Year.</color>",
+      "reason": "Explicit bilingual review resolves the PC duplicate ID using the verified unique entity name; original Android ID retained. The PC cost field moves the same conversion recipe from Chinese info.",
+      "pc_record": "Pyroboros Pot"
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        719,
+        "info"
+      ],
+      "source": "在红红火火的氛围中，助力伙伴消灭僵尸。\n<color=blue>烈焰竹龙亚种</color>\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式抽取词条</color>\n<color=#3D1400>转换配方：</color><color=red>铲除←→花盆</color>\n<color=#3D1400>特性：</color><color=red>低矮，载体，可种裸地</color>\n<color=#3D1400>特点：①</color><color=red>若上方植物的融合配方含有樱桃炸弹，为其提供30%攻击力加成</color>\n<color=#3D1400>②</color><color=red>若上方植物的融合配方含有火爆辣椒，为其提供30%攻击力加成</color>\n<color=#3D1400>③</color><color=red>每0.2秒各限一次，受到[樱桃爆炸/火爆辣椒效果]时，为上方对应的融合植物回血100，并为其中的射手植物提供5秒[10%/5%]速度加成，该加成可叠加</color>\n<color=#3D1400>词条1：</color><color=red>爆裂连珠：解锁配方。速度加成持续时间翻倍</color>\n<color=#3D1400>词条2：</color><color=red>烈火锋芒：每4秒释放樱桃炸弹和火爆辣椒效果</color>",
+      "before": "在红红火火的氛围中，助力伙伴消灭僵尸。\n<color=blue>烈焰竹龙亚种</color>\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式抽取词条</color>\n<color=#3D1400>转换配方：</color><color=red>铲除←→花盆</color>\n<color=#3D1400>特性：</color><color=red>低矮，载体，可种裸地</color>\n<color=#3D1400>特点：①</color><color=red>若上方植物的融合配方含有樱桃炸弹，为其提供30%攻击力加成</color>\n<color=#3D1400>②</color><color=red>若上方植物的融合配方含有火爆辣椒，为其提供30%攻击力加成</color>\n<color=#3D1400>③</color><color=red>每0.2秒各限一次，受到[樱桃爆炸/火爆辣椒效果]时，为上方对应的融合植物回血100，并为其中的射手植物提供5秒[10%/5%]速度加成，该加成可叠加</color>\n<color=#3D1400>词条1：</color><color=red>爆裂连珠：解锁配方。速度加成持续时间翻倍</color>\n<color=#3D1400>词条2：</color><color=red>烈火锋芒：每4秒释放樱桃炸弹和火爆辣椒效果</color>",
+      "target": "Pyroboros Pot helps plants eliminate zombies in a festive environment.\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable with Dragonbreath Torcher</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Subspecies of Dragonbreath Torcher. Short carrier plant; can be planted on bare ground.\n<color=black>•</color> Cherry Bomb fusions and Jalapeno fusions on it gain 30% bonus attack damage.\n<color=black>•</color> When affected by Cherry Bomb/Jalapeno explosions, heals the corresponding fusions above by 100 HP and grants straight-firing plants above a 10%/5% attack speed buff for 5s (stackable). Each explosion type can trigger its corresponding effect at most once every 0.2s.\n<color=black>Odyssey Modifiers:\n</color><color=#8B0000>1. Attack Speed Buff duration  ×2\n2. Releases a Cherry Bomb and a Jalapeno effect every 4s</color></color>",
+      "reason": "Explicit bilingual review resolves the PC duplicate ID using the verified unique entity name; original Android ID retained. The PC cost field moves the same conversion recipe from Chinese info. Retain the explicit carrier/low-profile traits and independent per-explosion cooldowns from Android 4.0.5.",
+      "pc_record": "Pyroboros Pot"
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        719,
+        "cost"
+      ],
+      "source": "",
+      "before": "",
+      "target": "\nConversion Recipe: <color=#8B0000>Shovel <-> Flower Pot</color>",
+      "reason": "Explicit bilingual review resolves the PC duplicate ID using the verified unique entity name; original Android ID retained. The PC cost field moves the same conversion recipe from Chinese info.",
+      "pc_record": "Pyroboros Pot"
+    }
+  ],
+  "ui": []
+}
