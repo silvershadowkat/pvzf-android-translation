@@ -1,0 +1,65 @@
+{
+  "metadata_literals": 19869,
+  "metadata_changed": 3310,
+  "display_enum_names": 60,
+  "nontext_metadata_unchanged": true,
+  "unity_objects": 208662,
+  "changed_object_types": {
+    "Material": 2,
+    "Texture2D": 49,
+    "TextAsset": 297,
+    "AudioClip": 17,
+    "Font": 2,
+    "Sprite": 8,
+    "RectTransform": 4,
+    "MonoBehaviour": 1859
+  },
+  "json_assets": 302,
+  "all_json_shapes_ids_and_nontext_values_preserved": true,
+  "format_issues": [],
+  "protected_asset_strings_unchanged": true,
+  "catalog_references": {
+    "reflection_references": 380,
+    "unique_reflection_types": 212,
+    "roots": 20,
+    "plants": 110,
+    "entries": 74,
+    "all_runtime_fields_preserved": true
+  },
+  "tests_passed": 62,
+  "dotnet_formatting": {
+    "failures": [],
+    "checked": 315
+  },
+  "pc_reference": {
+    "LawnStrings": {
+      "pc_matches_current_dump": true,
+      "pc_matches_android": true
+    },
+    "ZombieStrings": {
+      "pc_matches_current_dump": true,
+      "pc_matches_android": true
+    },
+    "pc_archive_sha256": "02d5f38b0ec3983997a3dc8e42b3430485c05b2855da18b90239577fb19e7106"
+  },
+  "factual_edits": {
+    "metadata": 7,
+    "almanac_fields": 21,
+    "serialized_ui": 1
+  },
+  "display_ui_edits": 64,
+  "metadata_complete_strings_balanced": 99,
+  "unreadable_components_preserved": 176,
+  "device_tested": false,
+  "apk_comparison": {
+    "passed": true,
+    "native_code_unchanged": true,
+    "manifest_unchanged": true,
+    "changed_payload_count": 3
+  },
+  "defender": {
+    "exit_code": 0,
+    "result": "No threats reported",
+    "date": "2026-10-20"
+  }
+}

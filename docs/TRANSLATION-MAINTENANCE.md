@@ -2,7 +2,12 @@
 
 This is the repeatable path for updating the English Android build.
 
-## Current Android 4.0 baseline
+## Current 4.0.5 local candidate
+
+Read [the 4.0.5 handoff](testing/ANDROID405-PRE1.md) before rebuilding or publishing. Latest reviewed PC source is `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Local prerelease 1 test 1 awaits the user's smoke test and approval. Current Chinese source takes precedence over stale numeric claims in PC English; corrections require explicit source and previous-English guards. Balance only complete display strings, preserving intentionally open runtime fragments. Old object IDs are not portable translation identifiers.
+
+## Published Android 4.0 baseline
+
 
 Release `v4.0-release-2` publishes local prerelease 2 rev 3 unchanged. Read [the catalog repair](testing/ANDROID40-PRE2.md), [rev 3 review](testing/ANDROID40-PRE2-REV3.md), and [release build record](testing/ANDROID40-PRE2-RELEASE-BUILD.json). Apply the protected-catalog repair and source-checked factual corrections before the rev 2 and rev 3 UI allowlists. Never translate runtime types, IDs, group keys, resource paths or save fields.
 

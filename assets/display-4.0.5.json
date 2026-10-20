@@ -1,0 +1,714 @@
+{
+  "version": "4.0.5",
+  "revision": "prerelease 1 test 1",
+  "pc_commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+  "policy": "Source-guarded display fields only. Generic editor/drawing labels are contextual English; current complete PC wording wins. Proper names use PC sources, with unresolved names retained in Chinese.",
+  "metadata": [],
+  "assets": [],
+  "ui": [
+    {
+      "file": "resources.assets",
+      "id": 188863,
+      "field": [
+        "m_text"
+      ],
+      "source": "关卡变量",
+      "before": "关卡变量",
+      "target": "Level Variables",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 189428,
+      "field": [
+        "m_text"
+      ],
+      "source": "输入小数",
+      "before": "输入小数",
+      "target": "Enter a decimal",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 189948,
+      "field": [
+        "m_text"
+      ],
+      "source": "输入节点 ID",
+      "before": "输入节点 ID",
+      "target": "Enter node ID",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 190202,
+      "field": [
+        "m_text"
+      ],
+      "source": "新建",
+      "before": "新建",
+      "target": "New",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 190239,
+      "field": [
+        "m_text"
+      ],
+      "source": "铅笔",
+      "before": "铅笔",
+      "target": "Pencil",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 190430,
+      "field": [
+        "m_text"
+      ],
+      "source": "神 笔 马 良",
+      "before": "神 笔 马 良",
+      "target": "Magic Plantbrush",
+      "reason": "PC translation_strings.json names 神笔马良 Magic Plantbrush; use the name as the screen title"
+    },
+    {
+      "file": "resources.assets",
+      "id": 190650,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 190797,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 191050,
+      "field": [
+        "m_text"
+      ],
+      "source": "椭圆",
+      "before": "椭圆",
+      "target": "Ellipse",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 191178,
+      "field": [
+        "m_text"
+      ],
+      "source": "点击编辑 · 拖到画布使用",
+      "before": "点击编辑 · 拖到画布使用",
+      "target": "Tap to edit. Drag onto the canvas to use.",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 191980,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 191981,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 192289,
+      "field": [
+        "m_text"
+      ],
+      "source": "常用色",
+      "before": "常用色",
+      "target": "Common Colors",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 192796,
+      "field": [
+        "m_text"
+      ],
+      "source": "输入名称",
+      "before": "输入名称",
+      "target": "Enter a name",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 192912,
+      "field": [
+        "m_text"
+      ],
+      "source": "撤销",
+      "before": "撤销",
+      "target": "Undo",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193394,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193395,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193396,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193485,
+      "field": [
+        "m_text"
+      ],
+      "source": "0 个变量",
+      "before": "0 个变量",
+      "target": "0 variables",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193513,
+      "field": [
+        "m_text"
+      ],
+      "source": "输入整数",
+      "before": "输入整数",
+      "target": "Enter an integer",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193842,
+      "field": [
+        "m_text"
+      ],
+      "source": "粗",
+      "before": "粗",
+      "target": "Thick",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 193993,
+      "field": [
+        "m_text"
+      ],
+      "source": "功能",
+      "before": "功能",
+      "target": "Tools",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 194000,
+      "field": [
+        "m_text"
+      ],
+      "source": "勾选为真，取消为假",
+      "before": "勾选为真，取消为假",
+      "target": "Checked: true. Unchecked: false.",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 194553,
+      "field": [
+        "m_text"
+      ],
+      "source": "橡皮",
+      "before": "橡皮",
+      "target": "Eraser",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 194621,
+      "field": [
+        "m_text"
+      ],
+      "source": "鉴 定",
+      "before": "鉴 定",
+      "target": "Identify",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 195084,
+      "field": [
+        "m_text"
+      ],
+      "source": "先选中一个节点",
+      "before": "先选中一个节点",
+      "target": "Select a node first",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 196475,
+      "field": [
+        "m_text"
+      ],
+      "source": "名称",
+      "before": "名称",
+      "target": "Name",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 196738,
+      "field": [
+        "m_text"
+      ],
+      "source": "【融合版4.0.5版本更新】\r\n\r\n国庆节快乐！\r\n\r\n更新内容：\r\n\r\n1. 雪原黑夜更新\r\n补全了阿尔法日记的内容，调整了[雪夜：第六天]\r\n\r\n2. 新植物\r\n普通系列：寒冰三线射手、浮空大嘴花、巨刺王\r\n究极系列：超级机枪忧郁菇\r\n\r\n3. 新皮肤\r\n究极投手-潮汐海螺\r\n究极月亮神卷心菜-秋宵月明\r\n（均需通关对应皮肤挑战）\r\n\r\n4. 关卡更新\r\n·神笔马良：运用你的技巧描绘想要的植物，越像越好\r\n·大地图塔防模式回归\r\n·超级自定义关卡：增加大量新功能，并增加了使用指南\r\n\r\n5. 平衡性调整\r\n·旅行诅咒：现在商店购买词条的价格会逐渐增加，且购买高价词条价格会额外增加\r\n·究极火炬对浴火豌豆的伤害增幅降低\r\n·烈焰盘龙盆对樱桃射手的攻速加成固定为10%，无需再选择[真正的樱桃炸弹]词条\r\n\r\n6. 其他优化\r\n·大幅优化了游戏体积\r\n\r\n7. 修复了一些已知的bug，优化了游戏体验\r\n",
+      "before": "【融合版4.0.5版本更新】\r\n\r\n国庆节快乐！\r\n\r\n更新内容：\r\n\r\n1. 雪原黑夜更新\r\n补全了阿尔法日记的内容，调整了[雪夜：第六天]\r\n\r\n2. 新植物\r\n普通系列：寒冰三线射手、浮空大嘴花、巨刺王\r\n究极系列：超级机枪忧郁菇\r\n\r\n3. 新皮肤\r\n究极投手-潮汐海螺\r\n究极月亮神卷心菜-秋宵月明\r\n（均需通关对应皮肤挑战）\r\n\r\n4. 关卡更新\r\n·神笔马良：运用你的技巧描绘想要的植物，越像越好\r\n·大地图塔防模式回归\r\n·超级自定义关卡：增加大量新功能，并增加了使用指南\r\n\r\n5. 平衡性调整\r\n·旅行诅咒：现在商店购买词条的价格会逐渐增加，且购买高价词条价格会额外增加\r\n·究极火炬对浴火豌豆的伤害增幅降低\r\n·烈焰盘龙盆对樱桃射手的攻速加成固定为10%，无需再选择[真正的樱桃炸弹]词条\r\n\r\n6. 其他优化\r\n·大幅优化了游戏体积\r\n\r\n7. 修复了一些已知的bug，优化了游戏体验\r\n",
+      "target": "PvZ Fusion 4.0.5 Update\n\nHappy National Day!\n\n1. Snowy Night updates\nCompleted the 阿尔法日记 content and adjusted [Snowy Night: Day 6].\n\n2. New plants\nBasic Fusions: Snow Threepeater, Flytrapper, Mandiboulder\nOdyssey Fusion: Melancholy Commando\n\n3. New skins\nTidebreaker Wither-pult\nMoon Festival Selene Cabbage\nComplete the corresponding skin challenges to unlock them.\n\n4. Level updates\nMagic Plantbrush: Draw the plant you want as accurately as you can.\nThe large-map tower defense mode returns.\nSuper Level Editor: Added many new features and a user guide.\n\n5. Balance changes\nOdyssey Cursed Mode: Shop modifier prices now increase gradually. Buying expensive modifiers increases prices further.\nReduced 究极火炬's damage bonus to 浴火豌豆.\nPyroboros Pot: Cherryshooter's attack speed bonus is now fixed at 10%, without requiring the [真正的樱桃炸弹] modifier.\n\n6. Other improvements\nSignificantly reduced the game's file size.\n\n7. Fixed known bugs and improved the gameplay experience.",
+      "reason": "Android 4.0.5 changelog, context-translated prose with PC 4.0.5 plant/skin names; unresolved named terms remain Chinese"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197081,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197082,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197183,
+      "field": [
+        "m_text"
+      ],
+      "source": "全部颜色",
+      "before": "全部颜色",
+      "target": "All Colors",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197740,
+      "field": [
+        "m_text"
+      ],
+      "source": "初始值 · 整数",
+      "before": "初始值 · 整数",
+      "target": "Initial Value: Integer",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197814,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198293,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198294,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198295,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198329,
+      "field": [
+        "m_text"
+      ],
+      "source": "铅笔 / 笔宽 6 / 256 × 256",
+      "before": "铅笔 / 笔宽 6 / 256 × 256",
+      "target": "Pencil / Width 6 / 256 × 256",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198348,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198472,
+      "field": [
+        "m_text"
+      ],
+      "source": "细",
+      "before": "细",
+      "target": "Thin",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198802,
+      "field": [
+        "m_text"
+      ],
+      "source": "节点详情",
+      "before": "节点详情",
+      "target": "Node Details",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199035,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199307,
+      "field": [
+        "m_text"
+      ],
+      "source": "画出植物，再点击鉴定",
+      "before": "画出植物，再点击鉴定",
+      "target": "Draw a plant, then tap Identify",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199910,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200051,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200649,
+      "field": [
+        "m_text"
+      ],
+      "source": "取色",
+      "before": "取色",
+      "target": "Picker",
+      "reason": "Context-reviewed generic drawing/editor display label; shortened to fit the existing tool caption"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200681,
+      "field": [
+        "m_text"
+      ],
+      "source": "网格：开",
+      "before": "网格：开",
+      "target": "Grid: On",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200910,
+      "field": [
+        "m_text"
+      ],
+      "source": "矩形",
+      "before": "矩形",
+      "target": "Rect",
+      "reason": "Context-reviewed generic drawing/editor display label; shortened to fit the existing tool caption"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200918,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200947,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201014,
+      "field": [
+        "m_text"
+      ],
+      "source": "关卡变量",
+      "before": "关卡变量",
+      "target": "Level Variables",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201168,
+      "field": [
+        "m_text"
+      ],
+      "source": "填色",
+      "before": "填色",
+      "target": "Fill",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201179,
+      "field": [
+        "m_text"
+      ],
+      "source": "初始值 · 小数",
+      "before": "初始值 · 小数",
+      "target": "Initial Value: Decimal",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201386,
+      "field": [
+        "m_text"
+      ],
+      "source": "节点详情",
+      "before": "节点详情",
+      "target": "Node Details",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201649,
+      "field": [
+        "m_text"
+      ],
+      "source": "按节点 ID 定位 · 输入后回车",
+      "before": "按节点 ID 定位 · 输入后回车",
+      "target": "Find by node ID. Press Enter to locate.",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202151,
+      "field": [
+        "m_text"
+      ],
+      "source": "笔宽",
+      "before": "笔宽",
+      "target": "Width",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202163,
+      "field": [
+        "m_text"
+      ],
+      "source": "重做",
+      "before": "重做",
+      "target": "Redo",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202325,
+      "field": [
+        "m_text"
+      ],
+      "source": "还没有变量\n\n用上方按钮创建，用它记住\n分数、次数或开关状态。",
+      "before": "还没有变量\n\n用上方按钮创建，用它记住\n分数、次数或开关状态。",
+      "target": "No variables yet.\n\nCreate one above to store\nscores, counts or on/off states.",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202509,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202586,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203044,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203045,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Back",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203189,
+      "field": [
+        "m_text"
+      ],
+      "source": "初始值 · 布尔",
+      "before": "初始值 · 布尔",
+      "target": "Initial Value: Boolean",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203745,
+      "field": [
+        "m_text"
+      ],
+      "source": "直线",
+      "before": "直线",
+      "target": "Line",
+      "reason": "Context-reviewed generic drawing/editor display label"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203802,
+      "field": [
+        "m_text"
+      ],
+      "source": "关闭",
+      "before": "Disabled",
+      "target": "Close",
+      "reason": "Existing context-specific navigation correction, same hierarchy and Chinese source"
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "version": "4.0.5",
+  "revision": "prerelease 1 test 1 factual review",
+  "policy": "Exact current-source and stale-English guards. Preserve verified PC terminology; correct only facts unambiguously specified by official Android 4.0.5.",
+  "metadata": [
+    {
+      "index": 16095,
+      "source": "以你画出的植物代替植物的贴图",
+      "before": "N/A",
+      "target": "Use your drawings as plant textures.",
+      "reason": "The PC value N/A is a placeholder for an ordinary display option."
+    },
+    {
+      "index": 18393,
+      "source": "点击神笔作画，画出什么就给什么植物\n如果你画的植物看起来越强，他就会真的越强\n高级画笔画出植物数值上限更高",
+      "before": "This level is left untranslated due to it requiring\na third-party image recognition software to play.",
+      "target": "Tap the brush to draw. You receive the plant you draw.\nThe stronger your drawing looks, the stronger the plant becomes.\nHigher-tier brushes allow higher plant stat limits.",
+      "reason": "Faithful generic drawing instructions; PC substitutes a platform-specific untranslated notice."
+    },
+    {
+      "index": 18598,
+      "source": "神笔马良",
+      "before": "Magic Plantbrush\n(Untranslated)",
+      "target": "Magic Plantbrush",
+      "reason": "Use the verified PC minigame name; remove the untranslated-status suffix now that its basic UI is translated."
+    },
+    {
+      "index": 18234,
+      "source": "沉淀-全能：幸运提高75，全体伤害增幅提高30%，获得3次刷新机会，复活时间降低30%",
+      "before": "<nobr>Omnipotence - B</nobr>：\nIncrease Luck by 75, overall attack damage by 10%, 3 rerolls, and respawn timer reduction by 30%",
+      "target": "<nobr>Omnipotence - B</nobr>：\nIncrease Luck by 75, overall attack damage by 30%, 3 rerolls, and respawn timer reduction by 30%",
+      "reason": "Official Chinese says 30%; retain the PC modifier name."
+    },
+    {
+      "index": 18426,
+      "source": "爆裂连珠：\n<nobr>·解锁<color=red>烈焰盘龙盆</color></nobr>\n◆<color=red>烈焰竹龙</color>：吐息的爆炸频率翻倍\n◆<color=red>烈焰盘龙盆</color>：提供的速度加成时间翻倍",
+      "before": "<nobr>Explosive Breath</nobr>：\nPyroboros Pot Subspecies Unlocked | Dragonbreath Torcher: Explosion Frequency ×2",
+      "target": "<nobr>Explosive Breath</nobr>：\nPyroboros Pot Subspecies Unlocked | Dragonbreath Torcher: Explosion Frequency ×2 | Pyroboros Pot: Attack speed bonus duration ×2",
+      "reason": "Restore the second numeric effect present in new Chinese but omitted by PC."
+    },
+    {
+      "index": 18718,
+      "source": "精准射击：\n◆<nobr><color=red>究极流光射手</color></nobr>：大招子弹伤害x2，散布收束。超级机枪射手大都共享此效果，且超级机枪忧郁菇子弹可以追踪\n◆<nobr><color=red>究极影蚀射手</color></nobr>：爆头所需射击次数减半。锁定型狙击射手共享此效果",
+      "before": "<nobr>Focused Fire</nobr>：\nBuckshot Commando: All Commandos Ultimate Damage ×2 and no longer spread, Melancholy Commando's projectiles now seek zombies | Synchronizer Snipea: All Snipeas required shots before triggering Headshot -3",
+      "target": "<nobr>Focused Fire</nobr>：\nBuckshot Commando: Ultimate projectile damage ×2 with reduced spread. Most Commandos share this effect, and Melancholy Commando projectiles gain homing. | Synchronizer Snipea: Required shots for Headshot are halved. Lock-on Snipeas share this effect.",
+      "reason": "Official Chinese says half the shots, not -3, and limits which Snipeas share the effect."
+    },
+    {
+      "index": 19720,
+      "source": "高贵审美：白银及以下的词条加成变为原来的70%，黄金，钻石词条加成变为原来的110%",
+      "before": "<nobr>Exquisite Aesthetics</nobr>：\nIncrease the effects of Golden and above Modifiers by 10%, while Bronze and Silver Modifiers have theirs reduced by 30%",
+      "target": "<nobr>Exquisite Aesthetics</nobr>：\nGolden and Diamond Modifier bonuses become 110% of their original values. Silver and lower Modifier bonuses become 70% of their original values.",
+      "reason": "Official Chinese names Gold and Diamond, not every rarity above Gold."
+    }
+  ],
+  "assets": [
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        69,
+        "info"
+      ],
+      "source": "发射可以腐蚀头戴防具的酸性果籽，大招发射的果籽更可缩小僵尸。\n<color=blue>SHUTTLE版联动植物</color>\n\n<color=#3D1400>伤害：</color><color=red>40/3秒</color>\n<color=#3D1400>特性：</color><color=red>飞行</color>\n<color=#3D1400>特点：</color><color=red>普通攻击和大招发射的百香果籽均会附加目标一类防具当前血量0.2倍的伤害</color>\n<color=#3D1400>大招：</color><color=red>消耗3000金钱，冷却2秒。发射一颗伤害40的巨型百香果籽，造成伤害后，使目标缩小（体型和血量变为0.7倍）</color>",
+      "before": "Doubleblast Passionfruit is a floating passionfruit that fires seeds at enemies.\n\n<color=blue>SHUTTLE Collab Plant</color>\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Flying plant.\n<color=black>•</color> Each hit deals an extra damage equal to 10% of the zombie's max Toughness to the zombie's headgear armor (Type 1).\n<color=black>Ultimate: </color>Costs 3000 Coins, Cooldown: 2s; launches a giant passionfruit seed that deals damage to armor equivalent to 20% of current HP.</color>",
+      "target": "Doubleblast Passionfruit is a floating passionfruit that fires seeds at enemies.\n\n<color=blue>SHUTTLE Collab Plant</color>\n<color=black>Damage: </color><color=#8B0000>40/3s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Flying plant.\n<color=black>•</color> Each hit deals an extra damage equal to 10% of the zombie's max Toughness to the zombie's headgear armor (Type 1).\n<color=black>Ultimate: </color>Costs 3000 Coins, Cooldown: 2s; launches a giant passionfruit seed that deals damage to armor equivalent to 20% of current HP.</color>",
+      "reason": "Official damage interval is 3 seconds. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        255,
+        "info"
+      ],
+      "source": "发射施加寒冷状态的小冰锥。\n\n<color=#3D1400>伤害：</color><color=red>20/2.25秒</color>\n<color=#3D1400>特性：</color><color=red>低矮，可密植</color>\n<color=#3D1400>特点：</color><color=red>攻击能穿透2次，施加寒冷状态，赋予5点冻结值。对冻结或免疫0级寒冷状态的僵尸伤害×4</color>\n<color=#3D1400>融合配方：</color><color=red>小喷菇（底座）+豌豆射手+寒冰菇</color>",
+      "before": "Icicle-shroom fires icicles that slow down and pierce enemies.\n\n<color=black>Damage: </color><color=#8B0000>20/1.5s</color>\n<color=#0077b6>Cryo System: </color><color=#8B0000>Inflicts chill and adds 5 Cryo points for every icicle hit. Pierce 2 times. Deals ×4 damage to frozen and chill-immune zombies.</color>\n<color=black>Special: </color><color=#8B0000>Short plant (evades straight-firing projectiles).</color>",
+      "target": "Icicle-shroom fires icicles that slow down and pierce enemies.\n\n<color=black>Damage: </color><color=#8B0000>20/2.25s</color>\n<color=#0077b6>Cryo System: </color><color=#8B0000>Inflicts chill and adds 5 Cryo points for every icicle hit. Pierce 2 times. Deals ×4 damage to frozen and chill-immune zombies.</color>\n<color=black>Special: </color><color=#8B0000>Short plant (evades straight-firing projectiles).</color>",
+      "reason": "Official damage interval is 2.25 seconds. Replaces the previously documented stale PC value. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        341,
+        "info"
+      ],
+      "source": "投出玉米瓜或能范围定身的黄油瓜。\n\n<color=#3D1400>伤害：</color><color=red>140/3秒</color>\n<color=#3D1400>特点：</color><color=red>有25%概率投出160伤害的黄油瓜，使直击的目标定身4秒，使溅射范围内的僵尸定身(4/溅射总数)秒，最低0.5秒</color>\n<color=#3D1400>融合配方：</color><color=red>西瓜投手+玉米投手</color>",
+      "before": "Cob-pult throws large corns at the zombies; sometimes they're buttered, which can immobilize all zombies in an area!\n\n<color=black>Damage: </color><color=#8B0000>120/3s</color>\n<color=black>Special: </color><color=#8B0000>Has a 1/4 chance to throw a Buttered Corn with 140 damage, immobilizing the main target for 4 seconds and zombies in the splash range for (4 / total splash spread) seconds (minimum of 0.5).</color>",
+      "target": "Cob-pult throws large corns at the zombies; sometimes they're buttered, which can immobilize all zombies in an area!\n\n<color=black>Damage: </color><color=#8B0000>140/3s</color>\n<color=black>Special: </color><color=#8B0000>Has a 1/4 chance to throw a Buttered Corn with 140 damage, immobilizing the main target for 4 seconds and zombies in the splash range for (4 / total splash spread) seconds (minimum of 0.5).</color>",
+      "reason": "Official damage is 140 per 3 seconds. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        390,
+        "info"
+      ],
+      "source": "能自我繁殖一次，且后代还能继续繁殖。\n\n<color=#3D1400>伤害：</color><color=red>20/2.25秒</color>\n<color=#3D1400>特性：</color><color=red>低矮，可密植</color>\n<color=#3D1400>特点：</color><color=red>射程2.5格。出场20秒后在本格繁殖一株土豆小喷菇，每株只能繁殖一次。死亡时造成300伤害的土豆雷爆炸</color>\n<color=#3D1400>融合配方：</color><color=red>小喷菇（底座）+土豆雷</color>",
+      "before": "Nugget-shroom can reproduce itself onto the same tile!\n\n<color=black>Damage: </color><color=#8B0000>20/1.5s</color>\n<color=black>Special: </color><color=#8B0000>Short plant. Spawns a new Nugget-shroom in the same tile after 20 Seconds. Each Nugget-shroom can only reproduce once. Upon death, it deals 300 damage to nearby zombies</color>",
+      "target": "Nugget-shroom can reproduce itself onto the same tile!\n\n<color=black>Damage: </color><color=#8B0000>20/2.25s</color>\n<color=black>Special: </color><color=#8B0000>Short plant. Spawns a new Nugget-shroom in the same tile after 20 Seconds. Each Nugget-shroom can only reproduce once. Upon death, it deals 300 damage to nearby zombies</color>",
+      "reason": "Official damage interval is 2.25 seconds, reproduction remains 20 seconds. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        391,
+        "info"
+      ],
+      "source": "会在定时引信熄灭前，燃烧生命发射高伤害的孢子。\n\n<color=#3D1400>伤害：</color><color=red>60/3秒</color>\n<color=#3D1400>特点：</color><color=red>出场后的20秒内，攻击时会受到75伤害，以造成10倍伤害。死亡时造成600伤害的土豆雷爆炸</color>\n<color=#3D1400>融合配方：</color><color=red>胆小菇+土豆雷</color>",
+      "before": "Spuddy-shroom consumes his own Toughness to fire high-damage spores!\n\n<color=black>Damage: </color><color=#8B0000>600/3s</color>\n<color=black>Special: </color><color=#8B0000>Each attack costs 75 Toughness. If kept alive for 20 seconds after being planted, his red light will turn off with attack power reduced by 90%, but attacks will no longer cost Toughness. Upon death, it deals 600 damage to nearby zombies.</color>",
+      "target": "Spuddy-shroom consumes his own Toughness to fire high-damage spores!\n\n<color=black>Damage: </color><color=#8B0000>60/3s</color>\n<color=black>Special: </color><color=#8B0000>Each attack costs 75 Toughness. If kept alive for 20 seconds after being planted, his red light will turn off with attack power reduced by 90%, but attacks will no longer cost Toughness. Upon death, it deals 600 damage to nearby zombies.</color>",
+      "reason": "Official damage is 60 per 3 seconds. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        416,
+        "info"
+      ],
+      "source": "瓜藤盘绕的大蘑菇，蓄力后弹射西瓜。\n\n<color=#3D1400>伤害：</color><color=red>120/3秒</color>\n<color=#3D1400>特点：</color><color=red>射程4.5格。不攻击时蓄力至少4.5秒，发射时使子弹伤害增至（1+蓄力时间×0.5）倍，蓄力上限30秒</color>\n<color=#3D1400>融合配方：</color><color=red>大喷菇+西瓜投手</color>",
+      "before": "Spring Melon charges its attack when no zombies are near, then uses that energy to launch a powerful melon when they get close!\n\n<color=black>Damage: </color><color=#8B0000>120/4s</color>\n<color=black>Range:</color><color=#8B0000> 4 tiles ahead</color>\n<color=black>Special: </color><color=#8B0000>Charges when not attacking for at least 4.5s to increase damage to (1 + charge time × 0.5) times the base damage. Maximum charge time: 30s.</color>",
+      "target": "Spring Melon charges its attack when no zombies are near, then uses that energy to launch a powerful melon when they get close!\n\n<color=black>Damage: </color><color=#8B0000>120/3s</color>\n<color=black>Range:</color><color=#8B0000> 4 tiles ahead</color>\n<color=black>Special: </color><color=#8B0000>Charges when not attacking for at least 4.5s to increase damage to (1 + charge time × 0.5) times the base damage. Maximum charge time: 30s.</color>",
+      "reason": "Official damage interval is 3 seconds. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        49,
+        "info"
+      ],
+      "source": "能与坚果融合，使其为周围植物承伤。\n\n<color=#3D1400>韧性：</color><color=red>1000</color>\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：</color><color=red>可以像普通植物一样放置（种植）在地面上</color>",
+      "before": "The Mecha Fragment can fuse with Wall-nut, allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "target": "The Mecha Fragment can fuse with Wall-nut, allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        50,
+        "info"
+      ],
+      "source": "能与坚果融合，使其获得大量血量，并为周围植物承伤。\n\n<color=#3D1400>韧性：</color><color=red>1000</color>\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：</color><color=red>可以像普通植物一样放置（种植）在地面上</color>",
+      "before": "The Giga Mecha Fragment can fuse with Wall-nut, granting it a massive amount of HP and allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "target": "The Giga Mecha Fragment can fuse with Wall-nut, granting it a massive amount of HP and allowing it to absorb damage for nearby plants.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Official Toughness is 1000. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        422,
+        "info"
+      ],
+      "source": "窝瓜的温馨小窝，能使壳内的特定植物召唤迷你窝瓜。\n\n<color=#3D1400>韧性：</color><color=red>4000</color>\n<color=#3D1400>特点：①</color><color=red>在陆地上时，壳内的窝瓜类植物不会索敌</color>\n<color=#3D1400>②</color><color=red>在陆地上时，每2.5秒使壳内特定植物生产迷你窝瓜，每个窝瓜南瓜生成的迷你窝瓜只能同时存在一个</color>\n<color=#3D1400>迷你窝瓜：①</color><color=red>索敌范围为自身所在位置至右侧1.1格，攻击最多6次后消失</color>\n<color=#3D1400>②</color><color=red>根据生成者的品种，落地时有不同的伤害和效果：</color>\n<color=#A86A44>·窝瓜类植物或窝瓜坚果：</color><color=red>伤害为生成者攻击力的1/8</color>\n<color=#A86A44>·西瓜窝窝投手：</color><color=red>落地时生成一个西瓜，两者的伤害均等于生成者攻击力</color>\n<color=#A86A44>·玉米窝窝投手：</color><color=red>落地时有25%概率生成一个黄油，两者的伤害均等</color>于生成者攻击力\n<color=#A86A44>·窝瓜火炬树桩：</color><color=red>伤害为225</color>\n<color=#A86A44>·究极火爆窝炬：</color><color=red>伤害为1800，落地时释放火爆辣椒效果</color>\n<color=#A86A44>·核爆窝瓜：</color><color=red>该迷你窝瓜可同时存在多个。每次落地释放樱桃炸弹效果，第6次落地额外释放一圈（12个）核能爆破子弹，伤害均为生成者攻击力的1/8</color>\n<color=#3D1400>融合配方：</color><color=red>南瓜（底座）+窝瓜</color>",
+      "before": "Squash Pumpkin can take the attack properties of Squash plants inside and use them to summon Squash minions!\n\n<color=black>Toughness: </color><color=#8B0000>4000</color>\n<color=black>Damage: </color><color=#8B0000>225</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Squash plants in Squash Pumpkins lose their ability to detect enemies.\n<color=black>•</color> When there are Squash or Squashwood plants in Squash Pumpkin, a baby squash with a maximum jump distance of 1.5 tiles is spawned and jumps forward, damaging zombies when it lands. It disappears after 6 jumps and regenerates 3s after the last baby squash disappears.\n<color=black>•</color> Depending on the type of Squash inside it, the baby squashes have different effects:\n- Squashes and Squash-nut: Baby squash does 1/8 the original damage.\n- Gourd-pult: Baby squash drops a melon on landing that does the same damage.\n- Squashwood: Baby squash does 225 damage.\n- Butternut-pult: Baby squash has a 25% chance to drop a butter on landing that does the same damage.\n- Infernal Squashwood: Baby squash does 1800 damage and releases a Jalapeno effect each time it lands.\n- Big Crunch Squash: Baby squash releases a Cherry Bomb effect each time it lands and also a ring of 12 pieces of Cosmic Debris the last time. Both do 1/8 the original damage.\n<color=black>•</color> Abilities do not work in water lanes.</color>",
+      "target": "Squash Pumpkin can take the attack properties of Squash plants inside and use them to summon Squash minions!\n\n<color=black>Toughness: </color><color=#8B0000>4000</color>\n<color=black>Damage: </color><color=#8B0000>225</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Squash plants in Squash Pumpkins lose their ability to detect enemies.\n<color=black>•</color> When there are Squash or Squashwood plants in Squash Pumpkin, a baby squash is summoned every 2.5 seconds, with at most one active at a time per Squash Pumpkin. It detects zombies up to 1.1 tiles to its right, damages them when it lands, and disappears after 6 attacks.\n<color=black>•</color> Depending on the type of Squash inside it, the baby squashes have different effects:\n- Squashes and Squash-nut: Baby squash does 1/8 the original damage.\n- Gourd-pult: Baby squash drops a melon on landing that does the same damage.\n- Squashwood: Baby squash does 225 damage.\n- Butternut-pult: Baby squash has a 25% chance to drop a butter on landing that does the same damage.\n- Infernal Squashwood: Baby squash does 1800 damage and releases a Jalapeno effect each time it lands.\n- Big Crunch Squash: Multiple baby squashes can be active at once. Baby squash releases a Cherry Bomb effect each time it lands and also a ring of 12 pieces of Cosmic Debris the last time. Both do 1/8 the original damage.\n<color=black>•</color> Abilities do not work in water lanes.</color>",
+      "reason": "Official text says every 2.5 seconds, one active per shell except the named variant, target range 1.1 tiles to the right and 6 attacks. Existing PC names retained. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        672,
+        "info"
+      ],
+      "source": "害怕时吞下周围僵尸，并在威胁解除后吐出尸块来攻击。\n\n<color=#3D1400>伤害：</color><color=red>40/1.5秒</color>\n<color=#3D1400>特点：</color><color=red>害怕时，对3×3范围内最多3只僵尸造成吞食。不论成功与否，该效果进入40秒冷却，期间发射无限穿透的滚地尸块</color>\n<color=#3D1400>融合配方：</color><color=red>胆小菇+大嘴花</color>",
+      "before": "When scared, Hungry-shroom swallows nearby Zombies and spits out chunks of corpses to attack once the threat has passed.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>When scared, swallows up to 3 Zombies within a 3×3 area. This effect then enters a 40s CD, during which it fires ground-rolling chunks of corpses with infinite pierce.</color>",
+      "target": "When scared, Hungry-shroom swallows nearby Zombies and spits out chunks of corpses to attack once the threat has passed.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>When scared, swallows up to 3 Zombies within a 3×3 area. Whether swallowing succeeds or fails, this effect enters a 40s CD, during which it fires ground-rolling chunks of corpses with infinite pierce.</color>",
+      "reason": "Official 4.0 explicitly starts the cooldown whether swallowing succeeds or fails. Official 4.0.5 source and stale PC text still match the reviewed correction."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        121,
+        "info"
+      ],
+      "source": "每轮发射四发爆炸樱桃子弹。\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式购买配方</color>\n<color=#3D1400>融合配方：</color><color=red>樱桃机枪射手+超级樱桃射手</color>\n<color=#3D1400>伤害：</color><color=red>300×4/1.5秒</color>\n<color=#3D1400>特点：①</color><color=red>免疫樱桃爆炸伤害</color>\n<color=#3D1400>②</color><color=red>发射爆炸樱桃，造成半径1格无衰减溅射</color>\n<color=#3D1400>词条1：</color><color=red>力大砖飞：植物方的樱桃爆炸伤害×3（樱桃炸弹除外）</color>\n<color=#3D1400>词条2：</color><color=red>快速填装：攻击速度+100%</color>\n<color=#3D1400>连携词条：</color><color=red>火力全开：究极樱桃射手攻击时，额外向上下两行发射等量以正余弦函数飞行的子弹。究极火爆窝炬的辣椒火焰可触发樱桃爆炸对部分樱桃系植物的效果；爆炸樱桃对后者生产火爆植物的计数翻倍，且穿过时使后者获得[前者数量0.1%]的伤害增幅</color>",
+      "before": "Gatling Cherrybomber is the strongest damage-dealer on land!\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable</color>\n<color=black>Damage: </color><color=#8B0000>300×4/1.5s</color>\n<color=black>Main Odyssey Modifiers:\n</color><color=#8B0000>1. Explosive cherries from plants ×3 damage\n2. Attack Interval halved</color>\n\n<color=black>Infernal Squashwood Synergy Modifier:</color><color=#8B0000>\n<color=black>•</color> You must have unlocked all Gatling Cherrybomber and Infernal Squashwood's modifiers before this synergy becomes available in the shop for 15k.\n<color=black>•</color> Gatling Cherrybomber now fires equal amounts of projectiles across three lanes when attacking, with the upper and lower projectiles following sine and cosine trajectories. Jalapeno blasts from Infernal Squashwoods now also triggers Cherry Bomb effect on certain Cherry Bomb fusions. Explosive Cherry projectile count for Infernal Squashwood to spawn Spicy plants ×2, and gain [(number of Gatling Cherrybombers) * 0.2] bonus damage</color>",
+      "target": "Gatling Cherrybomber is the strongest damage-dealer on land!\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable</color>\n<color=black>Damage: </color><color=#8B0000>300×4/1.5s</color>\n<color=black>Main Odyssey Modifiers:\n</color><color=#8B0000>1. Explosive cherries from plants ×3 damage\n2. Attack Interval halved</color>\n\n<color=black>Infernal Squashwood Synergy Modifier:</color><color=#8B0000>\n<color=black>•</color> You must have unlocked all Gatling Cherrybomber and Infernal Squashwood's modifiers before this synergy becomes available in the shop for 15k.\n<color=black>•</color> Gatling Cherrybomber now fires equal amounts of projectiles across three lanes when attacking, with the upper and lower projectiles following sine and cosine trajectories. Jalapeno blasts from Infernal Squashwoods now also triggers Cherry Bomb effect on certain Cherry Bomb fusions. Explosive Cherry projectile count for Infernal Squashwood to spawn Spicy plants ×2, and Infernal Squashwood gains bonus damage equal to 0.1% per Gatling Cherrybomber when those projectiles pass through it</color>",
+      "reason": "Official 4.0.5 specifies a 0.1% damage bonus per Gatling Cherrybomber, not a factor of 0.2; identifies the recipient."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        122,
+        "info"
+      ],
+      "source": "能将子弹塑成整行弹跳的窝瓜形状，还会生成火爆窝瓜。\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式购买配方</color>\n<color=#3D1400>融合配方：</color><color=red>超级火炬树桩+火爆窝瓜</color>\n<color=#3D1400>特点：①</color><color=red>每3秒，对3×3范围僵尸造成300伤害</color>\n<color=#3D1400>②</color><color=red>拥有超级火炬树桩影响子弹的能力，影响经过的特定子弹</color>\n<color=#A86A44>·黑曜石子弹：</color><color=red>伤害×2</color>\n<color=#A86A44>·浴火豌豆：</color><color=red>伤害×2</color>\n<color=#A86A44>·爆破土豆：</color><color=red>点燃，伤害×4（不会保留爆破效果）</color>\n<color=#A86A44>·爆炸樱桃：</color><color=red>变为爆炸窝瓜，弹跳时造成半径1格范围的樱桃爆炸</color>\n<color=#A86A44>·毁灭菇系列子弹：</color><color=red>变为对应窝瓜子弹，弹跳时造成超小范围伤害。大型子弹的范围伤害改为直击释放同等伤害的毁灭菇效果（不留坑洞）。余烬子弹保留与余烬的交互效果</color>\n<color=#3D1400>③</color><color=red>每影响超过60发子弹，在前方生成一个火爆窝瓜。爆炸樱桃和毁灭菇系列子弹会被计为3发</color>\n<color=#3D1400>④</color><color=red>死亡时，释放火爆辣椒效果</color>\n<color=#3D1400>词条1：</color><color=red>事半功倍：生成火爆窝瓜需求的子弹数减半</color>\n<color=#3D1400>词条2：</color><color=red>窝红温了：生成火爆窝瓜失败时直接释放火爆辣椒效果</color>\n<color=#3D1400>连携词条：</color><color=red>火力全开：究极樱桃射手攻击时，额外向上下两行发射等量以正余弦函数飞行的子弹。究极火爆窝炬的辣椒火焰可触发樱桃爆炸对部分樱桃系植物的效果；爆炸樱桃对后者生产火爆植物的计数翻倍，且穿过时使后者获得[前者数量0.1%]的伤害增幅</color>",
+      "before": "Infernal Squashwood spawns a Spicy Squash after igniting a number of projectiles!\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Inherits Infernowood's traits, and burns zombies in a 3×3 area for 300 damage every 3s.\n<color=black>•</color> Projectiles that pass through it gain the followng effects:\n ·  Explosive Cherry : Becomes bouncing spicy squash that explodes after every bounce.\n ·  Phoenix Pea: Damage ×2\n ·  Obsidian Shell: Damage ×2\n ·  Explosive Potato: Ignited, damage ×4, but no longer explodes\n ·  Doom Shell: Becomes bouncing doom squash that deals explosive damage in a tiny area each bounce. Ultimate Doom Shell's bouncing releases Doom explosions. Irradiated Doom Shells still cause Irradiated.\n<color=black>•</color> For every 61 projectiles ignited, spawns a Spicy Squash in front.\n ·  Explosive Cherries and Doom Shells count as 3 projectiles.\n<color=black>Main Odyssey Modifiers:\n</color><color=#8B0000>1. Projectiles required to spawn a Spicy plant are halved\n2. Ignites the lane immediately when spawning a Spicy plant is not possible</color>\n\n<color=black>Gatling Cherrybomber Synergy Modifier:</color><color=#8B0000>\n<color=black>•</color> You must have unlocked all Gatling Cherrybomber and Infernal Squashwood's modifiers before this synergy becomes available in the shop for 15k.\n<color=black>•</color>Gatling Cherrybomber now fires equal amounts of projectiles across three lanes when attacking, with the upper and lower projectiles following sine and cosine trajectories. Jalapeno blasts from Infernal Squashwoods now also triggers Cherry Bomb effect on certain Cherry Bomb fusions. Explosive Cherry projectile count for Infernal Squashwood to spawn Spicy plants ×2, and gain [(number of Gatling Cherrybombers) * 0.2] bonus damage</color></color>",
+      "target": "Infernal Squashwood spawns a Spicy Squash after igniting a number of projectiles!\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Inherits Infernowood's traits, and burns zombies in a 3×3 area for 300 damage every 3s.\n<color=black>•</color> Projectiles that pass through it gain the followng effects:\n ·  Explosive Cherry : Becomes bouncing spicy squash that explodes after every bounce.\n ·  Phoenix Pea: Damage ×2\n ·  Obsidian Shell: Damage ×2\n ·  Explosive Potato: Ignited, damage ×4, but no longer explodes\n ·  Doom Shell: Becomes bouncing doom squash that deals explosive damage in a tiny area each bounce. Ultimate Doom Shell's bouncing releases Doom explosions. Irradiated Doom Shells still cause Irradiated.\n<color=black>•</color> For every 61 projectiles ignited, spawns a Spicy Squash in front.\n ·  Explosive Cherries and Doom Shells count as 3 projectiles.\n<color=black>Main Odyssey Modifiers:\n</color><color=#8B0000>1. Projectiles required to spawn a Spicy plant are halved\n2. Ignites the lane immediately when spawning a Spicy plant is not possible</color>\n\n<color=black>Gatling Cherrybomber Synergy Modifier:</color><color=#8B0000>\n<color=black>•</color> You must have unlocked all Gatling Cherrybomber and Infernal Squashwood's modifiers before this synergy becomes available in the shop for 15k.\n<color=black>•</color>Gatling Cherrybomber now fires equal amounts of projectiles across three lanes when attacking, with the upper and lower projectiles following sine and cosine trajectories. Jalapeno blasts from Infernal Squashwoods now also triggers Cherry Bomb effect on certain Cherry Bomb fusions. Explosive Cherry projectile count for Infernal Squashwood to spawn Spicy plants ×2, and Infernal Squashwood gains bonus damage equal to 0.1% per Gatling Cherrybomber when those projectiles pass through it</color></color>",
+      "reason": "Official 4.0.5 specifies a 0.1% damage bonus per Gatling Cherrybomber, not a factor of 0.2; identifies the recipient."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        205,
+        "info"
+      ],
+      "source": "一次发射六发阻击子弹，并有概率如钢铁风暴般倾泻弹雨。\n\n<color=#3D1400>使用条件：</color><color=red>旅行模式购买配方</color>\n<color=#3D1400>融合配方：</color><color=red>橄榄机枪射手+铁桶豌豆射手</color>\n<color=#3D1400>韧性：</color><color=red>4000</color>\n<color=#3D1400>伤害：</color><color=red>80×6/1.5秒</color>\n<color=#3D1400>特点：①</color><color=red>铁植物</color>\n<color=#3D1400>②</color><color=red>普通攻击时，每发子弹有2%概率触发大招：回复1倍韧性血量，5秒内免疫伤害和碾压，每0.02秒散射3发橄榄铁豌豆</color>\n<color=#3D1400>③</color><color=red>子弹兼具铁豌豆和橄榄豆的特点（造成击退并附加目标二类防具血量的伤害；命中红色橄榄球类僵尸后，使其转身快速逃离）</color>\n<color=#3D1400>词条1：</color><color=red>极速爆发：大招释放概率×3，大多数超级机枪射手系列植物共享此效果，且土豆超级机枪射手的子弹变为爆破土豆</color>\n<color=#3D1400>词条2：</color><color=red>精准射击：大招的子弹伤害×2，散射角度减小。大多数超级机枪射手系列植物共享此效果，且超级机枪忧郁菇子弹可以追踪</color>",
+      "before": "Buckshot Commando fires six Iron Peas per attack, with a chance to unleash a steel storm of bullets.\n\n<color=#3D1400>Usage Conditions: Odyssey Mode | Unlockable</color>\n<color=black>Toughness: </color><color=#8B0000>4000</color>\n<color=black>Damage: </color><color=#8B0000>80×6/1.5s</color>\n<color=black>Special: <color=#8B0000>\n<color=black>•</color> Metal Plant. Each attack has a 2% chance to trigger its Ultimate: restores 100% Toughness, then for 5s becomes temporarily immune to damage and crushing and fires 3 scattered Football Peas every 0.02s.\n<color=black>•</color> Projectiles combine Iron Pea and Football Pea effects (knockback and deal bonus damage equal to the target's Type 2 armor HP; hitting red football-type zombies causes them to turn around and flee).</color>\n<color=black>Odyssey Modifiers:</color>\n<color=#8B0000>1. All Commandos Ultimate Trigger chances ×3, Peatato Commando now shoots explosive potatoes\n2. All Commandos Ultimate Damage ×2 and no longer spread, Melancholy Commando's projectiles now seek zombies</color></color>",
+      "target": "Buckshot Commando fires six Iron Peas per attack, with a chance to unleash a steel storm of bullets.\n\n<color=#3D1400>Usage Conditions: Odyssey Mode | Unlockable</color>\n<color=black>Toughness: </color><color=#8B0000>4000</color>\n<color=black>Damage: </color><color=#8B0000>80×6/1.5s</color>\n<color=black>Special: <color=#8B0000>\n<color=black>•</color> Metal Plant. Each projectile from a normal attack has a 2% chance to trigger its Ultimate: restores 100% Toughness, then for 5s becomes temporarily immune to damage and crushing and fires 3 scattered Football Peas every 0.02s.\n<color=black>•</color> Projectiles combine Iron Pea and Football Pea effects (knockback and deal bonus damage equal to the target's Type 2 armor HP; hitting red football-type zombies causes them to turn around and flee).</color>\n<color=black>Odyssey Modifiers:</color>\n<color=#8B0000>1. All Commandos Ultimate Trigger chances ×3, Peatato Commando now shoots explosive potatoes\n2. Most Commandos: Ultimate projectile damage ×2 with reduced spread, Melancholy Commando's projectiles now seek zombies</color></color>",
+      "reason": "Official chance is per projectile, and the modifier narrows spread rather than stating zero spread."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        430,
+        "info"
+      ],
+      "source": "拥有超时空力量的玉米投手，能用黑洞阻滞敌方并加速实现时空抹除。\n\n<color=#3D1400>伤害：</color><color=red>80/3秒</color>\n<color=#3D1400>特点：</color><color=red>有25%概率投出100伤害的黑洞种子，命中后生成超时空黑洞</color>\n<color=#3D1400>超时空黑洞：①</color><color=red>持续2秒，能使半径本行1.5格的僵尸减速25%~80%，僵尸与黑洞中心的距离越短幅度越高</color>\n<color=#3D1400>②</color><color=red>坍缩时造成半径1.5格爆炸，伤害等同于黑洞种子，可对空，并使传送状态的已等待时间增加30秒</color>\n<color=#3D1400>融合配方：</color><color=red>磁性玉米投手（底座）+时空碎片</color>",
+      "before": "Portal-pult has a chance to throw a special projectile that generates a mini black hole.\n\n<color=black>Damage: </color><color=#8B0000>80/3s</color>\n<color=black>Special: </color><color=#8B0000>Metal plant. Has a 25% chance to throw a neutron butter with 100 damage, which generates a mini black hole when it hits. The mini black hole massively slows zombies down and explodes after 2 seconds, causing 100 damage and reducing the countdown of zombies with the chronoshift effect by 30s.</color>",
+      "target": "Portal-pult has a chance to throw a special projectile that generates a mini black hole.\n\n<color=black>Damage: </color><color=#8B0000>80/3s</color>\n<color=black>Special: </color><color=#8B0000>Metal plant. Has a 25% chance to throw a neutron butter with 100 damage, which generates a mini black hole when it hits. The mini black hole lasts 2s and slows zombies in its lane within 1.5 tiles by 25% to 80%, with a stronger slow closer to the center. When it collapses, it explodes within 1.5 tiles for damage equal to its projectile, including against flying zombies, and advances the elapsed chronoshift timer by 30s.</color>",
+      "reason": "Restores the new explicit slow range, radius and flying-target behavior using existing PC terminology."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        46,
+        "info"
+      ],
+      "source": "能与部分植物融合，使其能产生或防御玩偶匣爆炸。\n\n<color=#3D1400>韧性：</color><color=red>1000</color>\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：</color><color=red>可以像普通植物一样放置（种植）在地面上</color>\n<color=#3D1400>能融合的植物：</color><color=red>磁性南瓜、磁性杨桃、磁性毁灭菇</color>",
+      "before": "The Jack-in-the-Box can fuse with certain plants, allowing them to generate or defend against Jack-in-the-Box explosions.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "target": "The Jack-in-the-Box can fuse with certain plants, allowing them to generate or defend against Jack-in-the-Box explosions.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Current Chinese explicitly specifies 1000 toughness; reviewed again after fusion-list source changes."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        47,
+        "info"
+      ],
+      "source": "能与部分植物融合，使其能阻挡矿工挖掘或藏在地下攻击。\n\n<color=#3D1400>韧性：</color><color=red>1000</color>\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：</color><color=red>可以像普通植物一样放置（种植）在地面上</color>\n<color=#3D1400>能融合的植物：</color><color=red>磁性南瓜、磁性杨桃</color>",
+      "before": "The Pickaxe can fuse with certain plants, enabling them to block Digger Zombies from progressing or attack zombies while being concealed underground.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "target": "The Pickaxe can fuse with certain plants, enabling them to block Digger Zombies from progressing or attack zombies while being concealed underground.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Current Chinese explicitly specifies 1000 toughness; reviewed again after fusion-list source changes."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        48,
+        "info"
+      ],
+      "source": "能与部分植物融合，使其获得“传送”的力量。\n\n<color=#3D1400>韧性：</color><color=red>1000</color>\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：</color><color=red>可以像普通植物一样放置（种植）在地面上</color>\n<color=#3D1400>能融合的植物：</color><color=red>豌豆射手、坚果、磁性玉米投手、磁性西瓜投手、磁性毁灭菇</color>",
+      "before": "The Chrono Core can fuse with certain plants, letting them inherit the powers of chronoshift.\n\n<color=black>Toughness: </color><color=#8B0000>2000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "target": "The Chrono Core can fuse with certain plants, letting them inherit the powers of chronoshift.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Short plant (evades straight-firing projectiles).\n<color=black>•</color> Can be placed (planted) on the ground like a normal plant, or used as a fusion ingredient.</color>",
+      "reason": "Current Chinese explicitly specifies 1000 toughness; reviewed again after fusion-list source changes."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        315,
+        "info"
+      ],
+      "source": "藏在土里的杨桃，悄悄攻击。\n\n<color=#3D1400>伤害：</color><color=red>40×5/1.5秒</color>\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：①</color><color=red>不会被僵尸索敌</color>\n<color=#3D1400>②</color><color=red>不会阻挡僵尸</color>\n<color=#3D1400>③</color><color=red>免疫碾压和伤害</color>\n<color=#3D1400>④</color><color=red>可以消耗铁器回血500</color>\n<color=#3D1400>融合配方：</color><color=red>磁性杨桃（底座）+矿工镐</color>",
+      "before": "Starpick hides underground, therefore zombies will not attack it.\n\n<color=black>Damage: </color><color=#8B0000>40×5/1.5s</color>\n<color=black>Special: </color><color=#8B0000>Cannot be attacked and does not block zombies. You can use metal objects on it to heal it by 500.</color>",
+      "target": "Starpick hides underground, therefore zombies will not attack it.\n\n<color=black>Damage: </color><color=#8B0000>40×5/1.5s</color>\n<color=black>Special: </color><color=#8B0000>Cannot be attacked and does not block zombies. Immune to crushing and damage. You can use metal objects on it to heal it by 500.</color>",
+      "reason": "Restore explicit damage and crushing immunity."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        434,
+        "info"
+      ],
+      "source": "拥有超时空力量的毁灭菇，爆炸会进行强效的时空抹除。\n\n<color=#3D1400>伤害：</color><color=red>3240（灰烬）</color>\n<color=#3D1400>特点：</color><color=red>若伤害到的僵尸处于传送状态，使其已等待时间增加108秒，否则施加4秒传送状态</color>\n<color=#3D1400>融合配方：</color><color=red>磁性毁灭菇（底座）+时空碎片</color>",
+      "before": "Doomwarp-shroom's explosion inflicts chronoshift to any foe unfortunate enough to be caught in its effects. Explodes extremely fast.\n\n<color=black>Damage: </color><color=#8B0000>1800 (Cremator) </color>\n<color=black>Special: </color><color=#8B0000>Inherits the traits of Doom-shroom. Explosion applies the Chronoshift effect for 4s, or adds 108s to the elapsed time if the zombie is already in Chronoshift.</color>",
+      "target": "Doomwarp-shroom's explosion inflicts chronoshift to any foe unfortunate enough to be caught in its effects. Explodes extremely fast.\n\n<color=black>Damage: </color><color=#8B0000>3240 (Cremator) </color>\n<color=black>Special: </color><color=#8B0000>Inherits the traits of Doom-shroom. Explosion applies the Chronoshift effect for 4s, or adds 108s to the elapsed time if the zombie is already in Chronoshift.</color>",
+      "reason": "Current Chinese specifies 3240 damage."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        686,
+        "info"
+      ],
+      "source": "红色的高韧性雪滚草。\n\n<color=#3D1400>韧性：</color><color=red>1500</color>\n<color=#3D1400>伤害：</color><color=red>50</color>\n<color=#3D1400>特点：</color><color=red>拥有雪滚草的特点。免疫碾压的秒杀效果。限一次，伤害后破坏红色信号</color>\n<color=#3D1400>融合配方：</color><color=red>盾盾菇+雪滚草</color>",
+      "before": "Sword Tundraweed is much more durable.\n\n<color=black>Toughness: </color><color=#8B0000>1500</color>\n<color=black>Damage: </color><color=#8B0000>50/0.25s</color>\n<color=black>Special: </color><color=#8B0000>Inherits Tundraweed traits. Cannot be insta-killed by crushing damage. Attack counters Red Signals (single-use).</color>",
+      "target": "Shield Tundraweed is much more durable.\n\n<color=black>Toughness: </color><color=#8B0000>1500</color>\n<color=black>Damage: </color><color=#8B0000>50/0.25s</color>\n<color=black>Special: </color><color=#8B0000>Inherits Tundraweed traits. Cannot be insta-killed by crushing damage. Attack counters Red Signals (single-use).</color>",
+      "reason": "Correct entity reference to the verified name of this record."
+    },
+    {
+      "asset": "LawnStrings",
+      "path": [
+        "plants",
+        41,
+        "info"
+      ],
+      "source": "奋不顾身地滚向敌人造成单体伤害。\n\n<color=#3D1400>韧性：</color><color=red>500</color>\n<color=#3D1400>伤害：</color><color=red>50</color>\n<color=#3D1400>特点：</color><color=red>出场1秒后离开本格，向本行最左侧的僵尸滚去，每约0.25秒造成伤害。无目标时向右方缓慢离去</color>",
+      "before": "Tundraweed rolls towards enemies and deals single-target damage.\n\n<color=black>Toughness: </color><color=#8B0000>500</color>\n<color=black>Damage: </color><color=#8B0000>50/0.25s</color>\n<color=black>Special: </color><color=#8B0000>Leaves its tile 1 second after appearing and rolls toward the leftmost zombie in its row, dealing 50 damage to every 0.25s. If there is no target, slowly rolls away to the right.</color>",
+      "target": "Tundraweed rolls towards enemies and deals single-target damage.\n\n<color=black>Toughness: </color><color=#8B0000>500</color>\n<color=black>Damage: </color><color=#8B0000>50/0.25s</color>\n<color=black>Special: </color><color=#8B0000>Leaves its tile 1 second after appearing and rolls toward the leftmost zombie in its row, dealing 50 damage about every 0.25s. If there is no target, slowly rolls away to the right.</color>",
+      "reason": "Correct grammar and preserve the approximate interval in Chinese."
+    }
+  ],
+  "ui": [
+    {
+      "file": "resources.assets",
+      "id": 191017,
+      "field": [
+        "m_text"
+      ],
+      "source": "神笔马良",
+      "before": "Magic Plantbrush\n(Untranslated)",
+      "target": "Magic Plantbrush",
+      "reason": "Use the verified PC minigame name; remove the untranslated-status suffix now that its basic UI is translated."
+    }
+  ]
+}

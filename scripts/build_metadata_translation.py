@@ -2109,6 +2109,19 @@ def build_metadata(base: bytes, layout: MetadataLayout, translated: list[bytes])
     return bytes(output)
 
 
+def find_pc_exact_remnants(literals, exact, pc_exact_sources, preserved_indexes):
+    """Keep untranslated-display validation separate from protected runtime keys."""
+    return [
+        {"index": index, "source": item.text, "expected": exact[item.text]}
+        for index, item in enumerate(literals)
+        if CJK_RE.search(item.text)
+        and item.text not in PROTECTED_METADATA_STRINGS
+        and item.text in pc_exact_sources
+        and exact[item.text] != item.text
+        and index not in preserved_indexes
+    ]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True, type=Path, help="clean official global-metadata.dat")
@@ -2510,14 +2523,9 @@ def main() -> int:
     output_layout, output_literals = parse_metadata(output)
     if [item.raw for item in output_literals] != translated_bytes:
         raise RuntimeError("self-validation failed: output literals do not match generated data")
-    pc_exact_remnants = [
-        {"index": index, "source": item.text, "expected": exact[item.text]}
-        for index, item in enumerate(output_literals)
-        if CJK_RE.search(item.text)
-        and item.text in pc_exact_sources
-        and exact[item.text] != item.text
-        and index not in preserved_new_39_indexes
-    ]
+    pc_exact_remnants = find_pc_exact_remnants(
+        output_literals, exact, pc_exact_sources, preserved_new_39_indexes,
+    )
     if pc_exact_remnants:
         preview = json.dumps(pc_exact_remnants[:10], ensure_ascii=False)
         raise RuntimeError(

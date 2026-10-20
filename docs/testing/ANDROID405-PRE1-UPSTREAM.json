@@ -1,0 +1,37 @@
+{
+  "android405": {
+    "path": "C:\\Users\\plim\\Documents\\Codex\\Projects\\Plants-Vs-Zombies-Fusion\\artifacts\\original-chinese\\pvzrh4.0.5.apk",
+    "sha256": "2c200c6eef6ecfb6cfe2554125cf1f52ba74dab1f037594c8591903ee53ef9f6",
+    "size": 591093370,
+    "extracted": [
+      "lib/arm64-v8a/libil2cpp.so",
+      "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "assets/bin/Data/ScriptingAssemblies.json",
+      "assets/bin/Data/boot.config",
+      "assets/bin/Data/data.unity3d",
+      "assets/bin/Data/resources.resource"
+    ]
+  },
+  "pc405": {
+    "path": "C:\\Users\\plim\\Documents\\Codex\\Projects\\Plants-Vs-Zombies-Fusion\\artifacts\\original-pc\\PC_PVZ-Fusion-4.0.5.zip",
+    "sha256": "02d5f38b0ec3983997a3dc8e42b3430485c05b2855da18b90239577fb19e7106",
+    "size": 456598340,
+    "extracted": [
+      "PlantsVsZombiesRH_Data/boot.config",
+      "PlantsVsZombiesRH_Data/data.unity3d",
+      "PlantsVsZombiesRH_Data/il2cpp_data/Metadata/global-metadata.dat",
+      "PlantsVsZombiesRH_Data/resources.resource",
+      "PlantsVsZombiesRH_Data/ScriptingAssemblies.json",
+      "GameAssembly.dll"
+    ]
+  },
+  "pc_translation": {
+    "branch": "4.0",
+    "commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
+    "previous": "e6f597488b4756d1cc43ff223198feae24df64ae"
+  },
+  "checked_on": "2026-10-20",
+  "commits_since_previous": 18,
+  "latest_commit_date": "2026-10-01",
+  "pending": "gods_evolved.json remains empty; specialized tactic text lacks complete usable English; duplicate plant IDs still require quarantine."
+}

@@ -2,7 +2,7 @@
 
 Research and tooling for producing a repeatable English translation patch for
 the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
-is Android 4.0; the larger goal is a workflow that can be rerun when the game
+is Android 4.0.5; the larger goal is a workflow that can be rerun when the game
 updates.
 
 [Download Android 4.0 English prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0-release-2)
@@ -13,7 +13,7 @@ The maintainer confirmed the Almanac and Nugget-shroom fixes and approved the fi
 
 Maintainers: source is on `agent/translation-4.0-prerelease2`, tagged `v4.0-release-2`. The public APK is byte-identical to local prerelease 2 rev 3. Read [the release build record](docs/testing/ANDROID40-PRE2-RELEASE-BUILD.json) and protected catalog-string checks before future changes. Older 3.9 workflow examples below are historical.
 
-Local follow-up: [prerelease 3 test 1](docs/testing/ANDROID40-PRE3.md) incorporates the September 23 PC check, reviewed screenshot fixes and metadata protections. It is prepared on `agent/translation-4.0-prerelease3`, awaiting device testing and publication approval. The public download above remains prerelease 2.
+Local follow-up: [Android 4.0.5 prerelease 1 test 1](docs/testing/ANDROID405-PRE1.md) is prepared on `agent/translation-4.0.5-prerelease1`. It uses the October 20 PC source check and reviewed 4.0.5 changes. Device testing and publication approval are pending. The public download above remains 4.0 prerelease 2.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained

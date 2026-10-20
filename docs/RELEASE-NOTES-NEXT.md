@@ -1,15 +1,27 @@
-# Changes after Android 4.0 English prerelease 2
+# Android 4.0.5 English prerelease 1
 
-Current public release: [prerelease 2](RELEASE-NOTES-4.0-PRE2.md), published unchanged as `v4.0-release-2`.
+Local test build only. Awaiting device testing and approval before publication.
 
-[Prerelease 3 test 1](RELEASE-NOTES-4.0-PRE3.md) is prepared locally, not published:
+## Game update
 
-- Added usable September 23 PC wording for Pyroboros Pot, changelog names, Snowy Night navigation and its prerequisite message, plus small wording corrections.
-- Filled generic Almanac labels and Purgatory availability text; translated Apex: Inferno's effect with its existing PC modifier name.
-- Carried forward the diagnostic APK's four internal metadata restorations and 31-key protection checks.
+- Updated the English APK to the official Android 4.0.5 release.
+- Carried forward verified translations, English fonts, presentation fixes and 17 music replacements.
 
-All 57 tests, bundle structure/format checks, APK comparison, signature and alignment checks passed. The maintainer said the earlier diagnostic seemed better but was unsure. Prerelease 3 still needs device testing and publication approval.
+## Translation updates
 
-Unconfirmed tactic names and specialized effects remain Chinese. The two reported plant descriptions have conflicting PC record IDs; puzzle labels are also level-loading names and need a separate display-only fix. See [all 32 screenshot dispositions](testing/ANDROID40-PRE3.md).
+- Added the latest available PC English names and descriptions, including new 4.0.5 plants and updated modifier wording.
+- Reviewed changed Chinese descriptions and corrected outdated damage, health and modifier values.
+- Updated the changelog, drawing and level-editor controls, and related instructions.
+- Used current PC English in place of older assisted wording where a usable translation exists.
 
-Keep the prerelease 2 and metadata-safety investigations as historical evidence. Do not describe precautionary metadata restorations as a proven fix for instability.
+## Presentation and stability
+
+- Rechecked formatting, text placeholders, font references and compact button captions.
+- Preserved the original Android native code, internal identifiers and save-related keys.
+
+## Still pending
+
+- Some tactic names, specialized effects and two ambiguous PC plant descriptions remain Chinese.
+- Puzzle labels that also identify level resources remain unchanged.
+- Magic Plantbrush UI is translated where present. Its gameplay support on Android has not been verified.
+- This local build still needs a device smoke test.

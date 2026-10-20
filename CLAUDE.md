@@ -1,6 +1,11 @@
 # Maintainer handoff for Claude and other coding agents
 
-## Active 4.0 development
+## Active 4.0.5 development
+
+The current branch is `agent/translation-4.0.5-prerelease1`. Read `docs/testing/ANDROID405-PRE1.md` and its BUILD, VALIDATION and UPSTREAM records. The local APK is built and signed, but not published or device-tested. Wait for the user's smoke-test approval. Use the new official 4.0.5 files and latest PC pin `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Do not reuse older metadata or object IDs wholesale. Preserve internal keys. Exact current-source factual corrections are in `assets/factual-review-4.0.5.json`; UI and music manifests have the same version suffix. Detailed local stage paths and logs are in the handoff. No task-owned build, Java, Python or emulator process should remain running.
+
+## Historical 4.0 development
+
 
 The active Android-only follow-up branch is `agent/translation-4.0-prerelease3`, based on metadata-safety commit `d997b2fc0e27d720ae75f56feb835b6f0edf45eb`. Local prerelease 3 test 1 is prepared but not published or device-tested. Read `docs/testing/ANDROID40-PRE3.md` and its build, validation and upstream records. It contains 11 display edits and the previous four internal metadata restorations. The latest reviewed PC 4.0 commit is `e6f597488b4756d1cc43ff223198feae24df64ae`. Apply `assets/prerelease3-display-4.0.json` with `scripts/apply_reviewed_display_patch.py` after the metadata-safety step. The user said the prior diagnostic seemed better but was unsure; do not claim a confirmed stability fix. Preserve internal Chinese keys even when PC English exists. The entire tactic area still lacks usable PC wording; two plant descriptions have conflicting PC IDs; puzzle labels also identify resources. See the screenshot dispositions before attempting more translations.
 

@@ -94,10 +94,8 @@ def main():
     english_text = text_records(args.previous_english)
     old_inv = read_json(args.previous_inventory)['fields']
     old_eng_inv = read_json(args.previous_english_inventory)['fields']
-    # Release 9's only serialized changes from Release 8 are these placeholders.
-    for row in old_eng_inv:
-        if row['file'] == 'resources.assets' and row['id'] in (190545, 191192) and row['field'] == ['m_text']:
-            row['text'] = 'Modifiers'
+    # Use an inventory of the actual English reference. Path IDs belong to
+    # one version and cannot safely identify fields in a later release.
     key = lambda row: (row['file'], row['id'], tuple(row['field']))
     old_eng_by_key = {key(row): row for row in old_eng_inv}
     roles = collections.defaultdict(set)
