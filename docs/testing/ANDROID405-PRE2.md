@@ -1,7 +1,7 @@
 # Android 4.0.5 prerelease 2 coverage audit
 
 Prepared October 20, 2026 on `agent/translation-4.0.5-prerelease2`, starting from `51e76484108912de8492dca7797ba2def3a07fa2`.
-Local test 3 is the candidate to test. Tests 1 and 2 are superseded. Test 2 was installed fresh on the S26 Ultra on October 20 and the user supplied three screenshots. Test 3 has not been installed or published.
+Local test 3 was approved unchanged and published as [4.0.5 prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-2) on October 20, 2026. The uploaded APK checksum matches the local candidate. Tests 1 and 2 are superseded. Test 2 was installed fresh on the S26 Ultra and the user supplied three screenshots. No additional test 3 device test is claimed. See `ANDROID405-PRE2-RELEASE-BUILD.json`.
 
 ## Screenshot follow-up: test 3
 
@@ -14,7 +14,7 @@ Local test 3 is the candidate to test. Tests 1 and 2 are superseded. Test 2 was 
 - Exact comparison with test 2 confirms only these four catalog fields and one metadata literal changed. All 208,662 Unity objects were verified, 66 tests passed, and 315 .NET format templates passed. Catalog runtime strings and references remain protected. APK signatures, existing certificate, alignment, original-APK comparison, test-2 comparison and Defender checks passed.
 - Total changes from public prerelease 1: 140 JSON display fields and 16 metadata literals.
 - Evidence: `work\upgrade405\pre2\followup` in the task workspace. See `ANDROID405-PRE2-TEST3-BUILD.json` and `ANDROID405-PRE2-TEST3-REVIEW.json` beside this document. Task stage runners are `work\fix405_screenshot_labels.py` and `work\package405_screenshot_labels.py`.
-- Device check: confirm tactic levels read Level 1/2/3 without `级`, and all four Trial Modifiers show English eligibility text. The tactic group headings are still a documented limitation. Publication still requires approval.
+- Device check: confirm tactic levels read Level 1/2/3 without `级`, and all four Trial Modifiers show English eligibility text. The tactic group headings are still a documented limitation. Publication was explicitly approved and is complete; collect team device feedback.
 
 The sections below record the test 2 baseline.
 
@@ -89,4 +89,4 @@ The reusable migration now projects separate indexed entries with `scripts/proje
 Local stage runners in `C:\Users\plim\Documents\Codex\2026-09-06\https-github-com-silvershadowkat-pvzf-android\work`: `audit405_pre2.py`, `explore405_pre2.py`, `project405_pc.py`, `aliases405_pre2.py`, `review405_pre2.py`, `build405_pre2.py`, `verify405_pre2.py`, `package405_pre2.py`, and `finish405_pre2.py`. Bounded logs and reports are in the evidence directory.
 
 Device test priority: browse tactic levels and maximum-tier purchase dialogs, inspect curse descriptions, inspect both restored plant descriptions/recipes, then start a Gods run and reach a modifier choice. Confirm saves still load and watch for clipped text.
-Do not publish or replace prerelease 1 until the user approves the new candidate.
+The user approved test 3 for publication. Prerelease 2 is published separately; prerelease 1 remains available.

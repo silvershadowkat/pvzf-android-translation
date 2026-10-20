@@ -1,13 +1,5 @@
-# Changes after Android 4.0.5 English prerelease 1
+# Changes after Android 4.0.5 English prerelease 2
 
-Public release remains [prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-1).
+[Prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-2) publishes the user-approved local test 3 APK unchanged. There are no additional unpublished translation changes.
 
-[Prerelease 2 test 3](testing/ANDROID405-PRE2.md) is prepared locally, not published:
-
-- Added 48 tactic-level names/effects, 26 embedded curse/upgrade descriptions, current PC modifier names and trial wording.
-- Resolved the two reviewed plant-description ID conflicts without changing Android IDs.
-- Added missing availability text and retained source-reviewed numeric corrections.
-- Fixed the four trial eligibility descriptions and the remaining Chinese tactic-level suffix reported in the S26 Ultra screenshots.
-
-The PC revision is unchanged. These are importer/coverage omissions, not newly published PC translations. Some internal group headings and unsupported terms remain Chinese.
-Read [the release notes](RELEASE-NOTES-4.0.5-PRE2.md). Device smoke testing and publication approval are pending.
+Remaining work: collect team feedback and investigate display-only aliases for tactic group headings, other unsupported Almanac text and puzzle labels without changing runtime keys.

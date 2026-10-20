@@ -5,15 +5,13 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 4.0.5; the larger goal is a workflow that can be rerun when the game
 updates.
 
-[Download Android 4.0.5 English prerelease 1](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-1)
+[Download Android 4.0.5 English prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-2)
 
-Updated to the official 4.0.5 release with the latest available PC translations, reviewed balance descriptions, drawing/editor UI and carried-forward presentation fixes. The Gods Almanac still has untranslated areas, especially tactics. Unverified specialized text and puzzle labels that also act as loading keys remain Chinese.
+Adds missing English for all 48 tactic-level names/effects, 26 embedded curse/upgrade descriptions, trial eligibility, modifier names and two plant descriptions. Tactic group headings and some other unsupported text remain Chinese.
 
-The maintainer approved this APK unchanged after a generally smooth S26 Ultra smoke test with no obvious new issues. Automated structure, formatting, signing and alignment checks passed; device coverage is not exhaustive. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE1.md), [verification details](docs/testing/ANDROID405-PRE1.md), and save instructions below before upgrading.
+The maintainer approved the latest local test 3 APK unchanged for publication. Test 2 was installed on the S26 Ultra and reviewed through screenshots; the final five display corrections have automated validation but no additional device test. Structure, formatting, signing, alignment and uploaded checksums passed. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE2.md), [verification details](docs/testing/ANDROID405-PRE2.md), and save instructions below before upgrading.
 
-Maintainers: source is on `agent/translation-4.0.5-prerelease1`, tagged `v4.0.5-release-1`. The public APK is byte-identical to local prerelease 1 test 1, with only its filename changed. See [the publication build record](docs/testing/ANDROID405-PRE1-RELEASE-BUILD.json). Older workflow examples below are historical.
-
-Local follow-up: [4.0.5 prerelease 2 test 3](docs/testing/ANDROID405-PRE2.md) fixes missed PC tactic and embedded Almanac text, trial availability conditions and a leftover Chinese level suffix. Test 2 was installed on the S26 Ultra and reviewed through screenshots; test 3 awaits device testing. The public download above remains prerelease 1.
+Maintainers: source is on `agent/translation-4.0.5-prerelease2`, tagged `v4.0.5-release-2`. The public APK is byte-identical to local prerelease 2 test 3, with only its filename changed. See [the publication build record](docs/testing/ANDROID405-PRE2-RELEASE-BUILD.json). Older workflow examples below are historical.
 
 This repository intentionally contains **no APKs, game binaries, extracted
 assets, signing keys, or bundled translation data**. Supply legally obtained
