@@ -40,7 +40,7 @@
   },
   "pc_commit": "94b9ec0aecc3cea494c5b2c2883a7cbf14642440",
   "device_tested": true,
-  "github_published": false,
+  "github_published": true,
   "defender_scan": {
     "exit_code": 0,
     "result": "No threats reported",
@@ -50,5 +50,9 @@
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-1",
   "build_source_commit": "ab7c7854bbd5b785aa46904d99892badc8072991",
   "device_test_scope": "Maintainer S26 Ultra smoke test: generally smooth; no obvious issues; substantial untranslated Gods Almanac and tactic text remains. Not exhaustive.",
-  "publication_authorized": true
+  "publication_authorized": true,
+  "release_id": 418539451,
+  "release_source_commit": "57db6e686c37a3a4a92b65ab333af4799070804a",
+  "published_at": "2026-10-20T15:11:10Z",
+  "uploaded_digest_verified": true
 }
