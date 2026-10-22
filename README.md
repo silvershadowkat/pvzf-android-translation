@@ -7,11 +7,20 @@ updates.
 
 [Download Android 4.0.5 English prerelease 3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3)
 
-Adds runtime English for dynamic screens, save-preserving updates within the new EN app, Original/Blooms music selection, a touch Projectile Info button, expanded editor/Gods text, English diary artwork and the Magic Plantbrush unavailable-message fix.
+Updated October 22, 2026. The same prerelease now offers two APKs, both with the latest reviewed Magic Plantbrush display translations:
 
-The maintainer tested the final candidate on an S26 Ultra and approved publication. The APK is unchanged from the approved local r20 build. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE3.md) and [the final audit](docs/testing/ANDROID405-PRE3-FINAL-AUDIT.md).
+| Download | Package | Magic Plantbrush |
+| --- | --- | --- |
+| [Regular APK](https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-3/PvZ-Fusion-4.0.5-English-Android-prerelease3.apk) | `com.LanPiaoPiao.PlantsVsZombiesEN` | Shows an unavailable notice without freezing. No AI model included. |
+| [Experimental AI APK](https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-3/PvZ-Fusion-4.0.5-English-Android-prerelease3-AI-experimental.apk) | `com.LanPiaoPiao.PlantsVsZombiesENAI` | Includes an offline drawing recognizer in the same app. Android 8.0 or newer. |
 
-Source branch: `agent/translation-4.0.5-prerelease3`; tag: `v4.0.5-release-3`. The app now uses `com.LanPiaoPiao.PlantsVsZombiesEN`. Back up saves before upgrading. Prerelease 2 and Chinese users need the one-time transfer below; existing EN test builds can update in place.
+**The AI experiment has only been tested on the Samsung Galaxy S26 Ultra and Retroid Pocket Nova. There is no guarantee it will work on every device or chipset.** It needs additional memory. Recognition runs locally, without a companion app, account, or internet connection. The model loads when the mode is requested and is released when leaving it or after 30 seconds in the background. Native CPU compatibility was corrected after an S26 first-recognition failure. Long sessions, low-memory and 32-bit devices still need testing.
+
+Both variants retain runtime English, save-preserving updates, Original/Blooms music selection, the touch Projectile Info button, expanded editor/Gods text and English diary artwork. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE3.md), [AI implementation and verification](docs/magic-plantbrush-prototype.md), and [the test checklist](docs/testing/PLANTBRUSH-AI-EXPERIMENT.md). The [original r20 audit](docs/testing/ANDROID405-PRE3-FINAL-AUDIT.md) documents the earlier base APK, not the updated asset hashes.
+
+Latest source branch: `agent/magic-plantbrush-single-apk`. The existing `v4.0.5-release-3` tag still points to the original prerelease source; it was not moved when release assets were updated. The release's `RELEASE-BUILD.json` identifies the source commit for the updated APKs, and `SHA256SUMS.txt` contains both current hashes.
+
+**Back up saves before upgrading.** Update regular EN with regular EN, or an ENAI prototype with ENAI, without uninstalling. The two apps have separate saves and no automatic import. Prerelease 2 and Chinese users need the one-time transfer below.
 
 This repository contains source, reviewed translation manifests and approved replacement artwork. It contains no APKs, original game binaries, extracted game bundles or signing keys. Supply game files locally and obtain upstream translation inputs separately.
 
@@ -73,6 +82,8 @@ The old Chinese/prerelease 2 data directory is:
 ```
 
 The new English destination is `/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesEN/files/`. Keep the old app until transferred saves load correctly.
+
+The experimental AI app instead uses `/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesENAI/files/`. EN and ENAI can coexist. Choosing the AI APK does not automatically copy progress from EN or RH. The same save-only rules below apply to a manual transfer; Android may restrict access to another app's data directory.
 
 For this one-time migration:
 

@@ -2,6 +2,14 @@
 
 This is the repeatable path for updating the English Android build.
 
+## 4.0.5 prerelease 3 AI experiment and mode audit
+
+The current release has regular EN and experimental AI ENAI variants. Shared drawing UI wording lives in `runtime/java/com/silvershadow/pvzf/PlantbrushTranslations.java`; keep fixes in both APKs. Read [the mode audit and implementation history](magic-plantbrush-prototype.md) and [current test checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md). The older prerelease sections below remain historical evidence.
+
+Do not limit the audit to visible prefab labels. Trace `MaLiang` drawing/request classes, level callbacks and coroutines, special-event notices, and assembled error messages. Matching a translated prefix does not translate a Chinese captured error body. Preserve exact source identity and test complete compositions, markup, numeric formatting and unknown-name behavior. The committed display census and `docs/plantbrush-text-audit.json` retain the reviewed cases. Reuse verified PC/game terms for plant names; ordinary UI/status translations may use the established context-review policy.
+
+The APKs published in the October 22 asset update were built from `356ef0d`. The release tag was not moved. Use the release's updated `RELEASE-BUILD.json` and checksums, not the historical r20 hash, when identifying the current downloads. Source and documentation continue on `agent/magic-plantbrush-single-apk`.
+
 ## 4.0.5 prerelease 2 coverage correction
 
 Read [the follow-up audit](testing/ANDROID405-PRE2.md). Do not use an empty `gods_evolved.json` as proof that PC has no translations: inspect complete `travel_buffs.json` records, separate Almanac title/body fields, and embedded display overrides. Require full Chinese record identity; protect all adjacent runtime fields. Duplicate PC IDs still require quarantine unless an explicit reviewed identity exception is recorded. Test 2 was installed on the S26 Ultra and reviewed through screenshots. Test 3 adds four trial conditions and the reviewed empty ordinal suffix, and was approved unchanged for publication as `v4.0.5-release-2`. No additional test 3 device test is claimed. Preserve intentional empty display fragments during future version migration only after confirming their current native references; do not relax generic nonempty or protected-key guards.

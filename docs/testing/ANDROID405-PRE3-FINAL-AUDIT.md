@@ -1,5 +1,7 @@
 # Android 4.0.5 prerelease 3: final local build
 
+> Historical base audit: this page records the original October 21 r20 APK. Prerelease 3 assets were updated on October 22 with a regular translation refresh and a separate experimental AI APK. The hash and no-AI statements below apply to the original base, not both current downloads. See [the current AI/text audit](../magic-plantbrush-prototype.md), [release notes](../RELEASE-NOTES-4.0.5-PRE3.md), and the release's updated checksums/build record.
+
 The maintainer reported that everything looks good on 2026-10-21 and explicitly authorized publishing this unchanged build as prerelease 3. Published as [v4.0.5-release-3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3); the uploaded APK hash matches this approved build. See ANDROID405-PRE3-RELEASE-BUILD.json. The installable file is `PvZ-Fusion-4.0.5-English-Android-prerelease3.apk`, version code 4050339, package `com.LanPiaoPiao.PlantsVsZombiesEN`. It is the same signed APK as internal build test1-r20.
 
 SHA256: `9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c`

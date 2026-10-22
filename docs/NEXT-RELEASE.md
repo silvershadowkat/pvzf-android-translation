@@ -1,5 +1,7 @@
 # Current release and historical test gates
 
+October 22 update: prerelease 3 now has two downloads, regular EN and experimental AI ENAI. Read [the AI experiment](magic-plantbrush-prototype.md) and [current test checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md). Only the experimental APK enables Magic Plantbrush. AI device testing is limited to the S26 Ultra and Retroid Pocket Nova, with no guarantee for other chips. Both APKs include the latest shared display audit. ENAI saves are separate and are not imported automatically. The older audit/hash records below describe previous build milestones; current hashes are in the release assets.
+
 Current release: [Android 4.0.5 English prerelease 3](RELEASE-NOTES-4.0.5-PRE3.md). See [the final audit](testing/ANDROID405-PRE3-FINAL-AUDIT.md). This version adds an Android runtime, changes the package to EN, and retains the original game native libraries unchanged. It is no longer a data-only translation patch. Use the exact prerelease 3 changed-entry inventory and signature record when auditing it.
 
 Back up saves first. RH to EN requires a one-time manual save transfer; subsequent EN updates install in place. Do not uninstall or clear EN data for normal updates. See the release notes for both paths.

@@ -1,0 +1,35 @@
+{
+  "release": "v4.0.5-release-3",
+  "updated": "2026-10-22",
+  "artifacts": [
+    {
+      "filename": "PvZ-Fusion-4.0.5-English-Android-prerelease3.apk",
+      "variant": "regular",
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "sha256": "9200f8dca136ebc754a422b8ff8f843cc1c19b1ad10a60bd12bdda150dc8b97d",
+      "size_bytes": 702817053,
+      "source_commit": "356ef0d",
+      "version_code": 4050339,
+      "base_sha256": "9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c",
+      "translation_checks_passed": 129
+    },
+    {
+      "filename": "PvZ-Fusion-4.0.5-English-Android-prerelease3-AI-experimental.apk",
+      "variant": "experimental AI",
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "sha256": "be3b8c64f2852d85b10c8cc2b4c391b274bf6c7733f81b92f4f409fad4798e42",
+      "size_bytes": 947254911,
+      "source_commit": "356ef0d",
+      "version_code": 4050339,
+      "base_sha256": "9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c",
+      "translation_checks_passed": 129
+    }
+  ],
+  "ai_runtime": "ONNX Runtime 1.24.3 CPU",
+  "ai_device_testing": [
+    "Samsung Galaxy S26 Ultra",
+    "Retroid Pocket Nova"
+  ],
+  "compatibility_guaranteed": false,
+  "note": "AI prototype 3 adds audited display translations to the prototype 2 engine validated on S26. Device coverage is limited; not every mode/event/device has been tested."
+}

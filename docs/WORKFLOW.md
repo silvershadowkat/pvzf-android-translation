@@ -1,6 +1,14 @@
 # Repeatable update workflow
 
-Current release: [Android 4.0 English prerelease 2](RELEASE-NOTES-4.0-PRE2.md). Use [the prerelease 2 investigation](testing/ANDROID40-PRE2.md), [rev 3 translation review](testing/ANDROID40-PRE2-REV3.md), and [release build record](testing/ANDROID40-PRE2-RELEASE-BUILD.json) for current work. The version-specific examples below are historical. The current APK changes exactly three payloads: Unity text/assets, metadata, and the audio resource. All executable code, permissions, and save logic remain official Android 4.0.
+Current release: [Android 4.0.5 English prerelease 3](RELEASE-NOTES-4.0.5-PRE3.md), with regular EN and experimental AI ENAI APKs. The current source is on `agent/magic-plantbrush-single-apk`; the release tag remains the original prerelease source. Consult the release's updated build record for exact APK source commits and hashes. The old data-only build examples below are historical and do not describe the current Android runtime or AI variant.
+
+## Current optional AI build
+
+Start with [the implementation and audit record](magic-plantbrush-prototype.md) and [device checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md). `scripts/build_plantbrush_prototype.py` builds the separate ENAI variant from the hash-pinned original prerelease 3 APK. `scripts/build_regular_drawing_text_fix.py` applies shared display translations to that same base without AI hooks, service or model. Keep the original base artifact: the regular release asset was subsequently replaced, so downloading the current regular APK is not a substitute for the pinned input.
+
+Retain model/index/catalog provenance and hashes; use the pinned ONNX Runtime 1.24.3 AAR, exported assets and identity audit inputs. The repository does not include original game binaries, model weights, reference data, SDK/NDK installations, or signing credentials. Existing local intermediate inputs are required; these builders are not a one-command download-and-build workflow.
+
+For translation changes, run the actual Java translator against the base E/R payload fixtures and `runtime/plantbrush/tests/plantbrush-display-census.tsv`, including the composed error cases in `PlantbrushTextTest`. Re-run the native and prefab inventory tools when the Chinese game version changes. Preserve protected keys, numeric values and unknown names. Validate APK identity, signature, alignment and changed entries separately for EN and ENAI. Test native inference on representative chips when changing the AI runtime, even if model loading succeeds.
 
 
 ## 1. Preserve clean inputs

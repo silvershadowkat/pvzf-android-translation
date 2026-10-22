@@ -1,5 +1,7 @@
 # Release safety notes
 
+October 22 update: prerelease 3 offers regular EN and experimental AI ENAI APKs. The regular update changes only the translation DEX relative to the original prerelease 3 base. The AI variant additionally changes app identity and introduces a private bound recognizer process, loopback HTTP service and ONNX model/runtime. It is not a data-only patch. Original game native libraries remain unchanged; added custom/native inference libraries are documented separately. See [the exact AI changes and verification](magic-plantbrush-prototype.md), [device limitations](testing/PLANTBRUSH-AI-EXPERIMENT.md), and the current release build record/checksums. Do not apply the historical three-payload or original-r20 identity gates to the AI APK.
+
 Current release: [Android 4.0.5 English prerelease 3](RELEASE-NOTES-4.0.5-PRE3.md). See [the final audit](testing/ANDROID405-PRE3-FINAL-AUDIT.md). This version adds an Android runtime, changes the package to EN, and retains the original game native libraries unchanged. It is no longer a data-only translation patch. Use the exact prerelease 3 changed-entry inventory and signature record when auditing it.
 
 Back up saves first. RH to EN requires a one-time manual save transfer; subsequent EN updates install in place. Do not uninstall or clear EN data for normal updates. See the release notes for both paths.

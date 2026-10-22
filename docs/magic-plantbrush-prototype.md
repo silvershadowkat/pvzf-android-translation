@@ -1,4 +1,6 @@
-# Magic Plantbrush: local Android prototypes
+# Magic Plantbrush: experimental single-app Android recognizer
+
+The experimental AI APK is now available beside the regular APK on [4.0.5 prerelease 3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3). It is a separate ENAI installation, with separate saves and no automatic import. Device testing is limited to the S26 Ultra and Retroid Pocket Nova; compatibility with every device is not guaranteed. See [the current test checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md) and [third-party attribution](../THIRD_PARTY.md). The dated sections retain the prototype development and publication history.
 
 ## Prerelease 3 asset update (2026-10-22)
 

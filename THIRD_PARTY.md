@@ -1,5 +1,9 @@
 # Third-party projects and attribution
 
+- **OpenAI CLIP**, MIT: <https://github.com/openai/CLIP>. The experimental AI APK uses the ViT-B/32 vision tower exported to float32 ONNX. Model provenance and hashes are recorded in the export manifest, and the MIT license is packaged as `assets/plantbrush/CLIP-LICENSE.txt`. The model weights are not committed to this repository.
+- **Microsoft ONNX Runtime**, MIT: <https://github.com/microsoft/onnxruntime>, Android version **1.24.3** in the experimental AI APK. The builder pins the AAR SHA-256. Native libraries for both ARM ABIs and Java bindings are bundled, with `assets/plantbrush/ONNXRUNTIME-LICENSE.txt` and attribution. The regular APK does not include this inference runtime.
+- **MaLiang recognizer revision-3 reference data**, supplied with the original Windows recognizer: the Android experiment converts its reference index and catalog and independently ports the scoring behavior. Original reference data and game artwork retain their provenance; no new license or ownership is asserted. The Windows executable and Spanish companion-app code are not included. See [the implementation record](docs/magic-plantbrush-prototype.md).
+
 - **Dobby** by jmpews and contributors, Apache-2.0:
   <https://github.com/jmpews/Dobby>, commit
   `21f07a5ce184cda9346afb8009c07fe7e47390d0`.

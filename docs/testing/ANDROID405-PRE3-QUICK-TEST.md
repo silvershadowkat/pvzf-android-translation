@@ -1,4 +1,4 @@
-> Current release candidate: prerelease 3 r20, approved by the maintainer on 2026-10-21. See [the final audit](ANDROID405-PRE3-FINAL-AUDIT.md) and [release notes](../RELEASE-NOTES-4.0.5-PRE3.md). The revision-specific notes below are historical; do not install an old seed over the approved build.
+> Current downloads: prerelease 3 regular EN and experimental AI ENAI, updated October 22. Use [the current AI checklist](PLANTBRUSH-AI-EXPERIMENT.md) for the drawing mode and [release notes](../RELEASE-NOTES-4.0.5-PRE3.md) to choose an APK. The r20 and earlier seed/revision instructions below are historical; do not install an old seed over current player data.
 
 > Latest results: Tactics and Projectile Info passed the maintainer's checks. Real survival-save file preservation and stale-translation refresh passed on S26. See [save-test evidence](ANDROID405-PRE3-SAVE-TEST.md). Next: load an existing survival save in-game.
 

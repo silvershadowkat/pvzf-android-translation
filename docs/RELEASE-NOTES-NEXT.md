@@ -1,5 +1,16 @@
 # PvZ Fusion 4.0.5 English Android: Prerelease 3
 
+## Updated downloads: choose your APK
+
+- **Regular:** `PvZ-Fusion-4.0.5-English-Android-prerelease3.apk`. Updated translations, without the AI recognizer. Magic Plantbrush remains unavailable and shows a message instead of freezing.
+- **Experimental AI:** `PvZ-Fusion-4.0.5-English-Android-prerelease3-AI-experimental.apk`. Includes an offline AI recognizer for Magic Plantbrush in the same app. No companion app or internet connection is needed for recognition. Requires Android 8.0 or newer.
+
+**The AI mode has only been tested on two devices: Samsung Galaxy S26 Ultra and Retroid Pocket Nova. There is no guarantee it will work on every phone or chipset. It is experimental and uses additional memory.**
+
+Both APKs include the latest Magic Plantbrush text audit, covering drawing controls, results, special-event notices and recognition errors. The AI version also includes the fix for first-recognition failure found on the S26.
+
+The AI app uses **`com.LanPiaoPiao.PlantsVsZombiesENAI`** and stores saves at `/Android/data/com.LanPiaoPiao.PlantsVsZombiesENAI/files/`. It installs separately from the regular English app and does not automatically import its saves. Existing ENAI prototype users can update in place; regular EN users can update with the regular APK. **Back up your saves before updating either version.**
+
 ## Runtime changes
 
 - **Update without wiping, requested by our testers:** Future updates within the new English app can install over the existing version. Startup replaces stale managed translation files with current English files while preserving saves, extra save slots, player data and settings. **Back up your saves first, just in case.** Moving from prerelease 2 requires the one-time transfer below.
@@ -33,4 +44,4 @@ Missing guide/UI wording was translated with **Context Aware AI**, using verifie
 
 - Translated **all four Adventure Extra diary pages** into English, preserving the parchment style.
 - Updated the **Help/Credits parchment**, including the PVZ Fusion Fans Discord testers and modders who provided guidance.
-- Fixed the **Magic Plantbrush (paintbrush mode) freeze** when selecting its unavailable Android entry. It now shows a temporary message and leaves the menu usable. The mode itself remains unavailable; no AI service is included.
+- Fixed the **Magic Plantbrush (paintbrush mode) freeze** when selecting its unavailable Android entry. In the regular APK, it shows a temporary message and leaves the menu usable. The separate experimental AI APK now enables the mode with its bundled recognizer.
