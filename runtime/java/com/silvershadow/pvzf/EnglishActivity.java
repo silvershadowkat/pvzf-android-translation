@@ -48,6 +48,7 @@ public final class EnglishActivity extends Activity {
         try {
             prepareManagedFiles();
             loadTranslations();
+            PlantbrushBridge.init(getApplicationContext());
             // Load only; Unity remains responsible for calling il2cpp_init.
             // Install the completion hook before starting Unity's Activity.
             System.loadLibrary("il2cpp");
@@ -67,6 +68,9 @@ public final class EnglishActivity extends Activity {
             startActivity(game);finish();
         });
     }
+
+    public static int requestPlantbrush(){return PlantbrushBridge.request();}
+    public static void leavePlantbrush(){PlantbrushBridge.leave();}
 
     private byte[] asset(String name) throws IOException {
         try(InputStream in=getAssets().open(name);ByteArrayOutputStream out=new ByteArrayOutputStream()) {
@@ -123,6 +127,8 @@ public final class EnglishActivity extends Activity {
             String id=ids.next();JSONObject row=levels.getJSONObject(id);
             if(id.matches("level_[0-9]+_[A-Za-z0-9]+"))onlineLevels.put(id,new String[]{row.getString("name"),row.getString("startTip")});
         }}
+        for(String[] pair:PlantbrushTranslations.EXACT)exact.put(pair[0],pair[1]);
+        for(String[] rule:PlantbrushTranslations.RULES)rules.add(new Rule(rule[0],rule[1]));
         Log.i(TAG,"Display translations loaded: "+exact.size()+" exact, "+rules.size()+" regex");
         translationsLoaded=true;
         }

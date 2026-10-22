@@ -55,7 +55,7 @@ API(void,il2cpp_thread_detach,(P));
 
 static JavaVM* vm;
 static jclass bridge;
-static jmethodID translateJava,saveMusicJava,onlineTitleJava,registerOnlineJava;
+static jmethodID translateJava,saveMusicJava,onlineTitleJava,registerOnlineJava,plantbrushJava,leavePlantbrushJava;
 static std::string runtimeRoot;
 static bool blooms=true;
 static std::unordered_map<std::string,P> classes;
@@ -195,27 +195,48 @@ static void populateText(P o,P helper,M m){
 struct V2{float x,y;};
 struct V3{float x,y,z;};
 static Tick oldAdventureRelease=nullptr;
+static Tick oldPlantbrushParse=nullptr,oldPlantbrushDispose=nullptr;
+static void plantbrushNotice(const char* text){
+    P notice=call(method(cls("Core","InGameText"),"get_Instance",0));
+    if(alive(notice)){
+        float seconds=4.0f,y=-400.0f;bool cover=true;
+        P args[]={str(text),&seconds,&cover,&y};call(method(cls("Core","InGameText"),"ShowText",4),notice,args);
+    }
+}
+static int plantbrushState(){
+    JNIEnv* e=env();if(!e||!plantbrushJava)return 0;
+    int state=e->CallStaticIntMethod(bridge,plantbrushJava);
+    if(e->ExceptionCheck()){e->ExceptionClear();return -1;}return state;
+}
+static void plantbrushUnavailable(int state){
+    plantbrushNotice(state==1?"Loading offline recognition. Tap again in a moment.":state<0?"Recognition could not start. Restart the game to try again.":"Magic Plantbrush is not available on Android.");
+}
+static void plantbrushParse(P o,M m){int state=plantbrushState();if(state==2)oldPlantbrushParse(o,m);else plantbrushUnavailable(state);}
+static void plantbrushDispose(P o,M m){
+    oldPlantbrushDispose(o,m);
+    JNIEnv* e=env();if(e&&leavePlantbrushJava){e->CallStaticVoidMethod(bridge,leavePlantbrushJava);if(e->ExceptionCheck())e->ExceptionClear();}
+}
 static void adventureRelease(P o,M m){
     // Official 4.0.5 marks Challenge/MaLiang (197) as limInMobile.
     // Its modal rejection leaves Recommended Levels unresponsive on Android.
-    // Replace only this rejected entry with the existing fading notification;
-    // never lift the restriction or enter a mode whose AI service is absent.
+    // The optional prototype lifts only this instance's flag, only while invoking
+    // its original handler after our private recognition process reports ready.
     if(field<int>(o,"levelType")!=1 || field<int>(o,"buttonNumber")!=197 ||
        !field<bool>(o,"limInMobile")){
         oldAdventureRelease(o,m);return;
+    }
+    int state=plantbrushState();
+    if(state==2 && oldPlantbrushParse && oldPlantbrushDispose){
+        setfield(o,"limInMobile",false);oldAdventureRelease(o,m);setfield(o,"limInMobile",true);
+        LOG("Magic Plantbrush entered with local recognition ready");return;
     }
     P rect=field<P>(o,"rectTransform");
     if(alive(rect)){
         V3 origin=field<V3>(o,"originPosition");V2 position={origin.x,origin.y};
         P args[]={&position};call(rect,"set_anchoredPosition",1,args);
     }
-    P notice=call(method(cls("Core","InGameText"),"get_Instance",0));
-    if(alive(notice)){
-        float seconds=4.0f,y=-400.0f;bool cover=true;
-        P args[]={str("Magic Plantbrush is not available on Android."),&seconds,&cover,&y};
-        call(method(cls("Core","InGameText"),"ShowText",4),notice,args);
-    }
-    LOG("Magic Plantbrush mobile restriction shown without opening modal");
+    plantbrushUnavailable(state);
+    LOG("Magic Plantbrush entry deferred, recognition state=%d",state);
 }
 static uint32_t damageButton=0,damageTemplate=0,damageOwner=0,musicButton=0;
 static bool musicAuditRequested=true;
@@ -469,6 +490,8 @@ static void initialize(){
     if(method(cls("Core","InGameText"),"get_Instance",0) &&
        overload(cls("Core","InGameText"),"ShowText",{"System.String","System.Single","System.Boolean","System.Single"}))
         hook(cls("","Advanture_Btn"),"OnMouseUp",0,(P)adventureRelease,(P*)&oldAdventureRelease);
+    hook(cls("","MaLiangMenu"),"Parse",0,(P)plantbrushParse,(P*)&oldPlantbrushParse);
+    hook(cls("GameLevel","MaLiangLevelData"),"Dispose",0,(P)plantbrushDispose,(P*)&oldPlantbrushDispose);
     volumeMethod=method(cls("UnityEngine","AudioSource"),"set_volume",1);
     hook(cls("UnityEngine","AudioSource"),"set_volume",1,(P)setVolume,(P*)&oldVolume);
     hook(cls("","GameAPP"),"PlayMusic",1,(P)playMusic,(P*)&oldPlayMusic);
@@ -486,6 +509,8 @@ extern "C" JNIEXPORT void JNICALL Java_com_silvershadow_pvzf_EnglishActivity_sta
     bridge=(jclass)e->NewGlobalRef(c);translateJava=e->GetStaticMethodID(c,"translate","(Ljava/lang/String;)Ljava/lang/String;");saveMusicJava=e->GetStaticMethodID(c,"saveMusic","(Z)V");
     onlineTitleJava=e->GetStaticMethodID(c,"onlineTitle","(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
     registerOnlineJava=e->GetStaticMethodID(c,"registerOnlineLevel","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+    plantbrushJava=e->GetStaticMethodID(c,"requestPlantbrush","()I");
+    leavePlantbrushJava=e->GetStaticMethodID(c,"leavePlantbrush","()V");
     const char* path=e->GetStringUTFChars(root,nullptr);runtimeRoot=path;e->ReleaseStringUTFChars(root,path);blooms=useBlooms;
     P lib=dlopen("libil2cpp.so",RTLD_NOW|RTLD_NOLOAD);
     if(!lib||!bind(lib)||DobbyHook(dlsym(lib,"il2cpp_init"),(P)runtimeInit,(P*)&originalInit)!=0||DobbyHook(dlsym(lib,"il2cpp_init_utf16"),(P)runtimeInit16,(P*)&originalInit16)!=0){
