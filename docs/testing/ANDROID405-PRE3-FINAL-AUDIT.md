@@ -1,6 +1,6 @@
 # Android 4.0.5 prerelease 3: final local build
 
-The maintainer reported that everything looks good on 2026-10-21 and explicitly authorized publishing this unchanged build as prerelease 3. Publication status is recorded separately. The installable file is `PvZ-Fusion-4.0.5-English-Android-prerelease3.apk`, version code 4050339, package `com.LanPiaoPiao.PlantsVsZombiesEN`. It is the same signed APK as internal build test1-r20.
+The maintainer reported that everything looks good on 2026-10-21 and explicitly authorized publishing this unchanged build as prerelease 3. Published as [v4.0.5-release-3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3); the uploaded APK hash matches this approved build. See ANDROID405-PRE3-RELEASE-BUILD.json. The installable file is `PvZ-Fusion-4.0.5-English-Android-prerelease3.apk`, version code 4050339, package `com.LanPiaoPiao.PlantsVsZombiesEN`. It is the same signed APK as internal build test1-r20.
 
 SHA256: `9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c`
 

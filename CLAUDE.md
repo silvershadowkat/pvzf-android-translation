@@ -1,6 +1,6 @@
 # Publication checkpoint: Android 4.0.5 prerelease 3
 
-The maintainer approved the installed r20 candidate and explicitly requested GitHub publication on 2026-10-21. The prior local-only restriction is revoked. Publish the existing prerelease3.apk unchanged, SHA256 9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c, as v4.0.5-release-3. Release notes are docs/RELEASE-NOTES-4.0.5-PRE3.md. Default Player renaming was investigated only and is not included. User will initially share the public link privately with mods. No Discord posting authorized.
+Published and verified on 2026-10-21 after explicit maintainer approval. The prior local-only restriction is revoked. The existing prerelease3.apk was published unchanged, SHA256 9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c, as v4.0.5-release-3. Release URL: https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3. Source tag points to 00b402717072a0fc574deabc71fa14def07cb3fa. Release notes are docs/RELEASE-NOTES-4.0.5-PRE3.md. All three uploaded asset hashes were verified. Default Player renaming was investigated only and is not included. User will initially share the public link privately with mods. No Discord posting authorized.
 
 Earlier checkpoints below describe historical local-only states. Consult the release build record for completed publication status.
 

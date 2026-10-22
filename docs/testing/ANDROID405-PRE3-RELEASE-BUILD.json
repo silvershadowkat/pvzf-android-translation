@@ -46,9 +46,17 @@
   "url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3",
   "user_approved": true,
   "rebuilt": false,
-  "github_published": false,
+  "github_published": true,
   "device": "Samsung Galaxy S26 Ultra, Android 17",
   "device_evidence": "All nine readable nontranslation files retained during installation/startup, including both survival slots; user reports everything looks good.",
   "signature_verification": "apksigner: verifies with v1, v2 and v3 signatures; alignment passed",
-  "translation_fixtures": 1203
+  "translation_fixtures": 1203,
+  "source_commit": "00b402717072a0fc574deabc71fa14def07cb3fa",
+  "signature_verification_log": "Verified v1, v2, v3; certificate SHA256 1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "release_id": 420209111,
+  "published_at": "2026-10-22T01:17:34Z",
+  "is_prerelease": true,
+  "is_draft": false,
+  "uploaded_apk_digest_verified": true,
+  "apk_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-3/PvZ-Fusion-4.0.5-English-Android-prerelease3.apk"
 }
