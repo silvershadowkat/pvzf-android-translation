@@ -1,5 +1,11 @@
 # Magic Plantbrush: local Android prototypes
 
+## Prerelease 3 asset update (2026-10-22)
+
+At the user's request, the existing public prerelease `v4.0.5-release-3` was updated with both audited APKs. The tag was not moved. The regular APK replaces the earlier regular asset; AI prototype 3 is published as `PvZ-Fusion-4.0.5-English-Android-prerelease3-AI-experimental.apk`. Release notes describe the separate ENAI package/save directory and explicitly state that AI testing covers only the Samsung Galaxy S26 Ultra and Retroid Pocket Nova, with no guarantee for other devices. The older unavailable-mode statement now applies specifically to the regular APK.
+
+Both GitHub asset SHA-256 digests matched the local artifacts. Updated `SHA256SUMS.txt` and `RELEASE-BUILD.json` accompany them. Release notes and prerelease/public status were verified after upload. APK build source commit: `356ef0d`. The earlier local-only statements below describe the state at those audit milestones, before this publication request.
+
 ## Prototype 3: complete-mode text audit (2026-10-22)
 
 Current local AI build: `PvZ-Fusion-4.0.5-English-AI-prototype3.apk`. The regular local `PvZ-Fusion-4.0.5-English-Android-prerelease3-drawing-text-fix.apk` includes the same shared text fixes. Neither was published or installed during this audit. Prototype 2's validated S26 inference runtime is retained.
