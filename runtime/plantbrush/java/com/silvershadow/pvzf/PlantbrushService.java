@@ -41,6 +41,11 @@ public final class PlantbrushService extends Service {
             }
             if(stopped)return;
             recognizer=new PlantbrushRecognizer(dir);
+            // Loading a session is not proof that CPU inference is compatible.
+            // Exercise the native kernels before allowing the game to enter.
+            int[] warmup=new int[224*224];Arrays.fill(warmup,0xffffffff);
+            recognizer.encode(new PlantbrushMath.Image(224,224,warmup));
+            Log.i("PvZFPlantbrush","Native inference warmup passed");
             ServerSocket s=new ServerSocket();server=s;s.setReuseAddress(false);
             s.bind(new InetSocketAddress(InetAddress.getByName("127.0.0.1"),17861),2);
             s.setSoTimeout(1000);state=2;Log.i("PvZFPlantbrush","Offline recognition ready; loopback only; PID="+Process.myPid());

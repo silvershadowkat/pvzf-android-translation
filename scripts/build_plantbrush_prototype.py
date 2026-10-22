@@ -41,7 +41,7 @@ def ai_manifest(data):
             for j in range(n):
                 at=16+offset+j*size
                 if pool.strings[U32(b,at+4)]=='versionName':
-                    value=pool.add('4.0.5-English-AI-prototype1');struct.pack_into('<I',b,at+8,value);struct.pack_into('<I',b,at+16,value)
+                    value=pool.add('4.0.5-English-AI-prototype2');struct.pack_into('<I',b,at+8,value);struct.pack_into('<I',b,at+16,value)
         if k==0x102 and pool.strings[U32(b,20)]=='uses-sdk':
             offset,size,n=struct.unpack_from('<HHH',b,24)
             for j in range(n):
@@ -64,12 +64,13 @@ def main():
     for key in ('base','work','pre3-work','output','sdk','jdk','secret'):ap.add_argument('--'+key,type=Path,required=True)
     a=ap.parse_args();r=Path(__file__).resolve().parents[1];w=a.work.resolve();w.mkdir(exist_ok=True,parents=True)
     logs=w/'build';logs.mkdir(exist_ok=True);a.output.mkdir(exist_ok=True,parents=True)
+    assert sha(w/'onnxruntime-android-1.24.3.aar')=='67397e4a970e75617f765d2015ceaf911917e1d822276cfb5792744e8085cbce'
     assert sha(a.base)==BASE_SHA,'Prototype requires the approved prerelease 3'
     def run(name,args,timeout=180,env=None):
         with (logs/(name+'.log')).open('w',encoding='utf-8') as log:p=subprocess.run(list(map(str,args)),stdout=log,stderr=subprocess.STDOUT,timeout=timeout,env=env)
         if p.returncode:raise RuntimeError(name+' failed; '+str(logs/(name+'.log')))
         print(name+' passed',flush=True)
-    bt=a.sdk/'build-tools/35.0.0';android=a.sdk/'platforms/android-35/android.jar';ort=w/'ort'
+    bt=a.sdk/'build-tools/35.0.0';android=a.sdk/'platforms/android-35/android.jar';ort=w/'ort-1.24.3'
     classes=w/'classes';classes.mkdir(exist_ok=True);dex=w/'dex';dex.mkdir(exist_ok=True)
     run('javac',[a.jdk/'bin/javac.exe','-encoding','UTF-8','-source','8','-target','8','-classpath',os.pathsep.join(map(str,[android,ort/'classes.jar'])),'-d',classes,*sorted((r/'runtime/java').rglob('*.java')),*sorted((r/'runtime/plantbrush/java').rglob('*.java'))],45)
     run('d8',[a.jdk/'bin/java.exe','-cp',bt/'lib/d8.jar','com.android.tools.r8.D8','--release','--min-api','26','--lib',android,'--output',dex,*sorted(classes.rglob('*.class')),ort/'classes.jar'],60)
@@ -113,7 +114,7 @@ def main():
     aligned=logs/'aligned.apk';run('align',[bt/'zipalign.exe','-f','-P','16','4',unsigned,aligned])
     props=dict(line.split('=',1) for line in (a.secret/'signing.properties').read_text('utf-8-sig').splitlines() if '=' in line and not line.startswith('#'))
     env=os.environ.copy();env['PVZF_LOCAL_STORE_PASS']=props['storepass'];env['PVZF_LOCAL_KEY_PASS']=props['keypass']
-    output=a.output/'PvZ-Fusion-4.0.5-English-AI-prototype1.apk';signer=[a.jdk/'bin/java.exe','-jar',bt/'lib/apksigner.jar']
+    output=a.output/'PvZ-Fusion-4.0.5-English-AI-prototype2.apk';signer=[a.jdk/'bin/java.exe','-jar',bt/'lib/apksigner.jar']
     run('sign',signer+['sign','--ks',a.secret/'PvZ-Fusion-English-Release.jks','--ks-key-alias',props['alias'],'--ks-pass','env:PVZF_LOCAL_STORE_PASS','--key-pass','env:PVZF_LOCAL_KEY_PASS','--v4-signing-enabled','false','--out',output,aligned],180,env)
     del env
     run('signature',signer+['verify','--verbose','--print-certs',output],60);assert CERT in (logs/'signature.log').read_text()
@@ -132,7 +133,7 @@ def main():
         assert set(added)=={n for n in replacements if n not in base.namelist()}
     record={'apk':str(output),'sha256':sha(output),'size_bytes':output.stat().st_size,'base_sha256':BASE_SHA,'version_code':4050339,'local_only':True,
         'changed_entries':changed,'added_entries':added,'unchanged_gameplay_objects_and_original_native_libraries':True,'unity_identity_audit':identity,'package':'com.LanPiaoPiao.PlantsVsZombiesENAI','certificate_sha256':CERT,
-        'onnxruntime_aar_sha256':sha(w/'onnxruntime-android-1.23.2.aar'),'model_manifest':manifest}
+        'onnxruntime_version':'1.24.3','onnxruntime_aar_sha256':sha(w/'onnxruntime-android-1.24.3.aar'),'model_manifest':manifest}
     (a.output/'AI-PROTOTYPE-BUILD.json').write_text(json.dumps(record,indent=2),encoding='utf-8')
     print('Verified '+str(output),flush=True)
 

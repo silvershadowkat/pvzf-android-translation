@@ -12,7 +12,7 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
     private static volatile int state; // 0 absent, 1 starting, 2 ready, -1 failed
     private static boolean installed,bound;
     private static volatile boolean requested;
-    private static int visible;
+    private static final java.util.Set<Activity> visible=java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Activity,Boolean>());
     private static IBinder remote;
     private static long deadline;
     private static final Runnable release=()->stop();
@@ -58,8 +58,8 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
     private static void stopBinding(){if(bound){context.unbindService(connection);bound=false;}remote=null;}
     private static void stop(){requested=false;state=0;stopBinding();}
     public static void leave(){main.post(()->{main.removeCallbacks(release);stop();});}
-    public void onActivityStarted(Activity a){visible++;main.removeCallbacks(release);}
-    public void onActivityStopped(Activity a){if(--visible<=0){visible=0;main.postDelayed(release,30000);}}
+    public void onActivityStarted(Activity a){visible.add(a);main.removeCallbacks(release);}
+    public void onActivityStopped(Activity a){visible.remove(a);if(visible.isEmpty()){main.postDelayed(release,30000);}}
     public void onActivityCreated(Activity a,Bundle b){}
     public void onActivityDestroyed(Activity a){}
     public void onActivityResumed(Activity a){}

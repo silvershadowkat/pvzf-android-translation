@@ -1,4 +1,28 @@
-# Magic Plantbrush: local Android prototype 1
+# Magic Plantbrush: local Android prototypes
+
+## Prototype 2: S26 first-recognition fix (2026-10-22)
+
+Current local AI build: `PvZ-Fusion-4.0.5-English-AI-prototype2.apk`, package `com.LanPiaoPiao.PlantsVsZombiesENAI`. Install over prototype 1. The package, signing certificate, save handling, and version code remain the same. Nothing was published.
+
+The S26 Ultra (SM-S948W, Android 17) recorded a native SIGILL in prototype 1's ONNX Runtime 1.23.2 during first inference. Its CPU advertises SME but not SME2. This matches upstream [ONNX Runtime issue 26377](https://github.com/microsoft/onnxruntime/issues/26377), in which SME capability incorrectly selected SME2 kernels. The crash record does not indicate memory exhaustion.
+
+Changes:
+
+- Replace the bundled inference runtime with ONNX Runtime 1.24.3, whose dispatch checks SME2 separately. Pin the Android AAR SHA-256 in the builder and record its version/hash in the build report.
+- Run one native inference warmup before exposing the ready state. Model loading alone no longer passes the entry guard. A native failure still remains isolated in the private recognizer process.
+- Track visible Activity identities instead of counting lifecycle events, avoiding an unmatched stop when callbacks are registered during startup. The 30-second background release policy is unchanged.
+- Translate the exact mixed-language service error and red download hint reported on the phone. Preserve the underlying error details. Apply the same shared rules to the regular text-only build, which still changes only `classes2.dex` and keeps its unavailable-mode guard.
+
+S26 verification:
+
+- Installed prototype 2 over prototype 1 without clearing data. Parsed `playerData.json` was identical immediately before and after installation.
+- Native warmup and loopback readiness passed. All six upstream fixture acceptance/rejection and plant-ID comparisons passed. Four accepted fixture requests took 0.152 to 0.161 seconds including ADB forwarding overhead.
+- An actual game recognition request succeeded, and the observed game screen showed an awarded plant in English. No new recognizer SIGILL appeared in the captured test log.
+- One post-recognition memory sample: 448,253 KiB PSS, about 438 MiB, additional to the game. This is a sample, not a minimum-device specification.
+- Six actual Java translator fixtures passed for both AI and regular compiled classes. Both signed APKs passed packaging, signature, alignment, and entry-change checks.
+- The phone's display size was not modified. The game was left available for the user's ongoing testing. The task's ADB forwarding port was removed. Background release was not re-tested on this S26 session to avoid interrupting that play test; the prior Nova exit test below remains historical evidence.
+
+Evidence is in `work/plantbrush-prototype/s26-failure`, with build JSON records beside the APKs. The sections below describe prototype 1 and its earlier Nova verification; their runtime version and device results are historical.
 
 ## Delivery
 
