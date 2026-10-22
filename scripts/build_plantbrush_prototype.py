@@ -41,7 +41,7 @@ def ai_manifest(data):
             for j in range(n):
                 at=16+offset+j*size
                 if pool.strings[U32(b,at+4)]=='versionName':
-                    value=pool.add('4.0.5-English-AI-prototype2');struct.pack_into('<I',b,at+8,value);struct.pack_into('<I',b,at+16,value)
+                    value=pool.add('4.0.5-English-AI-prototype3');struct.pack_into('<I',b,at+8,value);struct.pack_into('<I',b,at+16,value)
         if k==0x102 and pool.strings[U32(b,20)]=='uses-sdk':
             offset,size,n=struct.unpack_from('<HHH',b,24)
             for j in range(n):
@@ -114,7 +114,7 @@ def main():
     aligned=logs/'aligned.apk';run('align',[bt/'zipalign.exe','-f','-P','16','4',unsigned,aligned])
     props=dict(line.split('=',1) for line in (a.secret/'signing.properties').read_text('utf-8-sig').splitlines() if '=' in line and not line.startswith('#'))
     env=os.environ.copy();env['PVZF_LOCAL_STORE_PASS']=props['storepass'];env['PVZF_LOCAL_KEY_PASS']=props['keypass']
-    output=a.output/'PvZ-Fusion-4.0.5-English-AI-prototype2.apk';signer=[a.jdk/'bin/java.exe','-jar',bt/'lib/apksigner.jar']
+    output=a.output/'PvZ-Fusion-4.0.5-English-AI-prototype3.apk';signer=[a.jdk/'bin/java.exe','-jar',bt/'lib/apksigner.jar']
     run('sign',signer+['sign','--ks',a.secret/'PvZ-Fusion-English-Release.jks','--ks-key-alias',props['alias'],'--ks-pass','env:PVZF_LOCAL_STORE_PASS','--key-pass','env:PVZF_LOCAL_KEY_PASS','--v4-signing-enabled','false','--out',output,aligned],180,env)
     del env
     run('signature',signer+['verify','--verbose','--print-certs',output],60);assert CERT in (logs/'signature.log').read_text()

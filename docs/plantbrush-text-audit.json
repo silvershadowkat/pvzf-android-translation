@@ -1,0 +1,621 @@
+{
+  "scope": "4.0.5 Magic Plantbrush mode, both local APK variants",
+  "native_methods_inspected": 164,
+  "native_distinct_literal_references": 36,
+  "native_chinese_literal_references": 29,
+  "drawing_prefab_objects": 218,
+  "drawing_prefab_labels": 24,
+  "catalog_names_checked": 744,
+  "catalog_distinct_plant_ids": 718,
+  "pc_source": "Pinned coverage-r12 PC snapshot: mode title is marked untranslated; ordinary UI phrases translated from Android context with existing game terms.",
+  "coverage": [
+    {
+      "index": 59,
+      "source": "\n<color=red>请确认是否启动了最新版神笔马良识图AI，可前往融合wiki下载</color>",
+      "packaged_metadata": "\n<color=red>请确认是否启动了最新版神笔马良识图AI，可前往融合wiki下载</color>",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::private void Update() { }"
+      ],
+      "classification": "assembled error fragment",
+      "coverage": "composed error fixtures"
+    },
+    {
+      "index": 11057,
+      "source": "[神笔马良] 没有有效的植物候选，请重新鉴定。",
+      "packaged_metadata": "[神笔马良] 没有有效的植物候选，请重新鉴定。",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::private void ShowCandidates(MaLiangRecognitionResult result, int revision) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "[神笔马良] 没有有效的植物候选，请重新鉴定。"
+    },
+    {
+      "index": 11058,
+      "source": "[神笔马良] 画作已改变，本次鉴定结果已丢弃。",
+      "packaged_metadata": "[神笔马良] 画作已改变，本次鉴定结果已丢弃。",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::private void Update() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "[神笔马良] 画作已改变，本次鉴定结果已丢弃。"
+    },
+    {
+      "index": 11059,
+      "source": "[神笔马良] 鉴定失败：",
+      "packaged_metadata": "[神笔马良] 鉴定失败：",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::private void Update() { }"
+      ],
+      "classification": "assembled error fragment",
+      "coverage": "composed error fixtures"
+    },
+    {
+      "index": 15560,
+      "source": "{0}  /  笔宽 {1}  /  256 × 256",
+      "packaged_metadata": "{0}  /  笔宽 {1}  /  256 × 256",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::private void Update() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "铅笔  /  笔宽 6  /  256 × 256"
+    },
+    {
+      "index": 15878,
+      "source": "。请启动神笔马良本地服务。",
+      "packaged_metadata": "。请启动神笔马良本地服务。",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "assembled error fragment",
+      "coverage": "composed error fixtures"
+    },
+    {
+      "index": 16095,
+      "source": "以你画出的植物代替植物的贴图",
+      "packaged_metadata": "Use your drawings as plant textures.",
+      "runtime_exact": null,
+      "pc_exact": "N/A",
+      "methods": [
+        "MaLiangLevelData::private void SelectMode(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Use your drawings as plant textures."
+    },
+    {
+      "index": 16686,
+      "source": "可以按F1隐藏菜单，照着植物画",
+      "packaged_metadata": "可以按F1隐藏菜单，照着植物画",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLevelData.<DrawUpdate>d__20::private void MoveNext() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "可以按F1隐藏菜单，照着植物画"
+    },
+    {
+      "index": 17181,
+      "source": "已替换贴图：{0}\n强度 = {1:F2}\n相似度 = {2:P1}",
+      "packaged_metadata": "已替换贴图：{0}\n强度 = {1:F2}\n相似度 = {2:P1}",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLevelData.<>c__DisplayClass20_0::internal void <DrawUpdate>b__1(MaLiangRecognitionResult result) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "已替换贴图：Peashooter\n强度 = 2.48\n相似度 = 78.5 %"
+    },
+    {
+      "index": 17543,
+      "source": "抽象模式",
+      "packaged_metadata": "Cursed Mode",
+      "runtime_exact": null,
+      "pc_exact": "Cursed Mode",
+      "methods": [
+        "MaLiangLevelData::private void SelectMode(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Cursed Mode"
+    },
+    {
+      "index": 17933,
+      "source": "木头\n神笔",
+      "packaged_metadata": "Bronze\nBrush",
+      "runtime_exact": null,
+      "pc_exact": "Bronze\nBrush",
+      "methods": [
+        "MaLiangLevelData::public override void OnBoardStart(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Bronze\nBrush"
+    },
+    {
+      "index": 17959,
+      "source": "本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。",
+      "packaged_metadata": "本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。"
+    },
+    {
+      "index": 17960,
+      "source": "本地识别服务未就绪或请求失败：",
+      "packaged_metadata": "本地识别服务未就绪或请求失败：",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "assembled error fragment",
+      "coverage": "composed error fixtures"
+    },
+    {
+      "index": 18009,
+      "source": "标准模式",
+      "packaged_metadata": "Standard Mode",
+      "runtime_exact": null,
+      "pc_exact": "Standard Mode",
+      "methods": [
+        "MaLiangLevelData::private void SelectMode(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Standard Mode"
+    },
+    {
+      "index": 18393,
+      "source": "点击神笔作画，画出什么就给什么植物\n如果你画的植物看起来越强，他就会真的越强\n高级画笔画出植物数值上限更高",
+      "packaged_metadata": "Tap the brush to draw. You receive the plant you draw.\nThe stronger your drawing looks, the stronger the plant becomes.\nHigher-tier brushes allow higher plant stat limits.",
+      "runtime_exact": null,
+      "pc_exact": "This level is left untranslated due to it requiring\na third-party image recognition software to play.",
+      "methods": [
+        "MaLiangLevelData::private void SelectMode(Board board) { }",
+        "MaLiangLevelData::public override void OnAnimUIOver(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Tap the brush to draw. You receive the plant you draw.\nThe stronger your drawing looks, the stronger the plant becomes.\nHigher-tier brushes allow higher plant stat limits."
+    },
+    {
+      "index": 18519,
+      "source": "白银\n神笔",
+      "packaged_metadata": "Silver\nBrush",
+      "runtime_exact": null,
+      "pc_exact": "Silver\nBrush",
+      "methods": [
+        "MaLiangLevelData::public override void OnBoardStart(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Silver\nBrush"
+    },
+    {
+      "index": 18553,
+      "source": "相似度：{0:P1}\n强度：{1:F2}\n选择这株植物",
+      "packaged_metadata": "相似度：{0:P1}\n强度：{1:F2}\n选择这株植物",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::private void ShowCandidates(MaLiangRecognitionResult result, int revision) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "相似度：78.5 %\n强度：2.48\n选择这株植物"
+    },
+    {
+      "index": 18598,
+      "source": "神笔马良",
+      "packaged_metadata": "Magic Plantbrush",
+      "runtime_exact": null,
+      "pc_exact": "Magic Plantbrush\n(Untranslated)",
+      "methods": [
+        "MaLiangLevelData::public override string get_Name() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Magic Plantbrush"
+    },
+    {
+      "index": 18599,
+      "source": "神笔马良自由画板",
+      "packaged_metadata": "神笔马良自由画板",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangCanvasData::public void .ctor() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "神笔马良自由画板"
+    },
+    {
+      "index": 18730,
+      "source": "系统认为你画的像僵尸，于是立马安排了一群僵尸进攻",
+      "packaged_metadata": "系统认为你画的像僵尸，于是立马安排了一群僵尸进攻",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLevelData.<>c__DisplayClass21_1::internal void <CreateCard>b__1(MaLiangRecognitionResult result) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "系统认为你画的像僵尸，于是立马安排了一群僵尸进攻"
+    },
+    {
+      "index": 18779,
+      "source": "网格：关",
+      "packaged_metadata": "网格：关",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::public void ToggleGrid() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "网格：关"
+    },
+    {
+      "index": 18780,
+      "source": "网格：开",
+      "packaged_metadata": "网格：开",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangMenu::public void ToggleGrid() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "网格：开"
+    },
+    {
+      "index": 18945,
+      "source": "获得植物：{0}\n强度 = {1:F2}\n相似度 = {2}",
+      "packaged_metadata": "获得植物：{0}\n强度 = {1:F2}\n相似度 = {2}",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLevelData.<>c__DisplayClass21_1::internal void <CreateCard>b__1(MaLiangRecognitionResult result) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "获得植物：Peashooter\n强度 = 2.48\n相似度 = 0.785"
+    },
+    {
+      "index": 19070,
+      "source": "识别服务返回的数据无法解析。",
+      "packaged_metadata": "识别服务返回的数据无法解析。",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "识别服务返回的数据无法解析。"
+    },
+    {
+      "index": 19071,
+      "source": "识别服务返回空结果",
+      "packaged_metadata": "识别服务返回空结果",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "识别服务返回空结果"
+    },
+    {
+      "index": 19072,
+      "source": "识别结果无效，请重建图库索引后重试。",
+      "packaged_metadata": "识别结果无效，请重建图库索引后重试。",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "识别结果无效，请重建图库索引后重试。"
+    },
+    {
+      "index": 19073,
+      "source": "识别请求尚未完成",
+      "packaged_metadata": "识别请求尚未完成",
+      "runtime_exact": null,
+      "pc_exact": null,
+      "methods": [
+        "MaLiangLocalRequest::public MaLiangRecognitionResult Read() { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "识别请求尚未完成"
+    },
+    {
+      "index": 19544,
+      "source": "钻石\n神笔",
+      "packaged_metadata": "Diamond\nBrush",
+      "runtime_exact": null,
+      "pc_exact": "Diamond\nBrush",
+      "methods": [
+        "MaLiangLevelData::public override void OnBoardStart(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Diamond\nBrush"
+    },
+    {
+      "index": 19749,
+      "source": "黄金\n神笔",
+      "packaged_metadata": "Golden\nBrush",
+      "runtime_exact": null,
+      "pc_exact": "Golden\nBrush",
+      "methods": [
+        "MaLiangLevelData::public override void OnBoardStart(Board board) { }"
+      ],
+      "classification": "display or display-capable canvas name",
+      "test_display": "Golden\nBrush"
+    }
+  ],
+  "prefab_labels": {
+    "original": {
+      "gameobjects": 218,
+      "texts": [
+        {
+          "path": "/MaLiangMenu/灰色画板面板/功能标题",
+          "id": 193993,
+          "text": "功能"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/新建/文字",
+          "id": 190202,
+          "text": "新建"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/撤销/文字",
+          "id": 192912,
+          "text": "撤销"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/重做/文字",
+          "id": 202163,
+          "text": "重做"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/网格/文字",
+          "id": 200681,
+          "text": "网格：开"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/笔宽标题",
+          "id": 202151,
+          "text": "笔宽"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/细/文字",
+          "id": 198472,
+          "text": "细"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/中/文字",
+          "id": 204059,
+          "text": "中"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/粗/文字",
+          "id": 193842,
+          "text": "粗"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/标题",
+          "id": 190430,
+          "text": "神 笔 马 良"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/关闭/文字",
+          "id": 198934,
+          "text": "×"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/画板状态",
+          "id": 198329,
+          "text": "铅笔 / 笔宽 6 / 256 × 256"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/绘画提示",
+          "id": 199307,
+          "text": "画出植物，再点击鉴定"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/铅笔/工具名",
+          "id": 190239,
+          "text": "铅笔"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/橡皮/工具名",
+          "id": 194553,
+          "text": "橡皮"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/直线/工具名",
+          "id": 203745,
+          "text": "直线"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/矩形/工具名",
+          "id": 200910,
+          "text": "矩形"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/椭圆/工具名",
+          "id": 191050,
+          "text": "椭圆"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/填色/工具名",
+          "id": 201168,
+          "text": "填色"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/取色/工具名",
+          "id": 200649,
+          "text": "取色"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/常用色标题",
+          "id": 192289,
+          "text": "常用色"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/全部颜色标题",
+          "id": 197183,
+          "text": "全部颜色"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/颜色值",
+          "id": 198148,
+          "text": "#27332A"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/鉴定/文字",
+          "id": 194621,
+          "text": "鉴 定"
+        }
+      ]
+    },
+    "packaged": {
+      "gameobjects": 218,
+      "texts": [
+        {
+          "path": "/MaLiangMenu/灰色画板面板/功能标题",
+          "id": 193993,
+          "text": "Tools"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/新建/文字",
+          "id": 190202,
+          "text": "New"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/撤销/文字",
+          "id": 192912,
+          "text": "Undo"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/重做/文字",
+          "id": 202163,
+          "text": "Redo"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/网格/文字",
+          "id": 200681,
+          "text": "Grid: On"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/笔宽标题",
+          "id": 202151,
+          "text": "Width"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/细/文字",
+          "id": 198472,
+          "text": "Thin"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/中/文字",
+          "id": 204059,
+          "text": "Medium"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/粗/文字",
+          "id": 193842,
+          "text": "Thick"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/标题",
+          "id": 190430,
+          "text": "Magic Plantbrush"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/关闭/文字",
+          "id": 198934,
+          "text": "×"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/画板状态",
+          "id": 198329,
+          "text": "Pencil / Width 6 / 256 × 256"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/绘画提示",
+          "id": 199307,
+          "text": "Draw a plant, then tap Identify"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/铅笔/工具名",
+          "id": 190239,
+          "text": "Pencil"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/橡皮/工具名",
+          "id": 194553,
+          "text": "Eraser"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/直线/工具名",
+          "id": 203745,
+          "text": "Line"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/矩形/工具名",
+          "id": 200910,
+          "text": "Rect"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/椭圆/工具名",
+          "id": 191050,
+          "text": "Ellipse"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/填色/工具名",
+          "id": 201168,
+          "text": "Fill"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/取色/工具名",
+          "id": 200649,
+          "text": "Picker"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/常用色标题",
+          "id": 192289,
+          "text": "Common Colors"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/全部颜色标题",
+          "id": 197183,
+          "text": "All Colors"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/颜色值",
+          "id": 198148,
+          "text": "#27332A"
+        },
+        {
+          "path": "/MaLiangMenu/灰色画板面板/鉴定/文字",
+          "id": 194621,
+          "text": "Identify"
+        }
+      ]
+    }
+  },
+  "regression_fixtures_per_build": 129,
+  "limitations": [
+    "Static ARM64 direct-reference audit is not a proof against all indirect/reflection-generated text.",
+    "Unknown plant names and unknown messages are deliberately preserved, not guessed.",
+    "Every event and error was not manually triggered in-game."
+  ],
+  "device_action": "No installation, no live game interruption during this audit."
+}

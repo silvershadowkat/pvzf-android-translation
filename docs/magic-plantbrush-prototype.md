@@ -1,5 +1,25 @@
 # Magic Plantbrush: local Android prototypes
 
+## Prototype 3: complete-mode text audit (2026-10-22)
+
+Current local AI build: `PvZ-Fusion-4.0.5-English-AI-prototype3.apk`. The regular local `PvZ-Fusion-4.0.5-English-Android-prerelease3-drawing-text-fix.apk` includes the same shared text fixes. Neither was published or installed during this audit. Prototype 2's validated S26 inference runtime is retained.
+
+The zombie-attack notice in the new screenshot was a missed special-event branch. It now reads: **Your drawing looks like a zombie! A group of zombies is attacking!** The audit also covered the keyboard drawing-reference hint, changing grid labels, brush status, candidate results, appearance updates, malformed/empty/invalid responses, pending requests, selected-plant support, and transport failures. The F1 hint explicitly says it requires a keyboard; no new touch shortcut is promised.
+
+The earlier transport-error screenshot was addressed in prototype 2. This pass additionally handles the game's original Chinese failure prefix and errors assembled from a prefix, message, and optional red hint. Known error bodies are translated before generic prefix rules, preventing partially translated output. Restart/update advice replaces desktop-only index-rebuilding instructions where the Android user cannot perform that operation. No plant names, plant descriptions, recognition scores, or game mechanics changed.
+
+Coverage and evidence:
+
+- Inspect ARM64 direct literal references in 164 `MaLiang` methods, including level-data callbacks and coroutine methods: 36 distinct references, 29 containing Chinese. Four are fragments tested as complete messages.
+- Traverse all 218 objects beneath the drawing-menu prefab and compare its 24 text labels with the packaged English assets. Those labels were already translated.
+- Check all 744 recognizer display names, covering 718 plant IDs, for remaining Chinese. Existing approved English names are retained.
+- Compare with the pinned PC translation snapshot. It labels the mode as untranslated, so missing ordinary messages use context-reviewed English and established game terms rather than invented names.
+- Run 129 checks through the actual Java translator for each build, including the base translation payload, every audited display-capable literal, all drawing-window labels, brush widths, composed errors, numeric formatting, and unknown-name preservation.
+
+`docs/plantbrush-text-audit.json` records sources, methods, classifications, and prefab labels. `runtime/plantbrush/tests/plantbrush-display-census.tsv` retains the 83 extracted display cases; `PlantbrushTextTest` adds 46 error/regression checks. It accepts E/R payload TSV data and C/T census TSV files in order. `scripts/audit_plantbrush_mode.py --work <prototype-work-directory>` repeats the native inventory, and `scripts/audit_plantbrush_prefab.py --work <prototype-work-directory>` repeats the asset traversal with the existing UnityPy/type-tree environment. These tools use the retained adjacent `upgrade405` artifacts and pinned PC snapshot.
+
+This is a static audit plus composed-display regression testing, not a claim that every rare event was manually played. Unknown text remains unchanged deliberately. Indirectly generated strings and future game updates still need review; the retained census makes additions and regressions easier to detect.
+
 ## Prototype 2: S26 first-recognition fix (2026-10-22)
 
 Current local AI build: `PvZ-Fusion-4.0.5-English-AI-prototype2.apk`, package `com.LanPiaoPiao.PlantsVsZombiesENAI`. Install over prototype 1. The package, signing certificate, save handling, and version code remain the same. Nothing was published.
