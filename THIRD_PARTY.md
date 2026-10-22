@@ -1,5 +1,13 @@
 # Third-party projects and attribution
 
+- **Dobby** by jmpews and contributors, Apache-2.0:
+  <https://github.com/jmpews/Dobby>, commit
+  `21f07a5ce184cda9346afb8009c07fe7e47390d0`.
+  Statically linked into the new prerelease 3 English runtime for both Android
+  ARM architectures. The source is unmodified. Its license and source pin are
+  included in `assets/english/NOTICE.txt` in the APK. This version is pinned
+  because its Android build works with the documented toolchain.
+
 - **Plants vs. Zombies Fusion translation data**  -
   <https://github.com/Teyliu/PVZF-Translation>, licensed CC BY-NC 4.0.
 - **PVZFusionTranslation source**  -
@@ -20,7 +28,8 @@
   <https://github.com/TrevTV/MelonLoader-AudioTools>, credited by the upstream
   PC translator; not bundled by this Android toolkit.
 - **Apktool**  -  <https://github.com/iBotPeaches/Apktool>, used for local APK
-  inspection under its own license. The final packager does not rebuild Android
-  resources.
+  inspection under its own license. The prerelease 3 packager makes structured
+  application-identity edits to Android resources; it does not use Apktool to
+  recompile the game.
 
 No third-party game binaries or translation datasets are included here.

@@ -1,0 +1,30 @@
+{
+  "revision": "4.0.5-r18",
+  "pc_commit": "c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640",
+  "object": {
+    "file": "resources.assets",
+    "path_id": 196738,
+    "field": "m_text"
+  },
+  "source_sha256": "a737698c2b78455fef67336c1f3226ff8a3d7f85171a7981ff58fd9b956b760a",
+  "source": "PvZ Fusion 4.0.5 Update\n\nHappy National Day!\n\n1. Snowy Night updates\nCompleted the 阿尔法日记 content and adjusted [Snowy Night: Day 6].\n\n2. New plants\nBasic Fusions: Snow Threepeater, Flytrapper, Mandiboulder\nOdyssey Fusion: Melancholy Commando\n\n3. New skins\nTidebreaker Wither-pult\nMoon Festival Selene Cabbage\nComplete the corresponding skin challenges to unlock them.\n\n4. Level updates\nMagic Plantbrush: Draw the plant you want as accurately as you can.\nThe large-map tower defense mode returns.\nSuper Level Editor: Added many new features and a user guide.\n\n5. Balance changes\nOdyssey Cursed Mode: Shop modifier prices now increase gradually. Buying expensive modifiers increases prices further.\nReduced 究极火炬's damage bonus to 浴火豌豆.\nPyroboros Pot: Cherryshooter's attack speed bonus is now fixed at 10%, without requiring the [真正的樱桃炸弹] modifier.\n\n6. Other improvements\nSignificantly reduced the game's file size.\n\n7. Fixed known bugs and improved the gameplay experience.",
+  "english": "PvZ Fusion 4.0.5 Update\n\nHappy National Day!\n\n1. Snowy Night updates\nCompleted Alpha's diary and adjusted [Snowy Night: Day 6].\n\n2. New plants\nBasic Fusions: Snow Threepeater, Flytrapper, Mandiboulder\nOdyssey Fusion: Melancholy Commando\n\n3. New skins\nTidebreaker Wither-pult\nMoon Festival Selene Cabbage\nComplete the corresponding skin challenges to unlock them.\n\n4. Level updates\nMagic Plantbrush: Draw the plant you want as accurately as you can.\nThe large-map tower defense mode returns.\nSuper Level Editor: Added many new features and a user guide.\n\n5. Balance changes\nOdyssey Cursed Mode: Shop modifier prices now increase gradually. Buying expensive modifiers increases prices further.\nReduced the damage bonus that Infernal Squashwood and Infernal Sparkwood give to Phoenix Peas.\nPyroboros Pot: Cherryshooter's attack speed bonus is now fixed at 10%, without requiring the [Cherry on Top] modifier.\n\n6. Other improvements\nSignificantly reduced the game's file size.\n\n7. Fixed known bugs and improved the gameplay experience.",
+  "terms": [
+    {
+      "source": "阿尔法日记",
+      "english": "Alpha's diary",
+      "basis": "Descriptive English, not a new title. Alpha spelling is established in PC translation_strings.json. Official Chinese 4.0.5 announcement places this diary in Snowy Night; PC changelog calls the mode Memory - Snowy Night."
+    },
+    {
+      "source": "究极火炬 / 浴火豌豆",
+      "english": "Infernal Squashwood and Infernal Sparkwood / Phoenix Peas",
+      "basis": "Paired PC Dumps/LawnStrings.json and Localization/English/Almanac/LawnStringsTranslate.json, seedType 902 and 948. 902 Chinese explicitly lists Phoenix pea damage x2; English names Phoenix Pea. 948 is its subspecies and inherits its treatment of other projectiles. Source uses the abbreviated family reference, not a separate plant name. Also tips_fs level1319 and seedType 919/999 establish Phoenix pea terminology. No numeric balance values imported from potentially stale descriptions."
+    },
+    {
+      "source": "真正的樱桃炸弹",
+      "english": "Cherry on Top",
+      "basis": "Paired Dumps/travel_buffs.json and Localization/English/Strings/travel_buffs.json, advancedBuffs/1013. PC card name is Cherry on Top; description calls it True Cherry Bomb. Current Android runtime renders that same name."
+    }
+  ],
+  "scope": "Only the existing official Android 4.0.5 announcement text. Preserve current content and layout, do not copy PC-only disclaimers or mixed-version changelog wholesale."
+}

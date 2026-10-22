@@ -1,4 +1,46 @@
+# Publication checkpoint: Android 4.0.5 prerelease 3
+
+The maintainer approved the installed r20 candidate and explicitly requested GitHub publication on 2026-10-21. The prior local-only restriction is revoked. Publish the existing prerelease3.apk unchanged, SHA256 9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c, as v4.0.5-release-3. Release notes are docs/RELEASE-NOTES-4.0.5-PRE3.md. Default Player renaming was investigated only and is not included. User will initially share the public link privately with mods. No Discord posting authorized.
+
+Earlier checkpoints below describe historical local-only states. Consult the release build record for completed publication status.
+
 # Maintainer handoff for Claude and other coding agents
+
+## Latest checkpoint: local prerelease 3 r20 (2026-10-21)
+
+Local prerelease 3 r20: 232 exact display translations and nine formatted rules; all four English diary pages and corrected PVZ Fusion Fans credits; narrow Magic Plantbrush unavailable-message fallback. All earlier prerelease 3 runtime, music, projectile UI and managed-refresh work retained.
+
+Both ABI builds, signature/alignment/package/native integrity, eight managed-refresh checks preserving 11 fixtures, 624 regex checks, 17 base display checks and 1,203 expanded translation fixtures passed. Artwork comparison: exactly two of 208,662 serialized objects changed. Final APK payload hashes match audited inputs.
+
+r20 installed in place on S26 (R5GL14CN45N). Runtime initialized; all nine readable nontranslation files, including both survival saves and player/garden data, remained unchanged through installation and startup. Existing managed overrides match the APK. Feature/UI smoke checks and private settings verification still need user testing. Check Magic Plantbrush notification/fading/navigation, diary page placement and credits, editor text fit and an existing survival save. Residual CJK includes aliases, internal identifiers, diagnostics and unverified terms. No claim of exhaustive live-screen coverage.
+
+User explicitly requested a local build only. Nothing published, pushed, tagged or committed. Installable filename: `PvZ-Fusion-4.0.5-English-Android-prerelease3.apk`. Version code 4050339; SHA256 `9d10eb7b8082ac27b9530a526f9cffb7dcfc0a1e27011e2951054a6a70810b5c`. Internal test1-r20 is byte-identical. Latest installed S26 build is r20; feature checks remain pending. Do not uninstall EN, clear data, reseed or touch the Retroid.
+
+Active source workspace: `C:\Users\plim\Documents\Codex\Projects\Plants-Vs-Zombies-Fusion\source\pvzf-android-translation`; branch `agent/translation-4.0.5-prerelease3`, base `68dec6e20c84588ef12eb17d6a7e72286278085e`. Working changes are uncommitted. Detailed evidence: `C:\Users\plim\Documents\Codex\2026-09-06\https-github-com-silvershadowkat-pvzf-android\work\upgrade405\pre3\final-audit-r20` and sibling `art-r20`, `package-test1-r20`, `magic-plantbrush-audit`.
+
+Read docs/testing/ANDROID405-PRE3-FINAL-AUDIT.md first, then earlier review/coverage/guide/editor/save-test notes as needed. PC overlay remains c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640. The runtime base has its older separately recorded pin.
+
+Layer order: previous r19 payload, apply_parchments_405.py, translate_final_ui_405.py, build_runtime_apk.py variant test1 revision 20. Keep reviewed source assets and manifests from source-review.zip. Do not rerun old preparation steps over newer layers. Original game native libraries remain unchanged. The native unavailable-button hook is in runtime/english.cpp. AI recognition is parked and excluded.
+
+The save-refresh policy has not changed. r19 previously retained all nine readable files, including both survival slots; user confirmed save loadability. This does not substitute for r20 testing. Preserve shared ADB and unrelated jobs. All task build/helper sessions finished; final process audit stored in the local output folder.
+
+## Earlier checkpoint history
+
+## Current local 4.0.5 prerelease 3 work (2026-10-21)
+
+Latest test result: user confirmed r11 Tactic Modifiers no longer crashes, no Chinese noticed in Gods Almanac checks, and Projectile Info looks good. On S26, both real survival files (`level40.json`, `Player/Saves/level40_9999.json`) plus player/garden data remained byte-identical after staging two known stale language overrides, reinstalling r11 in place and starting the app. All nine non-fixture readable files were unchanged; both language overrides exactly matched current APK payloads after refresh. Local backup retained, no save writes/restores. See docs/testing/ANDROID405-PRE3-SAVE-TEST.md. Latest phone PID 19793; ask user to load a survival save for the separate loadability check. Deferred next translation audit: Recommended Levels > Super Level Editor > top-right Chinese button/window, with a close control incorrectly labeled Disabled. Do not claim that batch is fixed. No task-owned helpers/builds remain; no publication.
+
+
+Branch `agent/translation-4.0.5-prerelease3`, uncommitted local work, no publication. Latest main candidate is test1-r11 (4050321), installed over main-r10 on S26 at explicit user request. playerData.json SHA remained identical across installation. PID 15533 reached the visible main-menu changelog and logged one playing Blooms source. User reported a Tactics crash; two existing identical native stacks were collected without relaunching. The shared field setter passed an address-of-pointer for managed references. Revision 11 uses il2cpp_field_set_value_object for TMP/legacy text and UnityEvent references, plus a compile-time pointer guard for value writes. Native ABI regression tests passed, including the expected negative compilation. Both Android ABI builds and signing/alignment/ZIP/translation/managed-refresh checks passed. Only the two added runtime libraries and manifest/revision entries differ from r10. See docs/testing/ANDROID405-PRE3-RUNTIME-FIX.md and audit-r11-delta.json.
+
+User also confirmed Projectile Info toggles correctly on r10 but appears during plant selection, overlaps Open Almanac, jumps into the left stack after starting, and has an oversized label. Revision 11 follows the health button's active state, uses the native grid without manual placement, and insets a smaller two-line label. No original gameplay button is replaced. Crowded modes remain unverified; the original grid has one column, not automatic wrapping. Do not silently claim all screen sizes or modes are covered. The phone was left untouched during diagnosis. The user then said "install when ready"; r11 was installed with -r and launched once. The user subsequently confirmed Tactics no longer crashes and the Projectile Info button looks good; crowded-mode/aspect-ratio checks remain broader validation items.
+
+User requested release-note credits: ClarkStacks for the T-key Projectile Info button, S.O.R.O.B for music choice, and testers collectively for easier save-preserving translation updates. Draft notes updated with these credits and the one-time RH-to-EN transfer caveat. Manual seed-to-main-r9 updating already corrected both stale labels and preserved progress/settings/music. r10 clean startup also passed per user. Never uninstall, clear data or reinstall the seed on this S26. Remaining validation includes r11 crash/UI fixes, gameplay music/drums, real multiple-profile/mode saves and other aspect ratios. Runtime extension, EN identity, managed refresh and integrated controls are authorized; historical data-only restrictions do not apply.
+
+Package is `com.LanPiaoPiao.PlantsVsZombiesEN`, separate from prerelease 2 RH. No automatic cross-package save import. Future EN updates retain Android app data and refresh only known metadata overrides and explicitly managed runtime files. For fresh fixture testing only, install the lower-version refresh-seed APK first, create test progress/settings, then install test1 over it without uninstalling. This test has already passed on the current S26; do not reseed it. The Gods Almanac caption changes from STALE TEST Coins to God Coins. Never publish the seed.
+
+Outputs: `C:/Users/plim/Documents/Codex/Projects/Plants-Vs-Zombies-Fusion/releases/4.0.5-English/prerelease-3`. Build evidence: task workspace `work/upgrade405/pre3`. PC pin remains `94b9ec0aecc3cea494c5b2c2883a7cbf14642440`. Dobby source pin `21f07a5ce184cda9346afb8009c07fe7e47390d0`. Only `Dobby-android` is used; earlier experimental Dobby folders in the task workspace are not build inputs. Both original game native libraries remain byte-identical; the added runtime hooks eight feature methods and two IL2CPP initialization exports. Device testing and publication approval remain pending. Do not claim complete Chinese coverage or validated runtime stability from host tests.
+
 
 ## Published 4.0.5 prerelease 2
 

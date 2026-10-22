@@ -9,6 +9,8 @@
 !/docs/**
 !/scripts/
 !/scripts/*.py
+!/runtime/
+!/runtime/**
 !/tests/
 !/tests/*.py
 !/assets/
@@ -20,6 +22,10 @@ assets/*
 !/assets/gods-almanac-ui-4.0.json
 !/assets/gods-almanac-rev3-4.0.json
 !/assets/audio-translation-map-4.0.json
+!/assets/creator-guide-4.0.5.en.json
+!/assets/creator-guide-4.0.5-review.json
+!/assets/creator-guide-ui-4.0.5.json
+!/assets/creator-editor-ui-4.0.5.json
 !/assets/credits-parchment-approved-3.8.1-testing.png
 
 # Never commit proprietary game builds, extracted game data, signing keys,
@@ -54,3 +60,12 @@ il2cpp/
 analysis/
 __pycache__/
 *.pyc
+
+!assets/announcements-4.0.5-review.json
+
+!assets/level-intros-4.0.5.json
+!assets/final-ui-audit-4.0.5.json
+!assets/storybook-4.0.5-review.json
+!assets/parchments-4.0.5-production.json
+!assets/storybook-4.0.5-english.png
+!assets/credits-parchment-4.0.5-english.png

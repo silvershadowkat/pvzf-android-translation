@@ -5,21 +5,15 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 4.0.5; the larger goal is a workflow that can be rerun when the game
 updates.
 
-[Download Android 4.0.5 English prerelease 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-2)
+[Download Android 4.0.5 English prerelease 3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3)
 
-Adds missing English for all 48 tactic-level names/effects, 26 embedded curse/upgrade descriptions, trial eligibility, modifier names and two plant descriptions. Tactic group headings and some other unsupported text remain Chinese.
+Adds runtime English for dynamic screens, save-preserving updates within the new EN app, Original/Blooms music selection, a touch Projectile Info button, expanded editor/Gods text, English diary artwork and the Magic Plantbrush unavailable-message fix.
 
-The maintainer approved the latest local test 3 APK unchanged for publication. Test 2 was installed on the S26 Ultra and reviewed through screenshots; the final five display corrections have automated validation but no additional device test. Structure, formatting, signing, alignment and uploaded checksums passed. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE2.md), [verification details](docs/testing/ANDROID405-PRE2.md), and save instructions below before upgrading.
+The maintainer tested the final candidate on an S26 Ultra and approved publication. The APK is unchanged from the approved local r20 build. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE3.md) and [the final audit](docs/testing/ANDROID405-PRE3-FINAL-AUDIT.md).
 
-Maintainers: source is on `agent/translation-4.0.5-prerelease2`, tagged `v4.0.5-release-2`. The public APK is byte-identical to local prerelease 2 test 3, with only its filename changed. See [the publication build record](docs/testing/ANDROID405-PRE2-RELEASE-BUILD.json). Older workflow examples below are historical.
+Source branch: `agent/translation-4.0.5-prerelease3`; tag: `v4.0.5-release-3`. The app now uses `com.LanPiaoPiao.PlantsVsZombiesEN`. Back up saves before upgrading. Prerelease 2 and Chinese users need the one-time transfer below; existing EN test builds can update in place.
 
-This repository intentionally contains **no APKs, game binaries, extracted
-assets, signing keys, or bundled translation data**. Supply legally obtained
-game files locally and clone the translation project separately.
-
-See the [3.9 Release 9 notes](docs/RELEASE-NOTES-3.9-PRE9.md) for the stable
-baseline and the [4.0 prerelease 2 investigation](docs/testing/ANDROID40-PRE2.md) for current work.
-Save-migration guidance appears below.
+This repository contains source, reviewed translation manifests and approved replacement artwork. It contains no APKs, original game binaries, extracted game bundles or signing keys. Supply game files locally and obtain upstream translation inputs separately.
 
 ## Translation policy
 
@@ -72,21 +66,25 @@ installation. Restoring that directory wholesale can also restore an old
 IL2CPP hot patch, loose translation data, mod files, caches, or other
 version-specific content.
 
-The normal Android data directory is:
+The old Chinese/prerelease 2 data directory is:
 
 ```text
 /storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesRH/files/
 ```
 
-Use this conservative migration procedure:
+The new English destination is `/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesEN/files/`. Keep the old app until transferred saves load correctly.
+
+For this one-time migration:
 
 1. Back up the old `files` directory before uninstalling anything.
-2. Install the English APK using the original package ID. Do not rename it.
+2. Install prerelease 3 with its supplied EN package ID. It can coexist with RH.
 3. Launch once, reach the main menu, then fully close or force-stop the game.
 4. Restore only the save files needed. Never merge the complete old directory
    over the new installation.
 
-Clearing the app cache is not a substitute for this migration. Android cache
+Future EN updates install over the existing EN app and refresh explicitly managed translation files while preserving saves and other data. Back up first, just in case.
+
+Clearing the app cache is not a substitute for the initial migration. Android cache
 cleanup targets temporary cache storage, while this game stores its writable
 IL2CPP override under the persistent external `files/` directory. Do not use
 **Clear storage/data**, which deletes app data.

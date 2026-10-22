@@ -1,7 +1,10 @@
 # Release safety notes
 
-Current release: [Android 4.0 English prerelease 2](RELEASE-NOTES-4.0-PRE2.md). Use [the prerelease 2 investigation](testing/ANDROID40-PRE2.md), [rev 3 translation review](testing/ANDROID40-PRE2-REV3.md), and [release build record](testing/ANDROID40-PRE2-RELEASE-BUILD.json) for current work. The version-specific examples below are historical. The current APK changes exactly three payloads: Unity text/assets, metadata, and the audio resource. All executable code, permissions, and save logic remain official Android 4.0.
+Current release: [Android 4.0.5 English prerelease 3](RELEASE-NOTES-4.0.5-PRE3.md). See [the final audit](testing/ANDROID405-PRE3-FINAL-AUDIT.md). This version adds an Android runtime, changes the package to EN, and retains the original game native libraries unchanged. It is no longer a data-only translation patch. Use the exact prerelease 3 changed-entry inventory and signature record when auditing it.
 
+Back up saves first. RH to EN requires a one-time manual save transfer; subsequent EN updates install in place. Do not uninstall or clear EN data for normal updates. See the release notes for both paths.
+
+The remaining sections describe historical releases and their original audit gates, not the current package identity or update procedure.
 
 ## What the release audit establishes
 

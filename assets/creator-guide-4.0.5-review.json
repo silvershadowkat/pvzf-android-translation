@@ -1,0 +1,95 @@
+{
+  "source_canonical_sha256": "f34c772b4f169381401fd85d2153ee560a4a9261f4a7957c9e5fdf5ab38e1f7a",
+  "pc_terminology_commit": "c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640",
+  "reviewed_numeric_text_differences": [
+    [
+      133,
+      "warning",
+      [
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ],
+    [
+      134,
+      "warning",
+      [
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ],
+    [
+      141,
+      "example",
+      [
+        "25"
+      ],
+      []
+    ],
+    [
+      143,
+      "example",
+      [
+        "25"
+      ],
+      []
+    ],
+    [
+      144,
+      "purpose",
+      [
+        "0"
+      ],
+      []
+    ],
+    [
+      144,
+      "usage",
+      [
+        "0"
+      ],
+      []
+    ],
+    [
+      222,
+      "example",
+      [
+        "1",
+        "1"
+      ],
+      []
+    ],
+    [
+      224,
+      "example",
+      [
+        "1"
+      ],
+      []
+    ]
+  ],
+  "numeric_review_notes": [
+    "133/134: greater than 0 expressed as positive; no mathematical change",
+    "141/143: replace unrelated string-to-integer example with enum round-trip; do not tell players to use translated enum names",
+    "144: zero-based instead of from 0",
+    "222/224: Marker1 preserves the binding example; digit matcher excludes digits after Latin letters"
+  ],
+  "clarifications": [
+    "98/115/139: explicit Float/Integer conversion so example ports match",
+    "Typed list get/find: original repeats Integer-get/String-find examples; label them as examples of those types and specify the current node type",
+    "Topic 9: list copies share scene objects, confirmed by node183",
+    "Keyboard/mouse instructions are labeled desktop controls; no touchscreen gesture invented",
+    "Modifier lookup example uses original internal name instead of assuming English titles are parsed",
+    "Separate special-enhancement flag is not conflated with Stellar; retain its source label"
+  ]
+}

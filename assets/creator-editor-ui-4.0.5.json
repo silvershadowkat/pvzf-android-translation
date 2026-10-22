@@ -1,0 +1,370 @@
+{
+  "revision": "4.0.5-r15",
+  "entries": [
+    {
+      "metadata_index": 1648,
+      "source": "<b>右侧输出：可以拿来做什么</b>",
+      "english": "<b>Outputs: what they provide</b>"
+    },
+    {
+      "metadata_index": 1650,
+      "source": "<b>容易弄错的地方</b>\n",
+      "english": "<b>Common Mistakes</b>\n"
+    },
+    {
+      "metadata_index": 1651,
+      "source": "<b>左侧输入：需要接什么</b>",
+      "english": "<b>Inputs: what to connect</b>"
+    },
+    {
+      "metadata_index": 1652,
+      "source": "<b>怎么使用</b>\n",
+      "english": "<b>How to Use</b>\n"
+    },
+    {
+      "metadata_index": 1653,
+      "source": "<b>照着连接</b>\n",
+      "english": "<b>Connection Example</b>\n"
+    },
+    {
+      "metadata_index": 1654,
+      "source": "<b>用来做什么</b>\n",
+      "english": "<b>Purpose</b>\n"
+    },
+    {
+      "metadata_index": 1655,
+      "source": "<b>试玩验证</b>\n保存并生成关卡后再进入关卡。先只测试这一条规则，确认触发时机、执行次数与目标，再连接其他规则。\n",
+      "english": "<b>Test the Rule</b>\nPress Save Level, then enter the level. Test this rule on its own first. Check when it triggers, how often it runs, and its target before connecting other rules.\n"
+    },
+    {
+      "metadata_index": 16075,
+      "source": "从相同类型的输出口连到输入口。带触发输入的节点需要执行连线才能工作。只有数据连线不会执行动作。",
+      "english": "Connect an output to an input of the same type. Nodes with a Trigger input also need an execution connection. Data connections alone do not run actions."
+    },
+    {
+      "metadata_index": 16213,
+      "source": "保存选中节点为模板",
+      "english": "Save Selected Nodes as Template"
+    },
+    {
+      "metadata_index": 16373,
+      "source": "关卡包含无法恢复的事件节点，已阻止覆盖原文件",
+      "english": "The level contains event nodes that cannot be restored. Overwriting the original file has been blocked."
+    },
+    {
+      "metadata_index": 16464,
+      "source": "分类节点列表",
+      "english": "Nodes by Category"
+    },
+    {
+      "metadata_index": 16484,
+      "source": "列表为空，点击上方“添加一项”填写默认值。",
+      "english": "The list is empty. Press Add Item above to enter default values."
+    },
+    {
+      "metadata_index": 16676,
+      "source": "只有走到这个结果分支才发出执行信号，连到后续动作的触发输入。",
+      "english": "Sends an execution signal only when this result branch is reached. Connect it to the next action's Trigger input."
+    },
+    {
+      "metadata_index": 16691,
+      "source": "可带小数的数值，例如0.5、5。整数口需要先经“整数转浮点数”；具体单位见用法和注意事项。",
+      "english": "A number that can include decimals, such as 0.5 or 5. Convert Integer outputs with Integer to Float first. See the usage and warnings for units."
+    },
+    {
+      "metadata_index": 16713,
+      "source": "同一数据输入有多个来源，旧节点只读取第一个",
+      "english": "This data input has multiple sources. Legacy nodes read only the first."
+    },
+    {
+      "metadata_index": 16772,
+      "source": "图中有无法恢复的节点，请保留原关卡文件，不要覆盖保存",
+      "english": "Some nodes cannot be restored. Keep the original level file and do not overwrite it."
+    },
+    {
+      "metadata_index": 16774,
+      "source": "图检查（点击问题定位节点）",
+      "english": "Connection Check (select an issue to locate its node)"
+    },
+    {
+      "metadata_index": 16974,
+      "source": "存在空连线",
+      "english": "A connection is empty."
+    },
+    {
+      "metadata_index": 16975,
+      "source": "存在重复连线；旧图保留原来的重复执行语义",
+      "english": "Duplicate connections found. Legacy graphs retain their original repeated-execution behavior."
+    },
+    {
+      "metadata_index": 17204,
+      "source": "已连接：由上游提供",
+      "english": "Connected: supplied by the upstream node"
+    },
+    {
+      "metadata_index": 17366,
+      "source": "当前未连接触发信号。",
+      "english": "No execution signal is connected."
+    },
+    {
+      "metadata_index": 17513,
+      "source": "执行信号",
+      "english": "Execution Signal"
+    },
+    {
+      "metadata_index": 17582,
+      "source": "接事件或动作的执行出口。收到信号后才执行。",
+      "english": "Connect an event or action's execution output. Runs only when it receives a signal."
+    },
+    {
+      "metadata_index": 17670,
+      "source": "整数，例如1、25。可连接整数常量、计数器或整数运算结果。",
+      "english": "An integer, such as 1 or 25. Connect an Integer constant, counter, or Integer calculation result."
+    },
+    {
+      "metadata_index": 17729,
+      "source": "无匹配节点",
+      "english": "No matching nodes"
+    },
+    {
+      "metadata_index": 18024,
+      "source": "检查通过：节点、端口、变量、默认值和同步循环均未发现问题。",
+      "english": "Check passed: no issues found with nodes, ports, variables, default values, or synchronous loops."
+    },
+    {
+      "metadata_index": 18080,
+      "source": "模板包含无法恢复的节点",
+      "english": "The template contains nodes that cannot be restored."
+    },
+    {
+      "metadata_index": 18081,
+      "source": "模板名称为空或含有无效文件名字符",
+      "english": "The template name is empty or contains invalid filename characters."
+    },
+    {
+      "metadata_index": 18082,
+      "source": "模板已保存，变量会在每次插入时独立复制",
+      "english": "Template saved. Each insertion creates independent copies of its variables."
+    },
+    {
+      "metadata_index": 18245,
+      "source": "没有可连接的节点",
+      "english": "No nodes available to connect"
+    },
+    {
+      "metadata_index": 18264,
+      "source": "没有输入口。事件节点会在对应事件发生时触发；常量节点在取值时提供数据。",
+      "english": "No input ports. Event nodes trigger when their event occurs; constant nodes provide data when read."
+    },
+    {
+      "metadata_index": 18331,
+      "source": "清场后三选一奖励",
+      "english": "Choose 1 of 3 Rewards After Clearing Enemies"
+    },
+    {
+      "metadata_index": 18560,
+      "source": "真假条件：true表示是，false表示否。可接比较结果或布尔值节点。",
+      "english": "A true/false condition: true means yes, false means no. Connect a comparison result or Boolean node."
+    },
+    {
+      "metadata_index": 18676,
+      "source": "第5波显示提示",
+      "english": "Show Message on Wave 5"
+    },
+    {
+      "metadata_index": 18732,
+      "source": "索引从0开始；数字或枚举名均可输入。对象初值填写本局的对象绑定名。",
+      "english": "Indices start at 0. Enter a number or enum name. For an object's initial value, enter its binding name in this run."
+    },
+    {
+      "metadata_index": 18854,
+      "source": "节点ID为空或重复",
+      "english": "A node ID is empty or duplicated."
+    },
+    {
+      "metadata_index": 18857,
+      "source": "节点不存在",
+      "english": "The node does not exist."
+    },
+    {
+      "metadata_index": 18858,
+      "source": "节点不属于当前运行图",
+      "english": "The node does not belong to the current running graph."
+    },
+    {
+      "metadata_index": 18859,
+      "source": "节点分类",
+      "english": "Node Categories"
+    },
+    {
+      "metadata_index": 18889,
+      "source": "草稿包含无法恢复的节点",
+      "english": "The draft contains nodes that cannot be restored."
+    },
+    {
+      "metadata_index": 19100,
+      "source": "该连线会产生同步循环",
+      "english": "This connection would create a synchronous loop."
+    },
+    {
+      "metadata_index": 19110,
+      "source": "请先断开该输入的连线",
+      "english": "Disconnect this input first."
+    },
+    {
+      "metadata_index": 19114,
+      "source": "请先选中要复用的节点；仅保存内部连线",
+      "english": "Select the nodes to reuse first. Only connections between the selected nodes are saved."
+    },
+    {
+      "metadata_index": 19400,
+      "source": "这两个端口已经连接",
+      "english": "These ports are already connected."
+    },
+    {
+      "metadata_index": 19405,
+      "source": "这份说明对应选中的节点。\n\n向下滚动查看：\n\n用途与操作\n输入输出\n当前连接与填写值\n连接例子\n常见错误",
+      "english": "Help for the selected node.\n\nScroll down for:\n\nPurpose and usage\nInputs and outputs\nCurrent connections and values\nConnection examples\nCommon mistakes"
+    },
+    {
+      "metadata_index": 19407,
+      "source": "这是一个列表，可能为空；需要逐个处理时接相应的遍历节点。",
+      "english": "A list, which may be empty. Connect the matching For Each node to process its items individually."
+    },
+    {
+      "metadata_index": 19408,
+      "source": "这是场上的具体对象，与植物/僵尸种类不同。可连接创建、事件或查询节点；对象可能为空或已死亡。",
+      "english": "A specific object on the field, not a plant or zombie type. Connect a creation, event, or query node. The object may be null or already dead."
+    },
+    {
+      "metadata_index": 19410,
+      "source": "这栏怎么用",
+      "english": "Toolbar Help"
+    },
+    {
+      "metadata_index": 19436,
+      "source": "连接“奖励选择”分类的选项或菜单节点；不能连接普通物品对象。",
+      "english": "Connect an option or menu node from Reward Choices. Ordinary item objects cannot be connected here."
+    },
+    {
+      "metadata_index": 19437,
+      "source": "连接变量引用或设置变量的变量出口；需要数字/真假时，先经过“获取变量值”节点。",
+      "english": "Connect a variable reference or the variable output of a Set Variable node. To read a number or true/false value, use the matching Get Variable Value node first."
+    },
+    {
+      "metadata_index": 19440,
+      "source": "连接相同类型的输入口。",
+      "english": "Connect an input port of the same type."
+    },
+    {
+      "metadata_index": 19441,
+      "source": "连接相同类型的输出口。",
+      "english": "Connect an output port of the same type."
+    },
+    {
+      "metadata_index": 19443,
+      "source": "连线两端的类型不一致",
+      "english": "The types at the two ends of the connection do not match."
+    },
+    {
+      "metadata_index": 19444,
+      "source": "连线引用的端口不存在，可能来自不同版本",
+      "english": "A port referenced by this connection does not exist. It may come from a different game version."
+    },
+    {
+      "metadata_index": 19445,
+      "source": "连线引用的节点不存在",
+      "english": "A node referenced by this connection does not exist."
+    },
+    {
+      "metadata_index": 1649,
+      "source": "<b>填写数值</b>\n节点本身的文本框和下拉框可以直接编辑。未连接的基础输入，可选中节点后点“填写输入值”。连线值优先；清除填写值后沿用节点原设置。\n",
+      "english": "<b>Entering values</b>\nEdit the node's text boxes and dropdowns directly. For unconnected basic inputs, select the node and press Enter Input Values. Connected values take priority. Clearing a manual value restores the node's original setting.\n"
+    },
+    {
+      "metadata_index": 51,
+      "source": "\n\n点击上方“节点说明”查看端口与连接例子。",
+      "english": "\n\nPress Node Help above for ports and connection examples."
+    },
+    {
+      "metadata_index": 45,
+      "source": "\n\n<b>怎么用</b>\n",
+      "english": "\n\n<b>How to Use</b>\n"
+    },
+    {
+      "metadata_index": 17107,
+      "source": "小数",
+      "english": "Float"
+    },
+    {
+      "metadata_index": 17179,
+      "source": "已显示",
+      "english": "Shown"
+    },
+    {
+      "metadata_index": 17210,
+      "source": "已隐藏",
+      "english": "Hidden"
+    },
+    {
+      "metadata_index": 17211,
+      "source": "布尔",
+      "english": "Boolean"
+    },
+    {
+      "metadata_index": 17760,
+      "source": "旧关卡保持原设置即可。这里决定等待后读取哪次事件的数据。",
+      "english": "Keep the original setting for older levels. This controls which event data is read after a wait."
+    }
+  ],
+  "regex": [
+    [
+      "^事件规则工具\\s*·\\s*(.+)$",
+      "Event Rule Tools · {0}"
+    ],
+    [
+      "^(节点详情|关卡变量|Node Details|Level Variables)\\s*已显示$",
+      "{0} (Shown)"
+    ],
+    [
+      "^(节点详情|关卡变量|Node Details|Level Variables)\\s*已隐藏$",
+      "{0} (Hidden)"
+    ],
+    [
+      "^([0-9]+)\\s*个变量$",
+      "Variables: {0}"
+    ],
+    [
+      "^我的模板 ([0-9]+)/([0-9]+) 页$",
+      "My Templates: {0}/{1}"
+    ],
+    [
+      "^当前连接：\\s*(.+?) → (.+)$",
+      "Connected: {0} → {1}"
+    ],
+    [
+      "^当前填写：\\s*(.+)$",
+      "Entered value: {0}"
+    ],
+    [
+      "^(.+?)\\s*（(执行信号|小数|整数|布尔|字符串)）$",
+      "{0} ({1})"
+    ],
+    [
+      "^模板检查未通过：\\s*(.+)$",
+      "Template check failed: {0}"
+    ],
+    [
+      "^模板读取失败，原文件保留：\\s*(.+)$",
+      "Could not read template; original file retained: {0}"
+    ],
+    [
+      "^输入默认值无效：\\s*(.+)$",
+      "Invalid input default: {0}"
+    ],
+    [
+      "^(<size=20>)?排查时可使用节点编号：\\s*([0-9a-fA-F-]+)(</size>)?$",
+      "{0}Node ID for troubleshooting: {1}{2}"
+    ]
+  ]
+}

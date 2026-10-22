@@ -1,0 +1,23 @@
+{
+  "source": "Original Android 4.0.5 resources.assets Texture2D 432 剧情文本",
+  "pc_reference": "PC pin c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640 has blank diary pages, no usable English prose",
+  "translation": "Context Aware AI translation of all four visible Chinese diary pages, checked against the source; verified Sword-shroom and Shield-shroom from PC LawnStringsTranslate.json; Yelena is transliteration of 叶莲娜; narrative iron penguins kept generic",
+  "pages": [
+    {
+      "position": "top left",
+      "english": "Sword and shield work in perfect harmony.\nThe shield holds the line and bears the onslaught;\nthe blade waits behind it for a chance to strike.\nOne defends, one advances. Each relies on the other.\nI thought only we fought this way, but some plants\nunderstand it just as well.\nYelena calls them Sword-shroom and Shield-shroom.\nI would have called them the blade that breaks\nthe line and the shield that stands guard.\nThere is a strange bond between these mushrooms.\nThey share an origin, can fuse with each other,\nand can change from one form to the other.\nAlternating forms pushes their power to its limits.\nI have to admit, they are impressive.\nFortunately, we are friends now."
+    },
+    {
+      "position": "top right",
+      "english": "We have reached the depths of the snowfield.\nWhile travelling, I felt something strange underfoot.\nBrushing aside the snow revealed some small\nmushrooms hiding beneath it.\nThey seem quite fond of me. Had they not reached\nout and wound their roots around me, we would\nnever have noticed them.\nLater, we encountered some iron penguins.\nBefore we could act, those gentle mushrooms\nstruck first. Their sharp roots easily pierced\nthe metal shells.\nYelena was upset that she had not spotted the\nmushrooms herself. I understand how she feels.\nHad they been hostile, we would have paid\nfor that oversight today."
+    },
+    {
+      "position": "bottom left",
+      "english": "Our mission is to find and retrieve the source\nof an unknown signal in this snowfield.\nSo far, it seems like a fuss over nothing.\nApart from the unexplained endless night,\nthere is only strange scrap metal all around.\nWe cannot make sense of this technology.\nLuckily, Yelena can. She always knows everything.\nI only care for flowers and plants.\nSadly, they rarely return the affection.\nBut the local plants surprised me today.\nPerhaps they failed to notice I am a zombie,\nand were happy to live alongside me.\nOr perhaps, in a land that has lost the daylight,\neven zombies seem a little less unwelcome.\nI never would have imagined that one day,\nwe too would miss the sun."
+    },
+    {
+      "position": "bottom right",
+      "english": "Yelena values every chance to keep our\nteammates from getting hurt.\nIt took a good deal of persuasion to get the\nsquad to accept the plants travelling with us.\nTo be precise, everyone fell in love with\nthat green mushroom.\nWho knew mushrooms understood swordplay?\nWith their help, we destroyed those machines\nthat glowed green.\n\nThose big, rather dim-looking birds deserve\na mention, too. They seemed gentle and harmless,\nuntil someone threw a snowball at one.\nTheir tails store sunlight. Could that mean\nthis snowfield was not always a place\nof endless night?"
+    }
+  ]
+}

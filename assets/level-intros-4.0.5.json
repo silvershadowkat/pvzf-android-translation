@@ -1,0 +1,21 @@
+{
+  "revision": "4.0.5-r19",
+  "entries": [
+    {
+      "index": 18747,
+      "source": "经典塔防：泳池",
+      "english": "ZombiesTD Classic: Pool"
+    },
+    {
+      "index": 18748,
+      "source": "经典塔防：白天",
+      "english": "ZombiesTD Classic: Day"
+    },
+    {
+      "index": 18749,
+      "source": "经典塔防：进化",
+      "english": "ZombiesTD Classic: Evolved"
+    }
+  ],
+  "provenance": "Context Aware English using PC ZombiesTD and Evolved terminology; PC regex only covers the title prefix. Complete display-only titles, no level IDs changed."
+}

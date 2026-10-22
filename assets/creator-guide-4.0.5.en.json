@@ -1,0 +1,1737 @@
+{
+  "topics": [
+    {
+      "title": "Your First Level",
+      "body": "<b>Make a playable normal level before adding special rules.</b>\n\n1. In Basic Settings, enter the level name and ID, choose a map, and set starting Sun and total waves. The wave count currently accepts 10 to 100; start with 10 waves.\n2. Use Choose Zombies to select the zombies that may appear. Then use the per-wave spawn page to place fixed enemies in particular waves.\n3. In Seed Settings, configure the player's available plants and slots. After editing costs or cooldowns, press that page's Save Changes button.\n4. Set the victory conditions. For your first level, use normal victory and keep special modes to a minimum.\n5. Press Save Level at the bottom, then Start Game. Check that planting, spawning and ending the level work.\n6. Once the basic level works, use Level Event to add messages, timed Sun and reward choices.\n\n<b>Event nodes are optional</b>\nA normal level does not need nodes. Add event rules when you need to specify when something happens and what it does.\n\n<b>First practice exercise</b>\nIn Level Event, press Add Rule Template and choose Sun Every 5 Seconds. Select a node to read its help and change the amount, then save and playtest."
+    },
+    {
+      "title": "Maps, Rules and Victory",
+      "body": "<b>The map sets the playing field; the rules set the gameplay.</b>\n\nBasic Settings: level name, ID, map, starting Sun and total waves.\nGamemode Settings: disable normal spawning, falling Sun or lawn mowers; enable special modes such as Conveyor Belt, It's Raining Seeds or I, Zombie.\nVictory Conditions: choose normal victory or I, Zombie victory.\n\n<b>Advice for a first level</b>\nStart by adjusting only starting Sun and zombie spawns. Playtest after each mode toggle to see which setting changes the gameplay.\nDisabling normal spawning stops the usual waves. If you enable this option, provide another way to spawn enemies. Check this setting first if no enemies appear.\nAvoid enabling many modes at once for your first level. The editor does not automatically ensure that every combination works together.\n\n<b>Victory and defeat nodes</b>\nSpecial objectives can use Trigger Victory or Trigger Game Over to end the level. Trigger them only when the objective actually succeeds or fails. Use the existing victory and defeat rules for a normal level."
+    },
+    {
+      "title": "Cards and Spawns",
+      "body": "<b>Seed Settings</b>\nConfigure preselected cards, the number of slots, and any cost or cooldown overrides. Press the page's Save Changes button before saving the whole level. Text still waiting to be submitted is not yet saved.\n\n<b>Two kinds of spawn settings</b>\nChoose Zombies selects the types available for random spawning.\nThe per-wave spawn page places fixed zombies in specified waves and rows.\nThese serve different purposes. If unexpected enemies appear, check the random selection, per-wave list and event-generated spawns.\n\n<b>Timing and waves</b>\nAdjust first-wave timing and wave intervals in Gamemode Settings. On Wave Progress fires whenever the wave count changes. To restrict an action to wave 5, compare the wave count with 5.\n\n<b>Watch the coordinates</b>\nThe fixed-spawn editor uses player-facing row numbers. Event nodes count rows and columns from 0. In nodes, the first row is 0 and the second is 1; do not copy the displayed row number directly."
+    },
+    {
+      "title": "Plants and Special Rules",
+      "body": "<b>Preset plants and vases</b>\nEnter battlefield setup and place plants or vases. Leaving setup copies the layout back to the current menu draft. You must still return to the menu and press Save Level.\nPreset plants are placed before the event graph starts listening, so On Planting does not fire retroactively for them. To process them all, use On Level Start → Get all Plants on Lawn → Iterate Plant List.\n\n<b>Planting rules still apply</b>\nWater, roofs, supporting plants and occupied spaces affect spawning. Spawn Plant uses normal planting rules by default. Connect a message to its failure output if needed. Use Force Plant only when the gameplay specifically requires bypassing some planting checks.\n\n<b>Special settings</b>\nSubmit the current edits when configuring The Gods evolution paths and stages. The random-attribute page sets variation ranges. Confirm that the normal level works before enabling these features one at a time.\nBefore entering battlefield setup, submit any page settings that require a separate Save Changes action."
+    },
+    {
+      "title": "Connecting Nodes",
+      "body": "<b>A rule = when it happens → what to check → what to do</b>\n\nExample: show a message at the start of wave 5.\nOn Wave Progress → Condition Branch → Show Text is the execution path.\nWave Count → Compare Integer (equal to 5) → the branch's Condition supplies the data for that check.\n\n<b>Two kinds of connection</b>\nExecution signals: connect an event's Trigger output to an action's Trigger input. Without this, an action usually does not run.\nData: carries numbers, text, plant objects and other values. A data connection alone does not start an action.\nDrag from an output on the right to an input on the left. Types must match; use conversion nodes between Integer and Float.\n\n<b>Entering input values</b>\nSelect the node and press Enter Input Values at the top. For example, enter 5 for a wait or 25 for Sun Amount without adding constant nodes.\nConnected inputs take their values from upstream nodes. Disconnect an input before using its manually entered value.\n\n<b>Common distinctions</b>\nA plant type, such as Peashooter, means which kind. A plant object means one particular plant on the lawn.\nA variable port refers to shared storage. Use a read node such as Get Integer when you need its value.\nNode rows and columns start at 0. Wait durations are in seconds.\n\n<b>Canvas controls (mouse and keyboard)</b>\nRight-click: create nodes. Left-click: select. Middle-drag on empty space: pan. Mouse wheel: zoom. Delete: delete. Ctrl+C/V: copy/paste. Ctrl+Z/Y: undo/redo.\nMiddle-clicking a node deletes its connections, so start panning on empty space.\nThese are the editor's documented desktop controls; equivalent touchscreen gestures are not specified here.\nSelect a node and press Node Help to see its ports and examples."
+    },
+    {
+      "title": "Timed Sun Tutorial",
+      "body": "<b>Goal: gain 25 Sun every 5 seconds after the level officially starts.</b>\n\nMethod 1: Level Event → Add Rule Template → Sun Every 5 Seconds. The editor connects the nodes and brings them into view.\n\nMethod 2: build the rule manually.\n1. Right-click to add On Level Official Start, Periodic Cycle and Gain Sun.\n2. Connect the start event's Trigger output to Periodic Cycle's Trigger input.\n3. Connect Cycle Event to Gain Sun's Trigger input.\n4. Select Periodic Cycle, press Enter Input Values, and set Interval to 5.\n5. Select Gain Sun and set Sun Amount to 25 in the same way.\n6. Press Check Connections, then Save Level, and start the game.\n\n<b>Expected result</b>\nTiming starts after Ready, Set, Plant. The first Sun arrives 5 seconds later, then every 5 seconds. Pausing the game also pauses the timer.\n\n<b>If it does not work</b>\nNothing happens: check the execution connections and whether the game is still paused.\nIt happens only once: did you connect On Toggle On instead of Cycle Event?\nIt suddenly stops: triggering the same cycle node again turns it off. Changing gameplay stage under the new behavior also stops cycles from the previous stage."
+    },
+    {
+      "title": "Using the Toolbar",
+      "body": "<b>The top toolbar contains Event Rule Tools.</b>\nThese tools help you build, edit and check rules. They do not add gameplay effects by themselves.\n\n<b>Common tools</b>\nAdd Rule Template: insert a connected rule, then customize it.\nNode Help: select a node to read its purpose, ports and connection examples.\nEnter Input Values: fill unconnected inputs such as wait durations or Sun amounts.\nCheck Connections: look for missing nodes, type mismatches and cycles. A successful check does not replace playtesting.\nUndo/Redo: restore recent node edits; up to 40 edit records are kept.\n\n<b>More Tools</b>\nView All Nodes: find nodes dragged off-screen.\nExecution Log: enable recording, playtest, then return to see which nodes ran.\nSave/Restore Node Draft: save only the event graph, not the whole level.\nLegacy Compatibility: choose whether delayed actions use the original trigger's data or the latest event data. Existing levels can keep their current setting.\n\n<b>The two panels on the left</b>\nNode Details and Level Variables can be shown or hidden without losing their contents.\nNode Details shows the selected node's purpose. Scroll to read long descriptions. Enter a node ID at the bottom and press Enter to locate it.\nIn Level Variables, use + Integer / + Float / + Boolean / + String / + List. Select an item to edit its name and initial value in Node Details. Drag it onto the canvas to create a variable reference. Float means a decimal number; Boolean means true or false.\nDragging the same variable more than once still shares its value. Deleting a variable also deletes its reference nodes. Select a group to rename it in the details panel.\n\n<b>Suggested workflow</b>\nAdd template → read node help → enter values → check connections → Save Level at the bottom → playtest."
+    },
+    {
+      "title": "Save, Test and Troubleshoot",
+      "body": "<b>Three different save actions</b>\nSave Changes on a settings page submits local edits such as cards or evolution paths.\nSave Node Draft backs up the event graph so you can restore node edits.\nSave Level at the bottom exports the complete level, including the event graph and all submitted settings.\n\n<b>Playtest checklist</b>\nCan you choose cards, plant and spawn zombies normally? Do waves advance? Can victory and defeat occur?\nDo events fire at the intended time? Are one-time rewards repeated? Does a delayed action handle a plant that dies while it waits?\nExit and re-enter the level to check that counters, objectives and rewards do not retain state from the previous run.\n\n<b>If rules do not run</b>\nPress Check Connections and check both data and execution connections. Open More Tools → Execution Log → Start Recording, then playtest.\nIf an event is recorded but no action follows, check branch conditions. If no event is recorded, check its trigger conditions; preset plants do not retroactively fire planting events.\nIf a wave-clear reward never appears, check that the mode uses normal wave spawning. Special spawn modes may not send the completion event needed to detect a cleared wave.\n\n<b>File protection</b>\nLevel files that fail to load are retained. Saving a replacement keeps a backup of the previous version. Do not delete the original file to solve an unfamiliar node problem."
+    },
+    {
+      "title": "What's New",
+      "body": "<b>New tools for level creators</b>\n\n1. Insert Wave 5 Message, Sun Every 5 Seconds or Choose 1 of 3 After Wave Clear templates instead of rebuilding common rules.\n2. Organize combat and rewards with stage nodes. Use Do Once to prevent repeated rewards.\n3. Give a target a name such as \"Boss\" and find it elsewhere. Listen for fusions or boss HP thresholds, or query a particular plant layer in a cell.\n4. Use dedicated reward-choice nodes for choice menus, reducing accidental connections between option lists and ordinary item objects.\n5. Undo edits, enter input values, check connections, inspect execution logs and save node drafts.\n\n<b>Fixes to existing behavior</b>\nFixes include stale connections after rewiring, incomplete deletion of copied variables, errors from some unconnected multiplier inputs, and waits or callbacks surviving after leaving a level.\n\n<b>Existing levels</b>\nExisting nodes and connections are retained, and their data-reading behavior is unchanged by default. New rules can retain each event's trigger data so successive clicks do not overwrite one another.\n\n<b>Interface additions</b>\nThe right-click menu stays on top. Common actions are separated from More Tools. Creator Guide opens from any settings page. Node Help includes port descriptions, examples and warnings.\nThese are editing tools. Add and connect the corresponding rules to produce effects in your level."
+    },
+    {
+      "title": "Strings, Lists and Objects",
+      "body": "Level Variables now includes + String and + List. Strings can be read, written and converted. Edit a list's initial values in Node Details. Lists support Integer, Float, Boolean, String, Plant Type, Zombie Type and Object elements, with 8 items per page and a maximum of 512. Indices start at 0.\n\nUse append, insert, replace, get and find nodes that match the list's type. Find returns both the first matching index and whether the value exists; no match returns -1. Removing an item shifts later items forward. Copying makes an independent list of values, so later edits do not change the original list. Object elements still refer to the same scene objects; copying a list does not clone them.\n\nObject binding assigns a lookup name to a scene object. String reference tokens are valid only for the current run and are not written into saves. Event objects are visual markers and do not occupy plant cells. Destroy Event Object can delete only markers created by this graph. Create or remove plants and zombies through their dedicated nodes."
+    },
+    {
+      "title": "Combat Rule Limits",
+      "body": "Gamemode Settings adds Lose on House Entry, enabled by default. Existing levels keep their original behavior. Disable it to determine victory or defeat through events; other failure conditions, such as losing a protected target, still apply.\n\nIn the cards' advanced mode, Full Stats edits HP, damage, intervals, armor and other values for the current level only. You must still save the whole level.\n\nZombie spawn and movement nodes add Column (Float). For example, 2.5 lies between the third and fourth columns. Leaving it unset uses the existing integer port.\n\nWait Until and Repeat Until recheck their condition at intervals, defaulting to 0.1 seconds. They do not run an endless loop within one frame. Changing stages or leaving the level cancels them.\n\nMap changes support only day/night variants within the same terrain group. They do not rebuild occupied cells or change game speed. Incompatible terrain uses the failure output and provides a reason.\n\nProjectiles use the game's object pool. Modification nodes require dedicated projectile references, which expire when the projectile is recycled. An expired reference cannot be used for the next projectile. A single frame can create at most 128 event objects or projectiles. Limits are 256 event objects and 1024 event projectiles.\n\nRemoving an Odyssey Modifier removes ownership and stops subsequent ongoing effects. Resources already awarded and permanent stat changes are not rolled back."
+    }
+  ],
+  "nodes": [
+    {
+      "type": "OnBoardStartNode",
+      "purpose": "Runs initialization rules when the board is ready.",
+      "usage": "Connect Trigger to initialization actions. Preset plants have already been placed at this point.",
+      "example": "On Level Start → Show Text; enter a welcome message.",
+      "warning": "This happens before the opening sequence finishes. Use On Level Official Start to time actions from the start of combat."
+    },
+    {
+      "type": "OnGameStartNode",
+      "purpose": "Runs rules after the level officially starts.",
+      "usage": "Connect Trigger to a cycle, message or initial reward.",
+      "example": "On Level Official Start → Periodic Cycle → Gain Sun.",
+      "warning": "This also fires if the opening is skipped. A cycle first runs after one full interval."
+    },
+    {
+      "type": "WaveEventNode",
+      "purpose": "Fires whenever the wave count increases and supplies the current wave number.",
+      "usage": "Connect Trigger to an action or branch, and Wave Count to Compare Integer.",
+      "example": "Connect Wave Count to Value A, enter 5 for Value B, connect Equal to to the branch's Condition, and its true output to Show Text.",
+      "warning": "Fires for every wave; it does not filter for a particular wave by itself."
+    },
+    {
+      "type": "OnMouseClickNode",
+      "purpose": "Reads the clicked cell, held item and whether the click used the left or right button.",
+      "usage": "Use the execution output to start the rule and row/column outputs for spawn or query nodes.",
+      "example": "Click event → Condition Branch; connect Is Left Click to Condition and show a message from the true output.",
+      "warning": "Either mouse button can trigger this. Rows and columns start at 0. Legacy levels read the most recent click after a delay."
+    },
+    {
+      "type": "OnKeyPressNode",
+      "purpose": "Runs rules when a specified key is pressed.",
+      "usage": "Record a key in the node first, then connect its Trigger output.",
+      "example": "Choose a key → Show Text for an interactive in-level prompt.",
+      "warning": "Does not fire until a key is assigned. Avoid conflicts with existing hotkeys. This is a keyboard event, not a new touchscreen button."
+    },
+    {
+      "type": "OnPlantCreateNode",
+      "purpose": "Fires when a plant is planted and supplies that plant.",
+      "usage": "Use Trigger to start actions and the plant output to read or affect the target.",
+      "example": "Event Trigger → Gain Sun, amount 25. To restrict the type, first use Break Plant Property and Compare Plant Type.",
+      "warning": "Does not fire retroactively for preset plants already present at the start."
+    },
+    {
+      "type": "OnPlantClickNode",
+      "purpose": "Fires when the player clicks a plant and supplies that plant.",
+      "usage": "Use Trigger to start actions and the plant output to read or affect the target.",
+      "example": "Event Trigger → Gain Sun, amount 25. To restrict the type, first use Break Plant Property and Compare Plant Type.",
+      "warning": "Different from the mouse event for clicking an empty cell."
+    },
+    {
+      "type": "OnPlantDieNode",
+      "purpose": "Fires when a plant's HP reaches zero and supplies that plant.",
+      "usage": "Use Trigger to start actions and the plant output to read or affect the target.",
+      "example": "Event Trigger → Gain Sun, amount 25. To restrict the type, first use Break Plant Property and Compare Plant Type.",
+      "warning": "Does not cover every removal or death cause, such as fusion or deliberate removal."
+    },
+    {
+      "type": "OnPlantDeathCompleteNode",
+      "purpose": "Fires when a plant finishes its death handling and supplies that plant.",
+      "usage": "Use Trigger to start actions and the plant output to read or affect the target.",
+      "example": "Event Trigger → Gain Sun, amount 25. To restrict the type, first use Break Plant Property and Compare Plant Type.",
+      "warning": "The object may then be destroyed. Check that it still exists after a wait. Cause of Death is an integer output."
+    },
+    {
+      "type": "OnPlantMixedNode",
+      "purpose": "Fires when a plant finishes fusing and supplies that plant.",
+      "usage": "Use Trigger to start actions and the plant output to read or affect the target.",
+      "example": "Event Trigger → Gain Sun, amount 25. To restrict the type, first use Break Plant Property and Compare Plant Type.",
+      "warning": "Listens only for fusion; ordinary planting does not trigger it."
+    },
+    {
+      "type": "OnZombieSpawnNode",
+      "purpose": "Fires when a zombie spawns and supplies that zombie.",
+      "usage": "Connect Trigger to actions and the zombie output to property-reading or target-processing nodes.",
+      "example": "Event → Show Text. Use Break Zombie Property → Compare Zombie Type → Condition Branch to restrict the type.",
+      "warning": "Both enemy and hypnotized spawns may trigger this. Filter targets further if necessary."
+    },
+    {
+      "type": "OnZombieDieNode",
+      "purpose": "Fires when a zombie dies and supplies that zombie.",
+      "usage": "Connect Trigger to actions and the zombie output to property-reading or target-processing nodes.",
+      "example": "Event → Show Text. Use Break Zombie Property → Compare Zombie Type → Condition Branch to restrict the type.",
+      "warning": "The target may then be destroyed. Do not assume it is still alive after a wait."
+    },
+    {
+      "type": "OnWaveClearedNode",
+      "purpose": "Fires once when a wave has finished normal spawning and its enemies have been cleared.",
+      "usage": "Each wave is tracked separately. Connect Trigger to a reward or next stage; Wave Count outputs the wave just cleared.",
+      "example": "If wave 1 is cleared after wave 2 starts, the output is still 1. Wave 2's enemies need not be cleared too.",
+      "warning": "Spawned or summoned enemies belong to the current wave. Death, departure or hypnosis stops them blocking clearance. Fires at most once per wave. Requires the normal spawn-complete notification; special spawn modes may not fire it. Final victory may end combat first."
+    },
+    {
+      "type": "OnZombieHealthBelowNode",
+      "purpose": "Fires when a specified zombie's body HP reaches a threshold.",
+      "usage": "Connect the boss object to the zombie input. An HP ratio of 0.5 means half health.",
+      "example": "Spawn boss → Bind Zombie; Get Bound Zombie → HP threshold event → Change Stage.",
+      "warning": "Excludes armor. Continuous monitoring of one target fires only once; changing targets starts a new check. Dead targets do not trigger it."
+    },
+    {
+      "type": "OnStageEnterNode",
+      "purpose": "Starts rules on entering the named gameplay stage.",
+      "usage": "Enter exactly the same stage name used by Change Stage.",
+      "example": "Change Stage with name \"Reward\"; On Stage Enter with name \"Reward\" → show reward choices.",
+      "warning": "The initial stage is empty. Re-entering the same stage consecutively does not fire again. Names must match."
+    },
+    {
+      "type": "ChangeStageNode",
+      "purpose": "Switches this run's event graph to the named gameplay stage.",
+      "usage": "Connect Trigger and enter a stage name. Use On Complete for subsequent actions.",
+      "example": "Boss at half HP → Change Stage, name \"Phase Two\".",
+      "warning": "With the new behavior, waits and cycles from the previous stage stop. A stage name does not automatically change spawning or pause the game."
+    },
+    {
+      "type": "GetStageNode",
+      "purpose": "Reads the current gameplay stage's name.",
+      "usage": "Connect the text output to an input that needs the stage name.",
+      "example": "Current stage → Show Text's Text input; use a key event to trigger the display.",
+      "warning": "A data query with no Trigger port. It does not change stages."
+    },
+    {
+      "type": "DoOnceNode",
+      "purpose": "Runs a reward or action only on the first trigger.",
+      "usage": "Connect the first-trigger output to a one-time action. To allow it again, trigger this node with Reset set to true.",
+      "example": "Repeated event → Do Once → Gain Sun.",
+      "warning": "A call with Reset=true only clears the state. It does not run the first-trigger action; trigger it again afterward."
+    },
+    {
+      "type": "BindPlantNode",
+      "purpose": "Gives a particular plant a lookup name.",
+      "usage": "Connect a plant object, enter a name and connect Trigger.",
+      "example": "Spawn Plant's On Success → Bind Plant, name \"Target\". Also connect the spawned object to the binding node.",
+      "warning": "Rebinding the same name replaces its old target. Names are local to this run's event graph."
+    },
+    {
+      "type": "GetBoundPlantNode",
+      "purpose": "Finds a previously bound plant by name.",
+      "usage": "Enter exactly the same name as the binding node. Use the object and Exists outputs.",
+      "example": "Get Bound Plant's Exists → Condition Branch; use the true path to act on its object output.",
+      "warning": "Missing or destroyed targets return null. Check Exists, not just the name."
+    },
+    {
+      "type": "BindZombieNode",
+      "purpose": "Gives a particular zombie a lookup name.",
+      "usage": "Connect a zombie object, enter a name and connect Trigger.",
+      "example": "Spawn Zombie's On Success → Bind Zombie, name \"Target\". Also connect the spawned object to the binding node.",
+      "warning": "Rebinding the same name replaces its old target. Names are local to this run's event graph."
+    },
+    {
+      "type": "GetBoundZombieNode",
+      "purpose": "Finds a previously bound zombie by name.",
+      "usage": "Enter exactly the same name as the binding node. Use the object and Exists outputs.",
+      "example": "Get Bound Zombie's Exists → Condition Branch; use the true path to act on its object output.",
+      "warning": "Missing or destroyed targets return null. Check Exists, not just the name."
+    },
+    {
+      "type": "SetPlantNode",
+      "purpose": "Spawns a plant of the specified type in a cell.",
+      "usage": "Supply the plant type, row and column, then connect Trigger. Use the success output for further processing.",
+      "example": "On Level Official Start → Spawn Plant: row 0, column 0, Peashooter. Connect failure to Show Text.",
+      "warning": "Force Plant is off by default. Water, roofs, missing supports or occupied cells may cause failure. Rows and columns start at 0."
+    },
+    {
+      "type": "CreateZombieNode",
+      "purpose": "Spawns a zombie of the specified type at a position.",
+      "usage": "Set row, column, type and Is Hypnotized. After triggering, use the spawned zombie object.",
+      "example": "Key event → Spawn Zombie; after success, pass the object to Bind Zombie.",
+      "warning": "Data ports do not spawn an object on their own. Run the spawn action first and check the spawn position."
+    },
+    {
+      "type": "MovePlantNode",
+      "purpose": "Moves an existing plant to a row and column.",
+      "usage": "Connect the actual plant object on the lawn, target coordinates and Trigger.",
+      "example": "After Spawn Plant, use the movement node to change Target Column to another cell.",
+      "warning": "A type cannot replace an object. Out-of-bounds coordinates, occupied cells or invalid objects may fail; connect the appropriate result branches."
+    },
+    {
+      "type": "MoveZombieNode",
+      "purpose": "Moves an existing zombie to a row and column.",
+      "usage": "Connect the actual zombie object on the lawn, target coordinates and Trigger.",
+      "example": "After Spawn Zombie, use the movement node to change Target Column to another cell.",
+      "warning": "A type cannot replace an object. Out-of-bounds coordinates, occupied cells or invalid objects may fail; connect the appropriate result branches."
+    },
+    {
+      "type": "CreatePlantCardNode",
+      "purpose": "Spawns a collectible plant seed packet on the lawn.",
+      "usage": "Specify the plant type and spawn row/column, then connect Trigger.",
+      "example": "On Zombie Death → Spawn Seed Packet; select the plant to drop.",
+      "warning": "Creates a packet on the lawn. To add one directly to the player's slots, use Add Plant to Slot."
+    },
+    {
+      "type": "AddPlantCardNode",
+      "purpose": "Adds a plant card to the player's slots.",
+      "usage": "Select a plant type. To override cost and cooldown, turn off default data and enter the values.",
+      "example": "Reward option clicked → Add Plant to Slot; choose Peashooter.",
+      "warning": "May fail if slots are full. Trigger on Planting lets you track the plant placed from this card."
+    },
+    {
+      "type": "DeleteCardByTypeNode",
+      "purpose": "Removes plant cards of a specified type from the slots.",
+      "usage": "Connect Trigger and supply a plant type.",
+      "example": "Enter stage → Remove Plant from Slot, then add newly available cards.",
+      "warning": "Affects cards of that type, not plants already growing on the lawn."
+    },
+    {
+      "type": "HealPlantNode",
+      "purpose": "Restores HP to a specified plant.",
+      "usage": "Connect the plant object and enter an amount. The effect applies only when triggered.",
+      "example": "Connect the event's plant output to this node's object input, and its Trigger to this node's Trigger; enter the amount.",
+      "warning": "Check numeric types and target validity. Healing and shields do not directly change maximum HP."
+    },
+    {
+      "type": "DamagePlantNode",
+      "purpose": "Damages a specified plant.",
+      "usage": "Connect the plant object and enter an amount. The effect applies only when triggered.",
+      "example": "Connect the event's plant output to this node's object input, and its Trigger to this node's Trigger; enter the amount.",
+      "warning": "Check numeric types and target validity. Healing and shields do not directly change maximum HP."
+    },
+    {
+      "type": "DamageZombieNode",
+      "purpose": "Damages a specified zombie.",
+      "usage": "Connect the zombie object and enter an amount. The effect applies only when triggered.",
+      "example": "Connect the event's zombie output to this node's object input, and its Trigger to this node's Trigger; enter the amount.",
+      "warning": "Check numeric types and target validity. Healing and shields do not directly change maximum HP."
+    },
+    {
+      "type": "GivePlantShieldNode",
+      "purpose": "Adds a shield to a specified plant.",
+      "usage": "Connect the plant object and enter an amount. The effect applies only when triggered.",
+      "example": "Connect the event's plant output to this node's object input, and its Trigger to this node's Trigger; enter the amount.",
+      "warning": "Check numeric types and target validity. Healing and shields do not directly change maximum HP."
+    },
+    {
+      "type": "DiePlantNode",
+      "purpose": "Directly removes a plant and runs its death handling.",
+      "usage": "Connect the plant object and Trigger.",
+      "example": "On Clicking on Plant → Condition Branch → Kill Plant; also supply the clicked plant object.",
+      "warning": "Unlike damage, this does not necessarily pass through the HP-reaches-zero event. Do not attach it indiscriminately to all planting events."
+    },
+    {
+      "type": "SetZombieMindControlledNode",
+      "purpose": "Changes a zombie to the player's side.",
+      "usage": "Connect the zombie object and Trigger.",
+      "example": "After spawning a zombie, pass the created object here to hypnotize it.",
+      "warning": "Requires a particular zombie, not a type. Check that the target is still valid."
+    },
+    {
+      "type": "ModifyPlantAttackNode",
+      "purpose": "Changes a plant's attack bonus.",
+      "usage": "Connect the plant object and Trigger. Enter the required bonus or multiplier in the Float input.",
+      "example": "Spawn Plant's On Success → this node; connect the object output and inspect the target's stats afterward.",
+      "warning": "Sets a bonus/multiplier, not final damage or HP. Plants use the event-bonus channel. Defaults to 1 if unset. Repeatedly setting it is not repeated multiplication."
+    },
+    {
+      "type": "ModifyPlantHealthNode",
+      "purpose": "Changes a plant's health bonus.",
+      "usage": "Connect the plant object and Trigger. Enter the required bonus or multiplier in the Float input.",
+      "example": "Spawn Plant's On Success → this node; connect the object output and inspect the target's stats afterward.",
+      "warning": "Sets a bonus/multiplier, not final damage or HP. Plants use the event-bonus channel. Defaults to 1 if unset. Repeatedly setting it is not repeated multiplication."
+    },
+    {
+      "type": "ModifyZombieHealthNode",
+      "purpose": "Changes a zombie's health multiplier.",
+      "usage": "Connect the zombie object and Trigger. Enter the required bonus or multiplier in the Float input.",
+      "example": "Spawn Zombie's On Success → this node; connect the object output and inspect the target's stats afterward.",
+      "warning": "Sets a bonus/multiplier, not final damage or HP. Plants use the event-bonus channel. Defaults to 1 if unset. Repeatedly setting it is not repeated multiplication."
+    },
+    {
+      "type": "PlantSplitNode",
+      "purpose": "Reads a plant object's row, column and type.",
+      "usage": "Supply the object and connect coordinate or type outputs to matching query/comparison nodes.",
+      "example": "Plant event → Break Plant Property → Compare Plant Type → Condition Branch.",
+      "warning": "Produces data, not actions; an event must still trigger the branch. Default coordinates from a null object are not a real position."
+    },
+    {
+      "type": "ZombieSplitNode",
+      "purpose": "Reads a zombie object's row, column and type.",
+      "usage": "Supply the object and connect coordinate or type outputs to matching query/comparison nodes.",
+      "example": "Zombie event → Break Zombie Property → Compare Zombie Type → Condition Branch.",
+      "warning": "Produces data, not actions; an event must still trigger the branch. Default coordinates from a null object are not a real position."
+    },
+    {
+      "type": "GetPlantsInCellNode",
+      "purpose": "Gets all plants registered in a cell.",
+      "usage": "Enter row and column, then connect the list to Iterate Plant List.",
+      "example": "Mouse row/column → Get Plant on Tile → Iterate Plant List; connect the mouse trigger to the iterator.",
+      "warning": "Includes layers such as Lily Pad, Flower Pot and flying plants, not just the main plant."
+    },
+    {
+      "type": "GetPlantsOnLayerNode",
+      "purpose": "Gets plants only from a specified layer in a cell.",
+      "usage": "Enter row and column and choose the main-plant, Flower Pot, Lily Pad, Pumpkin or flying layer.",
+      "example": "Mouse row/column → this node (main-plant layer) → Iterate Plant List.",
+      "warning": "A placement layer is not a combat category. Out-of-bounds coordinates or an empty layer return an empty list."
+    },
+    {
+      "type": "GetAllPlantsNode",
+      "purpose": "Gets the list of plants registered on the lawn.",
+      "usage": "Connect the list to Iterate Plant List and start iteration with a separate event.",
+      "example": "On Level Start → Iterate Plant List; connect this node's list to the iterator's input.",
+      "warning": "Connecting the list alone does not start iteration. Targets may die during subsequent actions."
+    },
+    {
+      "type": "GetNearestZombieNode",
+      "purpose": "Finds the zombie nearest a specified row and column.",
+      "usage": "Supply coordinates, then connect the object output to damage, hypnosis or property-reading nodes.",
+      "example": "Use a key event to trigger Damage Zombie, with the nearest-zombie output as the target.",
+      "warning": "May return null if there is no suitable target. Querying alone does not cause damage."
+    },
+    {
+      "type": "GetEventPositionNode",
+      "purpose": "Reads the most recently recorded mouse or entity position in this execution chain.",
+      "usage": "Enable Retain Trigger Data. Check Has Position before using row and column. After a wait, coordinates still refer to the trigger position, not the current mouse position.",
+      "example": "Click the lawn → Wait 1 second → spawn a plant in the clicked cell; connect this node's coordinates to the spawn node.",
+      "warning": "Coordinates remain readable after the entity dies, but the target may no longer be alive. With no position, Has Position=false and row/column=0. Under legacy behavior without a snapshot, default coordinates do not identify the original position."
+    },
+    {
+      "type": "ForEachPlantNode",
+      "purpose": "Processes each plant in a list in order.",
+      "usage": "Supply the list and an event trigger. Connect Loop Body to the action to repeat, using the current element.",
+      "example": "Get all Plants on Lawn → iterator; connect Loop Body to an action on the current object/type.",
+      "warning": "Iteration is synchronous within one frame. It does not wait for Wait nodes inside the body. Legacy delayed reads may see the final element."
+    },
+    {
+      "type": "ForEachPlantTypeNode",
+      "purpose": "Processes each plant type in a list in order.",
+      "usage": "Supply the list and an event trigger. Connect Loop Body to the action to repeat, using the current element.",
+      "example": "Plant type list → iterator; connect Loop Body to an action on the current object/type.",
+      "warning": "Iteration is synchronous within one frame. It does not wait for Wait nodes inside the body. Legacy delayed reads may see the final element."
+    },
+    {
+      "type": "PlantTypeValueNode",
+      "purpose": "Supplies a fixed plant type.",
+      "usage": "Select a type and connect the output to a spawn or type-comparison node.",
+      "example": "Plant Type → Spawn Plant's type input; separately connect the official-start event to trigger spawning.",
+      "warning": "A type is not an object on the lawn. No trigger is needed to read it."
+    },
+    {
+      "type": "ZombieTypeValueNode",
+      "purpose": "Supplies a fixed zombie type.",
+      "usage": "Select a type and connect the output to a spawn or type-comparison node.",
+      "example": "Zombie Type → Spawn Zombie's type input; separately connect the official-start event to trigger spawning.",
+      "warning": "A type is not an object on the lawn. No trigger is needed to read it."
+    },
+    {
+      "type": "ComparePlantTypeNode",
+      "purpose": "Checks whether two plant types match.",
+      "usage": "Supply two types and connect the comparison result to a branch's Condition.",
+      "example": "Read a type using Break Plant Property, compare it with a fixed Plant Type, and trigger the branch with an event.",
+      "warning": "Only produces a Boolean value. It does not execute the true branch itself."
+    },
+    {
+      "type": "CompareZombieTypeNode",
+      "purpose": "Checks whether two zombie types match.",
+      "usage": "Supply two types and connect the comparison result to a branch's Condition.",
+      "example": "Read a type using Break Zombie Property, compare it with a fixed Zombie Type, and trigger the branch with an event.",
+      "warning": "Only produces a Boolean value. It does not execute the true branch itself."
+    },
+    {
+      "type": "SinglePlantTypeListNode",
+      "purpose": "Wraps one plant type in a list.",
+      "usage": "Supply a Plant Type. Use the list for merging, random selection or iteration.",
+      "example": "Plant Type → Single-plant-type List → Combine Plant Type List.",
+      "warning": "Produces a list of types, not a list of plant objects on the lawn."
+    },
+    {
+      "type": "MultiPlantTypeListNode",
+      "purpose": "Configures several plant types in one node.",
+      "usage": "Edit the list inside the node and connect it to random selection or iteration.",
+      "example": "Multi-plant-type List → Get Random Plant Type → Add Plant to Slot.",
+      "warning": "An empty list may leave random selection without a valid type."
+    },
+    {
+      "type": "MergePlantTypeListsNode",
+      "purpose": "Combines two plant-type lists.",
+      "usage": "Supply both lists and use the merged result or its length.",
+      "example": "Two Single-plant-type Lists → combine → Get Random Plant Type.",
+      "warning": "Merging does not automatically run subsequent actions. Check duplicate types according to your gameplay needs."
+    },
+    {
+      "type": "PlantTypeListStorageNode",
+      "purpose": "Stores and modifies a plant-type list during this run.",
+      "usage": "Supply a list, select the set/add/remove operation and trigger it.",
+      "example": "Set a reward pool at the start. Remove a selected reward's type, then read the remaining list.",
+      "warning": "Different from simple numeric variables. Runtime changes do not automatically overwrite the editor's initial list."
+    },
+    {
+      "type": "GetRandomPlantTypeNode",
+      "purpose": "Picks a plant type from the input list.",
+      "usage": "Supply a nonempty type list. Connect the result to a card or plant-spawn type input.",
+      "example": "Multi-plant-type List → Get Random Plant Type → Spawn Seed Packet; use an event to trigger spawning.",
+      "warning": "Picks on each read, so successive reads may differ. An empty list is not a valid reward pool."
+    },
+    {
+      "type": "RemovePlantTypeNode",
+      "purpose": "Removes a specified type from a plant-type list.",
+      "usage": "Connect the source list and type to remove. Use Result List and the success output.",
+      "example": "Reward pool and just-selected type → Delete Plant Type → further list processing.",
+      "warning": "Use Result List to obtain the removal result. This does not delete plants on the lawn or cards in slots."
+    },
+    {
+      "type": "ShowTextNode",
+      "purpose": "Shows a message on the game screen.",
+      "usage": "Enter Text and Duration, then connect Trigger.",
+      "example": "Wave 5's true branch → Show Text, with \"The boss is here!\" as the message.",
+      "warning": "A text-data connection alone does not display anything. Duration is in seconds."
+    },
+    {
+      "type": "PlaySoundNode",
+      "purpose": "Plays an existing game sound effect.",
+      "usage": "Select or enter a valid sound-effect ID and connect Trigger.",
+      "example": "Reward option clicked → Play Sound Effect.",
+      "warning": "Sound IDs refer to game resources, not local file paths. A wrong ID will not produce the intended sound."
+    },
+    {
+      "type": "PlayZombieAnimNode",
+      "purpose": "Changes a zombie's animation.",
+      "usage": "Connect the zombie object and enter an animation name that actually exists on it.",
+      "example": "Spawn Zombie's On Success → Play Zombie Animation; enter walk.",
+      "warning": "The name must match the actual resource. This controls appearance only and does not add attack damage."
+    },
+    {
+      "type": "GetSunNode",
+      "purpose": "Grants the player a specified amount of Sun.",
+      "usage": "Enter an integer amount and connect Trigger.",
+      "example": "Reward option clicked → Gain Sun, amount 50.",
+      "warning": "Repeated triggers grant repeated rewards. For a one-time reward, put Do Once before this node. Amount must be an integer."
+    },
+    {
+      "type": "GetMoneyNode",
+      "purpose": "Grants the player a specified amount of coins.",
+      "usage": "Enter an integer amount and connect Trigger.",
+      "example": "Reward option clicked → Gain Coin, amount 50.",
+      "warning": "Repeated triggers grant repeated rewards. For a one-time reward, put Do Once before this node. Amount must be an integer."
+    },
+    {
+      "type": "UseSunNode",
+      "purpose": "Attempts to spend a specified amount of Sun.",
+      "usage": "Enter the cost. Connect success to the purchase effect and failure to a message.",
+      "example": "Interaction event → Spend Sun; success grants the reward, failure shows an insufficient-Sun message.",
+      "warning": "Do not put the reward on a parallel event connection, or the player may receive it even if payment fails."
+    },
+    {
+      "type": "UseMoneyNode",
+      "purpose": "Attempts to spend a specified amount of coins.",
+      "usage": "Enter the cost. Connect success to the purchase effect and failure to a message.",
+      "example": "Interaction event → Spend Coin; success grants the reward, failure shows an insufficient-coins message.",
+      "warning": "Do not put the reward on a parallel event connection, or the player may receive it even if payment fails."
+    },
+    {
+      "type": "GetSunAmountNode",
+      "purpose": "Reads the player's current Sun amount.",
+      "usage": "Connect the integer output to a comparison or calculation.",
+      "example": "Compare current Sun with 100 → branch Condition; use an interaction event to trigger the branch.",
+      "warning": "Only reads Sun; it does not grant or spend it. For purchases, use Spend Sun's success branch."
+    },
+    {
+      "type": "GetTravelBuffNode",
+      "purpose": "Adds a specified Odyssey Modifier to this run.",
+      "usage": "Configure the modifier category and entry, then connect Trigger.",
+      "example": "Reward choice → Gain Modifier; choose the upgrade to grant.",
+      "warning": "The old Deprecated node remains for compatibility. For new rules, prefer Gain Modifier in General Function."
+    },
+    {
+      "type": "GetTravelEntryNode",
+      "purpose": "Adds a specified Odyssey Modifier to this run.",
+      "usage": "Configure the modifier category and entry, then connect Trigger.",
+      "example": "Reward choice → Gain Modifier; choose the upgrade to grant.",
+      "warning": "The old Deprecated node remains for compatibility. For new rules, prefer Gain Modifier in General Function."
+    },
+    {
+      "type": "GameOverNode",
+      "purpose": "Explicitly ends the run in defeat.",
+      "usage": "Trigger from a genuine failure condition. You may enter a reason.",
+      "example": "Failure to protect a target → Trigger Game Over, reason \"The target was destroyed\".",
+      "warning": "Do not connect it to an unconditional start event. Defeat ends the current battle."
+    },
+    {
+      "type": "GameWinNode",
+      "purpose": "Explicitly ends the run in victory.",
+      "usage": "Connect Trigger from the objective-complete branch.",
+      "example": "Target count reached → Condition Branch's true output → Trigger Victory.",
+      "warning": "A comparison result alone does not end the level; an execution signal is still required."
+    },
+    {
+      "type": "CreateGraveNode",
+      "purpose": "Spawns a gravestone at a specified position.",
+      "usage": "Enter row, column and any additional parameters, then connect Trigger.",
+      "example": "Specified wave → Spawn Gravestone at the required row and column.",
+      "warning": "Rows and columns start at 0. Gravestones, craters and ice blocks can affect planting space. White smoke is visual only. Configure plants inside ice blocks separately."
+    },
+    {
+      "type": "CreateParticleNode",
+      "purpose": "Creates white smoke at a specified position.",
+      "usage": "Enter row, column and any additional parameters, then connect Trigger.",
+      "example": "Specified wave → create white smoke at the required row and column.",
+      "warning": "Rows and columns start at 0. Gravestones, craters and ice blocks can affect planting space. White smoke is visual only. Configure plants inside ice blocks separately."
+    },
+    {
+      "type": "CreateLadderNode",
+      "purpose": "Spawns a ladder at a specified position.",
+      "usage": "Enter row, column and any additional parameters, then connect Trigger.",
+      "example": "Specified wave → Spawn Ladder at the required row and column.",
+      "warning": "Rows and columns start at 0. Gravestones, craters and ice blocks can affect planting space. White smoke is visual only. Configure plants inside ice blocks separately."
+    },
+    {
+      "type": "CreateCraterNode",
+      "purpose": "Spawns a crater at a specified position.",
+      "usage": "Enter row, column and any additional parameters, then connect Trigger.",
+      "example": "Specified wave → Spawn Crater at the required row and column.",
+      "warning": "Rows and columns start at 0. Gravestones, craters and ice blocks can affect planting space. White smoke is visual only. Configure plants inside ice blocks separately."
+    },
+    {
+      "type": "CreateIceBlockNode",
+      "purpose": "Spawns an ice block at a specified position.",
+      "usage": "Enter row, column and any additional parameters, then connect Trigger.",
+      "example": "Specified wave → Spawn Ice Block at the required row and column.",
+      "warning": "Rows and columns start at 0. Gravestones, craters and ice blocks can affect planting space. White smoke is visual only. Configure plants inside ice blocks separately."
+    },
+    {
+      "type": "CreateIceShroomEffectNode",
+      "purpose": "Directly produces Ice-shroom's freezing effect.",
+      "usage": "Set the available position, duration or damage parameters. Triggering affects the whole lawn.",
+      "example": "Ability key event → Ice-shroom effect; enter the parameters and playtest its range.",
+      "warning": "Creates an effect without planting a plant first. Explosions differ in which sides they hit and whether they leave a crater; verify in a test level."
+    },
+    {
+      "type": "CreateJalapenoEffectNode",
+      "purpose": "Directly produces Jalapeno's effect.",
+      "usage": "Set the available position, duration or damage parameters. Triggering affects the specified row.",
+      "example": "Ability key event → Jalapeno effect; enter the parameters and playtest its range.",
+      "warning": "Creates an effect without planting a plant first. Explosions differ in which sides they hit and whether they leave a crater; verify in a test level."
+    },
+    {
+      "type": "CreateDoomShroomEffectNode",
+      "purpose": "Directly produces Doom-shroom's explosion.",
+      "usage": "Set the available position, duration or damage parameters. Triggering affects the area around the specified cell.",
+      "example": "Ability key event → Doom-shroom explosion; enter the parameters and playtest its range.",
+      "warning": "Creates an effect without planting a plant first. Explosions differ in which sides they hit and whether they leave a crater; verify in a test level."
+    },
+    {
+      "type": "CreateCherryExplodeNode",
+      "purpose": "Directly produces a cherry explosion.",
+      "usage": "Set the available position, duration or damage parameters. Triggering affects the area around the specified cell.",
+      "example": "Ability key event → cherry explosion; enter the parameters and playtest its range.",
+      "warning": "Creates an effect without planting a plant first. Explosions differ in which sides they hit and whether they leave a crater; verify in a test level."
+    },
+    {
+      "type": "CreateZombieExplodeNode",
+      "purpose": "Directly produces a Jack-in-the-Box explosion.",
+      "usage": "Set the available position, duration or damage parameters. Triggering affects the area around the specified position.",
+      "example": "Ability key event → Jack-in-the-Box explosion; enter the parameters and playtest its range.",
+      "warning": "Creates an effect without planting a plant first. Explosions differ in which sides they hit and whether they leave a crater; verify in a test level."
+    },
+    {
+      "type": "TypedChoiceOptionNode",
+      "purpose": "Adds a clickable reward-menu option.",
+      "usage": "Enter a title, description and display content. Chain the list output to another option or the menu; connect the click output to the reward action.",
+      "example": "Chain three Add Option lists into a menu; connect their click outputs to Sun, coins and a card respectively.",
+      "warning": "Options are built when the menu reads the list, not by triggering each option separately. Use the matching menu in Reward Choices."
+    },
+    {
+      "type": "AddMultipleChoiceOptionNode",
+      "purpose": "Adds a clickable reward-menu option.",
+      "usage": "Enter a title, description and display content. Chain the list output to another option or the menu; connect the click output to the reward action.",
+      "example": "Chain three Add Option lists into a menu; connect their click outputs to Sun, coins and a card respectively.",
+      "warning": "Options are built when the menu reads the list, not by triggering each option separately. This is the legacy GameObject option port; use the legacy choice menu, not ordinary held items."
+    },
+    {
+      "type": "TypedChoiceMenuNode",
+      "purpose": "Opens a menu for the player to choose a reward.",
+      "usage": "Connect an option list and Trigger. Set the number of choices, reroll and cancel options.",
+      "example": "Wave cleared → show menu; supply a chained list of three options and set the window count to 3.",
+      "warning": "Window count is limited to 1 to 5. Use the dedicated reward-option list. The menu pauses the game until a choice or normal exit."
+    },
+    {
+      "type": "ShowMultipleChoiceMenuNode",
+      "purpose": "Opens a menu for the player to choose a reward.",
+      "usage": "Connect an option list and Trigger. Set the number of choices, reroll and cancel options.",
+      "example": "Wave cleared → show menu; supply a chained list of three options and set the window count to 3.",
+      "warning": "Window count is limited to 1 to 5. The legacy port is called an item object but actually requires an option list. The menu pauses the game until a choice or normal exit."
+    },
+    {
+      "type": "TypedChoiceMergeNode",
+      "purpose": "Combines two reward-option lists.",
+      "usage": "Connect lists A and B, then pass the result to a menu or another merge.",
+      "example": "Two independent option lists → merge options → matching menu type.",
+      "warning": "Do not mix dedicated options with legacy GameObject options. Merging does not open a menu. Cancel Merge defaults to false; true returns only A without reading B."
+    },
+    {
+      "type": "MergeMultipleChoiceOptionListsNode",
+      "purpose": "Combines two reward-option lists.",
+      "usage": "Connect lists A and B, then pass the result to a menu or another merge.",
+      "example": "Two independent option lists → merge options → matching menu type.",
+      "warning": "Do not mix dedicated options with legacy GameObject options. Merging does not open a menu. Cancel Merge defaults to false; true returns only A without reading B."
+    },
+    {
+      "type": "CreateInfoCardNode",
+      "purpose": "Creates an information card that can respond to clicks.",
+      "usage": "Set the displayed content and connect the creation trigger. Connect its click output to an interaction action.",
+      "example": "On Level Official Start → Create Info Box; card clicked → show objective instructions.",
+      "warning": "For information and interaction, not a plantable seed packet. Old click callbacks become invalid when the graph ends."
+    },
+    {
+      "type": "BranchNode",
+      "purpose": "Selects an execution path using a true/false condition.",
+      "usage": "Connect an event to Trigger and a comparison result to Condition. Connect the true and false outputs to subsequent actions.",
+      "example": "Current Sun >= 100 → Condition; trigger the branch with a key event and show different text on each path.",
+      "warning": "An unconnected condition defaults to false. False (Stop) still executes its connected false branch; it does not unconditionally stop every rule."
+    },
+    {
+      "type": "WaitNode",
+      "purpose": "Waits a number of seconds after a trigger, then runs the next action.",
+      "usage": "Enter Duration and connect the output to subsequent actions.",
+      "example": "On Level Official Start → Wait (5 seconds) → Show Text.",
+      "warning": "Each trigger starts a separate wait. Pausing stops its timer. Legacy levels may read the latest event after the delay. Ending the graph cancels waits."
+    },
+    {
+      "type": "ForLoopNode",
+      "purpose": "Repeats the loop body within the same frame.",
+      "usage": "Set the iteration count and connect Loop Body to an action. Current Index starts at 0.",
+      "example": "Loop 3 times → Spawn Plant; connect the index to column to use columns 0, 1 and 2.",
+      "warning": "Does not run once per second or wait for asynchronous tasks in the body. Use Periodic Cycle for spaced actions. Excessive counts trigger execution protection."
+    },
+    {
+      "type": "ToggleCycleNode",
+      "purpose": "Turns a repeating timed action on or off.",
+      "usage": "The first trigger enables it; the second disables it. Connect Cycle Event to the repeated action.",
+      "example": "On Level Official Start → Periodic Cycle; Interval 5 → gain 25 Sun each time.",
+      "warning": "First runs after one full interval. Minimum interval is 0.1 seconds; pausing stops the timer. Enable/disable outputs are not the cycle output."
+    },
+    {
+      "type": "RandomTriggerNode",
+      "purpose": "Randomly executes a specified number of connected targets.",
+      "usage": "Connect candidate actions to the same output. Set the selection count and whether repeats are allowed.",
+      "example": "Key event → Random Trigger → three different message nodes.",
+      "warning": "Without repeats, the count cannot exceed the number of targets. Selects execution paths, not random numeric values."
+    },
+    {
+      "type": "CounterNode",
+      "purpose": "Counts triggers for objective progress and conditions.",
+      "usage": "Connect the event to Trigger and the count output to Compare Integer. Configure the initial value and reset input.",
+      "example": "On Zombie Death → Counter; count equals 10 → branch → completion message.",
+      "warning": "The first execution loads the initial value before counting. Reset sets it to zero, not back to the initial value."
+    },
+    {
+      "type": "ToggleNode",
+      "purpose": "Switches between on and off with each trigger.",
+      "usage": "Trigger flips the state. State outputs a Boolean; the state-change output runs actions.",
+      "example": "Key event → Toggle; State → branch Condition, state-change output → branch Trigger.",
+      "warning": "Reading the state does not flip it. Runtime state is separate from the menu configuration."
+    },
+    {
+      "type": "PulseNode",
+      "purpose": "Outputs true only while synchronously executing downstream nodes.",
+      "usage": "After triggering, supply its Boolean output to synchronous downstream conditions.",
+      "example": "Event → Pulse; execution output → branch Trigger, Boolean output → Condition.",
+      "warning": "Resets immediately when the synchronous call ends, not next frame. A delayed legacy read may already see false; the new behavior can retain the original value."
+    },
+    {
+      "type": "NotNode",
+      "purpose": "Reverses a Boolean value.",
+      "usage": "Supply a Boolean and connect the result to Condition Branch.",
+      "example": "true becomes false; use a separate event signal to start the branch.",
+      "warning": "Computes a condition but does not trigger an action."
+    },
+    {
+      "type": "AndNode",
+      "purpose": "Checks whether both conditions are true.",
+      "usage": "Supply Boolean values and connect the result to Condition Branch.",
+      "example": "Enough Sun AND the required wave reached; use a separate event signal to start the branch.",
+      "warning": "Computes a condition but does not trigger an action."
+    },
+    {
+      "type": "OrNode",
+      "purpose": "Checks whether at least one condition is true.",
+      "usage": "Supply Boolean values and connect the result to Condition Branch.",
+      "example": "Boss defeated OR target count reached; use a separate event signal to start the branch.",
+      "warning": "Computes a condition but does not trigger an action."
+    },
+    {
+      "type": "CompareIntNode",
+      "purpose": "Compares two integers and outputs Boolean results.",
+      "usage": "Supply both values and connect the desired result to Condition Branch.",
+      "example": "Compare Wave Count with 5; connect Equal to to Condition.",
+      "warning": "Port types must match. Object comparisons check the same instance, not matching names or plant types."
+    },
+    {
+      "type": "CompareFloatNode",
+      "purpose": "Compares two Float values and outputs Boolean results.",
+      "usage": "Supply both values and connect the desired result to Condition Branch.",
+      "example": "Compare a wave count with 5 after converting both inputs to Float; connect Equal to to Condition.",
+      "warning": "Port types must match. Object comparisons check the same instance, not matching names or plant types."
+    },
+    {
+      "type": "CompareGameObjectNode",
+      "purpose": "Compares two item objects and outputs Boolean results.",
+      "usage": "Supply both values and connect the desired result to Condition Branch.",
+      "example": "Compare the held item with the target item object; connect equality to Condition.",
+      "warning": "Port types must match. Object comparisons check the same instance, not matching names or plant types."
+    },
+    {
+      "type": "IntValueNode",
+      "purpose": "Supplies a fixed Integer value to multiple nodes.",
+      "usage": "Enter the value and connect its output to matching input types.",
+      "example": "Enter 25 and connect it to actions that need the value. Trigger those actions with a separate event.",
+      "warning": "Constants need no trigger. To fill just one unconnected input, you can also use Enter Input Values on the toolbar."
+    },
+    {
+      "type": "FloatValueNode",
+      "purpose": "Supplies a fixed Float value to multiple nodes.",
+      "usage": "Enter the value and connect its output to matching input types.",
+      "example": "Enter 0.5 and connect it to actions that need the value. Trigger those actions with a separate event.",
+      "warning": "Constants need no trigger. To fill just one unconnected input, you can also use Enter Input Values on the toolbar."
+    },
+    {
+      "type": "BoolValueNode",
+      "purpose": "Supplies a fixed Boolean value to multiple nodes.",
+      "usage": "Enter the value and connect its output to matching input types.",
+      "example": "Enter true and connect it to actions that need the value. Trigger those actions with a separate event.",
+      "warning": "Constants need no trigger. To fill just one unconnected input, you can also use Enter Input Values on the toolbar."
+    },
+    {
+      "type": "StringValueNode",
+      "purpose": "Supplies a fixed String value to multiple nodes.",
+      "usage": "Enter the value and connect its output to matching input types.",
+      "example": "Enter The boss is here! and connect it to actions that need the value. Trigger those actions with a separate event.",
+      "warning": "Constants need no trigger. To fill just one unconnected input, you can also use Enter Input Values on the toolbar."
+    },
+    {
+      "type": "AddNode",
+      "purpose": "Calculates addition.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "2 + 3 = 5. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "SubtractNode",
+      "purpose": "Calculates subtraction.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "5 - 2 = 3. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "MultiplyNode",
+      "purpose": "Calculates multiplication.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "2 x 3 = 6. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "DivideNode",
+      "purpose": "Calculates division.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "6 / 2 = 3. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "IntAddNode",
+      "purpose": "Calculates integer addition.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "2 + 3 = 5. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "IntSubtractNode",
+      "purpose": "Calculates integer subtraction.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "5 - 2 = 3. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "IntMultiplyNode",
+      "purpose": "Calculates integer multiplication.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "2 x 3 = 6. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "IntDivideNode",
+      "purpose": "Calculates integer division.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "7 / 2 = 3. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "IntModuloNode",
+      "purpose": "Calculates integer remainder.",
+      "usage": "Supply two numbers of the same type. Connect the result to an action, comparison or variable setter.",
+      "example": "7 modulo 2 = 1. Trigger the action that reads the result with an event.",
+      "warning": "Do not mix Integer and Float ports. Avoid a divisor of 0 in division and remainder operations. Integer division discards the fractional part."
+    },
+    {
+      "type": "StringConcatNode",
+      "purpose": "Joins two text values in order.",
+      "usage": "Supply both strings and connect the result to Show Text.",
+      "example": "Join \"Current reward: \" with \"Sun\", then trigger the display.",
+      "warning": "Convert numbers to text first. No spaces or line breaks are added automatically."
+    },
+    {
+      "type": "RandomIntNode",
+      "purpose": "Picks a random integer within a range.",
+      "usage": "Set Minimum and Maximum, then use the output for a reward amount or another numeric input.",
+      "example": "Range 10 to 50 → Gain Sun's amount. Convert Float values to Integer where needed.",
+      "warning": "Each read may produce a new value. Store it in a variable if multiple actions need the same result. The integer range includes both endpoints."
+    },
+    {
+      "type": "RandomFloatNode",
+      "purpose": "Picks a random Float value within a range.",
+      "usage": "Set Minimum and Maximum, then use the output for a reward amount or another numeric input.",
+      "example": "Range 10 to 50 → convert to Integer → Gain Sun's amount.",
+      "warning": "Each read may produce a new value. Store it in a variable if multiple actions need the same result. The integer random node includes both endpoints."
+    },
+    {
+      "type": "IntVariableNode",
+      "purpose": "Refers to a shared Integer variable in Level Variables.",
+      "usage": "Drag it from Level Variables. Connect its variable port to the matching get/set node.",
+      "example": "Variable reference → Get Integer → a compatible comparison or calculation.",
+      "warning": "Multiple references to one variable share its value. Ordinary copies share the original variable; inserting a template copies independent variables."
+    },
+    {
+      "type": "GetIntVariableValueNode",
+      "purpose": "Reads the current value of a shared Integer variable.",
+      "usage": "Connect a variable reference dragged from Level Variables. The output is an ordinary value.",
+      "example": "Variable reference → get value → compatible calculation/comparison → subsequent action.",
+      "warning": "Has no Trigger port; only reads the current value. Reading does not execute upstream write actions."
+    },
+    {
+      "type": "SetIntVariableValueNode",
+      "purpose": "Stores a new value in a shared Integer variable.",
+      "usage": "Connect the variable reference, New Value and Trigger. Use On Complete for actions that depend on the new value.",
+      "example": "Event → set variable; On Complete → display or check the updated result.",
+      "warning": "Connecting New Value without triggering does not write it. The variable output can chain setters, but execution connections still determine action order."
+    },
+    {
+      "type": "FloatVariableNode",
+      "purpose": "Refers to a shared Float variable in Level Variables.",
+      "usage": "Drag it from Level Variables. Connect its variable port to the matching get/set node.",
+      "example": "Variable reference → Get Float → a compatible comparison or calculation.",
+      "warning": "Multiple references to one variable share its value. Ordinary copies share the original variable; inserting a template copies independent variables."
+    },
+    {
+      "type": "GetFloatVariableValueNode",
+      "purpose": "Reads the current value of a shared Float variable.",
+      "usage": "Connect a variable reference dragged from Level Variables. The output is an ordinary value.",
+      "example": "Variable reference → get value → compatible calculation/comparison → subsequent action.",
+      "warning": "Has no Trigger port; only reads the current value. Reading does not execute upstream write actions."
+    },
+    {
+      "type": "SetFloatVariableValueNode",
+      "purpose": "Stores a new value in a shared Float variable.",
+      "usage": "Connect the variable reference, New Value and Trigger. Use On Complete for actions that depend on the new value.",
+      "example": "Event → set variable; On Complete → display or check the updated result.",
+      "warning": "Connecting New Value without triggering does not write it. The variable output can chain setters, but execution connections still determine action order."
+    },
+    {
+      "type": "BoolVariableNode",
+      "purpose": "Refers to a shared Boolean variable in Level Variables.",
+      "usage": "Drag it from Level Variables. Connect its variable port to the matching get/set node.",
+      "example": "Variable reference → Get Boolean → a compatible comparison or calculation.",
+      "warning": "Multiple references to one variable share its value. Ordinary copies share the original variable; inserting a template copies independent variables."
+    },
+    {
+      "type": "GetBoolVariableValueNode",
+      "purpose": "Reads the current value of a shared Boolean variable.",
+      "usage": "Connect a variable reference dragged from Level Variables. The output is an ordinary value.",
+      "example": "Variable reference → get value → compatible calculation/comparison → subsequent action.",
+      "warning": "Has no Trigger port; only reads the current value. Reading does not execute upstream write actions."
+    },
+    {
+      "type": "SetBoolVariableValueNode",
+      "purpose": "Stores a new value in a shared Boolean variable.",
+      "usage": "Connect the variable reference, New Value and Trigger. Use On Complete for actions that depend on the new value.",
+      "example": "Event → set variable; On Complete → display or check the updated result.",
+      "warning": "Connecting New Value without triggering does not write it. The variable output can chain setters, but execution connections still determine action order."
+    },
+    {
+      "type": "IntToFloatNode",
+      "purpose": "Converts an Integer to a Float.",
+      "usage": "Supply an Integer and connect the output to a Float input.",
+      "example": "Integer 5 → Integer to Float → Wait duration.",
+      "warning": "Converts 5 to 5.0; it does not scale it to 0.05."
+    },
+    {
+      "type": "FloatToIntNode",
+      "purpose": "Converts a Float to an Integer by discarding the fractional part.",
+      "usage": "Supply a Float and use the Integer output for a count, Sun Amount or similar input.",
+      "example": "2.9 becomes 2; connect it to an Integer input.",
+      "warning": "Does not round to the nearest integer. Negative values also truncate toward 0."
+    },
+    {
+      "type": "FloatToStringNode",
+      "purpose": "Converts a number to display text.",
+      "usage": "Supply a Float and set the number of decimal places.",
+      "example": "Value → Float to String → Show Text's Text input.",
+      "warning": "The result is text and cannot connect directly to arithmetic inputs. Decimal places range from 0 to 6."
+    },
+    {
+      "type": "VariableNode",
+      "purpose": "Base implementation used by specific variable-reference nodes.",
+      "usage": "Create Integer, Float or Boolean variables in Level Variables instead of creating this base node directly.",
+      "example": "Integer variable reference → Get Integer.",
+      "warning": "Not listed in the right-click creation menu and not intended as a standalone player node."
+    },
+    {
+      "type": "GetStringVariableValueNode",
+      "purpose": "Reads the text stored in a shared String variable.",
+      "usage": "Reads the text stored in a shared String variable.",
+      "example": "String variable reference → Get String → Show Text's content.",
+      "warning": "Returns an empty string if unconnected. Reading does not perform a write."
+    },
+    {
+      "type": "SetStringVariableValueNode",
+      "purpose": "Changes a shared String variable when triggered.",
+      "usage": "Changes a shared String variable when triggered.",
+      "example": "Official start → Set String; connect a variable named \"Objective text\" and enter \"Protect the boss\" as New Value.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "IntVariableArithmeticNode",
+      "purpose": "Adds, subtracts, multiplies, divides or takes a remainder directly on a shared variable in one trigger.",
+      "usage": "Adds, subtracts, multiplies, divides or takes a remainder directly on a shared variable in one trigger.",
+      "example": "Enemy death → Integer variable arithmetic; choose Add and operand 1 to increment the count.",
+      "warning": "Division by zero or overflow uses failure and leaves the old value unchanged. Integer division truncates toward 0. An unset operand defaults to 1."
+    },
+    {
+      "type": "FloatVariableArithmeticNode",
+      "purpose": "Adds, subtracts, multiplies, divides or takes a remainder directly on a shared variable in one trigger.",
+      "usage": "Adds, subtracts, multiplies, divides or takes a remainder directly on a shared variable in one trigger.",
+      "example": "Enemy death → Float variable arithmetic; choose Add and operand 1 to increment the count.",
+      "warning": "Division by zero or overflow uses failure and leaves the old value unchanged. Integer division truncates toward 0. An unset operand defaults to 1."
+    },
+    {
+      "type": "PowerNode",
+      "purpose": "Calculates a power or a logarithm to a specified base for finite Float values.",
+      "usage": "Calculates a power or a logarithm to a specified base for finite Float values.",
+      "example": "Logarithm: value 8, base 2 → 3. Power: value 2, exponent 3 → 8.",
+      "warning": "Logarithms require a positive value and base, with base not equal to 1. An unrepresentable result returns 0 and Valid=false."
+    },
+    {
+      "type": "LogarithmNode",
+      "purpose": "Calculates a power or a logarithm to a specified base for finite Float values.",
+      "usage": "Calculates a power or a logarithm to a specified base for finite Float values.",
+      "example": "Logarithm: value 8, base 2 → 3. Power: value 2, exponent 3 → 8.",
+      "warning": "Logarithms require a positive value and base, with base not equal to 1. An unrepresentable result returns 0 and Valid=false."
+    },
+    {
+      "type": "IntToBoolNode",
+      "purpose": "Converts 0 to false and other finite numbers to true.",
+      "usage": "Converts 0 to false and other finite numbers to true.",
+      "example": "Integer count → Integer to Boolean → Condition Branch.",
+      "warning": "Negative numbers are true too. Float NaN and infinity return false when using the Float conversion."
+    },
+    {
+      "type": "FloatToBoolNode",
+      "purpose": "Converts 0 to false and other finite numbers to true.",
+      "usage": "Converts 0 to false and other finite numbers to true.",
+      "example": "Float value → Float to Boolean → Condition Branch.",
+      "warning": "Float NaN and infinity return false. Negative numbers are true too."
+    },
+    {
+      "type": "IntToStringNode",
+      "purpose": "Converts a number or enum value to readable text.",
+      "usage": "Converts a number or enum value to readable text.",
+      "example": "Integer → Integer to String → Set String.",
+      "warning": "Numeric formatting uses a fixed decimal separator. Plant/zombie conversions return internal enum member names, not translated display names."
+    },
+    {
+      "type": "StringToIntNode",
+      "purpose": "Parses a number, enum name or enum ID and reports success.",
+      "usage": "Parses a number, enum name or enum ID and reports success.",
+      "example": "String \"25\" → String to Integer → Sun Amount; check Valid first.",
+      "warning": "Blank input, invalid names or out-of-range numbers return the default value and Valid=false. ASCII uses separate conversion nodes."
+    },
+    {
+      "type": "StringToFloatNode",
+      "purpose": "Parses a number, enum name or enum ID and reports success.",
+      "usage": "Parses a number, enum name or enum ID and reports success.",
+      "example": "String \"25\" → String to Float; check Valid, then convert to Integer if using it for Sun Amount.",
+      "warning": "Blank input, invalid names or out-of-range numbers return the default value and Valid=false. ASCII uses separate conversion nodes."
+    },
+    {
+      "type": "PlantTypeToStringNode",
+      "purpose": "Converts a number or enum value to readable text.",
+      "usage": "Converts a number or enum value to readable text.",
+      "example": "Plant Type → Plant Type to String → Set String.",
+      "warning": "Numeric formatting uses a fixed decimal separator. Plant/zombie conversions return internal enum member names, not translated display names."
+    },
+    {
+      "type": "StringToPlantTypeNode",
+      "purpose": "Parses a number, enum name or enum ID and reports success.",
+      "usage": "Parses a number, enum name or enum ID and reports success.",
+      "example": "Convert a Plant Type to String, then pass that exact enum text to String to Plant Type; check Valid before using it.",
+      "warning": "Blank input, invalid names or out-of-range numbers return the default value and Valid=false. ASCII uses separate conversion nodes."
+    },
+    {
+      "type": "ZombieTypeToStringNode",
+      "purpose": "Converts a number or enum value to readable text.",
+      "usage": "Converts a number or enum value to readable text.",
+      "example": "Zombie Type → Zombie Type to String → Set String.",
+      "warning": "Numeric formatting uses a fixed decimal separator. Plant/zombie conversions return internal enum member names, not translated display names."
+    },
+    {
+      "type": "StringToZombieTypeNode",
+      "purpose": "Parses a number, enum name or enum ID and reports success.",
+      "usage": "Parses a number, enum name or enum ID and reports success.",
+      "example": "Convert a Zombie Type to String, then pass that exact enum text to String to Zombie Type; check Valid before using it.",
+      "warning": "Blank input, invalid names or out-of-range numbers return the default value and Valid=false. ASCII uses separate conversion nodes."
+    },
+    {
+      "type": "StringToAsciiNode",
+      "purpose": "Reads the ASCII code of a character at a zero-based string index.",
+      "usage": "Reads the ASCII code of a character at a zero-based string index.",
+      "example": "String \"A\", index 0 → 65.",
+      "warning": "Accepts only ASCII characters 0 to 127. Chinese characters are not ASCII and return Valid=false."
+    },
+    {
+      "type": "AsciiToStringNode",
+      "purpose": "Converts an ASCII code from 0 to 127 into one character.",
+      "usage": "Converts an ASCII code from 0 to 127 into one character.",
+      "example": "ASCII code 65 → \"A\".",
+      "warning": "Out-of-range values return an empty string. Control characters may be invisible."
+    },
+    {
+      "type": "AppendIntListNode",
+      "purpose": "Appends a Integer value in a shared list.",
+      "usage": "Create a Integer list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → Integer list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertIntListNode",
+      "purpose": "Inserts a Integer value in a shared list.",
+      "usage": "Create a Integer list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → Integer list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplaceIntListNode",
+      "purpose": "Replaces a Integer value in a shared list.",
+      "usage": "Create a Integer list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → Integer list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetIntListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "\"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindIntListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "String-list example: \"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch. For this node, supply a Integer list and matching search value.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "AppendFloatListNode",
+      "purpose": "Appends a Float value in a shared list.",
+      "usage": "Create a Float list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → Float list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertFloatListNode",
+      "purpose": "Inserts a Float value in a shared list.",
+      "usage": "Create a Float list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → Float list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplaceFloatListNode",
+      "purpose": "Replaces a Float value in a shared list.",
+      "usage": "Create a Float list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → Float list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetFloatListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "Integer-list example: \"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun. For this node, use a Float list and a matching downstream input.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindFloatListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "String-list example: \"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch. For this node, supply a Float list and matching search value.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "AppendBoolListNode",
+      "purpose": "Appends a Boolean value in a shared list.",
+      "usage": "Create a Boolean list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → Boolean list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertBoolListNode",
+      "purpose": "Inserts a Boolean value in a shared list.",
+      "usage": "Create a Boolean list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → Boolean list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplaceBoolListNode",
+      "purpose": "Replaces a Boolean value in a shared list.",
+      "usage": "Create a Boolean list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → Boolean list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetBoolListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "Integer-list example: \"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun. For this node, use a Boolean list and a matching downstream input.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindBoolListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "String-list example: \"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch. For this node, supply a Boolean list and matching search value.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "AppendStringListNode",
+      "purpose": "Appends a String value in a shared list.",
+      "usage": "Create a String list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → String list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertStringListNode",
+      "purpose": "Inserts a String value in a shared list.",
+      "usage": "Create a String list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → String list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplaceStringListNode",
+      "purpose": "Replaces a String value in a shared list.",
+      "usage": "Create a String list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → String list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetStringListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "Integer-list example: \"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun. For this node, use a String list and a matching downstream input.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindStringListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "\"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "AppendPlantTypeListNode",
+      "purpose": "Appends a Plant Type value in a shared list.",
+      "usage": "Create a Plant Type list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → Plant Type list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertPlantTypeListNode",
+      "purpose": "Inserts a Plant Type value in a shared list.",
+      "usage": "Create a Plant Type list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → Plant Type list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplacePlantTypeListNode",
+      "purpose": "Replaces a Plant Type value in a shared list.",
+      "usage": "Create a Plant Type list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → Plant Type list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetPlantTypeListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "Integer-list example: \"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun. For this node, use a Plant Type list and a matching downstream input.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindPlantTypeListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "String-list example: \"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch. For this node, supply a Plant Type list and matching search value.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "AppendZombieTypeListNode",
+      "purpose": "Appends a Zombie Type value in a shared list.",
+      "usage": "Create a Zombie Type list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → Zombie Type list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertZombieTypeListNode",
+      "purpose": "Inserts a Zombie Type value in a shared list.",
+      "usage": "Create a Zombie Type list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → Zombie Type list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplaceZombieTypeListNode",
+      "purpose": "Replaces a Zombie Type value in a shared list.",
+      "usage": "Create a Zombie Type list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → Zombie Type list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetZombieTypeListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "Integer-list example: \"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun. For this node, use a Zombie Type list and a matching downstream input.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindZombieTypeListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "String-list example: \"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch. For this node, supply a Zombie Type list and matching search value.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "AppendObjectListNode",
+      "purpose": "Appends a Object value in a shared list.",
+      "usage": "Create a Object list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the append operation.",
+      "example": "Official start → Object list append; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "InsertObjectListNode",
+      "purpose": "Inserts a Object value in a shared list.",
+      "usage": "Create a Object list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the insert operation.",
+      "example": "Official start → Object list insert; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "ReplaceObjectListNode",
+      "purpose": "Replaces a Object value in a shared list.",
+      "usage": "Create a Object list in Level Variables and drag it onto the canvas. Connect the list port here and trigger the replace operation.",
+      "example": "Official start → Object list replace; use a list named \"Reward pool\" and a value of the matching type.",
+      "warning": "Indices start at 0. Insertion allows an index equal to the length; replacement requires an existing item. Maximum 512 items. Type mismatches or out-of-range indices use failure and leave the list unchanged."
+    },
+    {
+      "type": "GetObjectListItemNode",
+      "purpose": "Reads the value at a specified position in a shared list.",
+      "usage": "Reads the value at a specified position in a shared list.",
+      "example": "Integer-list example: \"Reward amounts\" → Get Integer List Item (index 0) → Gain Sun. For this node, use a Object list and a matching downstream input.",
+      "warning": "Indices start at 0. Type mismatches or out-of-range indices return Valid=false. Object-list initial values may be binding names; an absent or destroyed binding returns null."
+    },
+    {
+      "type": "FindObjectListValueNode",
+      "purpose": "Returns the first matching index and whether the list contains the value.",
+      "usage": "Returns the first matching index and whether the list contains the value.",
+      "example": "String-list example: \"Completed objectives\" and \"Boss\" → Find String List Value → Contains → Condition Branch. For this node, supply a Object list and matching search value.",
+      "warning": "No match returns index -1 and Contains=false. Float comparisons use exact equality; strings are case-sensitive."
+    },
+    {
+      "type": "GetListLengthNode",
+      "purpose": "Reads the current number of elements in a shared list.",
+      "usage": "Reads the current number of elements in a shared list.",
+      "example": "List → List Length → Compare Integer (equal to 0).",
+      "warning": "An unconnected or empty list returns 0."
+    },
+    {
+      "type": "RemoveListItemNode",
+      "purpose": "Removes the item at an index and shifts later items forward.",
+      "usage": "Removes the item at an index and shifts later items forward.",
+      "example": "Reward claimed → remove list item at index 0; the next item becomes the new item 0.",
+      "warning": "Indices start at 0. An out-of-range index uses failure."
+    },
+    {
+      "type": "CopyListValuesNode",
+      "purpose": "Replaces a target list with the source list's values, leaving independent containers.",
+      "usage": "Replaces a target list with the source list's values, leaving independent containers.",
+      "example": "Stage start → copy list values from the default reward pool to this round's reward pool.",
+      "warning": "Element types must match. Copies the container and values; Object elements still refer to the same scene objects. Objects are not cloned."
+    },
+    {
+      "type": "ClearListValuesNode",
+      "purpose": "Removes every element from a shared list.",
+      "usage": "Removes every element from a shared list.",
+      "example": "New round → clear \"Targets defeated this round\".",
+      "warning": "Every node referring to that same list immediately sees it as empty."
+    },
+    {
+      "type": "GetAllZombiesNode",
+      "purpose": "Takes a snapshot of living zombies on the current board.",
+      "usage": "Takes a snapshot of living zombies on the current board.",
+      "example": "Connect to Iterate Zombie List to apply Chill to all zombies.",
+      "warning": "Enumerates only when read, without continuous scanning. Includes enemy and hypnotized zombies; use Break Zombie Property to filter further."
+    },
+    {
+      "type": "ForEachZombieNode",
+      "purpose": "Outputs each living zombie in a list, then fires On Complete.",
+      "usage": "Outputs each living zombie in a list, then fires On Complete.",
+      "example": "All zombies → zombie list; each iteration → change zombie status.",
+      "warning": "Copies the input once. Killing or spawning zombies during iteration does not change that set. Legacy delayed reads retain their old behavior; new graphs preserve each iteration's object through delays."
+    },
+    {
+      "type": "SetZombieStatusNode",
+      "purpose": "Sets a zombie's status, duration in seconds or stack count.",
+      "usage": "Select a status. Chill, Poison, Frozen and Chronoshift use seconds. Enflamed/Irradiated use 0 to clear or a positive number to enable. Poison Points, Tangle Points and Cryo Points use the desired count.",
+      "example": "Select Chill with value 5 to apply it for 5 seconds.",
+      "warning": "Uses the existing status system, including immunities, elemental interactions and freeze rules. 0 removes the status. Ending Chronoshift still resolves damage under normal rules. Enflamed and Irradiated normally have no countdown."
+    },
+    {
+      "type": "GetZombieStatusNode",
+      "purpose": "Reads a status's remaining seconds, on/off flag or stack count.",
+      "usage": "Reads a status's remaining seconds, on/off flag or stack count.",
+      "example": "Select Cryo Points and use a Float comparison to check whether the count has reached 50.",
+      "warning": "Enflamed/Irradiated return 1 or 0. Chill/Poison/Frozen/Chronoshift return remaining seconds; the other options return point counts. Null targets return 0/false."
+    },
+    {
+      "type": "CursePlantNode",
+      "purpose": "Applies a fixed amount of Curse to a plant; 0 removes it.",
+      "usage": "Applies a fixed amount of Curse to a plant; 0 removes it.",
+      "example": "Curse value 50 adds 50 Curse to the target.",
+      "warning": "Uses the game's Curse system, which grows over time and can be fatal. Positive values add Curse; 0 removes it."
+    },
+    {
+      "type": "SilencePlantNode",
+      "purpose": "Silences a plant using its existing silence rules.",
+      "usage": "Silences a plant using its existing silence rules.",
+      "example": "Duration 3, Forced=false: attempt silence according to the map and the plant's resistance.",
+      "warning": "Success immediately fires On Complete. Null, dead or immune targets and invalid durations use failure. Duration must be greater than 0 and at most 100000 seconds. Forced=true skips resistance checks. Snow time scaling, charging and recovery keep their game rules. Existing silence can stack; the output does not wait for recovery."
+    },
+    {
+      "type": "SetPlantAttackSpeedNode",
+      "purpose": "Overrides a plant's total attack-speed multiplier; 1 is base speed.",
+      "usage": "Overrides a plant's total attack-speed multiplier; 1 is base speed.",
+      "example": "Multiplier 2 makes the attack countdown decrease at twice its base rate.",
+      "warning": "Accepts 0.01 to 100. Overrides the current total bonus; Odyssey Modifiers and other effects may change it later. Plant-specific attack animations and abilities keep their original rules."
+    },
+    {
+      "type": "GetPlantAttackSpeedNode",
+      "purpose": "Reads the current attack-speed multiplier and base attack interval.",
+      "usage": "Reads the current attack-speed multiplier and base attack interval.",
+      "example": "Read the multiplier, multiply by 1.2, then write it through Set Plant Attack Speed.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "SetPlantAttributeCountdownNode",
+      "purpose": "Sets the attribute countdown used for plant abilities, growth or swallowing.",
+      "usage": "Remaining seconds changes the current timer; an unset input acts as 0 and completes next frame. Maximum seconds of -1 keeps the current cycle. A nonnegative maximum persists for later attribute countdowns and is at least the remaining time set here.",
+      "example": "Remaining seconds 0, maximum seconds 5: trigger the original ability next frame, then use 5 seconds for subsequent attribute countdowns.",
+      "warning": "Affects only abilities using the attribute countdown, not normal attack intervals. Maximum seconds 0 completes at most once per frame. Original ability restart, pause and death rules still apply."
+    },
+    {
+      "type": "GetPlantAttributeCountdownNode",
+      "purpose": "Reads the current attribute countdown and its maximum seconds.",
+      "usage": "Returns a persistent cycle length if one was set; otherwise returns the original progress bar's maximum.",
+      "example": "Use it for attribute-cooldown text or a condition trigger.",
+      "warning": "Without a persistent cycle or progress bar, the current countdown is returned as the maximum. This is not a universal ability-cooldown setting for every plant."
+    },
+    {
+      "type": "TryPlantSuperSkillNode",
+      "purpose": "Directly attempts a plant's Golden Coffee Bean Ultimate.",
+      "usage": "Directly attempts a plant's Golden Coffee Bean Ultimate.",
+      "example": "Click a specified plant to attempt its Ultimate once for free.",
+      "warning": "Calls SuperSkill directly. It does not spend coins, upgrade Silver plants or trigger extra coin-spending effects. Failure is used if the plant has no Ultimate or cannot activate it now."
+    },
+    {
+      "type": "UpgradeEventPlantNode",
+      "purpose": "Gives a plant an upgrade or Stellar effect.",
+      "usage": "Calls the plant's existing upgrade or special-enhancement effect.",
+      "example": "Target level 2, special-enhancement flag false: upgrade to level 2 for free.",
+      "warning": "Target level must be 0 to 3 and above the current level. Stellar=true attempts StarUp and succeeds only for supported plants. Does not change global plant data. The source calls the separate special-enhancement flag 外挂; this guide does not assume it is the Stellar flag."
+    },
+    {
+      "type": "SetZombieStatsNode",
+      "purpose": "Sets body HP, maximum HP, attack, armor HP, base movement speed or size.",
+      "usage": "Select the stat, connect a zombie object and enter a value.",
+      "example": "Set base movement speed to 2. Chill and other speed multipliers still apply.",
+      "warning": "Body HP 0 runs normal death handling; exceeding the old maximum raises that maximum too. Maximum HP is at least 1 and reducing it caps current HP. HP and attack use integers. Armor edits affect existing armor only. Size is limited to 0.1 to 5; speed to 0 to 100."
+    },
+    {
+      "type": "GetZombieStatsNode",
+      "purpose": "Reads body HP, maximum HP, attack, armor HP, base movement speed or size.",
+      "usage": "Select a stat and supply a zombie object. Body HP excludes both armor types.",
+      "example": "Compare body HP as a Float to check whether it is below 100.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "GetMoneyAmountNode",
+      "purpose": "Reads the current board's coins.",
+      "usage": "Reads the current board's coins.",
+      "example": "Open reward choices when coins are at least 1000.",
+      "warning": "Reads in-level coins. It does not read or modify saved shop currency."
+    },
+    {
+      "type": "AddZombieCardNode",
+      "purpose": "Adds a zombie card to the current slots with optional cost and cooldown overrides.",
+      "usage": "Adds a zombie card to the current slots with optional cost and cooldown overrides.",
+      "example": "Normal Zombie, cost 50, cooldown 5 seconds, Immediately Available=true.",
+      "warning": "Cost/cooldown -1 uses level data. Immediately Available affects only the new card's initial state. Each successful placement restarts the full cooldown; failed placement does not consume it. Full or unavailable slots use failure without leaving an off-screen card."
+    },
+    {
+      "type": "DeleteZombieCardsNode",
+      "purpose": "Deletes all cards of a specified zombie type from the current slots.",
+      "usage": "Deletes all cards of a specified zombie type from the current slots.",
+      "example": "Delete all Conehead Zombie cards.",
+      "warning": "Supports normal and I, Zombie slots. Cards in the catalogue that are not selected into slots are unaffected. Deleting 0 cards still completes normally."
+    },
+    {
+      "type": "DeleteInfoCardsNode",
+      "purpose": "Deletes all information cards, or the one matching the supplied object.",
+      "usage": "Deletes all information cards, or the one matching the supplied object.",
+      "example": "Connect the object returned by Create Info Box and set All=false.",
+      "warning": "An unconnected object with All=false deletes 0 cards to avoid removing unrelated cards."
+    },
+    {
+      "type": "SetZombieCardCooldownNode",
+      "purpose": "Changes total and remaining cooldown for existing cards of a zombie type.",
+      "usage": "Changes total and remaining cooldown for existing cards of a zombie type.",
+      "example": "Total seconds 10, remaining seconds 0: ready now, then a 10-second cooldown after each use.",
+      "warning": "Remaining seconds cannot exceed total seconds. Affects existing cards only; later cards use their add-node settings or level zombie data."
+    },
+    {
+      "type": "ToolTypeValueNode",
+      "purpose": "Selects a tool type for queries, cooldowns and comparisons.",
+      "usage": "Selects a tool type for queries, cooldowns and comparisons.",
+      "example": "Choose Glove and connect to Set Tool Cooldown.",
+      "warning": "Plant previews, zombie previews and Coffee Beans can be identified as held types but do not have tool cooldowns."
+    },
+    {
+      "type": "GetHeldToolNode",
+      "purpose": "Gets the currently held item object and its type.",
+      "usage": "Identifies the actual held item, such as Shovel, Glove, Mallet, bucket or cannon crosshair, and outputs its object and type.",
+      "example": "Compare the type to check whether the player is holding the Glove.",
+      "warning": "Empty hands return None and a null object. Uses the item actually held by the cursor."
+    },
+    {
+      "type": "CompareToolTypeNode",
+      "purpose": "Checks whether two tool types match.",
+      "usage": "Checks whether two tool types match.",
+      "example": "Compare the held tool type with a Glove constant.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "SetToolCooldownNode",
+      "purpose": "Changes the Shovel, Glove, Mallet or lawn mower cooldown for this run.",
+      "usage": "Changes the Shovel, Glove, Mallet or lawn mower cooldown for this run.",
+      "example": "Glove, total seconds 5, remaining seconds 0: immediately available.",
+      "warning": "Total seconds persists until the tool is destroyed in this run and applies to later uses. Remaining seconds changes only the current timer. No-cooldown mode and I, Zombie's existing cooldown exemptions take priority."
+    },
+    {
+      "type": "GetToolCooldownNode",
+      "purpose": "Reads a tool's total cooldown, remaining time and existence.",
+      "usage": "Reads a tool's total cooldown, remaining time and existence.",
+      "example": "Read the Glove's remaining seconds, convert to text and display it.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "WaitUntilNode",
+      "purpose": "Checks a condition at intervals and continues when it becomes true.",
+      "usage": "Checks immediately, then at intervals. true fires On Complete; false keeps waiting. Exhausting the check limit uses Timed Out. Retriggering the same node replaces its previous wait.",
+      "example": "Integer variable >= 10 → Condition; interval 0.2 seconds. Continue when the variable reaches 10.",
+      "warning": "Failure means invalid parameters, such as an interval below 0.1 seconds. A false condition is not failure. Leaving the level or changing stage cancels the wait. Variables and pure calculations are reread, while event objects and loop indices retain their original trigger context."
+    },
+    {
+      "type": "RepeatUntilNode",
+      "purpose": "Repeats an action until a condition becomes true, then continues.",
+      "usage": "Checks immediately. false runs the loop body, waits the interval and checks again; true fires On Complete. Exhausting the check limit uses Timed Out. Retriggering replaces the previous loop.",
+      "example": "Condition: Integer variable >= 10. Each iteration adds 1, with interval 0.2 seconds. Completes at 10. Wait Until only waits; this node also repeats actions.",
+      "warning": "Failure means invalid parameters, such as an interval below 0.1 seconds. false runs the loop body. Leaving the level or changing stage cancels the loop. Variables and pure calculations are reread, while event objects and loop indices retain their original trigger context."
+    },
+    {
+      "type": "OnZombieClickNode",
+      "purpose": "Fires on a valid left-click on a living zombie on the battlefield.",
+      "usage": "Fires on a valid left-click on a living zombie on the battlefield.",
+      "example": "Connect Trigger to Damage Zombie and the zombie output to its target for a click-to-defeat mechanic.",
+      "warning": "Queries colliders only for valid battlefield clicks. If zombies overlap, selects the nearest to the click. Does not block the original card or tool action."
+    },
+    {
+      "type": "OnWorldPlantEffectNode",
+      "purpose": "Listens for the global Ice-shroom effect or a row's Jalapeno effect.",
+      "usage": "Listens for the global Ice-shroom effect or a row's Jalapeno effect.",
+      "example": "Select Jalapeno; the row output identifies the row where fire occurred.",
+      "warning": "Ice-shroom affects the whole lawn and returns row -1. Listens to both plant effects and nodes calling the same effect entry point. Avoid feeding this event back into the same effect and causing recursion."
+    },
+    {
+      "type": "SetZombieHouseRuleNode",
+      "purpose": "Controls whether zombies entering the house trigger the normal loss condition.",
+      "usage": "Controls whether zombies entering the house trigger the normal loss condition.",
+      "example": "On Level Start → this node, Lose on House Entry=false; determine victory/defeat with events.",
+      "warning": "Changes only the house-entry check. Protected-plant death, explicit defeat and other loss conditions remain. With this off, zombies keep walking and leave at the original left boundary under normal rules."
+    },
+    {
+      "type": "SetWaveCountdownPausedNode",
+      "purpose": "Pauses automatic wave advancement while spawned zombies continue acting.",
+      "usage": "Pauses automatic wave advancement while spawned zombies continue acting.",
+      "example": "Dialogue starts → Paused=true; dialogue finishes → Paused=false.",
+      "warning": "Pauses the next-wave timer and early advancement from low remaining enemy HP. Does not interrupt spawning already in progress for this wave. Automatically clears when the event graph stops."
+    },
+    {
+      "type": "DeleteGridItemsNode",
+      "purpose": "Deletes gravestones, craters, ladders or ice blocks in a specified cell.",
+      "usage": "Deletes gravestones, craters, ladders or ice blocks in a specified cell.",
+      "example": "Select crater, row 2, column 3, to remove that cell's day/night crater.",
+      "warning": "Uses each obstacle's Die routine to clear board occupancy too. Ice blocks are cell objects, not a Zomboni's full-row ice trail. Rows and columns start at 0."
+    },
+    {
+      "type": "ChangeEventMusicNode",
+      "purpose": "Plays a selected built-in music track.",
+      "usage": "Plays a selected built-in music track.",
+      "example": "Stage-entry event → this node; select the stage's background music.",
+      "warning": "Uses only loaded game music. On leaving the level, normal menu music handling resumes. Do not call every frame or playback will repeatedly restart."
+    },
+    {
+      "type": "RemoveTravelEntryNode",
+      "purpose": "Removes an Odyssey Modifier from this run, stops its ongoing effects and refreshes affinities.",
+      "usage": "Select a category and enter an internal name, ID, game display title or full description. A valid but unowned modifier completes normally with Removed=false. Invalid names or ambiguous titles use failure.",
+      "example": "Under Zombie Modifiers, the modifier displayed in English as Breakthrough has the internal name 二爷无视植物. Enter that exact internal name; do not assume the translated title is accepted by the game's lookup.",
+      "warning": "Unregisters listeners and stops ongoing loops. Strength and the entry internally named 电力相生 clear their separate multipliers; Iron Curtain refreshes from remaining levels. Already granted resources, cards, entities and permanent stat changes are not rolled back. Existing shields and curses end under their own rules. Odyssey entries also remove their secondary records."
+    },
+    {
+      "type": "GetPlantBasicComponentsNode",
+      "purpose": "Recursively breaks down a fusion recipe into its basic plant-type components.",
+      "usage": "Recursively breaks down a fusion recipe into its basic plant-type components.",
+      "example": "Supply a fusion plant type and iterate the returned types to inspect its components. Repeated ingredients are retained.",
+      "warning": "Uses static recipes, not a guess at the actual history of random fusions. A plant with no recipe returns itself. Recipe cycles and excessive recursion depth are guarded."
+    },
+    {
+      "type": "MakeVector3Node",
+      "purpose": "Combines three Float values into world coordinates.",
+      "usage": "Combines three Float values into world coordinates.",
+      "example": "X=0, Y=1, Z=0 → Create Event Object's position.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "GetMouseWorldPositionNode",
+      "purpose": "Reads the mouse's world position and cell on the battlefield.",
+      "usage": "Reads the mouse's world position and cell on the battlefield.",
+      "example": "World position → Create Event Object; row/column → cell-action nodes.",
+      "warning": "Outside the board, row/column may be out of bounds. Entity-spawn nodes validate the range."
+    },
+    {
+      "type": "CreateEventObjectNode",
+      "purpose": "Creates an empty object managed by this event graph, optionally decorated with a plant icon.",
+      "usage": "Creates an empty object managed by this event graph, optionally decorated with a plant icon.",
+      "example": "Choose Peashooter as the icon and create a decorative marker at the mouse position.",
+      "warning": "A visual marker, not an attacking plant or occupied cell. Maximum 256 living objects per graph, cleaned up when it ends. Use dedicated spawn nodes for real plants/zombies."
+    },
+    {
+      "type": "BindObjectNode",
+      "purpose": "Stores an object under a name for later events to retrieve.",
+      "usage": "Stores an object under a name for later events to retrieve.",
+      "example": "Bind as \"Marker1\", then use String to Object with \"Marker1\" later.",
+      "warning": "The same name replaces the previous binding. Names are local to the running graph. Pooled projectiles require dedicated handles, not long-lived scene-object references."
+    },
+    {
+      "type": "ObjectToStringNode",
+      "purpose": "Generates reference text unique to the object in the current running graph.",
+      "usage": "Generates reference text unique to the object in the current running graph.",
+      "example": "Store object-reference text in a String list, then retrieve it through String to Object.",
+      "warning": "A token for this run, not an object name or a save ID usable across levels. Null objects, pooled projectiles or exceeding 1024 simultaneous valid references return an empty string."
+    },
+    {
+      "type": "StringToObjectNode",
+      "purpose": "Resolves object-reference text or an object binding name.",
+      "usage": "Resolves object-reference text or an object binding name.",
+      "example": "Enter \"Marker1\" to retrieve the marker saved by Bind Object.",
+      "warning": "Invalid, destroyed or different-run references return null. Does not scan the whole scene by name or create an object."
+    },
+    {
+      "type": "PlantToObjectNode",
+      "purpose": "Converts a plant to a scene-object reference.",
+      "usage": "Converts a plant to a scene-object reference.",
+      "example": "Use for object bindings, Object lists or reading position.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "ObjectToPlantNode",
+      "purpose": "Reads a plant component from an object.",
+      "usage": "Reads a plant component from an object.",
+      "example": "Get an item from an Object list, convert to Plant, then use existing combat nodes.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "ZombieToObjectNode",
+      "purpose": "Converts a zombie to a scene-object reference.",
+      "usage": "Converts a zombie to a scene-object reference.",
+      "example": "Use for object bindings, Object lists or reading position.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "ObjectToZombieNode",
+      "purpose": "Reads a zombie component from an object.",
+      "usage": "Reads a zombie component from an object.",
+      "example": "Get an item from an Object list, convert to Zombie, then use existing combat nodes.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "GetObjectTransformNode",
+      "purpose": "Reads an object's world position, scale and existence.",
+      "usage": "Reads an object's world position, scale and existence.",
+      "example": "Convert a plant to an object and read its position to place a decorative object there.",
+      "warning": "Null objects, type mismatches or out-of-range inputs use failure outputs/default values rather than creating invalid entities."
+    },
+    {
+      "type": "SetEventObjectTransformNode",
+      "purpose": "Moves and scales markers made by Create Event Object.",
+      "usage": "Moves and scales markers made by Create Event Object.",
+      "example": "Move a marker to the mouse position with scale 0.5.",
+      "warning": "Changes only decorative objects created by the event graph. Use dedicated movement nodes for plants/zombies; changing only their Transform can break cell occupancy or row indexing."
+    },
+    {
+      "type": "DestroyEventObjectNode",
+      "purpose": "Deletes a scene marker created by the current event graph.",
+      "usage": "Deletes a scene marker created by the current event graph.",
+      "example": "Delete a bound temporary marker.",
+      "warning": "Can delete only objects owned by this graph. Use dedicated nodes for plants, zombies, cards and other entities to preserve game cleanup behavior."
+    },
+    {
+      "type": "BulletTypeValueNode",
+      "purpose": "Selects a built-in projectile type.",
+      "usage": "Selects a built-in projectile type.",
+      "example": "Bullet_pea is a normal pea. Both sides can fire the same projectile type.",
+      "warning": "Firing fails if the type's resource is not loaded. Movement uses straight-line flight at the specified angle."
+    },
+    {
+      "type": "ShootEventBulletNode",
+      "purpose": "Fires a projectile from a specified cell or mouse position in a chosen direction.",
+      "usage": "Fires a projectile from a specified cell or mouse position in a chosen direction.",
+      "example": "Row 2, column 3.5, damage 20, speed 6, angle 0, size 1. Angle 180 points left.",
+      "warning": "Rows/columns start at 0. Angles: 0 right, 90 up, 180 left, 270 down. Uses the game's object pool and collision effects. Out-of-bounds projectiles or those older than 20 seconds are recycled under game rules."
+    },
+    {
+      "type": "ModifyEventBulletNode",
+      "purpose": "Changes a still-active event projectile's size, speed, damage or direction.",
+      "usage": "Changes a still-active event projectile's size, speed, damage or direction.",
+      "example": "Choose direction angle and value 90 to turn the projectile upward.",
+      "warning": "A recycled projectile uses failure, even if its GameObject has been reused for a new projectile. Size is relative to this projectile's original size; repeated settings do not compound."
+    },
+    {
+      "type": "ChangeEventMapNode",
+      "purpose": "Switches day/night backgrounds within a terrain group, preserving entities and ice trails.",
+      "usage": "Switches day/night backgrounds within a terrain group, preserving entities and ice trails.",
+      "example": "On a Day map, connect a stage event and select Night to switch to night.",
+      "warning": "Supported groups: Day/Night, Day_6/Night_6, Pool/NightPool, Roof/NightRoof, the three Odyssey roof variants, the three Mesa River variants, and SnowPool day/night variants. Other groups or special maps use failure and leave the board unchanged. Minimum 1 second between changes. Sun, cells, entities, waves and game speed are unchanged. Literal map IDs are not translated."
+    },
+    {
+      "type": "ForEachAllZombiesNode",
+      "purpose": "Processes every living zombie currently on the battlefield.",
+      "usage": "Processes every living zombie currently on the battlefield.",
+      "example": "Each iteration → Set Zombie Status; current zombie → target.",
+      "warning": "Takes one snapshot when triggered. Newly spawned zombies join only the next snapshot; zombies that die during iteration are skipped. Includes hypnotized zombies, so filter if needed."
+    },
+    {
+      "type": "SetPlantAttackIntervalNode",
+      "purpose": "Sets a plant's own base attack interval.",
+      "usage": "Sets a plant's own base attack interval.",
+      "example": "Enter 0.5 seconds to make that plant's base wait between attacks 0.5 seconds.",
+      "warning": "Range 0.05 to 3600 seconds. Attack-speed bonuses still follow the original formula. Affects only plants using the base attack interval; does not reset current attack animations or special-ability timers."
+    },
+    {
+      "type": "FeedGoldenBeanNode",
+      "purpose": "Runs the actual Golden Coffee Bean feeding process on a plant.",
+      "usage": "Runs the actual Golden Coffee Bean feeding process on a plant.",
+      "example": "Connect Trigger and the plant target to attempt feeding automatically. Check Applied to see whether feeding succeeded.",
+      "warning": "The player need not pick up a bean. Normal coin costs, upgrade eligibility and Ultimate conditions still apply and the usual cost is charged. On Complete means the attempt finished; Applied means it succeeded. The separate Try Plant Ultimate node calls the ability for free but skips Silver-plant upgrades and feeding-related effects."
+    },
+    {
+      "type": "StringVariableNode",
+      "purpose": "Refers to a shared String variable.",
+      "usage": "Press + String in Level Variables, set its initial value, drag it onto the canvas, and connect a String getter or setter.",
+      "example": "Set a String variable to \"Objective complete\" → Show Text.",
+      "warning": "Copied references share the same variable; template variables are copied independently."
+    },
+    {
+      "type": "ListVariableNode",
+      "purpose": "Refers to a shared typed list.",
+      "usage": "Press + List in Level Variables, select an element type and enter initial values, then drag it onto the canvas.",
+      "example": "Integer list → List Length; trigger Append Integer, then read the length again.",
+      "warning": "Indices start at 0; maximum 512 items. Element types must match operation nodes. Copying a list copies values into a separate container. Object initial values are object binding names."
+    }
+  ]
+}

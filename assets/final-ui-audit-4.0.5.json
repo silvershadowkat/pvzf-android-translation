@@ -1,0 +1,1533 @@
+{
+  "revision": "4.0.5-prerelease3-final-audit-r20",
+  "pc_reference_commit": "c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640",
+  "method": "Context Aware AI translations of verified current-source UI, using established game and editor terminology. No new plant/modifier names or inferred mechanics. Runtime display only.",
+  "entries": [
+    {
+      "where": "metadata:15944",
+      "source": "三维坐标",
+      "english": "3D Coordinates",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:15993",
+      "source": "专用选项列表类型，点击时保留本次事件上下文",
+      "english": "A dedicated option list that preserves this event's context when clicked.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16032",
+      "source": "事件创作工具",
+      "english": "Event Creation Tools",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16033",
+      "source": "事件子弹达到每帧128次或同时1024枚的上限",
+      "english": "Event projectiles reached the limit of 128 per frame or 1,024 active at once.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16061",
+      "source": "仅最后一波可用",
+      "english": "Available only on the final wave",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16071",
+      "source": "从本局已获得词条集合移除指定词条，并刷新羁绊。",
+      "english": "Remove the specified modifier from this run's acquired modifiers and refresh synergies.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16123",
+      "source": "位置",
+      "english": "Position",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16124",
+      "source": "位置限制、总数限制、每行数量限制或左侧植物依赖相互冲突，无法生成完整阵型。",
+      "english": "Position, total-count, per-row or left-neighbor requirements conflict. Cannot generate a complete formation.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16234",
+      "source": "修改后不能重做原来的分支",
+      "english": "Editing discards the current redo branch.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16235",
+      "source": "修改子弹数值",
+      "english": "Modify Projectile Stats",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16238",
+      "source": "修改数量",
+      "english": "Change Count",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16241",
+      "source": "修改植物攻击间隔",
+      "english": "Modify Plant Attack Interval",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16245",
+      "source": "修改立即写入当前关卡草稿；关闭后可用撤销恢复。",
+      "english": "Changes are saved immediately to this level's draft. Use Undo after closing to restore them.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16246",
+      "source": "倍率",
+      "english": "Multiplier",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16251",
+      "source": "值无效：枚举可填成员名，布尔使用true/false，浮点使用小数点",
+      "english": "Invalid value: use enum member names, true/false for booleans and a decimal point for floats.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16286",
+      "source": "僵尸种类",
+      "english": "Zombie Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16287",
+      "source": "僵尸种类列表",
+      "english": "Zombie Type List",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16299",
+      "source": "僵尸血量达到阈值时",
+      "english": "When Zombie HP Reaches Threshold",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16308",
+      "source": "僵尸阵营",
+      "english": "Zombie Faction",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16320",
+      "source": "元素类型",
+      "english": "Element Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16321",
+      "source": "先删除列表全部元素，再修改元素类型；已有内容不会被自动丢弃。",
+      "english": "Remove all list elements before changing their type. Existing contents will not be discarded automatically.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16361",
+      "source": "共享列表",
+      "english": "Shared List",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16372",
+      "source": "关卡制作指南入口",
+      "english": "Level Creation Guide",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16423",
+      "source": "冷却秒数",
+      "english": "Cooldown (seconds)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16466",
+      "source": "切图间隔至少1秒",
+      "english": "Wait at least 1 second between map changes.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16467",
+      "source": "切换关卡阶段；新执行模式会取消上个阶段的等待与周期",
+      "english": "Switch level phase. The new execution mode cancels waits and cycles from the previous phase.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16469",
+      "source": "切换地图",
+      "english": "Switch Map",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16476",
+      "source": "切换背景音乐",
+      "english": "Change Background Music",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16488",
+      "source": "列表已达到512项上限。",
+      "english": "The list has reached its 512-item limit.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16500",
+      "source": "创建卡牌",
+      "english": "Create Card",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16523",
+      "source": "初始值 · 字符串",
+      "english": "Initial Value: String",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16525",
+      "source": "删除信息卡牌",
+      "english": "Remove Info Card",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16526",
+      "source": "删除僵尸卡牌",
+      "english": "Remove Zombie Card",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16540",
+      "source": "删除数量",
+      "english": "Remove Count",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16542",
+      "source": "删除格子障碍",
+      "english": "Remove Tile Obstacle",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16543",
+      "source": "删除植物",
+      "english": "Remove Plant",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16571",
+      "source": "剩余秒数",
+      "english": "Seconds Remaining",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16580",
+      "source": "加1000护盾",
+      "english": "Gain 1,000 Shield HP",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16581",
+      "source": "加100幸运",
+      "english": "Gain 100 Luck",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16582",
+      "source": "加10次刷新",
+      "english": "Gain 10 Rerolls",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16583",
+      "source": "加40%速度增幅",
+      "english": "Gain 40% Speed",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16584",
+      "source": "加50%基础攻击力",
+      "english": "Gain 50% Base Attack",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16585",
+      "source": "加50%基础生命值",
+      "english": "Gain 50% Base HP",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16586",
+      "source": "加60%独立伤害增幅",
+      "english": "Gain 60% Independent Damage",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16599",
+      "source": "包含",
+      "english": "Contains",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16621",
+      "source": "升到3级",
+      "english": "Upgrade to Level 3",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16639",
+      "source": "卡牌冷却（秒）",
+      "english": "Card Cooldown (seconds)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16657",
+      "source": "发射植物或僵尸子弹",
+      "english": "Fire Plant or Zombie Projectile",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16673",
+      "source": "只修改当前关卡的该类型数值；重新生成的实体使用新值。",
+      "english": "Changes this type's stats only in the current level. Newly spawned entities use the updated values.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16680",
+      "source": "召唤权重",
+      "english": "Spawn Weight",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16682",
+      "source": "召唤等级",
+      "english": "Spawn Level",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16700",
+      "source": "合并两个专用选项列表",
+      "english": "Merge Two Option Lists",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16703",
+      "source": "合并奖励选项",
+      "english": "Merge Reward Options",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16718",
+      "source": "名称或编号",
+      "english": "Name or ID",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16721",
+      "source": "向卡槽添加一张豌豆射手",
+      "english": "Add a Peashooter card to the tray",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16762",
+      "source": "回溯搜索预算必须为正数。",
+      "english": "The backtracking search budget must be positive.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16763",
+      "source": "回满血",
+      "english": "Restore Full HP",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16771",
+      "source": "图、阶段或周期已结束",
+      "english": "The graph, phase or cycle has ended.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16773",
+      "source": "图标植物",
+      "english": "Icon Plant",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16819",
+      "source": "在鼠标处",
+      "english": "At Mouse Position",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16831",
+      "source": "场上植物特殊效果发生时",
+      "english": "When a Plant's Special Effect Occurs",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16837",
+      "source": "坐标",
+      "english": "Coordinates",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16880",
+      "source": "多选菜单需要选项列表，不能使用鼠标物品等普通GameObject",
+      "english": "A multiple-choice menu requires an option list, not a regular GameObject such as a mouse-held item.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16896",
+      "source": "大小",
+      "english": "Size",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16897",
+      "source": "大小倍率",
+      "english": "Size Multiplier",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16941",
+      "source": "子弹",
+      "english": "Projectile",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16942",
+      "source": "子弹参数越界或类型未加载",
+      "english": "Projectile parameters are out of range, or the type is not loaded.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16947",
+      "source": "子弹操作",
+      "english": "Projectile Actions",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16949",
+      "source": "子弹种类",
+      "english": "Projectile Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16950",
+      "source": "子弹类型",
+      "english": "Projectile Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16966",
+      "source": "字符串长度不能超过4096",
+      "english": "Strings cannot exceed 4,096 characters.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16967",
+      "source": "字符转ASCII码",
+      "english": "Character to ASCII",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16971",
+      "source": "存在同步触发环，请通过等待或周期安排下一次执行",
+      "english": "Synchronous trigger cycle detected. Use a wait or cycle to schedule the next execution.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16972",
+      "source": "存在数值依赖环",
+      "english": "Value dependency cycle detected.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:16973",
+      "source": "存在空植物配置或无效植物类型。",
+      "english": "A plant configuration is empty or has an invalid type.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17003",
+      "source": "完整数值…",
+      "english": "Full Value...",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17004",
+      "source": "完整数值编辑",
+      "english": "Edit Full Value",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17031",
+      "source": "对数运算",
+      "english": "Logarithm",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17114",
+      "source": "小数变量",
+      "english": "Float Variable",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17117",
+      "source": "小数运算溢出，原值保留",
+      "english": "Float overflow. The original value was kept.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17190",
+      "source": "已移除",
+      "english": "Removed",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17198",
+      "source": "已触发",
+      "english": "Triggered",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17254",
+      "source": "应用",
+      "english": "Apply",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17255",
+      "source": "底数",
+      "english": "Base",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17343",
+      "source": "当前僵尸",
+      "english": "Current Zombie",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17359",
+      "source": "当前护盾量：",
+      "english": "Current Shield HP:",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17360",
+      "source": "当前攻击力：",
+      "english": "Current Attack:",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17362",
+      "source": "当前无法保存解锁，请稍后重试。",
+      "english": "Cannot save the unlock right now. Please try again later.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17363",
+      "source": "当前无法读取本局奖励对应的诸神存档。",
+      "english": "Cannot read the Gods save associated with this run's rewards.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17364",
+      "source": "当前最大生命值：",
+      "english": "Current Maximum HP:",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17365",
+      "source": "当前未使用本局的诸神存档，奖励等待切回原存档后发放。",
+      "english": "This run's Gods save is not currently selected. Rewards will be granted after switching back to it.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17378",
+      "source": "当前诸神存档与开局存档不一致，无法保存奖励。",
+      "english": "The current Gods save differs from the one used at the start of this run. Cannot save rewards.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17379",
+      "source": "当前诸神存档无法保存。",
+      "english": "Cannot save the current Gods save file.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17423",
+      "source": "总秒数",
+      "english": "Total Seconds",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17426",
+      "source": "恢复",
+      "english": "Restore",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17430",
+      "source": "恢复草稿",
+      "english": "Restore Draft",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17486",
+      "source": "战斗中只支持同地形昼夜地图互换；改变水陆、坡度或行数请在关卡地图设置中完成",
+      "english": "During battle, maps can only switch between day and night with matching terrain. Use Level Map Settings to change water, slopes or row count.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17496",
+      "source": "所有植物的最少数量之和超过可用格子数。",
+      "english": "The sum of minimum plant counts exceeds the available cells.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17502",
+      "source": "手套的冷却加快了",
+      "english": "Glove cooldown reduced.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17512",
+      "source": "执行",
+      "english": "Execute",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17514",
+      "source": "执行超过限制，请检查触发环、循环次数或重复事件",
+      "english": "Execution limit exceeded. Check trigger cycles, loop counts or repeated events.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17519",
+      "source": "把僵尸以名称绑定到本局，例如首领；重复名称替换绑定",
+      "english": "Bind a zombie to a name for this run, such as Boss. Reusing a name replaces its binding.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17521",
+      "source": "把植物以名称绑定到本局，例如守护目标；重复名称替换绑定",
+      "english": "Bind a plant to a name for this run, such as Protected Target. Reusing a name replaces its binding.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17527",
+      "source": "护甲",
+      "english": "Armor",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17545",
+      "source": "拆解植物",
+      "english": "Disassemble Plant",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17556",
+      "source": "指数",
+      "english": "Exponent",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17557",
+      "source": "指数运算",
+      "english": "Exponentiation",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17565",
+      "source": "按从0开始的行列查询主植物、支撑或飞行层，越界返回空列表",
+      "english": "Find the main plant, support or flying layer using zero-based row and column coordinates. Returns an empty list if out of bounds.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17566",
+      "source": "按位置层获取植物",
+      "english": "Get Plant by Position Layer",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17593",
+      "source": "插入：",
+      "english": "Insert:",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17607",
+      "source": "操作数",
+      "english": "Operand",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17614",
+      "source": "收到OnPlantMix时输出融合后的植物",
+      "english": "Outputs the fused plant when OnPlantMix is received.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17617",
+      "source": "改为读取最新事件（旧版）",
+      "english": "Read Latest Event (Legacy)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17620",
+      "source": "攻击伤害",
+      "english": "Attack Damage",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17636",
+      "source": "攻击间隔（秒）",
+      "english": "Attack Interval (seconds)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17662",
+      "source": "整数变量",
+      "english": "Integer Variable",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17668",
+      "source": "整数运算溢出，原值保留",
+      "english": "Integer overflow. The original value was kept.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17691",
+      "source": "新执行模式保留事件实体或鼠标的行列，等待后仍读取触发当时位置",
+      "english": "The new execution mode preserves the event entity's or mouse's row and column. After waiting, it still reads the position at trigger time.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17693",
+      "source": "新的变量",
+      "english": "New Variable",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17737",
+      "source": "无法创建目标地图",
+      "english": "Cannot create the target map.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17742",
+      "source": "无法在诸神模式中移动僵尸",
+      "english": "Cannot move zombies in The Gods mode.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17745",
+      "source": "无法拆解该植物",
+      "english": "Cannot disassemble this plant.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17886",
+      "source": "普通出怪流程SpawnOver之后，全场敌人清空时，每波触发一次；不适用于未发布SpawnOver的自定义出怪器",
+      "english": "Triggers once per wave when all enemies are cleared after the normal spawn flow's SpawnOver. Does not apply to custom spawners that do not publish SpawnOver.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17893",
+      "source": "暂停或恢复波次倒计时",
+      "english": "Pause or Resume Wave Countdown",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17910",
+      "source": "最多检查次数",
+      "english": "Maximum Checks",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17915",
+      "source": "最大秒数",
+      "english": "Maximum Seconds",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17931",
+      "source": "有效输入自动保存到关卡草稿；无效输入保留原值。",
+      "english": "Valid input is saved automatically to the level draft. Invalid input keeps the original value.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17955",
+      "source": "本体血量",
+      "english": "Body HP",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17963",
+      "source": "本波敌人清空时",
+      "english": "When Wave Enemies Are Cleared",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:17989",
+      "source": "条目",
+      "english": "Entry",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18017",
+      "source": "格子宽度必须为正数。",
+      "english": "Cell width must be positive.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18018",
+      "source": "格子高度必须为正数。",
+      "english": "Cell height must be positive.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18026",
+      "source": "棋盘坐标从0开始：第一行/第一列填0，第二行/第二列填1。",
+      "english": "Board coordinates start at 0: use 0 for the first row/column and 1 for the second.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18047",
+      "source": "植物种类",
+      "english": "Plant Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18048",
+      "source": "植物种类列表",
+      "english": "Plant Type List",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18064",
+      "source": "植物融合完成时",
+      "english": "When Plant Fusion Completes",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18078",
+      "source": "模仿者的冷却加快了",
+      "english": "Imitater cooldown reduced.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18103",
+      "source": "正在保存本次解锁，请稍后再试。",
+      "english": "Saving this unlock. Please try again shortly.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18185",
+      "source": "每次循环",
+      "english": "Each Iteration",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18211",
+      "source": "比较道具类型",
+      "english": "Compare Tool Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18235",
+      "source": "沉默植物",
+      "english": "Silence Plant",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18236",
+      "source": "沉默秒数必须大于0且不超过100000",
+      "english": "Silence duration must be greater than 0 and no more than 100,000 seconds.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18241",
+      "source": "没有匹配的战术",
+      "english": "No matching tactic found.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18247",
+      "source": "没有子菜单",
+      "english": "No Submenu",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18265",
+      "source": "没有输出口。",
+      "english": "No output port.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18320",
+      "source": "添加一项",
+      "english": "Add Item",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18321",
+      "source": "添加僵尸卡牌",
+      "english": "Add Zombie Card",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18324",
+      "source": "添加奖励选项",
+      "english": "Add Reward Option",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18328",
+      "source": "添加诸神模式植物配置后将自动显示",
+      "english": "Appears automatically after adding a Gods mode plant configuration.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18345",
+      "source": "源列表",
+      "english": "Source List",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18458",
+      "source": "玩法流程",
+      "english": "Gameplay Flow",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18467",
+      "source": "生产间隔（秒）",
+      "english": "Production Interval (seconds)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18497",
+      "source": "生成区域必须包含 1～1024 个格子。",
+      "english": "The spawn area must contain 1 to 1,024 cells.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18505",
+      "source": "用于本局金币玩法",
+      "english": "Used for this run's coin mechanics.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18540",
+      "source": "目标列表",
+      "english": "Target List",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18542",
+      "source": "目标地图地面数量与当前战场不兼容",
+      "english": "The target map's ground count is incompatible with the current battlefield.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18543",
+      "source": "目标地图缺少屋顶地面",
+      "english": "The target map has no roof ground.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18545",
+      "source": "目标等级",
+      "english": "Target Level",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18547",
+      "source": "目标阶段",
+      "english": "Target Phase",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18555",
+      "source": "相等",
+      "english": "Equal",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18558",
+      "source": "真假",
+      "english": "Boolean",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18559",
+      "source": "真假变量",
+      "english": "Boolean Variable",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18583",
+      "source": "示例文本",
+      "english": "Example Text",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18620",
+      "source": "秒数",
+      "english": "Seconds",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18632",
+      "source": "移除指定旅行词条",
+      "english": "Remove Specified Odyssey Modifier",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18671",
+      "source": "端口方向或类型不匹配",
+      "english": "Port directions or types do not match.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18677",
+      "source": "第5波来袭！",
+      "english": "Wave 5 Incoming!",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18692",
+      "source": "第一防具血量",
+      "english": "First Armor HP",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18695",
+      "source": "第二防具血量",
+      "english": "Second Armor HP",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18699",
+      "source": "等待后的取值方式：已有旧关卡建议保持原设置",
+      "english": "Value lookup after waiting: keep the original setting for existing levels.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18701",
+      "source": "等待时间必须是0到2000000秒之间的有限数值",
+      "english": "Wait time must be finite and between 0 and 2,000,000 seconds.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18737",
+      "source": "组合三维坐标",
+      "english": "Combine 3D Coordinates",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18753",
+      "source": "绑定名称（本关卡共享）",
+      "english": "Binding Name (shared in this level)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18772",
+      "source": "编辑列表初值",
+      "english": "Edit Initial List Values",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18892",
+      "source": "获取全场僵尸",
+      "english": "Get All Zombies",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18903",
+      "source": "获取当前金币",
+      "english": "Get Current Coins",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18910",
+      "source": "获取本次事件位置",
+      "english": "Get This Event's Position",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18912",
+      "source": "获取植物基础组成",
+      "english": "Get Plant's Base Components",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18917",
+      "source": "获取鼠标世界位置",
+      "english": "Get Mouse World Position",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18919",
+      "source": "获取鼠标道具",
+      "english": "Get Mouse-Held Tool",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18921",
+      "source": "获得100阳光",
+      "english": "Gain 100 Sun",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18928",
+      "source": "获得50金币",
+      "english": "Gain 50 Coins",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18937",
+      "source": "获得新植物",
+      "english": "New Plant Acquired",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18983",
+      "source": "血量比例",
+      "english": "HP Ratio",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:18987",
+      "source": "补充豌豆射手",
+      "english": "Add Peashooter",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19005",
+      "source": "角度",
+      "english": "Angle",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19039",
+      "source": "设置僵尸卡冷却",
+      "english": "Set Zombie Card Cooldown",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19040",
+      "source": "设置僵尸战斗数值",
+      "english": "Set Zombie Combat Stats",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19041",
+      "source": "设置僵尸状态",
+      "english": "Set Zombie Status",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19042",
+      "source": "设置僵尸进家规则",
+      "english": "Set Zombie House-Entry Rules",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19049",
+      "source": "设置攻击力、防具血量、基础移速或体型。",
+      "english": "Set attack, armor HP, base movement speed or size.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19051",
+      "source": "设置植物属性倒计时",
+      "english": "Set Plant Property Countdown",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19062",
+      "source": "诅咒值",
+      "english": "Curse Value",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19089",
+      "source": "该植物不在可解锁目录中。",
+      "english": "This plant is not in the unlockable catalog.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19092",
+      "source": "该植物已经解锁。",
+      "english": "This plant is already unlocked.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19094",
+      "source": "该植物无法星辉",
+      "english": "This plant cannot enter Stellar form.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19105",
+      "source": "说明",
+      "english": "Description",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19172",
+      "source": "读取僵尸战斗数值",
+      "english": "Read Zombie Combat Stats",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19173",
+      "source": "读取僵尸状态",
+      "english": "Read Zombie Status",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19183",
+      "source": "读取属性倒计时和当前进度条最大值。",
+      "english": "Read the property countdown and the current progress bar's maximum value.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19187",
+      "source": "读取攻击力、防具血量、基础移速或体型。",
+      "english": "Read attack, armor HP, base movement speed or size.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19189",
+      "source": "读取本局当前阶段名称",
+      "english": "Read This Run's Current Phase Name",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19191",
+      "source": "读取植物属性倒计时",
+      "english": "Read Plant Property Countdown",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19192",
+      "source": "读取植物攻速",
+      "english": "Read Plant Attack Speed",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19193",
+      "source": "读取绑定名称",
+      "english": "Read Binding Name",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19194",
+      "source": "读取道具冷却",
+      "english": "Read Tool Cooldown",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19372",
+      "source": "输入僵尸本体血量低于或等于比例后触发一次；默认0.5，不含护甲，换目标后重新检测",
+      "english": "Triggers once when the input zombie's body HP reaches or falls below the ratio (default 0.5), excluding armor. Changing the target resets detection.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19373",
+      "source": "输入无效",
+      "english": "Invalid Input",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19391",
+      "source": "运算值必须有限",
+      "english": "Operands must be finite.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19420",
+      "source": "进入指定名称的阶段时触发，同名阶段不会重复进入",
+      "english": "Triggers when entering the specified phase. Re-entering a phase with the same name does not trigger it again.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19423",
+      "source": "进入阶段名称",
+      "english": "Phase Name to Enter",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19424",
+      "source": "进入阶段时",
+      "english": "On Phase Entry",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19483",
+      "source": "通关奖励已存入诸神存档。",
+      "english": "Completion rewards saved to the Gods save file.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19487",
+      "source": "通过MultipleChoiceMenu显示专用选项列表；旧多选节点仍保留",
+      "english": "Show a dedicated option list through MultipleChoiceMenu. Legacy multiple-choice nodes are still supported.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19494",
+      "source": "遍历全场僵尸",
+      "english": "For Each Zombie",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19499",
+      "source": "道具种类",
+      "english": "Tool Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19500",
+      "source": "道具类型",
+      "english": "Tool Type",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19576",
+      "source": "长度",
+      "english": "Length",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19579",
+      "source": "间隔秒数",
+      "english": "Interval (seconds)",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19594",
+      "source": "阳光花费",
+      "english": "Sun Cost",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19596",
+      "source": "阶段",
+      "english": "Phase",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19597",
+      "source": "阶段名称",
+      "english": "Phase Name",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19600",
+      "source": "除数不能为0",
+      "english": "Divisor cannot be 0.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19656",
+      "source": "需要一个矩形 Grid。",
+      "english": "A rectangular Grid is required.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19667",
+      "source": "需要存活僵尸，数值范围为0到1000000",
+      "english": "Requires a living zombie and a value from 0 to 1,000,000.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19669",
+      "source": "需要运行中的事件图；间隔0.1到3600秒，检查次数1到360000",
+      "english": "Requires a running event graph. Interval: 0.1 to 3,600 seconds. Checks: 1 to 360,000.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19684",
+      "source": "预览状态下不能购买",
+      "english": "Cannot purchase in Preview mode.",
+      "kind": "exact"
+    },
+    {
+      "where": "metadata:19706",
+      "source": "首次触发后关闭；重置输入为真时仅重置，下次才执行",
+      "english": "Closes after the first trigger. A true Reset input only resets it; execution resumes on the next trigger.",
+      "kind": "exact"
+    },
+    {
+      "where": "UI:199927:TextMeshProUGUI",
+      "source": "变量名称",
+      "english": "Variable Name",
+      "kind": "exact"
+    },
+    {
+      "where": "TextAsset:601CustomIZ特别感谢/tips",
+      "source": "<size=18>\n\n感谢你的游玩！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<size=18>我是僵尸：冒险\n<size=12>主策：MirteorShower \n<size=18>协助制作\n<size=12><u>43056721    树桩上的火炎    爱嗑猫薄荷    小董玩得好    decepticons（关卡制作）</u>   <u>红烧黛鱼（游玩测试）</u>\n<size=18>特别感谢\n<size=12>蓝飘飘fly及其他所有融合版制作组成员\n<u>爱嗑猫薄荷   红烧黛鱼   MirteorShower（内测沟通）</u>    <u>Infinite75   听雨夜荷   梧萱梦汐X（更好的IZ编辑器）</u>\n以及能玩到这里的你\n<size=18>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "english": "<size=18>\n\nThank you for playing!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<size=18>I, Zombie: Adventure\n<size=12>Lead Designer: MirteorShower \n<size=18>Contributors\n<size=12><u>43056721    树桩上的火炎    爱嗑猫薄荷    小董玩得好    decepticons (Level Design)</u>   <u>红烧黛鱼 (Playtesting)</u>\n<size=18>Special Thanks\n<size=12>蓝飘飘fly and the entire Fusion development team\n<u>爱嗑猫薄荷   红烧黛鱼   MirteorShower (Beta Coordination)</u>    <u>Infinite75   听雨夜荷   梧萱梦汐X (Improved I, Zombie Editor)</u>\nAnd you, for making it this far!\n<size=18>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "kind": "exact"
+    },
+    {
+      "where": "TextAsset:ShootingAlmanacIndex/entries/3/condition",
+      "source": "Selection chance is affected by Luck.\n僵尸类型不是豌豆僵尸或随机僵尸时生效。",
+      "english": "Selection chance is affected by Luck.\nApplies unless the zombie type is set to pea-shooting or random zombies.",
+      "kind": "exact",
+      "note": "Descriptive zombie categories, not invented individual zombie names. Source explicitly contrasts these two modes."
+    },
+    {
+      "where": "TextAsset:ShootingAlmanacIndex/entries/4/condition",
+      "source": "Selection chance is affected by Luck.\n僵尸类型为豌豆僵尸或随机僵尸时生效。",
+      "english": "Selection chance is affected by Luck.\nApplies when the zombie type is set to pea-shooting or random zombies.",
+      "kind": "exact",
+      "note": "Descriptive zombie categories, not invented individual zombie names. Source explicitly contrasts these two modes."
+    },
+    {
+      "where": "metadata:16360",
+      "source": "共{0}项，显示前10项。修复后重新检查。",
+      "english": "{0} items total; showing the first 10. Fix them, then check again.",
+      "kind": "formatted",
+      "pattern": "^共([0-9]+)项，显示前10项。修复后重新检查。$",
+      "replacement": "{0} items total; showing the first 10. Fix them, then check again.",
+      "fixture": [
+        "共12项，显示前10项。修复后重新检查。",
+        "12 items total; showing the first 10. Fix them, then check again."
+      ]
+    },
+    {
+      "where": "metadata:16485",
+      "source": "列表元素{0}",
+      "english": "List Element {0}",
+      "kind": "formatted",
+      "pattern": "^列表元素([0-9]+)$",
+      "replacement": "List Element {0}",
+      "fixture": [
+        "列表元素3",
+        "List Element 3"
+      ]
+    },
+    {
+      "where": "metadata:16929",
+      "source": "失败奖励：{0} × {1}/{2} × 50%，向下取整。",
+      "english": "Failure reward: {0} x {1}/{2} x 50%, rounded down.",
+      "kind": "formatted",
+      "pattern": "^失败奖励：([0-9]+)\\ ×\\ ([0-9]+)/([0-9]+)\\ ×\\ 50%，向下取整。$",
+      "replacement": "Failure reward: {0} x {1}/{2} x 50%, rounded down.",
+      "fixture": [
+        "失败奖励：100 × 3/5 × 50%，向下取整。",
+        "Failure reward: 100 x 3/5 x 50%, rounded down."
+      ]
+    },
+    {
+      "where": "metadata:17175",
+      "source": "已恢复编辑记录 {0}/{1}",
+      "english": "Restored edit history {0}/{1}",
+      "kind": "formatted",
+      "pattern": "^已恢复编辑记录\\ ([0-9]+)/([0-9]+)$",
+      "replacement": "Restored edit history {0}/{1}",
+      "fixture": [
+        "已恢复编辑记录 3/5",
+        "Restored edit history 3/5"
+      ]
+    },
+    {
+      "where": "metadata:17180",
+      "source": "已更新：{0} = {1}（当前关卡）",
+      "english": "Updated: {0} = {1} (current level)",
+      "kind": "formatted",
+      "pattern": "^已更新：([^\r\n]+?)\\ =\\ ([0-9]+)（当前关卡）$",
+      "replacement": "Updated: {0} = {1} (current level)",
+      "fixture": [
+        "已更新：Attack = 25（当前关卡）",
+        "Updated: Attack = 25 (current level)"
+      ]
+    },
+    {
+      "where": "metadata:17348",
+      "source": "当前增幅：{0:F0}%",
+      "english": "Current Bonus: {0:F0}%",
+      "kind": "formatted",
+      "pattern": "^当前增幅：([0-9]+)%$",
+      "replacement": "Current Bonus: {0}%",
+      "fixture": [
+        "当前增幅：50%",
+        "Current Bonus: 50%"
+      ]
+    },
+    {
+      "where": "metadata:18679",
+      "source": "第{0}/{1}页 · 共{2}项 · 类型：{3}",
+      "english": "Page {0}/{1} · {2} items · Type: {3}",
+      "kind": "formatted",
+      "pattern": "^第([0-9]+)/([0-9]+)页\\ ·\\ 共([0-9]+)项\\ ·\\ 类型：([^\r\n]+?)$",
+      "replacement": "Page {0}/{1} · {2} items · Type: {3}",
+      "fixture": [
+        "第2/4页 · 共26项 · 类型：Integer",
+        "Page 2/4 · 26 items · Type: Integer"
+      ]
+    },
+    {
+      "where": "metadata:18688",
+      "source": "第{0}项已更新",
+      "english": "Item {0} updated",
+      "kind": "formatted",
+      "pattern": "^第([0-9]+)项已更新$",
+      "replacement": "Item {0} updated",
+      "fixture": [
+        "第3项已更新",
+        "Item 3 updated"
+      ]
+    },
+    {
+      "where": "metadata:18771",
+      "source": "编辑{0}列表 · {1}项",
+      "english": "Edit {0} List · {1} items",
+      "kind": "formatted",
+      "pattern": "^编辑([^\r\n]+?)列表\\ ·\\ ([0-9]+)项$",
+      "replacement": "Edit {0} List · {1} items",
+      "fixture": [
+        "编辑Integer列表 · 12项",
+        "Edit Integer List · 12 items"
+      ]
+    }
+  ],
+  "retained": [
+    "Internal IDs, enum values, route names, resource paths and saved graph data",
+    "Creator/player aliases",
+    "Unverified modifier names and effects",
+    "Developer diagnostics and unused/unsupported feature text",
+    "Existing English and protected guide lookup terms"
+  ],
+  "fixtures_preserve": [
+    "二爷无视植物",
+    "电力相生",
+    "外挂",
+    "我的规则",
+    "Disabled",
+    "我的模板名称",
+    "My Custom Rule",
+    "Current custom note 当前护盾量： 50",
+    "Unrelated 第3项已更新 message",
+    "Custom list 名称 {0}"
+  ],
+  "input_sha256": {
+    "candidate.unity3d": "f0f7addeb051b66cb5ba8ca49011b94efd05a2045c0eb747637d77c093fe1d96",
+    "metadata.dat": "5e71f524927b2304cad759137b4f500ea2fed61e182d49e5824b77f4fc88be5c"
+  },
+  "audit_inventory_sha256": "137937b22f8b4e42175204daba16726d105282e2001a96cd484760041cfff139"
+}

@@ -1,0 +1,163 @@
+{
+  "credits_correction": "PVZ Fusion Fans Discord",
+  "source_pc_commit": "c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640",
+  "prompts": {
+    "story-prompt.txt": "Edit target: the provided original Chinese diary sprite atlas. Produce the SAME 2048x2048 RGBA atlas with real transparent background. Preserve all four book-page sprites EXACTLY in their original locations, sizes, outlines, black covers, gold binding rings, perspective, burns, stains, torn and crumpled aged yellow parchment, and all transparent padding at the right. Do not rearrange, enlarge, straighten or crop any sprite. Replace ONLY the Chinese ink on the four page surfaces with the following exact English text, in dark charcoal legible hand-written journal lettering matching the original mood. Naturally reconstruct parchment behind old ink rather than painting flat rectangles. Keep a comfortable margin, fit text entirely inside each paper page. Preserve words exactly; line breaks can be adjusted only to fit. No headings, page numbers, decorations or added text. The names Sword-shroom and Shield-shroom are verified game terminology; preserve spelling.\n\nTOP LEFT:\nSword and shield work in perfect harmony.\nThe shield holds the line and bears the onslaught;\nthe blade waits behind it for a chance to strike.\nOne defends, one advances. Each relies on the other.\nI thought only we fought this way, but some plants\nunderstand it just as well.\nYelena calls them Sword-shroom and Shield-shroom.\nI would have called them the blade that breaks\nthe line and the shield that stands guard.\nThere is a strange bond between these mushrooms.\nThey share an origin, can fuse with each other,\nand can change from one form to the other.\nAlternating forms pushes their power to its limits.\nI have to admit, they are impressive.\nFortunately, we are friends now.\n\nTOP RIGHT:\nWe have reached the depths of the snowfield.\nWhile travelling, I felt something strange underfoot.\nBrushing aside the snow revealed some small\nmushrooms hiding beneath it.\nThey seem quite fond of me. Had they not reached\nout and wound their roots around me, we would\nnever have noticed them.\nLater, we encountered some iron penguins.\nBefore we could act, those gentle mushrooms\nstruck first. Their sharp roots easily pierced\nthe metal shells.\nYelena was upset that she had not spotted the\nmushrooms herself. I understand how she feels.\nHad they been hostile, we would have paid\nfor that oversight today.\n\nBOTTOM LEFT:\nOur mission is to find and retrieve the source\nof an unknown signal in this snowfield.\nSo far, it seems like a fuss over nothing.\nApart from the unexplained endless night,\nthere is only strange scrap metal all around.\nWe cannot make sense of this technology.\nLuckily, Yelena can. She always knows everything.\nI only care for flowers and plants.\nSadly, they rarely return the affection.\nBut the local plants surprised me today.\nPerhaps they failed to notice I am a zombie,\nand were happy to live alongside me.\nOr perhaps, in a land that has lost the daylight,\neven zombies seem a little less unwelcome.\nI never would have imagined that one day,\nwe too would miss the sun.\n\nBOTTOM RIGHT:\nYelena values every chance to keep our\nteammates from getting hurt.\nIt took a good deal of persuasion to get the\nsquad to accept the plants travelling with us.\nTo be precise, everyone fell in love with\nthat green mushroom.\nWho knew mushrooms understood swordplay?\nWith their help, we destroyed those machines\nthat glowed green.\n\nThose big, rather dim-looking birds deserve\na mention, too. They seemed gentle and harmless,\nuntil someone threw a snowball at one.\nTheir tails store sunlight. Could that mean\nthis snowfield was not always a place\nof endless night?\n",
+    "credits-prompt.txt": "Edit target: the supplied PC English help/credits parchment image. Keep its exact 1400x600 overall layout and all content outside the LOWER-LEFT Android credits section unchanged. Preserve the right-side hotkeys and full Blooms Translation Credits, the top-left creator credits and Chinese proper names, the lawn background, and the parchment outline. Replace ONLY the lower-left 'English Android Port: Joseph Franci' section with the following exact wording:\nEnglish Android Port:\nSilverShadow, Joseph Franci, aha,\nAll of the testers in the PVZ Fans Discord,\nAll of the modders that provided guidance\n\nUse the same black handwritten font style as the rest of this parchment. Fit all four lines fully within the existing lower-left area below the Thanks list and to the left of Translation Credits. Make the heading slightly larger than the names, with readable compact body lines if necessary. Redraw and naturally blend the local aged-paper surface behind this section, retaining plausible stains, burns, creases, torn and crumbled edges. Do not cover it with a flat rectangle. Do not alter, misspell, remove, or add anything elsewhere. Exact names and capitalization matter. Output a clean game-ready image, no frame or mockup.\n",
+    "credits-correction-prompt.txt": "Edit target: this approved help/credits parchment. Make ONE text correction in its LOWER-LEFT Android credits block: replace 'All of the testers in the PVZ Fans Discord,' with 'All of the testers in the PVZ Fusion Fans Discord,'. Add the word Fusion between PVZ and Fans. Keep the entire corrected sentence on one line within that lower-left block, reducing only that line's lettering slightly if needed so it does not overlap the Translation Credits on the right. Preserve the same black handwriting font and natural parchment texture. Keep every other word, name, line, illustration, border, stain, burn, crease, layout and color unchanged. Do not edit the upper-left Chinese creator names or the Blooms translation credits. Output same wide image proportions as the edit target. Exact corrected four-line block:\nEnglish Android Port:\nSilverShadow, Joseph Franci, aha,\nAll of the testers in the PVZ Fusion Fans Discord,\nAll of the modders that provided guidance\n"
+  },
+  "packing": {
+    "generation": "Built-in imagegen; both outputs approved by user before packing",
+    "story": [
+      {
+        "page": "4",
+        "source_region": [
+          548,
+          0,
+          1100,
+          638
+        ],
+        "alpha_bounds": [
+          0,
+          26,
+          537,
+          633
+        ],
+        "destination": [
+          892,
+          36,
+          880,
+          1000
+        ],
+        "sprite_id": 7014
+      },
+      {
+        "page": "1",
+        "source_region": [
+          0,
+          638,
+          548,
+          1254
+        ],
+        "alpha_bounds": [
+          5,
+          4,
+          542,
+          612
+        ],
+        "destination": [
+          4,
+          1044,
+          880,
+          1000
+        ],
+        "sprite_id": 11581
+      },
+      {
+        "page": "3",
+        "source_region": [
+          0,
+          0,
+          548,
+          638
+        ],
+        "alpha_bounds": [
+          6,
+          26,
+          542,
+          633
+        ],
+        "destination": [
+          4,
+          36,
+          880,
+          1000
+        ],
+        "sprite_id": 18609
+      },
+      {
+        "page": "2",
+        "source_region": [
+          548,
+          638,
+          1100,
+          1254
+        ],
+        "alpha_bounds": [
+          0,
+          4,
+          538,
+          612
+        ],
+        "destination": [
+          892,
+          1044,
+          880,
+          1000
+        ],
+        "sprite_id": 22518
+      }
+    ],
+    "credits_size": [
+      1400,
+      600
+    ],
+    "story_size": [
+      2048,
+      2048
+    ],
+    "text_editing": "None during packing",
+    "prompts": [
+      "story-prompt.txt",
+      "credits-prompt.txt"
+    ]
+  },
+  "application": {
+    "input_sha256": "dddee2076345c6d0d7e16c3ea22df26bfed1da231f6deb79e284585b8551d4c3",
+    "output_sha256": "f0f7addeb051b66cb5ba8ca49011b94efd05a2045c0eb747637d77c093fe1d96",
+    "artwork_sha256": {
+      "storybook-4.0.5-english.png": "b7b39c7566bde50a13505854e8808bc498da3bd522648ab2c9eaea2117d48e22",
+      "credits-parchment-4.0.5-english.png": "f39a8a512b7c2dad58582c472872b4e5724dd47af5f4ab82b4f8c95366f5f208"
+    },
+    "serialized_objects_checked": 208662,
+    "changed_objects": [
+      [
+        "resources.assets",
+        432
+      ],
+      [
+        "resources.assets",
+        2307
+      ]
+    ],
+    "textures": [
+      {
+        "path_id": 432,
+        "name": "剧情文本",
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "format": 50,
+        "mips": 10
+      },
+      {
+        "path_id": 2307,
+        "name": "thanks",
+        "dimensions": [
+          1400,
+          600
+        ],
+        "format": 50,
+        "mips": 1
+      }
+    ],
+    "unchanged": [
+      "all Sprite UV rectangles and meshes",
+      "all other serialized objects",
+      "external resource stream contents",
+      "metadata",
+      "save refresh policy"
+    ]
+  }
+}
