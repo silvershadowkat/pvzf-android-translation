@@ -1,0 +1,23 @@
+[
+  {
+    "index": 18315,
+    "source": "深渊巨口：\n<nobr><color=red>究极灯笼巨嘴花</color></nobr>：攻击范围增加",
+    "previous": "<nobr>Ravenous Reach</nobr>：\n<nobr><color=red>究极灯笼巨嘴花</color></nobr>：攻击范围增加",
+    "english": "<nobr>Ravenous Reach</nobr>：\nTyrannoflora Lux: Increased attack range",
+    "provenance": "Blooms ultimateBuffs/34 title and plant name; direct translation of Android effect. PC multiplier and bug annotation are not asserted."
+  },
+  {
+    "index": 18019,
+    "source": "格挡反击：僵尸闪避时对附近植物造成100%反伤",
+    "previous": "<nobr>格挡反击</nobr>：\n僵尸闪避时对附近植物造成100%反伤",
+    "english": "<nobr>Zombie Parry</nobr>：\nWhen zombies dodge, they deal 100% reflected damage to nearby plants",
+    "provenance": "Blooms debuffs/5003 title; direct translation of Android effect, which does not state the PC cooldown."
+  },
+  {
+    "index": 19460,
+    "source": "适应之力：僵尸每次受伤，获得相当于伤害量1%的护甲，有上限",
+    "previous": "<nobr>适应之力</nobr>：\n僵尸每次受伤，获得相当于伤害量1%的护甲，有上限",
+    "english": "<nobr>Pain Response</nobr>：\nWhen zombies take damage, they gain Armor equal to 1% of that damage, up to a limit",
+    "provenance": "Blooms debuffs/5002 title; direct translation of Android effect, without importing PC-specific thresholds."
+  }
+]

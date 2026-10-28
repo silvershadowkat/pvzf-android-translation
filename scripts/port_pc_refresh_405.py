@@ -17,6 +17,7 @@ def plain(s):return re.sub(r'\s+',' ',re.sub('<[^>]+>','',s)).strip() if isinsta
 def main():
  ap=argparse.ArgumentParser()
  for n in ('work','old_pc','new_pc','official'):ap.add_argument('--'+n.replace('_','-'),type=Path,required=True)
+ ap.add_argument('--pc-base',default=PC_BASE);ap.add_argument('--pc-main',default=PC_MAIN)
  a=ap.parse_args();w=a.work;backup=w/'coverage-r12/baseline';backup.mkdir(parents=True,exist_ok=True)
  assert digest(a.official)==OFFICIAL_SHA
  report_path=w/'coverage-r12/port-report.json'
@@ -28,7 +29,7 @@ def main():
   dest=backup/p;dest.parent.mkdir(parents=True,exist_ok=True)
   if not dest.exists():shutil.copyfile(w/p,dest)
  inputs={p:digest(backup/p) for p in paths}
- report={'pc_base':PC_BASE,'pc_overlay':PC_MAIN,'inputs':inputs,'almanac':[],'dictionary':[],'metadata':[],'retained':[],'names':[]}
+ report={'pc_base':a.pc_base,'pc_overlay':a.pc_main,'inputs':inputs,'almanac':[],'dictionary':[],'metadata':[],'retained':[],'names':[],'regex':[]}
  with zipfile.ZipFile(a.official) as z: original_meta=z.read(META)
  original=UnityPy.load(str(w/'official.unity3d'));cn={}
  for o in original.objects:
@@ -75,8 +76,8 @@ def main():
    row['text']=normalize(new)
  asset.m_Script=json.dumps(current,ensure_ascii=False,separators=(',',':'));asset.save()
  (w/'candidate.unity3d').write_bytes(env.file.save(packer='lz4'));del env;gc.collect()
- oldx,_,_,_=load_pc_translations(a.old_pc/'Localization/English/Strings',False)
- newx,_,_,_=load_pc_translations(a.new_pc/'Localization/English/Strings',False)
+ oldx,_,oldr,_=load_pc_translations(a.old_pc/'Localization/English/Strings',False)
+ newx,_,newr,_=load_pc_translations(a.new_pc/'Localization/English/Strings',False)
  updates={}
  # Two already reviewed Android corrections are more complete/equivalent.
  preserve=('爆裂连珠：','硬化-坚不可摧：')
@@ -105,7 +106,20 @@ def main():
    target=next(iter(targets));exact[source]=target;report['names'].append({'source':source,'english':target})
  # A fixed node-operation label is composed with a plus sign in Android.
  if exact.get('整数')=='Integer':exact['+ 整数']='+ Integer'
- runtime['pc_overlay_commit']=PC_MAIN
+ # Regex rows carry source provenance as their third element. Match pattern and
+ # replacement only; a different snapshot directory is not a translation delta.
+ old_rules={row[0]:row[1] for row in oldr}
+ for row in newr:
+  pattern,target=row[:2]
+  if old_rules.get(pattern)==target:continue
+  matches=[i for i,r in enumerate(runtime['regex']) if r[0]==pattern]
+  if matches:
+   if any(runtime['regex'][i][1]!=normalize(old_rules.get(pattern,'')) for i in matches):
+    report['retained'].append({'regex':pattern,'reason':'Reviewed Android regex differs'});continue
+   for i in matches:runtime['regex'][i]=[pattern,normalize(target)]
+  else:runtime['regex'].append([pattern,normalize(target)])
+  report['regex'].append({'pattern':pattern,'after':normalize(target)})
+ runtime['pc_overlay_commit']=a.pc_main
  online=read(a.new_pc/'Localization/English/Strings/custom_level_data.json')
  runtime['online_levels']={k:{f:normalize(re.sub(r'</?size(?:=[^>]*)?>','',v[f],flags=re.I)) for f in ('name','startTip')} for k,v in online.items()
      if re.fullmatch(r'level_[0-9]+_[A-Za-z0-9]+',k) and all(isinstance(v.get(f),str) and not re.search('[\u3400-\u9fff]',v[f]) for f in ('name','startTip'))}

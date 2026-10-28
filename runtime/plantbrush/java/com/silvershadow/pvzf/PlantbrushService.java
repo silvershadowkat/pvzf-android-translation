@@ -19,11 +19,16 @@ public final class PlantbrushService extends Service {
     private volatile int state=1;
     private volatile ServerSocket server;
     private volatile boolean stopped;
+    private volatile long requestStarted;
     private PlantbrushRecognizer recognizer;
     private final Binder binder=new Binder(){
         @Override protected boolean onTransact(int code,Parcel in,Parcel out,int flags)throws RemoteException{
             if(code!=1)return super.onTransact(code,in,out,flags);
-            in.enforceInterface("com.silvershadow.pvzf.Plantbrush");out.writeNoException();out.writeInt(state);return true;
+            in.enforceInterface("com.silvershadow.pvzf.Plantbrush");
+            // Binder remains responsive even when native inference is stuck.
+            long started=requestStarted;
+            int status=started!=0&&SystemClock.elapsedRealtime()-started>45000?-1:state;
+            out.writeNoException();out.writeInt(status);return true;
         }
     };
     public IBinder onBind(Intent i){return binder;}
@@ -34,15 +39,24 @@ public final class PlantbrushService extends Service {
             File dir=new File(getNoBackupFilesDir(),"plantbrush-v1");if(!dir.isDirectory()&&!dir.mkdirs())throw new IOException("Cannot create AI storage");
             JSONObject manifest=new JSONObject(new String(read(getAssets().open("plantbrush/manifest.json"),16384),StandardCharsets.UTF_8));
             JSONObject files=manifest.getJSONObject("files");
+            android.content.SharedPreferences receipts=getSharedPreferences("verified-plantbrush-models",0);
+            android.content.SharedPreferences.Editor verified=receipts.edit();
             for(Iterator<String> names=files.keys();names.hasNext();){
                 String name=names.next();if(!name.matches("[A-Za-z0-9_.-]+"))throw new IOException("Invalid model filename");
-                ManagedFiles.replace(dir,new File(dir,name),files.getString(name),()->getAssets().open("plantbrush/"+name),
+                File target=new File(dir,name);String hash=files.getString(name),stamp=ModelStamp.of(name,target,hash);
+                // Never scan the large model again when this exact private file
+                // has already passed SHA-256 verification. Update/missing/changed
+                // files take the full verify-and-replace path.
+                if(stamp!=null&&stamp.equals(receipts.getString(name,null)))continue;
+                ManagedFiles.replace(dir,target,hash,()->getAssets().open("plantbrush/"+name),
                     (from,to)->android.system.Os.rename(from.getAbsolutePath(),to.getAbsolutePath()));
+                stamp=ModelStamp.of(name,target,hash);if(stamp!=null)verified.putString(name,stamp);
             }
+            verified.apply();
             if(stopped)return;
             recognizer=new PlantbrushRecognizer(dir);
             // Loading a session is not proof that CPU inference is compatible.
-            // Exercise the native kernels before allowing the game to enter.
+            // Exercise the native kernels before accepting an Identify request.
             int[] warmup=new int[224*224];Arrays.fill(warmup,0xffffffff);
             recognizer.encode(new PlantbrushMath.Image(224,224,warmup));
             Log.i("PvZFPlantbrush","Native inference warmup passed");
@@ -50,9 +64,10 @@ public final class PlantbrushService extends Service {
             s.bind(new InetSocketAddress(InetAddress.getByName("127.0.0.1"),17861),2);
             s.setSoTimeout(1000);state=2;Log.i("PvZFPlantbrush","Offline recognition ready; loopback only; PID="+Process.myPid());
             while(!stopped){
-                try(Socket client=s.accept()){client.setSoTimeout(10000);handle(client);}
+                try(Socket client=s.accept()){requestStarted=SystemClock.elapsedRealtime();client.setSoTimeout(10000);handle(client);}
                 catch(SocketTimeoutException idle){}
                 catch(Exception bad){if(!stopped)Log.w("PvZFPlantbrush","Request failed",bad);}
+                finally{requestStarted=0;}
             }
         }catch(Exception|LinkageError e){state=-1;Log.e("PvZFPlantbrush","AI unavailable; game process is unaffected",e);}
         finally{if(recognizer!=null)recognizer.close();try{if(server!=null)server.close();}catch(IOException ignored){}}

@@ -18,6 +18,20 @@ Updated October 22, 2026. The same prerelease now offers two APKs, both with the
 
 Both variants retain runtime English, save-preserving updates, Original/Blooms music selection, the touch Projectile Info button, expanded editor/Gods text and English diary artwork. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE3.md), [AI implementation and verification](docs/magic-plantbrush-prototype.md), and [the test checklist](docs/testing/PLANTBRUSH-AI-EXPERIMENT.md). The [original r20 audit](docs/testing/ANDROID405-PRE3-FINAL-AUDIT.md) documents the earlier base APK, not the updated asset hashes.
 
+The [initial performance audit](docs/testing/ANDROID405-PERFORMANCE-AUDIT.md)
+covers repeated translation, reflection, UI and startup-file work, including
+pre-runtime builds, fonts and the Lite project's APK differences.
+
+An [October 28 follow-up](docs/testing/ANDROID405-PERFORMANCE2-AUDIT.md) is built
+locally for verification. It adds asynchronous Blooms music streaming, one-tap AI
+mode entry and service recovery, removes redundant startup scans and repeated
+model hashing, and imports the latest reviewed Blooms text. It fixes the mixed
+Chinese modifier descriptions for Ravenous Reach, Zombie Parry and Pain Response.
+The intended simplified download list is one regular APK and one experimental AI
+APK. Until that follow-up is published, the links above still refer to the earlier
+release assets. Device performance and the reported Redmi crashes remain to be
+verified; no universal crash or performance guarantee is made.
+
 Latest source branch: `agent/magic-plantbrush-single-apk`. The existing `v4.0.5-release-3` tag still points to the original prerelease source; it was not moved when release assets were updated. The release's `RELEASE-BUILD.json` identifies the source commit for the updated APKs, and `SHA256SUMS.txt` contains both current hashes.
 
 **Back up saves before upgrading.** Update regular EN with regular EN, or an ENAI prototype with ENAI, without uninstalling. The two apps have separate saves and no automatic import. Prerelease 2 and Chinese users need the one-time transfer below.

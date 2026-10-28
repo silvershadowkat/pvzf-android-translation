@@ -1,0 +1,222 @@
+{
+  "status": "local only; both installed on Retroid; public assets unchanged",
+  "date": "2026-10-28",
+  "source_baseline": "49818776a1f2c0ddfa5da59bf67711a469b34a24",
+  "source_branch": "agent/magic-plantbrush-single-apk",
+  "compiled_source_sha256": {
+    "runtime/tests/DisplayCoverageAudit.java": "b01615f9df24fcd0d9617524cea99579ce2e08af619cc9436d19d4e0e25e0090",
+    "runtime/tests/ManagedFilesTest.java": "d012206af8b7ed8ed214e232bee45bb0adf0ecac8ab117c6ac741791cb192203",
+    "runtime/tests/ModifierDisplayTest.java": "7390dc1fa9fa0f67d1b8192a44356941b6c94047fc581c56e9386b9dffbd7bf3",
+    "runtime/tests/PayloadTranslationTest.java": "e45b09cd68e673b4adbbbe4ece3831c5d3779aa9a2b021f28b8b02bc478698ff",
+    "runtime/tests/RegexReview.java": "1a0a45473ad53c325e91018a8fb6036e94e08da73f151e0c26b5f4c83ab371e0",
+    "runtime/tests/RestoredAlmanacTest.java": "9fedbd36a5348bc9faf7a110f9b8cafbe1ec918f2068b93c91c7cb4fabb3e8e9",
+    "runtime/tests/RestoredMetadataTest.java": "82fca45abc5cacc4e0970cdeb5bbe99bec2dd5ea7b5167ecb414d3f1bd6b0b07",
+    "runtime/tests/RuntimeEfficiencyTest.java": "e06b761d359856d56b8503821d07f686d6682ee3ff3d8883fc428da0ec9bdf46",
+    "runtime/tests/TranslationParityTest.java": "4c5164b236454b757677e586c25497feb879defd4579c50a006ac62722d7e927",
+    "runtime/tests/TranslationTest.java": "d784889ba680f38507118fce6d2a7e38f6564b08f729b90c1f322ad0608b5a9e",
+    "runtime/plantbrush/tests/PlantbrushHostTest.java": "c225d4448a4c77312497988aae46392a195ab3ab00a45baaf33bcb6796cf1148",
+    "runtime/plantbrush/tests/PlantbrushIdentity.java": "e15adddfb86f81d663f2507d327c6073be320cc31d9f8aaefdfc4de8b12cd5bc",
+    "runtime/plantbrush/tests/PlantbrushTextTest.java": "301822c1fb7f4e2aa832ea154e3c84bb6d953d3af156bc1d98e91f0f6064d94d",
+    "runtime/plantbrush/java/com/silvershadow/pvzf/ModelStamp.java": "8e852c742789f5d4e84f9f4146ca7c51a3f0576ca7b5364b0e1aee9ac2416c34",
+    "runtime/plantbrush/java/com/silvershadow/pvzf/PlantbrushMath.java": "7261f5aefb09dd1bdfa1b61901f64e41574bf20d4218746b8bbc303fde596196",
+    "runtime/plantbrush/java/com/silvershadow/pvzf/PlantbrushRecognizer.java": "977fd2fcda80c017de1a4a7d4a557667472cb0cb17fca67a593dc698e0762f59",
+    "runtime/plantbrush/java/com/silvershadow/pvzf/PlantbrushService.java": "fe584bf3b71366d46be07a2a3f709b1df915c0e40f786b7f91b93d8187989341",
+    "runtime/java/com/silvershadow/pvzf/BoundedTextCache.java": "d307fff61342c26a75f653814856d46afc65f5076bcb841873477a9b7cee676c",
+    "runtime/java/com/silvershadow/pvzf/EnglishActivity.java": "47adef86ce376d00226aa35442c3e84ab964fb097bd4bdc44368c35cfe53a87c",
+    "runtime/java/com/silvershadow/pvzf/ManagedFiles.java": "b92b4e023f15645099de8aca809144c57b57f805bca4b1773a83e40c768bec6f",
+    "runtime/java/com/silvershadow/pvzf/MusicBridge.java": "afd387ff491a73524364d2fa18f94a2f1065a16d3c5a2e9f20d2ba0faf1247f6",
+    "runtime/java/com/silvershadow/pvzf/MusicStamp.java": "e7f882b21fb3afaee20de0ed7d5962b7409cedca9c287807e7be8dc1a549088f",
+    "runtime/java/com/silvershadow/pvzf/PlantbrushBridge.java": "ab7713821ca07c6ff5eef8275c4d2243cdca4e244847db7a4536a26ea86f9fee",
+    "runtime/java/com/silvershadow/pvzf/PlantbrushTranslations.java": "285bcf1501aa450addcddbfaab715211ac7fc9be30aa974693445040afa7ff57",
+    "runtime/java/com/silvershadow/pvzf/RegexPrefix.java": "0dab73ba799d8b5eae35a8e56094031f52f97760e53525d72e27fcb6cce8eb19",
+    "runtime/english.cpp": "3b078dba70c8a1faaf9ff32d0d58edfa87b8959e6dcba5451cfc9620d24c33d0",
+    "runtime/display_cache.h": "1c4c9df336da26ac056c0d9cbb1a88bcd02284bc649ec3f937fcc50e06984faa",
+    "runtime/CMakeLists.txt": "5b868a02d02b65b468f1e454a83e562997e17e9683f1ba7a3fc31719beb90f83"
+  },
+  "variants": [
+    {
+      "apk": "PvZ-Fusion-4.0.5-English-prerelease3.apk",
+      "sha256": "33b1aaf004a3f13529e92dd2a2232b621abad5dc89f1304466da75a3183c1ba7",
+      "size": 699106077,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4050342,
+      "base_sha256": "9200f8dca136ebc754a422b8ff8f843cc1c19b1ad10a60bd12bdda150dc8b97d",
+      "changed_entries": [
+        "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "assets/bin/Data/data.unity3d",
+        "AndroidManifest.xml",
+        "classes2.dex",
+        "assets/english-almanac/LawnStrings.json",
+        "assets/english-almanac/ZombieStrings.json",
+        "assets/english-almanac/DetailStrings.json",
+        "lib/arm64-v8a/libpvzfenglish.so",
+        "lib/armeabi-v7a/libpvzfenglish.so",
+        "assets/english/translations.json",
+        "assets/english/manifest.json"
+      ],
+      "all_other_entries_unchanged": true,
+      "local_only": true,
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6"
+    },
+    {
+      "apk": "PvZ-Fusion-4.0.5-English-prerelease3-Experimental-AI.apk",
+      "sha256": "34158c00ce48c9bf8a85ac94ae52d5316957755fb132d0b56df38c254b701d53",
+      "size": 938440319,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4050342,
+      "base_sha256": "be3b8c64f2852d85b10c8cc2b4c391b274bf6c7733f81b92f4f409fad4798e42",
+      "changed_entries": [
+        "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "assets/bin/Data/data.unity3d",
+        "AndroidManifest.xml",
+        "classes2.dex",
+        "assets/english-almanac/LawnStrings.json",
+        "assets/english-almanac/ZombieStrings.json",
+        "assets/english-almanac/DetailStrings.json",
+        "lib/arm64-v8a/libpvzfenglish.so",
+        "lib/armeabi-v7a/libpvzfenglish.so",
+        "assets/english/translations.json",
+        "assets/english/manifest.json"
+      ],
+      "all_other_entries_unchanged": true,
+      "local_only": true,
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6"
+    }
+  ],
+  "actual_apk_checks": {
+    "regular": {
+      "RestoredMetadataTest": "Actual APK metadata restore checks passed: 4; external and internal paths; repeated old-backup restoration; player fixtures preserved.",
+      "RestoredAlmanacTest": "Actual APK almanac restore checks passed: 12; two storage roots, three profiles, repeated old-backup restoration; all save fixtures preserved; absent overrides left absent; unexpected filenames rejected.",
+      "protected": {
+        "protected_strings": 31,
+        "present_strings": 17,
+        "verified_slots": 17,
+        "absent_strings": [
+          "ShootingAlmanacIndex",
+          "不破不立",
+          "两极分化",
+          "傲慢之罚",
+          "大帝祝福",
+          "大帝诅咒",
+          "嫉妒之惩",
+          "火菜炮祝福",
+          "火菜炮诅咒",
+          "磁坚祝福",
+          "磁坚诅咒",
+          "究樱祝福",
+          "究樱诅咒",
+          "试炼"
+        ]
+      },
+      "all_managed_asset_hashes_match": true,
+      "baked_modifier_fixtures": 3
+    },
+    "ai": {
+      "RestoredMetadataTest": "Actual APK metadata restore checks passed: 4; external and internal paths; repeated old-backup restoration; player fixtures preserved.",
+      "RestoredAlmanacTest": "Actual APK almanac restore checks passed: 12; two storage roots, three profiles, repeated old-backup restoration; all save fixtures preserved; absent overrides left absent; unexpected filenames rejected.",
+      "protected": {
+        "protected_strings": 31,
+        "present_strings": 17,
+        "verified_slots": 17,
+        "absent_strings": [
+          "ShootingAlmanacIndex",
+          "不破不立",
+          "两极分化",
+          "傲慢之罚",
+          "大帝祝福",
+          "大帝诅咒",
+          "嫉妒之惩",
+          "火菜炮祝福",
+          "火菜炮诅咒",
+          "磁坚祝福",
+          "磁坚诅咒",
+          "究樱祝福",
+          "究樱诅咒",
+          "试炼"
+        ]
+      },
+      "all_managed_asset_hashes_match": true,
+      "baked_modifier_fixtures": 3
+    }
+  },
+  "unity_diff": {
+    "objects_compared": 208662,
+    "changes": [
+      {
+        "key": "resources.assets:3548",
+        "type": "TextAsset",
+        "name": "LawnStrings"
+      },
+      {
+        "key": "resources.assets:3568",
+        "type": "TextAsset",
+        "name": "DetailStrings"
+      },
+      {
+        "key": "resources.assets:3595",
+        "type": "TextAsset",
+        "name": "ZombieStrings"
+      },
+      {
+        "key": "resources.assets:200175",
+        "type": "MonoBehaviour",
+        "name": "Disable Mini Sun Visual Effect"
+      }
+    ],
+    "all_other_object_bytes_unchanged": true
+  },
+  "ai_identity": {
+    "previous_and_current_PlayerSettings_identical": true,
+    "sha256": "b626217f3ebcd226b52ca65614d57f5da585ea1e14a425059c95fce31c6b5737"
+  },
+  "managed_payload_sha256": {
+    "assets/bin/Data/data.unity3d": "e54a63968de3016bfc651f6158f2c14bea64af0e8ec63796c3490df0b58a97b3",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat": "f25574c3bb154f375de4054ea839897dc04d492a659dbf2b0a9c3167f1acbcf5",
+    "assets/english/translations.json": "6b603d5784638b5b4e96be6e6fb7157945755f7e7952482c30bb4793cb9a0c97",
+    "assets/english/manifest.json": "e8044c26079f9e0db25be13a2d6da443af330f1a9713f13cd8801cfc86e3ed98",
+    "assets/english-almanac/DetailStrings.json": "57b9f8ec90e43a3562769c39409d231545137114694d392a5f1fe197f633729b",
+    "assets/english-almanac/LawnStrings.json": "e64e5f25d55ef47983c8a181a16f1e3e7c435e8f5a2450e46703025f20c72c4f",
+    "assets/english-almanac/ZombieStrings.json": "c5a9479279011f1d3105ac16d5d66180f9a47aae97e805c0c30c639957705385"
+  },
+  "ai_unity_bundle_sha256": "e3a3e4c76552bdf5194a05340dd6289b09f511582fa282db5ea1f6d2840633fb",
+  "metadata": {
+    "current_bytes": 15772926,
+    "previous_candidate_bytes": 21070408,
+    "net_reduction_bytes": 5297482
+  },
+  "host_checks": {
+    "python_tests": 69,
+    "async_bridge_checks": 31,
+    "translation_parity_cases": 9307,
+    "native_cache_and_field_abi": "passed",
+    "both_abi_compile": "passed",
+    "signature_and_alignment": "passed"
+  },
+  "device_checks": {
+    "device": "Retroid Pocket Nova",
+    "packages_installed_in_place": [
+      "EN",
+      "ENAI"
+    ],
+    "playerData_unchanged_after_install_before_launch": true,
+    "both_main_menus": "passed",
+    "one_tap_AI_entry_while_loading": "passed",
+    "initial_identify_ms": 194,
+    "background_model_release": "passed",
+    "queued_identify_after_reload_ms": 193,
+    "unity_restarted_for_reload": false,
+    "projectile_button_and_music_selector": "visible",
+    "mini_sun_settings_translation": "visible",
+    "main_menu_to_pool_streams": "passed",
+    "background_pause_resume_same_player_connections": "passed",
+    "original_releases_streams": "passed"
+  },
+  "remaining": [
+    "Redmi Note 9 reproduction and long Gods sessions",
+    "Audible music transitions, volume fades and switching",
+    "Queued Identify cancellation during warmup",
+    "On-device forced native failure/stalled inference recovery",
+    "Final modifier-card layout",
+    "Publication and old release-asset cleanup"
+  ]
+}

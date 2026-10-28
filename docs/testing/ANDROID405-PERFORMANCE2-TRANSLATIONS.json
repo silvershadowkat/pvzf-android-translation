@@ -1,0 +1,1466 @@
+{
+  "pc_base": "c7fb5997d65e1d5248f3d7a9ca9c9e0a4b516640",
+  "pc_overlay": "4222fa8dc86ec0948432421bfc26d8426e9b8735",
+  "almanac": [
+    {
+      "asset": "LawnStrings",
+      "id": 12,
+      "field": "info",
+      "before": "Lily Pads let you plant non-aquatic plants on top of them.\n\n<color=black>Special: </color><color=#8B0000>Short plant. Non-aquatic plants can be planted on it. When specific plants are placed, Lily Pad transforms into a variant of it that can <i>automatically plant</i> the plant that transformed it every 90s.</color>\n<color=black>Variants: </color><color=#8B0000>Sunflower, Wall-nut, Threepeater, Squash, Torchwood, Jalapeno.</color>\n<color=black>Special Variants: </color><color=#8B0000>Doom-shroom:\n-Cannot be shoveled or moved, immune to damage and does not block zombies.\n-Cannot be turned into another variant. Kills any plant on itself except Doom-shrooms and Evil plants.\n-Can start to produce Doom-shrooms 90s after appearance. Every second, all producting Doom Pads have a 0.5% chance to spawn a Doom-shroom.\n-When a Doom-shroom explosion (except Doom Kelp) triggers on a water tile, a Doom Pad is spawned on that tile.\n-Can only be removed by turning it into a Cattail using a Fertilizer.</color>",
+      "after": "Lily Pads let you plant non-aquatic plants on top of them.\n\n<color=black>Special: </color><color=#8B0000>Short plant. Non-aquatic plants can be planted on it. When specific plants are placed, Lily Pad transforms into a variant of it that can <i>automatically plant</i> the plant that transformed it every 90s.</color>\n<color=black>Variants: </color><color=#8B0000>Sunflower, Wall-nut, Threepeater, Squash, Torchwood, Jalapeno.</color>\n<color=black>Special Variants: </color><color=#8B0000>Doom-shroom:\n-Cannot be shoveled or moved, immune to damage and does not block zombies.\n-Cannot be turned into another variant. Kills any plant on itself except Doom-shrooms and Evil plants.\n-Can start to produce Doom-shrooms 90s after appearance. Every second, all producting Doom Pads have a 0.5% chance to spawn a Doom-shroom.\n-When a Doom-shroom explosion (except Doom Kelp) triggers on a water tile, a Doom Pad is spawned on that tile.\n-Can only be removed by turning it into a Cattail using a Fertilizer or Cattail seed packet.</color>"
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 954,
+      "field": "info",
+      "before": "Princess Solarnova generates sun at extreme speed while melting down nearby projectiles. Can either unleash or store her energy on command.\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable</color>\n<color=black>Sun Output: </color><color=#8B0000>50/3s</color>\n<color=black>Damage: </color><color=#8B0000>1800</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Generates Sun and consumes nearby plant projectiles to absorb energy (1 damage = 1 energy). Energy is capped at Attack damage ×4; excess energy is converted to Sun (1 projectile = 5 Sun).\n<color=black>•</color> When energy exceeds Attack damage, fires a solar shot that explodes on impact, dealing 100% Damage in a small area.\n<color=black>•</color> Using a Coffee Bean toggles active/inactive modes. Does not attack in inactive mode.</color>\n<color=black>Odyssey Modifiers:</color>\n<color=#8B0000>1. When a solar shot hits a zombie, it causes nearby projectiles to explode as well, dealing 10% attack damage\n2. Energy cap ×3, Sun storage amount ×3</color>",
+      "after": "Princess Solarnova generates sun at extreme speed while melting down nearby projectiles. Can either unleash or store her energy on command.\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlockable</color>\n<color=black>Sun Output: </color><color=#8B0000>50/3s</color>\n<color=black>Damage: </color><color=#8B0000>1800</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Generates Sun and consumes nearby plant projectiles to absorb energy (1 damage = 1 energy). Energy is capped at Attack damage ×4; excess energy is converted to Sun (1 projectile = 5 Sun).\n<color=black>•</color> When energy exceeds Attack damage, fires a solar shot that explodes on impact, dealing 100% Damage in a small area.\n<color=black>•</color> Using a Cocoa Bean toggles active/inactive modes. Does not attack in inactive mode.</color>\n<color=black>Odyssey Modifiers:</color>\n<color=#8B0000>1. When a solar shot hits a zombie, it causes nearby projectiles to explode as well, dealing 10% attack damage\n2. Energy cap ×3, Sun storage amount ×3</color>"
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1136,
+      "field": "introduce",
+      "before": "<align=left><color=black>\"People are always saying 'gold this, silver that,' as if we have a hierarchy,\" Silver Pot said. \"Marigold is silver, yet it's still called a Mari<i>gold</i>.\" His words might have been more convincing if his gaze weren't fixed on the coffee bean by the roof's edge.</color>",
+      "after": "<align=left><color=black>\"People are always saying 'gold this, silver that,' as if we have a hierarchy,\" Silver Pot said. \"Marigold is silver, yet it's still called a Mari<i>gold</i>.\" His words might have been more convincing if his gaze weren't fixed on the Cocoa Bean by the roof's edge.</color>"
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1447,
+      "field": "introduce",
+      "before": "<align=left><color=black>Despite being a banker, Loan-shroom has no grand ambitions. What he thinks about most each day is simply stopping by for a hot coffee made from golden coffee beans after work. That's all.</color>",
+      "after": "<align=left><color=black>Despite being a banker, Loan-shroom has no grand ambitions. What he thinks about most each day is simply stopping by for a hot coffee made from golden Cocoa Beans after work. That's all.</color>"
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1447,
+      "field": "info",
+      "before": "Loan-shroom is a forward-thinking money producer that grows your savings in Golden Coffee Beans and withdraws them in batches when producing money.\n\n<color=black>Coin Production: </color><color=#8B0000>900/50s</color>\n<color=black>Special: </color><color=#8B0000>When producing money, withdraws stored money in batches of 1000 (Diamond) whenever possible, until the stored balance falls below 50% of the amount withdrawn.\n<color=black>Ultimate: </color><color=#8B0000>Costs 1000 Coins; deposits 1250 Coins as stored balance.</color></color>",
+      "after": "Loan-shroom is a forward-thinking money producer that grows your savings in Golden Cocoa Beans and withdraws them in batches when producing money.\n\n<color=black>Coin Production: </color><color=#8B0000>900/50s</color>\n<color=black>Special: </color><color=#8B0000>When producing money, withdraws stored money in batches of 1000 (Diamond) whenever possible, until the stored balance falls below 50% of the amount withdrawn.\n<color=black>Ultimate: </color><color=#8B0000>Costs 1000 Coins; deposits 1250 Coins as stored balance.</color>"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 87,
+      "field": "name",
+      "before": "Aluminum-head Zombie",
+      "after": "Tinfoilhead Zombie"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 220,
+      "field": "info",
+      "before": "Giga Football Striker can tear down your defense with ease!\n\n<color=black>Damage: </color><color=#4B0082>200</color>\n<color=black>Toughness: </color><color=#4B0082>24000 + 24000 (Type 1)</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to knock-backs.\n<color=black>•</color> Disables plant healing, converting it to 0.1× damage against himself, capped at 1% of his max HP.\n<color=black>•</color> Instantly kills non-defensive plants when he bites them, turning them into Giga Football-nut Zombies.\n<color=black>•</color> Every 3s, damage ×2 (stackable, max 1M), restores 6000 armor HP, and increases speed by 30% (max 3 times the original speed).</color>\n<color=black>Odyssey Modifiers:\n</color><color=#4B0082>1. Now gains buffs 2× faster</color>",
+      "after": "Giga Football Striker can tear down your defense with ease!\n\n<color=black>Damage: </color><color=#4B0082>200</color>\n<color=black>Toughness: </color><color=#4B0082>24000 + 24000 (Type 1)</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to knockbacks.\n<color=black>•</color> Disables plant healing, converting it to 0.1× damage against himself, capped at 1% of his max HP.\n<color=black>•</color> Instantly kills non-defensive plants when he bites them, turning them into Giga Football-nut Zombies.\n<color=black>•</color> Every 3s, damage ×2 (stackable, max 1M), restores 6000 armor HP, and increases speed by 30% (max 3 times the original speed).</color>\n<color=black>Odyssey Modifiers:\n</color><color=#4B0082>1. Now gains buffs 2× faster</color>"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 221,
+      "field": "info",
+      "before": "Lift off! We have a lift off!\n\n<color=black>Toughness: </color><color=#4B0082>15000</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to knock-backs and being downed by Magnet Cactus's special traits.\n<color=black>•</color> Very fast on land, crushes plants.\n<color=black>•</color> At 2/3 Toughness, it briefly becomes invincible then takes off, summoning a fleet of Kirov Zomppelins every 3s and dropping Jack-in-the-Box bombs.</color>",
+      "after": "Lift off! We have a lift off!\n\n<color=black>Toughness: </color><color=#4B0082>15000</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to knockbacks and being downed by Magnet Cactus's special traits.\n<color=black>•</color> Very fast on land, crushes plants.\n<color=black>•</color> At 2/3 Toughness, it briefly becomes invincible then takes off, summoning a fleet of Kirov Zomppelins every 3s and dropping Jack-in-the-Box bombs.</color>"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 223,
+      "field": "info",
+      "before": "A scholar who calmly reads the newspaper, but when provoked, he teaches you a lesson with a swarm of cherry-picked students.\n\n<color=black>Damage: </color><color=#4B0082>1000</color>\n<color=black>Toughness: </color><color=#4B0082>6000 + 15000 (Type 1) + 3000 (Type 2)</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to knock-backs.\n<color=black>•</color> Invulnerable until his newspaper is destroyed. Upon losing it, he briefly becomes invincible and converts up to 30 zombies (including hypnotized ones) into enraged Gatling Cherry Newspaper Zombie. During this process, he can convert up to 30 zombies that have left the battlefield, and Explosive Cherries that hit plants also trigger a cross-shaped explosion dealing 300 physical damage. He then fires a cherry barrage, catapulting cherries to the last column while accelerating forward. He cannot convert vehicles, flying zombies, aquatic zombies, giant zombies, mini-bosses, bosses or Gatling Doom Newspaper Zombies.\n<color=black>•</color> Stops only upon encountering Spikeweed, which instantly destroys his newspaper.\nProfessor Cherryz has the following 2 skills:</color>\n<color=#A86A44>Enlightenment: </color><color=#4B0082>Converts zombies into enraged Gatling Cherry Newspaper Zombies (in Evolved Modes, Gatling Cherry Doctor Zombies).</color>\n<color=#A86A44>Backup: </color><color=#4B0082>Carries 1 spare newspaper. When his HP falls below 50%, he takes out the newspaper and resets his state. In Purgatory or Cursed difficulty in Odyssey Survival Mode, he carries 1 additional spare newspaper for each of [Breakthrough] and [Absolute Immunity] modifiers that was not selected.</color>",
+      "after": "A scholar who calmly reads the newspaper, but when provoked, he teaches you a lesson with a swarm of cherry-picked students.\n\n<color=black>Damage: </color><color=#4B0082>1000</color>\n<color=black>Toughness: </color><color=#4B0082>6000 + 15000 (Type 1) + 3000 (Type 2)</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to knockbacks.\n<color=black>•</color> Invulnerable until his newspaper is destroyed. Upon losing it, he briefly becomes invincible and converts up to 30 zombies (including hypnotized ones) into enraged Gatling Cherry Newspaper Zombie. During this process, he can convert up to 30 zombies that have left the battlefield, and Explosive Cherries that hit plants also trigger a cross-shaped explosion dealing 300 physical damage. He then fires a cherry barrage, catapulting cherries to the last column while accelerating forward. He cannot convert vehicles, flying zombies, aquatic zombies, giant zombies, mini-bosses, bosses or Gatling Doom Newspaper Zombies.\n<color=black>•</color> Stops only upon encountering Spikeweed, which instantly destroys his newspaper.\nProfessor Cherryz has the following 2 skills:</color>\n<color=#A86A44>Enlightenment: </color><color=#4B0082>Converts zombies into enraged Gatling Cherry Newspaper Zombies (in Evolved Modes, Gatling Cherry Doctor Zombies).</color>\n<color=#A86A44>Backup: </color><color=#4B0082>Carries 1 spare newspaper. When his HP falls below 50%, he takes out the newspaper and resets his state. In Purgatory or Cursed difficulty in Odyssey Survival Mode, he carries 1 additional spare newspaper for each of [Breakthrough] and [Absolute Immunity] modifiers that was not selected.</color>"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 228,
+      "field": "info",
+      "before": "Sovereign of the Frozen Tundra.\n\n<color=black>Damage: </color><color=#4B0082>1000</color>\n<color=black>Toughness: </color><color=#4B0082>64000</color>\n<color=black>•</color> Mini-boss. Immune to chill, freeze, knock-backs and stuns.\n<color=black>•</color> Crushes plants. All damage dealt applies a 5s Attack Freeze.\n<color=black>•</color> Upon entering, performs a slash that damages all plants in her column and in front of her (can be protected by Pumpkin), then releases 5 heavy snowballs around her lane, each damaging a 3×3 area.\n<color=black>•</color> Afterwards, attacks every 3s. When HP is below [1, 1/2, 1/6]×, performs a slash after every [20, 10, 2] normal attacks.\n<color=black>•</color> Normal attacks launch 4 ice swords along her lane.\n<color=black>•</color> After each round of slashing, her 5th normal attack also triggers a special attack, summoning a large number of white snowballs toward the left half of the field.\n<color=black>•</color> On Snow map, this special attack also instantly summons a blizzard.",
+      "after": "Sovereign of the Frozen Tundra.\n\n<color=black>Damage: </color><color=#4B0082>1000</color>\n<color=black>Toughness: </color><color=#4B0082>64000</color>\n<color=black>•</color> Mini-boss. Immune to chill, freeze, knockbacks and stuns.\n<color=black>•</color> Crushes plants. All damage dealt applies a 5s Attack Freeze.\n<color=black>•</color> Upon entering, performs a slash that damages all plants in her column and in front of her (can be protected by Pumpkin), then releases 5 heavy snowballs around her lane, each damaging a 3×3 area.\n<color=black>•</color> Afterwards, attacks every 3s. When HP is below [1, 1/2, 1/6]×, performs a slash after every [20, 10, 2] normal attacks.\n<color=black>•</color> Normal attacks launch 4 ice swords along her lane.\n<color=black>•</color> After each round of slashing, her 5th normal attack also triggers a special attack, summoning a large number of white snowballs toward the left half of the field.\n<color=black>•</color> On Snow map, this special attack also instantly summons a blizzard.</color>"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 229,
+      "field": "info",
+      "before": "Commands the calamitous wrath of the cursed iron cavalry.\n\n<color=black>Damage: </color><color=#4B0082>80/0.1s</color>\n<color=black>Movement Speed: </color><color=#4B0082>Fast; Extremely Fast during Charge</color>\n<color=black>Toughness: </color><color=#4B0082>36000</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to chill, knock-backs and stuns. Crushes plants. \n<color=black>•</color> Heals for 200 HP every 0.1s.\n<color=black>•</color> Without plants blocking his way, he can appear in as far as the fifth column from the right and then charges, riding a warhorse that crushes plants.\n<color=black>•</color> When its charge hits a plant, it pauses for ~1.5s, then charges again every 10s.\n<color=black>Curse Application</color> Every 0.1s, 1/3 chance to apply [0.1%×(Plant HP + Toughness)] curse stacks to all plants. Bullet hits apply [0.25%×(Plant HP + Toughness)] stacks. Upon collision, applies [5%×(Plant HP + Toughness)] stacks to plants in a 5×5 area.\n<color=black>Curse: </color>Damages a plant at full health. When stacks are not zero, increases by 1 stack every 0.1s. If the plant's HP is lower than the stack count, the plant dies immediately. Healing first cancels an equal number of stacks, then restores HP.\n<color=black>Odyssey Modifier:</color> When dismounting, transforms the steed into a scythe. Recovers 200 HP for its armor every 0.1s. No longer bites plants, but attacks by swinging the scythe.\nSwing: Every 1.35s, causes plants in its current tile and the 5 tiles ahead (can be blocked by Pumpkins) to lose HP equal to its own bite damage, and reduces their Toughness by 50% of the damage dealt, while recovering 10% of the damage as HP for itself. For each plant this effect acts upon, all its damage permanently increases by 10%.\nCharge: Every 10 seconds, if in the 4th column or to its right on the map, it can leap to the 2nd column, sequentially releasing 1, 4, and 8 explosions with damages of 1500, 1200, and 1000 respectively (can be blocked by Pumpkins), then vaults to the rightmost column to repeat the aforementioned explosion sequence once.</color>",
+      "after": "Commands the calamitous wrath of the cursed iron cavalry.\n\n<color=black>Damage: </color><color=#4B0082>80/0.1s</color>\n<color=black>Movement Speed: </color><color=#4B0082>Fast; Extremely Fast during Charge</color>\n<color=black>Toughness: </color><color=#4B0082>36000</color>\n<color=black>Traits: </color><color=#4B0082>\n<color=black>•</color> Mini-boss. Immune to chill, knockbacks and stuns. Crushes plants. \n<color=black>•</color> Heals for 200 HP every 0.1s.\n<color=black>•</color> Without plants blocking his way, he can appear in as far as the fifth column from the right and then charges, riding a warhorse that crushes plants.\n<color=black>•</color> When its charge hits a plant, it pauses for ~1.5s, then charges again every 10s.\n<color=black>Curse Application</color> Every 0.1s, 1/3 chance to apply [0.1%×(Plant HP + Toughness)] curse stacks to all plants. Bullet hits apply [0.25%×(Plant HP + Toughness)] stacks. Upon collision, applies [5%×(Plant HP + Toughness)] stacks to plants in a 5×5 area.\n<color=black>Curse: </color>Damages a plant at full health. When stacks are not zero, increases by 1 stack every 0.1s. If the plant's HP is lower than the stack count, the plant dies immediately. Healing first cancels an equal number of stacks, then restores HP.\n<color=black>Odyssey Modifier:</color> When dismounting, transforms the steed into a scythe. Recovers 200 HP for its armor every 0.1s. No longer bites plants, but attacks by swinging the scythe.\nSwing: Every 1.35s, causes plants in its current tile and the 5 tiles ahead (can be blocked by Pumpkins) to lose HP equal to its own bite damage, and reduces their Toughness by 50% of the damage dealt, while recovering 10% of the damage as HP for itself. For each plant this effect acts upon, all its damage permanently increases by 10%.\nCharge: Every 10 seconds, if in the 4th column or to its right on the map, it can leap to the 2nd column, sequentially releasing 1, 4, and 8 explosions with damages of 1500, 1200, and 1000 respectively (can be blocked by Pumpkins), then vaults to the rightmost column to repeat the aforementioned explosion sequence once.</color>"
+    },
+    {
+      "asset": "DetailStrings",
+      "key": "基本机制-金钱",
+      "field": "text",
+      "before": "<color=#002461>Money</color> is another resource you can use in levels, measured in terms of <color=#008720>coins ($)</color> and capped at <color=#77FFF8>$99999</color>. \nYou can spend coins on golden Coffee Beans to upgrade <color=#c9c9c9>silver plants</color> to their <color=#ffe600>gold upgraded variants</color>, or use coins to activate the ultimate abilities of those <color=#ffe600>gold variants</color>.\nYou start with 3000 coins. Produced money comes in 3 variants, Silver Coin (worth 100 coins), Golden Coin (worth 300 coins) and Diamond (worth 1000 coins).\nTip: Use the <color=#77FFF8>\"E\" key on your keyboard</color> to quickly pick up and put down the golden Coffee Bean.\nYou also receive <color=#77FFF8>25 extra sun every 500 coins you spend</color>.",
+      "after": "<color=#002461>Money</color> is another resource you can use in levels, measured in terms of <color=#008720>coins ($)</color> and capped at <color=#77FFF8>$99999</color>. \nYou can spend coins on golden Cocoa Beans to upgrade <color=#c9c9c9>silver plants</color> to their <color=#ffe600>gold upgraded variants</color>, or use coins to activate the ultimate abilities of those <color=#ffe600>gold variants</color>.\nYou start with 3000 coins. Produced money comes in 3 variants, Silver Coin (worth 100 coins), Golden Coin (worth 300 coins) and Diamond (worth 1000 coins).\nTip: Use the <color=#77FFF8>\"E\" key on your keyboard</color> to quickly pick up and put down the golden Cocoa Bean.\nYou also receive <color=#77FFF8>25 extra sun every 500 coins you spend</color>."
+    }
+  ],
+  "dictionary": [
+    {
+      "source": "使用金盏花赚钱！对金银植物使用咖啡豆吧！花钱也送阳光！",
+      "before": "Use Marigolds to earn money!\nUse Coffee Beans on Gold and Silver Plants!\nSpending Coins earns you Sun!",
+      "after": "Use Marigolds to earn money!\nUse Cocoa Beans on Gold and Silver Plants!\nSpending Coins earns you Sun!",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "赚的钱可以对银植物升级\n点击屏幕左下角的咖啡豆，对卷心菜使用吧",
+      "before": "The money earned can be used to upgrade Silver Plants.\nClick on the coffee bean (or use the hotkey) in the bottom-left corner of the screen to use it on the Cabbage-Pult.",
+      "after": "The money earned can be used to upgrade Silver Plants.\nClick on the Cocoa Bean (or use the hotkey) in the bottom-left corner of the screen to use it on the Cabbage-Pult.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "咖啡豆对这株植物似乎没有效果",
+      "before": "The Coffee Bean has no effect on this plant.",
+      "after": "The Cocoa Bean has no effect on this plant.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要一份咖啡豆",
+      "before": "This ultimate requires 1 Coffee Bean.",
+      "after": "This ultimate requires 1 Cocoa Bean.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要两份咖啡豆",
+      "before": "This ultimate requires 2 Coffee Beans.",
+      "after": "This ultimate requires 2 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要三份咖啡豆",
+      "before": "This ultimate requires 3 Coffee Beans.",
+      "after": "This ultimate requires 3 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要四份咖啡豆",
+      "before": "This ultimate requires 4 Coffee Beans.",
+      "after": "This ultimate requires 4 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要五份咖啡豆",
+      "before": "This ultimate requires 5 Coffee Beans.",
+      "after": "This ultimate requires 5 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要六份咖啡豆",
+      "before": "This ultimate requires 6 Coffee Beans.",
+      "after": "This ultimate requires 6 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要七份咖啡豆",
+      "before": "This ultimate requires 7 Coffee Beans.",
+      "after": "This ultimate requires 7 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要八份咖啡豆",
+      "before": "This ultimate requires 8 Coffee Beans.",
+      "after": "This ultimate requires 8 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要九份咖啡豆",
+      "before": "This ultimate requires 9 Coffee Beans.",
+      "after": "This ultimate requires 9 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "大招需要十份咖啡豆",
+      "before": "This ultimate requires 10 Coffee Beans.",
+      "after": "This ultimate requires 10 Cocoa Beans.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "究极浴火射手连射+1",
+      "before": null,
+      "after": "SP Phoenix Threepeater: Rapid fire projectile +1",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "种植低矮植物时返还5点阳光",
+      "before": "Planting Short Plants returns 5 Sun (except free plants)\n",
+      "after": "Planting Short Plants returns 5 Sun\n",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "禁用太阳特效",
+      "before": "Disable Sun Visual Effect",
+      "after": "Disable Mini Sun Visual Effect",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "打砖块",
+      "before": "Brick Breaker",
+      "after": "Graveout",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "打砖块无尽版",
+      "before": "Grave-out Endless",
+      "after": "Graveout Endless",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "打砖块2",
+      "before": "Brick Breaker 2",
+      "after": "Graveout 2",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "持有量已达上限",
+      "before": "Maximum amount reached",
+      "after": "Maximum capacity reached",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "死神猎手每一发子弹都会造成爆头伤害",
+      "before": "Berserker Snipea: Critical hits are now guaranteed",
+      "after": "Berserker Snipea: Critical hits are now guaranteed.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "火焰狙击射手的火墙顶点数加2",
+      "before": "Blazer Snipea: Firewall can now be chained together an additional 2 times",
+      "after": "Blazer Snipea: Firewall can now be chained together an additional 2 times.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "狙击射手升级到究极激光炮台",
+      "before": null,
+      "after": "Snipea: Upgrade to Apeacalypse Railgun",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "裂解",
+      "before": null,
+      "after": "Disintegration",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "被究极激光炮台的激光的非boss类僵尸若血量低于10%则立即化为灰烬，多选提高斩杀线",
+      "before": null,
+      "after": "Non-boss zombies hit by Railgun's laser will instantly die if their health drops below 10%. Multiple selections increase this threshold.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "激光炮",
+      "before": null,
+      "after": "Continuity",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得词条力大砖飞：植物造成的樱桃爆炸伤害x3",
+      "before": "Gatling Cherrybomber: All Cherry Bomb explosions deal 3x damage",
+      "after": "Gatling Cherrybomber: All Cherry Bomb explosions deal 3x damage.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "诅咒：争强好胜",
+      "before": "Curse of Aggression",
+      "after": "Curse of Aggression",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "究极黑橄榄机枪射手保底时大招所需射击子弹数-10",
+      "before": "Buckshot Commando: -10 shots needed for ultimate",
+      "after": "Buckshot Commando:\n-10 shots needed for ultimate",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "黑高的自回血效率大幅提高，速度增幅可提高这一速度",
+      "before": null,
+      "after": "Obsidian Tall-nut's self-healing is greatly increased and is affected by speed modifiers",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "新的分身生成了",
+      "before": null,
+      "after": "Clone generated",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "每10秒（受速度增幅影响）\n在附近生成1个分身，上限1个\n多选提高上限",
+      "before": null,
+      "after": "Every 10 seconds (affected by speed upgrades) generate a clone, each selection increases the max amount of clones by 1",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "虚无黑曜",
+      "before": null,
+      "after": "Gigantism",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "生命值上限+50%，其他植物受伤时，获得相当于5%伤害量的蓄能",
+      "before": "Max HP +50%. When another plant takes damage, gain Charge equal to 5% of that damage",
+      "after": "Melon-nut: +50% max HP and gains energy equal to 5% of the damage taken by other plants",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "蓄力",
+      "before": null,
+      "after": "Efficiency",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "蓄能获取效率增加+100%",
+      "before": "Charge gain efficiency +100%",
+      "after": "Melon-nut gains energy 100% more efficiently",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "谁劈了我的瓜？",
+      "before": null,
+      "after": "Clusterbomb",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "毁灭大嘴花攻击时没有吞噬僵尸也将释放爆炸，吞下则释放两次",
+      "before": "Doom Chomper: If its attack misses, it will still release an explosion. If it doesn't, it will release 2 explosions per explosion.",
+      "after": "Doom Chomper: If its attack misses, it will still release an explosion. If it doesn't, it will release 2 explosions per         explosion.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "僵尸的基础速度降低10%",
+      "before": "Gatling Icicle-shroom: All zombies speed reduced by 10%",
+      "after": "Gatling Icicle-shroom: All zombies speed reduced by 10% (stacks multiplicatively)",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "忧郁菇升级到超级机枪忧郁菇",
+      "before": null,
+      "after": "Gloom-shroom: Upgrade to Melancholy Commando",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "超级机枪忧郁菇的子弹命中次数 + 5",
+      "before": null,
+      "after": "Melancholy Commando projectiles get +5 additional pierce",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "勃然大怒",
+      "before": null,
+      "after": "Sorrow",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得2级词条：蒜毒骤发",
+      "before": "Eclipse Fumigator | Wither-pult: Poison cap removed",
+      "after": "Poison cap removed",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "专武登场",
+      "before": null,
+      "after": "Squash pumpkin",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得一个窝瓜南瓜，小窝瓜的爆炸范围增加，专属词条可增加小窝瓜的伤害",
+      "before": null,
+      "after": "Obtain a Squash Pumpkin, the summoned squashes have increased explosion range and their damage depends on the damage of the Big Crunch Squash inside",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "红温伤害增幅提高60%",
+      "before": "Phoenix Threepeater: Enflamed zombies take 60% more damage",
+      "after": "Phoenix Threepeater: Global enflamed damage bonus +60%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "炮台在释放大招过程中额外释放4次火爆辣椒效果，每次造成50段伤害，每次伤害对敌方随机单体造成等同于炮台10000%攻击力的伤害",
+      "before": "Apeacalypse Minigun: Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 10000% of Apeacalypse Minigun's attack power to a random zombie.",
+      "after": "Apeacalypse Minigun: Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 100x of Apeacalypse Minigun's attack power to a random zombie.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "火爆辣椒升级到烈焰爆竹",
+      "before": null,
+      "after": "Jalapeno: Upgrade to Bamboom",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "烈焰爆竹升级到烈焰竹龙",
+      "before": null,
+      "after": "Bamboom: Upgrade to Dragonbreath Torcher",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "飞天爆竹",
+      "before": null,
+      "after": "Firecracker",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "烈焰竹龙释放的飞天爆竹数 + 1",
+      "before": null,
+      "after": "Increases the amount of Bambooms summoned by Dragonbreath Torcher by 1",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "烈火燎原",
+      "before": null,
+      "after": "Conflagration",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "保龄球发射数量+1",
+      "before": "Obsidian Spike-nut: Gains +1 Bowling nuts",
+      "after": "Obsidian Spike-nut: Fires 1 more bowling nut",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "强化：发射",
+      "before": "Upgrade: Launcher",
+      "after": "Upgrade: Strike",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "诅咒：壹肆叁柒",
+      "before": "Curse of MCDXXXVII",
+      "after": "Curse of MCDXXXVII",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "究极杨桃大帝的诅咒效果已反转",
+      "before": null,
+      "after": "Magnetar's curse effect has been reversed!",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "质变：万剑归宗",
+      "before": "Ascend: Swordsmanship",
+      "after": "Swordsmanship",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "诅咒：见者有份",
+      "before": "Curse of Equity",
+      "after": "Curse of Equity",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "火菜炮的诅咒效果反转了",
+      "before": "Fire Cabbage Cannon's Curse has been reversed",
+      "after": "Kaledera Eruptor: Curse effect has been reversed!",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "饱和弹射",
+      "before": null,
+      "after": "Total Eruption",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "冰瓜升级到究极冰神西瓜",
+      "before": "Winter Melon: Upgrade to Maelonstrom",
+      "after": "Winter Melon: Upgrade to Maelonstorm",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "究极冰神西瓜的发射数量+1",
+      "before": "Maelonstrom: Gains +1 projectile",
+      "after": "Maelonstorm: Gains +1 projectile",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "魅惑菇升级到毁灭魅惑菇",
+      "before": null,
+      "after": "Hypno-shroom: Upgrade to Curse-shroom",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "毁灭魅惑菇升级到无妄菇",
+      "before": null,
+      "after": "Curse-shroom: Upgrade to Supremacy-shroom",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "手持无妄菇时，其召唤物会跟随鼠标移动",
+      "before": null,
+      "after": "When holding Supremacy-shroom, the summoned zombie will follow your cursor position",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "冲击",
+      "before": null,
+      "after": "Impact",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "无妄菇召唤的僵尸攻击时，额外释放一次冲击波，对范围内敌方随机单体造成多次伤害，多选提高范围和伤害",
+      "before": null,
+      "after": "When the summoned zombie attacks, it deals additional damage to random enemies in range, multiple selections increase the range and the damage",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "生命值上限+50%",
+      "before": "Soulrender Bamboo: Max Health +50%",
+      "after": "Max Health +50%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得新植物：究极浴火射手",
+      "before": null,
+      "after": "Obtain a new plant: SP Phoenix Threepeater",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "连射",
+      "before": null,
+      "after": "Rapid-fire",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "<size=90%>You haven't discovered this plant yet! You can find it by fusing:\n究极浴火射手连射 + 1",
+      "before": null,
+      "after": "SP Phoenix Threepeater fires +1 projectile in every lane",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得词条：腐化",
+      "before": "Gain the Corruption Sac modifier.",
+      "after": "Gain the extremely-rare Corruption Sac modifier.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "额外2次刷新机会，僵尸血量x4",
+      "before": "+2 Rerolls, Zombie HP x4",
+      "after": "+2 Rerolls, Zombie HP x4",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "经典的诸神进化\n通关获得25诸神币",
+      "before": null,
+      "after": "Classic route. Clear to earn 25 TGE coins",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "最终面临大帅的挑战\n通关获得50诸神币",
+      "before": null,
+      "after": "Vengeful Archduke will appear at the end of round 1. Clear to earn 50 TGE coins",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "1次轮回，最终面临僵王的挑战\n通关获得75诸神币",
+      "before": null,
+      "after": "Dr. Zomboss will also appear at the end of round 2. Clear to earn 75 TGE coins",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "2次轮回，最终面临黄金僵王的挑战\n通关获得",
+      "before": null,
+      "after": "Dr Zomboss Auric Prime will appear at the end of round 3.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "无尽模式，你能撑到第几轮？\n每完成一轮获得25诸神币",
+      "before": null,
+      "after": "Unlock Condition:\nComplete this minigame a total of 20 times,\nAND complete this minigame with the \"Dr. Zomboss Auric Prime's Revenge\" challenge a total of 10 times. +25 TGE coins for every round cleared",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "卧薪尝胆：令全场植物的独立伤害增幅和速度增幅翻倍",
+      "before": "<nobr>Endure and Prepare</nobr>：\nDouble every plant's independent damage and speed bonuses",
+      "after": "\"No Pains No Gains\" modifier has been reversed",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "以50的幸运开局，并使幸运上限增加至300，然后随机选择5个僵尸词条\n随机的5个词条只有在成功通关任意难度诸神进化后才会刷新",
+      "before": "Start with 50 Luck and increase the Luck cap to 300, but take 5 random Zombie modifiers.\nThe chosen modifiers will change every time The Gods: Evolved is beaten.",
+      "after": "Start with 50 Luck and increase the Luck cap to 300, but take 5 random Zombie modifiers.\nThe chosen modifiers will only change after The Gods: Evolved is beaten.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "僵尸受到伤害时，原地生成一个僵尸方的诅咒子弹，伤害为自身攻击力的50%，最低100，0.02秒内最多触发1次",
+      "before": null,
+      "after": "When zombies take damage, they spawn a zombie-side curse projectile with damage equal to 10% of the zombie's attack power (at least 20) against the plants; this can trigger at most 10 times every 0.02s",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "从第50波开始，旗帜波时将刷新随机领袖",
+      "before": "Mini-bosses will randomly appear during flag waves starting from wave 50",
+      "after": "Eligible Mini-bosses will randomly appear during flag waves starting from wave 50",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "伤害统计面板排名第一的植物造成70%的原伤害，其他植物造成110%原伤害",
+      "before": null,
+      "after": "The plant type with the highest amount of cumulative damage deals only 70% damage, other plants deal 110% damage",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "<size=15>小推车 - Off</size>",
+      "before": null,
+      "after": "Lawnmowers are disabled\n\nDifficulty Points: 100",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "植物消失时，在原地生成一只随机僵尸，该僵尸获得额外的血量和速度加成",
+      "before": null,
+      "after": "When a plant disappears, a random zombie is spawned at its location with bonus health and speed",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "开局场上获得三列墓碑，旗帜波时，墓碑将会召唤本波僵尸",
+      "before": null,
+      "after": "3 columns of gravestones will appear on the lawn at the start of each round",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "每5波，使你的植物移动到随机位置",
+      "before": null,
+      "after": "Your plants are moved to random locations every 5th zombie wave",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "刷新间隔缩短，每次刷新僵尸时，有概率重新刷新本波僵尸，概率随波次增加",
+      "before": null,
+      "after": "Wave interval is reduced, and each wave has a chance to immediately trigger the next",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "植物复活后被强制冻结3秒",
+      "before": null,
+      "after": "Plants are frozen for 3s after respawning",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "僵尸血量低于5%时受击则立即自爆（对领袖和boss无效）",
+      "before": null,
+      "after": "Non-mini-boss zombies have a chance to self-explode when under 5% max HP",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "非boss僵尸的生命值和体型降低30%，但速度提高100%",
+      "before": null,
+      "after": "Non-boss zombies have 30% less max HP and size, but are 100% faster",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "非boss僵尸的生命值和体型提高60%，但速度降低60%",
+      "before": null,
+      "after": "Non-boss zombies have 60% more max HP and size, but their speed is reduced by 60%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "白银及以下的词条加成变为原来的110%，黄金，钻石词条加成变为原来的70%",
+      "before": null,
+      "after": "Increase the effects of Bronze and Silver Modifiers by 10%, while Golden and Diamond Modifiers have theirs reduced by 30%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "白银及以下的词条加成变为原来的70%，黄金，钻石词条加成变为原来的110%",
+      "before": null,
+      "after": "Increase the effects of Golden and Diamond Modifiers by 10%, while Bronze and Silver Modifiers have theirs reduced by 30%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "场上植物数量为0/1/2/3/4/5/6及以上时，僵尸受到50%/60%/70%/80%/90%/100%/105%伤害",
+      "before": null,
+      "after": "When you have 0/1/2/3/4/5/6 or more plants on the field, zombies receive\n 75%/80%/85%/90%/95%/100%/105% damage respectively",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "每次抽取词条时，随机获得-27~23幸运",
+      "before": "Randomly gain -27 to +33 points of Luck with every Modifier draw",
+      "after": "Randomly gain -27 to +23 points of Luck with every Modifier draw",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得新植物",
+      "before": "New Plant Acquired",
+      "after": "Obtain a new plant",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "从已购买的植物中任选一个\n更多植物可前往「图鉴 → 诸神图鉴」购买解锁",
+      "before": "Choose any one of your purchased plants.\nUnlock more plants in Almanac > The Gods Almanac.",
+      "after": "Select one from your unlocked plants.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "通用战术",
+      "before": "General Tactics",
+      "after": "Tactical Support",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "从多个选项中自选一种战术词条",
+      "before": "Choose a Tactic Modifier from Several Options",
+      "after": "Choose one from several support options.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "群攻-木桩",
+      "before": null,
+      "after": "Voodoo Dummy",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n无法转移魅惑僵尸造成的伤害",
+      "before": null,
+      "after": "Summons a Dummy Zombie on the lawn which distributes 60% of the damage it takes among all zombies; can be moved with the Zombie Glove; cannot transfer damage dealt by Hypnotized Zombies",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "木桩僵尸的均摊比例提升至100%",
+      "before": null,
+      "after": "The Dummy Zombie now distributes 100% of the damage it takes among all zombies",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "在场上多生成一个木桩僵尸",
+      "before": null,
+      "after": "Summons an additional Dummy Zombie",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "木桩-弱点洞悉",
+      "before": null,
+      "after": "Voodoo Dummy - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "木桩僵尸受到伤害时会额外对全场血量最高的僵尸造成100%伤害",
+      "before": null,
+      "after": "When the Dummy Zombie takes damage, it also deals 100% of that damage to the zombie with the highest HP on the lawn",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "沉淀-全能",
+      "before": null,
+      "after": "Omnipotence",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "幸运提高25，全体伤害增幅提高10%，获得1次刷新机会，复活时间降低10%",
+      "before": null,
+      "after": "Increase Luck by 25, overall attack damage by 10%, 1 reroll, and respawn timer reduction by 10%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "幸运提高50，全体伤害增幅提高20%，获得2次刷新机会，复活时间降低20%",
+      "before": null,
+      "after": "Increase Luck by 50, overall attack damage by 20%, 2 rerolls, and respawn timer reduction by 20%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "幸运提高75，全体伤害增幅提高30%，获得3次刷新机会，复活时间降低30%",
+      "before": null,
+      "after": "Increase Luck by 75, overall attack damage by 10%, 3 rerolls, and respawn timer reduction by 30%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "全能-无懈可击",
+      "before": null,
+      "after": "Omnipotence - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "在场的全体植物获得500%生命值加成，300%独立伤害增幅，200%速度增幅，60%幸运一击率，150%幸运一击伤害",
+      "before": null,
+      "after": "All plants on the lawn receive 500% bonus HP, 300% independent bonus attack damage, 200% bonus attack speed, 60% crit chance and 150% crit damage",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "幸运-宝藏",
+      "before": null,
+      "after": "Luck • Bounty",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "立即生成一波2倍血量和速度的僵尸，全部消灭后获得一次500幸运的词条抽取机会",
+      "before": null,
+      "after": "Immediately spawns a wave of eligible zombies with 2× HP and speed; defeating all of them grants a Modifier draw at 500 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "立即生成一波3倍血量和速度的僵尸，全部消灭后获得一次1000幸运的词条抽取机会",
+      "before": null,
+      "after": "Immediately spawns a wave of eligible zombies with 3× HP and speed; defeating all of them grants a Modifier draw at 1000 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "立即生成一波4倍血量和速度的僵尸，全部消灭后获得一次1500幸运的词条抽取机会",
+      "before": null,
+      "after": "Immediately spawns a wave of eligible zombies with 4× HP and speed; defeating all of them grants a Modifier draw at 1500 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "宝藏-双倍幸运",
+      "before": null,
+      "after": "Luck • Bounty - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "立即使你当前幸运与幸运值上限翻倍\n若为负数则取绝对值后再翻倍，如-50幸运时：-50→100",
+      "before": null,
+      "after": "Immediately doubles your current Luck and Luck cap (if your Luck is negative, its absolute value is taken before doubling, e.g.: -50 Luck → 100)",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "护航-天罚",
+      "before": null,
+      "after": "Approaching Storm",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "闪电将为你作战，间歇性对场上僵尸造成伤害",
+      "before": null,
+      "after": "Summons a Thunderstorm to fight for you, periodically damaging zombies on the lawn",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "闪电的持续时间提高100%",
+      "before": null,
+      "after": "Increases Thunderstorm duration by 100%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "闪电的攻击频率提高100%",
+      "before": null,
+      "after": "Increases Thunderstorm attack frequency by 100%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "天罚-闪电风暴",
+      "before": null,
+      "after": "Approaching Storm - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "闪电风暴将不间断的发动攻击",
+      "before": null,
+      "after": "Thunderstorm now continuously attacks without interruption",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "支援-光棱",
+      "before": null,
+      "after": "Prism Fighter",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得一艘机械飞船，持续锁定并攻击最靠左的僵尸",
+      "before": null,
+      "after": "Obtain a Mecha Fighter that attacks the leftmost zombie with a continuous laser",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "机械飞船的折射次数 + 1",
+      "before": null,
+      "after": "Increases the number of refractions of Mecha Fighter's attack by 1",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "机械飞船的折射次数 + 2",
+      "before": null,
+      "after": "Increases the number of refractions of Mecha Fighter's attack by 2",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "光棱-一枪穿雲",
+      "before": null,
+      "after": "Prism Fighter - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "光凌改为无限穿透，且折射可重复命中同一目标",
+      "before": null,
+      "after": "Mecha Figher's laser gains infinite pierce, and refractions can repeatedly hit the same target",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "铁幕-硬化",
+      "before": null,
+      "after": "Iron Curtain",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "全体植物受到的伤害降低20%",
+      "before": null,
+      "after": "Reduces damage taken by all plants by 20%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "全体植物受到的伤害降低40%",
+      "before": null,
+      "after": "Reduces damage taken by all plants by 40%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "全体植物受到的伤害降低60%",
+      "before": null,
+      "after": "Reduces damage taken by all plants by 60%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "硬化-坚不可摧",
+      "before": null,
+      "after": "Iron Curtain - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "全体植物受到的伤害降低90%，生命值降低时在原地发射一枚攻击力等同于自身最大生命值的豌豆子弹\n若拥有僵尸词条正当防卫则改为受到的伤害降低99%",
+      "before": null,
+      "after": "Reduces damage taken by all plants by 90%; whenever a plant loses HP, it fires a pea projectile from its position with damage equal to its max HP | If you also have the \"Counterstrike\" Zombie Modifier, effect is changed to reducing damage taken by 99%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "铁幕-明月",
+      "before": null,
+      "after": "Moonlight Veil",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "在场上生成一个月光反应器，周期性为全场植物回复生命值",
+      "before": null,
+      "after": "Summons a Lunar Reactor that periodically heals all plants on the lawn",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "月光反应器的恢复量大幅提高",
+      "before": null,
+      "after": "Greatly increases the healing of the Lunar Reactor",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "月光反应器生效时为全场植物赋予1000护盾",
+      "before": null,
+      "after": "Lunar Reactor grants all plants 1000 shield when it activates",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "明月-照彻 *10k",
+      "before": null,
+      "after": "Moonlight Veil - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "月光反应器生效时，为全场每株植物降下月华\n月华会秒杀3x3范围内的普通僵尸，并使植物无敌一段时间",
+      "before": null,
+      "after": "Whenever the Lunar Reactor activates, moonlight descends upon every plant on the lawn, which instantly kills regular Zombies within a 3x3 area and grants invincibility to plants (not curses)",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "不朽-战锤",
+      "before": null,
+      "after": "Warhammer",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "锤子的伤害降低，但冷却时间降低至3秒",
+      "before": null,
+      "after": "Reduces the Mallet's CD to 3s, but with reduced damage",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "锤子的攻击范围大幅增加",
+      "before": null,
+      "after": "Greatly increases the effective range of the Mallet's attack",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "进一步降低锤子的冷却时间",
+      "before": null,
+      "after": "Further reduces the Mallet's CD",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "战锤-千锤百炼",
+      "before": null,
+      "after": "Warhammer - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "锤子命中僵尸后，在原地生成一个大锤子，持续对僵尸造成伤害，一段时间后消失",
+      "before": null,
+      "after": "When the Mallet hits a zombie, it summons a Dragon Hammer at its location that repeatedly hits zombies for a while",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "幸运-交易",
+      "before": null,
+      "after": "Luck • Loan",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得一次500幸运的词条抽取机会，随后扣除你25幸运",
+      "before": null,
+      "after": "Gain one Modifier draw at 500 Luck, then lose 25 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得一次1000幸运的词条抽取机会，随后扣除你50幸运",
+      "before": null,
+      "after": "Gain one Modifier draw at 1000 Luck, then lose 50 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得一次1500幸运的词条抽取机会，随后扣除你75幸运",
+      "before": null,
+      "after": "Gain one Modifier draw at 1500 Luck, then lose 75 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "交易-孤注一掷",
+      "before": null,
+      "after": "Luck • Loan - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "立即将你的幸运设置为250，刷新机会设置为5，并使幸运上限x3，且从此不再能抽取幸运与合理投资\n每次抽取词条时，获得25幸运，并额外获得当前幸运20%的幸运（最高100），选择木头、白银、黄金/随机、钻石/棱彩/诅咒将分别扣除20/40/60/100幸运，每次刷新消耗50幸运",
+      "before": null,
+      "after": "Set your Luck to 250 and Rerolls to 5, triple your Luck cap, and permanently prevent you from selecting Luck Modifiers and [Resourcefulness]\nEach Modifier draw grants 25 Luck, plus an additional amount equal to 20% of your current Luck (up to 100); choosing Bronze, Silver, Gold/Random, or Diamond/Prismatic/Curse costs 20/40/60/100 Luck respectively; each reroll costs 50 Luck",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "支援-飞艇",
+      "before": null,
+      "after": "G-Fish Bomber",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "获得一个迷你鱼型裂空机甲",
+      "before": null,
+      "after": "Summons a massively-buffed Skyglider Mecha pet to fight for you",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "迷你鱼型裂空机甲齐射所需攻击数-1",
+      "before": null,
+      "after": "Number of attacks needed for Skyglider Mecha to fire a Barrage -1",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "迷你鱼型裂空机甲攻击间隔降低",
+      "before": null,
+      "after": "Reduces Skyglider Mecha's attack CD",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "裂空-苍穹之跃",
+      "before": null,
+      "after": "G-Fish Bomber - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "迷你鱼型裂空机甲齐射时的子弹在空中可持续分裂",
+      "before": null,
+      "after": "Barrage shells from Skyglider Mecha will keep splitting while airborne",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "群攻-烈阳",
+      "before": null,
+      "after": "Solar Blast",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "在场上生成一个阳光反应器，周期性对全场僵尸造成伤害",
+      "before": null,
+      "after": "Summons a Solar Reactor that periodically deals heavy damage to all zombies on the lawn",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "阳光反应器的攻击间隔降低50%",
+      "before": null,
+      "after": "Reduces the Solar Reactor's attack CD by 50%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "阳光反应器的伤害提高100%",
+      "before": null,
+      "after": "Increases the Solar Reactor's damage by 100%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "烈阳-撕裂长空",
+      "before": null,
+      "after": "Solar Blast - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "阳光反应器攻击时额外释放太阳神流星落下",
+      "before": null,
+      "after": "The Solar Reactor additionally calls down a Helios Meteor whenever it attacks",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "业火冷却完毕",
+      "before": null,
+      "after": "Infernal Combustion ready!",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "不朽-业火",
+      "before": null,
+      "after": "Infernal Combustion",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "点击任意地方时，在点击位置释放业火爆炸，这个技能有10秒的冷却，如果击杀了僵尸则将冷却降为1秒",
+      "before": null,
+      "after": "Clicking anywhere releases a short-range Infernal Combustion, with a 10s CD, or 1 second if it kills a zombie",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "业火获得100%伤害加成",
+      "before": null,
+      "after": "Increases Infernal Combustion damage by 100%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "业火的冷却和击杀冷却降低50%",
+      "before": null,
+      "after": "Decreases Infernal Combustion CD and CD on kill by 50%",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "业火-燃尽此生",
+      "before": null,
+      "after": "Infernal Combustion - X",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "业火可对植物造成伤害，击杀植物后后在全场释放火爆辣椒效果并刷新冷却，伤害基于该植物拿的总词条数而提高",
+      "before": null,
+      "after": "Infernal Combustion can now damage plants; killing a plant triggers Jalapeno effects on all lanes and refreshes the CD; damage increases based on the total number of Modifiers the plant has",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "诅咒任务",
+      "before": null,
+      "after": "Curse modifier progress",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "阳光反应器",
+      "before": null,
+      "after": "Solar Blast",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "迷你领袖",
+      "before": null,
+      "after": "Skyglider Mecha",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "月光反应器",
+      "before": null,
+      "after": "Lunar Reactor",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "业火",
+      "before": "Infernal Combustion",
+      "after": "Infernal Combustion",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "机械飞船",
+      "before": null,
+      "after": "Mecha Fighter",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "天罚",
+      "before": "Lightning Storm",
+      "after": "Thunderstorm",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "拆分：植物手套原地点击已选取的植物时，会花费500阳光将其按融合路线拆解成卡牌，冷却20秒",
+      "before": "<nobr>Recycling</nobr>：\nClicking on the same plant when you have it on your Glove will disassemble it at the cost of 500 Sun | 20s cooldown",
+      "after": "<nobr>Recycling Fission</nobr>：\nClicking on the same plant when you have it on your Glove will disassemble it at the cost of 500 Sun | 20s cooldown",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "【本关手套冷却加快，请善用手套】\n【建议在了解吸金磁后再游玩本关！】\n<i>金碧辉煌！</i>\n\n\n\n\n\n\n\n<size=22>银向日葵产阳速度较快，而金向日葵拥有最高的产阳效率！\n……当然，你需要支付一点金钱才能把这些阳光提取出来</size>\n<size=16>机枪豌豆炮台与吸金磁的组合或许是不错的赚钱手段？……</size>\n\n\n\n\n\n\n\n\n\n\n",
+      "before": "N.B.: The Glove has reduced CD in this level!\nMake sure you are familiar with Gold Magnet's mechanic before attempting this level!\n<i>Oh! Shiny!</i>\n\n\n\n\n\n\n\nGolden Sunflower burns money to produce extreme amounts of Sun for you!\nYou just need to use Coffee Bean on a Golden Sunflower to retrieve them...\nTip: Titan Pea Turret has amazing synergy with Gold Magnet!\n\n\n\n\n\n\n\n\n\n\n",
+      "after": "N.B.: The Glove has reduced CD in this level!\nMake sure you are familiar with Gold Magnet's mechanic before attempting this level!\n<i>Oh! Shiny!</i>\n\n\n\n\n\n\n\nGolden Sunflower burns money to produce extreme amounts of Sun for you!\nYou just need to use Cocoa Bean on a Golden Sunflower to retrieve them...\nTip: Titan Pea Turret has amazing synergy with Gold Magnet!\n\n\n\n\n\n\n\n\n\n\n",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "<size=18><color=#FFAF60>殊途同归 5-3教程：金咖啡豆&金银植物</color>\n<size=32><alpha=#00>\n<size=18><alpha=#FF><align=left>2.等<color=#FFFF00>窝瓜</color>跳到僵尸正上方时立刻给<color=#CCCCCC>银伞</color>开大→\n   即可套路窝瓜\n<align=center>            1.试试把<color=#FFFF00>金咖啡豆</color>拖拽到<color=#CCCCCC>银蒜↑</color>上并点击\n\n<size=237>\n<size=18><alpha=#FF><align=center>你可以将屏幕左下角的<color=#FFFF00>金咖啡豆</color>拖拽给金银植物释放一次大招，根据植物种类会产生不同的效果：\n<size=3>\n<size=18>【<color=#CCCCCC>银蒜</color>/<color=#FFFF00>金蒜</color>】：使整行僵尸换行（对载具类僵尸不起效）   【<color=#CCCCCC>银保护伞</color>/<color=#FFFF00>金保护伞</color>】：将僵尸向右击退\n<size=3>\n<size=18>456路是一个小测试，在合适的时机给金银植物开大，不放置额外僵尸就可以吃掉全部的4个向日葵\n<size=355>\n",
+      "before": "<color=#FFAF60>All Roads Lead to Roof 5-3 Tutorial: Silver/Golden Plants & Their Ultimates</color>\n<alpha=#00>\n<alpha=#FF><align=left>2. Wait until the <color=#FFFF00>Squash</color> is right on top of the zombie\nand activate Ultimate on <color=#CCCCCC> Silver Umbrella</color> →\nTo juke the Squash\n<align=center> 1. <color=#FFFF00>Coffee Bean</color> on the <color=#CCCCCC>Silver Garlic</color> ↑\n\n\n<alpha=#FF><align=center>try using <color=#FFFF00>Coffee Bean</color> on different Silver/Golden plants and see what happens!\n\n[<color=#CCCCCC>Silver</color>/<color=#FFFF00>Golden</color> Garlic]: Forces all zombies in the lane to switch lanes (ineffective against vehicles)\n[<color=#CCCCCC>Silver</color>/<color=#FFFF00>Golden</color> Umbrella]: Knocks zombies back\n\nLanes 4 to 6 are a small test: Use Ultimates at the right timing, and you can eat all 4 Sunflowers without placing any additional zombies.\n\n",
+      "after": "<color=#FFAF60>All Roads Lead to Roof 5-3 Tutorial: Silver/Golden Plants & Their Ultimates</color>\n<alpha=#00>\n<alpha=#FF><align=left>2. Wait until the <color=#FFFF00>Squash</color> is right on top of the zombie\nand activate Ultimate on <color=#CCCCCC> Silver Umbrella</color> →\nTo juke the Squash\n<align=center> 1. <color=#FFFF00>Cocoa Bean</color> on the <color=#CCCCCC>Silver Garlic</color> ↑\n\n\n<alpha=#FF><align=center>try using <color=#FFFF00>Cocoa Bean</color> on different Silver/Golden plants and see what happens!\n\n[<color=#CCCCCC>Silver</color>/<color=#FFFF00>Golden</color> Garlic]: Forces all zombies in the lane to switch lanes (ineffective against vehicles)\n[<color=#CCCCCC>Silver</color>/<color=#FFFF00>Golden</color> Umbrella]: Knocks zombies back\n\nLanes 4 to 6 are a small test: Use Ultimates at the right timing, and you can eat all 4 Sunflowers without placing any additional zombies.\n\n",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "<size=18><color=#FFAF60>殊途同归 5-5-1</color>\n<size=12><alpha=#03>最优：675\n<size=330><alpha=#00>\n<size=18><alpha=#FF><color=#C07AB8>百香双响炮</color>也可以使用<color=yellow>金咖啡豆</color>开大，效果为射出一发能够<color=#C07AB8><size=12>缩小僵尸</color><size=18>的子弹\n这对僵尸来说或许并不是坏事，如果撑杆僵尸的跳跃距离太远了，你就可以缩小它们来缩减跳跃距离\n<size=18>备注：把僵尸放置在百香双响炮的右侧一格，随后立刻给百香炮开大即可缩小僵尸\n<size=360>\n",
+      "before": "<color=#FFAF60>All Roads Lead to Roof 5-5-1</color>\n<alpha=#03>Best Solution: 675 Sun left\n<alpha=#00>\n<alpha=#FF><color=#C07AB8>Doubleblast Passionfruit</color> can also be given <color=yellow>Coffee Bean</color>, which fires a projectile that can <color=#C07AB8>shrink zombies</color>.\nThis isn't always bad for zombies: if Pole Vaulting Zombies are jumping too far, shrinking them reduces their jump distance.\nNote: Place a zombie one tile to the right of the Passionfruit, then immediately activate its Ultimate to shrink the zombie.\n\n",
+      "after": "<color=#FFAF60>All Roads Lead to Roof 5-5-1</color>\n<alpha=#03>Best Solution: 675 Sun left\n<alpha=#00>\n<alpha=#FF><color=#C07AB8>Doubleblast Passionfruit</color> can also be given <color=yellow>Cocoa Bean</color>, which fires a projectile that can <color=#C07AB8>shrink zombies</color>.\nThis isn't always bad for zombies: if Pole Vaulting Zombies are jumping too far, shrinking them reduces their jump distance.\nNote: Place a zombie one tile to the right of the Passionfruit, then immediately activate its Ultimate to shrink the zombie.\n\n",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "的火墙顶点数加2",
+      "before": " Fire Wall vertex count +2",
+      "after": ": Firewall can now be chained together an additional 2 times.",
+      "provenance": "PC main delta"
+    },
+    {
+      "source": "制作指南",
+      "after": "Creator Guide",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    },
+    {
+      "source": "关卡制作指南",
+      "after": "Level Creator Guide",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    },
+    {
+      "source": "返回制作指南",
+      "after": "Back to Creator Guide",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    },
+    {
+      "source": "额外2次刷新机会，僵尸血量x4",
+      "after": "+2 Rerolls, Zombie HP x4",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    },
+    {
+      "source": "通关获得50诸神币",
+      "after": "Complete to earn 50 God Coins",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    },
+    {
+      "source": "通关获得75诸神币",
+      "after": "Complete to earn 75 God Coins",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    },
+    {
+      "source": "通关获得100诸神币",
+      "after": "Complete to earn 100 God Coins",
+      "provenance": "Reviewed Android display variant; PC terminology"
+    }
+  ],
+  "metadata": [
+    {
+      "index": 16066,
+      "source": "从多个选项中自选一种战术词条",
+      "before": "Choose a Tactic Modifier from Several Options",
+      "after": "Choose one from several support options."
+    },
+    {
+      "index": 16067,
+      "source": "从已购买的植物中任选一个\n更多植物可前往「图鉴 → 诸神图鉴」购买解锁",
+      "before": "Choose any one of your purchased plants.\nUnlock more plants in Almanac > The Gods Almanac.",
+      "after": "Select one from your unlocked plants."
+    },
+    {
+      "index": 16093,
+      "source": "以50的幸运开局，并使幸运上限增加至300，然后随机选择5个僵尸词条\n随机的5个词条只有在成功通关任意难度诸神进化后才会刷新",
+      "before": "Start with 50 Luck and increase the Luck cap to 300, but take 5 random Zombie modifiers.\nThe chosen modifiers will change every time The Gods: Evolved is beaten.",
+      "after": "Start with 50 Luck and increase the Luck cap to 300, but take 5 random Zombie modifiers.\nThe chosen modifiers will only change after The Gods: Evolved is beaten."
+    },
+    {
+      "index": 16224,
+      "source": "保龄球发射数量+1",
+      "before": "Obsidian Spike-nut: Gains +1 Bowling nuts",
+      "after": "Obsidian Spike-nut: Fires 1 more bowling nut"
+    },
+    {
+      "index": 16284,
+      "source": "僵尸的基础速度降低10%",
+      "before": "Gatling Icicle-shroom: All zombies speed reduced by 10%",
+      "after": "Gatling Icicle-shroom: All zombies speed reduced by 10% (stacks multiplicatively)"
+    },
+    {
+      "index": 16642,
+      "source": "卧薪尝胆：令全场植物的独立伤害增幅和速度增幅翻倍",
+      "before": "<nobr>Endure and Prepare</nobr>：\nDouble every plant's independent damage and speed bonuses",
+      "after": "\"No Pains No Gains\" modifier has been reversed"
+    },
+    {
+      "index": 16752,
+      "source": "咖啡豆对这株植物似乎没有效果",
+      "before": "The Coffee Bean has no effect on this plant.",
+      "after": "The Cocoa Bean has no effect on this plant."
+    },
+    {
+      "index": 17508,
+      "source": "打砖块",
+      "before": "Brick Breaker",
+      "after": "Graveout"
+    },
+    {
+      "index": 17509,
+      "source": "打砖块2",
+      "before": "Brick Breaker 2",
+      "after": "Graveout 2"
+    },
+    {
+      "index": 17510,
+      "source": "打砖块无尽版",
+      "before": "Grave-out Endless",
+      "after": "Graveout Endless"
+    },
+    {
+      "index": 17544,
+      "source": "拆分：植物手套原地点击已选取的植物时，会花费500阳光将其按融合路线拆解成卡牌，冷却20秒",
+      "before": "<nobr>Recycling</nobr>：\nClicking on the same plant when you have it on your Glove will disassemble it at the cost of 500 Sun | 20s cooldown",
+      "after": "<nobr>Recycling Fission</nobr>：\nClicking on the same plant when you have it on your Glove will disassemble it at the cost of 500 Sun | 20s cooldown"
+    },
+    {
+      "index": 17549,
+      "source": "持有量已达上限",
+      "before": "Maximum amount reached",
+      "after": "Maximum capacity reached"
+    },
+    {
+      "index": 18375,
+      "source": "火菜炮的诅咒效果反转了",
+      "before": "Fire Cabbage Cannon's Curse has been reversed",
+      "after": "Kaledera Eruptor: Curse effect has been reversed!"
+    },
+    {
+      "index": 18381,
+      "source": "炮台在释放大招过程中额外释放4次火爆辣椒效果，每次造成50段伤害，每次伤害对敌方随机单体造成等同于炮台10000%攻击力的伤害",
+      "before": "Apeacalypse Minigun: Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 10000% of Apeacalypse Minigun's attack power to a random zombie.",
+      "after": "Apeacalypse Minigun: Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 100x of Apeacalypse Minigun's attack power to a random zombie."
+    },
+    {
+      "index": 18470,
+      "source": "生命值上限+50%",
+      "before": "Soulrender Bamboo: Max Health +50%",
+      "after": "Max Health +50%"
+    },
+    {
+      "index": 18531,
+      "source": "的火墙顶点数加2",
+      "before": " Fire Wall vertex count +2",
+      "after": ": Firewall can now be chained together an additional 2 times."
+    },
+    {
+      "index": 18610,
+      "source": "种植低矮植物时返还5点阳光",
+      "before": "Planting Short Plants returns 5 Sun (except free plants)\n",
+      "after": "Planting Short Plants returns 5 Sun\n"
+    },
+    {
+      "index": 18734,
+      "source": "红温伤害增幅提高60%",
+      "before": "Phoenix Threepeater: Enflamed zombies take 60% more damage",
+      "after": "Phoenix Threepeater: Global enflamed damage bonus +60%"
+    },
+    {
+      "index": 18924,
+      "source": "获得2级词条：蒜毒骤发",
+      "before": "Eclipse Fumigator | Wither-pult: Poison cap removed",
+      "after": "Poison cap removed"
+    },
+    {
+      "index": 18947,
+      "source": "获得词条力大砖飞：植物造成的樱桃爆炸伤害x3",
+      "before": "Gatling Cherrybomber: All Cherry Bomb explosions deal 3x damage",
+      "after": "Gatling Cherrybomber: All Cherry Bomb explosions deal 3x damage."
+    },
+    {
+      "index": 18954,
+      "source": "获得词条：腐化",
+      "before": "Gain the Corruption Sac modifier.",
+      "after": "Gain the extremely-rare Corruption Sac modifier."
+    },
+    {
+      "index": 19066,
+      "source": "诅咒：争强好胜",
+      "before": "Curse of Aggression",
+      "after": "Curse of Aggression"
+    },
+    {
+      "index": 19068,
+      "source": "诅咒：壹肆叁柒",
+      "before": "Curse of MCDXXXVII",
+      "after": "Curse of MCDXXXVII"
+    },
+    {
+      "index": 19069,
+      "source": "诅咒：见者有份",
+      "before": "Curse of Equity",
+      "after": "Curse of Equity"
+    },
+    {
+      "index": 19240,
+      "source": "质变：万剑归宗",
+      "before": "Ascend: Swordsmanship",
+      "after": "Swordsmanship"
+    },
+    {
+      "index": 19298,
+      "source": "赚的钱可以对银植物升级\n点击屏幕左下角的咖啡豆，对卷心菜使用吧",
+      "before": "The money earned can be used to upgrade Silver Plants.\nClick on the coffee bean (or use the hotkey) in the bottom-left corner of the screen to use it on the Cabbage-Pult.",
+      "after": "The money earned can be used to upgrade Silver Plants.\nClick on the Cocoa Bean (or use the hotkey) in the bottom-left corner of the screen to use it on the Cabbage-Pult."
+    },
+    {
+      "index": 19486,
+      "source": "通用战术",
+      "before": "General Tactics",
+      "after": "Tactical Support"
+    }
+  ],
+  "retained": [
+    {
+      "asset": "LawnStrings",
+      "id": 901,
+      "field": "info",
+      "reason": "Source or prior English differs; retained Android wording"
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 902,
+      "field": "info",
+      "reason": "Source or prior English differs; retained Android wording"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 87,
+      "field": "introduce",
+      "reason": "Source or prior English differs; retained Android wording"
+    }
+  ],
+  "regex": [
+    {
+      "pattern": "^第(\\d+)波$",
+      "after": "Wave {0}"
+    }
+  ],
+  "static_component_plan": {
+    "checked_components": 1808,
+    "hits": [
+      {
+        "key": "resources.assets:200175",
+        "field": "m_text",
+        "source": "禁用太阳特效",
+        "current": "Disable Sun Visual Effect",
+        "old": "Disable Sun Visual Effect",
+        "new": "Disable Mini Sun Visual Effect"
+      }
+    ]
+  },
+  "modifier_fixes": [
+    {
+      "index": 18315,
+      "source": "深渊巨口：\n<nobr><color=red>究极灯笼巨嘴花</color></nobr>：攻击范围增加",
+      "previous": "<nobr>Ravenous Reach</nobr>：\n<nobr><color=red>究极灯笼巨嘴花</color></nobr>：攻击范围增加",
+      "english": "<nobr>Ravenous Reach</nobr>：\nTyrannoflora Lux: Increased attack range",
+      "provenance": "Blooms ultimateBuffs/34 title and plant name; direct translation of Android effect. PC multiplier and bug annotation are not asserted."
+    },
+    {
+      "index": 18019,
+      "source": "格挡反击：僵尸闪避时对附近植物造成100%反伤",
+      "previous": "<nobr>格挡反击</nobr>：\n僵尸闪避时对附近植物造成100%反伤",
+      "english": "<nobr>Zombie Parry</nobr>：\nWhen zombies dodge, they deal 100% reflected damage to nearby plants",
+      "provenance": "Blooms debuffs/5003 title; direct translation of Android effect, which does not state the PC cooldown."
+    },
+    {
+      "index": 19460,
+      "source": "适应之力：僵尸每次受伤，获得相当于伤害量1%的护甲，有上限",
+      "previous": "<nobr>适应之力</nobr>：\n僵尸每次受伤，获得相当于伤害量1%的护甲，有上限",
+      "english": "<nobr>Pain Response</nobr>：\nWhen zombies take damage, they gain Armor equal to 1% of that damage, up to a limit",
+      "provenance": "Blooms debuffs/5002 title; direct translation of Android effect, without importing PC-specific thresholds."
+    }
+  ],
+  "modifier_catalog_matches_checked": 442,
+  "all_prior_dictionary_keys_retained": true,
+  "lite_translations_imported": false
+}

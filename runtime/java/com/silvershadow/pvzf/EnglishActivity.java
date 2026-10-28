@@ -23,14 +23,14 @@ public final class EnglishActivity extends Activity {
     private static final Map<String,String> levelDisplays = new HashMap<>();
     private static final Set<String> ambiguousLevelDisplays = new HashSet<>();
     private static final List<Rule> rules = new ArrayList<>();
-    private static final LinkedHashMap<String,String> cache = new LinkedHashMap<String,String>(256,.75f,true) {
-        protected boolean removeEldestEntry(Map.Entry<String,String> e) { return size()>2048; }
-    };
+    // Recursive line/tag translation benefits from a Java cache too. Bound its
+    // retained text bytes as well as entry count, including negative matches.
+    private static final BoundedTextCache cache = new BoundedTextCache(1024,1024*1024);
     private static final Pattern SLOT = Pattern.compile("\\{(\\d+)\\}");
     private static final Pattern MARKUP = Pattern.compile("</?(?:color|size|b|i|u|s|nobr|align|voffset|font|mark|alpha|cspace|mspace|indent|line-height)(?:=[^<>]*)?>",Pattern.CASE_INSENSITIVE);
     private static final class Rule {
-        final Pattern pattern; final String replacement;
-        Rule(String p,String r) {pattern=Pattern.compile(p);replacement=r;}
+        final Pattern pattern; final String replacement,prefix;
+        Rule(String p,String r) {pattern=Pattern.compile(p);replacement=r;prefix=RegexPrefix.of(p);}
     }
     private static native void startRuntime(String root, boolean blooms);
 
@@ -49,6 +49,7 @@ public final class EnglishActivity extends Activity {
             prepareManagedFiles();
             loadTranslations();
             PlantbrushBridge.init(getApplicationContext());
+            MusicBridge.init(getApplicationContext());
             // Load only; Unity remains responsible for calling il2cpp_init.
             // Install the completion hook before starting Unity's Activity.
             System.loadLibrary("il2cpp");
@@ -70,7 +71,11 @@ public final class EnglishActivity extends Activity {
     }
 
     public static int requestPlantbrush(){return PlantbrushBridge.request();}
+    public static int plantbrushStatus(){return PlantbrushBridge.status();}
     public static void leavePlantbrush(){PlantbrushBridge.leave();}
+    public static int syncMusic(int slot,String track,boolean playing,float volume,float time,int epoch){
+        return MusicBridge.sync(slot,track,playing,volume,time,epoch);
+    }
 
     private byte[] asset(String name) throws IOException {
         try(InputStream in=getAssets().open(name);ByteArrayOutputStream out=new ByteArrayOutputStream()) {
@@ -103,13 +108,26 @@ public final class EnglishActivity extends Activity {
                 (from,to)->Os.rename(from.getAbsolutePath(),to.getAbsolutePath()),
                 root.equals(external) && manifest.optBoolean("refresh_test_seed",false));
         JSONObject files=manifest.getJSONObject("files");
+        android.content.SharedPreferences prefs=getSharedPreferences("english-runtime",0);
+        android.content.SharedPreferences.Editor verified=prefs.edit();
         Iterator<String> names=files.keys();
         while(names.hasNext()) {
             String name=names.next();
             if(!name.matches("[A-Za-z0-9_.-]+"))throw new IOException("Invalid managed filename");
-            replace("english/"+name,new File(getFilesDir(),"english-runtime/"+name),files.getString(name));
+            // The translator reads this dictionary directly from the APK below.
+            // Its old private copy is never consulted; do not re-copy/hash it.
+            if(name.equals("translations.json"))continue;
+            File target=new File(getFilesDir(),"english-runtime/"+name);
+            String hash=files.getString(name),key="verified-music:"+name;
+            String stamp=MusicStamp.of(name,target,hash);
+            // Only app-private audio may use a verified file-stat receipt. Metadata,
+            // dictionaries and profile almanac overrides always keep full hash checks.
+            if(stamp!=null && stamp.equals(prefs.getString(key,null)))continue;
+            replace("english/"+name,target,hash);
+            stamp=MusicStamp.of(name,target,hash);
+            if(stamp!=null)verified.putString(key,stamp);
         }
-        if(!getSharedPreferences("english-runtime",0).edit().putString("revision",manifest.getString("revision")).commit())
+        if(!verified.putString("revision",manifest.getString("revision")).commit())
             throw new IOException("Cannot record completed refresh");
         Log.i(TAG,"Managed files verified; player data untouched; revision="+manifest.getString("revision"));
     }
@@ -144,6 +162,7 @@ public final class EnglishActivity extends Activity {
             if(result!=null)result=text.substring(0,text.indexOf(trimmed))+result+text.substring(text.indexOf(trimmed)+trimmed.length());
         }
         if(result==null)for(Rule rule:rules) {
+            if(!text.startsWith(rule.prefix))continue;
             Matcher m=rule.pattern.matcher(text);
             // Complete display match only; never rewrite a partial gameplay identifier.
             if(!m.matches())continue;
@@ -192,6 +211,7 @@ public final class EnglishActivity extends Activity {
     private static void registerLevelDisplay(String source,String target) {
         if(source==null||source.isEmpty()||target==null||target.isEmpty()||source.length()>16384||levelDisplays.size()>=256||ambiguousLevelDisplays.contains(source))return;
         String previous=levelDisplays.get(source);
+        if(target.equals(previous))return; // Reopening the same level does not invalidate every cached label.
         if(previous!=null&&!previous.equals(target)){levelDisplays.remove(source);ambiguousLevelDisplays.add(source);}
         else levelDisplays.put(source,target);
         // Clear combined styled/line results too; they can depend on this text.

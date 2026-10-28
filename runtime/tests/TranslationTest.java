@@ -37,9 +37,12 @@ public final class TranslationTest {
         check(title.invoke(null,"unknown","原始关卡").equals("原始关卡"),"unknown level unchanged");
         register.invoke(null,"level_1_test","原始关卡","开场提示");
         check(translate.invoke(null,"开场提示").equals("PC opening tip"),"opening tip display registration");
+        Field cacheField=c.getDeclaredField("cache");cacheField.setAccessible(true);Map cache=(Map)cacheField.get(null);
+        int cached=cache.size();register.invoke(null,"level_1_test","原始关卡","开场提示");
+        check(cache.size()==cached&&cached>0,"identical registration retains cached translations");
         register.invoke(null,"level_2_test","其他关卡","开场提示");
         check(translate.invoke(null,"开场提示").equals("开场提示"),"ambiguous tips fail closed");
         check(translate.invoke(null,"原始关卡").equals("PC Level"),"separate level title retained");
-        System.out.println("Display translation behavior checks passed: 17");
+        System.out.println("Display translation behavior checks passed, including repeated level registration");
     }
 }

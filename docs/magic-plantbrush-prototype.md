@@ -2,6 +2,12 @@
 
 The experimental AI APK is now available beside the regular APK on [4.0.5 prerelease 3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3). It is a separate ENAI installation, with separate saves and no automatic import. Device testing is limited to the S26 Ultra and Retroid Pocket Nova; compatibility with every device is not guaranteed. See [the current test checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md) and [third-party attribution](../THIRD_PARTY.md). The dated sections retain the prototype development and publication history.
 
+## Performance follow-up (2026-10-28, local verification)
+
+The new build retains ONNX Runtime 1.24.3 and the reviewed recognition model/catalog. One tap enters the mode while the service loads. Early Identify requests wait for native warmup and are cancelled if the drawing menu closes. Health checks run on a worker thread; a later explicit Identify can reload a failed service without restarting Unity. Verified private model files use size/mtime/hash receipts instead of hashing the large model on every entry. Mode exit and the existing 30-second background policy still release the service.
+
+See [the performance follow-up audit](testing/ANDROID405-PERFORMANCE2-AUDIT.md) and [updated checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md). The two-tap entry descriptions below are historical. This section does not assert that the new APKs have been published or that all new lifecycle paths have been played on both devices.
+
 ## Prerelease 3 asset update (2026-10-22)
 
 At the user's request, the existing public prerelease `v4.0.5-release-3` was updated with both audited APKs. The tag was not moved. The regular APK replaces the earlier regular asset; AI prototype 3 is published as `PvZ-Fusion-4.0.5-English-Android-prerelease3-AI-experimental.apk`. Release notes describe the separate ENAI package/save directory and explicitly state that AI testing covers only the Samsung Galaxy S26 Ultra and Retroid Pocket Nova, with no guarantee for other devices. The older unavailable-mode statement now applies specifically to the regular APK.

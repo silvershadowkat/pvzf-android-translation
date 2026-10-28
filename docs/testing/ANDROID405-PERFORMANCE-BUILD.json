@@ -1,0 +1,94 @@
+{
+  "status": "local only; not installed or published",
+  "source_baseline": "49818776a1f2c0ddfa5da59bf67711a469b34a24",
+  "uncommitted_source_changes": true,
+  "variants": [
+    {
+      "apk": "PvZ-Fusion-4.0.5-English-Android-prerelease3-performance1.apk",
+      "sha256": "4b010ae4935bf679a00fe9a1322801916965fff9d8ae4c06604edb54db4b4ba9",
+      "size": 700564253,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4050341,
+      "base_sha256": "9200f8dca136ebc754a422b8ff8f843cc1c19b1ad10a60bd12bdda150dc8b97d",
+      "changed_entries": [
+        "AndroidManifest.xml",
+        "classes2.dex",
+        "lib/arm64-v8a/libpvzfenglish.so",
+        "lib/armeabi-v7a/libpvzfenglish.so"
+      ],
+      "all_translation_and_game_assets_unchanged": true,
+      "local_only": true,
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6"
+    },
+    {
+      "apk": "PvZ-Fusion-4.0.5-English-AI-Android-prerelease3-performance1.apk",
+      "sha256": "d2e7458f79da0dc0125c944aba12c23d03e84fea92ada1c99873561ec27be0e6",
+      "size": 939894399,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4050341,
+      "base_sha256": "be3b8c64f2852d85b10c8cc2b4c391b274bf6c7733f81b92f4f409fad4798e42",
+      "changed_entries": [
+        "AndroidManifest.xml",
+        "classes2.dex",
+        "lib/arm64-v8a/libpvzfenglish.so",
+        "lib/armeabi-v7a/libpvzfenglish.so"
+      ],
+      "all_translation_and_game_assets_unchanged": true,
+      "local_only": true,
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6"
+    }
+  ],
+  "validation": {
+    "python_tests": 66,
+    "translation_parity_strings": 9172,
+    "plantbrush_text_fixtures": 129,
+    "protected_metadata_slots": 17,
+    "signed_apk_save_restoration_both_variants": "passed",
+    "abi_builds": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "allocated_elf_sections_preserved_by_strip": true,
+    "new_device_fps_or_crash_reproduction": false
+  },
+  "changed_unity_object_audit": {
+    "objects_decoded": 1864,
+    "errors": [],
+    "changed_fields": {
+      "productName": 1,
+      "m_AnchorMin": 2,
+      "m_AnchorMax": 2,
+      "m_SizeDelta": 4,
+      "m_AnchoredPosition": 2,
+      "m_FallbackFontAssetTable": 2,
+      "m_FontFeatureTable": 2,
+      "m_UsedGlyphRects": 2,
+      "m_SourceFontFileGUID": 2,
+      "m_IsMultiAtlasTexturesEnabled": 2,
+      "m_ClearDynamicDataOnBuild": 2,
+      "m_GlyphTable": 2,
+      "m_FaceInfo": 2,
+      "hashCode": 2,
+      "m_CharacterTable": 2,
+      "fallbackFontAssets": 2,
+      "m_CreationSettings": 2,
+      "m_FreeGlyphRects": 2,
+      "m_AtlasPadding": 1,
+      "m_text": 1752,
+      "data": 47,
+      "m_Text": 56,
+      "m_sharedMaterial": 5,
+      "m_fontSizeMax": 4,
+      "m_fontAsset": 4,
+      "m_fontSize": 8,
+      "m_fontSizeBase": 8,
+      "m_enableAutoSizing": 2,
+      "m_enableWordWrapping": 2,
+      "m_fontSizeMin": 2,
+      "group": 1,
+      "m_margin": 3
+    },
+    "nested_fields": "47 modifier names/descriptions and one group title only"
+  },
+  "process_cleanup": "Builds and test subprocesses completed; no task game or emulator launched."
+}

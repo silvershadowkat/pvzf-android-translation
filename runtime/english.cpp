@@ -15,6 +15,7 @@
 #include <mutex>
 #include <cmath>
 #include "field_access.h"
+#include "display_cache.h"
 
 using P=void*;
 using M=const void*;
@@ -55,7 +56,7 @@ API(void,il2cpp_thread_detach,(P));
 
 static JavaVM* vm;
 static jclass bridge;
-static jmethodID translateJava,saveMusicJava,onlineTitleJava,registerOnlineJava,plantbrushJava,leavePlantbrushJava;
+static jmethodID translateJava,saveMusicJava,onlineTitleJava,registerOnlineJava,plantbrushJava,leavePlantbrushJava,plantbrushStatusJava,musicSyncJava;
 static std::string runtimeRoot;
 static bool blooms=true;
 static std::unordered_map<std::string,P> classes;
@@ -68,14 +69,32 @@ static P cls(const char* ns,const char* name){
     for(size_t i=0;i<n;i++)if(P c=il2cpp_class_from_name(il2cpp_assembly_get_image(as[i]),ns,name)){classes[key]=c;return c;}
     return nullptr;
 }
-static M method(P c,const char* name,int n){return c?il2cpp_class_get_method_from_name(c,name,n):nullptr;}
+// IL2CPP class/method/field metadata is stable for this process. Cache metadata,
+// never scene objects or input-field ancestry (which can change on reparenting).
+static M method(P c,const char* name,int n){
+    if(!c)return nullptr;
+    static thread_local std::unordered_map<P,std::unordered_map<std::string,M>> cache;
+    auto& entries=cache[c];std::string key=std::string(name)+":"+std::to_string(n);
+    auto it=entries.find(key);if(it!=entries.end())return it->second;
+    return entries[key]=il2cpp_class_get_method_from_name(c,name,n);
+}
+static P fieldInfo(P c,const char* name){
+    if(!c)return nullptr;
+    static thread_local std::unordered_map<P,std::unordered_map<std::string,P>> cache;
+    auto& entries=cache[c];auto it=entries.find(name);if(it!=entries.end())return it->second;
+    return entries[name]=il2cpp_class_get_field_from_name(c,name);
+}
 static M overload(P c,const char* name,std::initializer_list<const char*> types){
-    if(!c)return nullptr;P it=nullptr;
+    if(!c)return nullptr;
+    static thread_local std::unordered_map<P,std::unordered_map<std::string,M>> cache;
+    auto& entries=cache[c];std::string key=name;for(auto t:types){key+='|';key+=t;}
+    auto cached=entries.find(key);if(cached!=entries.end())return cached->second;
+    P it=nullptr;
     while(M m=il2cpp_class_get_methods(c,&it)){
         if(strcmp(il2cpp_method_get_name(m),name)||il2cpp_method_get_param_count(m)!=types.size())continue;
         bool ok=true;int i=0;for(auto wanted:types){char* got=il2cpp_type_get_name(il2cpp_method_get_param(m,i++));if(!got||strcmp(got,wanted))ok=false;if(got)il2cpp_free(got);}
-        if(ok)return m;
-    }return nullptr;
+        if(ok)return entries[key]=m;
+    }return entries[key]=nullptr;
 }
 static P call(M m,P obj=nullptr,P* args=nullptr){
     if(!m)return nullptr;P exception=nullptr;P value=il2cpp_runtime_invoke(m,obj,args,&exception);
@@ -83,26 +102,64 @@ static P call(M m,P obj=nullptr,P* args=nullptr){
 }
 static P call(P o,const char* name,int n=0,P* args=nullptr){return o?call(method(il2cpp_object_get_class(o),name,n),o,args):nullptr;}
 template<class T>static T value(P o,T fallback={}){return o?*static_cast<T*>(il2cpp_object_unbox(o)):fallback;}
-template<class T>static T field(P o,const char* name){T result{};if(o)if(P f=il2cpp_class_get_field_from_name(il2cpp_object_get_class(o),name))il2cpp_field_get_value(o,f,&result);return result;}
-template<class T>static void setfield(P o,const char* name,T v){if(o)if(P f=il2cpp_class_get_field_from_name(il2cpp_object_get_class(o),name))english::writeValueField(il2cpp_field_set_value,o,f,v);}
-static void setreffield(P o,const char* name,P v){if(o)if(P f=il2cpp_class_get_field_from_name(il2cpp_object_get_class(o),name))english::writeObjectField(il2cpp_field_set_value_object,o,f,v);}
-static P stat(const char* c,const char* name){P result=nullptr;P k=cls("",c);if(k)if(P f=il2cpp_class_get_field_from_name(k,name))il2cpp_field_static_get_value(f,&result);return result;}
+template<class T>static T field(P o,const char* name){T result{};if(o)if(P f=fieldInfo(il2cpp_object_get_class(o),name))il2cpp_field_get_value(o,f,&result);return result;}
+template<class T>static void setfield(P o,const char* name,T v){if(o)if(P f=fieldInfo(il2cpp_object_get_class(o),name))english::writeValueField(il2cpp_field_set_value,o,f,v);}
+static void setreffield(P o,const char* name,P v){if(o)if(P f=fieldInfo(il2cpp_object_get_class(o),name))english::writeObjectField(il2cpp_field_set_value_object,o,f,v);}
+static P stat(const char* c,const char* name){P result=nullptr;P k=cls("",c);if(k)if(P f=fieldInfo(k,name))il2cpp_field_static_get_value(f,&result);return result;}
 static P type(P c){return c?il2cpp_type_get_object(il2cpp_class_get_type(c)):nullptr;}
 static std::string ascii(P s){std::string result;if(s){const char16_t* ch=il2cpp_string_chars(s);for(int i=0;i<il2cpp_string_length(s);i++)result+=ch[i]<128?char(ch[i]):'?';}return result;}
 static P str(const char* s){return il2cpp_string_new(s);}
-static bool alive(P o){if(!o)return false;P args[]={o};return value<bool>(call(method(cls("UnityEngine","Object"),"op_Implicit",1),nullptr,args));}
+static bool alive(P o){
+    if(!o)return false;static M m=method(cls("UnityEngine","Object"),"op_Implicit",1);
+    // Exact static bool(Object) ABI: avoid boxing a Boolean for each visibility check.
+    return m&&*(P*)m?reinterpret_cast<bool(*)(P,M)>(*(P*)m)(o,m):false;
+}
+static bool activeSelf(P o){
+    if(!o)return false;static M m=method(cls("UnityEngine","GameObject"),"get_activeSelf",0);
+    return m&&*(P*)m?reinterpret_cast<bool(*)(P,M)>(*(P*)m)(o,m):false;
+}
 static std::vector<P> array(P a){std::vector<P> r;if(a){uintptr_t n=il2cpp_array_length(a);if(n<100000){P* items=(P*)((char*)a+sizeof(P)*4);r.assign(items,items+n);}}return r;}
 static P component(P go,P c){if(!go||!c)return nullptr;P args[]={type(c)};return call(overload(cls("UnityEngine","GameObject"),"GetComponent",{"System.Type"}),go,args);}
 static std::vector<P> children(P go,P c){bool all=true;P args[]={type(c),&all};return array(call(overload(cls("UnityEngine","GameObject"),"GetComponentsInChildren",{"System.Type","System.Boolean"}),go,args));}
 static void name(P o,const char* s){P args[]={str(s)};call(method(cls("UnityEngine","Object"),"set_name",1),o,args);}
 static std::string name(P o){return ascii(call(method(cls("UnityEngine","Object"),"get_name",0),o));}
+static english::DisplayCache displayCache;
+static bool displayCandidate(P text){
+    return text && english::displayCandidate(il2cpp_string_chars(text),il2cpp_string_length(text));
+}
+static void clearDisplayCache(){displayCache.clear([](uint32_t h){if(h)il2cpp_gchandle_free(h);});}
 static P translated(P text){
     if(!text)return text;int n=il2cpp_string_length(text);if(n>16384)return text;
     const char16_t* ch=il2cpp_string_chars(text);bool cjk=false;for(int i=0;i<n;i++)if(ch[i]>=0x3400&&ch[i]<=0x9fff){cjk=true;break;}if(!cjk)return text;
+    std::u16string key(ch,n);uint32_t cached=0;
+    if(displayCache.get(key,cached))return cached?il2cpp_gchandle_get_target(cached):text;
     JNIEnv* e=env();if(!e)return text;
-    jstring input=e->NewString((const jchar*)ch,n);jstring output=(jstring)e->CallStaticObjectMethod(bridge,translateJava,input);
-    P result=text;if(e->ExceptionCheck()){e->ExceptionClear();}else if(output){const jchar* chars=e->GetStringChars(output,nullptr);int size=e->GetStringLength(output);if(size!=n||memcmp(chars,ch,size*sizeof(jchar)))result=il2cpp_string_new_utf16((const char16_t*)chars,size);e->ReleaseStringChars(output,chars);}
-    if(output)e->DeleteLocalRef(output);e->DeleteLocalRef(input);return result;
+    bool succeeded=true;
+    jstring input=e->NewString((const jchar*)ch,n);
+    if(!input){if(e->ExceptionCheck())e->ExceptionClear();return text;}
+    jstring output=(jstring)e->CallStaticObjectMethod(bridge,translateJava,input);
+    P result=text;
+    if(e->ExceptionCheck()){e->ExceptionClear();succeeded=false;}
+    else if(output){
+        const jchar* chars=e->GetStringChars(output,nullptr);
+        if(!chars){if(e->ExceptionCheck())e->ExceptionClear();succeeded=false;}
+        else {
+            int size=e->GetStringLength(output);
+            if(size!=n||memcmp(chars,ch,size*sizeof(jchar)))result=il2cpp_string_new_utf16((const char16_t*)chars,size);
+            e->ReleaseStringChars(output,chars);
+        }
+    }
+    if(output)e->DeleteLocalRef(output);e->DeleteLocalRef(input);
+    if(!result)return text;
+    if(succeeded){
+        size_t bytes=4*key.size()+2*(result==text?0:il2cpp_string_length(result));
+        if(bytes<=displayCache.maxBytes()){
+            uint32_t handle=result==text?0:il2cpp_gchandle_new(result,false);
+            if(result==text||handle)displayCache.put(std::move(key),handle,bytes,
+                [](uint32_t h){if(h)il2cpp_gchandle_free(h);});
+        }
+    }
+    return result;
 }
 static bool editable(P o){for(P c:{cls("TMPro","TMP_InputField"),cls("UnityEngine.UI","InputField")}){if(!c)continue;P args[]={type(c)};if(call(overload(cls("UnityEngine","Component"),"GetComponentInParent",{"System.Type"}),o,args))return true;}return false;}
 static P parentComponent(P o,const char* ns,const char* className){
@@ -130,7 +187,7 @@ static bool editorToolButton(P o){
     // Require its toolWindow subtree and that exact component, rather than
     // changing every Disabled label in the editor or the game's settings.
     P k=cls("GameLevel.EventNodes","RuntimeEventNodeEditor"),editor=nullptr;
-    if(k)if(P f=il2cpp_class_get_field_from_name(k,"Instance"))il2cpp_field_static_get_value(f,&editor);
+    if(k)if(P f=fieldInfo(k,"Instance"))il2cpp_field_static_get_value(f,&editor);
     if(!alive(editor))return false;
     P window=field<P>(editor,"toolWindow");
     if(!alive(window)||!within(o,"","TheButton"))return false;
@@ -171,6 +228,8 @@ static void customAwake(P o,P board,M m){
         P data=call(o,"get_SerializedLevelData"),config=field<P>(data,"boardConfig");
         jstring ji=javaString(e,id),jn=javaString(e,field<P>(data,"name")),jt=javaString(e,field<P>(config,"startTip"));
         e->CallStaticVoidMethod(bridge,registerOnlineJava,ji,jn,jt);if(e->ExceptionCheck())e->ExceptionClear();
+        // Dynamic level labels also invalidate combined line/markup translations.
+        clearDisplayCache();
         if(ji)e->DeleteLocalRef(ji);if(jn)e->DeleteLocalRef(jn);if(jt)e->DeleteLocalRef(jt);
     }
     oldCustomAwake(o,board,m);
@@ -179,8 +238,12 @@ static void parseText(P o,M m){
     static bool first=true;if(first){first=false;LOG("Render callback reached");}
     // Translate the rendering input only, then restore the source text and input
     // mode. Code reading a puzzle label still receives its original resource key.
-    if(editable(o)){oldParse(o,m);return;}
-    P source=call(o,"get_text");P english=displayText(o,source);
+    P source=call(o,"get_text");
+    // Most HUD updates contain only English/numbers. Do not inspect ancestors,
+    // cross JNI, or run contextual rules for those. Disabled is the deliberate
+    // English exception: the editor's close button still needs contextual repair.
+    if(!displayCandidate(source)||editable(o)){oldParse(o,m);return;}
+    P english=displayText(o,source);
     if(english==source){oldParse(o,m);return;}
     P original=field<P>(o,"m_text");int input=field<int>(o,"m_inputSource");
     setreffield(o,"m_text",english);setfield(o,"m_inputSource",3);
@@ -189,13 +252,17 @@ static void parseText(P o,M m){
     setfield(o,"m_IsTextBackingStringDirty",false);
 }
 static void populateText(P o,P helper,M m){
-    if(editable(o)){oldPopulate(o,helper,m);return;}
-    P original=field<P>(o,"m_Text");setreffield(o,"m_Text",displayText(o,original));oldPopulate(o,helper,m);setreffield(o,"m_Text",original);
+    P original=field<P>(o,"m_Text");
+    if(!displayCandidate(original)||editable(o)){oldPopulate(o,helper,m);return;}
+    setreffield(o,"m_Text",displayText(o,original));oldPopulate(o,helper,m);setreffield(o,"m_Text",original);
 }
 struct V2{float x,y;};
 struct V3{float x,y,z;};
 static Tick oldAdventureRelease=nullptr;
-static Tick oldPlantbrushParse=nullptr,oldPlantbrushDispose=nullptr;
+static Tick oldPlantbrushParse=nullptr,oldPlantbrushDispose=nullptr,oldPlantbrushStop=nullptr;
+static uint32_t pendingDrawing=0;
+static M pendingDrawingMethod=nullptr;
+static void cancelPendingDrawing(){if(pendingDrawing)il2cpp_gchandle_free(pendingDrawing);pendingDrawing=0;pendingDrawingMethod=nullptr;}
 static void plantbrushNotice(const char* text){
     P notice=call(method(cls("Core","InGameText"),"get_Instance",0));
     if(alive(notice)){
@@ -209,10 +276,32 @@ static int plantbrushState(){
     if(e->ExceptionCheck()){e->ExceptionClear();return -1;}return state;
 }
 static void plantbrushUnavailable(int state){
-    plantbrushNotice(state==1?"Loading offline recognition. Tap again in a moment.":state<0?"Recognition could not start. Restart the game to try again.":"Magic Plantbrush is not available on Android.");
+    plantbrushNotice(state==1?"Loading offline recognition. Tap again in a moment.":state<0?"Recognition stopped. Wait a moment, then tap again to reload it.":"Magic Plantbrush is not available on Android.");
 }
-static void plantbrushParse(P o,M m){int state=plantbrushState();if(state==2)oldPlantbrushParse(o,m);else plantbrushUnavailable(state);}
+static void plantbrushParse(P o,M m){
+    int state=plantbrushState();
+    if(state==2){cancelPendingDrawing();oldPlantbrushParse(o,m);return;}
+    if(state==1){
+        cancelPendingDrawing();pendingDrawing=il2cpp_gchandle_new(o,false);pendingDrawingMethod=m;
+        plantbrushNotice("Loading offline recognition. Your drawing will be identified when ready.");
+    }else plantbrushUnavailable(state);
+}
+static void plantbrushStop(P o,M m){
+    if(pendingDrawing&&il2cpp_gchandle_get_target(pendingDrawing)==o)cancelPendingDrawing();
+    oldPlantbrushStop(o,m);
+}
+static void plantbrushPendingTick(){
+    if(!pendingDrawing)return;
+    P menu=il2cpp_gchandle_get_target(pendingDrawing);if(!alive(menu)){cancelPendingDrawing();return;}
+    JNIEnv* e=env();if(!e||!plantbrushStatusJava)return;
+    int state=e->CallStaticIntMethod(bridge,plantbrushStatusJava);
+    if(e->ExceptionCheck()){e->ExceptionClear();state=-1;}
+    if(state==1)return;
+    M m=pendingDrawingMethod;cancelPendingDrawing();
+    if(state==2)oldPlantbrushParse(menu,m);else plantbrushUnavailable(state);
+}
 static void plantbrushDispose(P o,M m){
+    cancelPendingDrawing();
     oldPlantbrushDispose(o,m);
     JNIEnv* e=env();if(e&&leavePlantbrushJava){e->CallStaticVoidMethod(bridge,leavePlantbrushJava);if(e->ExceptionCheck())e->ExceptionClear();}
 }
@@ -220,15 +309,16 @@ static void adventureRelease(P o,M m){
     // Official 4.0.5 marks Challenge/MaLiang (197) as limInMobile.
     // Its modal rejection leaves Recommended Levels unresponsive on Android.
     // The optional prototype lifts only this instance's flag, only while invoking
-    // its original handler after our private recognition process reports ready.
-    if(field<int>(o,"levelType")!=1 || field<int>(o,"buttonNumber")!=197 ||
-       !field<bool>(o,"limInMobile")){
+    // its original handler. Recognition warms up while the player starts drawing;
+    // Parse remains gated, and leaving the drawing screen cancels a queued Identify.
+    if(field<int>(o,"levelType")!=1 || field<int>(o,"buttonNumber")!=197){
         oldAdventureRelease(o,m);return;
     }
     int state=plantbrushState();
-    if(state==2 && oldPlantbrushParse && oldPlantbrushDispose){
-        setfield(o,"limInMobile",false);oldAdventureRelease(o,m);setfield(o,"limInMobile",true);
-        LOG("Magic Plantbrush entered with local recognition ready");return;
+    if((state==1||state==2) && oldPlantbrushParse && oldPlantbrushDispose && oldPlantbrushStop){
+        bool limited=field<bool>(o,"limInMobile");
+        setfield(o,"limInMobile",false);oldAdventureRelease(o,m);setfield(o,"limInMobile",limited);
+        LOG("Magic Plantbrush entered; recognition state=%d",state);return;
     }
     P rect=field<P>(o,"rectTransform");
     if(alive(rect)){
@@ -239,7 +329,7 @@ static void adventureRelease(P o,M m){
     LOG("Magic Plantbrush entry deferred, recognition state=%d",state);
 }
 static uint32_t damageButton=0,damageTemplate=0,damageOwner=0,musicButton=0;
-static bool musicAuditRequested=true;
+static unsigned damageRevision=0;
 static void release(uint32_t& h){if(h)il2cpp_gchandle_free(h);h=0;}
 static P target(uint32_t h){return h?il2cpp_gchandle_get_target(h):nullptr;}
 static void label(P go,const std::string& text){
@@ -270,7 +360,11 @@ static P cloneButton(P original,const char* id,const char* text,bool gameplay=fa
 }
 static void refreshDamage(){
     P b=target(damageButton);if(!alive(b))return;
-    std::string text=field<bool>(stat("Board","Instance"),"showBulletDamage")?"Projectile Info\nOn":"Projectile Info\nOff";
+    bool enabled=field<bool>(stat("Board","Instance"),"showBulletDamage");
+    static uint32_t lastButton=0;static bool lastEnabled=false;static unsigned lastRevision=~0u;
+    if(lastButton==damageButton&&lastEnabled==enabled&&lastRevision==damageRevision)return;
+    lastButton=damageButton;lastEnabled=enabled;lastRevision=damageRevision;
+    std::string text=enabled?"Projectile Info\nOn":"Projectile Info\nOff";
     for(P t:children(b,cls("TMPro","TMP_Text"))){
         if(ascii(call(t,"get_text"))==text)continue;
         P a[]={str(text.c_str())};call(t,"set_text",1,a);
@@ -289,8 +383,8 @@ static void refreshDamage(){
 static void syncDamageVisibility(){
     P b=target(damageButton),original=target(damageTemplate),owner=target(damageOwner);
     if(!alive(b))return;
-    bool visible=alive(original)&&alive(owner)&&value<bool>(call(original,"get_activeSelf"));
-    if(value<bool>(call(b,"get_activeSelf"))==visible)return;
+    bool visible=alive(original)&&alive(owner)&&activeSelf(original);
+    if(activeSelf(b)==visible)return;
     if(visible)refreshDamage();
     P a[]={&visible};call(b,"SetActive",1,a);
     if(visible){
@@ -306,10 +400,11 @@ static void click(P o,M m){
     if(id=="EnglishProjectileInfo") {
         P b=stat("Board","Instance");if(alive(b)){bool show=!field<bool>(b,"showBulletDamage");setfield(b,"showBulletDamage",show);if(show)setfield(stat("GameAPP","config"),"showBulletDamage",true);refreshDamage();}return;
     }
-    if(id=="EnglishMusicSelector") {blooms=!blooms;musicAuditRequested=true;JNIEnv* e=env();if(e){e->CallStaticVoidMethod(bridge,saveMusicJava,jboolean(blooms));if(e->ExceptionCheck())e->ExceptionClear();}refreshMusic();return;}
+    if(id=="EnglishMusicSelector") {blooms=!blooms;JNIEnv* e=env();if(e){e->CallStaticVoidMethod(bridge,saveMusicJava,jboolean(blooms));if(e->ExceptionCheck())e->ExceptionClear();}refreshMusic();return;}
     oldClick(o,m);
 }
 static void attachInGame(P o){
+    ++damageRevision;
     release(damageButton);release(damageTemplate);release(damageOwner);
     P original=field<P>(o,"ShowPlantHealth");
     P go=cloneButton(original,"EnglishProjectileInfo","",true);
@@ -349,13 +444,18 @@ static void attachOptions(P o){
 }
 static void optionStart(P o,M m){LOG("OptionMenu Start callback reached");oldOptionStart(o,m);attachOptions(o);}
 
-// At most the currently requested tracks are decoded; do not preload 17 songs into RAM.
-struct Track{std::string name;uint32_t original=0,request=0,replacement=0;bool failed=false;int unused=0;std::chrono::steady_clock::time_point started;};
-static std::vector<Track> tracks;
+// Original Unity sources retain the game's timing and fades, but stay inaudible
+// while Android streams Blooms. No replacement AudioClip or Unity audio decode.
 struct MusicMute{uint32_t source=0;float previous=0;};
 static MusicMute pendingMute[2];
 static void (*oldVolume)(P,float,M)=nullptr;
+static float (*oldGetVolume)(P,M)=nullptr;
 static M volumeMethod=nullptr;
+static float getVolume(P source,M m){
+    // Game fades read their own logical volume, not the silent timing source.
+    for(auto& state:pendingMute)if(state.source&&target(state.source)==source)return state.previous;
+    return oldGetVolume(source,m);
+}
 static void setVolume(P source,float volume,M m){
     // Preserve volume changes made by the game's settings during a load.
     // Every source except the two temporarily held music sources passes through.
@@ -367,96 +467,64 @@ static void restoreMute(MusicMute& state){
     release(state.source);
 }
 static void holdMute(MusicMute& state,P source){
-    if(!oldVolume)return;
+    if(!oldVolume||!oldGetVolume)return;
     if(target(state.source)==source)return;
     restoreMute(state);
     if(alive(source)){state.previous=value<float>(call(source,"get_volume"));state.source=il2cpp_gchandle_new(source,false);oldVolume(source,0,volumeMethod);}
 }
 static const char* musicNames[]={"Boss2","Day_drum","Day","Fog_drum","Fog","Garden","IZ","MainMenu","Night_drum","Night","Pool_drum","Pool","Roof_drum","Roof_pre","Roof","SelectCard","UltimateBattle"};
-static void auditMusic(){
-    // Read-only diagnostic, once after a selection settles. Include other scene
-    // sources too, so an unexpected duplicate music player would be visible.
-    bool includeInactive=false;P args[]={type(cls("UnityEngine","AudioSource")),&includeInactive};
-    M find=overload(cls("UnityEngine","Object"),"FindObjectsOfType",{"System.Type","System.Boolean"});
-    P found=call(find,nullptr,args);
-    if(!found){LOG("Music audit unavailable: scene enumeration failed");return;}
-    auto sources=array(found);
-    int playing=0,audible=0;LOG("Music audit begin: selection=%s",blooms?"Blooms":"Original");
-    for(P source:sources){
-        P clip=call(source,"get_clip");if(!alive(clip))continue;std::string clipName=name(clip);
-        bool known=clipName.rfind("EnglishMusic_",0)==0;for(auto n:musicNames)if(clipName==n)known=true;if(!known)continue;
-        bool active=value<bool>(call(source,"get_isPlaying"));float volume=value<float>(call(source,"get_volume"));float time=value<float>(call(source,"get_time"));
-        if(active)playing++;if(active&&volume>0.0001f)audible++;
-        LOG("Music source %p role=%s clip=%s playing=%d volume=%.3f time=%.2f",source,source==stat("GameAPP","music")?"main":source==stat("GameAPP","musicDrum")?"drum":"other",clipName.c_str(),active,volume,time);
-    }
-    LOG("Music audit end: scene sources=%zu, playing music=%d, nonzero-volume music=%d",sources.size(),playing,audible);
-}
-static void destroy(P o){if(o){P a[]={o};call(method(cls("UnityEngine","Object"),"Destroy",1),nullptr,a);}}
-static void dispose(Track& t){if(P r=target(t.request)){call(r,"Abort");call(r,"Dispose");}release(t.request);destroy(target(t.replacement));release(t.replacement);release(t.original);}
-static void switchClip(P source,P clip){
-    bool playing=value<bool>(call(source,"get_isPlaying"));float time=value<float>(call(source,"get_time"));
-    float duration=value<float>(call(clip,"get_length"));P a[]={clip};call(source,"set_clip",1,a);
-    if(duration>0){time=std::min(time,std::max(0.f,duration-.05f));P b[]={&time};call(source,"set_time",1,b);}if(playing)call(source,"Play");
+struct MusicStream {uint32_t clip=0;std::string name;int epoch=0;bool failed=false;};
+static MusicStream musicStreams[2];
+static bool streamsActive=false;
+static int streamSync(int index,const std::string& track,bool playing,float volume,float time,int epoch){
+    JNIEnv* e=env();if(!e||!musicSyncJava)return -1;
+    jstring text=e->NewStringUTF(track.c_str());if(!text){if(e->ExceptionCheck())e->ExceptionClear();return -1;}
+    int result=e->CallStaticIntMethod(bridge,musicSyncJava,index,text,(jboolean)playing,volume,time,epoch);
+    e->DeleteLocalRef(text);if(e->ExceptionCheck()){e->ExceptionClear();return -1;}return result;
 }
 static void musicTick(){
-    for(auto& t:tracks)t.unused++;
-    int sourceIndex=0;
-    for(const char* fieldName:{"music","musicDrum"}){
-        MusicMute& mute=pendingMute[sourceIndex++];
-        P source=stat("GameAPP",fieldName);if(!alive(source)){restoreMute(mute);continue;}P current=call(source,"get_clip");if(!alive(current)){restoreMute(mute);continue;}
-        std::string clipName=name(current);Track* item=nullptr;
-        for(auto& t:tracks)if(target(t.original)==current||target(t.replacement)==current){item=&t;break;}
-        if(!item){bool supported=false;for(auto n:musicNames)if(clipName==n)supported=true;if(!supported){restoreMute(mute);continue;}Track t;t.name=clipName;t.original=il2cpp_gchandle_new(current,false);tracks.push_back(t);item=&tracks.back();}
-        Track& t=*item;t.unused=0;
-        if(!blooms){P orig=target(t.original);if(current!=orig)switchClip(source,orig);restoreMute(mute);continue;}
-        if(!t.failed&&!t.replacement)holdMute(mute,source);
-        if(!t.request&&!t.replacement&&!t.failed){
-            std::string ext=(t.name=="MainMenu"||t.name=="Garden")?".ogg":".mp3";
-            int audioType=ext==".ogg"?14:13;std::string path="file://"+runtimeRoot+"/"+t.name+ext;
-            P a[]={str(path.c_str()),&audioType};P req=call(method(cls("UnityEngine.Networking","UnityWebRequestMultimedia"),"GetAudioClip",2),nullptr,a);
-            if(req){t.request=il2cpp_gchandle_new(req,false);t.started=std::chrono::steady_clock::now();int timeout=15;P limit[]={&timeout};call(req,"set_timeout",1,limit);P handler=call(req,"get_downloadHandler");bool stream=true;P b[]={&stream};call(handler,"set_streamAudio",1,b);call(req,"SendWebRequest");}else t.failed=true;
-        }
-        if(t.request&&std::chrono::steady_clock::now()-t.started>std::chrono::seconds(15)){P req=target(t.request);call(req,"Abort");call(req,"Dispose");release(t.request);t.failed=true;LOG("Music load timed out: %s",t.name.c_str());}
-        if(P req=target(t.request))if(value<bool>(call(req,"get_isDone"))){
-            if(value<int>(call(req,"get_result"))==1){P a[]={req};P clip=call(method(cls("UnityEngine.Networking","DownloadHandlerAudioClip"),"GetContent",1),nullptr,a);if(clip){t.replacement=il2cpp_gchandle_new(clip,false);name(clip,("EnglishMusic_"+t.name).c_str());}else t.failed=true;}else t.failed=true;
-            call(req,"Dispose");release(t.request);if(t.failed)LOG("Music fallback: %s",t.name.c_str());
-        }
-        if(P replacement=target(t.replacement))if(replacement!=current)switchClip(source,replacement);
-        if(t.replacement||t.failed)restoreMute(mute);
+    // Original mode needs no recurring bridge work or music-object queries.
+    if(!blooms){
+        if(streamsActive){for(int i=0;i<2;i++){streamSync(i,"",false,0,0,musicStreams[i].epoch);restoreMute(pendingMute[i]);musicStreams[i].failed=false;}streamsActive=false;}
+        return;
     }
-    for(auto it=tracks.begin();it!=tracks.end();)if(it->unused>4){dispose(*it);it=tracks.erase(it);}else ++it;
-    if(musicAuditRequested&&!tracks.empty()&&std::none_of(tracks.begin(),tracks.end(),[](const Track& t){return t.request!=0;})){musicAuditRequested=false;auditMusic();}
+    streamsActive=true;
+    int index=0;
+    for(const char* fieldName:{"music","musicDrum"}){
+        auto& stream=musicStreams[index];auto& mute=pendingMute[index];
+        P source=stat("GameAPP",fieldName);P clip=alive(source)?call(source,"get_clip"):nullptr;
+        if(target(stream.clip)!=clip){
+            release(stream.clip);stream.name.clear();stream.epoch++;stream.failed=false;
+            if(alive(clip)){
+                stream.clip=il2cpp_gchandle_new(clip,false);std::string clipName=name(clip);
+                for(auto n:musicNames)if(clipName==n){stream.name=clipName;break;}
+            }
+        }
+        if(!alive(clip)||stream.name.empty()||!oldVolume||!oldGetVolume){
+            streamSync(index,"",false,0,0,stream.epoch);restoreMute(mute);index++;continue;
+        }
+        if(stream.failed){restoreMute(mute);index++;continue;}
+        holdMute(mute,source);
+        bool playing=value<bool>(call(source,"get_isPlaying"));float time=value<float>(call(source,"get_time"));
+        int state=streamSync(index,stream.name,playing,mute.previous,time,stream.epoch);
+        if(state<0){restoreMute(mute);stream.failed=true;}
+        index++;
+    }
 }
 static void (*oldPlayMusic)(P,int,M)=nullptr;
 static void playMusic(P o,int id,M m){
-    // Silence only the two game music sources before original PlayMusic starts
-    // a track. Sound effects and the user's music volume are preserved. This
-    // Android player strips AudioSource.mute, so retain volume through its setter.
     if(blooms){holdMute(pendingMute[0],stat("GameAPP","music"));holdMute(pendingMute[1],stat("GameAPP","musicDrum"));}
     oldPlayMusic(o,id,m);musicTick();
 }
-static void scanInitialText(){
-    for(P c:{cls("TMPro","TMP_Text"),cls("UnityEngine.UI","Text")}){
-        P a[]={type(c)};auto objects=array(call(overload(cls("UnityEngine","Object"),"FindObjectsOfType",{"System.Type"}),nullptr,a));
-        for(P t:objects)call(t,"SetAllDirty");
-    }
-    // A menu may have completed Start while the native bridge was loading.
-    // Find scene instances (including hidden menus), never prefab assets.
-    if(oldClick){
-        bool inactive=true;
-        for(const char* c:{"InGameUI","OptionMenu"}){
-            P a[]={type(cls("",c)),&inactive};
-            auto objects=array(call(overload(cls("UnityEngine","Object"),"FindObjectsOfType",{"System.Type","System.Boolean"}),nullptr,a));
-            for(P o:objects){if(!strcmp(c,"InGameUI"))attachInGame(o);else attachOptions(o);}
-        }
-    }
-}
 static void update(P o,M m){
     static bool first=true;if(first){first=false;LOG("GameAPP Update callback reached");}
-    oldUpdate(o,m);static bool initial=true;if(initial){initial=false;scanInitialText();}
+    // Hooks are installed before il2cpp_init returns, before Unity can run scene
+    // Start/Parse callbacks. The old late-injection scene scan is redundant and
+    // forced all active text to rebuild on the first frame.
+    oldUpdate(o,m);
     syncDamageVisibility();
     static auto last=std::chrono::steady_clock::now();auto now=std::chrono::steady_clock::now();if(now-last<std::chrono::milliseconds(250))return;last=now;
-    musicTick();refreshDamage();
+    musicTick();refreshDamage();plantbrushPendingTick();
 }
 static bool hook(P c,const char* name,int count,P replacement,P* original){M m=method(c,name,count);if(!m||!*(P*)m){LOG("Missing hook %s",name);return false;}Dl_info info{};dladdr(*(P*)m,&info);LOG("Target %s: RVA=%llx next=%p",name,(unsigned long long)((uintptr_t)*(P*)m-(uintptr_t)info.dli_fbase),((P*)m)[1]);int result=DobbyHook(*(P*)m,replacement,original);LOG("Hook %s: %d",name,result);return result==0;}
 static bool bind(P lib){
@@ -491,9 +559,11 @@ static void initialize(){
        overload(cls("Core","InGameText"),"ShowText",{"System.String","System.Single","System.Boolean","System.Single"}))
         hook(cls("","Advanture_Btn"),"OnMouseUp",0,(P)adventureRelease,(P*)&oldAdventureRelease);
     hook(cls("","MaLiangMenu"),"Parse",0,(P)plantbrushParse,(P*)&oldPlantbrushParse);
+    hook(cls("","MaLiangMenu"),"StopRequest",0,(P)plantbrushStop,(P*)&oldPlantbrushStop);
     hook(cls("GameLevel","MaLiangLevelData"),"Dispose",0,(P)plantbrushDispose,(P*)&oldPlantbrushDispose);
     volumeMethod=method(cls("UnityEngine","AudioSource"),"set_volume",1);
     hook(cls("UnityEngine","AudioSource"),"set_volume",1,(P)setVolume,(P*)&oldVolume);
+    hook(cls("UnityEngine","AudioSource"),"get_volume",0,(P)getVolume,(P*)&oldGetVolume);
     hook(cls("","GameAPP"),"PlayMusic",1,(P)playMusic,(P*)&oldPlayMusic);
     LOG("Runtime initialization finished after IL2CPP init");
 }
@@ -511,6 +581,8 @@ extern "C" JNIEXPORT void JNICALL Java_com_silvershadow_pvzf_EnglishActivity_sta
     registerOnlineJava=e->GetStaticMethodID(c,"registerOnlineLevel","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
     plantbrushJava=e->GetStaticMethodID(c,"requestPlantbrush","()I");
     leavePlantbrushJava=e->GetStaticMethodID(c,"leavePlantbrush","()V");
+    plantbrushStatusJava=e->GetStaticMethodID(c,"plantbrushStatus","()I");
+    musicSyncJava=e->GetStaticMethodID(c,"syncMusic","(ILjava/lang/String;ZFFI)I");
     const char* path=e->GetStringUTFChars(root,nullptr);runtimeRoot=path;e->ReleaseStringUTFChars(root,path);blooms=useBlooms;
     P lib=dlopen("libil2cpp.so",RTLD_NOW|RTLD_NOLOAD);
     if(!lib||!bind(lib)||DobbyHook(dlsym(lib,"il2cpp_init"),(P)runtimeInit,(P*)&originalInit)!=0||DobbyHook(dlsym(lib,"il2cpp_init_utf16"),(P)runtimeInit16,(P*)&originalInit16)!=0){
