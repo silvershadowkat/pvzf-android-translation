@@ -76,3 +76,5 @@ Final APK signature/alignment, package separation, actual-APK refresh checks and
 The builder verifies pinned base hashes, the exact payload allowlist, both native ABIs, the certificate, alignment and unchanged non-allowlisted entries. Audit/build JSON stays with repository documentation; it is not intended as an extra player download.
 
 The official 4.x almanac visibility behavior is unchanged. See [the separate comparison](ANDROID405-ALMANAC-VISIBILITY-AUDIT.md).
+
+The subsequent Retroid Settings/Back failure was traced to an ADB-owned save with insufficient write permissions, not a changed button binding. See the [Settings exit investigation](ANDROID405-SETTINGS-EXIT-AUDIT.md) for the exception, repair and navigation checks. No production code change was made for that device-specific failure.
