@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-28",
+  "artifacts": [
+    {
+      "filename": "PvZ-Fusion-4.0.5-English-prerelease4-Standard.apk",
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4050400,
+      "version_name": "4.0.5-English-pre4",
+      "sha256": "e06ad785dc5716ae598153a6e8e6911ea38549653f2f2c2189876ff6fe0faf6b",
+      "size": 698733341,
+      "input_sha256": "33b1aaf004a3f13529e92dd2a2232b621abad5dc89f1304466da75a3183c1ba7",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "unchanged_entries_verified": 62,
+      "only_manifest_version_and_signature_changed": true
+    },
+    {
+      "filename": "PvZ-Fusion-4.0.5-English-prerelease4-AI.apk",
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4050400,
+      "version_name": "4.0.5-English-pre4",
+      "sha256": "e4f33f9f5a25bca8014cb5d56e1ab60fca0fb441c0b2bca6012d0f7b73adc8b1",
+      "size": 938063487,
+      "input_sha256": "34158c00ce48c9bf8a85ac94ae52d5316957755fb132d0b56df38c254b701d53",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "unchanged_entries_verified": 73,
+      "only_manifest_version_and_signature_changed": true
+    }
+  ],
+  "verification": "Promoted verified performance2 payloads; no runtime, translation or save logic changes.",
+  "runtime_source_commit": "8f129eb",
+  "candidate_audit": "ANDROID405-PERFORMANCE2-AUDIT.md",
+  "settings_exit_audit": "ANDROID405-SETTINGS-EXIT-AUDIT.md",
+  "release_tag": "v4.0.5-release-4",
+  "save_permission_autorepair_included": false
+}

@@ -5,36 +5,24 @@ the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
 is Android 4.0.5; the larger goal is a workflow that can be rerun when the game
 updates.
 
-[Download Android 4.0.5 English prerelease 3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3)
+[Download Android 4.0.5 English prerelease 4](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-4)
 
-Updated October 22, 2026. The same prerelease now offers two APKs, both with the latest reviewed Magic Plantbrush display translations:
+Updated October 28, 2026. Choose one of the two APKs:
 
 | Download | Package | Magic Plantbrush |
 | --- | --- | --- |
-| [Regular APK](https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-3/PvZ-Fusion-4.0.5-English-Android-prerelease3.apk) | `com.LanPiaoPiao.PlantsVsZombiesEN` | Shows an unavailable notice without freezing. No AI model included. |
-| [Experimental AI APK](https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-3/PvZ-Fusion-4.0.5-English-Android-prerelease3-AI-experimental.apk) | `com.LanPiaoPiao.PlantsVsZombiesENAI` | Includes an offline drawing recognizer in the same app. Android 8.0 or newer. |
+| [Standard APK](https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-4/PvZ-Fusion-4.0.5-English-prerelease4-Standard.apk) | `com.LanPiaoPiao.PlantsVsZombiesEN` | Shows an unavailable notice without freezing. No AI model included. |
+| [AI APK](https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.0.5-release-4/PvZ-Fusion-4.0.5-English-prerelease4-AI.apk) | `com.LanPiaoPiao.PlantsVsZombiesENAI` | Includes an offline drawing recognizer in the same app. Android 8.0 or newer. |
 
-**The AI experiment has only been tested on the Samsung Galaxy S26 Ultra and Retroid Pocket Nova. There is no guarantee it will work on every device or chipset.** It needs additional memory. Recognition runs locally, without a companion app, account, or internet connection. The model loads when the mode is requested and is released when leaving it or after 30 seconds in the background. Native CPU compatibility was corrected after an S26 first-recognition failure. Long sessions, low-memory and 32-bit devices still need testing.
+**AI recognition has only been tested on two Snapdragon devices: Samsung Galaxy S26 Ultra and Retroid Pocket Nova. Compatibility and performance on other devices or chipsets are not guaranteed.** It needs additional memory. Recognition runs locally, without a companion app, account or internet connection. One tap enters the mode while the recognizer loads. Leaving the mode, or spending 30 seconds in the background, releases it. A failed session can reload on a later attempt.
 
-Both variants retain runtime English, save-preserving updates, Original/Blooms music selection, the touch Projectile Info button, expanded editor/Gods text and English diary artwork. Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE3.md), [AI implementation and verification](docs/magic-plantbrush-prototype.md), and [the test checklist](docs/testing/PLANTBRUSH-AI-EXPERIMENT.md). The [original r20 audit](docs/testing/ANDROID405-PRE3-FINAL-AUDIT.md) documents the earlier base APK, not the updated asset hashes.
+Prerelease 4 adds asynchronous Blooms music streaming to target loading stalls and unwanted track restarts, reduces redundant translation/startup/model work, and includes reviewed Blooms updates. Specific fixes cover Ravenous Reach, Zombie Parry, Pain Response and the Mini Sun setting. All earlier English pages, artwork, runtime translations, save-preserving updates, soundtrack selection and Projectile Info controls remain included.
 
-The [initial performance audit](docs/testing/ANDROID405-PERFORMANCE-AUDIT.md)
-covers repeated translation, reflection, UI and startup-file work, including
-pre-runtime builds, fonts and the Lite project's APK differences.
+Read [the release notes](docs/RELEASE-NOTES-4.0.5-PRE4.md), [performance and translation audit](docs/testing/ANDROID405-PERFORMANCE2-AUDIT.md), [release build verification](docs/testing/ANDROID405-PRE4-BUILD.json), and [AI implementation and testing](docs/magic-plantbrush-prototype.md). The [initial performance audit](docs/testing/ANDROID405-PERFORMANCE-AUDIT.md) also covers pre-runtime builds and the Lite fork comparison. Long-session and lower-memory device performance still need testing.
 
-An [October 28 follow-up](docs/testing/ANDROID405-PERFORMANCE2-AUDIT.md) is built
-locally for verification. It adds asynchronous Blooms music streaming, one-tap AI
-mode entry and service recovery, removes redundant startup scans and repeated
-model hashing, and imports the latest reviewed Blooms text. It fixes the mixed
-Chinese modifier descriptions for Ravenous Reach, Zombie Parry and Pain Response.
-The intended simplified download list is one regular APK and one experimental AI
-APK. Until that follow-up is published, the links above still refer to the earlier
-release assets. Device performance and the reported Redmi crashes remain to be
-verified; no universal crash or performance guarantee is made.
+Latest source branch: `agent/magic-plantbrush-single-apk`. The prerelease 4 tag identifies this release's source and audit documentation. Only the two APKs are attached to the release; hashes and build reports stay in the repository.
 
-Latest source branch: `agent/magic-plantbrush-single-apk`. The existing `v4.0.5-release-3` tag still points to the original prerelease source; it was not moved when release assets were updated. The release's `RELEASE-BUILD.json` identifies the source commit for the updated APKs, and `SHA256SUMS.txt` contains both current hashes.
-
-**Back up saves before upgrading.** Update regular EN with regular EN, or an ENAI prototype with ENAI, without uninstalling. The two apps have separate saves and no automatic import. Prerelease 2 and Chinese users need the one-time transfer below.
+**Back up saves before upgrading.** Update Standard EN with Standard EN, or AI ENAI with AI ENAI, without uninstalling. Managed translation files refresh while saves, additional slots, player data and settings remain. The two apps have separate saves and no automatic import. Chinese/prerelease 2 users need the one-time transfer below.
 
 This repository contains source, reviewed translation manifests and approved replacement artwork. It contains no APKs, original game binaries, extracted game bundles or signing keys. Supply game files locally and obtain upstream translation inputs separately.
 
@@ -97,12 +85,12 @@ The old Chinese/prerelease 2 data directory is:
 
 The new English destination is `/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesEN/files/`. Keep the old app until transferred saves load correctly.
 
-The experimental AI app instead uses `/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesENAI/files/`. EN and ENAI can coexist. Choosing the AI APK does not automatically copy progress from EN or RH. The same save-only rules below apply to a manual transfer; Android may restrict access to another app's data directory.
+The AI app instead uses `/storage/emulated/0/Android/data/com.LanPiaoPiao.PlantsVsZombiesENAI/files/`. EN and ENAI can coexist. Choosing the AI APK does not automatically copy progress from EN or RH. The same save-only rules below apply to a manual transfer; Android may restrict access to another app's data directory.
 
 For this one-time migration:
 
 1. Back up the old `files` directory before uninstalling anything.
-2. Install prerelease 3 with its supplied EN package ID. It can coexist with RH.
+2. Install the Standard APK with its supplied EN package ID. It can coexist with RH.
 3. Launch once, reach the main menu, then fully close or force-stop the game.
 4. Restore only the save files needed. Never merge the complete old directory
    over the new installation.

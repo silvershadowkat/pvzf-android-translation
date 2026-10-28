@@ -1,14 +1,6 @@
 # PvZ Fusion 4.0.5 English Android: Prerelease 3
 
-## October 28 follow-up, built locally for verification
-
-- **Smoother Blooms music loading:** Songs now stream asynchronously instead of loading replacement Unity AudioClips. Repeated music checks no longer seek or restart the song. Decoder failures fall back to Original music.
-- **Less repeated work:** Removed the broad startup text scan, unnecessary cache clearing, repeated verification of unchanged private AI models and obsolete metadata blocks. Translation integrity checks and save preservation remain enabled.
-- **Magic Plantbrush AI:** One tap opens the mode while the engine loads. Early Identify waits for readiness; failed sessions can reload on a later tap without restarting the game.
-- **More reviewed Blooms English:** Updated mappings, embedded text, almanac fields and the mini-sun Settings label. Corrected the remaining descriptions for Ravenous Reach, Zombie Parry and Pain Response using the Android effects and established PC names.
-- **No almanac unlock change:** The official 4.0.5 visibility behavior is retained.
-
-The follow-up is not yet published. Its intended download list contains only `PvZ-Fusion-4.0.5-English-prerelease3.apk` and `PvZ-Fusion-4.0.5-English-prerelease3-Experimental-AI.apk`. See [verification and limitations](testing/ANDROID405-PERFORMANCE2-AUDIT.md). These changes do not establish that every reported crash is fixed.
+The October 28 performance and translation follow-up is published separately as [prerelease 4](RELEASE-NOTES-4.0.5-PRE4.md). The notes below describe the historical prerelease 3 downloads.
 
 ## Updated downloads: choose your APK
 

@@ -1,6 +1,6 @@
-# Experimental AI APK: current test checklist
+# AI APK: current test checklist
 
-Target: the October 28 performance follow-up for [4.0.5 prerelease 3](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-3). The new local AI file ends in `Experimental-AI.apk`. See [the follow-up audit](ANDROID405-PERFORMANCE2-AUDIT.md) for publication and verification status. The regular APK intentionally keeps the unavailable-mode notice.
+Target: [4.0.5 prerelease 4](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-4), file `PvZ-Fusion-4.0.5-English-prerelease4-AI.apk`. See [the follow-up audit](ANDROID405-PERFORMANCE2-AUDIT.md) and [release promotion checks](ANDROID405-PRE4-BUILD.json). The Standard APK intentionally keeps the unavailable-mode notice. AI testing covers only the Snapdragon-based S26 Ultra and Retroid Pocket Nova.
 
 ## Installation and saves
 

@@ -1,6 +1,6 @@
 # Android 4.0.5 prerelease 3: October 28 follow-up
 
-Status: both APKs built, signed and installed over the Retroid's existing apps. Local only; public release assets have not been replaced. See [build records](ANDROID405-PERFORMANCE2-BUILD.json) and [remaining play checks](PLANTBRUSH-AI-EXPERIMENT.md).
+Status: both candidates were built, signed and installed over the Retroid's existing apps. Their verified payloads are promoted as [prerelease 4](../RELEASE-NOTES-4.0.5-PRE4.md), with only version/signature changes. See [candidate build records](ANDROID405-PERFORMANCE2-BUILD.json), [release promotion verification](ANDROID405-PRE4-BUILD.json), and [remaining play checks](PLANTBRUSH-AI-EXPERIMENT.md). The candidate filenames/version numbers below describe the tested inputs.
 
 ## Music stalls
 
