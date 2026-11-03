@@ -55,7 +55,7 @@
   "device_tested": {
     "S26": "Final APK verified in place: existing Super Stacking checkpoint loads; Unlock Silver, Bronze item names, unexplored-stage headings, Research costs, compact Inspect / Upgrade label fit; music popup OK and Close work from paused-level Settings; Back returns to Pause; Blooms preference restored; returned to main menu. Earlier almanac typography and full help-page checks pass.",
     "Nova": "No further access authorized. Left untouched during this follow-up.",
-    "S26_r4": "Installed in place. Old r3 camera press/drag-out reproduces the reported jump without changing zoom. R4 four-button touch verification paused automatically because game lost focus; no taps sent to the other app."
+    "S26_r4": "Passed all four original settings-button press/drag-out checks. Each button region is pixel-identical to its resting baseline after release. No unlock/reset action invoked; camera zoom remains 6. Old r3 camera check reproduced the jump with the same gesture. Left Settings open for maintainer testing."
   },
   "managed_refresh": {
     "revision": "4.1-English-pre1-r4",
@@ -118,6 +118,7 @@
     "real_apk_metadata_restore_cases": 4,
     "real_apk_almanac_restore_cases": 12,
     "only_reviewed_serialized_objects_changed": true,
-    "production_audio_diagnostics": false
+    "production_audio_diagnostics": false,
+    "settings_press_restore_buttons": 4
   }
 }
