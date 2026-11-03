@@ -1,0 +1,99 @@
+{
+  "method": "Blooms names and complete fields; Context Aware AI for faithful prose using verified game terms. Unknown proper names retained. Official PC and Android source must match.",
+  "plants": {
+    "210": {
+      "name": {
+        "source_sha256": "a5ef0a31b862b3cefcec85c33491724636e1392aa285fe5b27d583d17fe08251",
+        "origin": "Blooms",
+        "pc_sha256": "de9a7874d973b7ea0383a4013011f4762efd7208b35f7fad8502daf653514298"
+      },
+      "cost": {
+        "source_sha256": "704bfc9b95baac093650a8b59bbcd471bbad9c55a523d517d2cc0d568c958391",
+        "origin": "Blooms",
+        "pc_sha256": "73480af094877075aed037e3d883370eb85df91be3bc5ddb76cf2e3b7a1224a1"
+      },
+      "info": {
+        "source_sha256": "797f20ed45de11db1b7ea8ffe30dc3e9487daf655320212b1d86062300246e05",
+        "origin": "Context Aware AI with established game terms",
+        "english": "Produces sun, paints plants, and occasionally attracts plants seeking portraits.\n\n<color=#3D1400>Sun Production: </color><color=red>25 x 2 / 20s</color>\n<color=#3D1400>Special: 1. </color><color=red>Tap to pick up or put down the brush. While holding it, tap another plant to paint its portrait.</color>\n<color=#3D1400>2. </color><color=red>5 seconds after appearing, attracts a random plant<sup>[2]</sup> with a hidden appearance<sup>[1]</sup> to the tile in front. It is removed if not painted within 30 seconds. Attracting plants has a 90-second cooldown.</color>\n<color=#3D1400>[1]: </color><color=red>Its normal appearance is shown in Auto-fight & Sandbox and Custom Level.</color>\n<color=#3D1400>[2]: </color><color=red>Plants that can appear from a Plant Giftbox.</color>"
+      },
+      "introduce": {
+        "source_sha256": "7c34aee133a18f69bff2a68d30404dd8576543f11281f7c54266ca5551b97884",
+        "origin": "Context Aware AI with established game terms",
+        "english": "<color=#3D1400>Artsy Sunflower graduated from Sunshine University's art department. Her use of empty space made her famous in abstract art. \"Blank space holds endless possibilities,\" she said in an interview. \"A painting may stay the same to its artist, but a thousand plants see a thousand different 花木蕾藤.\"</color>"
+      }
+    },
+    "1488": {
+      "name": {
+        "source_sha256": "5a390210eb9d41841fb0da6e65dc02853185027cd0dfa08275470e0e5bb7f35f",
+        "origin": "Blooms",
+        "pc_sha256": "92ee96e7e5f66a148ba09f8b3a97924bdfee028d10eba7e97ba5b47f7de9f7da"
+      },
+      "info": {
+        "source_sha256": "3e61b6bd69cb06cc9811e20ad6d2188530a55ae98c9420781b4ce6cb4663c825",
+        "origin": "Blooms",
+        "pc_sha256": "a8b007cb18e21bb4350fb94e16f84ba426929698c206ba0ef58ec5758c778e32"
+      },
+      "cost": {
+        "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "origin": "Blooms",
+        "pc_sha256": "a55d79038da3d63d588061af612060524b3509df0b10bbf39b4ff8b803cc116a"
+      },
+      "introduce": {
+        "source_sha256": "e0e6bf08a49027349f702967dd4a4e2c5e3107cd1cef2959094cf9237d6f184f",
+        "origin": "Context Aware AI with established game terms",
+        "english": "<color=#3D1400>A regular at the amusement park, Ball Cactus keeps practicing her aim to win the grand prize at the dart game. Since she is too short to reach the bullseye, though, popping balloons might suit her better...</color>"
+      }
+    },
+    "5006": {
+      "name": {
+        "source_sha256": "d0c3d6b841c653e8f95362a1495598a6faca9ad3d8057d0b21e41ef97e8d92b5",
+        "origin": "Blooms",
+        "pc_sha256": "c5502899b5890a8f8a52574462581e48cff8b7d3b6dbe477c4aaf603e3e69800"
+      },
+      "cost": {
+        "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "origin": "Blooms",
+        "pc_sha256": "54418d18c7663d459fd905aba4a93874dae479a98e0d99f4b39c6132512e946c"
+      },
+      "info": {
+        "source_sha256": "9b10caf169d9f674283184ddb905bcf42d0355447baf4b959f92d00995507cdf",
+        "origin": "Context Aware AI with established game terms",
+        "english": "<size=36>The explosion hypnotizes affected zombies and summons a Gargantuar to briefly protect all plants, turning the tide of battle.\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlock Modifier Available after Obtaining Calamity-shroom's 2 Modifiers</color>\n<color=black>Damage: </color><color=#8B0000>7200 (Cremator)</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Promotion of Calamity-shroom, inherits its other traits.\n<color=black>•</color> Has the range of Doom-shroom. Hypnotizes Zombies if they are:\n\t· Below 75% HP;\n\t· is cursed.\n<color=black>•</color> Regardless if they were hypnotized or not, zombies in range are cursed (makes them explode upon death like Doom-shrooms)\n<color=black>•</color> Summons a hypnotized Abyssal Gargantuar. All plants are given a 90% damage reduction in the first 6 seconds. After which turns into a hypnotized Armored Gargantuar.</color>\n<color=black>Odyssey Modifiers:\n<color=#8B0000>1. All Doom-shroom explosions are now craterless | Avarice-shroom Subspecies Unlocked\n2. The hypnotized Armored Gargantuar summons Imps with the same Toughness. The Imp will self-destruct based on its current HP when it attacks, Releasing a Doom-shroom effect. Abyssal Imps deals true damage. When the hypnotized Armored Gargantuar attacks and every second its Imps acts, loses 10% of its Toughness.</color><size=36>"
+      },
+      "introduce": {
+        "source_sha256": "15c8441dadb1f75e5d3ac426cc3613b63d3816c61ca149278f695ec93066a3da",
+        "origin": "Context Aware AI with established game terms",
+        "english": "<color=#3D1400>Legend says that a warm voice whispers when reason is about to break. Those who hold on to themselves may shine with their own light; those who surrender to desire become uncontrollable monsters. She offers an invitation to salvation and a lure toward disillusionment. The choice is always the listener's, but few survive.</color>"
+      }
+    },
+    "5007": {
+      "name": {
+        "source_sha256": "01c4bdad1dcadff36e074332fadb50be8c179e76ba61189755b16893b4c2be93",
+        "origin": "Blooms",
+        "pc_sha256": "014d914c9b5874d29837d468f180a7a35ba14edf2f67954eb3c8fd33ac8ae41c"
+      },
+      "cost": {
+        "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "origin": "Blooms",
+        "pc_sha256": "9540d44d67948374e1c26cdaaec5f97a3f477f3fc7e781ceb1c6c47d658dc512"
+      },
+      "info": {
+        "source_sha256": "231220fed7ef676f48170063eda2ca5ed61b9af293aad850685d378ff0bd63bf",
+        "origin": "Context Aware AI with established game terms",
+        "english": "<size=36>The explosion turns affected zombies into gold and raises the stakes for greater rewards.\n\n<color=#4A2900>Usage Condition: Odyssey Mode | Unlock Modifier Available after Obtaining Calamity-shroom's 2 Modifiers</color>\n<color=black>Damage: </color><color=#8B0000>7200 (Cremator)</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Promotion of Avarice-shroom, inherits its other traits; Subspecies of SP Calamity-shroom.\n<color=black>•</color> Has the range of Doom-shroom. Zombies below 75% HP in its range are turned into Silver Zombie Statues. While Gilded Zombies are turned into Golden Zombie Statues. And zombies in range are inflicted with Gilded.\n<color=black>•</color> Buffs the next Mini-boss Zombie to appear with the Empowered buff. Defeating said Mini-boss Zombie grants 1000 points. Also summons an Empowered Abyssal Gargantuar that grants 2000 points upon defeat.\n<color=black>•</color> It can only be summoned once per round. This plant will not spawn from a Plant Giftbox.</color>\n<color=black>Odyssey Modifiers:\n<color=#8B0000>1. Avarice-shroom Subspecies Unlocked\n2. Defeating the Empowered Mini-boss Zombie now grants 2000 points.</color><size=36>"
+      },
+      "introduce": {
+        "source_sha256": "ac366a164eebeaec901c1f32c27de87e98554128540bd53ac9987a8ca952091c",
+        "origin": "Context Aware AI with established game terms",
+        "english": "<color=#3D1400>For those who once placed material wealth above everything, SP Avarice-shroom embodies that cold desire. Ask for money and she will return it tenfold. Yet every loan has a price, and she always collects what she is owed...</color>"
+      }
+    }
+  },
+  "announcement": {
+    "path_id": 206548,
+    "source_sha256": "50bce23487acb6cd13b9270d14da9c25f4dd7a66caa8069cb8487cef5bf7c3d5",
+    "origin": "Context Aware AI from actual Android 4.1 announcement, using verified Blooms names. Current PC announcement is still 4.0.5.",
+    "english": "PvZ Fusion 4.1 Update\n\n1. Odyssey: Evolved rework\nEarn points each round to buy plants, upgrade the shop, or refresh its stock.\nCombine cards or upgrade the shop for higher-quality cards.\nEquip plant cards with multiple items for extra bonuses.\nFusions inherit the quality and equipment of both ingredients.\nZombies entering the house now cost HP instead of immediately ending the level.\n\n2. New plants\nBasic: Artsy Sunflower, Ball Cactus, 磁性卷心菜投手, 铁桶卷心菜投手, 超时空卷心菜投手, 浮空大喷菇, 大喷菇花盆, 磁力窝瓜, 保护伞窝瓜, 西瓜投射手, 三线胆小菇, 窝瓜大喷菇, 卷心菜投射手, 西瓜胆小菇, 大蒜窝瓜, 银窝瓜, 金窝瓜\nUltimate: SP Calamity-shroom, SP Avarice-shroom, 磁能窝瓜坚果, 飓风之龙, 平行时空树桩\n\n3. New zombies\nVariant: 樱桃战神僵尸\nUltimate: 海豚橄榄高坚果僵尸\nBoss: 渊海三叉戟\n\n4. Level updates\nSuper Random: Question Mark Battle: Paint portraits of the random plants Artsy Sunflower attracts, then use them to fight the zombies.\n\n5. New modifier\nShrinking Ray: Mini Professor Cherryz!\n\n6. Balance changes\nBlover Pot, Levitater, Sunny Pumpkin: Stats increased.\n三线炮手 family: Attack speed reduced.\nBuck-nut, Steel Pumpkin, Football-nut: Matching metal items restore much more HP.\nMagnet Blover: Digested metal items now become drops.\nCalamity-shroom and Avarice-shroom: Effects reworked. Avarice-shroom can now be used on Odyssey's Cursed difficulty.\nTridents: Attacks now slow plants with the Damp status.\nPozeidon: Can bite like a trident and strengthens Damp. The Giant Trident creates a vortex that draws in projectiles.\nTrident Jugger-nut Gargantuar: No longer needs to reach the half-HP threshold before throwing its trident.\n\n7. Other improvements\nRandom mode no longer starts the next wave immediately when the remaining zombies have little total HP.\nImproved some plant facial animations.\nMagic Plantbrush recognition now runs on a server rather than the player's device.\nAdjusted the pacing of points and modifiers in classic Odyssey.\n\n8. Fixes\nFixed Drone Commando disappearing after a scene change.\nFixed Fair Points incorrectly receiving the Cursed difficulty points bonus.\nOther fixes and gameplay improvements.\n"
+  }
+}

@@ -32,7 +32,7 @@ public final class EnglishActivity extends Activity {
         final Pattern pattern; final String replacement,prefix;
         Rule(String p,String r) {pattern=Pattern.compile(p);replacement=r;prefix=RegexPrefix.of(p);}
     }
-    private static native void startRuntime(String root, boolean blooms);
+    private static native void startRuntime(boolean blooms);
 
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
@@ -48,14 +48,11 @@ public final class EnglishActivity extends Activity {
         try {
             prepareManagedFiles();
             loadTranslations();
-            PlantbrushBridge.init(getApplicationContext());
-            MusicBridge.init(getApplicationContext());
             // Load only; Unity remains responsible for calling il2cpp_init.
             // Install the completion hook before starting Unity's Activity.
             System.loadLibrary("il2cpp");
             System.loadLibrary("pvzfenglish");
-            startRuntime(new File(getFilesDir(),"english-runtime").getAbsolutePath(),
-                getSharedPreferences("english-runtime",0).getBoolean("blooms",true));
+            startRuntime(getSharedPreferences("english-runtime",0).getBoolean("blooms",true));
         } catch (Exception | LinkageError e) {
             // Do not open Unity with an override that failed verification.
             Log.e(TAG,"English startup failed",e);
@@ -70,12 +67,6 @@ public final class EnglishActivity extends Activity {
         });
     }
 
-    public static int requestPlantbrush(){return PlantbrushBridge.request();}
-    public static int plantbrushStatus(){return PlantbrushBridge.status();}
-    public static void leavePlantbrush(){PlantbrushBridge.leave();}
-    public static int syncMusic(int slot,String track,boolean playing,float volume,float time,int epoch){
-        return MusicBridge.sync(slot,track,playing,volume,time,epoch);
-    }
 
     private byte[] asset(String name) throws IOException {
         try(InputStream in=getAssets().open(name);ByteArrayOutputStream out=new ByteArrayOutputStream()) {
@@ -109,7 +100,6 @@ public final class EnglishActivity extends Activity {
                 root.equals(external) && manifest.optBoolean("refresh_test_seed",false));
         JSONObject files=manifest.getJSONObject("files");
         android.content.SharedPreferences prefs=getSharedPreferences("english-runtime",0);
-        android.content.SharedPreferences.Editor verified=prefs.edit();
         Iterator<String> names=files.keys();
         while(names.hasNext()) {
             String name=names.next();
@@ -118,16 +108,11 @@ public final class EnglishActivity extends Activity {
             // Its old private copy is never consulted; do not re-copy/hash it.
             if(name.equals("translations.json"))continue;
             File target=new File(getFilesDir(),"english-runtime/"+name);
-            String hash=files.getString(name),key="verified-music:"+name;
-            String stamp=MusicStamp.of(name,target,hash);
-            // Only app-private audio may use a verified file-stat receipt. Metadata,
-            // dictionaries and profile almanac overrides always keep full hash checks.
-            if(stamp!=null && stamp.equals(prefs.getString(key,null)))continue;
-            replace("english/"+name,target,hash);
-            stamp=MusicStamp.of(name,target,hash);
-            if(stamp!=null)verified.putString(key,stamp);
+            // Music is embedded as streaming Unity resources in 4.1. Only small
+            // managed support assets remain; no audio extraction or receipts.
+            replace("english/"+name,target,files.getString(name));
         }
-        if(!verified.putString("revision",manifest.getString("revision")).commit())
+        if(!prefs.edit().putString("revision",manifest.getString("revision")).commit())
             throw new IOException("Cannot record completed refresh");
         Log.i(TAG,"Managed files verified; player data untouched; revision="+manifest.getString("revision"));
     }
@@ -145,7 +130,7 @@ public final class EnglishActivity extends Activity {
             String id=ids.next();JSONObject row=levels.getJSONObject(id);
             if(id.matches("level_[0-9]+_[A-Za-z0-9]+"))onlineLevels.put(id,new String[]{row.getString("name"),row.getString("startTip")});
         }}
-        for(String[] pair:PlantbrushTranslations.EXACT)exact.put(pair[0],pair[1]);
+        for(String[] pair:PlantbrushTranslations.EXACT)if(!exact.containsKey(pair[0]))exact.put(pair[0],pair[1]);
         for(String[] rule:PlantbrushTranslations.RULES)rules.add(new Rule(rule[0],rule[1]));
         Log.i(TAG,"Display translations loaded: "+exact.size()+" exact, "+rules.size()+" regex");
         translationsLoaded=true;
@@ -204,6 +189,14 @@ public final class EnglishActivity extends Activity {
     }
     public static void saveMusic(boolean blooms) {
         if(context!=null)context.getSharedPreferences("english-runtime",0).edit().putBoolean("blooms",blooms).apply();
+        Activity owner=null;
+        try { owner=(Activity)Class.forName("com.unity3d.player.UnityPlayer").getField("currentActivity").get(null); }
+        catch(ReflectiveOperationException ignored) {}
+        final Activity current=owner;
+        if(current!=null&&!current.isFinishing())current.runOnUiThread(()->new AlertDialog.Builder(current)
+            .setTitle("Soundtrack saved")
+            .setMessage("Close and reopen the game to use "+(blooms?"Blooms":"Original")+" music. Your current game will continue with its existing soundtrack.")
+            .setPositiveButton("OK",(dialog,which)->{}).show());
     }
     public static synchronized String onlineTitle(String id,String original) {
         String[] row=onlineLevels.get(id);return row==null||row[0].isEmpty()?original:row[0];

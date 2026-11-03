@@ -72,7 +72,7 @@ class Pool:
         struct.pack_into('<I',result,4,len(result));return result
 
 
-def manifest(data, version_code):
+def manifest(data, version_code, version_name='4.0.5-English-pre3'):
     parts=list(chunks(data));pool=Pool(next(x[3] for x in parts if x[1]==1))
     def text(i):return '' if i==0xffffffff else pool.strings[i]
     def tag(b):return text(U32(b,20))
@@ -94,7 +94,7 @@ def manifest(data, version_code):
             if t=='manifest':
                 assert any(name=='package' and text(U32(b,p+16))==OLD for name,p in attrs(b))
                 set_attr(b,'package',NEW);set_attr(b,'versionCode',version_code,0x10)
-                set_attr(b,'versionName','4.0.5-English-pre3')
+                set_attr(b,'versionName',version_name)
             if t=='application':set_attr(b,'label','PvZ Fusion English')
             if t=='activity':
                 assert activity_start is None, 'Review a shell with multiple activities'

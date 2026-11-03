@@ -8,11 +8,11 @@ public final class PlantbrushTranslations {
         {"神笔马良自由画板", "Magic Plantbrush Drawing Canvas"},
         {"网格：关", "Grid: Off"},
         {"网格：开", "Grid: On"},
-        {"请确认是否启动了最新版神笔马良识图AI，可前往融合wiki下载", "The recognizer is included in the AI APK. Restart the game and try again."},
+        {"请确认是否启动了最新版神笔马良识图AI，可前往融合wiki下载", "Recognition uses the game's online service. Check your internet connection and try again."},
         {"[神笔马良] 没有有效的植物候选，请重新鉴定。", "[Magic Plantbrush] No valid plants found. Try identifying again."},
         {"[神笔马良] 画作已改变，本次鉴定结果已丢弃。", "[Magic Plantbrush] Drawing changed. Identify it again."},
-        {"本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。", "This recognizer does not support scoring a selected plant. Update the AI prototype."},
-        {"。请启动神笔马良本地服务。", ". Open Magic Plantbrush to start recognition."},
+        {"本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。", "This recognition service cannot score a selected plant. The service needs to be updated."},
+        {"。请启动神笔马良本地服务。", ". Check the recognition service connection."},
         {"选择这株植物", "Choose this plant"},
     };
     // Native request errors are concatenated with a prefix and sometimes a red hint.
@@ -23,7 +23,7 @@ public final class PlantbrushTranslations {
         {"识别服务返回空结果", "The recognizer returned no result. Try again."},
         {"识别结果无效，请重建图库索引后重试。", "The recognition result is invalid. Restart or update the AI app."},
         {"识别请求尚未完成", "Recognition is still in progress. Please wait."},
-        {"本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。", "This recognizer does not support scoring a selected plant. Update the AI prototype."},
+        {"本地识别服务尚不支持指定植物评分，请启动更新后的神笔马良识别服务。", "This recognition service cannot score a selected plant. The service needs to be updated."},
     };
     private static final String PREFIX = "(?:\\[(?:神笔马良|Magic Plantbrush)\\] )?(?:鉴定失败：)?";
     private static final String HINT = "(?:\\n<color=red>请确认是否启动了最新版神笔马良识图AI，可前往融合wiki下载</color>)?";

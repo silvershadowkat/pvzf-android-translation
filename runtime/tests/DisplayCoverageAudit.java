@@ -18,7 +18,7 @@ public class DisplayCoverageAudit {
             if(row[0].equals("E"))exact.put(dec(row[1]),dec(row[2]));
             if(row[0].equals("R"))rules.add(ctor.newInstance(dec(row[1]),dec(row[2])));
         }
-        for(String[] p:PlantbrushTranslations.EXACT)exact.put(p[0],p[1]);
+        for(String[] p:PlantbrushTranslations.EXACT)exact.putIfAbsent(p[0],p[1]);
         for(String[] p:PlantbrushTranslations.RULES)rules.add(ctor.newInstance(p[0],p[1]));
         Method translate=c.getMethod("translate",String.class);List<String> remaining=new ArrayList<>();int total=0;
         for(String line:Files.readAllLines(Paths.get(args[1]),StandardCharsets.UTF_8)){

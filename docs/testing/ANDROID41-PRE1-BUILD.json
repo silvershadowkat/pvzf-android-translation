@@ -1,0 +1,188 @@
+{
+  "status": "Local test build; not uploaded or published",
+  "apk": "PvZ-Fusion-4.1-English-prerelease1.apk",
+  "sha256": "ad4c894b0b4a9cf229a353054a0b43b213f871c981ae3cba541875615a4b9142",
+  "bytes": 799702616,
+  "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+  "version_code": 4100100,
+  "version_name": "4.1-English-pre1",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
+  "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632",
+  "changed_existing_entries": [
+    "AndroidManifest.xml",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+    "assets/bin/Data/data.unity3d",
+    "assets/bin/Data/resources.resource",
+    "classes.dex",
+    "resources.arsc"
+  ],
+  "added_entries": [
+    "assets/english-almanac/DetailStrings.json",
+    "assets/english-almanac/LawnStrings.json",
+    "assets/english-almanac/ZombieStrings.json",
+    "assets/english/NOTICE.txt",
+    "assets/english/manifest.json",
+    "assets/english/translations.json",
+    "classes2.dex",
+    "lib/arm64-v8a/libpvzfenglish.so",
+    "lib/armeabi-v7a/libpvzfenglish.so"
+  ],
+  "protected_metadata": {
+    "protected_strings": 31,
+    "present_strings": 17,
+    "verified_slots": 17,
+    "absent_strings": [
+      "ShootingAlmanacIndex",
+      "不破不立",
+      "两极分化",
+      "傲慢之罚",
+      "大帝祝福",
+      "大帝诅咒",
+      "嫉妒之惩",
+      "火菜炮祝福",
+      "火菜炮诅咒",
+      "磁坚祝福",
+      "磁坚诅咒",
+      "究樱祝福",
+      "究樱诅咒",
+      "试炼"
+    ]
+  },
+  "all_original_native_libraries_unchanged": true,
+  "local_ai_included": false,
+  "music": "Native Unity streaming AudioClip profiles; soundtrack changes require restart",
+  "device_tested": true,
+  "managed_refresh": {
+    "revision": "4.1-English-pre1",
+    "metadata_sha256": "177550475712c045e8f1402dde833f3b222898bf8364e6d3e042028741da4078",
+    "files": {
+      "translations.json": "5871816b4b970e5367475850586aa40667da3688173683057ef8140a3a11115a",
+      "NOTICE.txt": "72b98143910e4f170910507d540502fdc54d88788f9bb6af91c53b3fde1ff317"
+    },
+    "almanac_files": {
+      "LawnStrings.json": "d698a793e99c15188ab1236c2effe224fb0ffc225e390b665f27ca70ee98fabb",
+      "ZombieStrings.json": "8ae8bd481632e3368a0e65627943d4d26d3e39c59ebadff0274b0ff7127ab578",
+      "DetailStrings.json": "9556c2316f36dc50f7393e4ede4f66a82a83d5133de5c5821443ef9da723e22d"
+    },
+    "refresh_test_seed": false,
+    "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632"
+  },
+  "runtime_source_sha256": {
+    "runtime\\display_cache.h": "1c4c9df336da26ac056c0d9cbb1a88bcd02284bc649ec3f937fcc50e06984faa",
+    "runtime\\english.cpp": "123408f5042468d4a732d9415c6ab275fff04f666af97fda694335b1db0bb106",
+    "runtime\\field_access.h": "6e0e2dd920f7d843ff615ddbdc0303a1ed61081dafaf6dcc35506fa49ec2a06a",
+    "runtime\\java\\com\\silvershadow\\pvzf\\BoundedTextCache.java": "d307fff61342c26a75f653814856d46afc65f5076bcb841873477a9b7cee676c",
+    "runtime\\java\\com\\silvershadow\\pvzf\\EnglishActivity.java": "4c0de9a412c10446b30b2f759a379613914cd23bd9c13d416452e238b1a128bd",
+    "runtime\\java\\com\\silvershadow\\pvzf\\ManagedFiles.java": "b92b4e023f15645099de8aca809144c57b57f805bca4b1773a83e40c768bec6f",
+    "runtime\\java\\com\\silvershadow\\pvzf\\MusicBridge.java": "afd387ff491a73524364d2fa18f94a2f1065a16d3c5a2e9f20d2ba0faf1247f6",
+    "runtime\\java\\com\\silvershadow\\pvzf\\MusicStamp.java": "e7f882b21fb3afaee20de0ed7d5962b7409cedca9c287807e7be8dc1a549088f",
+    "runtime\\java\\com\\silvershadow\\pvzf\\PlantbrushBridge.java": "ab7713821ca07c6ff5eef8275c4d2243cdca4e244847db7a4536a26ea86f9fee",
+    "runtime\\java\\com\\silvershadow\\pvzf\\PlantbrushTranslations.java": "221104d88be475343c8d72f4f5b87d5e6093665e18c8cc7443bc8f59026ec62b",
+    "runtime\\java\\com\\silvershadow\\pvzf\\RegexPrefix.java": "0dab73ba799d8b5eae35a8e56094031f52f97760e53525d72e27fcb6cce8eb19",
+    "runtime\\music_profiles.inc": "ab3330302388db2d8ff7b7054ff161afb49d2ccc3022f479c7ff33fa186ec0b9",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\ModelStamp.java": "8e852c742789f5d4e84f9f4146ca7c51a3f0576ca7b5364b0e1aee9ac2416c34",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushMath.java": "7261f5aefb09dd1bdfa1b61901f64e41574bf20d4218746b8bbc303fde596196",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushRecognizer.java": "977fd2fcda80c017de1a4a7d4a557667472cb0cb17fca67a593dc698e0762f59",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushService.java": "fe584bf3b71366d46be07a2a3f709b1df915c0e40f786b7f91b93d8187989341",
+    "runtime\\plantbrush\\tests\\PlantbrushHostTest.java": "c225d4448a4c77312497988aae46392a195ab3ab00a45baaf33bcb6796cf1148",
+    "runtime\\plantbrush\\tests\\PlantbrushIdentity.java": "e15adddfb86f81d663f2507d327c6073be320cc31d9f8aaefdfc4de8b12cd5bc",
+    "runtime\\plantbrush\\tests\\PlantbrushTextTest.java": "301822c1fb7f4e2aa832ea154e3c84bb6d953d3af156bc1d98e91f0f6064d94d",
+    "runtime\\screen_mode.inc": "4f2681d546a73e16016aa92c976b54c3df007bdaf7280be63525f137a1883990",
+    "runtime\\screen_plan.h": "ce25cb354ab2a0f84ad917ccf5d2fbd2ed2136c37927228f84e39cb485cdf3d4",
+    "runtime\\tests\\DisplayCacheTest.cpp": "d0439f6c46a67a237e0a312e4d7bb044f01404b6d0c73a6731d8d6cc34f8c4a7",
+    "runtime\\tests\\DisplayCoverageAudit.java": "cd95ed881e2d54b373b9bf642b76e1e5336e5c56a3a211c5694e40bf005dd171",
+    "runtime\\tests\\FieldAccessTest.cpp": "5e5284ce6641374efa8e730d11d9700e550de8f001c6c69678f99d22fdcc6ae6",
+    "runtime\\tests\\ManagedFilesTest.java": "d012206af8b7ed8ed214e232bee45bb0adf0ecac8ab117c6ac741791cb192203",
+    "runtime\\tests\\ModifierDisplayTest.java": "7390dc1fa9fa0f67d1b8192a44356941b6c94047fc581c56e9386b9dffbd7bf3",
+    "runtime\\tests\\PayloadTranslationTest.java": "e45b09cd68e673b4adbbbe4ece3831c5d3779aa9a2b021f28b8b02bc478698ff",
+    "runtime\\tests\\RegexReview.java": "1a0a45473ad53c325e91018a8fb6036e94e08da73f151e0c26b5f4c83ab371e0",
+    "runtime\\tests\\RestoredAlmanacTest.java": "9fedbd36a5348bc9faf7a110f9b8cafbe1ec918f2068b93c91c7cb4fabb3e8e9",
+    "runtime\\tests\\RestoredMetadataTest.java": "82fca45abc5cacc4e0970cdeb5bbe99bec2dd5ea7b5167ecb414d3f1bd6b0b07",
+    "runtime\\tests\\RuntimeEfficiencyTest.java": "e06b761d359856d56b8503821d07f686d6682ee3ff3d8883fc428da0ec9bdf46",
+    "runtime\\tests\\ScreenPlanTest.cpp": "85701c1985ec0452123c948b1b480e902017841370704589ecc339908fc460e6",
+    "runtime\\tests\\TranslationParityTest.java": "4c5164b236454b757677e586c25497feb879defd4579c50a006ac62722d7e927",
+    "runtime\\tests\\TranslationTest.java": "d784889ba680f38507118fce6d2a7e38f6564b08f729b90c1f322ad0608b5a9e"
+  },
+  "device_validation": {
+    "device": "Retroid Pocket Nova (Snapdragon, 4:3)",
+    "clean_install_and_in_place_reinstall": "passed",
+    "startup": "main menu reached",
+    "runtime_hooks": "all registered",
+    "native_streaming_resource": "blooms/mainmenu loaded",
+    "fatal_startup_errors": false,
+    "settings_and_gameplay": "requires maintainer phone/tablet testing; no 4:3 workaround added"
+  },
+  "checks": {
+    "python_tests": 74,
+    "java_display_fixtures": 18,
+    "managed_refresh_checks": 8,
+    "preserved_fixture_files": 11,
+    "actual_apk_metadata_restore_cases": 4,
+    "actual_apk_almanac_restore_cases": 12,
+    "audio_bank_headers_and_sample_counts": 44,
+    "decoded_audio_banks": 6,
+    "screen_plan_arm64_on_nova": "passed",
+    "remaining_RH_metadata_literals": 0,
+    "git_diff_check": "passed"
+  },
+  "translation_counts": {
+    "exact_count": 15548,
+    "regex_count": 638,
+    "previous_keys_retained": true
+  },
+  "audio_roundtrip": {
+    "all_44_headers_and_frame_counts_verified": true,
+    "decoded_tracks": 6,
+    "encoded_levels": {
+      "original/MainMenu": {
+        "input_i": "-17.98",
+        "input_tp": "-3.04",
+        "input_lra": "7.00",
+        "input_thresh": "-28.36",
+        "output_i": "-16.75",
+        "output_tp": "-2.00",
+        "output_lra": "4.70",
+        "output_thresh": "-26.98",
+        "normalization_type": "dynamic",
+        "target_offset": "-1.25"
+      },
+      "original/Day": {
+        "input_i": "-17.98",
+        "input_tp": "-2.29",
+        "input_lra": "7.00",
+        "input_thresh": "-27.99",
+        "output_i": "-17.01",
+        "output_tp": "-2.00",
+        "output_lra": "6.10",
+        "output_thresh": "-27.02",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.99"
+      },
+      "blooms/MainMenu": {
+        "input_i": "-17.97",
+        "input_tp": "-2.91",
+        "input_lra": "11.40",
+        "input_thresh": "-28.27",
+        "output_i": "-16.47",
+        "output_tp": "-2.00",
+        "output_lra": "9.10",
+        "output_thresh": "-26.64",
+        "normalization_type": "dynamic",
+        "target_offset": "-1.53"
+      },
+      "blooms/Day": {
+        "input_i": "-17.98",
+        "input_tp": "-2.14",
+        "input_lra": "2.90",
+        "input_thresh": "-27.98",
+        "output_i": "-17.56",
+        "output_tp": "-2.00",
+        "output_lra": "2.30",
+        "output_thresh": "-27.56",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.44"
+      }
+    }
+  }
+}

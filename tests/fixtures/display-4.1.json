@@ -1,0 +1,20 @@
+{
+  "画家向日葵": "Artsy Sunflower",
+  "小仙人球": "Ball Cactus",
+  "究极幻灭菇": "SP Calamity-shroom",
+  "究极贪欲菇": "SP Avarice-shroom",
+  "质变：专武登场": "Ascend: Squash pumpkin",
+  "尚未拥有窝瓜南瓜时可出现。": "Available if you have not obtained Squash Pumpkin.",
+  "已拥有窝瓜南瓜后可出现，速度增幅作用于窝瓜南瓜。": "Available after obtaining Squash Pumpkin. The speed bonus applies to Squash Pumpkin.",
+  "尚未获得旅行词条“蒜毒骤发”时可出现。": "Available if you have not obtained the Odyssey modifier \"Toxicity\".",
+  "同一植物只能选择一个质变词条。": "Only one Ascend modifier can be chosen per plant.",
+  "被Apocalypse Railgun的激光的非boss类僵尸若血量低于10%则立即化为灰烬，多选提高斩杀线": "Apocalypse Railgun: Non-boss zombies hit by the laser are instantly destroyed below 10% HP. More selections raise this threshold.",
+  "匹配到12项，请用完整名称或编号": "Found 12 matches. Use the full name or ID.",
+  "僵尸进家，本节点失败，扣除3点生命，剩余50": "A zombie reached the house. Node failed. Lost 3 HP; 50 remaining.",
+  "Dragonbreath Torcher释放的飞天爆竹数+1": "Bamboombs summoned by Dragonbreath Torcher +1",
+  "Melancholy Commando的子弹命中次数+5": "Projectiles gain +5 additional pierce",
+  "<color=red>尚未拥有窝瓜南瓜时可出现。</color>": "<color=red>Available if you have not obtained Squash Pumpkin.</color>",
+  "<color=red>已拥有窝瓜南瓜后可出现，速度增幅作用于窝瓜南瓜。</color>": "<color=red>Available after obtaining Squash Pumpkin. The speed bonus applies to Squash Pumpkin.</color>",
+  "<color=red>尚未获得旅行词条“蒜毒骤发”时可出现。</color>": "<color=red>Available if you have not obtained the Odyssey modifier \"Toxicity\".</color>",
+  "<color=red>同一植物只能选择一个质变词条。</color>": "<color=red>Only one Ascend modifier can be chosen per plant.</color>"
+}

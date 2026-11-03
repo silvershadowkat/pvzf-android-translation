@@ -2350,11 +2350,12 @@ def main() -> int:
         if modifier_reason is not None and not (
             "：" in translated_text or ":" in translated_text
         ):
-            if args.pc_reference_only:
-                translated_text = literal.text
-                method = "preserved_unusable_pc_translation"
-            else:
-                modifier_reason = None
+            # A PC notification is sometimes keyed by the complete modifier
+            # source. It is not a usable card title/body. Preserve and structure
+            # the official record instead of dropping it from validation or
+            # displaying a notification as a gameplay description.
+            translated_text = literal.text
+            method = "preserved_unusable_pc_translation"
         if modifier_reason is not None and preserved_new_39:
             before_normalization = translated_text
             translated_text, title_shrunk = normalize_modifier_translation(
@@ -2632,7 +2633,9 @@ def main() -> int:
         for index in range(len(literals))
         if "【SP进化】" in literals[index].text
     ]
-    if len(sp_evolution_records) != 4 or any(
+    # The catalog grows between releases. Validate every source recipe's
+    # provenance without fixing the number to the old 3.9 catalog's four.
+    if any(
         (
             record["new_39"] is True
             and record["translation"] != record["source"]

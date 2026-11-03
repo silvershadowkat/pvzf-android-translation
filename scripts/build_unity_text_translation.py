@@ -53,6 +53,7 @@ REVIEWED_PC_COMPLETE_FIELD_HASHES = {
 ALMANAC_NARRATIVE_FIELDS = {"introduce", "info"}
 DETAIL_STRINGS_FILE = "DetailStringsTranslate.json"
 DETAIL_TYPE_TRANSLATIONS = {
+    "杂项": "Misc",
     "玩法": "Gameplay",
     "基本机制": "Basic Mechanics",
     "植物特性": "Plant Traits",

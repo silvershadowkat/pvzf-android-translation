@@ -56,9 +56,8 @@ API(void,il2cpp_thread_detach,(P));
 
 static JavaVM* vm;
 static jclass bridge;
-static jmethodID translateJava,saveMusicJava,onlineTitleJava,registerOnlineJava,plantbrushJava,leavePlantbrushJava,plantbrushStatusJava,musicSyncJava;
-static std::string runtimeRoot;
-static bool blooms=true;
+static jmethodID translateJava,saveMusicJava,onlineTitleJava,registerOnlineJava;
+static bool blooms=true,selectedBlooms=true;
 static std::unordered_map<std::string,P> classes;
 static std::mutex classMutex;
 static JNIEnv* env(){JNIEnv* e=nullptr;if(vm->GetEnv((P*)&e,JNI_VERSION_1_6)!=JNI_OK)return nullptr;return e;}
@@ -258,76 +257,6 @@ static void populateText(P o,P helper,M m){
 }
 struct V2{float x,y;};
 struct V3{float x,y,z;};
-static Tick oldAdventureRelease=nullptr;
-static Tick oldPlantbrushParse=nullptr,oldPlantbrushDispose=nullptr,oldPlantbrushStop=nullptr;
-static uint32_t pendingDrawing=0;
-static M pendingDrawingMethod=nullptr;
-static void cancelPendingDrawing(){if(pendingDrawing)il2cpp_gchandle_free(pendingDrawing);pendingDrawing=0;pendingDrawingMethod=nullptr;}
-static void plantbrushNotice(const char* text){
-    P notice=call(method(cls("Core","InGameText"),"get_Instance",0));
-    if(alive(notice)){
-        float seconds=4.0f,y=-400.0f;bool cover=true;
-        P args[]={str(text),&seconds,&cover,&y};call(method(cls("Core","InGameText"),"ShowText",4),notice,args);
-    }
-}
-static int plantbrushState(){
-    JNIEnv* e=env();if(!e||!plantbrushJava)return 0;
-    int state=e->CallStaticIntMethod(bridge,plantbrushJava);
-    if(e->ExceptionCheck()){e->ExceptionClear();return -1;}return state;
-}
-static void plantbrushUnavailable(int state){
-    plantbrushNotice(state==1?"Loading offline recognition. Tap again in a moment.":state<0?"Recognition stopped. Wait a moment, then tap again to reload it.":"Magic Plantbrush is not available on Android.");
-}
-static void plantbrushParse(P o,M m){
-    int state=plantbrushState();
-    if(state==2){cancelPendingDrawing();oldPlantbrushParse(o,m);return;}
-    if(state==1){
-        cancelPendingDrawing();pendingDrawing=il2cpp_gchandle_new(o,false);pendingDrawingMethod=m;
-        plantbrushNotice("Loading offline recognition. Your drawing will be identified when ready.");
-    }else plantbrushUnavailable(state);
-}
-static void plantbrushStop(P o,M m){
-    if(pendingDrawing&&il2cpp_gchandle_get_target(pendingDrawing)==o)cancelPendingDrawing();
-    oldPlantbrushStop(o,m);
-}
-static void plantbrushPendingTick(){
-    if(!pendingDrawing)return;
-    P menu=il2cpp_gchandle_get_target(pendingDrawing);if(!alive(menu)){cancelPendingDrawing();return;}
-    JNIEnv* e=env();if(!e||!plantbrushStatusJava)return;
-    int state=e->CallStaticIntMethod(bridge,plantbrushStatusJava);
-    if(e->ExceptionCheck()){e->ExceptionClear();state=-1;}
-    if(state==1)return;
-    M m=pendingDrawingMethod;cancelPendingDrawing();
-    if(state==2)oldPlantbrushParse(menu,m);else plantbrushUnavailable(state);
-}
-static void plantbrushDispose(P o,M m){
-    cancelPendingDrawing();
-    oldPlantbrushDispose(o,m);
-    JNIEnv* e=env();if(e&&leavePlantbrushJava){e->CallStaticVoidMethod(bridge,leavePlantbrushJava);if(e->ExceptionCheck())e->ExceptionClear();}
-}
-static void adventureRelease(P o,M m){
-    // Official 4.0.5 marks Challenge/MaLiang (197) as limInMobile.
-    // Its modal rejection leaves Recommended Levels unresponsive on Android.
-    // The optional prototype lifts only this instance's flag, only while invoking
-    // its original handler. Recognition warms up while the player starts drawing;
-    // Parse remains gated, and leaving the drawing screen cancels a queued Identify.
-    if(field<int>(o,"levelType")!=1 || field<int>(o,"buttonNumber")!=197){
-        oldAdventureRelease(o,m);return;
-    }
-    int state=plantbrushState();
-    if((state==1||state==2) && oldPlantbrushParse && oldPlantbrushDispose && oldPlantbrushStop){
-        bool limited=field<bool>(o,"limInMobile");
-        setfield(o,"limInMobile",false);oldAdventureRelease(o,m);setfield(o,"limInMobile",limited);
-        LOG("Magic Plantbrush entered; recognition state=%d",state);return;
-    }
-    P rect=field<P>(o,"rectTransform");
-    if(alive(rect)){
-        V3 origin=field<V3>(o,"originPosition");V2 position={origin.x,origin.y};
-        P args[]={&position};call(rect,"set_anchoredPosition",1,args);
-    }
-    plantbrushUnavailable(state);
-    LOG("Magic Plantbrush entry deferred, recognition state=%d",state);
-}
 static uint32_t damageButton=0,damageTemplate=0,damageOwner=0,musicButton=0;
 static unsigned damageRevision=0;
 static void release(uint32_t& h){if(h)il2cpp_gchandle_free(h);h=0;}
@@ -394,13 +323,15 @@ static void syncDamageVisibility(){
         call(owner,"GetCol");P state[]={&enabled};call(owner,"set_Interactable",1,state);
     }
 }
-static void refreshMusic(){P b=target(musicButton);if(alive(b))label(b,blooms?"Music: Blooms":"Music: Original");}
+#include "screen_mode.inc"
+static void refreshMusic(){P b=target(musicButton);if(alive(b))label(b,selectedBlooms?(selectedBlooms==blooms?"Music: Blooms":"Music: Blooms\nRestart to apply"):(selectedBlooms==blooms?"Music: Original":"Music: Original\nRestart to apply"));}
 static void click(P o,M m){
     P go=call(o,"get_gameObject");std::string id=name(go);
     if(id=="EnglishProjectileInfo") {
         P b=stat("Board","Instance");if(alive(b)){bool show=!field<bool>(b,"showBulletDamage");setfield(b,"showBulletDamage",show);if(show)setfield(stat("GameAPP","config"),"showBulletDamage",true);refreshDamage();}return;
     }
-    if(id=="EnglishMusicSelector") {blooms=!blooms;JNIEnv* e=env();if(e){e->CallStaticVoidMethod(bridge,saveMusicJava,jboolean(blooms));if(e->ExceptionCheck())e->ExceptionClear();}refreshMusic();return;}
+    if(id=="EnglishScreenSelector") {toggleScreen();return;}
+    if(id=="EnglishMusicSelector") {selectedBlooms=!selectedBlooms;JNIEnv* e=env();if(e){e->CallStaticVoidMethod(bridge,saveMusicJava,jboolean(selectedBlooms));if(e->ExceptionCheck())e->ExceptionClear();}refreshMusic();return;}
     oldClick(o,m);
 }
 static void attachInGame(P o){
@@ -413,118 +344,67 @@ static void attachInGame(P o){
 }
 static void inGameStart(P o,M m){LOG("InGameUI Start callback reached");oldInGameStart(o,m);attachInGame(o);}
 static void attachOptions(P o){
-    release(musicButton);
-    // This hierarchy is verified against the pinned Android prefab. Unity's
-    // persistent-event inspection methods were stripped from this player.
+    release(musicButton);release(screenButton);
     P findArgs[]={str("Buttons/Almanac")};
     P templateTransform=call(call(o,"get_transform"),"Find",1,findArgs);
     P templateGo=call(templateTransform,"get_gameObject");
-    if(!component(templateGo,cls("","UIButton")))templateGo=nullptr;
-    if(!templateGo){LOG("Music selector: verified template unavailable");return;}
-    // Android's original F control calls SetResolution(1920,1080,...), which
-    // distorts wide displays. Reuse its slot and deactivate that PC control.
-    // Keep all other controls, captions and confirmation prompts untouched.
+    if(!component(templateGo,cls("","UIButton")))return;
     P parent=call(templateTransform,"get_parent"),findScreen[]={str("F")};
     P slot=call(parent,"Find",1,findScreen),screenGo=call(slot,"get_gameObject");
-    P screenButton=component(screenGo,cls("","OptionBtn"));
-    if(!alive(screenGo)||!screenButton||field<int>(screenButton,"optionType")!=0){LOG("Music selector: verified screen-mode slot unavailable");return;}
-    P go=cloneButton(templateGo,"EnglishMusicSelector",blooms?"Music: Blooms":"Music: Original");
-    if(!go){LOG("Music selector: clone unavailable");return;}
-    P tr=call(go,"get_transform");
-    for(const char* property:{"anchorMin","anchorMax","pivot","sizeDelta"}){
-        std::string getter=std::string("get_")+property,setter=std::string("set_")+property;
-        V2 v=value<V2>(call(slot,getter.c_str()));P a[]={&v};call(tr,setter.c_str(),1,a);
+    P originalButton=component(screenGo,cls("","OptionBtn"));
+    P layout=component(call(parent,"get_gameObject"),cls("UnityEngine.UI","VerticalLayoutGroup"));
+    M rebuild=method(cls("UnityEngine.UI","LayoutRebuilder"),"ForceRebuildLayoutImmediate",1);
+    if(!alive(screenGo)||!originalButton||field<int>(originalButton,"optionType")!=0||!layout||!rebuild){
+        LOG("Settings profile/display controls: unexpected 4.1 hierarchy");return;
     }
-    V3 scale=value<V3>(call(slot,"get_localScale")),pos=value<V3>(call(slot,"get_localPosition"));
-    P sa[]={&scale},pa[]={&pos};call(tr,"set_localScale",1,sa);call(tr,"set_localPosition",1,pa);
-    setfield(component(go,cls("","UIButton")),"originPosition",pos);
-    bool no=false;P off[]={&no};call(screenGo,"SetActive",1,off);
-    musicButton=il2cpp_gchandle_new(go,false);bool enabled=value<bool>(call(o,"get_Interactable"));call(o,"GetCol");P a[]={&enabled};call(o,"set_Interactable",1,a);
-    LOG("Music selector: created in screen-mode slot; desktop resolution control disabled");
+    int count=value<int>(call(parent,"get_childCount"));
+    if(count!=6){LOG("Settings column has unexpected item count %d",count);return;}
+    float spacing=value<float>(call(layout,"get_spacing"));
+    V2 size=value<V2>(call(slot,"get_sizeDelta"));
+    P music=cloneButton(templateGo,"EnglishMusicSelector",blooms?"Music: Blooms":"Music: Original");
+    P screen=cloneButton(templateGo,"EnglishScreenSelector","Screen: Default");
+    if(!music||!screen)return;
+    // Use the existing column's layout and total height. The extra item consumes
+    // some of its large spacing, instead of overlapping a button or leaving the
+    // viewport. Coordinates remain in canvas units for every device resolution.
+    for(P go:{screen,music}){
+        P tr=call(go,"get_transform");
+        for(const char* property:{"anchorMin","anchorMax","pivot","sizeDelta"}){
+            std::string getter=std::string("get_")+property,setter=std::string("set_")+property;
+            V2 v=value<V2>(call(slot,getter.c_str()));P a[]={&v};call(tr,setter.c_str(),1,a);
+        }
+        V3 scale=value<V3>(call(slot,"get_localScale"));P a[]={&scale};call(tr,"set_localScale",1,a);
+    }
+    int first=0,second=1;P a[]={&first},b[]={&second};
+    call(call(screen,"get_transform"),"SetSiblingIndex",1,a);
+    call(call(music,"get_transform"),"SetSiblingIndex",1,b);
+    bool off=false;P hide[]={&off};call(screenGo,"SetActive",1,hide);
+    float gap=std::max(8.0f,(spacing*(count-1)-size.y)/count);P g[]={&gap};call(layout,"set_spacing",1,g);
+    P root[]={parent};call(rebuild,nullptr,root);
+    int all=value<int>(call(parent,"get_childCount"));
+    for(int i=0;i<all;i++){
+        P arg[]={&i};P tr=call(parent,"GetChild",1,arg),go=call(tr,"get_gameObject");
+        P button=component(go,cls("","UIBtn"));
+        if(!button)button=component(go,cls("","UIButton"));
+        if(button)setfield(button,"originPosition",value<V3>(call(tr,"get_localPosition")));
+    }
+    musicButton=il2cpp_gchandle_new(music,false);screenButton=il2cpp_gchandle_new(screen,false);
+    refreshMusic();refreshScreen();
+    bool enabled=value<bool>(call(o,"get_Interactable"));call(o,"GetCol");P state[]={&enabled};call(o,"set_Interactable",1,state);
+    LOG("Settings: separate music/display controls, old fixed-resolution handler disabled");
 }
 static void optionStart(P o,M m){LOG("OptionMenu Start callback reached");oldOptionStart(o,m);attachOptions(o);}
 
-// Original Unity sources retain the game's timing and fades, but stay inaudible
-// while Android streams Blooms. No replacement AudioClip or Unity audio decode.
-struct MusicMute{uint32_t source=0;float previous=0;};
-static MusicMute pendingMute[2];
-static void (*oldVolume)(P,float,M)=nullptr;
-static float (*oldGetVolume)(P,M)=nullptr;
-static M volumeMethod=nullptr;
-static float getVolume(P source,M m){
-    // Game fades read their own logical volume, not the silent timing source.
-    for(auto& state:pendingMute)if(state.source&&target(state.source)==source)return state.previous;
-    return oldGetVolume(source,m);
-}
-static void setVolume(P source,float volume,M m){
-    // Preserve volume changes made by the game's settings during a load.
-    // Every source except the two temporarily held music sources passes through.
-    for(auto& state:pendingMute)if(state.source&&target(state.source)==source){state.previous=volume;oldVolume(source,0,m);return;}
-    oldVolume(source,volume,m);
-}
-static void restoreMute(MusicMute& state){
-    if(P source=target(state.source))if(alive(source)&&oldVolume)oldVolume(source,state.previous,volumeMethod);
-    release(state.source);
-}
-static void holdMute(MusicMute& state,P source){
-    if(!oldVolume||!oldGetVolume)return;
-    if(target(state.source)==source)return;
-    restoreMute(state);
-    if(alive(source)){state.previous=value<float>(call(source,"get_volume"));state.source=il2cpp_gchandle_new(source,false);oldVolume(source,0,volumeMethod);}
-}
-static const char* musicNames[]={"Boss2","Day_drum","Day","Fog_drum","Fog","Garden","IZ","MainMenu","Night_drum","Night","Pool_drum","Pool","Roof_drum","Roof_pre","Roof","SelectCard","UltimateBattle"};
-struct MusicStream {uint32_t clip=0;std::string name;int epoch=0;bool failed=false;};
-static MusicStream musicStreams[2];
-static bool streamsActive=false;
-static int streamSync(int index,const std::string& track,bool playing,float volume,float time,int epoch){
-    JNIEnv* e=env();if(!e||!musicSyncJava)return -1;
-    jstring text=e->NewStringUTF(track.c_str());if(!text){if(e->ExceptionCheck())e->ExceptionClear();return -1;}
-    int result=e->CallStaticIntMethod(bridge,musicSyncJava,index,text,(jboolean)playing,volume,time,epoch);
-    e->DeleteLocalRef(text);if(e->ExceptionCheck()){e->ExceptionClear();return -1;}return result;
-}
-static void musicTick(){
-    // Original mode needs no recurring bridge work or music-object queries.
-    if(!blooms){
-        if(streamsActive){for(int i=0;i<2;i++){streamSync(i,"",false,0,0,musicStreams[i].epoch);restoreMute(pendingMute[i]);musicStreams[i].failed=false;}streamsActive=false;}
-        return;
-    }
-    streamsActive=true;
-    int index=0;
-    for(const char* fieldName:{"music","musicDrum"}){
-        auto& stream=musicStreams[index];auto& mute=pendingMute[index];
-        P source=stat("GameAPP",fieldName);P clip=alive(source)?call(source,"get_clip"):nullptr;
-        if(target(stream.clip)!=clip){
-            release(stream.clip);stream.name.clear();stream.epoch++;stream.failed=false;
-            if(alive(clip)){
-                stream.clip=il2cpp_gchandle_new(clip,false);std::string clipName=name(clip);
-                for(auto n:musicNames)if(clipName==n){stream.name=clipName;break;}
-            }
-        }
-        if(!alive(clip)||stream.name.empty()||!oldVolume||!oldGetVolume){
-            streamSync(index,"",false,0,0,stream.epoch);restoreMute(mute);index++;continue;
-        }
-        if(stream.failed){restoreMute(mute);index++;continue;}
-        holdMute(mute,source);
-        bool playing=value<bool>(call(source,"get_isPlaying"));float time=value<float>(call(source,"get_time"));
-        int state=streamSync(index,stream.name,playing,mute.previous,time,stream.epoch);
-        if(state<0){restoreMute(mute);stream.failed=true;}
-        index++;
-    }
-}
-static void (*oldPlayMusic)(P,int,M)=nullptr;
-static void playMusic(P o,int id,M m){
-    if(blooms){holdMute(pendingMute[0],stat("GameAPP","music"));holdMute(pendingMute[1],stat("GameAPP","musicDrum"));}
-    oldPlayMusic(o,id,m);musicTick();
-}
+#include "music_profiles.inc"
 static void update(P o,M m){
     static bool first=true;if(first){first=false;LOG("GameAPP Update callback reached");}
     // Hooks are installed before il2cpp_init returns, before Unity can run scene
     // Start/Parse callbacks. The old late-injection scene scan is redundant and
     // forced all active text to rebuild on the first frame.
     oldUpdate(o,m);
-    syncDamageVisibility();
+    syncDamageVisibility();screenTick();
     static auto last=std::chrono::steady_clock::now();auto now=std::chrono::steady_clock::now();if(now-last<std::chrono::milliseconds(250))return;last=now;
-    musicTick();refreshDamage();plantbrushPendingTick();
+    refreshDamage();
 }
 static bool hook(P c,const char* name,int count,P replacement,P* original){M m=method(c,name,count);if(!m||!*(P*)m){LOG("Missing hook %s",name);return false;}Dl_info info{};dladdr(*(P*)m,&info);LOG("Target %s: RVA=%llx next=%p",name,(unsigned long long)((uintptr_t)*(P*)m-(uintptr_t)info.dli_fbase),((P*)m)[1]);int result=DobbyHook(*(P*)m,replacement,original);LOG("Hook %s: %d",name,result);return result==0;}
 static bool bind(P lib){
@@ -554,17 +434,10 @@ static void initialize(){
         hook(cls("","OptionMenu"),"Start",0,(P)optionStart,(P*)&oldOptionStart);
     }
     hook(cls("","GameAPP"),"Update",0,(P)update,(P*)&oldUpdate);
-    // Resolve by class/method names on both ABIs, never by disassembly offsets.
-    if(method(cls("Core","InGameText"),"get_Instance",0) &&
-       overload(cls("Core","InGameText"),"ShowText",{"System.String","System.Single","System.Boolean","System.Single"}))
-        hook(cls("","Advanture_Btn"),"OnMouseUp",0,(P)adventureRelease,(P*)&oldAdventureRelease);
-    hook(cls("","MaLiangMenu"),"Parse",0,(P)plantbrushParse,(P*)&oldPlantbrushParse);
-    hook(cls("","MaLiangMenu"),"StopRequest",0,(P)plantbrushStop,(P*)&oldPlantbrushStop);
-    hook(cls("GameLevel","MaLiangLevelData"),"Dispose",0,(P)plantbrushDispose,(P*)&oldPlantbrushDispose);
-    volumeMethod=method(cls("UnityEngine","AudioSource"),"set_volume",1);
-    hook(cls("UnityEngine","AudioSource"),"set_volume",1,(P)setVolume,(P*)&oldVolume);
-    hook(cls("UnityEngine","AudioSource"),"get_volume",0,(P)getVolume,(P*)&oldGetVolume);
-    hook(cls("","GameAPP"),"PlayMusic",1,(P)playMusic,(P*)&oldPlayMusic);
+    // Official 4.1 owns Paintbrush entry and recognition, including networking.
+    // Do not install the historical unavailable-mode or offline-service hooks.
+    hook(cls("UnityEngine","AudioSource"),"set_clip",1,(P)setMusicClip,(P*)&oldSetMusicClip);
+    hook(cls("","GameAPP"),"PlayMusic",1,(P)profilePlayMusic,(P*)&oldProfilePlayMusic);
     LOG("Runtime initialization finished after IL2CPP init");
 }
 static std::once_flag ready;
@@ -573,17 +446,13 @@ static int (*originalInit16)(const char16_t*)=nullptr;
 static int runtimeInit(const char* domain){int result=originalInit(domain);if(result)std::call_once(ready,initialize);return result;}
 static int runtimeInit16(const char16_t* domain){int result=originalInit16(domain);if(result)std::call_once(ready,initialize);return result;}
 extern "C" JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* v,P){vm=v;return JNI_VERSION_1_6;}
-extern "C" JNIEXPORT void JNICALL Java_com_silvershadow_pvzf_EnglishActivity_startRuntime(JNIEnv* e,jclass c,jstring root,jboolean useBlooms){
+extern "C" JNIEXPORT void JNICALL Java_com_silvershadow_pvzf_EnglishActivity_startRuntime(JNIEnv* e,jclass c,jboolean useBlooms){
     static std::once_flag started;
     std::call_once(started,[&]{
     bridge=(jclass)e->NewGlobalRef(c);translateJava=e->GetStaticMethodID(c,"translate","(Ljava/lang/String;)Ljava/lang/String;");saveMusicJava=e->GetStaticMethodID(c,"saveMusic","(Z)V");
     onlineTitleJava=e->GetStaticMethodID(c,"onlineTitle","(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
     registerOnlineJava=e->GetStaticMethodID(c,"registerOnlineLevel","(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
-    plantbrushJava=e->GetStaticMethodID(c,"requestPlantbrush","()I");
-    leavePlantbrushJava=e->GetStaticMethodID(c,"leavePlantbrush","()V");
-    plantbrushStatusJava=e->GetStaticMethodID(c,"plantbrushStatus","()I");
-    musicSyncJava=e->GetStaticMethodID(c,"syncMusic","(ILjava/lang/String;ZFFI)I");
-    const char* path=e->GetStringUTFChars(root,nullptr);runtimeRoot=path;e->ReleaseStringUTFChars(root,path);blooms=useBlooms;
+    blooms=useBlooms;selectedBlooms=blooms;
     P lib=dlopen("libil2cpp.so",RTLD_NOW|RTLD_NOLOAD);
     if(!lib||!bind(lib)||DobbyHook(dlsym(lib,"il2cpp_init"),(P)runtimeInit,(P*)&originalInit)!=0||DobbyHook(dlsym(lib,"il2cpp_init_utf16"),(P)runtimeInit16,(P*)&originalInit16)!=0){
         e->ThrowNew(e->FindClass("java/lang/IllegalStateException"),"Cannot install safe IL2CPP initialization hook");return;

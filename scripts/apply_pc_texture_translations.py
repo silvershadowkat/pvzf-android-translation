@@ -40,6 +40,7 @@ PARTICLE_NAMES = (
 PRESERVE_REASONS = {
     "Logo/Logo3.6.png": "versioned PC 3.6 logo is unsuitable for Android 3.8.1",
     "Menu/thanks.png": "preserve the approved Android credits parchment",
+    "Game/剧情文本.png": "preserve the approved English Android diary artwork",
     "Menu/深渊入口.png": "Abyss is parked and must remain untouched",
 }
 
@@ -313,10 +314,10 @@ def main() -> int:
         texture = check_textures[str(record["name"])][0].read()
         after_error = mean_pixel_error(source, texture.image)
         record["mean_pixel_error_after"] = round(after_error, 4)
-        if (
-            after_error >= float(record["mean_pixel_error_before"])
-            or after_error > args.max_reopened_error
-        ):
+        # A previously translated texture may already match this exact PC
+        # source. Requiring strict improvement rejects valid repeat builds.
+        # Validate against the canonical English pixels, not relative change.
+        if after_error > args.max_reopened_error:
             raise RuntimeError(
                 f"reopened texture validation failed for {record['relative_source']}: "
                 f"before={record['mean_pixel_error_before']}, after={after_error:.4f}"

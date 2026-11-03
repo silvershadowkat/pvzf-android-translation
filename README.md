@@ -2,8 +2,16 @@
 
 Research and tooling for producing a repeatable English translation patch for
 the Android IL2CPP build of *Plants vs. Zombies Fusion*. The immediate target
-is Android 4.0.5; the larger goal is a workflow that can be rerun when the game
+is Android 4.1; the larger goal is a workflow that can be rerun when the game
 updates.
+
+**4.1 prerelease 1 is being tested locally, not published.** It uses one EN APK
+with the official online Magic Plantbrush implementation. The previous offline
+recognizer is parked and is not included. Music uses normalized streaming clips
+through Unity's own playback, with soundtrack changes applied after restarting.
+Separate manual screen and music controls are included. See the
+[4.1 audit and test checklist](docs/testing/ANDROID41-UPGRADE-TRACKER.md) and
+[draft notes](docs/RELEASE-NOTES-4.1-PRE1-DRAFT.md).
 
 [Download Android 4.0.5 English prerelease 4](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-4)
 
@@ -32,9 +40,11 @@ New or changed gameplay terminology, including plant, zombie, item,
 fusion, modifier, recipe, name, and description text, must match a usable value
 from the latest PC community translation exactly. Placeholder values such as
 `TODO`, `???`, repeated temporary descriptions, and literal `X`/`Y` names do
-not count as translations. If the PC project has no usable translation, keep
-the official Chinese Android field. Do not create context-aware or other
-AI-assisted English gameplay text for new specialized content.
+not count as translations. If the PC project has no usable translation, retain
+unverified specialized names. Context Aware AI may translate clear prose,
+instructions and numeric effects using verified terminology and the current
+source. It must not invent plant names, mechanics, recipes or descriptions.
+Reuse existing wording for the same verified plant identity wherever possible.
 
 Confirmed generic UI and basic numeric effects may use context-aware AI English when their meaning is
 unambiguous and it does not introduce game terminology. This narrowly covers

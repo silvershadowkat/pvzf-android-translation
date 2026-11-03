@@ -69,3 +69,5 @@ __pycache__/
 !assets/parchments-4.0.5-production.json
 !assets/storybook-4.0.5-english.png
 !assets/credits-parchment-4.0.5-english.png
+!assets/ui-4.1-review.json
+!assets/content-4.1-review.json
