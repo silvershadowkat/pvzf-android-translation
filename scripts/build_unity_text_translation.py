@@ -24,6 +24,7 @@ from typing import Any
 import UnityPy
 
 from build_metadata_translation import ANDROID_CONFIRMED_EXACT, is_reviewed_pc_credit_text
+from overlay_text_assets import normalize_android_almanac_text_asset
 
 
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
@@ -987,6 +988,9 @@ def main() -> int:
                     new_script = json.dumps(policy_tree, ensure_ascii=False, indent=4)
                     methods.append("new_39_pc_or_chinese_policy")
 
+        new_script, size_tags = normalize_android_almanac_text_asset(original_name, new_script)
+        if size_tags:
+            methods.append('android_almanac_size_tags_removed')
         if new_name == original_name and new_script == original_script:
             continue
         data.m_Name = new_name

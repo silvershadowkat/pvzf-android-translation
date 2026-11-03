@@ -34,6 +34,7 @@ static void screenTick(){
     int height=value<int>(call(method(c,"get_height",0)));
     if(std::abs(width-screenRequested.width)<=2&&std::abs(height-screenRequested.height)<=2){
         screenFilled=screenWanted;screenPending=false;refreshScreen();
+        LOG("Screen mode %s applied: %dx%d; captured default %dx%d",screenFilled?"Stretch":"Default",width,height,screenOriginal.width,screenOriginal.height);
     }else if(std::chrono::steady_clock::now()>screenDeadline){
         LOG("Requested display dimensions not accepted: %dx%d -> %dx%d",screenRequested.width,screenRequested.height,width,height);
         // Restore the captured default, never guess a fixed resolution. A later

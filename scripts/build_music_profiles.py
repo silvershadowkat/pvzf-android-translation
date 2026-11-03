@@ -1,4 +1,4 @@
-"""Append normalized streaming music profiles without rewriting original clips.
+"""Append normalized decompressed-playback music profiles without rewriting original clips.
 
 Uses the installed Unity FSBTool command-line encoder directly. AudioClips retain the game's serialized
 schema and use its own ResourceManager and native playback implementation.
@@ -88,7 +88,7 @@ def main():
             out.write(b'\0' * (-out.tell() % 16))
             offset = out.tell()
             out.write(data)
-            tree.update(m_LoadType=2, m_PreloadAudioData=False, m_LoadInBackground=True,
+            tree.update(m_LoadType=0, m_PreloadAudioData=False, m_LoadInBackground=True,
                         m_Channels=row['channels'], m_Frequency=row['rate'], m_BitsPerSample=16,
                         m_Length=row['frames']/row['rate'], m_SubsoundIndex=0, m_CompressionFormat=1,
                         m_Resource={'m_Source': a.output_resource.name, 'm_Offset': offset, 'm_Size': len(data)})
@@ -114,7 +114,7 @@ def main():
             assert o.assets_file.name == 'resources.assets' and o.path_id in expected and o.type.name == 'AudioClip'
             t = o.read_typetree()
             row = expected[o.path_id]
-            assert t['m_Name'] == row['name'] and t['m_LoadType'] == 2 and t['m_LoadInBackground'] and not t['m_PreloadAudioData']
+            assert t['m_Name'] == row['name'] and t['m_LoadType'] == 0 and t['m_LoadInBackground'] and not t['m_PreloadAudioData']
             r = t['m_Resource']
             with a.output_resource.open('rb') as f:
                 f.seek(r['m_Offset'])
@@ -129,11 +129,11 @@ def main():
             assert new.read(len(block)) == block, 'Original audio payload changed'
     report = {'base_sha256': sha(a.base_bundle), 'output_sha256': sha(a.output),
               'resource_sha256': sha(a.output_resource), 'original_objects_compared': len(before),
-              'changed_original_objects': changed, 'added_streaming_clips': len(added), 'tracks': facts,
+              'changed_original_objects': changed, 'added_music_clips': len(added), 'load_type': 'DecompressOnLoad', 'tracks': facts,
               'source_stem_lengths_preserved': stem_lengths,
               'all_original_audio_objects_and_payloads_unchanged': True}
     a.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
-    print('Verified', len(added), 'streaming clips; only ResourceManager changed among original objects', flush=True)
+    print('Verified', len(added), 'music clips; only ResourceManager changed among original objects', flush=True)
 
 
 if __name__ == '__main__':

@@ -48,3 +48,7 @@ A candidate for 4.1 is Android-encoded, streaming Unity AudioClips for both prof
 Local evidence lives in task workspace `work/upgrade41/`: input audit, pinned PC source, official extracted Unity inputs, type dump, named disassembly and Unity inventory. These are original game intermediates, not repository deliverables.
 
 Next: validate the streaming clip pipeline; perform measured normalization; port translations from clean 4.1 inputs; remove old recognition hooks; implement the two independent settings buttons; build and run host/package/refresh checks; smoke-test available authorized device if present; deliver one local APK and brief test instructions. Release remains unpublished and the APK remains unuploaded pending maintainer testing.
+
+## Current local checkpoint
+
+Local r3 (4100102) supersedes the initial investigation options above. DecompressOnLoad replaced streaming after on-device seek diagnostics; no external players or offline recognizer ship. The settings column and manual resolution reversal are verified on S26. Follow-up fixes restore almanac font normalization, scope recipe matching to known ingredients, and expand Super Stacking/Odyssey UI. See the candidate audit/build record for current checks. No upload or publication. Test only S26 until further notice; leave Nova untouched.

@@ -7,8 +7,8 @@ updates.
 
 **4.1 prerelease 1 is being tested locally, not published.** It uses one EN APK
 with the official online Magic Plantbrush implementation. The previous offline
-recognizer is parked and is not included. Music uses normalized streaming clips
-through Unity's own playback, with soundtrack changes applied after restarting.
+recognizer is parked and is not included. Music uses normalized clips
+through Unity's own decompressed playback, with soundtrack changes applied after restarting. Local r3 restores Android almanac font sizing and fixes further Odyssey/Super Stacking UI, including a falsely triggered fusion-recipe banner.
 Separate manual screen and music controls are included. See the
 [4.1 audit and test checklist](docs/testing/ANDROID41-UPGRADE-TRACKER.md) and
 [draft notes](docs/RELEASE-NOTES-4.1-PRE1-DRAFT.md).

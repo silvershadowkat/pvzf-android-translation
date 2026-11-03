@@ -11,12 +11,14 @@ public final class PayloadTranslationTest {
         Class<?> c=Class.forName("com.silvershadow.pvzf.EnglishActivity");
         Field ef=c.getDeclaredField("exact");ef.setAccessible(true);Map exact=(Map)ef.get(null);
         Field rf=c.getDeclaredField("rules");rf.setAccessible(true);List rules=(List)rf.get(null);
+        Field nf=c.getDeclaredField("recipeNames");nf.setAccessible(true);Set names=(Set)nf.get(null);
         Class<?> r=Class.forName("com.silvershadow.pvzf.EnglishActivity$Rule");
         Constructor<?> ctor=r.getDeclaredConstructor(String.class,String.class);ctor.setAccessible(true);
         Method translate=c.getMethod("translate",String.class);List<String> output=new ArrayList<>();int checks=0;
         for(String line:Files.readAllLines(Paths.get(args[0]),StandardCharsets.UTF_8)){
             String[] row=line.split("\t",-1);
             if(row[0].equals("E"))exact.put(dec(row[1]),dec(row[2]));
+            else if(row[0].equals("N"))names.add(dec(row[1]));
             else if(row[0].equals("R"))rules.add(ctor.newInstance(dec(row[1]),dec(row[2])));
             else if(row[0].equals("T"))output.add(enc((String)translate.invoke(null,dec(row[1]))));
             else if(row[0].equals("C")){

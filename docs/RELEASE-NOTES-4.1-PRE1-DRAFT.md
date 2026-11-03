@@ -14,12 +14,14 @@ Local test draft. Do not publish or upload the APK before maintainer testing.
 - Fixed the reported Gods card and almanac gaps: Squash Pumpkin's Ascend and eligibility text, Apocalypse Railgun's Disintegration effect, Melancholy Commando's Penetration effect, Toxicity eligibility, Supremacy-shroom's Impact effect, and Dragonbreath Torcher's Firecracker effect.
 - Added verified Blooms records for Artsy Sunflower, Ball Cactus, SP Calamity-shroom and SP Avarice-shroom.
 - Context Aware AI, using established game terms, covers the actual 4.1 announcement, clear new plant prose and instructions, shop/save/editor prompts and recognition messages. Unverified specialized names remain Chinese.
+- Restored Android almanac description sizing. Fixed Odyssey shop node/bench/HP/interest/refresh labels and Super Stacking research, recycling, inventory, tiered item names, checkpoints and its full help page. Prevented research bonuses from triggering an incorrect fusion-discovery banner.
+- Expanded Odyssey: Evolved's difficulty, shop, leader preview, card-stat and counter text, Super Stacking's shop/tutorial text, and Magic Plantbrush's instructions. Removed its outdated "Untranslated" label.
 
 ## Runtime and controls
 
 - Dynamic cards, eligibility text, styled UI and downloaded level labels still use exact or bounded display translation. Complete mixed-language keys are prepared at build time. Gameplay identifiers are preserved.
-- Replaced the separate Android music players with normalized streaming clips on Unity's own music sources. This targets loading stalls, playback drift and unintended fallback. Soundtrack changes now require closing and reopening the game.
-- Restored a separate manual Screen button beside Music. It derives rendering dimensions from the current display and restores the captured default when toggled back. No automatic stretching or fixed 1080p override.
+- Music uses Unity's original decompressed playback with background loading. Inactive decoded music is released when tracks change. Soundtrack changes require closing and reopening the game, with a notice using the game's own popup style. This replaces the separate Android players and the first 4.1 candidate's compressed streaming.
+- Fixed the missing music selector by using the settings column's actual manually positioned layout. The separate Screen button derives rendering dimensions from the current display and restores the captured default when toggled back. No automatic stretching or fixed 1080p override.
 - Projectile Info touch access and customizable button positioning remain available.
 - Removed our Magic Plantbrush launch blocker and offline recognizer. The mode now uses 4.1's official online recognition service. It needs internet and depends on that service being available.
 

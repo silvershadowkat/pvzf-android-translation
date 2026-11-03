@@ -16,8 +16,8 @@ CERT = '1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6'
 META = 'assets/bin/Data/Managed/Metadata/global-metadata.dat'
 BUNDLE = 'assets/bin/Data/data.unity3d'
 RESOURCE = 'assets/bin/Data/resources.resource'
-VERSION_CODE = 4100100
-VERSION_NAME = '4.1-English-pre1'
+VERSION_CODE = 4100102
+VERSION_NAME = '4.1-English-pre1-r3'
 PACKAGE = 'com.LanPiaoPiao.PlantsVsZombiesEN'
 
 
@@ -30,6 +30,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     for name in ('official', 'bundle', 'resource', 'payload', 'work', 'output', 'sdk', 'jdk', 'dobby', 'secret'):
         ap.add_argument('--'+name, type=Path, required=True)
+    ap.add_argument('--music-diagnostics',action='store_true',help='Local seek-timing measurement only')
     a = ap.parse_args()
     r = Path(__file__).resolve().parents[1]
     a.work.mkdir(parents=True, exist_ok=True)
@@ -43,6 +44,7 @@ def main():
     music = json.loads((a.bundle.parent/'music-profile-build.json').read_text(encoding='utf8'))
     assert identity['only_player_settings_changed'] and identity['sha256'] == sha(a.bundle)
     assert music['all_original_audio_objects_and_payloads_unchanged'] and music['resource_sha256'] == sha(a.resource)
+    assert music.get('load_type')=='DecompressOnLoad', 'Use stock-style decompressed music playback'
     with zipfile.ZipFile(a.official) as z:
         protection = verify_metadata(z.read(META), (a.payload/'metadata.dat').read_bytes())
 
@@ -80,7 +82,8 @@ def main():
                               '-DCMAKE_MAKE_PROGRAM='+str(a.sdk/'cmake/3.22.1/bin/ninja.exe'),
                               '-DCMAKE_TOOLCHAIN_FILE='+str(a.sdk/'ndk/25.2.9519653/build/cmake/android.toolchain.cmake'),
                               '-DANDROID_ABI='+abi, '-DANDROID_PLATFORM=android-22', '-DCMAKE_BUILD_TYPE=Release',
-                              '-DANDROID_STL=c++_static', '-DDOBBY_SOURCE='+str(a.dobby)], 60)
+                              '-DANDROID_STL=c++_static', '-DDOBBY_SOURCE='+str(a.dobby),
+                              '-DPVZF_MUSIC_DIAGNOSTICS='+('ON' if a.music_diagnostics else 'OFF')], 60)
         run('compile-'+abi, [cm, '--build', build, '--target', 'pvzfenglish', '--parallel', '2'], 240)
         lib, stripped = build/'libpvzfenglish.so', build/'libpvzfenglish-stripped.so'
         strip = a.sdk/'ndk/25.2.9519653/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-strip.exe'
@@ -170,8 +173,10 @@ def main():
               'certificate_sha256': CERT, 'official_sha256': OFFICIAL, 'pc_commit': report['pc_commit'],
               'changed_existing_entries': sorted(changed), 'added_entries': added, 'protected_metadata': protection,
               'all_original_native_libraries_unchanged': True, 'local_ai_included': False,
-              'music': 'Native Unity streaming AudioClip profiles; soundtrack changes require restart',
+              'music': 'Native Unity DecompressOnLoad profiles; inactive decoded data unloaded; restart required',
+              'bundle_review': identity,
               'device_tested': False, 'managed_refresh': build_manifest,
+              'music_diagnostics': a.music_diagnostics,
               'runtime_source_sha256': {str(p.relative_to(r)): sha(p) for p in sorted((r/'runtime').rglob('*')) if p.is_file() and p.suffix in ('.cpp', '.h', '.inc', '.java')}}
     (a.work/'build.json').write_text(json.dumps(record, ensure_ascii=False, indent=2)+'\n', encoding='utf8')
     print('Verified local APK: '+str(a.output), flush=True)

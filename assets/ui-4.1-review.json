@@ -2,12 +2,16 @@
   "policy": "Context-aware generic UI and numeric effects; established PC names reused. Exact display strings only.",
   "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632",
   "pc_inaccurate_values": {
-    "卧薪尝胆：令全场植物的独立伤害增幅和速度增幅翻倍": "\"No Pains No Gains\" modifier has been reversed"
+    "卧薪尝胆：令全场植物的独立伤害增幅和速度增幅翻倍": "\"No Pains No Gains\" modifier has been reversed",
+    "神笔马良": "Magic Plantbrush\n(Untranslated)",
+    "查看出怪": "View 出怪"
   },
   "terminology": {
     "窝瓜南瓜": "Squash Pumpkin",
     "蒜毒骤发": "Toxicity",
-    "飞天爆竹_projectile": "Bamboombs"
+    "飞天爆竹_projectile": "Bamboombs",
+    "海克斯": "Hex (official TravelRogueHex classes; generic labels, not invented item names)",
+    "超级叠叠乐": "Super Stacking (literal context-aware mode label; no verified PC title)"
   },
   "runtime_only": {
     "Esc 返回游戏": "Esc: Back to Game",
@@ -59,7 +63,76 @@
     "读取关卡存档失败：": "Could not load the level save: ",
     "读取失败，原存档已保留": "Load failed. The original save was kept.",
     "道具候选已失效，道具已保留，可重新打开": "The item choices are no longer valid. The item was kept; open it again.",
-    "遭遇：选择难度": "Encounter: Choose Difficulty"
+    "遭遇：选择难度": "Encounter: Choose Difficulty",
+    "\n位置：出战卡槽": "\nLocation: Active Slot",
+    "\n当前卡牌装备：": "\nCurrent Card Equipment:",
+    "\n究极装备": "\nUltimate Equipment",
+    "\n装备：": "\nEquipment:",
+    " · 当前": " · Current",
+    "下一轮": "Next Round",
+    "卡牌 / 装备": "Cards / Equipment",
+    "商店已满级": "Shop is at maximum level",
+    "奖励关": "Reward Round",
+    "已售出": "Sold Out",
+    "已获得海克斯": "Hexes Obtained",
+    "当前卡牌装备：": "Current Card Equipment:",
+    "当前节点：": "Current Node:",
+    "战斗关": "Battle",
+    "攻击力加成x100%": "Damage Bonus*100%",
+    "旅行进化 ": "Odyssey: Evolved ",
+    "暂无海克斯": "No Hexes Yet",
+    "本局尚未获得海克斯。": "No Hexes obtained this run.",
+    "本局领袖预告": "Leaders This Run",
+    "植物类别": "Plant Categories",
+    "概率": "Rates",
+    "概率预览": "Rate Preview",
+    "海克斯": "Hexes",
+    "海克斯强化": "Hex Modifiers",
+    "自动下一波\n已关闭": "Auto Next Wave\nOff",
+    "自动下一波\n已开启": "Auto Next Wave\nOn",
+    "自动下一波\n强制开启": "Auto Next Wave\nAlways On",
+    "花盆": "Flower Pot",
+    "花盆效率": "Flower Pot Efficiency",
+    "装备 / 道具": "Equipment / Items",
+    "该卡牌装备已满3件": "This card already has 3 equipment items",
+    "读卡器": "Card Reader",
+    "读卡器效率": "Card Reader Efficiency",
+    "超级叠叠乐": "Super Stacking",
+    "超级叠叠乐 · ": "Super Stacking · ",
+    "轮间商店": "Between-Round Shop",
+    "返回商店": "Back to Shop",
+    "这张卡牌没有装备": "This card has no equipment",
+    "进入下一轮": "Next Round",
+    "进入商店": "Enter Shop",
+    "进阶装备": "Advanced Equipment",
+    "连胜": "Win Streak",
+    "遭遇1、2、3三选一": "Encounter: Choose 1, 2 or 3",
+    "遭遇二选一：1/2中随机、3/4中随机": "Encounter: Choose one random option from 1/2 or 3/4",
+    "遭遇关": "Encounter",
+    "锁定商店": "Lock Shop",
+    "一键同步": "Sync All",
+    "咖啡持续时间": "Coffee Duration",
+    "咖啡效率": "Coffee Efficiency",
+    "阳光获取": "Sun Gain",
+    "全体伤害": "All Plant Damage",
+    "鼠标悬浮效率": "Manual Work Efficiency",
+    "未探索": "Unexplored",
+    "开局": "Run Start",
+    "开局记录点": "Start Checkpoint",
+    "先探索": "Explore First",
+    "探索\n": "Explore\n",
+    "探索解锁 · ": "Explore to Unlock · ",
+    "生产配方 · 成品保底": "Recipe · Minimum Quality: ",
+    "鼠标悬停使植物工作": "Hover over plants to make them work",
+    "探索白银向日葵": "Explore Silver Sunflower",
+    "探索黄金向日葵": "Explore Gold Sunflower",
+    "探索钻石向日葵": "Explore Diamond Sunflower",
+    "探索棱彩向日葵": "Explore Prismatic Sunflower",
+    "探索黄金育种葵": "Explore Gold Marigold",
+    "探索钻石育种葵": "Explore Diamond Marigold",
+    "可用研究点  {0}  ·  每击败一波 +1": "Research Points: {0} · +1 per wave defeated",
+    "探索": "Explore",
+    "育种葵": "Marigold"
   },
   "exact": {
     "卧薪尝胆：令全场植物的独立伤害增幅和速度增幅翻倍": "<nobr>No Pains No Gains</nobr>：\nDoubles all plants' independent damage and speed bonuses.",
@@ -90,6 +163,2038 @@
     "识图服务返回的数据无法解析。": "The recognition service returned unreadable data.",
     "识图服务返回空结果。": "The recognition service returned an empty result.",
     "识图结果无效，请更新图库后重试。": "The recognition result is invalid. Update the reference image library and try again.",
-    "连接识图服务失败或超时，请检查网络与服务器连接。": "The recognition service connection failed or timed out. Check your network and server connection."
+    "连接识图服务失败或超时，请检查网络与服务器连接。": "The recognition service connection failed or timed out. Check your network and server connection.",
+    "\n\n僵尸基础生命倍率 ×{0:0.#}": "\n\nBase Zombie HP Multiplier x{0:0.#}",
+    "\n冷却缩减：{0:0.#}%": "\nCooldown Reduction: {0:0.#}%",
+    "\n商店升级抵扣 {0}积分": "\nShop Upgrade Discount: {0} points",
+    "\n波次中途的操作不保存，重进从此处继续": "\nMid-wave actions are not saved. Reopening resumes here.",
+    "\n溢出 {0}张，请先腾出卡位": "\n{0} extra cards. Free up space first.",
+    "\n领袖{0}只：{1}": "\n{0} Leaders: {1}",
+    "#{0}  {1} · {2} · {3} {4}\n装备 {5}/3 · 当前选中 {6}": "#{0}  {1} · {2} · {3} {4}\nEquipment {5}/3 · Selected {6}",
+    "{0:+0.##;-0.##;0}积分": "{0:+0.##;-0.##;0} points",
+    "{0:0}秒": "{0:0}s",
+    "{0:N0} 阳光": "{0:N0} Sun",
+    "{0}\n阶段 {1} · 波次 {2}/{3} · 阳光 {4} · 积分 {5:0}\n生命 {6}/{7} · 连胜 {8} · 商店 Lv.{9} · 免费刷新 {10}\n卡牌 {11}（溢出 {12}）· 装备 {13} · 道具 {14} · 礼盒 {15} · 海克斯 {16}": "{0}\nStage {1} · Wave {2}/{3} · Sun {4} · Points {5:0}\nHP {6}/{7} · Win Streak {8} · Shop Lv.{9} · Free Refreshes {10}\nCards {11} (Extra {12}) · Equipment {13} · Items {14} · Giftboxes {15} · Hexes {16}",
+    "{0}  /  笔宽 {1}  /  256 × 256": "{0}  /  Width {1}  /  256 x 256",
+    "{0}  |  {1}  |  积分 {2:0}  阳光 {3}  生命 {4}/{5}": "{0}  |  {1}  |  Points {2:0}  Sun {3}  HP {4}/{5}",
+    "{0} 的装备（{1}/3）": "{0}'s Equipment ({1}/3)",
+    "{0} 第{1}大关 {2}": "{0} Chapter {1} {2}",
+    "{0}品质卡牌×{1}": "{0} Cards x{1}",
+    "{0}礼盒 ×{1}": "{0} Giftbox x{1}",
+    "{0}积分": "{0} points",
+    "{0}阳光": "{0} Sun",
+    "{0}难度 · 共{1}位领袖 · 按大关顺序展示": "{0} difficulty · {1} Leaders · In chapter order",
+    "{0}，生命 {1}/{2}，难度 {3}": "{0}, HP {1}/{2}, Difficulty {3}",
+    "上场结算 +{0}积分\n基础 {1}　连胜 {2}\n利息 {3}　额外 {4}": "Last Battle +{0} points\nBase {1}　Streak {2}\nInterest {3}　Extra {4}",
+    "下一级消耗：{0}": "Upgrade cost ：{0}",
+    "下波 {0:0}秒": "Next Wave: {0:0}s",
+    "价格：{0}积分": "Price: {0} points",
+    "以你的画作代替画出的植物或魅惑僵尸贴图": "Use your drawing as the texture for drawn plants or hypnotized zombies.",
+    "你没有按向日葵要求完成画作，植物已被收回": "You did not finish the portrait in time. The plant was taken back.",
+    "使用绘画向日葵会定期在前方种植随机植物\n可以点击绘画向日葵拿起画笔为植物绘制贴图\n绘画向日葵生产问号后，如果你在30秒内没有画出植物，植物将被回收": "Artsy Sunflower periodically attracts a random plant in front.\nTap Artsy Sunflower to pick up the brush and paint a plant.\nAfter a question mark appears, paint the plant within 30 seconds or it will be taken back.",
+    "僵尸生命额外 ×{0:0}\n战斗关 {1} 波\nBoss 数量 {2}\n{3}\nBoss 于第一个旗帜波登场": "Extra Zombie HP x{0:0}\nBattle: {1} waves\nBoss Count: {2}\n{3}\nBosses appear on the first flag wave",
+    "升级商店 {0}生命": "Upgrade Shop: {0} HP",
+    "升级商店 {0}积分": "Upgrade Shop: {0} points",
+    "售卖\n（{0}积分）": "Sell\n({0} points)",
+    "商店 Lv.{0} · 升级保留真实触发效果": "Shop Lv.{0} · Upgrades retain their actual triggered effects",
+    "商店 Lv.{0}　卡槽 {1}/{2}\n备战 {3}/{4}　装备 {5}　礼盒 {6}": "Shop Lv.{0}　Slots {1}/{2}\nBench {3}/{4}　Equipment {5}　Giftboxes {6}",
+    "回到 Lv.{0}": "Back to Lv.{0}",
+    "定向已有植物；棱彩同种最低钻石，红卡同种不再刷新。\n3钻石合棱彩，3棱彩合至尊红卡；概率已计入持有卡的钻石保底。": "Targets a plant you own. Matching Prismatic cards are at least Diamond; matching Red cards are not refreshed.\nCombine 3 Diamond cards into Prismatic, or 3 Prismatic into Supreme Red. Rates include the Diamond minimum for owned plants.",
+    "当前卡牌 #{0} {1} · 装备{2}/3": "Current Card #{0} {1} · Equipment {2}/3",
+    "当前波数：{0}/{1}\n\n": "Current Wave: {0}/{1}\n\n",
+    "攻击力加成：{0:0.#}%\n生命值加成：{1:0.#}%\n速度加成：{2:0.#}%": "Damage Bonus: {0:0.#}%\nHP Bonus: {1:0.#}%\nSpeed Bonus: {2:0.#}%",
+    "攻击力：<color={0}>{1}</color><color={2}>(+{3:F0}%)</color>\n": "Attack Damage: <color={0}>{1}</color><color={2}>(+{3:F0}%)</color>\n",
+    "攻击力：{0}": "Damage: {0}",
+    "攻击力：{0}\n": "Damage: {0}\n",
+    "攻击力：{0}(+{1:F0}%)\n": "Attack Damage: {0}(+{1:F0}%)\n",
+    "敌人生命额外 ×{0:0}\n基础积分 ×{1:0.0}\n{2}": "Extra Enemy HP x{0:0}\nBase Points x{1:0.0}\n{2}",
+    "本局已获得 {0} 个海克斯": "{0} Hexes obtained this run",
+    "植物卡、花盆点击选择后放置\n读卡器与消耗品拖动使用": "Tap a plant card or Flower Pot to select it, then place it.\nDrag Card Readers and consumables to use them.",
+    "点击底栏花盆，在草坪上放置\n场上植物与花盆使用原生手套移动": "Tap a Flower Pot in the bottom bar, then place it on the lawn.\nUse the glove to move plants and Flower Pots.",
+    "点击神笔作画，可以画出植物或魅惑僵尸\n画作看起来越强，画出的单位就会越强\n高级画笔画出的数值上限更高": "Tap the brush to draw plants or hypnotized zombies.\nThe stronger your drawing looks, the stronger the resulting unit.\nHigher-grade brushes raise the maximum stats.",
+    "生命 {0}/{1}\n攻击 {2}\n花盆自动速度 ×{3:0.00}\n咖啡剩余 {4:0}秒 / 冷却 {5:0}秒": "HP {0}/{1}\nDamage {2}\nFlower Pot Auto Speed x{3:0.00}\nCoffee: {4:0}s left / Cooldown {5:0}s",
+    "画作相似度太低，惊动了一群僵尸前来进攻": "The drawing was not similar enough and attracted a group of attacking zombies.",
+    "神笔马良": "Magic Plantbrush",
+    "第{0}/{1}页": "Page {0}/{1}",
+    "第{0}/{1}页 · 共{2}项 · 类型：{3}": "Page {0}/{1} · {2} entries · Type: {3}",
+    "第{0}关": "Level {0}",
+    "第{0}大关 Boss 来袭！": "Chapter {0}: Boss Incoming!",
+    "第{0}大关 · {1}\n本关共{2}位领袖\n第10波登场\n\n点击查看图鉴": "Chapter {0} · {1}\n{2} Leaders this chapter\nAppear on wave 10\n\nTap to view the almanac",
+    "第{0}大关　{1}\n补给轮，不出怪": "Chapter {0}　{1}\nSupply round: no zombies",
+    "第{0}大关　{1}　{2}路线\n{3}波　{4}种僵尸{5}\n\n{6}\n\n点击查看僵尸图鉴": "Chapter {0}　{1}　{2} route\n{3} waves　{4} zombie types{5}\n\n{6}\n\nTap to view the Zombie Almanac",
+    "第{0}波": "Wave {0}",
+    "第{0}波开始": "Wave {0} Starts",
+    "第{0}波开始记录点": "Wave {0} Start Checkpoint",
+    "第{0}行 · 第{1}列": "Lane {0} · Column {1}",
+    "第{0}轮": "Round {0}",
+    "第{0}轮 · {1}": "Round {0} · {1}",
+    "第{0}轮 · 第{1}大关 · {2} · {3}波{4}": "Round {0} · Chapter {1} · {2} · {3} waves{4}",
+    "素材 {0} · 已种品质：{1}\n已种装备：{2}\n\n{3}": "Ingredient {0} · Planted Quality: {1}\nPlanted Equipment: {2}\n\n{3}",
+    "自动读卡速度 +{0:P0}；每级 +{1:P0}": "Auto Card Reading +{0:P0}; +{1:P0} per level",
+    "自动速度 ×{0:0.##}": "Auto Speed x{0:0.##}",
+    "花盆自动工作 +{0:P0}；每级 +{1:P0}": "Flower Pot Auto Work +{0:P0}; +{1:P0} per level",
+    "获得{0}：{1}\n强度 = {2:F2}\n相似度 = {3}": "Obtained {0}: {1}\nStrength = {2:F2}\nSimilarity = {3}",
+    "补给：{0}选一": "Supply: Choose 1 of {0}",
+    "请选择旅行进化难度": "Choose Odyssey: Evolved difficulty",
+    "购买 · {0}阳光": "Buy · {0} Sun",
+    "购买后进入底栏，拖到卡牌或草坪使用\n读卡器可选中升级，也可拖入回收区": "Purchased items appear in the bottom bar. Drag them onto a card or the lawn.\nSelect a Card Reader to upgrade it, or drag it into the recycling area.",
+    "返还{0}阳光，花盆留在格子。\n这株植物未完成的生产与待入库成品将丢失。": "Refund {0} Sun. The Flower Pot stays.\nThis plant loses unfinished production and products not yet stored.",
+    "遭遇难度{0}": "Encounter Difficulty {0}",
+    "阳光  {0:N0}": "Sun  {0:N0}",
+    "阳光  {0}": "Sun  {0}",
+    "阳光  {0}  ·  购买后从底栏「道具」拖到草坪使用": "Sun  {0}  ·  After purchase, drag from Items in the bottom bar onto the lawn.",
+    "阳光目标 {0:N0}/{1:N0} · 基地 {2} · 无尽 · 第{3}波 · {4}\n{5:0.0}分钟 · {6}　植物 {7}/{8}　记录点：{9} · 中途不保存": "Sun Target {0:N0}/{1:N0} · Base {2} · Endless · Wave {3} · {4}\n{5:0.0} minutes · {6}　Plants {7}/{8}　Checkpoint: {9} · No mid-wave saving",
+    "随机植物\n{0:0.#}工作秒": "Random Plant\n{0:0.#} work seconds",
+    "鼠标<color=red>悬停</color>在卡牌上可使其冷却，在植物上可使其工作\n商店里面<color=red>读卡器、花盆</color>可以自动化这一过程，<color=red>花盆</color>需要放在植物下方才能工作\n商店购买的道具在底部菜单栏显示，<color=red>读卡器等道具</color>需要拖到卡牌上\n<color=red>金盏花</color>用于生产输出植物防守僵尸，产物植物同样在底部物品栏分类项【植物】中": "<color=red>Hover</color> over cards to reduce their cooldown, or over plants to make them work.\n<color=red>Card Readers and Flower Pots</color> automate this. A <color=red>Flower Pot</color> must be under a plant to work.\nPurchased items appear in the bottom bar. Drag <color=red>Card Readers and similar items</color> onto cards.\n<color=red>Marigold</color> produces attacking plants to defend against zombies. These also appear under Plants in the bottom inventory.",
+    "鼠标照料与读卡 +{0:P0}；每级 +{1:P0}": "Manual Work and Card Reading +{0:P0}; +{1:P0} per level",
+    "\n阳光消耗：{0}": "\nSun Cost: {0}",
+    "当前积分 {0:0}": "Current Points {0:0}",
+    "\n位置：备战席": "\nLocation: Bench",
+    "\n探索完成\n最高棱彩": "\nExploration Complete\nUp to Prismatic",
+    "一键同步\n{0}阳光": "Sync All\n{0} Sun",
+    "上场结算：暂无": "Last Battle: None",
+    "免费刷新 {0}次 · {1}秒": "Free Refreshes: {0} · {1}s",
+    "出售全部{0}植物卡 · {1}张 · 回收{2:N0}阳光": "Sell All {0} Plant Cards · {1} cards · Refund {2:N0} Sun",
+    "出怪预览 · 第{0}～{1}轮": "Spawn Preview · Rounds {0}-{1}",
+    "刷新 {0}积分": "Refresh: {0} points",
+    "可用研究点  {0}  ·  每击败一波 +1": "Research Points: {0} · +1 per wave defeated",
+    "向日葵产出 +{0:P0}；每级 +{1:P0}": "Sunflower Output +{0:P0}; +{1:P0} per level",
+    "咖啡额外加速 +{0:P0}；每级 +{1:P0}": "Extra Coffee Speed +{0:P0}; +{1:P0} per level",
+    "已补足{0}阳光，重新冷却木头向日葵种子恢复经营": "Added {0} Sun and reset the Bronze Sunflower card cooldown so you can recover.",
+    "库存可拉黑类型 {0}  ·  黑名单 {1}\n同类型所有品质的未来产出自动回收；现有库存保留。": "Available Types: {0} · Blacklist: {1}\nFuture products of all qualities in these types are recycled. Existing inventory stays.",
+    "拖到这里\n回收{0:0}%": "Drop Here\nRefund {0:0}%",
+    "新用咖啡持续 {0:0.#} 秒；每级 +{1:0.#} 秒": "New Coffee Lasts {0:0.#}s; +{1:0.#}s per level",
+    "暂停 {0:0}%": "Paused {0:0}%",
+    "波次：{0}（无尽）": "Wave: {0} (Endless)",
+    "点击草坪种植，或点“出售选中”\n回收{0:N0}阳光": "Tap the lawn to plant, or tap Sell Selected\nRefund {0:N0} Sun",
+    "生命 {0}/{1}\n连胜 {2}　预计利息 {3}\n{4}": "HP {0}/{1}\nWin Streak {2}  Expected Interest {3}\n{4}",
+    "研究 {0}": "Research: {0}",
+    "研究 · {0}点": "Research: {0}",
+    "育种订单：棱彩育种葵每第{0}份成品保底究极": "Breeding Order: Every {0}th Prismatic Marigold product is guaranteed Ultimate",
+    "全体植物伤害增幅 +{0:P0}；每级 +{1:P0}": "All Plant Damage +{0:P0}; +{1:P0} per level",
+    "工作速度 ×{0:0.##} · {1:0}秒": "Work Speed x{0:0.##} · {1:0}s",
+    "单击设备可查看并升级": "Inspect / Upgrade",
+    "探索更高品质向日葵，解锁阶段道具\n购买后从底栏拖到草坪使用": "Explore higher-quality Sunflowers to unlock stage items.\nAfter purchase, drag them from the bottom bar onto the lawn.",
+    "当前节点：": "Current Node: ",
+    "查看出怪": "View Spawns",
+    "旅行进化 ": "Odyssey Evolved ",
+    "咖啡持续时间": "Coffee Duration",
+    "咖啡效率": "Coffee Efficiency",
+    "阳光获取": "Sun Gain",
+    "全体伤害": "All Plant Damage",
+    "花盆效率": "Flower Pot Efficiency",
+    "读卡器效率": "Card Reader Efficiency",
+    "鼠标悬浮效率": "Manual Work Efficiency",
+    "开局": "Run Start",
+    "开局记录点": "Start Checkpoint",
+    "鼠标悬停使植物工作": "Hover over plants to make them work",
+    "探索\n": "Explore\n",
+    "生产配方 · 成品保底": "Recipe · Minimum Quality: "
+  },
+  "serialized": [
+    {
+      "file": "resources.assets",
+      "id": 197805,
+      "source": "选中设备可升级",
+      "before": "选中设备可升级",
+      "english": "Select a device to upgrade it"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198015,
+      "source": "铲除 · 返还25阳光",
+      "before": "铲除 · 返还25阳光",
+      "english": "Shovel · Refund 25 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198651,
+      "source": "黑名单仅影响未来产出，现有库存保留",
+      "before": "黑名单仅影响未来产出，现有库存保留",
+      "english": "The blacklist affects future products only. Existing inventory is kept."
+    },
+    {
+      "file": "resources.assets",
+      "id": 199631,
+      "source": "探索新阶段后解锁。",
+      "before": "探索新阶段后解锁。",
+      "english": "Unlocks after discovering a new stage."
+    },
+    {
+      "file": "resources.assets",
+      "id": 200005,
+      "source": "探索解锁",
+      "before": "探索解锁",
+      "english": "Unlock by Exploring"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200486,
+      "source": "探索新阶段后解锁。",
+      "before": "探索新阶段后解锁。",
+      "english": "Unlocks after discovering a new stage."
+    },
+    {
+      "file": "resources.assets",
+      "id": 200605,
+      "source": "阳光获取   0/5",
+      "before": "阳光获取   0/5",
+      "english": "Sun Gain   0/5"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202167,
+      "source": "Lv.1 · 当前等级",
+      "before": "Lv.1 · 当前等级",
+      "english": "Lv.1 · Current Level"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202710,
+      "source": "出售后掉落阳光，关闭菜单后飞向计数器到账。操作跟随本波记录点保存。",
+      "before": "出售后掉落阳光，关闭菜单后飞向计数器到账。操作跟随本波记录点保存。",
+      "english": "Selling drops Sun, which flies to the counter after closing this menu. Actions save with this wave checkpoint."
+    },
+    {
+      "file": "resources.assets",
+      "id": 202833,
+      "source": "库存中可加入的类型",
+      "before": "库存中可加入的类型",
+      "english": "Available Types to Add"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203092,
+      "source": "阳光目标 · 基地 · 波次\n鼠标悬停使植物工作",
+      "before": "阳光目标 · 基地 · 波次\n鼠标悬停使植物工作",
+      "english": "Sun Target · Base · Wave\nHover over plants to make them work"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203429,
+      "source": "向日葵全灭且无力恢复时\n补足50阳光，争取30秒\n本局可用1次",
+      "before": "向日葵全灭且无力恢复时\n补足50阳光，争取30秒\n本局可用1次",
+      "english": "If all Sunflowers are lost and recovery is impossible:\ngain 50 Sun and 30 seconds.\nOnce per run."
+    },
+    {
+      "file": "resources.assets",
+      "id": 203214,
+      "source": "探索解锁",
+      "before": "探索解锁",
+      "english": "Unlock by Exploring"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205567,
+      "source": "探索新阶段后解锁。",
+      "before": "探索新阶段后解锁。",
+      "english": "Unlocks after discovering a new stage."
+    },
+    {
+      "file": "resources.assets",
+      "id": 206345,
+      "source": "探索新阶段后解锁。",
+      "before": "探索新阶段后解锁。",
+      "english": "Unlocks after discovering a new stage."
+    },
+    {
+      "file": "resources.assets",
+      "id": 206988,
+      "source": "阳光 50 · 购买后从底栏「道具」拖到草坪使用",
+      "before": "阳光 50 · 购买后从底栏「道具」拖到草坪使用",
+      "english": "Sun 50 · After purchase, drag from Items in the bottom bar onto the lawn."
+    },
+    {
+      "file": "resources.assets",
+      "id": 208897,
+      "source": "探索解锁",
+      "before": "探索解锁",
+      "english": "Unlock by Exploring"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209577,
+      "source": "棱彩只能由3张同种钻石卡合成。",
+      "before": "棱彩只能由3张同种钻石卡合成。",
+      "english": "Prismatic requires 3 matching Diamond cards."
+    },
+    {
+      "file": "resources.assets",
+      "id": 209839,
+      "source": "旅行：进化\n全新升级",
+      "before": "旅行：进化\n全新升级",
+      "english": "Odyssey Evolved\nRevamped"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210077,
+      "source": "探索解锁",
+      "before": "探索解锁",
+      "english": "Unlock by Exploring"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211444,
+      "source": "探索新阶段后解锁。",
+      "before": "探索新阶段后解锁。",
+      "english": "Unlocks after discovering a new stage."
+    },
+    {
+      "file": "resources.assets",
+      "id": 212246,
+      "source": "探索解锁",
+      "before": "探索解锁",
+      "english": "Unlock by Exploring"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212798,
+      "source": "探索新阶段后解锁。",
+      "before": "探索新阶段后解锁。",
+      "english": "Unlocks after discovering a new stage."
+    },
+    {
+      "file": "resources.assets",
+      "id": 213402,
+      "source": "探索解锁",
+      "before": "探索解锁",
+      "english": "Unlock by Exploring"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198529,
+      "source": "返回商店",
+      "before": "返回商店",
+      "english": "Back to Shop"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198777,
+      "source": "花盆",
+      "before": "花盆",
+      "english": "Flower Pot"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199298,
+      "source": "超级叠叠乐",
+      "before": "超级叠叠乐",
+      "english": "Super Stacking"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199774,
+      "source": "生命 300/300\n攻击 0\n花盆自动速度 ×0.00\n咖啡剩余 0秒 / 冷却 0秒",
+      "before": "生命 300/300\n攻击 0\n花盆自动速度 ×0.00\n咖啡剩余 0秒 / 冷却 0秒",
+      "english": "HP 300/300\nDamage 0\nFlower Pot Auto Speed x0.00\nCoffee: 0s left / Cooldown 0s"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200126,
+      "source": "神笔马良",
+      "before": "Magic Plantbrush\n(Untranslated)",
+      "english": "Magic Plantbrush"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200824,
+      "source": "返回商店",
+      "before": "返回商店",
+      "english": "Back to Shop"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201450,
+      "source": "探索更高品质向日葵\n解锁更多道具",
+      "before": "探索更高品质向日葵\n解锁更多道具",
+      "english": "Discover higher-quality Sunflowers\nto unlock more items"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201988,
+      "source": "商店刷新概率",
+      "before": "商店刷新概率",
+      "english": "Shop Refresh Rates"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202124,
+      "source": "卡牌品质",
+      "before": "卡牌品质",
+      "english": "Card Quality"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204568,
+      "source": "返回商店",
+      "before": "返回商店",
+      "english": "Back to Shop"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204764,
+      "source": "道具会放在这里\n从右侧商店购买，再拖到目标上使用",
+      "before": "道具会放在这里\n从右侧商店购买，再拖到目标上使用",
+      "english": "Items appear here.\nBuy them in the shop on the right, then drag them onto a target."
+    },
+    {
+      "file": "resources.assets",
+      "id": 205814,
+      "source": "先探索白银品质",
+      "before": "先探索白银品质",
+      "english": "Discover Silver quality first"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208115,
+      "source": "花盆",
+      "before": "花盆",
+      "english": "Flower Pot"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208500,
+      "source": "返还25阳光，花盆留在格子。\n这株植物未完成的生产与待入库成品将丢失。",
+      "before": "返还25阳光，花盆留在格子。\n这株植物未完成的生产与待入库成品将丢失。",
+      "english": "Refund 25 Sun. The Flower Pot stays.\nThis plant loses unfinished production and products not yet stored."
+    },
+    {
+      "file": "resources.assets",
+      "id": 208765,
+      "source": "读卡器：用于自动冷却卡牌，花盆：用于使上方的植物自动工作，咖啡豆：临时大幅提高植物工作效率",
+      "before": "读卡器：用于自动冷却卡牌，花盆：用于使上方的植物自动工作，咖啡豆：临时大幅提高植物工作效率",
+      "english": "Card Readers automatically reduce card cooldowns. Flower Pots make the plants above them work automatically. Coffee Beans greatly boost plant work speed temporarily."
+    },
+    {
+      "file": "resources.assets",
+      "id": 209440,
+      "source": "花盆和咖啡直接从底栏拖到植物上。\n拖动花盆本体可换格或收回；本模式禁用手套。",
+      "before": "花盆和咖啡直接从底栏拖到植物上。\n拖动花盆本体可换格或收回；本模式禁用手套。",
+      "english": "Drag Flower Pots and coffee from the bottom bar onto plants.\nDrag a Flower Pot to move it or return it to the bar. The glove is disabled in this mode."
+    },
+    {
+      "file": "resources.assets",
+      "id": 211107,
+      "source": "选择商店等级，查看每个商品的常规刷新概率",
+      "before": "选择商店等级，查看每个商品的常规刷新概率",
+      "english": "Choose a shop level to view normal refresh rates for each item."
+    },
+    {
+      "file": "resources.assets",
+      "id": 212649,
+      "source": "按植物基础阳光价格的回收比例结算，同品质植物卡一次全部出售",
+      "before": "按植物基础阳光价格的回收比例结算，同品质植物卡一次全部出售",
+      "english": "Refunds a fraction of the plant's base Sun cost. Sells all cards of that plant and quality at once."
+    },
+    {
+      "file": "resources.assets",
+      "id": 214114,
+      "source": "花盆效率   0/5",
+      "before": "花盆效率   0/5",
+      "english": "Flower Pot Efficiency   0/5"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214884,
+      "source": "购买后进入底栏，拖到卡牌或草坪使用\n已有设备可选中升级，也可拖入回收区",
+      "before": "购买后进入底栏，拖到卡牌或草坪使用\n已有设备可选中升级，也可拖入回收区",
+      "english": "Purchased items appear in the bottom bar. Drag them onto a card or the lawn.\nSelect existing devices to upgrade them, or drag them into the recycling area."
+    },
+    {
+      "file": "resources.assets",
+      "id": 197606,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197825,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198181,
+      "source": "600阳光",
+      "before": "600阳光",
+      "english": "600 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198268,
+      "source": "900阳光",
+      "before": "900阳光",
+      "english": "900 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198576,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198610,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198780,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198922,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199213,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199516,
+      "source": "未解锁",
+      "before": "未解锁",
+      "english": "Locked"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199580,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199988,
+      "source": "棱彩  ×2.25",
+      "before": "棱彩  ×2.25",
+      "english": "Prismatic  ×2.25"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200202,
+      "source": "150000阳光",
+      "before": "150000阳光",
+      "english": "150000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200357,
+      "source": "100阳光",
+      "before": "100阳光",
+      "english": "100 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200494,
+      "source": "未解锁",
+      "before": "未解锁",
+      "english": "Locked"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201009,
+      "source": "4000阳光",
+      "before": "4000阳光",
+      "english": "4000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201148,
+      "source": "未解锁",
+      "before": "未解锁",
+      "english": "Locked"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201376,
+      "source": "未解锁",
+      "before": "未解锁",
+      "english": "Locked"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202406,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202446,
+      "source": "9000阳光",
+      "before": "9000阳光",
+      "english": "9000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202793,
+      "source": "未解锁",
+      "before": "未解锁",
+      "english": "Locked"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203200,
+      "source": "90000阳光",
+      "before": "90000阳光",
+      "english": "90000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203517,
+      "source": "25000阳光",
+      "before": "25000阳光",
+      "english": "25000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204447,
+      "source": "15000阳光",
+      "before": "15000阳光",
+      "english": "15000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204507,
+      "source": "100阳光",
+      "before": "100阳光",
+      "english": "100 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205267,
+      "source": "500阳光",
+      "before": "500阳光",
+      "english": "500 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205283,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205440,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205593,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206203,
+      "source": "未解锁",
+      "before": "未解锁",
+      "english": "Locked"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206476,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206973,
+      "source": "60000阳光",
+      "before": "60000阳光",
+      "english": "60000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207246,
+      "source": "棱彩  ×5.00",
+      "before": "棱彩  ×5.00",
+      "english": "Prismatic  ×5.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207800,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208167,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208281,
+      "source": "600000阳光",
+      "before": "600000阳光",
+      "english": "600000 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208321,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208358,
+      "source": "棱彩  ×6.00",
+      "before": "棱彩  ×6.00",
+      "english": "Prismatic  ×6.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209446,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210517,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212058,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212202,
+      "source": "150阳光",
+      "before": "150阳光",
+      "english": "150 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212502,
+      "source": "2500阳光",
+      "before": "2500阳光",
+      "english": "2500 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213783,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    },
+    {
+      "file": "resources.assets",
+      "id": 215138,
+      "source": "50 阳光",
+      "before": "50 阳光",
+      "english": "50 Sun"
+    }
+  ],
+  "composed_exact": {
+    "木头向日葵": "Bronze Sunflower",
+    "未探索：木头向日葵": "Unexplored: Bronze Sunflower",
+    "未探索:木头向日葵": "Unexplored: Bronze Sunflower",
+    "探索\n向日葵\n解锁木头": "Explore\nSunflower\nUnlock Bronze",
+    "探索Sunflower解锁木头": "Explore Sunflower\nUnlock Bronze",
+    "木头金盏花": "Bronze Marigold",
+    "未探索：木头金盏花": "Unexplored: Bronze Marigold",
+    "未探索:木头金盏花": "Unexplored: Bronze Marigold",
+    "探索\n金盏花\n解锁木头": "Explore\nMarigold\nUnlock Bronze",
+    "探索Marigold解锁木头": "Explore Marigold\nUnlock Bronze",
+    "木头育种葵": "Bronze Marigold",
+    "未探索：木头育种葵": "Unexplored: Bronze Marigold",
+    "未探索:木头育种葵": "Unexplored: Bronze Marigold",
+    "探索\n育种葵\n解锁木头": "Explore\nMarigold\nUnlock Bronze",
+    "木头花盆": "Bronze Flower Pot",
+    "未探索：木头花盆": "Unexplored: Bronze Flower Pot",
+    "未探索:木头花盆": "Unexplored: Bronze Flower Pot",
+    "探索\n花盆\n解锁木头": "Explore\nFlower Pot\nUnlock Bronze",
+    "探索Flower Pot解锁木头": "Explore Flower Pot\nUnlock Bronze",
+    "木头读卡器": "Bronze Card Reader",
+    "未探索：木头读卡器": "Unexplored: Bronze Card Reader",
+    "未探索:木头读卡器": "Unexplored: Bronze Card Reader",
+    "探索\n读卡器\n解锁木头": "Explore\nCard Reader\nUnlock Bronze",
+    "探索Card Reader解锁木头": "Explore Card Reader\nUnlock Bronze",
+    "木头咖啡豆": "Bronze Coffee Bean",
+    "未探索：木头咖啡豆": "Unexplored: Bronze Coffee Bean",
+    "未探索:木头咖啡豆": "Unexplored: Bronze Coffee Bean",
+    "探索\n咖啡豆\n解锁木头": "Explore\nCoffee Bean\nUnlock Bronze",
+    "探索Coffee Bean解锁木头": "Explore Coffee Bean\nUnlock Bronze",
+    "白银向日葵": "Silver Sunflower",
+    "未探索：白银向日葵": "Unexplored: Silver Sunflower",
+    "未探索:白银向日葵": "Unexplored: Silver Sunflower",
+    "探索\n向日葵\n解锁白银": "Explore\nSunflower\nUnlock Silver",
+    "探索Sunflower解锁白银": "Explore Sunflower\nUnlock Silver",
+    "白银金盏花": "Silver Marigold",
+    "未探索：白银金盏花": "Unexplored: Silver Marigold",
+    "未探索:白银金盏花": "Unexplored: Silver Marigold",
+    "探索\n金盏花\n解锁白银": "Explore\nMarigold\nUnlock Silver",
+    "探索Marigold解锁白银": "Explore Marigold\nUnlock Silver",
+    "白银育种葵": "Silver Marigold",
+    "未探索：白银育种葵": "Unexplored: Silver Marigold",
+    "未探索:白银育种葵": "Unexplored: Silver Marigold",
+    "探索\n育种葵\n解锁白银": "Explore\nMarigold\nUnlock Silver",
+    "白银花盆": "Silver Flower Pot",
+    "未探索：白银花盆": "Unexplored: Silver Flower Pot",
+    "未探索:白银花盆": "Unexplored: Silver Flower Pot",
+    "探索\n花盆\n解锁白银": "Explore\nFlower Pot\nUnlock Silver",
+    "探索Flower Pot解锁白银": "Explore Flower Pot\nUnlock Silver",
+    "白银读卡器": "Silver Card Reader",
+    "未探索：白银读卡器": "Unexplored: Silver Card Reader",
+    "未探索:白银读卡器": "Unexplored: Silver Card Reader",
+    "探索\n读卡器\n解锁白银": "Explore\nCard Reader\nUnlock Silver",
+    "探索Card Reader解锁白银": "Explore Card Reader\nUnlock Silver",
+    "白银咖啡豆": "Silver Coffee Bean",
+    "未探索：白银咖啡豆": "Unexplored: Silver Coffee Bean",
+    "未探索:白银咖啡豆": "Unexplored: Silver Coffee Bean",
+    "探索\n咖啡豆\n解锁白银": "Explore\nCoffee Bean\nUnlock Silver",
+    "探索Coffee Bean解锁白银": "Explore Coffee Bean\nUnlock Silver",
+    "黄金向日葵": "Gold Sunflower",
+    "未探索：黄金向日葵": "Unexplored: Gold Sunflower",
+    "未探索:黄金向日葵": "Unexplored: Gold Sunflower",
+    "探索\n向日葵\n解锁黄金": "Explore\nSunflower\nUnlock Gold",
+    "探索Sunflower解锁黄金": "Explore Sunflower\nUnlock Gold",
+    "黄金金盏花": "Gold Marigold",
+    "未探索：黄金金盏花": "Unexplored: Gold Marigold",
+    "未探索:黄金金盏花": "Unexplored: Gold Marigold",
+    "探索\n金盏花\n解锁黄金": "Explore\nMarigold\nUnlock Gold",
+    "探索Marigold解锁黄金": "Explore Marigold\nUnlock Gold",
+    "黄金育种葵": "Gold Marigold",
+    "未探索：黄金育种葵": "Unexplored: Gold Marigold",
+    "未探索:黄金育种葵": "Unexplored: Gold Marigold",
+    "探索\n育种葵\n解锁黄金": "Explore\nMarigold\nUnlock Gold",
+    "黄金花盆": "Gold Flower Pot",
+    "未探索：黄金花盆": "Unexplored: Gold Flower Pot",
+    "未探索:黄金花盆": "Unexplored: Gold Flower Pot",
+    "探索\n花盆\n解锁黄金": "Explore\nFlower Pot\nUnlock Gold",
+    "探索Flower Pot解锁黄金": "Explore Flower Pot\nUnlock Gold",
+    "黄金读卡器": "Gold Card Reader",
+    "未探索：黄金读卡器": "Unexplored: Gold Card Reader",
+    "未探索:黄金读卡器": "Unexplored: Gold Card Reader",
+    "探索\n读卡器\n解锁黄金": "Explore\nCard Reader\nUnlock Gold",
+    "探索Card Reader解锁黄金": "Explore Card Reader\nUnlock Gold",
+    "黄金咖啡豆": "Gold Coffee Bean",
+    "未探索：黄金咖啡豆": "Unexplored: Gold Coffee Bean",
+    "未探索:黄金咖啡豆": "Unexplored: Gold Coffee Bean",
+    "探索\n咖啡豆\n解锁黄金": "Explore\nCoffee Bean\nUnlock Gold",
+    "探索Coffee Bean解锁黄金": "Explore Coffee Bean\nUnlock Gold",
+    "钻石向日葵": "Diamond Sunflower",
+    "未探索：钻石向日葵": "Unexplored: Diamond Sunflower",
+    "未探索:钻石向日葵": "Unexplored: Diamond Sunflower",
+    "探索\n向日葵\n解锁钻石": "Explore\nSunflower\nUnlock Diamond",
+    "探索Sunflower解锁钻石": "Explore Sunflower\nUnlock Diamond",
+    "钻石金盏花": "Diamond Marigold",
+    "未探索：钻石金盏花": "Unexplored: Diamond Marigold",
+    "未探索:钻石金盏花": "Unexplored: Diamond Marigold",
+    "探索\n金盏花\n解锁钻石": "Explore\nMarigold\nUnlock Diamond",
+    "探索Marigold解锁钻石": "Explore Marigold\nUnlock Diamond",
+    "钻石育种葵": "Diamond Marigold",
+    "未探索：钻石育种葵": "Unexplored: Diamond Marigold",
+    "未探索:钻石育种葵": "Unexplored: Diamond Marigold",
+    "探索\n育种葵\n解锁钻石": "Explore\nMarigold\nUnlock Diamond",
+    "钻石花盆": "Diamond Flower Pot",
+    "未探索：钻石花盆": "Unexplored: Diamond Flower Pot",
+    "未探索:钻石花盆": "Unexplored: Diamond Flower Pot",
+    "探索\n花盆\n解锁钻石": "Explore\nFlower Pot\nUnlock Diamond",
+    "探索Flower Pot解锁钻石": "Explore Flower Pot\nUnlock Diamond",
+    "钻石读卡器": "Diamond Card Reader",
+    "未探索：钻石读卡器": "Unexplored: Diamond Card Reader",
+    "未探索:钻石读卡器": "Unexplored: Diamond Card Reader",
+    "探索\n读卡器\n解锁钻石": "Explore\nCard Reader\nUnlock Diamond",
+    "探索Card Reader解锁钻石": "Explore Card Reader\nUnlock Diamond",
+    "钻石咖啡豆": "Diamond Coffee Bean",
+    "未探索：钻石咖啡豆": "Unexplored: Diamond Coffee Bean",
+    "未探索:钻石咖啡豆": "Unexplored: Diamond Coffee Bean",
+    "探索\n咖啡豆\n解锁钻石": "Explore\nCoffee Bean\nUnlock Diamond",
+    "探索Coffee Bean解锁钻石": "Explore Coffee Bean\nUnlock Diamond",
+    "棱彩向日葵": "Prismatic Sunflower",
+    "未探索：棱彩向日葵": "Unexplored: Prismatic Sunflower",
+    "未探索:棱彩向日葵": "Unexplored: Prismatic Sunflower",
+    "探索\n向日葵\n解锁棱彩": "Explore\nSunflower\nUnlock Prismatic",
+    "探索Sunflower解锁棱彩": "Explore Sunflower\nUnlock Prismatic",
+    "棱彩金盏花": "Prismatic Marigold",
+    "未探索：棱彩金盏花": "Unexplored: Prismatic Marigold",
+    "未探索:棱彩金盏花": "Unexplored: Prismatic Marigold",
+    "探索\n金盏花\n解锁棱彩": "Explore\nMarigold\nUnlock Prismatic",
+    "探索Marigold解锁棱彩": "Explore Marigold\nUnlock Prismatic",
+    "棱彩育种葵": "Prismatic Marigold",
+    "未探索：棱彩育种葵": "Unexplored: Prismatic Marigold",
+    "未探索:棱彩育种葵": "Unexplored: Prismatic Marigold",
+    "探索\n育种葵\n解锁棱彩": "Explore\nMarigold\nUnlock Prismatic",
+    "棱彩花盆": "Prismatic Flower Pot",
+    "未探索：棱彩花盆": "Unexplored: Prismatic Flower Pot",
+    "未探索:棱彩花盆": "Unexplored: Prismatic Flower Pot",
+    "探索\n花盆\n解锁棱彩": "Explore\nFlower Pot\nUnlock Prismatic",
+    "探索Flower Pot解锁棱彩": "Explore Flower Pot\nUnlock Prismatic",
+    "棱彩读卡器": "Prismatic Card Reader",
+    "未探索：棱彩读卡器": "Unexplored: Prismatic Card Reader",
+    "未探索:棱彩读卡器": "Unexplored: Prismatic Card Reader",
+    "探索\n读卡器\n解锁棱彩": "Explore\nCard Reader\nUnlock Prismatic",
+    "探索Card Reader解锁棱彩": "Explore Card Reader\nUnlock Prismatic",
+    "棱彩咖啡豆": "Prismatic Coffee Bean",
+    "未探索：棱彩咖啡豆": "Unexplored: Prismatic Coffee Bean",
+    "未探索:棱彩咖啡豆": "Unexplored: Prismatic Coffee Bean",
+    "探索\n咖啡豆\n解锁棱彩": "Explore\nCoffee Bean\nUnlock Prismatic",
+    "探索Coffee Bean解锁棱彩": "Explore Coffee Bean\nUnlock Prismatic",
+    "可用研究点 0 · 每击败一波 +1": "Research Points: 0 · +1 per wave defeated",
+    "解锁木头": "Unlock Bronze",
+    "探索\nSunflower\n解锁木头": "Explore\nSunflower\nUnlock Bronze",
+    "探索\nMarigold\n解锁木头": "Explore\nMarigold\nUnlock Bronze",
+    "解锁白银": "Unlock Silver",
+    "探索\nSunflower\n解锁白银": "Explore\nSunflower\nUnlock Silver",
+    "探索\nMarigold\n解锁白银": "Explore\nMarigold\nUnlock Silver",
+    "解锁黄金": "Unlock Gold",
+    "探索\nSunflower\n解锁黄金": "Explore\nSunflower\nUnlock Gold",
+    "探索\nMarigold\n解锁黄金": "Explore\nMarigold\nUnlock Gold",
+    "解锁钻石": "Unlock Diamond",
+    "探索\nSunflower\n解锁钻石": "Explore\nSunflower\nUnlock Diamond",
+    "探索\nMarigold\n解锁钻石": "Explore\nMarigold\nUnlock Diamond",
+    "解锁棱彩": "Unlock Prismatic",
+    "探索\nSunflower\n解锁棱彩": "Explore\nSunflower\nUnlock Prismatic",
+    "探索\nMarigold\n解锁棱彩": "Explore\nMarigold\nUnlock Prismatic"
+  },
+  "serialized_followup": [
+    {
+      "file": "resources.assets",
+      "id": 195518,
+      "source": "咖啡豆",
+      "english": "Coffee Bean"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197096,
+      "source": "白银  ×2.00",
+      "english": "Silver  ×2.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197128,
+      "source": "读卡器",
+      "english": "Card Reader"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197143,
+      "source": "批量出售",
+      "english": "Sell in Bulk"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197581,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197602,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197731,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197764,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197792,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197890,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197966,
+      "source": "下一级",
+      "english": "Next Level"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197980,
+      "source": "植物类别",
+      "english": "Plant Types"
+    },
+    {
+      "file": "resources.assets",
+      "id": 197996,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198004,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198096,
+      "source": "确认铲除",
+      "english": "Confirm Removal"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198148,
+      "source": "更换配方会清除未完成进度；已经完成的待入库成品保留。",
+      "english": "Changing recipes clears unfinished progress. Completed products waiting to enter inventory are kept."
+    },
+    {
+      "file": "resources.assets",
+      "id": 198188,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198202,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198380,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198463,
+      "source": "波次研究",
+      "english": "Wave Research"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198504,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198540,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198560,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198564,
+      "source": "钻石  ×2.00",
+      "english": "Diamond  ×2.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198614,
+      "source": "物品栏",
+      "english": "Inventory"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198721,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198768,
+      "source": "出售植物卡",
+      "english": "Sell Plant Cards"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198927,
+      "source": "道具",
+      "english": "Items"
+    },
+    {
+      "file": "resources.assets",
+      "id": 198966,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199159,
+      "source": "钻石  ×4.00",
+      "english": "Diamond  ×4.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199172,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199179,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199377,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199468,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199509,
+      "source": "白银  ×0.65",
+      "english": "Silver  ×0.65"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199555,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199579,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199787,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199972,
+      "source": "道具",
+      "english": "Items"
+    },
+    {
+      "file": "resources.assets",
+      "id": 199999,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200007,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200132,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200621,
+      "source": "钻石  ×1.50",
+      "english": "Diamond  ×1.50"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200638,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200669,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200897,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200905,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 200911,
+      "source": "育种产物会出现在这里\n点击选择，再到草坪种下",
+      "english": "Finished plant cards appear here.\nTap to select one, then place it on the lawn."
+    },
+    {
+      "file": "resources.assets",
+      "id": 200941,
+      "source": "出售植物卡",
+      "english": "Sell Plant Cards"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201034,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201061,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201260,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201489,
+      "source": "探索奖励",
+      "english": "Exploration Rewards"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201514,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201553,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201749,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201877,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 201879,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202093,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202195,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202200,
+      "source": "研究 0",
+      "english": "Research: 0"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202448,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202893,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203069,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203149,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203194,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203221,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203387,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203453,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203498,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 203958,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204115,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204178,
+      "source": "批量出售",
+      "english": "Sell in Bulk"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204461,
+      "source": "读卡器效率   0/5",
+      "english": "Card Reader Efficiency   0/5"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204511,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204512,
+      "source": "植物物品栏管理",
+      "english": "Plant Inventory"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204570,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204594,
+      "source": "咖啡持续时间   0/5",
+      "english": "Coffee Duration   0/5"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204611,
+      "source": "可用研究点 0 · 每击败一波 +1",
+      "english": "Research Points: 0 · +1 per wave defeated"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204623,
+      "source": "研究、道具与探索随波次记录点保存；中途退出会回到最近记录点。",
+      "english": "Research, items, and exploration save at wave checkpoints. Leaving mid-wave returns to the latest checkpoint."
+    },
+    {
+      "file": "resources.assets",
+      "id": 204770,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204836,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 204868,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205011,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205056,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205100,
+      "source": "波次研究",
+      "english": "Wave Research"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205199,
+      "source": "黄金  ×2.75",
+      "english": "Gold  ×2.75"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205231,
+      "source": "已拉黑的类型",
+      "english": "Blacklisted Types"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205247,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205303,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205322,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205658,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205799,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205892,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205907,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 205959,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206031,
+      "source": "植物黑名单",
+      "english": "Plant Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206079,
+      "source": "保留植物",
+      "english": "Keep Plant"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206292,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206488,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206538,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206583,
+      "source": "咖啡效率   0/5",
+      "english": "Coffee Efficiency   0/5"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206595,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206606,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206654,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206748,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206894,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206925,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206926,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 206944,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207049,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207307,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207336,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207432,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207539,
+      "source": "拖到这里\n回收50%",
+      "english": "Drop Here\nRefund 50%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207552,
+      "source": "出售植物卡",
+      "english": "Sell Plant Cards"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207633,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207684,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207788,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207820,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 207947,
+      "source": "全体伤害   0/5",
+      "english": "All Plant Damage   0/5"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208007,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208012,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208061,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208171,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208180,
+      "source": "应急支援",
+      "english": "Emergency Support"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208242,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208312,
+      "source": "备战席",
+      "english": "Bench"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208564,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208586,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 208775,
+      "source": "上一级",
+      "english": "Previous Level"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209024,
+      "source": "每项5级 · 逐级消耗1 / 2 / 3 / 4 / 5点",
+      "english": "5 levels each · Costs 1 / 2 / 3 / 4 / 5 points"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209101,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209519,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209597,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 209632,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210008,
+      "source": "记录点 · 开局\n\n每波开始时更新记录点\n中途的购买、探索和战斗不保存\n重进从最近记录点继续",
+      "english": "Checkpoint · Run Start\n\nUpdated at the start of each wave.\nMid-wave purchases, exploration, and battles are not saved.\nReopen to resume from the latest checkpoint."
+    },
+    {
+      "file": "resources.assets",
+      "id": 210022,
+      "source": "关闭，继续照料",
+      "english": "Close and Continue"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210030,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210072,
+      "source": "木头  ×1.50",
+      "english": "Bronze  ×1.50"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210157,
+      "source": "每探索一个新阶段，获得新玩法",
+      "english": "Each new stage unlocks new mechanics"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210234,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210271,
+      "source": "植物黑名单",
+      "english": "Plant Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210277,
+      "source": "购买后拖到目标上使用\n已装设备可直接拖回这里",
+      "english": "After purchase, drag onto a target.\nInstalled devices can be dragged back here."
+    },
+    {
+      "file": "resources.assets",
+      "id": 210327,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210352,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210430,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210493,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210720,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210753,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210809,
+      "source": "木头  ×0.35",
+      "english": "Bronze  ×0.35"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210889,
+      "source": "木头  ×0.25",
+      "english": "Bronze  ×0.25"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210992,
+      "source": "黄金  ×1.00",
+      "english": "Gold  ×1.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 210996,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211100,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211629,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211709,
+      "source": "操作说明",
+      "english": "Instructions"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211759,
+      "source": "应急支援",
+      "english": "Emergency Support"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211776,
+      "source": "移出黑名单",
+      "english": "Remove from Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 211849,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212067,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212077,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212089,
+      "source": "咖啡豆",
+      "english": "Coffee Bean"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212240,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212328,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 212725,
+      "source": "研究后立即生效",
+      "english": "Takes effect immediately"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213174,
+      "source": "操作说明",
+      "english": "Instructions"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213252,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213259,
+      "source": "加入黑名单",
+      "english": "Add to Blacklist"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213282,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213459,
+      "source": "未探索",
+      "english": "Unexplored"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213699,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213727,
+      "source": "读卡器",
+      "english": "Card Reader"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213884,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213950,
+      "source": "研究 · 1点",
+      "english": "Research: 1"
+    },
+    {
+      "file": "resources.assets",
+      "id": 213961,
+      "source": "出售植物卡",
+      "english": "Sell Plant Cards"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214065,
+      "source": "黄金  ×1.00",
+      "english": "Gold  ×1.00"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214250,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214374,
+      "source": "咖啡豆",
+      "english": "Coffee Bean"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214755,
+      "source": "商品",
+      "english": "Item"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214938,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 214991,
+      "source": "出售植物卡",
+      "english": "Sell Plant Cards"
+    },
+    {
+      "file": "resources.assets",
+      "id": 215236,
+      "source": "暂停 0%",
+      "english": "Paused 0%"
+    },
+    {
+      "file": "resources.assets",
+      "id": 215286,
+      "source": "白银  ×0.50",
+      "english": "Silver  ×0.50"
+    },
+    {
+      "file": "resources.assets",
+      "id": 202030,
+      "source": "无尽波次，每波开始自动保存。\n持有 {sunGoal} 阳光即可领取胜利奖杯。\n\n① 鼠标停在向日葵上产阳光，停在育种葵上生产植物，停在上方种子卡上加快冷却。金盏花用来生产植物卡牌，不掉金币，成品只进入底部「植物」栏。\n\n② 读卡器拖到卡牌，花盆拖到草坪自动照料植物，咖啡暂时加速。道具、读卡器和花盆可拖回底栏或回收。\n\n③ 每击败一波获得1研究点，底部「研究」升级七项能力，每项5级。研究和道具进度随开局、每波开始的记录点保存。\n\n④ 上方分别探索向日葵和金盏花的新阶段，每阶段都有新道具或机制。商店「探索道具」购买一次性道具；拖到草坪使用。\n\n⑤ 场上品质用植物右下角的彩色数字1～5表示，与花盆数字错开；向日葵和金盏花显示生产进度。右键植物查看详情。",
+      "english": "Endless waves. Progress saves at the start of each wave.\nCollect {sunGoal} Sun to claim the victory trophy.\n\n1. Hover over Sunflowers to produce Sun, over Marigolds to produce plants, or over seed cards to reduce cooldowns. Marigolds produce plant cards instead of coins. Finished cards enter Plants in the bottom bar.\n\n2. Drag Card Readers onto cards and Flower Pots onto the lawn to automate work. Coffee Beans temporarily boost speed. Items, Card Readers, and Flower Pots can be returned to the bar or recycled.\n\n3. Defeat a wave to earn 1 Research Point. Use Research to upgrade seven abilities, each with five levels. Research and item progress save at the run-start and wave-start checkpoints.\n\n4. Explore new stages for Sunflowers and Marigolds using their cards at the top. Each stage adds items or mechanics. Buy consumables in Explore Items, then drag them onto the lawn.\n\n5. Colored numbers 1-5 beside plants show quality, separate from Flower Pot numbers. Sunflowers and Marigolds show production progress. Open a plant's details to inspect it."
+    }
+  ],
+  "review_notes_followup": "S26 2026-11-03 14:54-15:04: restore Android almanac typography; generic Odyssey/Super Stacking UI. Reuse canonical Sunflower/Marigold and item names. No new specialized plant or modifier names.",
+  "rendered_rules": {
+    "旅行进化\\s*(\\d+-\\d+)": "Odyssey Evolved {0}",
+    "(阳光获取|读卡器效率|花盆效率|咖啡持续时间|咖啡效率|全体伤害|鼠标悬浮效率)\\s+(\\d+/\\d+)": "{0} {1}",
+    "(未探索|Unexplored)\\s*[：:·]\\s*(木头|白银|黄金|钻石|棱彩)(向日葵|育种葵|金盏花)": "{0}: {1} {2}"
   }
 }

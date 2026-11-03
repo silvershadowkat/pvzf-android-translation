@@ -325,13 +325,31 @@ static void syncDamageVisibility(){
 }
 #include "screen_mode.inc"
 static void refreshMusic(){P b=target(musicButton);if(alive(b))label(b,selectedBlooms?(selectedBlooms==blooms?"Music: Blooms":"Music: Blooms\nRestart to apply"):(selectedBlooms==blooms?"Music: Original":"Music: Original\nRestart to apply"));}
+static uint32_t musicNoticeButton=0;
+static void musicNotice(){
+    // Same modal prefab and stack as OptionMenu.OnLockAlmanacMenu. No unlock
+    // callback is reused. All work stays on Unity's UI thread.
+    P manager=stat("GameAPP","UIManager"),canvas=stat("GameAPP","canvasUp");
+    int kind=68;bool group=false;P args[]={&kind,canvas,&group};
+    P menu=call(overload(cls("","UIResourcesLoader"),"Push",{"UIType","UnityEngine.Transform","System.Boolean"}),manager,args);
+    if(!menu)return;
+    std::string text=selectedBlooms==blooms?"Your current soundtrack is already selected.":
+        std::string("Soundtrack saved: ")+(selectedBlooms?"Blooms":"Original")+".\nClose and reopen the game to apply it.\nYour current game keeps its existing soundtrack.";
+    P title[]={str(text.c_str())};call(menu,"SetTitle",1,title);
+    P button=field<P>(menu,"activeButton");
+    release(musicNoticeButton);
+    if(button){musicNoticeButton=il2cpp_gchandle_new(button,false);setreffield(button,"clickEvent",newEvent());label(call(button,"get_gameObject"),"OK");}
+    for(P other:children(call(menu,"get_gameObject"),cls("","UIButton")))
+        if(other!=button)label(call(other,"get_gameObject"),"Close");
+}
 static void click(P o,M m){
     P go=call(o,"get_gameObject");std::string id=name(go);
+    if(o==target(musicNoticeButton)){release(musicNoticeButton);call(stat("GameAPP","UIManager"),"Pop");return;}
     if(id=="EnglishProjectileInfo") {
         P b=stat("Board","Instance");if(alive(b)){bool show=!field<bool>(b,"showBulletDamage");setfield(b,"showBulletDamage",show);if(show)setfield(stat("GameAPP","config"),"showBulletDamage",true);refreshDamage();}return;
     }
     if(id=="EnglishScreenSelector") {toggleScreen();return;}
-    if(id=="EnglishMusicSelector") {selectedBlooms=!selectedBlooms;JNIEnv* e=env();if(e){e->CallStaticVoidMethod(bridge,saveMusicJava,jboolean(selectedBlooms));if(e->ExceptionCheck())e->ExceptionClear();}refreshMusic();return;}
+    if(id=="EnglishMusicSelector") {selectedBlooms=!selectedBlooms;JNIEnv* e=env();if(e){e->CallStaticVoidMethod(bridge,saveMusicJava,jboolean(selectedBlooms));if(e->ExceptionCheck())e->ExceptionClear();}refreshMusic();musicNotice();return;}
     oldClick(o,m);
 }
 static void attachInGame(P o){
@@ -352,21 +370,29 @@ static void attachOptions(P o){
     P parent=call(templateTransform,"get_parent"),findScreen[]={str("F")};
     P slot=call(parent,"Find",1,findScreen),screenGo=call(slot,"get_gameObject");
     P originalButton=component(screenGo,cls("","OptionBtn"));
-    P layout=component(call(parent,"get_gameObject"),cls("UnityEngine.UI","VerticalLayoutGroup"));
-    M rebuild=method(cls("UnityEngine.UI","LayoutRebuilder"),"ForceRebuildLayoutImmediate",1);
-    if(!alive(screenGo)||!originalButton||field<int>(originalButton,"optionType")!=0||!layout||!rebuild){
+    if(!alive(screenGo)||!originalButton||field<int>(originalButton,"optionType")!=0){
         LOG("Settings profile/display controls: unexpected 4.1 hierarchy");return;
     }
     int count=value<int>(call(parent,"get_childCount"));
     if(count!=6){LOG("Settings column has unexpected item count %d",count);return;}
-    float spacing=value<float>(call(layout,"get_spacing"));
+    // The authored column uses fixed anchored positions and a DISABLED grid,
+    // not a VerticalLayoutGroup. Fit seven controls in its existing bounds.
+    std::vector<P> retained;
+    V2 top=value<V2>(call(slot,"get_anchoredPosition"));
+    float bottom=top.y;
+    for(int i=0;i<count;i++){
+        P a[]={&i};P tr=call(parent,"GetChild",1,a),go=call(tr,"get_gameObject");
+        V2 pos=value<V2>(call(tr,"get_anchoredPosition"));
+        if(std::abs(pos.x-top.x)>2){LOG("Settings column has unexpected anchors");return;}
+        bottom=std::min(bottom,pos.y);
+        if(go!=screenGo)retained.push_back(go);
+    }
     V2 size=value<V2>(call(slot,"get_sizeDelta"));
+    if(retained.size()!=5||(top.y-bottom)/6<size.y+8){LOG("Settings column has insufficient room");return;}
     P music=cloneButton(templateGo,"EnglishMusicSelector",blooms?"Music: Blooms":"Music: Original");
     P screen=cloneButton(templateGo,"EnglishScreenSelector","Screen: Default");
     if(!music||!screen)return;
-    // Use the existing column's layout and total height. The extra item consumes
-    // some of its large spacing, instead of overlapping a button or leaving the
-    // viewport. Coordinates remain in canvas units for every device resolution.
+    // Coordinates stay in the original canvas, independent of device pixels.
     for(P go:{screen,music}){
         P tr=call(go,"get_transform");
         for(const char* property:{"anchorMin","anchorMax","pivot","sizeDelta"}){
@@ -379,11 +405,10 @@ static void attachOptions(P o){
     call(call(screen,"get_transform"),"SetSiblingIndex",1,a);
     call(call(music,"get_transform"),"SetSiblingIndex",1,b);
     bool off=false;P hide[]={&off};call(screenGo,"SetActive",1,hide);
-    float gap=std::max(8.0f,(spacing*(count-1)-size.y)/count);P g[]={&gap};call(layout,"set_spacing",1,g);
-    P root[]={parent};call(rebuild,nullptr,root);
-    int all=value<int>(call(parent,"get_childCount"));
-    for(int i=0;i<all;i++){
-        P arg[]={&i};P tr=call(parent,"GetChild",1,arg),go=call(tr,"get_gameObject");
+    std::vector<P> controls={screen,music};controls.insert(controls.end(),retained.begin(),retained.end());
+    for(size_t i=0;i<controls.size();i++){
+        P go=controls[i],tr=call(go,"get_transform");
+        V2 pos={top.x,top.y+(bottom-top.y)*i/(controls.size()-1)};P arg[]={&pos};call(tr,"set_anchoredPosition",1,arg);
         P button=component(go,cls("","UIBtn"));
         if(!button)button=component(go,cls("","UIButton"));
         if(button)setfield(button,"originPosition",value<V3>(call(tr,"get_localPosition")));
@@ -402,9 +427,15 @@ static void update(P o,M m){
     // Start/Parse callbacks. The old late-injection scene scan is redundant and
     // forced all active text to rebuild on the first frame.
     oldUpdate(o,m);
+#ifdef PVZF_MUSIC_DIAGNOSTICS
+    musicAuditFrame();
+#endif
     syncDamageVisibility();screenTick();
     static auto last=std::chrono::steady_clock::now();auto now=std::chrono::steady_clock::now();if(now-last<std::chrono::milliseconds(250))return;last=now;
     refreshDamage();
+#ifdef PVZF_MUSIC_DIAGNOSTICS
+    musicAuditTick();
+#endif
 }
 static bool hook(P c,const char* name,int count,P replacement,P* original){M m=method(c,name,count);if(!m||!*(P*)m){LOG("Missing hook %s",name);return false;}Dl_info info{};dladdr(*(P*)m,&info);LOG("Target %s: RVA=%llx next=%p",name,(unsigned long long)((uintptr_t)*(P*)m-(uintptr_t)info.dli_fbase),((P*)m)[1]);int result=DobbyHook(*(P*)m,replacement,original);LOG("Hook %s: %d",name,result);return result==0;}
 static bool bind(P lib){
@@ -438,6 +469,9 @@ static void initialize(){
     // Do not install the historical unavailable-mode or offline-service hooks.
     hook(cls("UnityEngine","AudioSource"),"set_clip",1,(P)setMusicClip,(P*)&oldSetMusicClip);
     hook(cls("","GameAPP"),"PlayMusic",1,(P)profilePlayMusic,(P*)&oldProfilePlayMusic);
+#ifdef PVZF_MUSIC_DIAGNOSTICS
+    hook(cls("UnityEngine","AudioSource"),"set_time",1,(P)auditSetTime,(P*)&oldAuditSetTime);
+#endif
     LOG("Runtime initialization finished after IL2CPP init");
 }
 static std::once_flag ready;

@@ -23,14 +23,16 @@ public final class EnglishActivity extends Activity {
     private static final Map<String,String> levelDisplays = new HashMap<>();
     private static final Set<String> ambiguousLevelDisplays = new HashSet<>();
     private static final List<Rule> rules = new ArrayList<>();
+    private static final Set<String> recipeNames = new HashSet<>();
     // Recursive line/tag translation benefits from a Java cache too. Bound its
     // retained text bytes as well as entry count, including negative matches.
     private static final BoundedTextCache cache = new BoundedTextCache(1024,1024*1024);
     private static final Pattern SLOT = Pattern.compile("\\{(\\d+)\\}");
     private static final Pattern MARKUP = Pattern.compile("</?(?:color|size|b|i|u|s|nobr|align|voffset|font|mark|alpha|cspace|mspace|indent|line-height)(?:=[^<>]*)?>",Pattern.CASE_INSENSITIVE);
     private static final class Rule {
-        final Pattern pattern; final String replacement,prefix;
-        Rule(String p,String r) {pattern=Pattern.compile(p);replacement=r;prefix=RegexPrefix.of(p);}
+        final Pattern pattern; final String replacement,prefix; final boolean recipe;
+        Rule(String p,String r) {pattern=Pattern.compile(p);replacement=r;prefix=RegexPrefix.of(p);
+            recipe=r.startsWith("You haven't discovered this plant yet!");}
     }
     private static native void startRuntime(boolean blooms);
 
@@ -108,7 +110,7 @@ public final class EnglishActivity extends Activity {
             // Its old private copy is never consulted; do not re-copy/hash it.
             if(name.equals("translations.json"))continue;
             File target=new File(getFilesDir(),"english-runtime/"+name);
-            // Music is embedded as streaming Unity resources in 4.1. Only small
+            // Music is embedded as Unity AudioClips in 4.1. Only small
             // managed support assets remain; no audio extraction or receipts.
             replace("english/"+name,target,files.getString(name));
         }
@@ -123,6 +125,8 @@ public final class EnglishActivity extends Activity {
         JSONObject data=new JSONObject(new String(asset("english/translations.json"),"UTF-8"));
         JSONObject pairs=data.getJSONObject("exact");Iterator<String> keys=pairs.keys();
         while(keys.hasNext()){String k=keys.next();exact.put(k,pairs.getString(k));}
+        JSONArray ingredients=data.optJSONArray("recipe_names");
+        if(ingredients!=null)for(int i=0;i<ingredients.length();i++)recipeNames.add(ingredients.getString(i));
         JSONArray rs=data.getJSONArray("regex");
         for(int i=0;i<rs.length();i++) {JSONArray r=rs.getJSONArray(i);rules.add(new Rule(r.getString(0),r.getString(1)));}
         JSONObject levels=data.optJSONObject("online_levels");
@@ -151,6 +155,9 @@ public final class EnglishActivity extends Activity {
             Matcher m=rule.pattern.matcher(text);
             // Complete display match only; never rewrite a partial gameplay identifier.
             if(!m.matches())continue;
+            // This recipe rule describes named fusion ingredients. A global
+            // '+' rule also matched research counters and modifier bonuses.
+            if(rule.recipe&&(m.groupCount()!=2||!recipeNames.contains(m.group(1).trim())||!recipeNames.contains(m.group(2).trim())))continue;
             Matcher slots=SLOT.matcher(rule.replacement);StringBuffer b=new StringBuffer();boolean valid=true;
             while(slots.find()) {
                 int n=Integer.parseInt(slots.group(1))+1;if(n>m.groupCount()){valid=false;break;}
@@ -189,14 +196,6 @@ public final class EnglishActivity extends Activity {
     }
     public static void saveMusic(boolean blooms) {
         if(context!=null)context.getSharedPreferences("english-runtime",0).edit().putBoolean("blooms",blooms).apply();
-        Activity owner=null;
-        try { owner=(Activity)Class.forName("com.unity3d.player.UnityPlayer").getField("currentActivity").get(null); }
-        catch(ReflectiveOperationException ignored) {}
-        final Activity current=owner;
-        if(current!=null&&!current.isFinishing())current.runOnUiThread(()->new AlertDialog.Builder(current)
-            .setTitle("Soundtrack saved")
-            .setMessage("Close and reopen the game to use "+(blooms?"Blooms":"Original")+" music. Your current game will continue with its existing soundtrack.")
-            .setPositiveButton("OK",(dialog,which)->{}).show());
     }
     public static synchronized String onlineTitle(String id,String original) {
         String[] row=onlineLevels.get(id);return row==null||row[0].isEmpty()?original:row[0];

@@ -11,6 +11,8 @@ import UnityPy
 from build_metadata_translation import load_pc_translations, parse_metadata, build_metadata, is_usable_pc_translation, normalize_modifier_translation
 from compact_metadata_tail import compact_metadata_tail
 from protected_metadata import verify_metadata
+from migrate_version_text import same_arguments
+from overlay_text_assets import normalize_android_almanac_text_asset
 
 META = 'assets/bin/Data/Managed/Metadata/global-metadata.dat'
 
@@ -55,6 +57,8 @@ def main():
         ap.add_argument('--'+key, type=Path, required=True)
     ap.add_argument('--pc-commit', required=True)
     a = ap.parse_args()
+    for folder in (a.pc, a.previous_pc):
+        assert (folder/'Localization/English/Strings/translation_strings.json').is_file(), 'Missing PC snapshot: '+str(folder)
     a.work.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(a.previous_apk) as z:
         previous = json.loads(z.read('assets/english/translations.json'))
@@ -84,6 +88,7 @@ def main():
             exact[source.text] = clean(target.text)
     env = UnityPy.load(str(a.bundle))
     names = collections.defaultdict(set)
+    recipe_names = set()
     almanacs = a.work/'almanac-refresh'
     for o in env.objects:
         if o.type.name != 'TextAsset':
@@ -92,6 +97,8 @@ def main():
         if asset.m_Name not in ('LawnStrings', 'ZombieStrings', 'DetailStrings'):
             continue
         raw = asset.m_Script.encode('utf8') if isinstance(asset.m_Script, str) else bytes(asset.m_Script)
+        normalized, size_tags = normalize_android_almanac_text_asset(asset.m_Name, raw.decode('utf8'))
+        assert not size_tags, 'Normalize Android almanac font overrides before exporting managed refresh files'
         content = json.loads(raw)
         almanacs.mkdir(parents=True, exist_ok=True)
         (almanacs/(asset.m_Name+'.json')).write_bytes(raw)
@@ -103,6 +110,10 @@ def main():
         for row in content[root]:
             cn = re.sub('<[^>]+>', '', original_names[row[id_key]]).strip()
             english = re.sub('<[^>]+>', '', row.get('name', '')).strip()
+            # Membership is source provenance, not an English-name invention.
+            # Real recipes involving untranslated/ambiguous new plants must
+            # still get their English discovery banner with names unchanged.
+            recipe_names.update(n for n in (cn, english) if n)
             if re.search('[\u3400-\u9fff]', cn) and is_usable_pc_translation(english):
                 names[cn].add(english)
     del env
@@ -112,6 +123,8 @@ def main():
         exact[cn] = english
         report['name_pairs'].append({'source': cn, 'english': english})
     review = read(a.review)
+    for source, target in review.get('composed_exact', {}).items():
+        exact[source] = target
     reviewed = {**review.get('runtime_only', {}), **review['exact']}
     for source, target in reviewed.items():
         assert is_usable_pc_translation(target), 'Invalid reviewed English'
@@ -127,6 +140,7 @@ def main():
     for i, source in enumerate(original):
         if source.text in review['exact']:
             target = exact[source.text]
+            assert same_arguments(source.text, target), 'Reviewed metadata format fields changed: '+source.text
             payload[i] = target.encode('utf8')
             changes.append({'index': i, 'source': source.text, 'english': target})
     output = compact_metadata_tail(build_metadata(a.metadata.read_bytes(), layout, payload))
@@ -201,12 +215,14 @@ def main():
             continue
         rules[pattern] = clean(target)
     rules[r'Availability:\s*(.+)'] = 'Availability: {0}'
+    rules.update(review.get('rendered_rules', {}))
     rules[r'(?:\[神笔马良\] 鉴定失败：|\[Magic Plantbrush\] Recognition failed: )(.*)'] = '[Magic Plantbrush] Recognition failed: {0}'
     for source in review.get('runtime_only', {}):
         rule = reviewed_format_rule(source, exact[source])
         if rule:
             rules[rule[0]] = rule[1]
-    result = {**previous, 'pc_commit': a.pc_commit, 'pc_overlay_commit': a.pc_commit, 'exact': exact, 'regex': list(map(list, rules.items()))}
+    result = {**previous, 'pc_commit': a.pc_commit, 'pc_overlay_commit': a.pc_commit, 'exact': exact, 'regex': list(map(list, rules.items())),
+              'recipe_names': sorted(recipe_names)}
     online = a.pc/'Localization/English/Strings/custom_level_data.json'
     if online.exists():
         result['online_levels'] = {k: {f: clean(v[f]) for f in ('name', 'startTip')} for k, v in read(online).items()
