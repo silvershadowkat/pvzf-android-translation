@@ -53,7 +53,7 @@
   "local_ai_included": false,
   "music": "Native Unity DecompressOnLoad profiles; inactive decoded data unloaded; restart required",
   "device_tested": {
-    "S26": "Installed as update; startup, settings selectors and both music-notice dismiss actions, Back navigation, restored almanac body sizing, existing Super Stacking save loaded, full English instructions fit. Final small label corrections require post-install visual check.",
+    "S26": "Final APK verified in place: existing Super Stacking checkpoint loads; Unlock Silver, Bronze item names, unexplored-stage headings, Research costs, compact Inspect / Upgrade label fit; music popup OK and Close work from paused-level Settings; Back returns to Pause; Blooms preference restored; returned to main menu. Earlier almanac typography and full help-page checks pass.",
     "Nova": "No further access authorized. Left untouched during this follow-up."
   },
   "managed_refresh": {
