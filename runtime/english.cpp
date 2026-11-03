@@ -409,9 +409,15 @@ static void attachOptions(P o){
     for(size_t i=0;i<controls.size();i++){
         P go=controls[i],tr=call(go,"get_transform");
         V2 pos={top.x,top.y+(bottom-top.y)*i/(controls.size()-1)};P arg[]={&pos};call(tr,"set_anchoredPosition",1,arg);
-        P button=component(go,cls("","UIBtn"));
-        if(!button)button=component(go,cls("","UIButton"));
-        if(button)setfield(button,"originPosition",value<V3>(call(tr,"get_localPosition")));
+        if(P button=component(go,cls("","UIBtn"))){
+            // UIBtn.Awake/OnMouseDown/OnMouseExit use anchoredPosition.
+            // UIButton uses a different coordinate space. Mixing the two
+            // makes the original OptionBtn controls jump when pressed.
+            V3 home={pos.x,pos.y,0};
+            if(P f=fieldInfo(cls("","UIBtn"),"originPosition"))
+                english::writeValueField(il2cpp_field_set_value,button,f,home);
+        }else if(P button=component(go,cls("","UIButton")))
+            setfield(button,"originPosition",value<V3>(call(tr,"get_localPosition")));
     }
     musicButton=il2cpp_gchandle_new(music,false);screenButton=il2cpp_gchandle_new(screen,false);
     refreshMusic();refreshScreen();

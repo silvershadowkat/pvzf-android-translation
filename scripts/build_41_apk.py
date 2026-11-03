@@ -16,8 +16,8 @@ CERT = '1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6'
 META = 'assets/bin/Data/Managed/Metadata/global-metadata.dat'
 BUNDLE = 'assets/bin/Data/data.unity3d'
 RESOURCE = 'assets/bin/Data/resources.resource'
-VERSION_CODE = 4100102
-VERSION_NAME = '4.1-English-pre1-r3'
+VERSION_CODE = 4100103
+VERSION_NAME = '4.1-English-pre1-r4'
 PACKAGE = 'com.LanPiaoPiao.PlantsVsZombiesEN'
 
 

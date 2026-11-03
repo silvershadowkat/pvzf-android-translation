@@ -1,11 +1,11 @@
 {
   "status": "Local test build; not uploaded or published",
   "apk": "PvZ-Fusion-4.1-English-prerelease1.apk",
-  "sha256": "321647a0f23f511d246258bb37bd03b9dfe971fbe2b224aa98270b6a518642d1",
+  "sha256": "27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3",
   "bytes": 799555160,
   "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
-  "version_code": 4100102,
-  "version_name": "4.1-English-pre1-r3",
+  "version_code": 4100103,
+  "version_name": "4.1-English-pre1-r4",
   "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
   "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
   "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632",
@@ -54,10 +54,11 @@
   "music": "Native Unity DecompressOnLoad profiles; inactive decoded data unloaded; restart required",
   "device_tested": {
     "S26": "Final APK verified in place: existing Super Stacking checkpoint loads; Unlock Silver, Bronze item names, unexplored-stage headings, Research costs, compact Inspect / Upgrade label fit; music popup OK and Close work from paused-level Settings; Back returns to Pause; Blooms preference restored; returned to main menu. Earlier almanac typography and full help-page checks pass.",
-    "Nova": "No further access authorized. Left untouched during this follow-up."
+    "Nova": "No further access authorized. Left untouched during this follow-up.",
+    "S26_r4": "Installed in place. Old r3 camera press/drag-out reproduces the reported jump without changing zoom. R4 four-button touch verification paused automatically because game lost focus; no taps sent to the other app."
   },
   "managed_refresh": {
-    "revision": "4.1-English-pre1-r3",
+    "revision": "4.1-English-pre1-r4",
     "metadata_sha256": "48d7140848b6b0eb182566301bf6ece9bf09eccc9a05fa111820b88e99fa85f4",
     "files": {
       "translations.json": "78d250f5286981ee6a581bfdc1c81f70d0ba7aec090e43a8cd0adbfa61ab8b42",
@@ -74,7 +75,7 @@
   "music_diagnostics": false,
   "runtime_source_sha256": {
     "runtime\\display_cache.h": "1c4c9df336da26ac056c0d9cbb1a88bcd02284bc649ec3f937fcc50e06984faa",
-    "runtime\\english.cpp": "e39654f6a4b40244f1c4adc223ad036d8922e64ece3efb549295eddabf21db28",
+    "runtime\\english.cpp": "0d0f0456a24318bfc5c42368fc1dbcc03abdbfdbf974ef42440913bf1b42413c",
     "runtime\\field_access.h": "6e0e2dd920f7d843ff615ddbdc0303a1ed61081dafaf6dcc35506fa49ec2a06a",
     "runtime\\java\\com\\silvershadow\\pvzf\\BoundedTextCache.java": "d307fff61342c26a75f653814856d46afc65f5076bcb841873477a9b7cee676c",
     "runtime\\java\\com\\silvershadow\\pvzf\\EnglishActivity.java": "f818753adbb461d304c17bc0d7f1bb0b7d39071b2f9dff2a1d0ab2a318fd54ea",

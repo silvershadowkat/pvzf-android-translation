@@ -28,7 +28,7 @@ Checks: 74 Python tests, 36 real Java fixtures, 93 actual .NET source/candidate 
 
 ## Inputs and scope
 
-- One EN APK, version code `4100102` (`4.1-English-pre1-r3`), `com.LanPiaoPiao.PlantsVsZombiesEN`.
+- One EN APK, version code `4100103` (`4.1-English-pre1-r4`), `com.LanPiaoPiao.PlantsVsZombiesEN`.
 - Official Android `pvzrh4.1.apk`: 620,177,229 bytes, SHA-256 `6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390`.
 - Blooms 4.1 snapshot `5a415154d81243771d75e2dd90ae14ae79d52632`, compared with actual official PC 4.1 source where needed.
 - No Lite translations, offline recognizer model, ONNX library, recognition service/warmup or old mode blocker is shipped.
@@ -103,3 +103,7 @@ Detailed local evidence is in task `work/upgrade41/`: source inventories/disasse
 S26 visual checks confirm the restored plant description sizing, full Super Stacking instructions within bounds, corrected research-point banner and costs, and the game-style music notice with working dismiss/navigation. An existing Super Stacking checkpoint loads after the update. A few specialized stage reward names without verified Blooms equivalents remain Chinese. Official HoverGardenManager.EnterRun explicitly requests a 60-second first-entry tutorial banner; InGameText uses an unscaled timer, not message length. That stock duration is preserved.
 
 Final S26 r3 check: Explore/Unlock Silver, Bronze item names, unexplored-stage headings, Research costs and Inspect / Upgrade fit correctly. Music notice OK and Close both work from paused-level Settings; Back returns to Pause and the ordinary quit confirmation retains its original action/Cancel label. Blooms selection restored and the game returned to its main menu. No further Nova access.
+
+## Settings press-position correction, local r4
+
+The four original OptionBtn controls derive from UIBtn; the two added controls and Almanac use UIButton. ARM64 disassembly verifies UIBtn.Awake caches RectTransform.anchoredPosition into its Vector3 originPosition, and press/exit/release restore anchored coordinates. The port incorrectly cached localPosition for both button classes. On S26 a press-and-drag-out reproduced the camera button jumping about 50 pixels left/up while zoom remained 6. The focused fix writes the final anchored coordinates to UIBtn's declared base field and retains the existing UIButton handling. No continuous position correction or input hook is added. Native ARM64/ARMv7 builds and package/signature checks pass. Device verification follows.

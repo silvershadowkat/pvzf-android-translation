@@ -21,6 +21,7 @@ Local test draft. Do not publish or upload the APK before maintainer testing.
 
 - Dynamic cards, eligibility text, styled UI and downloaded level labels still use exact or bounded display translation. Complete mixed-language keys are prepared at build time. Gameplay identifiers are preserved.
 - Music uses Unity's original decompressed playback with background loading. Inactive decoded music is released when tracks change. Soundtrack changes require closing and reopening the game, with a notice using the game's own popup style. This replaces the separate Android players and the first 4.1 candidate's compressed streaming.
+- Fixed the original settings buttons jumping when pressed after the column was repositioned.
 - Fixed the missing music selector by using the settings column's actual manually positioned layout. The separate Screen button derives rendering dimensions from the current display and restores the captured default when toggled back. No automatic stretching or fixed 1080p override.
 - Projectile Info touch access and customizable button positioning remain available.
 - Removed our Magic Plantbrush launch blocker and offline recognizer. The mode now uses 4.1's official online recognition service. It needs internet and depends on that service being available.
