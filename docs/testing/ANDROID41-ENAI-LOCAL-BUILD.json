@@ -1,0 +1,209 @@
+{
+  "status": "Local candidate installed in place on authorized S26; not pushed or published",
+  "apk": "C:\\Users\\plim\\Documents\\Codex\\2026-11-03\\this-chat-seems-to-have-become\\outputs\\PvZ-Fusion-4.1-English-ENAI-local3.apk",
+  "sha256": "21d3f1b66bab5b97e456a161584787bce285dc584ba4458a0b79230735e6e406",
+  "bytes": 1068908986,
+  "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+  "version_code": 4100108,
+  "version_name": "4.1-English-pre1-ENAI-local3",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "previous_enai_sha256": "e4f33f9f5a25bca8014cb5d56e1ab60fca0fb441c0b2bca6012d0f7b73adc8b1",
+  "base_en_sha256": "fb219ee164ac1fe9a39c44900ed3b29814e4ec36b39c80b01788f4ce4af31ddc",
+  "upgrade_identity_matches_previous": true,
+  "unity_identity": {
+    "objects_compared": 219584,
+    "changed": [
+      [
+        "globalgamemanagers",
+        1
+      ],
+      [
+        "resources.assets",
+        3562
+      ]
+    ],
+    "only_enai_identity_and_loopback_config_changed": true,
+    "sha256": "a1be05af00b90b7fe5c16e72d6f046d7dd4346c455cbc4cf1e8c66b4f84fa1d3",
+    "base_apk_sha256": "fb219ee164ac1fe9a39c44900ed3b29814e4ec36b39c80b01788f4ce4af31ddc",
+    "recognition_endpoint": "http://127.0.0.1:17861",
+    "original_service_credentials_removed": true
+  },
+  "dex_identity": {
+    "classes_compared": 181,
+    "only_application_id_semantic_change": true
+  },
+  "changed_entries": [
+    "classes.dex",
+    "assets/bin/Data/data.unity3d",
+    "AndroidManifest.xml",
+    "resources.arsc",
+    "classes2.dex",
+    "lib/arm64-v8a/libpvzfenglish.so",
+    "lib/armeabi-v7a/libpvzfenglish.so",
+    "assets/english/manifest.json"
+  ],
+  "added_entries": [
+    "assets/plantbrush/CLIP-LICENSE.txt",
+    "assets/plantbrush/NOTICE.txt",
+    "assets/plantbrush/ONNXRUNTIME-LICENSE.txt",
+    "assets/plantbrush/catalog.json",
+    "assets/plantbrush/index.bin",
+    "assets/plantbrush/manifest.json",
+    "assets/plantbrush/vision.onnx",
+    "lib/arm64-v8a/libonnxruntime.so",
+    "lib/arm64-v8a/libonnxruntime4j_jni.so",
+    "lib/armeabi-v7a/libonnxruntime.so",
+    "lib/armeabi-v7a/libonnxruntime4j_jni.so"
+  ],
+  "original_game_native_libraries_unchanged": true,
+  "protected_metadata": {
+    "protected_strings": 46,
+    "present_strings": 32,
+    "verified_slots": 32,
+    "absent_strings": [
+      "ShootingAlmanacIndex",
+      "不破不立",
+      "两极分化",
+      "傲慢之罚",
+      "大帝祝福",
+      "大帝诅咒",
+      "嫉妒之惩",
+      "火菜炮祝福",
+      "火菜炮诅咒",
+      "磁坚祝福",
+      "磁坚诅咒",
+      "究樱祝福",
+      "究樱诅咒",
+      "试炼"
+    ]
+  },
+  "ort_version": "1.24.3",
+  "ort_aar_sha256": "67397e4a970e75617f765d2015ceaf911917e1d822276cfb5792744e8085cbce",
+  "generated_wrapper_sha256": "8374c308070e9cdd727b5d5041ade860afde1b437e4e86f405038ffe14670b55",
+  "model_manifest": {
+    "format": 1,
+    "recognition_revision": 3,
+    "model": "OpenAI CLIP ViT-B/32 vision only, float32",
+    "upstream_model": {
+      "model": "OpenAI CLIP ViT-B/32",
+      "weights_url": "https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt",
+      "weights_sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+      "source_commit": "a1d071733d7111c9c014f024669f959182114e33",
+      "source_sha256": "9902cbe5ee90a1da2aa3e6f043e8a23dc1f8831193b963785c9af03d5c7bef2c",
+      "license": "MIT",
+      "fine_tuned_on_project": false
+    },
+    "upstream_catalog_sha256": "8ad0ef90962a69302cd20d2a7f364aface550858d8aed5b26f2663b0fdc670ef",
+    "upstream_index_sha256": "d0c303da8ce8ae680ff35321cf59d66e8fc9a992eba659d6d4f7cd3a9214f0fe",
+    "export_checks": [
+      {
+        "cosine": 0.9999999403953552,
+        "max_abs_error": 3.814697265625e-06
+      },
+      {
+        "cosine": 0.9999998807907104,
+        "max_abs_error": 6.67572021484375e-06
+      }
+    ],
+    "files": {
+      "catalog.json": "57c4c4a8e26d3fce1e08e8e3730277e64927a70756671a2ee9b251866414c9cd",
+      "index.bin": "b80eb3fc9dcf6f20db8bda95041607a2083bccde3c35cfc5533863f199e3ac8f",
+      "vision.onnx": "7da9d34eac454ac6d607cfe8101348edda7d1139b55792a63f4066766b951f98"
+    },
+    "approved_english_names": 744,
+    "android_variant": "4.1-English-pre1-ENAI-local3",
+    "plant_only": true,
+    "retain_until_game_exit": true,
+    "release_on_critical_memory_pressure": true
+  },
+  "offline_plant_count": 718,
+  "zombie_catalog": false,
+  "all_catalog_enum_identities_match_41": true,
+  "device_tested": true,
+  "runtime_source_sha256": {
+    "runtime\\display_cache.h": "1c4c9df336da26ac056c0d9cbb1a88bcd02284bc649ec3f937fcc50e06984faa",
+    "runtime\\english.cpp": "7013e5cf9e2ba704c1c3d0809991b9fedaad9dcb927df0b803000014ce24a494",
+    "runtime\\field_access.h": "6e0e2dd920f7d843ff615ddbdc0303a1ed61081dafaf6dcc35506fa49ec2a06a",
+    "runtime\\java\\com\\silvershadow\\pvzf\\BoundedTextCache.java": "d307fff61342c26a75f653814856d46afc65f5076bcb841873477a9b7cee676c",
+    "runtime\\java\\com\\silvershadow\\pvzf\\EnglishActivity.java": "f818753adbb461d304c17bc0d7f1bb0b7d39071b2f9dff2a1d0ab2a318fd54ea",
+    "runtime\\java\\com\\silvershadow\\pvzf\\ManagedFiles.java": "b92b4e023f15645099de8aca809144c57b57f805bca4b1773a83e40c768bec6f",
+    "runtime\\java\\com\\silvershadow\\pvzf\\MusicBridge.java": "afd387ff491a73524364d2fa18f94a2f1065a16d3c5a2e9f20d2ba0faf1247f6",
+    "runtime\\java\\com\\silvershadow\\pvzf\\MusicStamp.java": "e7f882b21fb3afaee20de0ed7d5962b7409cedca9c287807e7be8dc1a549088f",
+    "runtime\\java\\com\\silvershadow\\pvzf\\PlantbrushBridge.java": "2eeb4c7c5eb7ad532febadcc0afec7c26f52625da8a4a41a242435a41b17e46c",
+    "runtime\\java\\com\\silvershadow\\pvzf\\PlantbrushTranslations.java": "206290b48d1018ab89340f1a51a6be2283d2d1f82a1bf67f35101c256a4c49e3",
+    "runtime\\java\\com\\silvershadow\\pvzf\\RegexPrefix.java": "0dab73ba799d8b5eae35a8e56094031f52f97760e53525d72e27fcb6cce8eb19",
+    "runtime\\music_profiles.inc": "6f2835e776f385fcfa52e4b28464b4de64153775368235c397a9525361953488",
+    "runtime\\offline_plantbrush.inc": "3813ce3af54c4bd871eae9592dd0a2cc5a87e9250bcde1dee7d58c03a01477a2",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\ModelStamp.java": "8e852c742789f5d4e84f9f4146ca7c51a3f0576ca7b5364b0e1aee9ac2416c34",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushMath.java": "91333935821a21596354120018a84e7d7dbd4d0282336f525b4d2915c5b1bea6",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushRecognizer.java": "861400735d5fd66449b2147901afe56360c1cbff33c7639458ba9f266d571d59",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushService.java": "1f8f9217a1639cdca8758c843a67467c1a383f952b1be7c798d2b5a9048c81eb",
+    "runtime\\plantbrush\\tests\\PlantbrushDexAudit.java": "14e073900b2324218e78b298a9074f6619de57e642f322ccde917e4fc44e4d48",
+    "runtime\\plantbrush\\tests\\PlantbrushHostTest.java": "c225d4448a4c77312497988aae46392a195ab3ab00a45baaf33bcb6796cf1148",
+    "runtime\\plantbrush\\tests\\PlantbrushIdentity.java": "e15adddfb86f81d663f2507d327c6073be320cc31d9f8aaefdfc4de8b12cd5bc",
+    "runtime\\plantbrush\\tests\\PlantbrushNativeInputTest.java": "6fd79e77d7054d093abd5ccff604bfb7f5c41fe9314497fad00b1b7a1964b65e",
+    "runtime\\plantbrush\\tests\\PlantbrushOptimizationTest.java": "7b70ab5555eb13abf476e59c965d4c2e81e6e150e6da44a147f23cd4c068f0cc",
+    "runtime\\plantbrush\\tests\\PlantbrushTextTest.java": "301822c1fb7f4e2aa832ea154e3c84bb6d953d3af156bc1d98e91f0f6064d94d",
+    "runtime\\screen_mode.inc": "107b413a70f0f65fc9fb43fb282815052474d8c1a607ba2d7af981622b60eb78",
+    "runtime\\screen_plan.h": "ce25cb354ab2a0f84ad917ccf5d2fbd2ed2136c37927228f84e39cb485cdf3d4",
+    "runtime\\tests\\DisplayCacheTest.cpp": "d0439f6c46a67a237e0a312e4d7bb044f01404b6d0c73a6731d8d6cc34f8c4a7",
+    "runtime\\tests\\DisplayCoverageAudit.java": "cd95ed881e2d54b373b9bf642b76e1e5336e5c56a3a211c5694e40bf005dd171",
+    "runtime\\tests\\FieldAccessTest.cpp": "5e5284ce6641374efa8e730d11d9700e550de8f001c6c69678f99d22fdcc6ae6",
+    "runtime\\tests\\ManagedFilesTest.java": "d012206af8b7ed8ed214e232bee45bb0adf0ecac8ab117c6ac741791cb192203",
+    "runtime\\tests\\ModifierDisplayTest.java": "7390dc1fa9fa0f67d1b8192a44356941b6c94047fc581c56e9386b9dffbd7bf3",
+    "runtime\\tests\\PayloadTranslationTest.java": "c9cfd5b152d65e1524df6b9c6645fa97c45c0da7d676d17450c8ab18daed9566",
+    "runtime\\tests\\RegexReview.java": "1a0a45473ad53c325e91018a8fb6036e94e08da73f151e0c26b5f4c83ab371e0",
+    "runtime\\tests\\RestoredAlmanacTest.java": "9fedbd36a5348bc9faf7a110f9b8cafbe1ec918f2068b93c91c7cb4fabb3e8e9",
+    "runtime\\tests\\RestoredMetadataTest.java": "82fca45abc5cacc4e0970cdeb5bbe99bec2dd5ea7b5167ecb414d3f1bd6b0b07",
+    "runtime\\tests\\RuntimeEfficiencyTest.java": "e06b761d359856d56b8503821d07f686d6682ee3ff3d8883fc428da0ec9bdf46",
+    "runtime\\tests\\ScreenPlanTest.cpp": "85701c1985ec0452123c948b1b480e902017841370704589ecc339908fc460e6",
+    "runtime\\tests\\TranslationParityTest.java": "38259b161793120460660ac7e39d39bd6c81f133ee4c344a10a4093bafacda66",
+    "runtime\\tests\\TranslationTest.java": "d784889ba680f38507118fce6d2a7e38f6564b08f729b90c1f322ad0608b5a9e"
+  },
+  "device_audit": "ANDROID41-ENAI-LOCAL.md",
+  "metadata_and_music_unchanged_from_base_en": true,
+  "s26_residency_test": {
+    "apk": "PvZ-Fusion-4.1-English-ENAI-local3.apk",
+    "game_pid": "26070",
+    "service_pid": "26819",
+    "requests": 31,
+    "memory": [
+      {
+        "label": "ready",
+        "pss_kib": 417056
+      },
+      {
+        "label": "after-10",
+        "pss_kib": 458218
+      },
+      {
+        "label": "after-20",
+        "pss_kib": 458240
+      },
+      {
+        "label": "after-30",
+        "pss_kib": 458448
+      },
+      {
+        "label": "idle-130s",
+        "pss_kib": 423915
+      },
+      {
+        "label": "after-idle-request",
+        "pss_kib": 426824
+      }
+    ],
+    "idle_seconds": 130.7374734000041,
+    "same_service_after_idle": true
+  },
+  "save_files_preserved": 2,
+  "s26_background_test": {
+    "service_pid": "26819",
+    "same_game_pid": true,
+    "background_seconds": 35,
+    "ready_without_reload": true,
+    "mode_exit_retained_before_background": true
+  },
+  "final_six_native_fixtures_passed": true,
+  "s26_actual_quit_released_recognizer": true
+}

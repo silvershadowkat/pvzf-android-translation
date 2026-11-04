@@ -432,6 +432,10 @@ static void attachOptions(P o){
 static void optionStart(P o,M m){LOG("OptionMenu Start callback reached");oldOptionStart(o,m);attachOptions(o);}
 
 #include "music_profiles.inc"
+#ifdef PVZF_LOCAL_PLANTBRUSH
+static bool hook(P c,const char* name,int count,P replacement,P* original);
+#include "offline_plantbrush.inc"
+#endif
 static void update(P o,M m){
     static bool first=true;if(first){first=false;LOG("GameAPP Update callback reached");}
     // Hooks are installed before il2cpp_init returns, before Unity can run scene
@@ -443,6 +447,9 @@ static void update(P o,M m){
 #endif
     syncDamageVisibility();screenTick();
     static auto last=std::chrono::steady_clock::now();auto now=std::chrono::steady_clock::now();if(now-last<std::chrono::milliseconds(250))return;last=now;
+#ifdef PVZF_LOCAL_PLANTBRUSH
+    offlinePendingTick();
+#endif
     refreshDamage();
 #ifdef PVZF_MUSIC_DIAGNOSTICS
     musicAuditTick();
@@ -476,8 +483,9 @@ static void initialize(){
         hook(cls("","OptionMenu"),"Start",0,(P)optionStart,(P*)&oldOptionStart);
     }
     hook(cls("","GameAPP"),"Update",0,(P)update,(P*)&oldUpdate);
-    // Official 4.1 owns Paintbrush entry and recognition, including networking.
-    // Do not install the historical unavailable-mode or offline-service hooks.
+#ifdef PVZF_LOCAL_PLANTBRUSH
+    initializeOffline();
+#endif
     hook(cls("UnityEngine","AudioSource"),"set_clip",1,(P)setMusicClip,(P*)&oldSetMusicClip);
     hook(cls("","GameAPP"),"PlayMusic",1,(P)profilePlayMusic,(P*)&oldProfilePlayMusic);
 #ifdef PVZF_MUSIC_DIAGNOSTICS

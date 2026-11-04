@@ -15,7 +15,6 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
     private static boolean installed;
     private static Session current; // main thread only
     private static final java.util.Set<Activity> visible=java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Activity,Boolean>());
-    private static final Runnable release=()->stop();
     public static void init(Context c) {
         if(context!=null)return;
         context=c.getApplicationContext();
@@ -69,7 +68,6 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
     public static synchronized int request(){
         if(!installed)return 0;
         if(Build.VERSION.SDK_INT<26)return -1;
-        main.removeCallbacks(release);
         if(state==0||(state<0&&SystemClock.elapsedRealtime()>=retryAfter)){
             state=1;
             main.post(()->{if(state!=1)return;if(current!=null)current.close();current=new Session();current.bind();});
@@ -78,11 +76,13 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
     }
     public static int status(){return state;}
     private static void stop(){if(current!=null){Session old=current;current=null;old.close();}state=0;}
-    public static void leave(){main.post(()->{main.removeCallbacks(release);stop();});}
-    public void onActivityStarted(Activity a){visible.add(a);main.removeCallbacks(release);}
-    public void onActivityStopped(Activity a){visible.remove(a);if(visible.isEmpty())main.postDelayed(release,30000);}
+    public static void leave(){main.post(()->stop());}
+    // Keep the verified session between modes and while backgrounded. Android
+    // can reclaim the service; critical pressure and actual game exit release it.
+    public void onActivityStarted(Activity a){visible.add(a);}
+    public void onActivityStopped(Activity a){visible.remove(a);}
     public void onActivityCreated(Activity a,Bundle b){}
-    public void onActivityDestroyed(Activity a){}
+    public void onActivityDestroyed(Activity a){if(a.isFinishing()&&visible.isEmpty())leave();}
     public void onActivityResumed(Activity a){}
     public void onActivityPaused(Activity a){}
     public void onActivitySaveInstanceState(Activity a,Bundle b){}

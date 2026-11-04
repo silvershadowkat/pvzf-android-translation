@@ -64,6 +64,25 @@ public final class PlantbrushMath {
         for(int c=0;c<3;c++)for(int i=0;i<normal.rgb.length;i++)out[c*50176+i]=(((normal.rgb[i]>>>(16-c*8))&255)/255f-mean[c])/sd[c];
         return out;
     }
+    static void tensor(Image normal,java.nio.FloatBuffer out){
+        if(normal.w!=224||normal.h!=224||out.capacity()!=3*224*224)throw new IllegalArgumentException("Unexpected tensor dimensions");
+        float[] mean={.48145466f,.4578275f,.40821073f},sd={.26862954f,.26130258f,.27577711f};
+        out.clear();
+        for(int c=0;c<3;c++)for(int i=0;i<normal.rgb.length;i++)out.put((((normal.rgb[i]>>>(16-c*8))&255)/255f-mean[c])/sd[c]);
+        out.rewind();
+    }
+    /** Stable descending score order, exactly matching the old boxed comparator. */
+    static void rank(float[] scores,int[] order,int[] scratch){
+        int n=scores.length;if(order.length!=n||scratch.length!=n)throw new IllegalArgumentException("Invalid ranking buffers");
+        for(int i=0;i<n;i++)order[i]=i;
+        for(int width=1;width<n;width*=2){
+            for(int start=0;start<n;start+=2*width){
+                int mid=Math.min(start+width,n),end=Math.min(start+2*width,n),a=start,b=mid;
+                for(int k=start;k<end;k++)scratch[k]=b>=end||(a<mid&&Float.compare(scores[order[a]],scores[order[b]])>=0)?order[a++]:order[b++];
+            }
+            System.arraycopy(scratch,0,order,0,n);
+        }
+    }
     static double rounded(double x,int places){double k=Math.pow(10,places);return Math.rint(x*k)/k;}
     static double quantile(int[] counts,int n,double q){double f=(n-1)*q;int lo=(int)f,hi=(int)Math.ceil(f),v0=0,v1=0,total=0;
         for(int i=0;i<counts.length;i++){int old=total;total+=counts[i];if(old<=lo&&total>lo)v0=i;if(old<=hi&&total>hi){v1=i;break;}}return v0+(v1-v0)*(f-lo);}
@@ -113,8 +132,11 @@ public final class PlantbrushMath {
         }
         int[] queue=new int[226*226];int head=0,tail=1;outside[0]=true;
         while(head<tail){int p=queue[head++],x=p%226,y=p/226;
-            for(int next:new int[]{x>0?p-1:-1,x<225?p+1:-1,y>0?p-226:-1,y<225?p+226:-1})
-                if(next>=0&&!outside[next]&&!dilated[next]){outside[next]=true;queue[tail++]=next;}
+            int next;
+            if(x>0){next=p-1;if(!outside[next]&&!dilated[next]){outside[next]=true;queue[tail++]=next;}}
+            if(x<225){next=p+1;if(!outside[next]&&!dilated[next]){outside[next]=true;queue[tail++]=next;}}
+            if(y>0){next=p-226;if(!outside[next]&&!dilated[next]){outside[next]=true;queue[tail++]=next;}}
+            if(y<225){next=p+226;if(!outside[next]&&!dilated[next]){outside[next]=true;queue[tail++]=next;}}
         }
         int[] pixels=new int[224*224];for(int y=0;y<224;y++)for(int x=0;x<224;x++)pixels[y*224+x]=outside[(y+1)*226+x+1]?0xff000000:-1;
         Image small=new Image(224,224,pixels).resize(32,32,BOX);float[] result=new float[1024];for(int i=0;i<1024;i++)result[i]=(small.rgb[i]&255)/255f;return result;

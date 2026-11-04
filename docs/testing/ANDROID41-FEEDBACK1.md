@@ -48,6 +48,8 @@ Actual .NET formatting and separator tests reproduce the defect and verify the c
 - Both ABI builds, signature/certificate, 16 KB alignment, manifest, changed-entry allowlist, protected active slots and managed payload hashes pass.
 - Actual signed r4-to-r5 fixtures pass 4 metadata and 12 almanac restoration cases across storage roots/profiles, including repeated restoration of old backups. Save/settings/unknown fixtures remain intact.
 
-No phone was accessed. Device layout, actual popup card arrangement, gameplay and longer-session performance remain to be tested. No claim is made that the tester modified files or that every slowdown is fixed.
+Subsequent authorized S26 testing installed r5 and final r6 in place. All eight saved EN JSON files remain byte-identical to their pre-update backups. Live Plantern/Peashooter Plant Info shows English headings, HP and separate stat cards, and plant 5008 displays its reviewed almanac description. Night Plantern/Beamshooter were reproduced with the actual .NET parser rather than manually played. Longer-session/device-wide performance remains unproven. No claim is made that the tester modified files or that every slowdown is fixed.
+
+Final r6 also covers mixed Width status for all known drawing tools. Its translation, almanac, metadata and music payloads equal r5; the only functional addition is Java display matching. Native loadable sections match r5 except GNU build IDs in both ABIs. 71 display fixtures pass. See [the ENAI/device audit](ANDROID41-ENAI-LOCAL.md) for music and optional offline recognition checks.
 
 Local evidence is under the continuation chat's `work/feedback41/`: recognition/native disassembly, source and released record comparisons, hashed Blooms snapshot, object diff, Java fixtures, .NET parser results, package logs and save-restoration checks. The original nine screenshot paths are in this chat. Do not publish extracted game data or credentials.

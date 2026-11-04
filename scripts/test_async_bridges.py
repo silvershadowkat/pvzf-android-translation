@@ -37,7 +37,7 @@ FAKES = {
  public boolean bindService(Intent i,ServiceConnection c,int flags){if(android.os.Looper.current!=android.os.Looper.MAIN)throw new AssertionError("Bind outside main");connection=c;binds++;return true;}
  public void unbindService(ServiceConnection c){unbinds++;}
 }''',
-'android/app/Activity.java': '''package android.app; public class Activity {}''',
+'android/app/Activity.java': '''package android.app; public class Activity {public boolean finishing;public boolean isFinishing(){return finishing;}}''',
 'android/app/Application.java': '''package android.app; import android.os.Bundle; public class Application extends android.content.Context {
  public final java.util.List<ActivityLifecycleCallbacks> callbacks=new java.util.ArrayList<>();
  public void registerActivityLifecycleCallbacks(ActivityLifecycleCallbacks c){callbacks.add(c);}
@@ -102,7 +102,11 @@ public class AsyncBridgeTest {
   ok(app.binds==2&&app.connection!=first,"Fresh connection per attempt");first.onBindingDied(new ComponentName());ok(PlantbrushBridge.status()==1,"Ignore stale death callback");
   Handler.advance(120001);ok(PlantbrushBridge.status()==-1&&app.unbinds==2,"Startup timeout closes session");
   Handler.advance(3001);PlantbrushBridge.request();Handler.drain();app.connection.onServiceConnected(new ComponentName(),(c,in,out,f)->{out.result=2;return true;});Handler.advance(1000);
-  PlantbrushBridge.leave();Handler.drain();ok(PlantbrushBridge.status()==0&&app.unbinds==3,"Leaving frees recognizer");
+  Application.ActivityLifecycleCallbacks ai=app.callbacks.get(1);ai.onActivityStarted(game);ai.onActivityStopped(game);
+  for(int i=0;i<130;i++)Handler.advance(1000);
+  ok(PlantbrushBridge.status()==2&&app.unbinds==2,"Retain idle/background recognizer without timeout unload");
+  ai.onActivityDestroyed(game);Handler.drain();ok(PlantbrushBridge.status()==2,"Activity recreation retains session");
+  game.finishing=true;ai.onActivityDestroyed(game);Handler.drain();ok(PlantbrushBridge.status()==0&&app.unbinds==3,"Actual game exit frees recognizer");
   System.out.println(checks+" async music/recognizer checks passed");
  }
 }'''

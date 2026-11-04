@@ -1,5 +1,12 @@
 # Magic Plantbrush: single-app Android recognizer
 
+## Current local 4.1 candidate (2026-11-04)
+
+Regular EN uses the official online recognizer. The separate local `PvZ-Fusion-4.1-English-ENAI-local3.apk` restores offline plant recognition with the existing ENAI package/signature, current translations and native Unity music. It updates existing ENAI without clearing saves. No 4.1 AI asset has been published.
+
+The maintainer chose to retain the model after first use for the lifetime of the running game. Mode exit, idle time and backgrounding do not routinely unload it. Actual game exit, critical memory pressure or Android reclaiming its process can release it. Recovery remains available. Allocation optimizations preserve the previous recognition model and thresholds. See [the current audit](testing/ANDROID41-ENAI-LOCAL.md), [build record](testing/ANDROID41-ENAI-LOCAL-BUILD.json) and the dated historical sections below. The old 30-second release policy is superseded for this candidate.
+
+
 The AI APK is available beside the Standard APK on [4.0.5 prerelease 4](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-4). It is a separate ENAI installation, with separate saves and no automatic import. AI testing covers only two Snapdragon devices, the Samsung Galaxy S26 Ultra and Retroid Pocket Nova; compatibility with every device is not guaranteed. See [the current test checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md) and [third-party attribution](../THIRD_PARTY.md). The dated sections retain the prototype development and publication history.
 
 ## Prerelease 4 performance follow-up (2026-10-28)

@@ -1,14 +1,17 @@
-# Next Android 4.1 feedback candidate
+# Next Android 4.1 feedback candidates
 
-Local r5, awaiting device testing. Nothing published.
+Local regular EN r6 and optional ENAI local3. Nothing published.
 
-- Corrected the Plant Info stat-card parser so translated attack intervals, speed bonuses and other stats do not merge or disappear.
-- Added missing Plant Info headings and stat labels using the existing runtime layer.
-- Added source-reviewed descriptions for plants 1498 and 5008, reusing established ingredient names. Their unverified plant and modifier names remain Chinese.
-- Translated the remaining drawing hint and mixed Pencil/Width footer.
-- Investigated the recognition busy notice: it accurately represents the official service's HTTP 429/503 responses. Recognition and music behavior remain unchanged.
+- Corrected Plant Info so translated stats remain separate, with English headings and labels.
+- Added source-reviewed descriptions for plants 1498 and 5008, retaining unverified names.
+- Translated the drawing hint and mixed tool-status text.
+- Restored the optional offline ENAI app with the existing package and signing identity for in-place updates.
+- Reduced avoidable recognition allocations and idle thread activity. Once loaded, recognition stays ready while the game runs, including between modes and in the background.
+- Preserved the native Unity music implementation. Both soundtrack profiles load correctly in S26 smoke checks; the remaining vague music report is not a confirmed new defect.
 
-Host, package and save-restoration checks pass. Device testing is pending. See [the feedback audit](testing/ANDROID41-FEEDBACK1.md).
+The online EN app retains the official recognition client. Its busy notice represents HTTP 429 or 503. ENAI uses its bundled plant catalog, with no online recognition fallback; newer unsupported plants and zombie recognition are outside that catalog.
+
+S26 checks preserve all eight EN and two ENAI saved JSON files. See [the feedback audit](testing/ANDROID41-FEEDBACK1.md) and [the ENAI audit](testing/ANDROID41-ENAI-LOCAL.md) for tested behavior and limits.
 
 The earlier draft below is historical.
 

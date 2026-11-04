@@ -87,6 +87,7 @@ def main():
                               '-DCMAKE_TOOLCHAIN_FILE='+str(a.sdk/'ndk/25.2.9519653/build/cmake/android.toolchain.cmake'),
                               '-DANDROID_ABI='+abi, '-DANDROID_PLATFORM=android-22', '-DCMAKE_BUILD_TYPE=Release',
                               '-DANDROID_STL=c++_static', '-DDOBBY_SOURCE='+str(a.dobby),
+                              '-DPVZF_LOCAL_PLANTBRUSH=OFF',
                               '-DPVZF_MUSIC_DIAGNOSTICS='+('ON' if a.music_diagnostics else 'OFF')], 60)
         run('compile-'+abi, [cm, '--build', build, '--target', 'pvzfenglish', '--parallel', '2'], 240)
         lib, stripped = build/'libpvzfenglish.so', build/'libpvzfenglish-stripped.so'

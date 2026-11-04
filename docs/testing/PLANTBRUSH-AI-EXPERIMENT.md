@@ -1,5 +1,8 @@
 # AI APK: current test checklist
 
+Current local 4.1 testing is recorded in [ANDROID41-ENAI-LOCAL.md](ANDROID41-ENAI-LOCAL.md). Its session stays loaded between modes, while idle and while backgrounded, per the maintainer's request. Validate reuse after these transitions and recovery if Android reclaims it. The published 4.0.5 checklist below is historical; its music switching/backend and routine background release descriptions do not describe 4.1.
+
+
 Target: [4.0.5 prerelease 4](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.0.5-release-4), file `PvZ-Fusion-4.0.5-English-prerelease4-AI.apk`. See [the follow-up audit](ANDROID405-PERFORMANCE2-AUDIT.md) and [release promotion checks](ANDROID405-PRE4-BUILD.json). The Standard APK intentionally keeps the unavailable-mode notice. AI testing covers only the Snapdragon-based S26 Ultra and Retroid Pocket Nova.
 
 ## Installation and saves

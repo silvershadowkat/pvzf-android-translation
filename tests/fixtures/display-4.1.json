@@ -62,5 +62,12 @@
   "窝瓜大喷菇": "窝瓜大喷菇",
   "属性计数\n光照等级": "Attribute Count\nLumos Level",
   "[神笔马良] 鉴定失败：识图服务繁忙，请稍后重试。": "[Magic Plantbrush] Recognition failed: The recognition service is busy. Try again later.",
-  "[Magic Plantbrush] Recognition failed: 识图服务繁忙，请稍后重试。": "[Magic Plantbrush] Recognition failed: The recognition service is busy. Try again later."
+  "[Magic Plantbrush] Recognition failed: 识图服务繁忙，请稍后重试。": "[Magic Plantbrush] Recognition failed: The recognition service is busy. Try again later.",
+  "橡皮  /  Width 12  /  256 x 256": "Eraser / Width 12 / 256 × 256",
+  "直线  /  Width 12  /  256 x 256": "Line / Width 12 / 256 × 256",
+  "矩形  /  Width 12  /  256 x 256": "Rectangle / Width 12 / 256 × 256",
+  "椭圆  /  Width 12  /  256 x 256": "Ellipse / Width 12 / 256 × 256",
+  "填充  /  Width 12  /  256 x 256": "Fill / Width 12 / 256 × 256",
+  "填色  /  Width 12  /  256 x 256": "Fill / Width 12 / 256 × 256",
+  "取色  /  Width 12  /  256 x 256": "Picker / Width 12 / 256 × 256"
 }

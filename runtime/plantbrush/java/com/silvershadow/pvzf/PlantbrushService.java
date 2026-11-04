@@ -20,6 +20,7 @@ public final class PlantbrushService extends Service {
     private volatile ServerSocket server;
     private volatile boolean stopped;
     private volatile long requestStarted;
+    private volatile boolean memoryPressure;
     private PlantbrushRecognizer recognizer;
     private final Binder binder=new Binder(){
         @Override protected boolean onTransact(int code,Parcel in,Parcel out,int flags)throws RemoteException{
@@ -62,14 +63,17 @@ public final class PlantbrushService extends Service {
             Log.i("PvZFPlantbrush","Native inference warmup passed");
             ServerSocket s=new ServerSocket();server=s;s.setReuseAddress(false);
             s.bind(new InetSocketAddress(InetAddress.getByName("127.0.0.1"),17861),2);
-            s.setSoTimeout(1000);state=2;Log.i("PvZFPlantbrush","Offline recognition ready; loopback only; PID="+Process.myPid());
+            s.setSoTimeout(1000);state=2;Log.i("PvZFPlantbrush","Offline recognition ready; retained until game exit or critical pressure; loopback only; PID="+Process.myPid());
             while(!stopped){
+                if(memoryPressure){
+                    state=-1;Log.i("PvZFPlantbrush","Released recognizer after critical memory pressure; next Identify can reload it");break;
+                }
                 try(Socket client=s.accept()){requestStarted=SystemClock.elapsedRealtime();client.setSoTimeout(10000);handle(client);}
                 catch(SocketTimeoutException idle){}
                 catch(Exception bad){if(!stopped)Log.w("PvZFPlantbrush","Request failed",bad);}
                 finally{requestStarted=0;}
             }
-        }catch(Exception|LinkageError e){state=-1;Log.e("PvZFPlantbrush","AI unavailable; game process is unaffected",e);}
+        }catch(Exception|LinkageError|OutOfMemoryError e){state=-1;Log.e("PvZFPlantbrush","AI unavailable; game process is unaffected",e);}
         finally{if(recognizer!=null)recognizer.close();try{if(server!=null)server.close();}catch(IOException ignored){}}
     }
     private void handle(Socket socket)throws Exception{
@@ -88,15 +92,19 @@ public final class PlantbrushService extends Service {
                 .put("recognition_revision",3).put("plant_count",718).put("prototype",true));return;
         }
         if(!parts[0].equals("POST")||!parts[1].equals("/recognize")){reply(socket,404,error("Unknown endpoint"));return;}
+        if(headers.containsKey("x-maliang-zombie-type")){reply(socket,200,error("This offline catalog supports plants only. Use the online EN app for zombie recognition."));return;}
         if(headers.containsKey("transfer-encoding")){reply(socket,400,error("Chunked input is not supported"));return;}
         int length;try{length=Integer.parseInt(headers.get("content-length"));}catch(Exception e){length=0;}
         if(length<1||length>4194304){reply(socket,413,error("Drawing must be between 1 byte and 4 MiB"));return;}
         byte[] png=new byte[length];new DataInputStream(input).readFully(png);
         BitmapFactory.Options bounds=new BitmapFactory.Options();bounds.inJustDecodeBounds=true;
         BitmapFactory.decodeByteArray(png,0,png.length,bounds);
-        if(bounds.outWidth<1||bounds.outHeight<1||bounds.outWidth>4096||bounds.outHeight>4096){reply(socket,400,error("Invalid drawing dimensions"));return;}
+        // The actual 4.1 drawing request is 256x256. Reject oversized decoded
+        // images before allocating pixels; a compressed 4 MiB PNG is not a RAM bound.
+        if(bounds.outWidth<1||bounds.outHeight<1||bounds.outWidth>512||bounds.outHeight>512){reply(socket,400,error("Drawing dimensions exceed the offline limit"));return;}
         Integer target=null;
         if(headers.containsKey("x-maliang-plant-type"))try{target=Integer.valueOf(headers.get("x-maliang-plant-type"));}catch(NumberFormatException e){reply(socket,400,error("Invalid target plant"));return;}
+        if(!recognizer.supportsTarget(target)){reply(socket,200,error("The selected plant is not in this offline catalog. Use the online EN app for this plant."));return;}
         Bitmap bitmap=BitmapFactory.decodeByteArray(png,0,png.length);
         if(bitmap==null){reply(socket,400,error("Drawing could not be decoded"));return;}
         int width=bitmap.getWidth(),height=bitmap.getHeight();int[] pixels=new int[width*height];bitmap.getPixels(pixels,0,width,0,0,width,height);bitmap.recycle();
@@ -126,4 +134,6 @@ public final class PlantbrushService extends Service {
         // Unbinding releases the entire native allocator even if an inference is stuck.
         super.onDestroy();Process.killProcess(Process.myPid());
     }
+    public void onTrimMemory(int level){super.onTrimMemory(level);if(level==android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL)memoryPressure=true;}
+    public void onLowMemory(){super.onLowMemory();memoryPressure=true;}
 }
