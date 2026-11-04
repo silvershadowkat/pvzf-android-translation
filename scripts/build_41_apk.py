@@ -31,7 +31,11 @@ def main():
     for name in ('official', 'bundle', 'resource', 'payload', 'work', 'output', 'sdk', 'jdk', 'dobby', 'secret'):
         ap.add_argument('--'+name, type=Path, required=True)
     ap.add_argument('--music-diagnostics',action='store_true',help='Local seek-timing measurement only')
+    ap.add_argument('--version-code',type=int,default=VERSION_CODE)
+    ap.add_argument('--version-name',default=VERSION_NAME)
     a = ap.parse_args()
+    if a.version_code <= 0 or not a.version_name.strip():
+        ap.error('A positive version code and nonempty version name are required')
     r = Path(__file__).resolve().parents[1]
     a.work.mkdir(parents=True, exist_ok=True)
     a.output.parent.mkdir(parents=True, exist_ok=True)
@@ -95,7 +99,7 @@ def main():
     (support/'NOTICE.txt').write_text('PvZ Fusion English Android runtime\nDobby 21f07a5ce184cda9346afb8009c07fe7e47390d0\nhttps://github.com/jmpews/Dobby\n\n'+(a.dobby/'LICENSE').read_text(encoding='utf8'), encoding='utf8')
     files = {'translations.json': sha(support/'translations.json'), 'NOTICE.txt': sha(support/'NOTICE.txt')}
     almanacs = {name: a.payload/'almanac-refresh'/name for name in ('LawnStrings.json', 'ZombieStrings.json', 'DetailStrings.json')}
-    build_manifest = {'revision': VERSION_NAME, 'metadata_sha256': sha(a.payload/'metadata.dat'), 'files': files,
+    build_manifest = {'revision': a.version_name, 'metadata_sha256': sha(a.payload/'metadata.dat'), 'files': files,
                       'almanac_files': {name: sha(path) for name, path in almanacs.items()},
                       'refresh_test_seed': False, 'pc_commit': report['pc_commit']}
     memory = {'assets/english/manifest.json': json.dumps(build_manifest, ensure_ascii=False, separators=(',', ':')).encode('utf8')}
@@ -109,7 +113,7 @@ def main():
             if is_old_signature(info.filename):
                 continue
             if info.filename == 'AndroidManifest.xml':
-                memory[info.filename] = manifest(base.read(info), VERSION_CODE, VERSION_NAME)
+                memory[info.filename] = manifest(base.read(info), a.version_code, a.version_name)
             elif info.filename == 'resources.arsc':
                 memory[info.filename] = resources(base.read(info))
             elif info.filename == 'classes.dex':
@@ -148,7 +152,7 @@ def main():
     run('alignment', [bt/'zipalign.exe', '-c', '-P', '16', '4', a.output], 60)
     run('manifest', [bt/'aapt2.exe', 'dump', 'badging', a.output], 30)
     text = (logs/'manifest.log').read_text(encoding='utf8')
-    assert "name='"+PACKAGE+"'" in text and "versionCode='"+str(VERSION_CODE)+"'" in text and VERSION_NAME in text
+    assert "name='"+PACKAGE+"'" in text and "versionCode='"+str(a.version_code)+"'" in text and a.version_name in text
     changed, added = [], []
     with zipfile.ZipFile(a.official) as base, zipfile.ZipFile(a.output) as final:
         assert final.testzip() is None
@@ -169,7 +173,7 @@ def main():
         assert not any('onnx' in n.lower() or '/plantbrush/' in n.lower() or 'model.onnx' in n for n in final.namelist())
         assert json.loads(final.read('assets/english/manifest.json')) == build_manifest
     record = {'status': 'Local test build; not uploaded or published', 'apk': str(a.output), 'sha256': sha(a.output),
-              'bytes': a.output.stat().st_size, 'package': PACKAGE, 'version_code': VERSION_CODE, 'version_name': VERSION_NAME,
+              'bytes': a.output.stat().st_size, 'package': PACKAGE, 'version_code': a.version_code, 'version_name': a.version_name,
               'certificate_sha256': CERT, 'official_sha256': OFFICIAL, 'pc_commit': report['pc_commit'],
               'changed_existing_entries': sorted(changed), 'added_entries': added, 'protected_metadata': protection,
               'all_original_native_libraries_unchanged': True, 'local_ai_included': False,

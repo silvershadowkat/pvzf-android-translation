@@ -2,6 +2,16 @@
 
 This is the repeatable path for updating the English Android build.
 
+## Android 4.1 feedback safety checkpoint
+
+Read [the first 4.1 feedback audit](testing/ANDROID41-FEEDBACK1.md). PlantDataMenu stat templates are parser inputs: preserve their exact U+FF1A delimiter and LF terminator in metadata, then translate the final display labels/values through the existing runtime layer. `PLANT_STAT_METADATA_TEMPLATES` in `scripts/protected_metadata.py` enforces this. English-looking format strings are not necessarily safe to rewrite before game parsing.
+
+The current online recognition path is official and unchanged. Its busy message covers HTTP 429 and 503. Preserve the request guard, async operation, disposal, endpoint and authentication configuration. Do not revive the offline model or add automatic retries merely to suppress a real server error.
+
+When reviewing screenshots, compare the exact published APK, active metadata, managed almanacs and runtime dictionary before attributing a discrepancy to the tester. A missing specialized name can be an intentional untranslated term. Mixed Chinese/English or fully Chinese screenshots alone do not identify installed files.
+
+For host regression checks use the matching game baseline and current fixtures, for example `test_runtime_efficiency.py --baseline-ref v4.1-release-1 --online-plantbrush ...`. Historical offline-recognition and 4.0.5 modifier expectations remain historical tests.
+
 ## 4.0.5 prerelease 3 AI experiment and mode audit
 
 The current release has regular EN and experimental AI ENAI variants. Shared drawing UI wording lives in `runtime/java/com/silvershadow/pvzf/PlantbrushTranslations.java`; keep fixes in both APKs. Read [the mode audit and implementation history](magic-plantbrush-prototype.md) and [current test checklist](testing/PLANTBRUSH-AI-EXPERIMENT.md). The older prerelease sections below remain historical evidence.

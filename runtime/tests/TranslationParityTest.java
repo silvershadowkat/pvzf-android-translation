@@ -10,9 +10,10 @@ import com.silvershadow.pvzf.PlantbrushTranslations;
 public final class TranslationParityTest {
     static String dec(String x){return new String(Base64.getDecoder().decode(x),StandardCharsets.UTF_8);}
     static final class Engine {
-        final Class<?> c;final Map exact;final List rules;final Constructor<?> ctor;final Method translate;
+        final Class<?> c;final Map exact;final List rules;final Constructor<?> ctor;final Method translate;final Set names;
         Engine(String name)throws Exception {
             c=Class.forName(name);Field e=c.getDeclaredField("exact"),r=c.getDeclaredField("rules");e.setAccessible(true);r.setAccessible(true);exact=(Map)e.get(null);rules=(List)r.get(null);
+            Set found=null;try{Field n=c.getDeclaredField("recipeNames");n.setAccessible(true);found=(Set)n.get(null);}catch(NoSuchFieldException ignored){}names=found;
             ctor=Class.forName(name+"$Rule").getDeclaredConstructor(String.class,String.class);ctor.setAccessible(true);translate=c.getMethod("translate",String.class);
         }
         String apply(String x)throws Exception{return (String)translate.invoke(null,x);}
@@ -25,6 +26,8 @@ public final class TranslationParityTest {
             if(row[0].equals("E")){
                 String b=dec(row[2]);old.exact.put(a,b);now.exact.put(a,b);tests.add(a);
                 if(styled++<300){tests.add("<color=red>"+a+"</color>");tests.add(" "+a+" ");}
+            } else if(row[0].equals("N")){
+                if(old.names!=null)old.names.add(a);if(now.names!=null)now.names.add(a);
             } else if(row[0].equals("R")){
                 String b=dec(row[2]);old.rules.add(old.ctor.newInstance(a,b));now.rules.add(now.ctor.newInstance(a,b));patterns.add(a);
             } else if(row[0].equals("C")||row[0].equals("T"))tests.add(a);

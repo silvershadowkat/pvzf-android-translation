@@ -10,7 +10,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from protected_metadata import (PROTECTED_METADATA_STRINGS, protected_changes,
-                                verify_metadata, restore_metadata)
+                                verify_metadata, restore_metadata,
+                                PLANT_STAT_METADATA_TEMPLATES)
 from build_metadata_translation import (parse_metadata, translate_literal,
                                         translate_complete_pc_literal)
 
@@ -28,6 +29,21 @@ def metadata(strings):
 
 
 class ProtectedMetadataTests(unittest.TestCase):
+    def test_stat_parser_keeps_separate_cards_and_fullwidth_delimiters(self):
+        # BuildModernStats splits on LF, then IndexOf(U+FF1A). The published
+        # translated interval lacked LF and used ':', swallowing the next label.
+        source = ['攻击间隔：{0}秒\n', '属性计数：{0}\n', '光照等级：{0}\n']
+        translated = ['Attack Interval: {0}s', source[1], 'Lumos Level: {0}\n']
+        with self.assertRaises(ValueError):
+            verify_metadata(metadata(source), metadata(translated))
+        restored, changes = restore_metadata(metadata(source), metadata(translated))
+        templates = [s.text for s in parse_metadata(restored)[1]]
+        block = ''.join(t.format(v) for t, v in zip(templates, [1.5, 49, 1]))
+        cards = [line.split('：', 1) for line in block.splitlines()]
+        self.assertEqual(cards, [['攻击间隔', '1.5秒'], ['属性计数', '49'], ['光照等级', '1']])
+        self.assertEqual(len(changes), 2)
+        self.assertTrue(set(source).issubset(PLANT_STAT_METADATA_TEMPLATES))
+
     def test_pc_mapping_cannot_override_internal_metadata_key(self):
         for source in PROTECTED_METADATA_STRINGS:
             with self.subTest(source=source):

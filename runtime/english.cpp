@@ -193,6 +193,11 @@ static bool editorToolButton(P o){
     P args[]={window};return value<bool>(call(call(o,"get_transform"),"IsChildOf",1,args));
 }
 static P displayText(P o,P source){
+    // A general Blooms modifier label says "Upgrade: Damage". The modern
+    // Plant Info card instead displays a numeric damage bonus. Resolve only
+    // this colliding label and only within that menu, after its stat parser.
+    if(sameText(source,u"伤害增幅") && within(o,"","PlantDataMenu"))
+        return translated(str("伤害增幅_plantstats"));
     // The source literal is shared with settings toggles. Only the creator help
     // window's standalone close label uses Close; Disabled remains valid elsewhere.
     if((sameText(source,u"Disabled")||sameText(source,u"关闭")) &&

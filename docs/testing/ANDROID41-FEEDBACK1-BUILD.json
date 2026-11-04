@@ -1,0 +1,3497 @@
+{
+  "status": "Local feedback r5 candidate; host/package checks passed; device testing pending; not published",
+  "apk": "C:\\Users\\plim\\Documents\\Codex\\2026-11-03\\this-chat-seems-to-have-become\\outputs\\PvZ-Fusion-4.1-English-feedback1.apk",
+  "sha256": "954599b6ad3b1db22a52102350971b1d0ea55c27355e023cd0f8feb1a7794a98",
+  "bytes": 799555160,
+  "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+  "version_code": 4100104,
+  "version_name": "4.1-English-pre1-r5",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
+  "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632",
+  "changed_existing_entries": [
+    "AndroidManifest.xml",
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+    "assets/bin/Data/data.unity3d",
+    "assets/bin/Data/resources.resource",
+    "classes.dex",
+    "resources.arsc"
+  ],
+  "added_entries": [
+    "assets/english-almanac/DetailStrings.json",
+    "assets/english-almanac/LawnStrings.json",
+    "assets/english-almanac/ZombieStrings.json",
+    "assets/english/NOTICE.txt",
+    "assets/english/manifest.json",
+    "assets/english/translations.json",
+    "classes2.dex",
+    "lib/arm64-v8a/libpvzfenglish.so",
+    "lib/armeabi-v7a/libpvzfenglish.so"
+  ],
+  "protected_metadata": {
+    "protected_strings": 46,
+    "present_strings": 32,
+    "verified_slots": 32,
+    "absent_strings": [
+      "ShootingAlmanacIndex",
+      "不破不立",
+      "两极分化",
+      "傲慢之罚",
+      "大帝祝福",
+      "大帝诅咒",
+      "嫉妒之惩",
+      "火菜炮祝福",
+      "火菜炮诅咒",
+      "磁坚祝福",
+      "磁坚诅咒",
+      "究樱祝福",
+      "究樱诅咒",
+      "试炼"
+    ]
+  },
+  "all_original_native_libraries_unchanged": true,
+  "local_ai_included": false,
+  "music": "Native Unity DecompressOnLoad profiles; inactive decoded data unloaded; restart required",
+  "bundle_review": {
+    "objects_compared": 219584,
+    "changed": [
+      [
+        "globalgamemanagers",
+        1
+      ]
+    ],
+    "only_player_settings_changed": true,
+    "sha256": "6d51ced630cb733a3702035ee8327f4c2252fe069557c9d89b3738bfce81a3fe",
+    "post_identity_review": {
+      "rules": [
+        {
+          "file": "resources.assets",
+          "id": 197805,
+          "source": "选中设备可升级",
+          "before": "选中设备可升级",
+          "english": "Select a device to upgrade it"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198015,
+          "source": "铲除 · 返还25阳光",
+          "before": "铲除 · 返还25阳光",
+          "english": "Shovel · Refund 25 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198651,
+          "source": "黑名单仅影响未来产出，现有库存保留",
+          "before": "黑名单仅影响未来产出，现有库存保留",
+          "english": "The blacklist affects future products only. Existing inventory is kept."
+        },
+        {
+          "file": "resources.assets",
+          "id": 199631,
+          "source": "探索新阶段后解锁。",
+          "before": "探索新阶段后解锁。",
+          "english": "Unlocks after discovering a new stage."
+        },
+        {
+          "file": "resources.assets",
+          "id": 200005,
+          "source": "探索解锁",
+          "before": "探索解锁",
+          "english": "Unlock by Exploring"
+        },
+        {
+          "file": "resources.assets",
+          "id": 200486,
+          "source": "探索新阶段后解锁。",
+          "before": "探索新阶段后解锁。",
+          "english": "Unlocks after discovering a new stage."
+        },
+        {
+          "file": "resources.assets",
+          "id": 200605,
+          "source": "阳光获取   0/5",
+          "before": "阳光获取   0/5",
+          "english": "Sun Gain   0/5"
+        },
+        {
+          "file": "resources.assets",
+          "id": 202167,
+          "source": "Lv.1 · 当前等级",
+          "before": "Lv.1 · 当前等级",
+          "english": "Lv.1 · Current Level"
+        },
+        {
+          "file": "resources.assets",
+          "id": 202710,
+          "source": "出售后掉落阳光，关闭菜单后飞向计数器到账。操作跟随本波记录点保存。",
+          "before": "出售后掉落阳光，关闭菜单后飞向计数器到账。操作跟随本波记录点保存。",
+          "english": "Selling drops Sun, which flies to the counter after closing this menu. Actions save with this wave checkpoint."
+        },
+        {
+          "file": "resources.assets",
+          "id": 202833,
+          "source": "库存中可加入的类型",
+          "before": "库存中可加入的类型",
+          "english": "Available Types to Add"
+        },
+        {
+          "file": "resources.assets",
+          "id": 203092,
+          "source": "阳光目标 · 基地 · 波次\n鼠标悬停使植物工作",
+          "before": "阳光目标 · 基地 · 波次\n鼠标悬停使植物工作",
+          "english": "Sun Target · Base · Wave\nHover over plants to make them work"
+        },
+        {
+          "file": "resources.assets",
+          "id": 203429,
+          "source": "向日葵全灭且无力恢复时\n补足50阳光，争取30秒\n本局可用1次",
+          "before": "向日葵全灭且无力恢复时\n补足50阳光，争取30秒\n本局可用1次",
+          "english": "If all Sunflowers are lost and recovery is impossible:\ngain 50 Sun and 30 seconds.\nOnce per run."
+        },
+        {
+          "file": "resources.assets",
+          "id": 203214,
+          "source": "探索解锁",
+          "before": "探索解锁",
+          "english": "Unlock by Exploring"
+        },
+        {
+          "file": "resources.assets",
+          "id": 205567,
+          "source": "探索新阶段后解锁。",
+          "before": "探索新阶段后解锁。",
+          "english": "Unlocks after discovering a new stage."
+        },
+        {
+          "file": "resources.assets",
+          "id": 206345,
+          "source": "探索新阶段后解锁。",
+          "before": "探索新阶段后解锁。",
+          "english": "Unlocks after discovering a new stage."
+        },
+        {
+          "file": "resources.assets",
+          "id": 206988,
+          "source": "阳光 50 · 购买后从底栏「道具」拖到草坪使用",
+          "before": "阳光 50 · 购买后从底栏「道具」拖到草坪使用",
+          "english": "Sun 50 · After purchase, drag from Items in the bottom bar onto the lawn."
+        },
+        {
+          "file": "resources.assets",
+          "id": 208897,
+          "source": "探索解锁",
+          "before": "探索解锁",
+          "english": "Unlock by Exploring"
+        },
+        {
+          "file": "resources.assets",
+          "id": 209577,
+          "source": "棱彩只能由3张同种钻石卡合成。",
+          "before": "棱彩只能由3张同种钻石卡合成。",
+          "english": "Prismatic requires 3 matching Diamond cards."
+        },
+        {
+          "file": "resources.assets",
+          "id": 209839,
+          "source": "旅行：进化\n全新升级",
+          "before": "旅行：进化\n全新升级",
+          "english": "Odyssey Evolved\nRevamped"
+        },
+        {
+          "file": "resources.assets",
+          "id": 210077,
+          "source": "探索解锁",
+          "before": "探索解锁",
+          "english": "Unlock by Exploring"
+        },
+        {
+          "file": "resources.assets",
+          "id": 211444,
+          "source": "探索新阶段后解锁。",
+          "before": "探索新阶段后解锁。",
+          "english": "Unlocks after discovering a new stage."
+        },
+        {
+          "file": "resources.assets",
+          "id": 212246,
+          "source": "探索解锁",
+          "before": "探索解锁",
+          "english": "Unlock by Exploring"
+        },
+        {
+          "file": "resources.assets",
+          "id": 212798,
+          "source": "探索新阶段后解锁。",
+          "before": "探索新阶段后解锁。",
+          "english": "Unlocks after discovering a new stage."
+        },
+        {
+          "file": "resources.assets",
+          "id": 213402,
+          "source": "探索解锁",
+          "before": "探索解锁",
+          "english": "Unlock by Exploring"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198529,
+          "source": "返回商店",
+          "before": "返回商店",
+          "english": "Back to Shop"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198777,
+          "source": "花盆",
+          "before": "花盆",
+          "english": "Flower Pot"
+        },
+        {
+          "file": "resources.assets",
+          "id": 199298,
+          "source": "超级叠叠乐",
+          "before": "超级叠叠乐",
+          "english": "Super Stacking"
+        },
+        {
+          "file": "resources.assets",
+          "id": 199774,
+          "source": "生命 300/300\n攻击 0\n花盆自动速度 ×0.00\n咖啡剩余 0秒 / 冷却 0秒",
+          "before": "生命 300/300\n攻击 0\n花盆自动速度 ×0.00\n咖啡剩余 0秒 / 冷却 0秒",
+          "english": "HP 300/300\nDamage 0\nFlower Pot Auto Speed x0.00\nCoffee: 0s left / Cooldown 0s"
+        },
+        {
+          "file": "resources.assets",
+          "id": 200126,
+          "source": "神笔马良",
+          "before": "Magic Plantbrush\n(Untranslated)",
+          "english": "Magic Plantbrush"
+        },
+        {
+          "file": "resources.assets",
+          "id": 200824,
+          "source": "返回商店",
+          "before": "返回商店",
+          "english": "Back to Shop"
+        },
+        {
+          "file": "resources.assets",
+          "id": 201450,
+          "source": "探索更高品质向日葵\n解锁更多道具",
+          "before": "探索更高品质向日葵\n解锁更多道具",
+          "english": "Discover higher-quality Sunflowers\nto unlock more items"
+        },
+        {
+          "file": "resources.assets",
+          "id": 201988,
+          "source": "商店刷新概率",
+          "before": "商店刷新概率",
+          "english": "Shop Refresh Rates"
+        },
+        {
+          "file": "resources.assets",
+          "id": 202124,
+          "source": "卡牌品质",
+          "before": "卡牌品质",
+          "english": "Card Quality"
+        },
+        {
+          "file": "resources.assets",
+          "id": 204568,
+          "source": "返回商店",
+          "before": "返回商店",
+          "english": "Back to Shop"
+        },
+        {
+          "file": "resources.assets",
+          "id": 204764,
+          "source": "道具会放在这里\n从右侧商店购买，再拖到目标上使用",
+          "before": "道具会放在这里\n从右侧商店购买，再拖到目标上使用",
+          "english": "Items appear here.\nBuy them in the shop on the right, then drag them onto a target."
+        },
+        {
+          "file": "resources.assets",
+          "id": 205814,
+          "source": "先探索白银品质",
+          "before": "先探索白银品质",
+          "english": "Discover Silver quality first"
+        },
+        {
+          "file": "resources.assets",
+          "id": 208115,
+          "source": "花盆",
+          "before": "花盆",
+          "english": "Flower Pot"
+        },
+        {
+          "file": "resources.assets",
+          "id": 208500,
+          "source": "返还25阳光，花盆留在格子。\n这株植物未完成的生产与待入库成品将丢失。",
+          "before": "返还25阳光，花盆留在格子。\n这株植物未完成的生产与待入库成品将丢失。",
+          "english": "Refund 25 Sun. The Flower Pot stays.\nThis plant loses unfinished production and products not yet stored."
+        },
+        {
+          "file": "resources.assets",
+          "id": 208765,
+          "source": "读卡器：用于自动冷却卡牌，花盆：用于使上方的植物自动工作，咖啡豆：临时大幅提高植物工作效率",
+          "before": "读卡器：用于自动冷却卡牌，花盆：用于使上方的植物自动工作，咖啡豆：临时大幅提高植物工作效率",
+          "english": "Card Readers automatically reduce card cooldowns. Flower Pots make the plants above them work automatically. Coffee Beans greatly boost plant work speed temporarily."
+        },
+        {
+          "file": "resources.assets",
+          "id": 209440,
+          "source": "花盆和咖啡直接从底栏拖到植物上。\n拖动花盆本体可换格或收回；本模式禁用手套。",
+          "before": "花盆和咖啡直接从底栏拖到植物上。\n拖动花盆本体可换格或收回；本模式禁用手套。",
+          "english": "Drag Flower Pots and coffee from the bottom bar onto plants.\nDrag a Flower Pot to move it or return it to the bar. The glove is disabled in this mode."
+        },
+        {
+          "file": "resources.assets",
+          "id": 211107,
+          "source": "选择商店等级，查看每个商品的常规刷新概率",
+          "before": "选择商店等级，查看每个商品的常规刷新概率",
+          "english": "Choose a shop level to view normal refresh rates for each item."
+        },
+        {
+          "file": "resources.assets",
+          "id": 212649,
+          "source": "按植物基础阳光价格的回收比例结算，同品质植物卡一次全部出售",
+          "before": "按植物基础阳光价格的回收比例结算，同品质植物卡一次全部出售",
+          "english": "Refunds a fraction of the plant's base Sun cost. Sells all cards of that plant and quality at once."
+        },
+        {
+          "file": "resources.assets",
+          "id": 214114,
+          "source": "花盆效率   0/5",
+          "before": "花盆效率   0/5",
+          "english": "Flower Pot Efficiency   0/5"
+        },
+        {
+          "file": "resources.assets",
+          "id": 214884,
+          "source": "购买后进入底栏，拖到卡牌或草坪使用\n已有设备可选中升级，也可拖入回收区",
+          "before": "购买后进入底栏，拖到卡牌或草坪使用\n已有设备可选中升级，也可拖入回收区",
+          "english": "Purchased items appear in the bottom bar. Drag them onto a card or the lawn.\nSelect existing devices to upgrade them, or drag them into the recycling area."
+        },
+        {
+          "file": "resources.assets",
+          "id": 197606,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 197825,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198181,
+          "source": "600阳光",
+          "before": "600阳光",
+          "english": "600 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198268,
+          "source": "900阳光",
+          "before": "900阳光",
+          "english": "900 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198576,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198610,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198780,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 198922,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 199213,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 199516,
+          "source": "未解锁",
+          "before": "未解锁",
+          "english": "Locked"
+        },
+        {
+          "file": "resources.assets",
+          "id": 199580,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 199988,
+          "source": "棱彩  ×2.25",
+          "before": "棱彩  ×2.25",
+          "english": "Prismatic  ×2.25"
+        },
+        {
+          "file": "resources.assets",
+          "id": 200202,
+          "source": "150000阳光",
+          "before": "150000阳光",
+          "english": "150000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 200357,
+          "source": "100阳光",
+          "before": "100阳光",
+          "english": "100 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 200494,
+          "source": "未解锁",
+          "before": "未解锁",
+          "english": "Locked"
+        },
+        {
+          "file": "resources.assets",
+          "id": 201009,
+          "source": "4000阳光",
+          "before": "4000阳光",
+          "english": "4000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 201148,
+          "source": "未解锁",
+          "before": "未解锁",
+          "english": "Locked"
+        },
+        {
+          "file": "resources.assets",
+          "id": 201376,
+          "source": "未解锁",
+          "before": "未解锁",
+          "english": "Locked"
+        },
+        {
+          "file": "resources.assets",
+          "id": 202406,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 202446,
+          "source": "9000阳光",
+          "before": "9000阳光",
+          "english": "9000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 202793,
+          "source": "未解锁",
+          "before": "未解锁",
+          "english": "Locked"
+        },
+        {
+          "file": "resources.assets",
+          "id": 203200,
+          "source": "90000阳光",
+          "before": "90000阳光",
+          "english": "90000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 203517,
+          "source": "25000阳光",
+          "before": "25000阳光",
+          "english": "25000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 204447,
+          "source": "15000阳光",
+          "before": "15000阳光",
+          "english": "15000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 204507,
+          "source": "100阳光",
+          "before": "100阳光",
+          "english": "100 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 205267,
+          "source": "500阳光",
+          "before": "500阳光",
+          "english": "500 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 205283,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 205440,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 205593,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 206203,
+          "source": "未解锁",
+          "before": "未解锁",
+          "english": "Locked"
+        },
+        {
+          "file": "resources.assets",
+          "id": 206476,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 206973,
+          "source": "60000阳光",
+          "before": "60000阳光",
+          "english": "60000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 207246,
+          "source": "棱彩  ×5.00",
+          "before": "棱彩  ×5.00",
+          "english": "Prismatic  ×5.00"
+        },
+        {
+          "file": "resources.assets",
+          "id": 207800,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 208167,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 208281,
+          "source": "600000阳光",
+          "before": "600000阳光",
+          "english": "600000 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 208321,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 208358,
+          "source": "棱彩  ×6.00",
+          "before": "棱彩  ×6.00",
+          "english": "Prismatic  ×6.00"
+        },
+        {
+          "file": "resources.assets",
+          "id": 209446,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 210517,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 212058,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 212202,
+          "source": "150阳光",
+          "before": "150阳光",
+          "english": "150 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 212502,
+          "source": "2500阳光",
+          "before": "2500阳光",
+          "english": "2500 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 213783,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        },
+        {
+          "file": "resources.assets",
+          "id": 215138,
+          "source": "50 阳光",
+          "before": "50 阳光",
+          "english": "50 Sun"
+        }
+      ],
+      "only_reviewed_TMP_text_changed": true,
+      "objects_compared": 219584,
+      "base_sha256": "37f33b4bfdc086571212242c32ff41e0f1a1c534977ad84cbfbc9b889642a00f",
+      "output_sha256": "ce10ccb956be899222b9491c38a9e369c94380d964d2d4907610c6c17477234b"
+    },
+    "post_identity_audio_review": {
+      "base_sha256": "ce10ccb956be899222b9491c38a9e369c94380d964d2d4907610c6c17477234b",
+      "output_sha256": "43ef7bda2fcd092aeb01084fd4b1c2e23e10b9998d0695cb21d7830d553230c7",
+      "changed_added_profile_clips": [
+        [
+          "resources.assets",
+          215327
+        ],
+        [
+          "resources.assets",
+          215328
+        ],
+        [
+          "resources.assets",
+          215329
+        ],
+        [
+          "resources.assets",
+          215330
+        ],
+        [
+          "resources.assets",
+          215331
+        ],
+        [
+          "resources.assets",
+          215332
+        ],
+        [
+          "resources.assets",
+          215333
+        ],
+        [
+          "resources.assets",
+          215334
+        ],
+        [
+          "resources.assets",
+          215335
+        ],
+        [
+          "resources.assets",
+          215336
+        ],
+        [
+          "resources.assets",
+          215337
+        ],
+        [
+          "resources.assets",
+          215338
+        ],
+        [
+          "resources.assets",
+          215339
+        ],
+        [
+          "resources.assets",
+          215340
+        ],
+        [
+          "resources.assets",
+          215341
+        ],
+        [
+          "resources.assets",
+          215342
+        ],
+        [
+          "resources.assets",
+          215343
+        ],
+        [
+          "resources.assets",
+          215344
+        ],
+        [
+          "resources.assets",
+          215345
+        ],
+        [
+          "resources.assets",
+          215346
+        ],
+        [
+          "resources.assets",
+          215347
+        ],
+        [
+          "resources.assets",
+          215348
+        ],
+        [
+          "resources.assets",
+          215349
+        ],
+        [
+          "resources.assets",
+          215350
+        ],
+        [
+          "resources.assets",
+          215351
+        ],
+        [
+          "resources.assets",
+          215352
+        ],
+        [
+          "resources.assets",
+          215353
+        ],
+        [
+          "resources.assets",
+          215354
+        ],
+        [
+          "resources.assets",
+          215355
+        ],
+        [
+          "resources.assets",
+          215356
+        ],
+        [
+          "resources.assets",
+          215357
+        ],
+        [
+          "resources.assets",
+          215358
+        ],
+        [
+          "resources.assets",
+          215359
+        ],
+        [
+          "resources.assets",
+          215360
+        ],
+        [
+          "resources.assets",
+          215361
+        ],
+        [
+          "resources.assets",
+          215362
+        ],
+        [
+          "resources.assets",
+          215363
+        ],
+        [
+          "resources.assets",
+          215364
+        ],
+        [
+          "resources.assets",
+          215365
+        ],
+        [
+          "resources.assets",
+          215366
+        ],
+        [
+          "resources.assets",
+          215367
+        ],
+        [
+          "resources.assets",
+          215368
+        ],
+        [
+          "resources.assets",
+          215369
+        ],
+        [
+          "resources.assets",
+          215370
+        ]
+      ],
+      "all_other_objects_unchanged": true,
+      "load_type": "DecompressOnLoad",
+      "load_in_background": true,
+      "preload_audio_data": false,
+      "original_audio_payloads_unchanged": true
+    },
+    "post_identity_typography_review": {
+      "static_fields": [
+        {
+          "file": "resources.assets",
+          "id": 195518,
+          "source": "咖啡豆",
+          "english": "Coffee Bean",
+          "hierarchy": []
+        },
+        {
+          "file": "resources.assets",
+          "id": 197096,
+          "source": "白银  ×2.00",
+          "english": "Silver  ×2.00",
+          "hierarchy": [
+            "ProductName",
+            "Coffee_2",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197128,
+          "source": "读卡器",
+          "english": "Card Reader",
+          "hierarchy": [
+            "Category",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197143,
+          "source": "批量出售",
+          "english": "Sell in Bulk",
+          "hierarchy": [
+            "Label",
+            "SaleTab",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197581,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_Hover",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197602,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork33",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197731,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork01",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197764,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork05",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197792,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork03",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197890,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd4",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197966,
+          "source": "下一级",
+          "english": "Next Level",
+          "hierarchy": [
+            "Text",
+            "NextLevel",
+            "LevelSelector",
+            "Panel",
+            "ShopOddsPopup"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197980,
+          "source": "植物类别",
+          "english": "Plant Types",
+          "hierarchy": [
+            "Heading",
+            "PlantSection",
+            "Panel",
+            "ShopOddsPopup"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 197996,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove3",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198004,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_SunGain",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198096,
+          "source": "确认铲除",
+          "english": "Confirm Removal",
+          "hierarchy": [
+            "Label",
+            "确认铲除",
+            "ConfirmRemove",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198148,
+          "source": "更换配方会清除未完成进度；已经完成的待入库成品保留。",
+          "english": "Changing recipes clears unfinished progress. Completed products waiting to enter inventory are kept.",
+          "hierarchy": [
+            "RecipeHint",
+            "RecipeOptions",
+            "PlantInspector",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198188,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork31",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198202,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone5",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198380,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "UnlockHint",
+            "StageTool_StasisHourglass",
+            "StageTools",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198463,
+          "source": "波次研究",
+          "english": "Wave Research",
+          "hierarchy": [
+            "Label",
+            "Research",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198504,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone8",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198540,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove6",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198560,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork35",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198564,
+          "source": "钻石  ×2.00",
+          "english": "Diamond  ×2.00",
+          "hierarchy": [
+            "ProductName",
+            "Pot_4",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198614,
+          "source": "物品栏",
+          "english": "Inventory",
+          "hierarchy": [
+            "InventoryTitle",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198721,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork20",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198768,
+          "source": "出售植物卡",
+          "english": "Sell Plant Cards",
+          "hierarchy": [
+            "Label",
+            "SellQuality3",
+            "Sale",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198927,
+          "source": "道具",
+          "english": "Items",
+          "hierarchy": [
+            "Label",
+            "道具",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 198966,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork26",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199159,
+          "source": "钻石  ×4.00",
+          "english": "Diamond  ×4.00",
+          "hierarchy": [
+            "ProductName",
+            "Coffee_4",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199172,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork52",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199179,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_CoffeeDuration",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199377,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork15",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199468,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_Damage",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199509,
+          "source": "白银  ×0.65",
+          "english": "Silver  ×0.65",
+          "hierarchy": [
+            "ProductName",
+            "Reader_2",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199555,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Coffee_1",
+            "Products_2",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199579,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork34",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199787,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "UnlockHint",
+            "StageTool_HarvestFestival",
+            "StageTools",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199972,
+          "source": "道具",
+          "english": "Items",
+          "hierarchy": [
+            "Label",
+            "ShopTab3",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 199999,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Coffee_5",
+            "Products_2",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200007,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork53",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200132,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork17",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200621,
+          "source": "钻石  ×1.50",
+          "english": "Diamond  ×1.50",
+          "hierarchy": [
+            "ProductName",
+            "Reader_4",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200638,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove7",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200669,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork13",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200897,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone6",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200905,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork16",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200911,
+          "source": "育种产物会出现在这里\n点击选择，再到草坪种下",
+          "english": "Finished plant cards appear here.\nTap to select one, then place it on the lawn.",
+          "hierarchy": [
+            "EmptyPlants",
+            "OwnedItems",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 200941,
+          "source": "出售植物卡",
+          "english": "Sell Plant Cards",
+          "hierarchy": [
+            "Label",
+            "SellQuality4",
+            "Sale",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201034,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "UnlockHint",
+            "StageTool_HealingRain",
+            "StageTools",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201061,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_Damage",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201260,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Reader_5",
+            "Products_1",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201489,
+          "source": "探索奖励",
+          "english": "Exploration Rewards",
+          "hierarchy": [
+            "StageHeading",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201514,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork11",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201553,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork12",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201749,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork50",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201877,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork02",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 201879,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork27",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 202093,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork22",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 202195,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork43",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 202200,
+          "source": "研究 0",
+          "english": "Research: 0",
+          "hierarchy": [
+            "Label",
+            "Research",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 202448,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove2",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 202893,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Pot_5",
+            "Products_0",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203069,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "UnlockHint",
+            "StageTool_GrowthShovel",
+            "StageTools",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203149,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Reader_3",
+            "Products_1",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203194,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_Reader",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203221,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork51",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203387,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "CopyScroll_0",
+            "Products_3",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203453,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd5",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203498,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "HarvestFestival_0",
+            "Products_3",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 203958,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork10",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204115,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd0",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204178,
+          "source": "批量出售",
+          "english": "Sell in Bulk",
+          "hierarchy": [
+            "Label",
+            "SellInventory",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204461,
+          "source": "读卡器效率   0/5",
+          "english": "Card Reader Efficiency   0/5",
+          "hierarchy": [
+            "Name",
+            "Research_Reader",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204511,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork56",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204512,
+          "source": "植物物品栏管理",
+          "english": "Plant Inventory",
+          "hierarchy": [
+            "Title",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204570,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Pot_3",
+            "Products_0",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204594,
+          "source": "咖啡持续时间   0/5",
+          "english": "Coffee Duration   0/5",
+          "hierarchy": [
+            "Name",
+            "Research_CoffeeDuration",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204611,
+          "source": "可用研究点 0 · 每击败一波 +1",
+          "english": "Research Points: 0 · +1 per wave defeated",
+          "hierarchy": [
+            "ResearchPoints",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204623,
+          "source": "研究、道具与探索随波次记录点保存；中途退出会回到最近记录点。",
+          "english": "Research, items, and exploration save at wave checkpoints. Leaving mid-wave returns to the latest checkpoint.",
+          "hierarchy": [
+            "CheckpointHint",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204770,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork29",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204836,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone1",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 204868,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Coffee_2",
+            "Products_2",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205011,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_CoffeeEfficiency",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205056,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork08",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205100,
+          "source": "波次研究",
+          "english": "Wave Research",
+          "hierarchy": [
+            "Title",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205199,
+          "source": "黄金  ×2.75",
+          "english": "Gold  ×2.75",
+          "hierarchy": [
+            "ProductName",
+            "Coffee_3",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205231,
+          "source": "已拉黑的类型",
+          "english": "Blacklisted Types",
+          "hierarchy": [
+            "BlockedTitle",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205247,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork41",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205303,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Reader_4",
+            "Products_1",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205322,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Reader_1",
+            "Products_1",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205658,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone2",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205799,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "UnlockHint",
+            "StageTool_CopyScroll",
+            "StageTools",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205892,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_Pot",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205907,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Pot_2",
+            "Products_0",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 205959,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork57",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206031,
+          "source": "植物黑名单",
+          "english": "Plant Blacklist",
+          "hierarchy": [
+            "Label",
+            "PlantBlacklist",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206079,
+          "source": "保留植物",
+          "english": "Keep Plant",
+          "hierarchy": [
+            "Label",
+            "保留植物",
+            "ConfirmRemove",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206292,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_Hover",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206488,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone7",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206538,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork24",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206583,
+          "source": "咖啡效率   0/5",
+          "english": "Coffee Efficiency   0/5",
+          "hierarchy": [
+            "Name",
+            "Research_CoffeeEfficiency",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206595,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork25",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206606,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Pot_1",
+            "Products_0",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206654,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork48",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206748,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove4",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206894,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd3",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206925,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork14",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206926,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd1",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 206944,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Pot_4",
+            "Products_0",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207049,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork55",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207307,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd7",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207336,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove0",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207432,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Coffee_4",
+            "Products_2",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207539,
+          "source": "拖到这里\n回收50%",
+          "english": "Drop Here\nRefund 50%",
+          "hierarchy": [
+            "Label",
+            "RecycleDrop",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207552,
+          "source": "出售植物卡",
+          "english": "Sell Plant Cards",
+          "hierarchy": [
+            "Label",
+            "SellQuality1",
+            "Sale",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207633,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork19",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207684,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork54",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207788,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd6",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207820,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork30",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 207947,
+          "source": "全体伤害   0/5",
+          "english": "All Plant Damage   0/5",
+          "hierarchy": [
+            "Name",
+            "Research_Damage",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208007,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork42",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208012,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork28",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208061,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove5",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208171,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork49",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208180,
+          "source": "应急支援",
+          "english": "Emergency Support",
+          "hierarchy": [
+            "Label",
+            "Emergency",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208242,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork40",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208312,
+          "source": "备战席",
+          "english": "Bench",
+          "hierarchy": [
+            "Caption",
+            "Bench",
+            "Preparation",
+            "MultipleChoiceMenu3"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208564,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_CoffeeEfficiency",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208586,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "SunPulse_0",
+            "Products_3",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 208775,
+          "source": "上一级",
+          "english": "Previous Level",
+          "hierarchy": [
+            "Text",
+            "PreviousLevel",
+            "LevelSelector",
+            "Panel",
+            "ShopOddsPopup"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 209024,
+          "source": "每项5级 · 逐级消耗1 / 2 / 3 / 4 / 5点",
+          "english": "5 levels each · Costs 1 / 2 / 3 / 4 / 5 points",
+          "hierarchy": [
+            "ResearchRules",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 209101,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork60",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 209519,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork06",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 209597,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "UnlockHint",
+            "StageTool_SunPulse",
+            "StageTools",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 209632,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork18",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210008,
+          "source": "记录点 · 开局\n\n每波开始时更新记录点\n中途的购买、探索和战斗不保存\n重进从最近记录点继续",
+          "english": "Checkpoint · Run Start\n\nUpdated at the start of each wave.\nMid-wave purchases, exploration, and battles are not saved.\nReopen to resume from the latest checkpoint.",
+          "hierarchy": [
+            "CheckpointInfo",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210022,
+          "source": "关闭，继续照料",
+          "english": "Close and Continue",
+          "hierarchy": [
+            "Label",
+            "继续照料",
+            "PlantInspector",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210030,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork04",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210072,
+          "source": "木头  ×1.50",
+          "english": "Bronze  ×1.50",
+          "hierarchy": [
+            "ProductName",
+            "Coffee_1",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210157,
+          "source": "每探索一个新阶段，获得新玩法",
+          "english": "Each new stage unlocks new mechanics",
+          "hierarchy": [
+            "StageHint",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210234,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Coffee_3",
+            "Products_2",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210271,
+          "source": "植物黑名单",
+          "english": "Plant Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistTab",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210277,
+          "source": "购买后拖到目标上使用\n已装设备可直接拖回这里",
+          "english": "After purchase, drag onto a target.\nInstalled devices can be dragged back here.",
+          "hierarchy": [
+            "Hint",
+            "ToolDock",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210327,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork38",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210352,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork44",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210430,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork37",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210493,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork59",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210720,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "Reader_2",
+            "Products_1",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210753,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork46",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210809,
+          "source": "木头  ×0.35",
+          "english": "Bronze  ×0.35",
+          "hierarchy": [
+            "ProductName",
+            "Reader_1",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210889,
+          "source": "木头  ×0.25",
+          "english": "Bronze  ×0.25",
+          "hierarchy": [
+            "ProductName",
+            "Pot_1",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210992,
+          "source": "黄金  ×1.00",
+          "english": "Gold  ×1.00",
+          "hierarchy": [
+            "ProductName",
+            "Reader_3",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 210996,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork36",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 211100,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork47",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 211629,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_SunGain",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 211709,
+          "source": "操作说明",
+          "english": "Instructions",
+          "hierarchy": [
+            "Label",
+            "Help",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 211759,
+          "source": "应急支援",
+          "english": "Emergency Support",
+          "hierarchy": [
+            "Label",
+            "EmergencySupport",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 211776,
+          "source": "移出黑名单",
+          "english": "Remove from Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistRemove1",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 211849,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork39",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 212067,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "StasisHourglass_0",
+            "Products_3",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 212077,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork21",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 212089,
+          "source": "咖啡豆",
+          "english": "Coffee Bean",
+          "hierarchy": [
+            "Category",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 212240,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone4",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 212328,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork07",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 212725,
+          "source": "研究后立即生效",
+          "english": "Takes effect immediately",
+          "hierarchy": [
+            "Description",
+            "Research_Reader",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213174,
+          "source": "操作说明",
+          "english": "Instructions",
+          "hierarchy": [
+            "Label",
+            "操作说明",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213252,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork45",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213259,
+          "source": "加入黑名单",
+          "english": "Add to Blacklist",
+          "hierarchy": [
+            "Label",
+            "BlacklistAdd2",
+            "Blacklist",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213282,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_CoffeeDuration",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213459,
+          "source": "未探索",
+          "english": "Unexplored",
+          "hierarchy": [
+            "Description",
+            "Milestone3",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213699,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork09",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213727,
+          "source": "读卡器",
+          "english": "Card Reader",
+          "hierarchy": [
+            "Label",
+            "ShopTab1",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213884,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork58",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213950,
+          "source": "研究 · 1点",
+          "english": "Research: 1",
+          "hierarchy": [
+            "Label",
+            "Upgrade",
+            "Research_Pot",
+            "Research",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 213961,
+          "source": "出售植物卡",
+          "english": "Sell Plant Cards",
+          "hierarchy": [
+            "Label",
+            "SellQuality2",
+            "Sale",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 214065,
+          "source": "黄金  ×1.00",
+          "english": "Gold  ×1.00",
+          "hierarchy": [
+            "ProductName",
+            "Pot_3",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 214250,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "HealingRain_0",
+            "Products_3",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 214374,
+          "source": "咖啡豆",
+          "english": "Coffee Bean",
+          "hierarchy": [
+            "Label",
+            "ShopTab2",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 214755,
+          "source": "商品",
+          "english": "Item",
+          "hierarchy": [
+            "Name",
+            "GrowthShovel_0",
+            "Products_3",
+            "Viewport",
+            "ShopScroll",
+            "ShopSidebar",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 214938,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork23",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 214991,
+          "source": "出售植物卡",
+          "english": "Sell Plant Cards",
+          "hierarchy": [
+            "Label",
+            "SellQuality5",
+            "Sale",
+            "InventoryManagement",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 215236,
+          "source": "暂停 0%",
+          "english": "Paused 0%",
+          "hierarchy": [
+            "ProgressLabel",
+            "PlantWork32",
+            "ProductionFeedback",
+            "HoverGardenInterface"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 215286,
+          "source": "白银  ×0.50",
+          "english": "Silver  ×0.50",
+          "hierarchy": [
+            "ProductName",
+            "Pot_2",
+            "Workshop",
+            "HoverGardenPanel"
+          ]
+        },
+        {
+          "file": "resources.assets",
+          "id": 202030,
+          "source": "无尽波次，每波开始自动保存。\n持有 {sunGoal} 阳光即可领取胜利奖杯。\n\n① 鼠标停在向日葵上产阳光，停在育种葵上生产植物，停在上方种子卡上加快冷却。金盏花用来生产植物卡牌，不掉金币，成品只进入底部「植物」栏。\n\n② 读卡器拖到卡牌，花盆拖到草坪自动照料植物，咖啡暂时加速。道具、读卡器和花盆可拖回底栏或回收。\n\n③ 每击败一波获得1研究点，底部「研究」升级七项能力，每项5级。研究和道具进度随开局、每波开始的记录点保存。\n\n④ 上方分别探索向日葵和金盏花的新阶段，每阶段都有新道具或机制。商店「探索道具」购买一次性道具；拖到草坪使用。\n\n⑤ 场上品质用植物右下角的彩色数字1～5表示，与花盆数字错开；向日葵和金盏花显示生产进度。右键植物查看详情。",
+          "english": "Endless waves. Progress saves at the start of each wave.\nCollect {sunGoal} Sun to claim the victory trophy.\n\n1. Hover over Sunflowers to produce Sun, over Marigolds to produce plants, or over seed cards to reduce cooldowns. Marigolds produce plant cards instead of coins. Finished cards enter Plants in the bottom bar.\n\n2. Drag Card Readers onto cards and Flower Pots onto the lawn to automate work. Coffee Beans temporarily boost speed. Items, Card Readers, and Flower Pots can be returned to the bar or recycled.\n\n3. Defeat a wave to earn 1 Research Point. Use Research to upgrade seven abilities, each with five levels. Research and item progress save at the run-start and wave-start checkpoints.\n\n4. Explore new stages for Sunflowers and Marigolds using their cards at the top. Each stage adds items or mechanics. Buy consumables in Explore Items, then drag them onto the lawn.\n\n5. Colored numbers 1-5 beside plants show quality, separate from Flower Pot numbers. Sunflowers and Marigolds show production progress. Open a plant's details to inspect it.",
+          "hierarchy": [
+            "HelpText",
+            "Help",
+            "HoverGardenPanel"
+          ]
+        }
+      ],
+      "almanacs": [
+        {
+          "key": [
+            "resources.assets",
+            3670
+          ],
+          "name": "LawnStrings",
+          "removed_size_tags": 2413
+        },
+        {
+          "key": [
+            "resources.assets",
+            3716
+          ],
+          "name": "ZombieStrings",
+          "removed_size_tags": 461
+        }
+      ],
+      "objects_compared": 219584,
+      "only_reviewed_objects_changed": true,
+      "base_sha256": "43ef7bda2fcd092aeb01084fd4b1c2e23e10b9998d0695cb21d7830d553230c7",
+      "output_sha256": "48d21c8ca779d0f7811cc758716f34c1b21fa50413236e1dd36066c7391b77d0"
+    },
+    "post_tester_feedback_review": {
+      "status": "Local feedback candidate; not device-tested or published",
+      "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632",
+      "pc_checked_commit": "0ff6906929dfb119b52799267cd0393d26b9e058",
+      "previous_keys_retained": true,
+      "plant_fields": [
+        {
+          "id": 1498,
+          "field": "info",
+          "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+          "source_sha256": "f6af3237d6741dd1393887a3929f6d40626fb038e882a67c2fc7ec5350b7b9a8",
+          "english": "Sprays fumes at groups of zombies and summons Squash helpers to crush nearby targets.\n\nDamage: <color=#8B0000>40/1.5s</color>\nSpecial: <color=#8B0000>When attacking, extends two Squash, each dealing 20 times its Attack Damage. After 2s, they crush the leftmost zombie on the lawn, prioritizing the same lane. This effect then requires a 10s wait before it can be used again.</color>\nFusion Recipe: <color=#8B0000>Fume-shroom + Squash</color>"
+        },
+        {
+          "id": 1498,
+          "field": "introduce",
+          "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+          "source_sha256": "a2a4e51ee82075fc255f9c64d416bbdf7e513ceacdb6fc09a99f5da3235067a1",
+          "english": "Although often reported for settling disputes physically, 窝瓜大喷菇 insists it has never laid a hand on anyone. It explains that it only sprays a few harmless spores. As for the Squash frequently seen leaping from behind it to crush others, it says those are merely hallucinations caused by inhaling the spores."
+        },
+        {
+          "id": 5008,
+          "field": "info",
+          "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+          "source_sha256": "bf42fae20320a10c27403895b5defa409fe7e10af2725b780fd6c6bcda2880d1",
+          "english": "Attracts nearby projectiles, adds its own damage, then sends them crashing down on zombies.\n\nUsage Condition: <color=#8B0000>Odyssey Mode</color>\nFusion Recipe: <color=#8B0000>Squash-nut + Mag-nut</color>\nToughness: <color=#8B0000>4000</color>\nDamage: <color=#8B0000>1800 (Crush)</color>\nTargeting Range: <color=#8B0000>5 x 5</color>\nSpecial:\n<color=#8B0000>1. Attracts horizontally fired projectiles within 1.5 tiles, increases their damage by [its own damage], and absorbs them. Projectile traits are not retained, and zombies are not attacked during this phase.\n2. After absorbing 10 projectiles, distributes them evenly among zombies within range. Each projectile deals crush damage in a small area. During this attack, it does not block zombies.</color>\nOdyssey Modifier 1: <color=#8B0000>窝爱砸: Targeting range becomes an entire lane.</color>\nOdyssey Modifier 2: <color=#8B0000>窝爱吸: Attacks only after absorbing 30 projectiles.</color>"
+        },
+        {
+          "id": 5008,
+          "field": "introduce",
+          "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+          "source_sha256": "900d0e326e89160f609defabc8847d508b339aec08c65c7514b52e135cdcf887",
+          "english": "磁能窝瓜坚果 has a severe need for order. Even in battle, it cannot resist pulling projectiles onto its magnetic field lines and arranging them neatly. Zombies often complain that nothing looks more chaotic than it does. Then they get to see something even more chaotic: an enraged 磁能窝瓜坚果."
+        }
+      ],
+      "static_fields": [
+        {
+          "file": "resources.assets",
+          "id": 209450,
+          "source": "画出植物或僵尸，再点击鉴定",
+          "english": "Draw a plant or zombie, then tap Identify."
+        }
+      ],
+      "runtime_display": [
+        {
+          "source": "植物信息",
+          "english": "Plant Info"
+        },
+        {
+          "source": "当前属性",
+          "english": "Current Stats"
+        },
+        {
+          "source": "战斗属性",
+          "english": "Combat Stats"
+        },
+        {
+          "source": "暂无额外战斗属性",
+          "english": "No additional combat stats."
+        },
+        {
+          "source": "属性计数",
+          "english": "Attribute Count"
+        },
+        {
+          "source": "属性倒计时",
+          "english": "Property CD"
+        },
+        {
+          "source": "属性倒计速率",
+          "english": "Ability CD Speed"
+        },
+        {
+          "source": "诅咒任务",
+          "english": "Curse modifier progress"
+        },
+        {
+          "source": "生产间隔",
+          "english": "Production CD"
+        },
+        {
+          "source": "幸运一击率",
+          "english": "Crit Chance"
+        },
+        {
+          "source": "幸运一击伤害",
+          "english": "Crit Damage"
+        },
+        {
+          "source": "独立伤害增幅",
+          "english": "Independent Damage Bonus"
+        },
+        {
+          "source": "素材对照",
+          "english": "Material Reference"
+        },
+        {
+          "source": "素材对照  {0}",
+          "english": "Material Reference  {0}"
+        },
+        {
+          "source": "伤害增幅_plantstats",
+          "english": "Damage Bonus"
+        },
+        {
+          "source": "铅笔",
+          "english": "Pencil"
+        },
+        {
+          "source": "画出植物或僵尸，再点击鉴定",
+          "english": "Draw a plant or zombie, then tap Identify."
+        }
+      ],
+      "metadata_restored": [
+        {
+          "index": 16552,
+          "source": "伤害增幅：{0:F0}%\n",
+          "target": "Attack Damage Buff: {0:F0}%"
+        },
+        {
+          "index": 16793,
+          "source": "光照等级：{0}\n",
+          "target": "Lumos Level: {0}\n"
+        },
+        {
+          "index": 17789,
+          "source": "属性倒计时：{0:F1}秒\n",
+          "target": "Ability CD: {0:F1}s"
+        },
+        {
+          "index": 17790,
+          "source": "属性倒计速率：{0:F0}%\n",
+          "target": "Ability CD Speed: {0:F0}%"
+        },
+        {
+          "index": 17928,
+          "source": "幸运一击伤害：{0:F0}%\n",
+          "target": "Crit Damage: {0:F0}%"
+        },
+        {
+          "index": 17929,
+          "source": "幸运一击率：{0:F0}%\n",
+          "target": "Crit Chance: {0:F0}%"
+        },
+        {
+          "index": 18275,
+          "source": "护盾量：{0}\n",
+          "target": "Shield Amount: {0}"
+        },
+        {
+          "index": 18404,
+          "source": "攻击力：{0}\n",
+          "target": "Damage: {0}\n"
+        },
+        {
+          "index": 18416,
+          "source": "攻击间隔：{0}秒\n",
+          "target": "Attack Interval: {0}s"
+        },
+        {
+          "index": 18420,
+          "source": "攻速加成：{0:F0}%\n",
+          "target": "Attack Speed Buff: {0:F0}%"
+        },
+        {
+          "index": 19339,
+          "source": "独立伤害增幅：{0:F0}%\n",
+          "target": "Independent Damage Buff: {0:F0}%"
+        },
+        {
+          "index": 19375,
+          "source": "生产间隔：{0}秒\n",
+          "target": "Production CD: {0}s\n"
+        },
+        {
+          "index": 19505,
+          "source": "磁力数量：{0}\n",
+          "target": "Magnetic Links: {0}"
+        },
+        {
+          "index": 20193,
+          "source": "诅咒任务：{0}\n",
+          "target": "Curse objective: {0}\n"
+        }
+      ],
+      "protected_metadata": {
+        "protected_strings": 46,
+        "present_strings": 32,
+        "verified_slots": 32,
+        "absent_strings": [
+          "ShootingAlmanacIndex",
+          "不破不立",
+          "两极分化",
+          "傲慢之罚",
+          "大帝祝福",
+          "大帝诅咒",
+          "嫉妒之惩",
+          "火菜炮祝福",
+          "火菜炮诅咒",
+          "磁坚祝福",
+          "磁坚诅咒",
+          "究樱祝福",
+          "究樱诅咒",
+          "试炼"
+        ]
+      },
+      "objects_compared": 219584,
+      "changed_objects": [
+        [
+          "resources.assets",
+          3670
+        ],
+        [
+          "resources.assets",
+          209450
+        ]
+      ],
+      "only_reviewed_objects_changed": true,
+      "base_apk_sha256": "27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3",
+      "bundle_sha256": "6d51ced630cb733a3702035ee8327f4c2252fe069557c9d89b3738bfce81a3fe"
+    }
+  },
+  "device_tested": false,
+  "managed_refresh": {
+    "revision": "4.1-English-pre1-r5",
+    "metadata_sha256": "9eb18abc5a97eadafb317a1abc53d522f2a489bb96bbd7f954d3928e657f2960",
+    "files": {
+      "translations.json": "67c6d8dbaf6f01eb52f1a003995b5e557046c8cdffc0e5e10910ef0675738da7",
+      "NOTICE.txt": "72b98143910e4f170910507d540502fdc54d88788f9bb6af91c53b3fde1ff317"
+    },
+    "almanac_files": {
+      "LawnStrings.json": "3a80c29e97cb15b3144a1682292e71b11b9b7a6d76902ea7aedff64b38aa4de0",
+      "ZombieStrings.json": "bba3b0983040581eaecf04ca88c7362a4e650b6add22ac9b0fdc960bb962dd76",
+      "DetailStrings.json": "9556c2316f36dc50f7393e4ede4f66a82a83d5133de5c5821443ef9da723e22d"
+    },
+    "refresh_test_seed": false,
+    "pc_commit": "5a415154d81243771d75e2dd90ae14ae79d52632"
+  },
+  "music_diagnostics": false,
+  "runtime_source_sha256": {
+    "runtime\\display_cache.h": "1c4c9df336da26ac056c0d9cbb1a88bcd02284bc649ec3f937fcc50e06984faa",
+    "runtime\\english.cpp": "f9797d776b37ba3fba422a648cc0572741631abe59dcd58c57d6b6c0626665de",
+    "runtime\\field_access.h": "6e0e2dd920f7d843ff615ddbdc0303a1ed61081dafaf6dcc35506fa49ec2a06a",
+    "runtime\\java\\com\\silvershadow\\pvzf\\BoundedTextCache.java": "d307fff61342c26a75f653814856d46afc65f5076bcb841873477a9b7cee676c",
+    "runtime\\java\\com\\silvershadow\\pvzf\\EnglishActivity.java": "f818753adbb461d304c17bc0d7f1bb0b7d39071b2f9dff2a1d0ab2a318fd54ea",
+    "runtime\\java\\com\\silvershadow\\pvzf\\ManagedFiles.java": "b92b4e023f15645099de8aca809144c57b57f805bca4b1773a83e40c768bec6f",
+    "runtime\\java\\com\\silvershadow\\pvzf\\MusicBridge.java": "afd387ff491a73524364d2fa18f94a2f1065a16d3c5a2e9f20d2ba0faf1247f6",
+    "runtime\\java\\com\\silvershadow\\pvzf\\MusicStamp.java": "e7f882b21fb3afaee20de0ed7d5962b7409cedca9c287807e7be8dc1a549088f",
+    "runtime\\java\\com\\silvershadow\\pvzf\\PlantbrushBridge.java": "ab7713821ca07c6ff5eef8275c4d2243cdca4e244847db7a4536a26ea86f9fee",
+    "runtime\\java\\com\\silvershadow\\pvzf\\PlantbrushTranslations.java": "221104d88be475343c8d72f4f5b87d5e6093665e18c8cc7443bc8f59026ec62b",
+    "runtime\\java\\com\\silvershadow\\pvzf\\RegexPrefix.java": "0dab73ba799d8b5eae35a8e56094031f52f97760e53525d72e27fcb6cce8eb19",
+    "runtime\\music_profiles.inc": "6f2835e776f385fcfa52e4b28464b4de64153775368235c397a9525361953488",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\ModelStamp.java": "8e852c742789f5d4e84f9f4146ca7c51a3f0576ca7b5364b0e1aee9ac2416c34",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushMath.java": "7261f5aefb09dd1bdfa1b61901f64e41574bf20d4218746b8bbc303fde596196",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushRecognizer.java": "977fd2fcda80c017de1a4a7d4a557667472cb0cb17fca67a593dc698e0762f59",
+    "runtime\\plantbrush\\java\\com\\silvershadow\\pvzf\\PlantbrushService.java": "fe584bf3b71366d46be07a2a3f709b1df915c0e40f786b7f91b93d8187989341",
+    "runtime\\plantbrush\\tests\\PlantbrushHostTest.java": "c225d4448a4c77312497988aae46392a195ab3ab00a45baaf33bcb6796cf1148",
+    "runtime\\plantbrush\\tests\\PlantbrushIdentity.java": "e15adddfb86f81d663f2507d327c6073be320cc31d9f8aaefdfc4de8b12cd5bc",
+    "runtime\\plantbrush\\tests\\PlantbrushTextTest.java": "301822c1fb7f4e2aa832ea154e3c84bb6d953d3af156bc1d98e91f0f6064d94d",
+    "runtime\\screen_mode.inc": "107b413a70f0f65fc9fb43fb282815052474d8c1a607ba2d7af981622b60eb78",
+    "runtime\\screen_plan.h": "ce25cb354ab2a0f84ad917ccf5d2fbd2ed2136c37927228f84e39cb485cdf3d4",
+    "runtime\\tests\\DisplayCacheTest.cpp": "d0439f6c46a67a237e0a312e4d7bb044f01404b6d0c73a6731d8d6cc34f8c4a7",
+    "runtime\\tests\\DisplayCoverageAudit.java": "cd95ed881e2d54b373b9bf642b76e1e5336e5c56a3a211c5694e40bf005dd171",
+    "runtime\\tests\\FieldAccessTest.cpp": "5e5284ce6641374efa8e730d11d9700e550de8f001c6c69678f99d22fdcc6ae6",
+    "runtime\\tests\\ManagedFilesTest.java": "d012206af8b7ed8ed214e232bee45bb0adf0ecac8ab117c6ac741791cb192203",
+    "runtime\\tests\\ModifierDisplayTest.java": "7390dc1fa9fa0f67d1b8192a44356941b6c94047fc581c56e9386b9dffbd7bf3",
+    "runtime\\tests\\PayloadTranslationTest.java": "2ace941b8abea5999400ead4d6a5f7d1bf0ef379f00e2e71b001cef07b850f4f",
+    "runtime\\tests\\RegexReview.java": "1a0a45473ad53c325e91018a8fb6036e94e08da73f151e0c26b5f4c83ab371e0",
+    "runtime\\tests\\RestoredAlmanacTest.java": "9fedbd36a5348bc9faf7a110f9b8cafbe1ec918f2068b93c91c7cb4fabb3e8e9",
+    "runtime\\tests\\RestoredMetadataTest.java": "82fca45abc5cacc4e0970cdeb5bbe99bec2dd5ea7b5167ecb414d3f1bd6b0b07",
+    "runtime\\tests\\RuntimeEfficiencyTest.java": "e06b761d359856d56b8503821d07f686d6682ee3ff3d8883fc428da0ec9bdf46",
+    "runtime\\tests\\ScreenPlanTest.cpp": "85701c1985ec0452123c948b1b480e902017841370704589ecc339908fc460e6",
+    "runtime\\tests\\TranslationParityTest.java": "38259b161793120460660ac7e39d39bd6c81f133ee4c344a10a4093bafacda66",
+    "runtime\\tests\\TranslationTest.java": "d784889ba680f38507118fce6d2a7e38f6564b08f729b90c1f322ad0608b5a9e"
+  },
+  "feedback_review": "assets/feedback-4.1-review.json",
+  "delta_from_published_r4": [
+    "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+    "assets/bin/Data/data.unity3d",
+    "AndroidManifest.xml",
+    "lib/arm64-v8a/libpvzfenglish.so",
+    "lib/armeabi-v7a/libpvzfenglish.so",
+    "assets/english/translations.json",
+    "assets/english-almanac/LawnStrings.json",
+    "assets/english/manifest.json"
+  ],
+  "python_tests": 75,
+  "display_fixtures": 64,
+  "actual_apk_metadata_restore_cases": 4,
+  "actual_apk_almanac_restore_cases": 12,
+  "post_build_test_source_updates": [],
+  "recognition_network_behavior_unchanged": true,
+  "music_and_resource_payload_unchanged": true
+}

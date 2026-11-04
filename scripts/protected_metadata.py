@@ -4,7 +4,21 @@ Exact metadata literals only. This must not disable separately verified display
 translations in the Almanac or replace substrings inside ordinary prose.
 """
 
-PROTECTED_METADATA_STRINGS = frozenset({
+# PlantDataMenu.BuildModernStats first splits GetPlantInfo() on '\n', then
+# locates U+FF1A to separate each label/value. These are a serialized protocol,
+# even though they look like ordinary display prose. Translate the resulting
+# TMP labels/values after parsing, not these upstream templates.
+PLANT_STAT_METADATA_TEMPLATES = frozenset({
+    '属性计数：{0}\n', '光照等级：{0}\n', '护盾量：{0}\n',
+    '磁力数量：{0}\n', '生产间隔：{0}秒\n',
+    '属性倒计时：{0:F1}秒\n', '幸运一击率：{0:F0}%\n',
+    '属性倒计速率：{0:F0}%\n', '诅咒任务：{0}\n',
+    '攻击力：{0}\n', '伤害增幅：{0:F0}%\n',
+    '攻速加成：{0:F0}%\n', '独立伤害增幅：{0:F0}%\n',
+    '攻击间隔：{0}秒\n', '幸运一击伤害：{0:F0}%\n',
+})
+
+PROTECTED_METADATA_STRINGS = PLANT_STAT_METADATA_TEMPLATES | frozenset({
     '升级', '获得新植物', '试炼', '试炼：',
     'ShootingAlmanacIndex', 'UI/Data/ShootingAlmanacIndex',
     '木桩', '烈阳', '战锤', '裂空', '明月', '硬化', '交易', '宝藏',

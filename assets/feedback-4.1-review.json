@@ -1,0 +1,67 @@
+{
+  "policy": "Prefer complete current Blooms fields with matching source identity; contextual prose faithfully follows the actual source. Keep unverified plant and modifier names Chinese. Runtime display fixes never rename internal objects or parser delimiters.",
+  "base_apk_sha256": "27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3",
+  "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
+  "pc_checked_commit": "0ff6906929dfb119b52799267cd0393d26b9e058",
+  "plants": {
+    "1498": {
+      "info": {
+        "source_sha256": "f6af3237d6741dd1393887a3929f6d40626fb038e882a67c2fc7ec5350b7b9a8",
+        "previous_sha256": "f6af3237d6741dd1393887a3929f6d40626fb038e882a67c2fc7ec5350b7b9a8",
+        "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+        "english": "Sprays fumes at groups of zombies and summons Squash helpers to crush nearby targets.\n\nDamage: <color=#8B0000>40/1.5s</color>\nSpecial: <color=#8B0000>When attacking, extends two Squash, each dealing 20 times its Attack Damage. After 2s, they crush the leftmost zombie on the lawn, prioritizing the same lane. This effect then requires a 10s wait before it can be used again.</color>\nFusion Recipe: <color=#8B0000>Fume-shroom + Squash</color>"
+      },
+      "introduce": {
+        "source_sha256": "a2a4e51ee82075fc255f9c64d416bbdf7e513ceacdb6fc09a99f5da3235067a1",
+        "previous_sha256": "a2a4e51ee82075fc255f9c64d416bbdf7e513ceacdb6fc09a99f5da3235067a1",
+        "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+        "english": "Although often reported for settling disputes physically, 窝瓜大喷菇 insists it has never laid a hand on anyone. It explains that it only sprays a few harmless spores. As for the Squash frequently seen leaping from behind it to crush others, it says those are merely hallucinations caused by inhaling the spores."
+      }
+    },
+    "5008": {
+      "info": {
+        "source_sha256": "bf42fae20320a10c27403895b5defa409fe7e10af2725b780fd6c6bcda2880d1",
+        "previous_sha256": "bf42fae20320a10c27403895b5defa409fe7e10af2725b780fd6c6bcda2880d1",
+        "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+        "english": "Attracts nearby projectiles, adds its own damage, then sends them crashing down on zombies.\n\nUsage Condition: <color=#8B0000>Odyssey Mode</color>\nFusion Recipe: <color=#8B0000>Squash-nut + Mag-nut</color>\nToughness: <color=#8B0000>4000</color>\nDamage: <color=#8B0000>1800 (Crush)</color>\nTargeting Range: <color=#8B0000>5 x 5</color>\nSpecial:\n<color=#8B0000>1. Attracts horizontally fired projectiles within 1.5 tiles, increases their damage by [its own damage], and absorbs them. Projectile traits are not retained, and zombies are not attacked during this phase.\n2. After absorbing 10 projectiles, distributes them evenly among zombies within range. Each projectile deals crush damage in a small area. During this attack, it does not block zombies.</color>\nOdyssey Modifier 1: <color=#8B0000>窝爱砸: Targeting range becomes an entire lane.</color>\nOdyssey Modifier 2: <color=#8B0000>窝爱吸: Attacks only after absorbing 30 projectiles.</color>"
+      },
+      "introduce": {
+        "source_sha256": "900d0e326e89160f609defabc8847d508b339aec08c65c7514b52e135cdcf887",
+        "previous_sha256": "900d0e326e89160f609defabc8847d508b339aec08c65c7514b52e135cdcf887",
+        "origin": "Context Aware AI using actual 4.1 source and verified Blooms terms; specialized names retained",
+        "english": "磁能窝瓜坚果 has a severe need for order. Even in battle, it cannot resist pulling projectiles onto its magnetic field lines and arranging them neatly. Zombies often complain that nothing looks more chaotic than it does. Then they get to see something even more chaotic: an enraged 磁能窝瓜坚果."
+      }
+    }
+  },
+  "runtime_exact": {
+    "植物信息": "Plant Info",
+    "当前属性": "Current Stats",
+    "战斗属性": "Combat Stats",
+    "暂无额外战斗属性": "No additional combat stats.",
+    "属性计数": "Attribute Count",
+    "属性倒计时": "Ability CD",
+    "属性倒计速率": "Ability CD Speed",
+    "诅咒任务": "Curse Objective",
+    "生产间隔": "Production CD",
+    "幸运一击率": "Crit Chance",
+    "幸运一击伤害": "Crit Damage",
+    "独立伤害增幅": "Independent Damage Bonus",
+    "素材对照": "Material Reference",
+    "素材对照  {0}": "Material Reference  {0}",
+    "伤害增幅_plantstats": "Damage Bonus",
+    "铅笔": "Pencil",
+    "画出植物或僵尸，再点击鉴定": "Draw a plant or zombie, then tap Identify."
+  },
+  "rendered_rules": {
+    "([0-9]+(?:\\.[0-9]+)?)秒": "{0}s",
+    "铅笔  /  Width ([0-9]{1,3})  /  256 x 256": "Pencil  /  Width {0}  /  256 x 256"
+  },
+  "serialized": [
+    {
+      "file": "resources.assets",
+      "id": 209450,
+      "source": "画出植物或僵尸，再点击鉴定",
+      "english": "Draw a plant or zombie, then tap Identify."
+    }
+  ]
+}

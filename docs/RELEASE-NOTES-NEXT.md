@@ -1,3 +1,17 @@
+# Next Android 4.1 feedback candidate
+
+Local r5, awaiting device testing. Nothing published.
+
+- Corrected the Plant Info stat-card parser so translated attack intervals, speed bonuses and other stats do not merge or disappear.
+- Added missing Plant Info headings and stat labels using the existing runtime layer.
+- Added source-reviewed descriptions for plants 1498 and 5008, reusing established ingredient names. Their unverified plant and modifier names remain Chinese.
+- Translated the remaining drawing hint and mixed Pencil/Width footer.
+- Investigated the recognition busy notice: it accurately represents the official service's HTTP 429/503 responses. Recognition and music behavior remain unchanged.
+
+Host, package and save-restoration checks pass. Device testing is pending. See [the feedback audit](testing/ANDROID41-FEEDBACK1.md).
+
+The earlier draft below is historical.
+
 # PvZ Fusion 4.0.5 English Android: Prerelease 3
 
 ## Updated downloads: choose your APK
