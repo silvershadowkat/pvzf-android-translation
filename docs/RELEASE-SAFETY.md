@@ -1,3 +1,7 @@
+# Current release preparation: Android 4.1 pre-release 2
+
+Maintainer-authorized publication of the tested Standard ENr7 and optional ENAIlocal4, unchanged. See [simple release notes](RELEASE-NOTES-4.1-PRE2.md), [publication record](testing/ANDROID41-PRE2-RELEASE-BUILD.json), [layout verification](testing/ANDROID41-UI-LAYOUT.md) and [ENAI verification](testing/ANDROID41-ENAI-LOCAL.md). Standard updates EN and Offline AI updates ENAI, retaining their separate saves. Earlier local-only checkpoints below describe prior states.
+
 # Current release: Android 4.1 pre-release 1
 
 See [current release notes](RELEASE-NOTES-4.1-PRE1.md), [build verification](testing/ANDROID41-PRE1-BUILD.json) and [technical audit](testing/ANDROID41-PRE1-AUDIT.md). The final maintainer-approved r4 APK is published unchanged as one EN download. It includes the translation runtime and official online Magic Plantbrush, with no offline recognizer. Update Standard EN in place; RH and ENAI require a save-only transfer. Older sections below describe historical releases and audit rules.

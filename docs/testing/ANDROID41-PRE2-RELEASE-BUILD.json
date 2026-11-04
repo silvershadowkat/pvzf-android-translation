@@ -1,0 +1,36 @@
+{
+  "status": "Prepared for maintainer-authorized publication",
+  "tag": "v4.1-release-2",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-2",
+  "prerelease": true,
+  "release_date": "2026-11-04",
+  "source_base": "a362a3c",
+  "assets": [
+    {
+      "variant": "en",
+      "file": "PvZ-Fusion-4.1-English-prerelease2.apk",
+      "sha256": "7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed",
+      "bytes": 799555160,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4100109,
+      "version_name": "4.1-English-pre1-r7",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "unchanged_from_tested_candidate": true
+    },
+    {
+      "variant": "enai",
+      "file": "PvZ-Fusion-4.1-English-prerelease2-AI.apk",
+      "sha256": "5df589bfc7f152a74b615dbc0d07ca7a176a42c172bdceb077c8c0fb9865b2d8",
+      "bytes": 1068908986,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4100110,
+      "version_name": "4.1-English-pre1-ENAI-local4",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "unchanged_from_tested_candidate": true
+    }
+  ],
+  "source_build_record": "ANDROID41-UI-LAYOUT-BUILD.json",
+  "technical_audit": "ANDROID41-UI-LAYOUT.md",
+  "notes_no_em_dashes": true,
+  "readme_no_em_dashes": true
+}

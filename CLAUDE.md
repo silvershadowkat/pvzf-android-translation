@@ -1,3 +1,7 @@
+# Release checkpoint: 4.1 pre-release 2 preparation
+
+November 4, 2026. The maintainer explicitly authorized publishing both final APKs as pre-release2 with simple notes and no em dashes. Source branch `agent/translation-4.1-prerelease2`, based on `a362a3c`. Read `docs/RELEASE-NOTES-4.1-PRE2.md` and `docs/testing/ANDROID41-PRE2-RELEASE-BUILD.json`. Standard r7 and ENAIlocal4 are promoted byte-for-byte unchanged under public pre-release2 filenames. Do not rebuild or change the retained recognizer lifecycle. Keep the two app identities and save directories separate. No further phone testing is needed for this publication. Earlier local-only instructions below are historical and are superseded by this authorization for the two recorded APKs. No additional device access or external chat messaging is authorized or needed.
+
 # Current local checkpoint: camera explanation and uniform UI-position captions
 
 November 4, 2026. Branch `agent/translation-4.1-ui-layout`, based on `3e51b38`. Read `docs/testing/ANDROID41-UI-LAYOUT.md` and its BUILD record first. ENr7 (4100109), SHA256 `7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed`, is `outputs/PvZ-Fusion-4.1-English-feedback3.apk`; ENAIlocal4 (4100110), SHA256 `5df589bfc7f152a74b615dbc0d07ca7a176a42c172bdceb077c8c0fb9865b2d8`, is `outputs/PvZ-Fusion-4.1-English-ENAI-local4.apk` in this continuation chat. Both installed on USB S26 after explicit user approval to restart the paused round. No push/tag/release.
