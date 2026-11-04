@@ -1,3 +1,11 @@
+# Current local checkpoint: camera explanation and uniform UI-position captions
+
+November 4, 2026. Branch `agent/translation-4.1-ui-layout`, based on `3e51b38`. Read `docs/testing/ANDROID41-UI-LAYOUT.md` and its BUILD record first. ENr7 (4100109), SHA256 `7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed`, is `outputs/PvZ-Fusion-4.1-English-feedback3.apk`; ENAIlocal4 (4100110), SHA256 `5df589bfc7f152a74b615dbc0d07ca7a176a42c172bdceb077c8c0fb9865b2d8`, is `outputs/PvZ-Fusion-4.1-English-ENAI-local4.apk` in this continuation chat. Both installed on USB S26 after explicit user approval to restart the paused round. No push/tag/release.
+
+Thirteen UIConfigMenu captions now use fixed24 instead of independent18..72 auto-sizing. Exact tree and219,584object audit proves only those13caption font fields changed. No text/RectTransform/input/setting/native/Java/music/model change. Live EN screen is uniform, readable and unclipped; leave it open for user review. ENAI shares the audited payload and unchanged runtime; not separately opened in this follow-up. All8EN+2ENAI saved JSON hashes match pre-update backups. No Retroid touched.
+
+Official4.0.5 and4.1 both default to cameraSize5 and canvasMatch1, with the same5/6/7 zoom cycle. Earlier S26 backup had6; actual latest live comparison started at7. Default Screen mode at2340x1080:5fills field height,6/7show more empty black world margins. Restored initial live7; all8EN JSON hashes identical after restoration. Do not silently change the user's saved zoom or install an automatic camera override. Recommend Settings > Camera Zoom >5 for a larger field. Lower dated checkpoints remain historical; retained-session ENAI policy from local3 is unchanged.
+
 # Current local checkpoint: 4.1 EN r6 and retained-session ENAI local3
 
 November 4, 2026. Branch `agent/translation-4.1-enai-local`, based on `f670f5a`. Read `docs/testing/ANDROID41-ENAI-LOCAL.md`, `ANDROID41-ENAI-LOCAL-BUILD.json` and the updated feedback audit/build record first. The older checkpoints below retain historical states. Public pre-release 1 is unchanged. No push, tag, release or external message is authorized for these new candidates.

@@ -12,12 +12,12 @@ from build_performance_candidate import manifest,loaded_sections
 from package_apk_payload import copy_entry,is_old_signature
 from protected_metadata import verify_metadata
 
-BASE='fb219ee164ac1fe9a39c44900ed3b29814e4ec36b39c80b01788f4ce4af31ddc'
+BASE='7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed'
 PREVIOUS='e4f33f9f5a25bca8014cb5d56e1ab60fca0fb441c0b2bca6012d0f7b73adc8b1'
 ORT='67397e4a970e75617f765d2015ceaf911917e1d822276cfb5792744e8085cbce'
 CERT='1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6'
 PACKAGE='com.LanPiaoPiao.PlantsVsZombiesENAI'
-VERSION=4100108;NAME='4.1-English-pre1-ENAI-local3'
+VERSION=4100110;NAME='4.1-English-pre1-ENAI-local4'
 BUNDLE='assets/bin/Data/data.unity3d';META='assets/bin/Data/Managed/Metadata/global-metadata.dat'
 def sha(p):
     with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()

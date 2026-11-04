@@ -1,0 +1,202 @@
+{
+  "base_bundle_sha256": "6d51ced630cb733a3702035ee8327f4c2252fe069557c9d89b3738bfce81a3fe",
+  "font_size": 24.0,
+  "policy": "Static display-only normalization of the thirteen UIConfigMenu field labels. Keep font identity, text, RectTransforms, inputs, values, events and saved UI configuration unchanged.",
+  "labels": [
+    {
+      "file": "resources.assets",
+      "id": 200891,
+      "text": "Plant Storage Window Y Offset",
+      "hierarchy": [
+        "bottomOffsetInGameY",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 27.75,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 202728,
+      "text": "Plant Storage Window X Offset",
+      "hierarchy": [
+        "bottomOffsetInGameX",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 27.75,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 204686,
+      "text": "Bottom-left Buttons Y Offset",
+      "hierarchy": [
+        "leftButtonOffsetY",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 25.0,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 206384,
+      "text": "Conveyor Belt X Offset",
+      "hierarchy": [
+        "conveyOffsetX",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 31.25,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 206503,
+      "text": "Bottom-left Buttons X Offset",
+      "hierarchy": [
+        "leftButtonOffsetX",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 25.0,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 208246,
+      "text": "Seed Selection Screen Y Offset",
+      "hierarchy": [
+        "bottomOffsetY",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 27.75,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 210583,
+      "text": "Seed Bank Y Offset",
+      "hierarchy": [
+        "seedBankOffsetY",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 35.70000076293945,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 211300,
+      "text": "Toolbar Y Offset",
+      "hierarchy": [
+        "toolOffsetY",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 31.25,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 211320,
+      "text": "Seed Selection Screen X Offset",
+      "hierarchy": [
+        "bottomOffsetX",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 27.75,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 212111,
+      "text": "Seed Bank X Offset",
+      "hierarchy": [
+        "seedBankOffsetX",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 35.70000076293945,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 213430,
+      "text": "Toolbar X Offset",
+      "hierarchy": [
+        "toolOffsetX",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 31.25,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 214144,
+      "text": "Conveyor Belt Y Offset",
+      "hierarchy": [
+        "conveyOffsetY",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 31.25,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    },
+    {
+      "file": "resources.assets",
+      "id": 214513,
+      "text": "Bottom-left Buttons Size",
+      "hierarchy": [
+        "leftButtonScale",
+        "Layout",
+        "UIConfigMenu"
+      ],
+      "before": {
+        "m_fontSize": 25.0,
+        "m_fontSizeBase": 36.0,
+        "m_enableAutoSizing": 1
+      }
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 # Next Android 4.1 feedback candidates
 
-Local regular EN r6 and optional ENAI local3. Nothing published.
+Local regular EN r7 and optional ENAI local4. Both installed on S26; nothing published.
 
+- Made all thirteen Customize UI Positions field captions use one fixed, readable size.
 - Corrected Plant Info so translated stats remain separate, with English headings and labels.
 - Added source-reviewed descriptions for plants 1498 and 5008, retaining unverified names.
 - Translated the drawing hint and mixed tool-status text.
@@ -10,6 +11,8 @@ Local regular EN r6 and optional ENAI local3. Nothing published.
 - Preserved the native Unity music implementation. Both soundtrack profiles load correctly in S26 smoke checks; the remaining vague music report is not a confirmed new defect.
 
 The online EN app retains the official recognition client. Its busy notice represents HTTP 429 or 503. ENAI uses its bundled plant catalog, with no online recognition fallback; newer unsupported plants and zombie recognition are outside that catalog.
+
+Camera defaults are unchanged from 4.0.5. Camera Zoom5 gives the larger field view;6/7show more surrounding space. Existing saved zoom is preserved. See [the layout audit](testing/ANDROID41-UI-LAYOUT.md).
 
 S26 checks preserve all eight EN and two ENAI saved JSON files. See [the feedback audit](testing/ANDROID41-FEEDBACK1.md) and [the ENAI audit](testing/ANDROID41-ENAI-LOCAL.md) for tested behavior and limits.
 
