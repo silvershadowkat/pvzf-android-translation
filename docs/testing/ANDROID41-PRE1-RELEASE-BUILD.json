@@ -1,0 +1,19 @@
+{
+  "status": "Published and verified",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-1",
+  "release_id": 433372032,
+  "tag": "v4.1-release-1",
+  "source_commit": "848d0f49d1b49e0599dc65c75e1f601abdd0a638",
+  "published_at": "2026-11-04T00:33:31Z",
+  "prerelease": true,
+  "apk": "PvZ-Fusion-4.1-English-prerelease1.apk",
+  "bytes": 799555160,
+  "sha256": "27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3",
+  "github_asset_id": 707644943,
+  "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-1/PvZ-Fusion-4.1-English-prerelease1.apk",
+  "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+  "homepage_readme_commit": "d22cdcc8ed72e97c23c54793ff9418430b328299",
+  "apk_unchanged_from_tested_r4": true,
+  "signature_and_alignment_reverified": true,
+  "readme_no_em_dashes": true
+}

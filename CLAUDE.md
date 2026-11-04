@@ -1,6 +1,6 @@
 # Current release checkpoint: Android 4.1 pre-release 1
 
-The maintainer authorized publication of the final tested r4 APK unchanged as `v4.1-release-1` on November 3, 2026. Source branch: `agent/translation-4.1`. APK SHA-256: `27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3`. One EN APK; no offline AI variant. Read `docs/RELEASE-NOTES-4.1-PRE1.md`, `docs/testing/ANDROID41-PRE1-BUILD.json` and `docs/testing/ANDROID41-PRE1-AUDIT.md`. Older checkpoints below describe historical states. No additional device access is needed for publication.
+Published and verified on November 3, 2026 after explicit maintainer approval. The final tested r4 APK was uploaded unchanged as `v4.1-release-1`; the public asset size and SHA-256 match. The homepage README points to this release. See `docs/testing/ANDROID41-PRE1-RELEASE-BUILD.json` for the publication record. Source branch: `agent/translation-4.1`. APK SHA-256: `27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3`. One EN APK; no offline AI variant. Read `docs/RELEASE-NOTES-4.1-PRE1.md`, `docs/testing/ANDROID41-PRE1-BUILD.json` and `docs/testing/ANDROID41-PRE1-AUDIT.md`. Older checkpoints below describe historical states. No additional device access is needed for publication.
 
 # Publication checkpoint: Android 4.0.5 prerelease 3
 
