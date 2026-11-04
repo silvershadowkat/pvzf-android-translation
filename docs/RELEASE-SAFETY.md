@@ -1,3 +1,7 @@
+# Current release: Android 4.1 pre-release 1
+
+See [current release notes](RELEASE-NOTES-4.1-PRE1.md), [build verification](testing/ANDROID41-PRE1-BUILD.json) and [technical audit](testing/ANDROID41-PRE1-AUDIT.md). The final maintainer-approved r4 APK is published unchanged as one EN download. It includes the translation runtime and official online Magic Plantbrush, with no offline recognizer. Update Standard EN in place; RH and ENAI require a save-only transfer. Older sections below describe historical releases and audit rules.
+
 # Release safety notes
 
 October 22 update: prerelease 3 offers regular EN and experimental AI ENAI APKs. The regular update changes only the translation DEX relative to the original prerelease 3 base. The AI variant additionally changes app identity and introduces a private bound recognizer process, loopback HTTP service and ONNX model/runtime. It is not a data-only patch. Original game native libraries remain unchanged; added custom/native inference libraries are documented separately. See [the exact AI changes and verification](magic-plantbrush-prototype.md), [device limitations](testing/PLANTBRUSH-AI-EXPERIMENT.md), and the current release build record/checksums. Do not apply the historical three-payload or original-r20 identity gates to the AI APK.

@@ -1,6 +1,6 @@
 # Android 4.1 prerelease 1 preparation
 
-Initial investigation notes, November 3, 2026. Work is local on `agent/translation-4.1`, starting from prerelease 4 source `9345d21`. This checklist records the preparation stage; see [the completed candidate audit](ANDROID41-PRE1-AUDIT.md) for implementation and verification. The APK remains local and unpublished.
+Initial investigation notes, November 3, 2026. Work is local on `agent/translation-4.1`, starting from prerelease 4 source `9345d21`. This checklist records the preparation stage; see [the completed candidate audit](ANDROID41-PRE1-AUDIT.md) for implementation and verification. The maintainer approved the final r4 APK for publication as 4.1 pre-release 1. See [the release notes](../RELEASE-NOTES-4.1-PRE1.md). The preparation decisions below are historical.
 
 ## Maintainer decisions
 

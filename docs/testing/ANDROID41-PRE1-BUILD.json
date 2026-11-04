@@ -1,5 +1,5 @@
 {
-  "status": "Local test build; not uploaded or published",
+  "status": "Maintainer-approved 4.1 pre-release 1; tested r4 APK unchanged",
   "apk": "PvZ-Fusion-4.1-English-prerelease1.apk",
   "sha256": "27ed3d62353c43c585400efee8d0808c83deb52403ca858709400cbfb44abea3",
   "bytes": 799555160,
@@ -120,5 +120,8 @@
     "only_reviewed_serialized_objects_changed": true,
     "production_audio_diagnostics": false,
     "settings_press_restore_buttons": 4
-  }
+  },
+  "release_tag": "v4.1-release-1",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-1",
+  "release_date": "2026-11-03"
 }
