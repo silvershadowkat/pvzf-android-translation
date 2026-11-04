@@ -1,6 +1,6 @@
 # Next Android 4.1 feedback candidates
 
-Local regular EN r7 and optional ENAI local4. Both installed on S26; nothing published.
+Published unchanged as [4.1 pre-release 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-2) on November 4, 2026. See [the simple release notes](RELEASE-NOTES-4.1-PRE2.md) and [publication verification](testing/ANDROID41-PRE2-RELEASE-BUILD.json). The development details below describe the tested candidates.
 
 - Made all thirteen Customize UI Positions field captions use one fixed, readable size.
 - Corrected Plant Info so translated stats remain separate, with English headings and labels.

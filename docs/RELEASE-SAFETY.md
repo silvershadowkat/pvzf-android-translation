@@ -1,6 +1,6 @@
-# Current release preparation: Android 4.1 pre-release 2
+# Current release: Android 4.1 pre-release 2
 
-Maintainer-authorized publication of the tested Standard ENr7 and optional ENAIlocal4, unchanged. See [simple release notes](RELEASE-NOTES-4.1-PRE2.md), [publication record](testing/ANDROID41-PRE2-RELEASE-BUILD.json), [layout verification](testing/ANDROID41-UI-LAYOUT.md) and [ENAI verification](testing/ANDROID41-ENAI-LOCAL.md). Standard updates EN and Offline AI updates ENAI, retaining their separate saves. Earlier local-only checkpoints below describe prior states.
+Published and verified on November 4, 2026 after maintainer authorization. The tested Standard ENr7 and optional ENAIlocal4 are unchanged; both public asset checksums and sizes match. See [simple release notes](RELEASE-NOTES-4.1-PRE2.md), [publication record](testing/ANDROID41-PRE2-RELEASE-BUILD.json), [layout verification](testing/ANDROID41-UI-LAYOUT.md) and [ENAI verification](testing/ANDROID41-ENAI-LOCAL.md). Standard updates EN and Offline AI updates ENAI, retaining their separate saves. Earlier local-only checkpoints below describe prior states.
 
 # Current release: Android 4.1 pre-release 1
 

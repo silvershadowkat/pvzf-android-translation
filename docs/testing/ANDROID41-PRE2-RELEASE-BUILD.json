@@ -1,22 +1,11 @@
 {
-  "status": "Prepared for maintainer-authorized publication",
+  "status": "Published and verified",
   "tag": "v4.1-release-2",
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-2",
   "prerelease": true,
   "release_date": "2026-11-04",
   "source_base": "a362a3c",
   "assets": [
-    {
-      "variant": "en",
-      "file": "PvZ-Fusion-4.1-English-prerelease2.apk",
-      "sha256": "7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed",
-      "bytes": 799555160,
-      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
-      "version_code": 4100109,
-      "version_name": "4.1-English-pre1-r7",
-      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
-      "unchanged_from_tested_candidate": true
-    },
     {
       "variant": "enai",
       "file": "PvZ-Fusion-4.1-English-prerelease2-AI.apk",
@@ -26,11 +15,45 @@
       "version_code": 4100110,
       "version_name": "4.1-English-pre1-ENAI-local4",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
-      "unchanged_from_tested_candidate": true
+      "unchanged_from_tested_candidate": true,
+      "github_asset_id": 710638916,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-2/PvZ-Fusion-4.1-English-prerelease2-AI.apk"
+    },
+    {
+      "variant": "en",
+      "file": "PvZ-Fusion-4.1-English-prerelease2.apk",
+      "sha256": "7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed",
+      "bytes": 799555160,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4100109,
+      "version_name": "4.1-English-pre1-r7",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "unchanged_from_tested_candidate": true,
+      "github_asset_id": 710638917,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-2/PvZ-Fusion-4.1-English-prerelease2.apk"
+    },
+    {
+      "bytes": 1583,
+      "sha256": "6290d6d6eca923b7fd94fadcd17c820bd155a94f1270d4fde47f3178a05980fd",
+      "file": "RELEASE-BUILD.json",
+      "github_asset_id": 710638915,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-2/RELEASE-BUILD.json"
+    },
+    {
+      "bytes": 215,
+      "sha256": "d00d6b1a2b5e9f59b833f7c8a1ffa44b306b4ebd79c3969dba47685516dbc8e4",
+      "file": "SHA256SUMS.txt",
+      "github_asset_id": 710638914,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-2/SHA256SUMS.txt"
     }
   ],
   "source_build_record": "ANDROID41-UI-LAYOUT-BUILD.json",
   "technical_audit": "ANDROID41-UI-LAYOUT.md",
   "notes_no_em_dashes": true,
-  "readme_no_em_dashes": true
+  "readme_no_em_dashes": true,
+  "source_commit": "38090bc8a4dce9e06e9d676c364bf75ef7fbf331",
+  "release_id": 434350110,
+  "published_at": "2026-11-04T19:27:27Z",
+  "signature_and_alignment_reverified": true,
+  "homepage_readme_commit": "19a27a5d89530da1c22b8311c31cd6209a96ce11"
 }

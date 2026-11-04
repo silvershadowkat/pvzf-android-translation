@@ -1,5 +1,7 @@
 # Android 4.1 optional ENAI local candidate
 
+Publication follow-up: final ENr7 and ENAIlocal4 were published unchanged as [4.1 pre-release 2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-2) on November 4, 2026. See [the verified publication record](ANDROID41-PRE2-RELEASE-BUILD.json). The dated candidate checks below retain their original scope.
+
 November 4, 2026. Branch `agent/translation-4.1-enai-local`, based on the committed EN feedback fixes at `f670f5a`. Local artifacts only. The public `v4.1-release-1` APK and tag are unchanged.
 
 ## Identity and scope

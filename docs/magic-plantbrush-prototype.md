@@ -2,7 +2,7 @@
 
 ## 4.1 pre-release 2 publication
 
-The maintainer authorized publishing the tested ENAIlocal4 unchanged beside Standard ENr7 as [4.1 pre-release2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-2). See [current release notes](RELEASE-NOTES-4.1-PRE2.md) and [publication verification](testing/ANDROID41-PRE2-RELEASE-BUILD.json). The older local-only and unavailable-mode sections below are dated history. The retained-session policy remains in effect.
+Published and verified on November 4, 2026 after maintainer authorization: the tested ENAIlocal4 unchanged beside Standard ENr7 as [4.1 pre-release2](https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-2). See [current release notes](RELEASE-NOTES-4.1-PRE2.md) and [publication verification](testing/ANDROID41-PRE2-RELEASE-BUILD.json). The older local-only and unavailable-mode sections below are dated history. The retained-session policy remains in effect.
 
 
 ## Current local 4.1 candidate (2026-11-04)
