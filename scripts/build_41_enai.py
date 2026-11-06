@@ -12,12 +12,12 @@ from build_performance_candidate import manifest,loaded_sections
 from package_apk_payload import copy_entry,is_old_signature
 from protected_metadata import verify_metadata
 
-BASE='7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed'
-PREVIOUS='e4f33f9f5a25bca8014cb5d56e1ab60fca0fb441c0b2bca6012d0f7b73adc8b1'
+BASE='1b118b7bb2f2a1df4e641ac4da817e9a22d1ba02c9e5594df599d4f129d4a8ed'
+PREVIOUS='5df589bfc7f152a74b615dbc0d07ca7a176a42c172bdceb077c8c0fb9865b2d8'
 ORT='67397e4a970e75617f765d2015ceaf911917e1d822276cfb5792744e8085cbce'
 CERT='1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6'
 PACKAGE='com.LanPiaoPiao.PlantsVsZombiesENAI'
-VERSION=4100110;NAME='4.1-English-pre1-ENAI-local4'
+VERSION=4100116;NAME='4.1-English-pre3-ENAI'
 BUNDLE='assets/bin/Data/data.unity3d';META='assets/bin/Data/Managed/Metadata/global-metadata.dat'
 def sha(p):
     with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
@@ -114,7 +114,7 @@ def main():
     # Stage the optional wrapper without introducing an AI dependency into EN.
     source=(r/'runtime/java/com/silvershadow/pvzf/EnglishActivity.java').read_text(encoding='utf-8')
     needle='            loadTranslations();';assert source.count(needle)==1
-    source=source.replace(needle,needle+'\n            PlantbrushBridge.init(getApplicationContext());')
+    source=source.replace(needle,needle+'\n            PlantbrushBridge.init(context);')
     needle='    private static native void startRuntime(boolean blooms);';assert source.count(needle)==1
     source=source.replace(needle,needle+'\n    public static int requestPlantbrush(){return PlantbrushBridge.request();}\n    public static int plantbrushStatus(){return PlantbrushBridge.status();}\n    public static void leavePlantbrush(){PlantbrushBridge.leave();}')
     wrapper=w/'EnglishActivity.java';wrapper.write_text(source,encoding='utf-8')
@@ -123,7 +123,7 @@ def main():
         assert path.resolve().parent==w
         if path.exists():shutil.rmtree(path)
         path.mkdir()
-    java=[wrapper]+[r/'runtime/java/com/silvershadow/pvzf'/(n+'.java') for n in ('ManagedFiles','BoundedTextCache','RegexPrefix','PlantbrushTranslations','PlantbrushBridge')]+sorted((r/'runtime/plantbrush/java').rglob('*.java'))
+    java=[wrapper]+[r/'runtime/java/com/silvershadow/pvzf'/(n+'.java') for n in ('EnglishApplication','ProcessStartGate','ManagedFiles','BoundedTextCache','RegexPrefix','PlantbrushTranslations','PlantbrushBridge')]+sorted((r/'runtime/plantbrush/java').rglob('*.java'))
     run('javac',[a.jdk/'bin/javac.exe','-encoding','UTF-8','-source','8','-target','8','-cp',os.pathsep.join(map(str,[android,ort/'classes.jar'])),'-d',classes,*java])
     run('d8',[a.jdk/'bin/java.exe','-XX:ActiveProcessorCount=2','-Xmx512m','-cp',bt/'lib/d8.jar','com.android.tools.r8.D8','--release','--min-api','26','--lib',android,'--output',dex,*sorted(classes.rglob('*.class')),ort/'classes.jar'])
     assert not (dex/'classes2.dex').exists()
@@ -145,7 +145,7 @@ def main():
     memory={'resources.arsc':resource,'assets/english/manifest.json':json.dumps(game_manifest,separators=(',',':')).encode()}
     unsigned=w/'unsigned.apk'
     with zipfile.ZipFile(a.base) as base,zipfile.ZipFile(unsigned,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as out:
-        memory['AndroidManifest.xml']=manifest(ai_manifest(base.read('AndroidManifest.xml')),PACKAGE,VERSION,NAME)
+        memory['AndroidManifest.xml']=runtime_apk.application_bootstrap(manifest(ai_manifest(base.read('AndroidManifest.xml')),PACKAGE,VERSION,NAME))
         for info in base.infolist():
             if is_old_signature(info.filename):continue
             if info.filename in memory:out.writestr(copy.copy(info),memory[info.filename])

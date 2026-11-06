@@ -52,5 +52,61 @@
     "未选取时，究极Z教授获得1份备用报纸": "If not selected, Professor Cherryz gains 1 spare newspaper.",
     "落袋为安：积分获取效率增加120%，但减少当前轮数×10%": "落袋为安：Point gain increases by 120%, reduced by (current round × 10%).",
     "◆樱桃机枪读报僵尸免疫绝大多数状态异常": "◆Gatling Cherry Newspaper Zombie: Immune to most status effects."
+  },
+  "extra_fields": [
+    {
+      "asset": "LawnStrings",
+      "id": 29,
+      "name": "Garlic",
+      "field": "info",
+      "source_matches": true,
+      "numbers_match": true,
+      "source": "大蒜会使僵尸绕道而行。\n\n<color=#3D1400>特性：</color><color=red>低矮</color>\n<color=#3D1400>特点：①</color><color=red>受到的单次啃咬伤害不会超过15</color>\n<color=#3D1400>②</color><color=red>被啃咬时使啃咬者换行</color>",
+      "english": "Garlic makes zombies switch lanes.\n\nTraits: <color=#8B0000>Short plant</color>\nSpecial: <color=#8B0000>Receives no more than 15 damage from each bite. Zombies that bite it switch lanes.</color>",
+      "source_sha256": "2d86ac1516ccae7e9f44a62b27ee2485cd466c0150026926bbbb34c8b3a8169e",
+      "previous_sha256": "2d86ac1516ccae7e9f44a62b27ee2485cd466c0150026926bbbb34c8b3a8169e",
+      "origin": "Blooms terms/prose with actual 4.1 source corrections; no added mechanics"
+    },
+    {
+      "asset": "LawnStrings",
+      "id": 1474,
+      "name": "Hot Pot",
+      "field": "info",
+      "source_matches": true,
+      "numbers_match": true,
+      "source": "借助火势激发上方火伴战意。\n\n<color=#3D1400>特性：</color><color=red>低矮，载体，可种裸地</color>\n<color=#3D1400>特点：</color><color=red>每0.2秒限一次，受到火爆辣椒效果时，为上方火系投手、射手等植物回血20并提供持续5秒的50%攻速加成，该加成可叠加、不会在旅行模式生效</color>\n<color=#3D1400>融合配方：</color><color=red>花盆（底座）+火爆辣椒</color>",
+      "english": "Hot Pot uses flames to ignite the fighting spirit of fire plants above it.\n\nTraits: <color=#8B0000>Short plant, carrier, can be planted on bare ground</color>\nSpecial: <color=#8B0000>Once every 0.2s, when affected by a Jalapeno effect, restores 20 HP to fire-type catapults, shooters and similar plants above it, and grants them 50% bonus Attack Speed for 5s. This bonus stacks. This effect does not work in Odyssey Mode.</color>",
+      "source_sha256": "5a2365069246c223d99687c986a9edc4ac9a11fba97d8bd427d162609c8ad937",
+      "previous_sha256": "5a2365069246c223d99687c986a9edc4ac9a11fba97d8bd427d162609c8ad937",
+      "origin": "Blooms terms/prose with actual 4.1 source corrections; no added mechanics"
+    },
+    {
+      "asset": "ZombieStrings",
+      "id": 98,
+      "name": "Snowbeak (Hostile)",
+      "field": "info",
+      "source_matches": true,
+      "numbers_match": true,
+      "source": "只于笔记中记载的古老雪原生物，因受植物攻击而愤怒。\n\n<color=#3D1400>韧性：</color><color=red>3000</color>\n<color=#3D1400>伤害：</color><color=red>200（非啃咬）</color>\n<color=#3D1400>移速：</color><color=red>中等偏快</color>\n<color=#3D1400>特点：</color><color=red>死亡时掉落50阳光</color>\n<color=#3D1400>激怒：</color><color=red>初始在第6至10列徘徊。被植物方子弹命中或被铲除后，转变为敌方并不再徘徊</color>",
+      "english": "An ancient tundra creature known only from old records, enraged after being attacked by plants.\n\nToughness: <color=#8B0000>3000</color>\nDamage: <color=#8B0000>200 (Non-bite)</color>\nMovement Speed: <color=#8B0000>Medium Fast</color>\nSpecial: <color=#8B0000>Drops 50 Sun upon death.</color>\nProvoked: <color=#8B0000>Initially wanders between columns 6 and 10. After being hit by a plant projectile or shoveled, switches to the enemy side and stops wandering.</color>",
+      "source_sha256": "2d37cdd3998cc40dcae171bf29fa00471b7e653fdbb5ef84bf090fe85cb44ecd",
+      "previous_sha256": "2d37cdd3998cc40dcae171bf29fa00471b7e653fdbb5ef84bf090fe85cb44ecd",
+      "origin": "Blooms terms/prose with actual 4.1 source corrections; no added mechanics"
+    }
+  ],
+  "announcement": {
+    "file": "resources.assets",
+    "id": 206548,
+    "previous_sha256": "008a6da5fa7057d2e23de77a2fb9bfe42654e0e2769b1d6287b6731ae81a0fb7",
+    "english": "PvZ Fusion 4.1 Update\n\n1. Odyssey: Evolved rework\nEarn points each round to buy plants, upgrade the shop, or refresh its stock.\nCombine cards or upgrade the shop for higher-quality cards.\nEquip plant cards with multiple items for extra bonuses.\nFusions inherit the quality and equipment of both ingredients.\nZombies entering the house now cost HP instead of immediately ending the level.\n\n2. New plants\nBasic: Artsy Sunflower, Ball Cactus, 磁性卷心菜投手, 铁桶卷心菜投手, 超时空卷心菜投手, 浮空大喷菇, 大喷菇花盆, 磁力窝瓜, 保护伞窝瓜, 西瓜投射手, 三线胆小菇, 窝瓜大喷菇, 卷心菜投射手, 西瓜胆小菇, 大蒜窝瓜, 银窝瓜, 金窝瓜\nUltimate: SP Calamity-shroom, SP Avarice-shroom, 磁能窝瓜坚果, 飓风之龙, 平行时空树桩\n\n3. New zombies\nVariant: 樱桃战神僵尸\nUltimate: 海豚橄榄高坚果僵尸\nBoss: 渊海三叉戟\n\n4. Level updates\nSuper Random: Question Mark Battle: Paint portraits of the random plants Artsy Sunflower attracts, then use them to fight the zombies.\n\n5. New modifier\nShrinking Ray: Mini Professor Cherryz!\n\n6. Balance changes\nBlover Pot, Levitater, Sunny Pumpkin: Stats increased.\nTri-pult family: Attack speed reduced.\nBuck-nut, Steel Pumpkin, Football-nut: Matching metal items restore much more HP.\nMagnet Blover: Digested metal items now become drops.\nCalamity-shroom and Avarice-shroom: Effects reworked. Avarice-shroom can now be used on Odyssey's Cursed difficulty.\nTridents: Attacks now slow plants with the Damp status.\nPozeidon: Can bite like a trident and strengthens Damp. The Giant Trident creates a vortex that draws in projectiles.\nTrident Jugger-nut Gargantuar: No longer needs to reach the half-HP threshold before throwing its trident.\n\n7. Other improvements\nRandom mode no longer starts the next wave immediately when the remaining zombies have little total HP.\nImproved some plant facial animations.\nMagic Plantbrush recognition now runs on a server rather than the player's device.\nAdjusted the pacing of points and modifiers in classic Odyssey.\n\n8. Fixes\nFixed Drone Commando disappearing after a scene change.\nFixed Fair Points incorrectly receiving the Cursed difficulty points bonus.\nOther fixes and gameplay improvements.\n",
+    "origin": "Reuse verified Blooms Tri-pults group term from existing complete effect translations"
+  },
+  "latest_blooms_scan": {
+    "commit": "38129198512e7d97aec2552be636578cad20dc24",
+    "changelog_version": "4.0.5",
+    "new_41_names_have_empty_blooms_fields": true,
+    "unverified_new_names_retained": true,
+    "candidate_fields_reviewed": 83,
+    "additional_source_corrected_fields": 3
   }
 }

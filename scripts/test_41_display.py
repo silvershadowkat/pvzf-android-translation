@@ -16,7 +16,7 @@ def main():
     rows+=['\t'.join(('C',enc(k),enc(v))) for k,v in fixtures.items()]
     fixture=a.work/'payload.tsv';fixture.write_text('\n'.join(rows)+'\n',encoding='utf8')
     sources=[r/'runtime/java/com/silvershadow/pvzf'/(s+'.java') for s in
-             ('EnglishActivity','ManagedFiles','BoundedTextCache','RegexPrefix','PlantbrushTranslations')]
+             ('EnglishActivity','EnglishApplication','ProcessStartGate','ManagedFiles','BoundedTextCache','RegexPrefix','PlantbrushTranslations')]
     tests=['PayloadTranslationTest','TranslationTest','ManagedFilesTest','RestoredMetadataTest','RestoredAlmanacTest']
     subprocess.run([str(a.jdk/'bin/javac.exe'),'-encoding','UTF-8','-cp',str(a.android_jar),'-d',str(classes),
                     *map(str,sources),*[str(r/'runtime/tests'/(s+'.java')) for s in tests]],check=True,timeout=60)

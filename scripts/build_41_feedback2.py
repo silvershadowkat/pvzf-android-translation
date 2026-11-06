@@ -1,19 +1,21 @@
 """Build a local Standard EN follow-up from the immutable public pre-release 2.
 
 Rebuild the two translation runtime libraries and replace only the reviewed
-payload entries. Reuse the existing DEX, audio, game libraries and identity.
+payload entries. Rebuild only the bootstrap DEX; reuse original game DEX,
+audio, game libraries and identity. Preserve APK entry storage methods.
 """
-import argparse,hashlib,json,os,subprocess,zipfile
+import argparse,copy,hashlib,json,os,subprocess,zipfile
 from pathlib import Path
 from apply_41_feedback2 import BUNDLE,META,file_sha,write
 from build_performance_candidate import manifest,loaded_sections
 from package_apk_payload import copy_entry,is_old_signature
 from protected_metadata import verify_metadata
+from runtime_apk import application_bootstrap
 BASE='7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed'
 CERT='1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6'
 PACKAGE='com.LanPiaoPiao.PlantsVsZombiesEN'
-VERSION=4100111
-NAME='4.1-English-pre2-feedback1'
+VERSION=4100115
+NAME='4.1-English-pre3'
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -37,6 +39,13 @@ def main():
     signer=[a.jdk/'bin/java.exe','-XX:ActiveProcessorCount=2','-Xmx512m','-jar',bt/'lib/apksigner.jar']
     run('base-signature',signer+['verify','--print-certs',a.base])
     assert CERT in (logs/'base-signature.log').read_text()
+    classes=a.work/'java';dex=a.work/'dex';classes.mkdir(exist_ok=True);dex.mkdir(exist_ok=True)
+    android=a.sdk/'platforms/android-35/android.jar'
+    sources=[r/'runtime/java/com/silvershadow/pvzf'/(n+'.java') for n in
+             ('EnglishActivity','EnglishApplication','ProcessStartGate','ManagedFiles','BoundedTextCache','RegexPrefix','PlantbrushTranslations')]
+    run('javac',[a.jdk/'bin/javac.exe','-encoding','UTF-8','-source','8','-target','8','-cp',android,'-d',classes,*sources],60)
+    run('d8',[a.jdk/'bin/java.exe','-XX:ActiveProcessorCount=2','-Xmx512m','-cp',bt/'lib/d8.jar','com.android.tools.r8.D8','--release','--min-api','22','--lib',android,'--output',dex,*sorted(classes.rglob('*.class'))],90)
+    assert not (dex/'classes2.dex').exists()
     native={}
     for abi in ('arm64-v8a','armeabi-v7a'):
         build=a.work/('native-'+abi)
@@ -48,21 +57,24 @@ def main():
         native['lib/'+abi+'/libpvzfenglish.so']=stripped
     replacements={BUNDLE:a.payload/'feedback.unity3d',META:a.payload/'metadata.dat',
                   'assets/english/translations.json':a.payload/'english/translations.json',
-                  'assets/english-almanac/LawnStrings.json':a.payload/'almanac-refresh/LawnStrings.json',**native}
+                  'assets/english-almanac/LawnStrings.json':a.payload/'almanac-refresh/LawnStrings.json',
+                  'assets/english-almanac/ZombieStrings.json':a.payload/'almanac-refresh/ZombieStrings.json',
+                  'classes2.dex':dex/'classes.dex',**native}
     with zipfile.ZipFile(a.base) as z:
         managed=json.loads(z.read('assets/english/manifest.json'))
         managed.update(revision=NAME,metadata_sha256=file_sha(replacements[META]),pc_checked_commit=review['pc_checked_commit'])
         managed['files']['translations.json']=file_sha(replacements['assets/english/translations.json'])
         managed['almanac_files']['LawnStrings.json']=file_sha(replacements['assets/english-almanac/LawnStrings.json'])
-        memory={'AndroidManifest.xml':manifest(z.read('AndroidManifest.xml'),PACKAGE,VERSION,NAME),
+        managed['almanac_files']['ZombieStrings.json']=file_sha(replacements['assets/english-almanac/ZombieStrings.json'])
+        memory={'AndroidManifest.xml':application_bootstrap(manifest(z.read('AndroidManifest.xml'),PACKAGE,VERSION,NAME)),
                 'assets/english/manifest.json':json.dumps(managed,ensure_ascii=False,separators=(',',':')).encode()}
         unsigned=a.work/'unsigned.apk'
         with zipfile.ZipFile(unsigned,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as out:
             for info in z.infolist():
                 n=info.filename
                 if is_old_signature(n):continue
-                if n in memory:out.writestr(n,memory[n])
-                elif n in replacements:out.write(replacements[n],n)
+                if n in memory:out.writestr(copy.copy(info),memory[n])
+                elif n in replacements:out.write(replacements[n],n,compress_type=info.compress_type)
                 else:copy_entry(z,out,info)
     aligned=a.work/'aligned.apk';run('align',[bt/'zipalign.exe','-f','-P','16','4',unsigned,aligned])
     props={}
@@ -82,6 +94,7 @@ def main():
         assert {n for n in final.namelist() if not is_old_signature(n)}=={n for n in base.namelist() if not is_old_signature(n)}
         for n in base.namelist():
             if is_old_signature(n):continue
+            assert final.getinfo(n).compress_type==base.getinfo(n).compress_type,('APK entry storage changed',n)
             # Stream comparison so the largest unchanged audio/model entries
             # do not create two additional full-size in-memory copies.
             def digest(z,n):
@@ -89,7 +102,7 @@ def main():
             if digest(base,n)!=digest(final,n):changed.append(n)
         assert set(changed)==set(replacements)|set(memory),changed
         assert final.read('assets/english-almanac/LawnStrings.json')==(a.payload/'almanac-refresh/LawnStrings.json').read_bytes()
-    write(a.work/'build.json',dict(apk=str(a.output),sha256=file_sha(a.output),bytes=a.output.stat().st_size,package=PACKAGE,version_code=VERSION,version_name=NAME,certificate_sha256=CERT,base_apk_sha256=BASE,changed_entries=sorted(changed),game_native_libraries_unchanged=True,all_audio_entries_unchanged=True,dex_and_recognizer_unchanged=True,protected_metadata=protection,review=review,device_tested=False,published=False,runtime_source_sha256={str(f.relative_to(r)):file_sha(f) for f in sorted((r/'runtime').rglob('*')) if f.is_file() and f.suffix in ('.cpp','.h','.inc','.java')}))
+    write(a.work/'build.json',dict(apk=str(a.output),sha256=file_sha(a.output),bytes=a.output.stat().st_size,package=PACKAGE,version_code=VERSION,version_name=NAME,certificate_sha256=CERT,base_apk_sha256=BASE,changed_entries=sorted(changed),all_entry_compression_types_preserved=True,game_native_libraries_unchanged=True,all_audio_entries_unchanged=True,original_dex_and_online_recognizer_unchanged=True,bootstrap_dex_rebuilt=True,application_bootstrap='com.silvershadow.pvzf.EnglishApplication',protected_metadata=protection,review=review,device_tested=False,published=False,runtime_source_sha256={str(f.relative_to(r)):file_sha(f) for f in sorted((r/'runtime').rglob('*')) if f.is_file() and f.suffix in ('.cpp','.h','.inc','.java')}))
     print('Local Standard EN candidate verified: '+str(a.output),flush=True)
 
 if __name__=='__main__':main()

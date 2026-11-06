@@ -71,7 +71,7 @@ def main():
         folders.append(path)
     classes, dex = folders
     sources = [r/'runtime/java/com/silvershadow/pvzf'/(name+'.java') for name in
-               ('EnglishActivity', 'ManagedFiles', 'BoundedTextCache', 'RegexPrefix', 'PlantbrushTranslations')]
+               ('EnglishActivity', 'EnglishApplication', 'ProcessStartGate', 'ManagedFiles', 'BoundedTextCache', 'RegexPrefix', 'PlantbrushTranslations')]
     run('javac', [a.jdk/'bin/javac.exe', '-encoding', 'UTF-8', '-source', '8', '-target', '8', '-cp', android,
                   '-d', classes, *sources], 60)
     run('d8', [a.jdk/'bin/java.exe', '-XX:ActiveProcessorCount=2', '-Xmx512m', '-cp', bt/'lib/d8.jar',

@@ -12,6 +12,7 @@ OLD = 'com.LanPiaoPiao.PlantsVsZombiesRH'
 NEW = 'com.LanPiaoPiao.PlantsVsZombiesEN'
 BOOT = 'com.silvershadow.pvzf.EnglishActivity'
 UNITY = 'com.unity3d.player.UnityPlayerActivity'
+APPLICATION = 'com.silvershadow.pvzf.EnglishApplication'
 U32 = lambda b, p: struct.unpack_from('<I', b, p)[0]
 
 
@@ -72,6 +73,51 @@ class Pool:
         struct.pack_into('<I',result,4,len(result));return result
 
 
+def application_bootstrap(data):
+    """Register startup for restored Activities as well as launcher entry."""
+    parts=list(chunks(data));pool=Pool(next(b for _,k,_,b in parts if k==1))
+    def text(i):return '' if i==0xffffffff else pool.strings[i]
+    app=None;template=None
+    for _,kind,_,b in parts:
+        if kind!=0x102:continue
+        tag=text(U32(b,20));start,size,count=struct.unpack_from('<HHH',b,24)
+        assert size==20
+        if tag=='application':app=b
+        for i in range(count):
+            pos=16+start+i*size
+            if text(U32(b,pos+4))=='name' and tag=='activity':template=bytearray(b[pos:pos+size])
+    assert app is not None and template is not None
+    start,size,count=struct.unpack_from('<HHH',app,24)
+    for i in range(count):
+        pos=16+start+i*size
+        if text(U32(app,pos+4))=='name':
+            assert text(U32(app,pos+16))==APPLICATION,'Review an existing custom Application first'
+            return data
+    index=pool.add(APPLICATION)
+    struct.pack_into('<I',template,8,index);template[15]=3;struct.pack_into('<I',template,16,index)
+    end=16+start+size*count;assert end==len(app)
+    resource_map=next(b for _,k,_,b in parts if k==0x180)
+    resource_ids=struct.unpack('<'+'I'*((len(resource_map)-8)//4),resource_map[8:])
+    def resource_id(attribute):
+        key=U32(attribute,4)
+        return resource_ids[key] if key<len(resource_ids) else 0
+    assert resource_id(template)==0x01010003,'Expected the existing android:name attribute ID'
+    attributes=[bytearray(app[16+start+i*size:16+start+(i+1)*size]) for i in range(count)]
+    assert [resource_id(a) for a in attributes]==sorted(resource_id(a) for a in attributes)
+    # Android's TypedArray lookup requires resource-ID order. Merely appending
+    # android:name can make PackageManager silently ignore the Application.
+    position=next((i for i,a in enumerate(attributes) if resource_id(a)>resource_id(template)),count)
+    attributes.insert(position,template)
+    app[:]=app[:16+start]+b''.join(attributes)
+    struct.pack_into('<I',app,4,len(app));struct.pack_into('<H',app,28,count+1)
+    for offset in (30,32,34):
+        index=struct.unpack_from('<H',app,offset)[0]
+        if index>position:struct.pack_into('<H',app,offset,index+1)
+    body=b''.join(pool.encode() if k==1 else bytes(b) for _,k,_,b in parts)
+    header=bytearray(data[:8]);struct.pack_into('<I',header,4,len(body)+8)
+    return bytes(header)+body
+
+
 def manifest(data, version_code, version_name='4.0.5-English-pre3'):
     parts=list(chunks(data));pool=Pool(next(x[3] for x in parts if x[1]==1))
     def text(i):return '' if i==0xffffffff else pool.strings[i]
@@ -123,7 +169,7 @@ def manifest(data, version_code, version_name='4.0.5-English-pre3'):
         if i==activity_start:result+=b''.join(bootstrap+filtered)
         if activity_start<=i<=activity_end:continue
         result+=pool.encode() if kind==1 else b
-    struct.pack_into('<I',result,4,len(result));return bytes(result)
+    struct.pack_into('<I',result,4,len(result));return application_bootstrap(bytes(result))
 
 
 def resources(data):

@@ -35,6 +35,21 @@ public final class EnglishActivity extends Activity {
             recipe=r.startsWith("You haven't discovered this plant yet!");}
     }
     private static native void startRuntime(boolean blooms);
+    private static final ProcessStartGate processStart = new ProcessStartGate();
+
+    /** Application startup also runs when Android restores Unity directly. */
+    public static void prepareProcess(Context input) throws Exception {
+        final Context app=input.getApplicationContext();
+        processStart.ensure(app.getPackageName(),EnglishApplication.processName(),()->{
+            context=app;
+            prepareManagedFiles();
+            loadTranslations();
+            // Unity remains responsible for calling il2cpp_init.
+            System.loadLibrary("il2cpp");
+            System.loadLibrary("pvzfenglish");
+            startRuntime(context.getSharedPreferences("english-runtime",0).getBoolean("blooms",true));
+        });
+    }
 
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
@@ -48,13 +63,7 @@ public final class EnglishActivity extends Activity {
 
     private void prepareAndLaunch() {
         try {
-            prepareManagedFiles();
-            loadTranslations();
-            // Load only; Unity remains responsible for calling il2cpp_init.
-            // Install the completion hook before starting Unity's Activity.
-            System.loadLibrary("il2cpp");
-            System.loadLibrary("pvzfenglish");
-            startRuntime(getSharedPreferences("english-runtime",0).getBoolean("blooms",true));
+            prepareProcess(this);
         } catch (Exception | LinkageError e) {
             // Do not open Unity with an override that failed verification.
             Log.e(TAG,"English startup failed",e);
@@ -70,24 +79,24 @@ public final class EnglishActivity extends Activity {
     }
 
 
-    private byte[] asset(String name) throws IOException {
-        try(InputStream in=getAssets().open(name);ByteArrayOutputStream out=new ByteArrayOutputStream()) {
+    private static byte[] asset(String name) throws IOException {
+        try(InputStream in=context.getAssets().open(name);ByteArrayOutputStream out=new ByteArrayOutputStream()) {
             byte[] b=new byte[65536];int n;while((n=in.read(b))!=-1)out.write(b,0,n);return out.toByteArray();
         }
     }
-    private void replace(String asset,File target,String expected) throws Exception {
-        File external=getExternalFilesDir(null);
-        File root=external!=null && target.getAbsolutePath().startsWith(external.getAbsolutePath()+File.separator)?external:getFilesDir();
-        ManagedFiles.replace(root,target,expected,()->getAssets().open(asset),
+    private static void replace(String asset,File target,String expected) throws Exception {
+        File external=context.getExternalFilesDir(null);
+        File root=external!=null && target.getAbsolutePath().startsWith(external.getAbsolutePath()+File.separator)?external:context.getFilesDir();
+        ManagedFiles.replace(root,target,expected,()->context.getAssets().open(asset),
             (from,to)->Os.rename(from.getAbsolutePath(),to.getAbsolutePath()));
     }
-    private void prepareManagedFiles() throws Exception {
+    private static void prepareManagedFiles() throws Exception {
         JSONObject manifest=new JSONObject(new String(asset("english/manifest.json"),"UTF-8"));
         String expected=manifest.getString("metadata_sha256");
         // Exact, known metadata override only. Every save slot and unknown file stays untouched.
-        File external=getExternalFilesDir(null);
+        File external=context.getExternalFilesDir(null);
         if(external==null)throw new IOException("Game storage unavailable");
-        for(File root:new File[]{external,getFilesDir()}) {
+        for(File root:new File[]{external,context.getFilesDir()}) {
             File target=new File(root,"il2cpp/Metadata/global-metadata.dat");
             if(target.exists() || (root.equals(external) && manifest.optBoolean("refresh_test_seed",false)))
                 replace(METADATA.substring(7),target,expected);
@@ -96,12 +105,12 @@ public final class EnglishActivity extends Activity {
         java.util.Map<String,String> almanacHashes=new java.util.HashMap<>();
         Iterator<String> almanacNames=almanacs.keys();
         while(almanacNames.hasNext()){String name=almanacNames.next();almanacHashes.put(name,almanacs.getString(name));}
-        for(File root:new File[]{external,getFilesDir()})
-            ManagedFiles.refreshAlmanacs(root,almanacHashes,name->getAssets().open("english-almanac/"+name),
+        for(File root:new File[]{external,context.getFilesDir()})
+            ManagedFiles.refreshAlmanacs(root,almanacHashes,name->context.getAssets().open("english-almanac/"+name),
                 (from,to)->Os.rename(from.getAbsolutePath(),to.getAbsolutePath()),
                 root.equals(external) && manifest.optBoolean("refresh_test_seed",false));
         JSONObject files=manifest.getJSONObject("files");
-        android.content.SharedPreferences prefs=getSharedPreferences("english-runtime",0);
+        android.content.SharedPreferences prefs=context.getSharedPreferences("english-runtime",0);
         Iterator<String> names=files.keys();
         while(names.hasNext()) {
             String name=names.next();
@@ -109,7 +118,7 @@ public final class EnglishActivity extends Activity {
             // The translator reads this dictionary directly from the APK below.
             // Its old private copy is never consulted; do not re-copy/hash it.
             if(name.equals("translations.json"))continue;
-            File target=new File(getFilesDir(),"english-runtime/"+name);
+            File target=new File(context.getFilesDir(),"english-runtime/"+name);
             // Music is embedded as Unity AudioClips in 4.1. Only small
             // managed support assets remain; no audio extraction or receipts.
             replace("english/"+name,target,files.getString(name));
@@ -119,7 +128,7 @@ public final class EnglishActivity extends Activity {
         Log.i(TAG,"Managed files verified; player data untouched; revision="+manifest.getString("revision"));
     }
     private static boolean translationsLoaded;
-    private void loadTranslations() throws Exception {
+    private static void loadTranslations() throws Exception {
         synchronized(EnglishActivity.class) {
         if(translationsLoaded)return;
         JSONObject data=new JSONObject(new String(asset("english/translations.json"),"UTF-8"));

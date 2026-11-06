@@ -1,0 +1,53 @@
+{
+  "status": "Prepared and verified for user-authorized publication",
+  "tag": "v4.1-release-3",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-3",
+  "prerelease": true,
+  "release_date": "2026-11-05",
+  "source_base": "022c60190978866b64687ac4232c66495825383e",
+  "assets": [
+    {
+      "sha256": "1b118b7bb2f2a1df4e641ac4da817e9a22d1ba02c9e5594df599d4f129d4a8ed",
+      "bytes": 799407704,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4100115,
+      "version_name": "4.1-English-pre3",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "en",
+      "file": "PvZ-Fusion-4.1-English-prerelease3.apk"
+    },
+    {
+      "sha256": "75f9f3758975037fbc8aa665df7155c46b956160fe490f84daaa6af333364223",
+      "bytes": 1068777914,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4100116,
+      "version_name": "4.1-English-pre3-ENAI",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "enai",
+      "file": "PvZ-Fusion-4.1-English-prerelease3-AI.apk"
+    }
+  ],
+  "blooms_checked_commit": "38129198512e7d97aec2552be636578cad20dc24",
+  "verification": {
+    "python_tests": 79,
+    "process_start_checks": 10,
+    "java_display_fixtures": 76,
+    "java_parity_inputs": 17154,
+    "metadata_restore_cases": 4,
+    "almanac_restore_cases": 12,
+    "native_music_transitions": 100,
+    "protected_metadata_slots": 32,
+    "entry_compression_preserved": true,
+    "original_game_libraries_unchanged": true,
+    "original_audio_payloads_unchanged": true,
+    "signatures_and_16k_alignment": true,
+    "enai_upgrade_identity_matches": true
+  },
+  "device_scope": "Earlier local candidate: Nova menu audio, screen toggle, direct Unity cold startup and both music selections verified. Device testing stopped at user request. Final added text checked on PC. ENAI final build not device-tested.",
+  "known_limits": [
+    "Some new 4.1 names remain Chinese because latest Blooms names are empty.",
+    "Intermittent Starbound repeats not confirmed fixed."
+  ],
+  "readme_no_em_dashes": true,
+  "notes_no_em_dashes": true
+}
