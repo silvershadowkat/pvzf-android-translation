@@ -487,6 +487,7 @@ static void initialize(){
     initializeOffline();
 #endif
     hook(cls("UnityEngine","AudioSource"),"set_clip",1,(P)setMusicClip,(P*)&oldSetMusicClip);
+    hook(cls("UnityEngine","AudioClip"),"LoadAudioData",0,(P)loadMusicData,(P*)&oldLoadMusicData);
     hook(cls("","GameAPP"),"PlayMusic",1,(P)profilePlayMusic,(P*)&oldProfilePlayMusic);
 #ifdef PVZF_MUSIC_DIAGNOSTICS
     hook(cls("UnityEngine","AudioSource"),"set_time",1,(P)auditSetTime,(P*)&oldAuditSetTime);

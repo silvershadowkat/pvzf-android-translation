@@ -1,21 +1,29 @@
 // Both profiles use the original game's DecompressOnLoad AudioClip behavior.
 // No additional player, playback clock, polling or silent song. Only the current
-// music pair retains decoded PCM; inactive profile data is unloaded on changes.
-// Profile selection is fixed until restart. Only the two game music sources
+// music sources and the game's explicitly preloaded roof pair retain decoded
+// PCM; inactive profile data is unloaded on changes.
+// Profile selection is fixed until restart. Only the three game music sources
 // are redirected; sound effects and unknown/new tracks pass through unchanged.
 static void (*oldSetMusicClip)(P,P,M)=nullptr;
 static void (*oldProfilePlayMusic)(P,int,M)=nullptr;
-static P musicSources[2]={nullptr,nullptr};
-static uint32_t musicSourceHandles[2]={0,0};
+static bool (*oldLoadMusicData)(P,M)=nullptr;
+static P musicSources[3]={nullptr,nullptr,nullptr};
+static uint32_t musicSourceHandles[3]={0,0,0};
+// Valid only inside the native Roof_pre call. Its own LoadAudioData calls
+// should warm the selected roof stems, rather than unused factory stems.
+static P preludeWarmOriginal[2]={nullptr,nullptr};
+static P preludeWarmSelected[2]={nullptr,nullptr};
+static P profileClip(P original,bool loadData=true);
 static std::unordered_map<std::string,uint32_t> musicClipCache;
 static uint32_t musicCleanup=0;
 static bool musicCleanupNeeded=false;
 static void trimProfileAudio(){
-    P active[2]={call(musicSources[0],"get_clip"),call(musicSources[1],"get_clip")};
+    P active[3]={call(musicSources[0],"get_clip"),call(musicSources[1],"get_clip"),call(musicSources[2],"get_clip")};
     unsigned retired=0;
     for(auto it=musicClipCache.begin();it!=musicClipCache.end();){
         P clip=target(it->second);
-        if(clip!=active[0]&&clip!=active[1]){
+        if(clip!=active[0]&&clip!=active[1]&&clip!=active[2]&&
+           clip!=preludeWarmSelected[0]&&clip!=preludeWarmSelected[1]){
             il2cpp_gchandle_free(it->second);it=musicClipCache.erase(it);++retired;
         }else ++it;
     }
@@ -36,19 +44,29 @@ static void trimProfileAudio(){
     }
 }
 static void profilePlayMusic(P o,int id,M m){
+    P sources[]={stat("GameAPP","music"),stat("GameAPP","musicDrum"),
+                 field<P>(stat("GameAPP","prelude"),"audioSource")};
     int i=0;
-    for(const char* fieldName:{"music","musicDrum"}){
-        P source=stat("GameAPP",fieldName);
+    for(P source:sources){
         if(source!=musicSources[i]){
             release(musicSourceHandles[i]);musicSources[i]=source;
             if(source)musicSourceHandles[i]=il2cpp_gchandle_new(source,false);
         }
         ++i;
     }
+    preludeWarmSelected[0]=preludeWarmSelected[1]=nullptr;
+    if(id==12){ // Official MusicType.Roof_pre, verified against 4.1 metadata.
+        P musics=field<P>(stat("GameAPP","soundManager"),"musics");
+        for(int j=0;j<2;++j){
+            int stem=10+j;P args[]={&stem};
+            preludeWarmOriginal[j]=call(musics,"get_Item",1,args);
+        }
+    }
     oldProfilePlayMusic(o,id,m);
+    preludeWarmOriginal[0]=preludeWarmOriginal[1]=nullptr;
     trimProfileAudio();
 }
-static P profileClip(P original){
+static P profileClip(P original,bool loadData){
 #ifdef PVZF_MUSIC_DIAGNOSTICS
     // Local diagnostic Original is a true factory-audio control group.
     if(!blooms)return original;
@@ -84,15 +102,27 @@ static P profileClip(P original){
         return original;
     }else {
         LOG("Music decompressed resource loaded: %s",key.c_str());
-        call(selected,"LoadAudioData");
+        if(loadData){
+            if(oldLoadMusicData)oldLoadMusicData(selected,nullptr);
+            else call(selected,"LoadAudioData");
+        }
     }
     musicClipCache[key]=il2cpp_gchandle_new(selected,false);
     return selected;
 }
+static bool loadMusicData(P clip,M m){
+    // All unrelated preload calls take just two pointer comparisons.
+    for(int i=0;i<2;++i)if(clip&&clip==preludeWarmOriginal[i]){
+        P selected=profileClip(clip,false);
+        preludeWarmSelected[i]=selected;
+        return oldLoadMusicData(selected,m);
+    }
+    return oldLoadMusicData(clip,m);
+}
 static void setMusicClip(P source,P clip,M m){
     // SFX assignments take only pointer comparisons. No reflection, Unity API,
     // string inspection or resource lookup is added to their hot path.
-    if(source&&(source==musicSources[0]||source==musicSources[1])&&alive(clip))
+    if(source&&(source==musicSources[0]||source==musicSources[1]||source==musicSources[2])&&alive(clip))
         clip=profileClip(clip);
     oldSetMusicClip(source,clip,m);
 }
@@ -110,7 +140,7 @@ static void musicAuditFrame(){
     ++auditFrames;if(us>50000)++auditSlowFrames;auditMaxFrameMicros=std::max(auditMaxFrameMicros,(long long)us);
 }
 static void auditSetTime(P source,float seconds,M m){
-    if(source!=musicSources[0]&&source!=musicSources[1]){oldAuditSetTime(source,seconds,m);return;}
+    if(source!=musicSources[0]&&source!=musicSources[1]&&source!=musicSources[2]){oldAuditSetTime(source,seconds,m);return;}
     auto begin=std::chrono::steady_clock::now();oldAuditSetTime(source,seconds,m);
     auto us=std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now()-begin).count();
     ++auditSeeks;auditSeekMicros+=us;auditMaxSeekMicros=std::max(auditMaxSeekMicros,(long long)us);

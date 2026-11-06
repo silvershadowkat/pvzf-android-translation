@@ -69,5 +69,10 @@
   "椭圆  /  Width 12  /  256 x 256": "Ellipse / Width 12 / 256 × 256",
   "填充  /  Width 12  /  256 x 256": "Fill / Width 12 / 256 × 256",
   "填色  /  Width 12  /  256 x 256": "Fill / Width 12 / 256 × 256",
-  "取色  /  Width 12  /  256 x 256": "Picker / Width 12 / 256 × 256"
+  "取色  /  Width 12  /  256 x 256": "Picker / Width 12 / 256 × 256",
+  "怒不可遏：\n◆樱桃机枪读报僵尸免疫绝大多数状态异常\n◇未选取时，究极Z教授获得1份备用报纸": "Absolute Immunity：\n◆Gatling Cherry Newspaper Zombie: Immune to most status effects.\n◇If not selected, Professor Cherryz gains 1 spare newspaper.",
+  "落袋为安：积分获取效率增加120%，但减少当前轮数×10%": "落袋为安：Point gain increases by 120%, reduced by (current round × 10%).",
+  "怒不可遏I：全体僵尸攻击增加100%": "Unbridled Rage I: All zombies gain 100% Attack",
+  "光照等级": "Lumos Level",
+  "◆樱桃机枪读报僵尸免疫绝大多数状态异常": "◆Gatling Cherry Newspaper Zombie: Immune to most status effects."
 }

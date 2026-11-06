@@ -1,0 +1,56 @@
+{
+  "base_apk_sha256": "7e372f8d95f8e044741cdc9ecb1c2c2231814ddb769c5770a40de6d65f6351ed",
+  "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
+  "pc_checked_commit": "38129198512e7d97aec2552be636578cad20dc24",
+  "policy": "Reuse verified Blooms names and prose. Correct mechanics against matching official Android and PC 4.1 source. Keep unverified specialized modifier titles Chinese. Preserve all parser templates.",
+  "plants": {
+    "1469": {
+      "name": "Aqua Sword-shroom",
+      "source": "凝结时会增强斩击的威力。\n\n<color=#3D1400>索敌范围：</color><color=red>前方2格</color>\n<color=#3D1400>伤害：</color><color=red>40/1.5秒</color>\n<color=#3D1400>特点：①</color><color=red>出场时释放<u>利刃斩击</u>；若有充能，施加等级1的冻结状态</color>\n<color=#3D1400>②</color><color=red>受到攻击冻结/寒冰菇效果时获得1/15层充能</color>\n<color=#3D1400>③</color><color=red>可消耗1层充能使伤害×2。施加等级1寒冷状态，赋予10冻结值，对冻结的僵尸伤害×4</color>\n<color=#3D1400>融合配方：</color><color=red>刃刃菇+水滴芦荟</color>",
+      "source_sha256": "53fb580ff8c705550a26322b11f4e9b8dacd54bbf853e881a6af2cc90a44a669",
+      "previous_sha256": "53fb580ff8c705550a26322b11f4e9b8dacd54bbf853e881a6af2cc90a44a669",
+      "blooms_info": "<size=36>Aqua Sword-shroom dishes out more powerful slashes when frozen.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Deals area damage to the 2 tiles in front. Releases a <u>Special Slash</u> when it appears.\n<color=black>•</color> Gains 1/15 charge when affected by a freezing attack or Ice-shroom effect. Can consume 1 charge to deal ×2 damage, inflict Deep Chill and 10 Cryo Points and make damage against frozen zombies ×4.</color>",
+      "blooms_info_sha256": "d7c61885e27520028e565aa4c3410d0720582eb8443beeb59830a914eb81e81d",
+      "english": "Aqua Sword-shroom dishes out more powerful slashes when frozen.\n\nTargeting Range: <color=#8B0000>2 tiles ahead</color>\nDamage: <color=#8B0000>40/1.5s</color>\nSpecial:\n<color=#8B0000>1. Releases a <u>Special Slash</u> when it appears. If charged, applies level 1 Freeze.\n2. Gains 1/15 charge when affected by a freezing attack or Ice-shroom effect.\n3. Can consume 1 charge to deal ×2 damage, inflict level 1 Chill and 10 Cryo Points, and deal ×4 damage to frozen zombies.</color>",
+      "origin": "Blooms wording with source-specific 4.1 corrections",
+      "corrections": "Restore charged opening slash level 1 Freeze, retain explicit level 1 Chill; recipe already present in cost."
+    },
+    "1487": {
+      "name": "Mandiboulder",
+      "source": "强韧的巨型地刺，还能通过根系进行远程刺击。\n\n<color=#3D1400>韧性：</color><color=red>1000</color>\n<color=#3D1400>伤害：</color><color=red>120/1秒</color>\n<color=#3D1400>特性：</color><color=red>巨型，低矮</color>\n<color=#3D1400>特点：</color><color=red>拥有3个外附尖刺。攻击时，额外使外附尖刺攻击全场地表最近的僵尸，并施加扎胎效果。触发扎胎后，该外附尖刺需要30秒再生</color>\n<color=#3D1400>融合配方：</color><color=red>[融合洋芋]\n地刺王∞[地刺]∞地刺王</color>",
+      "source_sha256": "b0ef7c98db275f1bb50d1fe186776652567a6b5bc8bc4ba5138f600569371681",
+      "previous_sha256": "b0ef7c98db275f1bb50d1fe186776652567a6b5bc8bc4ba5138f600569371681",
+      "blooms_info": "<size=36>Mandiboulder launches ranged spikes through its roots.\n\n<color=black>Toughness: </color><color=#8B0000>1000</color>\n<color=black>Damage: </color><color=#8B0000>120/1s</color>\n<color=black>Special: </color><color=#8B0000>\n<color=black>•</color> Titan plant, short plant. Has 3 attached spikes. When attacking, the attached spikes additionally attack the nearest zombie on the entire field. Attacks pop tires. When the main body triggers tire popping, it takes 50 damage, while an attached spike is spent instead and takes 30s to regenerate on popping a tire.</color>",
+      "blooms_info_sha256": "c1b428004fbb23a63b80dfbb9a790612913ef9fe26df185d6f823c96d0077b57",
+      "english": "Mandiboulder launches ranged spikes through its roots.\n\nToughness: <color=#8B0000>1000</color>\nDamage: <color=#8B0000>120/1s</color>\nTraits: <color=#8B0000>Titan plant, short plant</color>\nSpecial: <color=#8B0000>Has 3 attached spikes. When attacking, the attached spikes additionally attack the nearest above-ground zombie on the entire field and pop tires. An attached spike that pops a tire takes 30s to regenerate.</color>",
+      "origin": "Blooms wording with source-specific 4.1 corrections",
+      "corrections": "Do not add the 50 main-body damage claim absent from actual 4.1 description; retain above-ground targeting; recipe already present in cost."
+    }
+  },
+  "metadata": {
+    "18115": {
+      "source": "怒不可遏：\n◆樱桃机枪读报僵尸免疫绝大多数状态异常\n◇未选取时，究极Z教授获得1份备用报纸",
+      "source_sha256": "e8892fae16cdbce38ef9a10d5c5283c9fd6ee6114596fd06de9140ca924b4f46",
+      "english": "Absolute Immunity：\n◆Gatling Cherry Newspaper Zombie: Immune to most status effects.\n◇If not selected, Professor Cherryz gains 1 spare newspaper.",
+      "origin": "Verified Blooms title and entity names; source-specific effect correction"
+    },
+    "20048": {
+      "source": "落袋为安：积分获取效率增加120%，但减少当前轮数×10%",
+      "source_sha256": "c825f89e4e8242f42fe5149e28bf0b9589714faa9793517d55a244c764b47f85",
+      "english": "落袋为安：Point gain increases by 120%, reduced by (current round × 10%).",
+      "origin": "Context Aware AI: explicit numeric effect; unverified title retained"
+    }
+  },
+  "runtime_exact": {
+    "怒不可遏：\n◆樱桃机枪读报僵尸免疫绝大多数状态异常\n◇未选取时，究极Z教授获得1份备用报纸": "Absolute Immunity：\n◆Gatling Cherry Newspaper Zombie: Immune to most status effects.\n◇If not selected, Professor Cherryz gains 1 spare newspaper.",
+    "怒不可遏：◆樱桃机枪读报僵尸免疫绝大多数状态异常\n◇未选取时，究极Z教授获得1份备用报纸": "Absolute Immunity：\n◆Gatling Cherry Newspaper Zombie: Immune to most status effects.\n◇If not selected, Professor Cherryz gains 1 spare newspaper.",
+    "◆樱桃机枪读报僵尸免疫绝大多数状态异常\n◇未选取时，究极Z教授获得1份备用报纸": "◆Gatling Cherry Newspaper Zombie: Immune to most status effects.\n◇If not selected, Professor Cherryz gains 1 spare newspaper.",
+    "怒不可遏：\n樱桃机枪读报僵尸免疫绝大多数状态异常\n未选取时，究极Z教授获得1份备用报纸": "Absolute Immunity：\nGatling Cherry Newspaper Zombie: Immune to most status effects.\nIf not selected, Professor Cherryz gains 1 spare newspaper.",
+    "怒不可遏：樱桃机枪读报僵尸免疫绝大多数状态异常\n未选取时，究极Z教授获得1份备用报纸": "Absolute Immunity：\nGatling Cherry Newspaper Zombie: Immune to most status effects.\nIf not selected, Professor Cherryz gains 1 spare newspaper.",
+    "怒不可遏": "Absolute Immunity",
+    "樱桃机枪读报僵尸免疫绝大多数状态异常": "Gatling Cherry Newspaper Zombie: Immune to most status effects.",
+    "未选取时，究极Z教授获得1份备用报纸": "If not selected, Professor Cherryz gains 1 spare newspaper.",
+    "落袋为安：积分获取效率增加120%，但减少当前轮数×10%": "落袋为安：Point gain increases by 120%, reduced by (current round × 10%).",
+    "◆樱桃机枪读报僵尸免疫绝大多数状态异常": "◆Gatling Cherry Newspaper Zombie: Immune to most status effects."
+  }
+}
