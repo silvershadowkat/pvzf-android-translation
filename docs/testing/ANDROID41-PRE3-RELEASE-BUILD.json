@@ -1,5 +1,5 @@
 {
-  "status": "Prepared and verified for user-authorized publication",
+  "status": "Published and verified",
   "tag": "v4.1-release-3",
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-3",
   "prerelease": true,
@@ -14,7 +14,9 @@
       "version_name": "4.1-English-pre3",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "en",
-      "file": "PvZ-Fusion-4.1-English-prerelease3.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease3.apk",
+      "github_asset_id": 715705778,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-3/PvZ-Fusion-4.1-English-prerelease3.apk"
     },
     {
       "sha256": "75f9f3758975037fbc8aa665df7155c46b956160fe490f84daaa6af333364223",
@@ -24,7 +26,9 @@
       "version_name": "4.1-English-pre3-ENAI",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "enai",
-      "file": "PvZ-Fusion-4.1-English-prerelease3-AI.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease3-AI.apk",
+      "github_asset_id": 715705772,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-3/PvZ-Fusion-4.1-English-prerelease3-AI.apk"
     }
   ],
   "blooms_checked_commit": "38129198512e7d97aec2552be636578cad20dc24",
@@ -49,5 +53,9 @@
     "Intermittent Starbound repeats not confirmed fixed."
   ],
   "readme_no_em_dashes": true,
-  "notes_no_em_dashes": true
+  "notes_no_em_dashes": true,
+  "source_commit": "140e0da85381ce6cdb912d9ff10870362727143f",
+  "release_id": 436052860,
+  "published_at": "2026-11-06T03:07:03Z",
+  "homepage_readme_commit": "c597e80f34fed9bf188cd7472870e1e72f3fedf6"
 }
