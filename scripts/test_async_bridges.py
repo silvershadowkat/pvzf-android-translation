@@ -32,9 +32,9 @@ FAKES = {
 'android/content/ServiceConnection.java': '''package android.content; import android.os.IBinder; public interface ServiceConnection {void onServiceConnected(ComponentName n,IBinder b);void onServiceDisconnected(ComponentName n);default void onBindingDied(ComponentName n){}default void onNullBinding(ComponentName n){}}''',
 'android/content/res/AssetManager.java': '''package android.content.res; import java.io.*; public class AssetManager {public InputStream open(String s)throws IOException{return new ByteArrayInputStream(new byte[0]);}}''',
 'android/content/Context.java': '''package android.content; import java.io.*; import android.content.res.AssetManager; public class Context {
- public static final int BIND_AUTO_CREATE=1;public ServiceConnection connection;public int binds,unbinds;
+ public static final int BIND_AUTO_CREATE=1,BIND_IMPORTANT=64;public ServiceConnection connection;public int binds,unbinds,bindFlags;
  public File getFilesDir(){return new File("private");}public Context getApplicationContext(){return this;}public AssetManager getAssets(){return new AssetManager();}
- public boolean bindService(Intent i,ServiceConnection c,int flags){if(android.os.Looper.current!=android.os.Looper.MAIN)throw new AssertionError("Bind outside main");connection=c;binds++;return true;}
+ public boolean bindService(Intent i,ServiceConnection c,int flags){if(android.os.Looper.current!=android.os.Looper.MAIN)throw new AssertionError("Bind outside main");connection=c;binds++;bindFlags=flags;return true;}
  public void unbindService(ServiceConnection c){unbinds++;}
 }''',
 'android/app/Activity.java': '''package android.app; public class Activity {public boolean finishing;public boolean isFinishing(){return finishing;}}''',
@@ -95,8 +95,10 @@ public class AsyncBridgeTest {
   ok(day.released&&day.starts==0,"Queued track change wins over stale prepared callback");
   MusicBridge.sync(0,"",false,0,0,4);Handler.drain();
   PlantbrushBridge.init(app);ok(PlantbrushBridge.request()==1&&app.binds==0,"Plantbrush request never waits for bind");Handler.drain();
+  ok((app.bindFlags&android.content.Context.BIND_IMPORTANT)!=0,"Recognizer inherits foreground client importance");
   ServiceConnection first=app.connection;first.onServiceConnected(new ComponentName(),(c,in,out,f)->{ok(Looper.current!=Looper.MAIN,"Health Binder off main");out.result=2;return true;});
   Handler.advance(1000);ok(PlantbrushBridge.status()==2,"Recognizer ready cached");
+  Handler.advance(15001);ok(PlantbrushBridge.status()==2&&app.unbinds==0,"Scheduling gap does not kill a ready recognizer");
   first.onServiceDisconnected(new ComponentName());ok(PlantbrushBridge.status()==-1&&app.unbinds==1,"Death releases binding");
   ok(PlantbrushBridge.request()==-1,"Bounded retry cooldown");Handler.advance(3001);ok(PlantbrushBridge.request()==1,"Explicit retry without game restart");Handler.drain();
   ok(app.binds==2&&app.connection!=first,"Fresh connection per attempt");first.onBindingDied(new ComponentName());ok(PlantbrushBridge.status()==1,"Ignore stale death callback");

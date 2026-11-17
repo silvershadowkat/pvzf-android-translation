@@ -27,14 +27,15 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
     private static final class Session implements ServiceConnection,Runnable {
         IBinder remote; boolean bound,polling;
         final long deadline=SystemClock.elapsedRealtime()+120000;
-        long lastReply=SystemClock.elapsedRealtime();
+        long lastCheck=SystemClock.elapsedRealtime();
+        volatile long pollStarted;
         void bind(){
             if(current!=this)return;
-            try{bound=context.bindService(new Intent().setClassName(context,"com.silvershadow.pvzf.PlantbrushService"),this,Context.BIND_AUTO_CREATE);if(!bound)fail("Cannot bind recognition");}
+            try{bound=context.bindService(new Intent().setClassName(context,"com.silvershadow.pvzf.PlantbrushService"),this,Context.BIND_AUTO_CREATE|Context.BIND_IMPORTANT);if(!bound)fail("Cannot bind recognition");}
             catch(Exception e){fail("Cannot start recognition");Log.w("PvZFPlantbrush","Bind failed",e);}
             if(current==this)main.postDelayed(this,1000);
         }
-        public void onServiceConnected(ComponentName n,IBinder b){if(current!=this)return;remote=b;lastReply=SystemClock.elapsedRealtime();}
+        public void onServiceConnected(ComponentName n,IBinder b){if(current!=this)return;remote=b;}
         public void onServiceDisconnected(ComponentName n){fail("Recognition process disconnected");}
         public void onBindingDied(ComponentName n){fail("Recognition binding died");}
         public void onNullBinding(ComponentName n){fail("Recognition binding unavailable");}
@@ -47,18 +48,25 @@ public final class PlantbrushBridge implements Application.ActivityLifecycleCall
         public void run(){
             if(current!=this)return;
             long now=SystemClock.elapsedRealtime();
-            if((state==1&&now>deadline)||(state==2&&now-lastReply>10000)){fail("Recognition service timed out");return;}
+            // A late Handler tick is not a dead service. The former last-reply
+            // timeout unbound a healthy model before asking it after sleep or
+            // a scheduling stall. Only time an actual in-flight health request,
+            // with a fresh grace period after a scheduling gap.
+            if(now-lastCheck>5000&&polling)pollStarted=now;
+            lastCheck=now;
+            if((state==1&&now>deadline)||(state==2&&polling&&pollStarted!=0&&now-pollStarted>10000)){fail("Recognition service timed out");return;}
             final IBinder service=remote;
             if(service!=null&&!polling){
-                polling=true;
+                polling=true;pollStarted=0;
                 // Binder never blocks Unity or Android's UI thread.
                 health.post(()->{
+                    pollStarted=SystemClock.elapsedRealtime();
                     int result=-1;Parcel in=Parcel.obtain(),out=Parcel.obtain();
                     try{in.writeInterfaceToken("com.silvershadow.pvzf.Plantbrush");if(service.transact(1,in,out,0)){out.readException();result=out.readInt();}}
                     catch(Exception e){Log.w("PvZFPlantbrush","Status unavailable",e);}
                     finally{in.recycle();out.recycle();}
                     final int status=result;
-                    main.post(()->{if(current!=this)return;polling=false;lastReply=SystemClock.elapsedRealtime();if(status<1){fail("Recognition unavailable");}else state=status;});
+                    main.post(()->{if(current!=this)return;polling=false;pollStarted=0;if(status<1){fail("Recognition unavailable");}else state=status;});
                 });
             }
             main.postDelayed(this,state==1?250:1000);

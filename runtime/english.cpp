@@ -470,6 +470,8 @@ static bool bind(P lib){
 #undef LOAD
     return true;
 }
+static bool hook(P,const char*,int,P,P*);
+#include "modifier_display.inc"
 static void initialize(){
     // Called on Unity's already-attached thread only AFTER il2cpp_init succeeds.
     // Published assemblies are not proof that the VM's thread system is ready.
@@ -483,6 +485,7 @@ static void initialize(){
         hook(cls("","OptionMenu"),"Start",0,(P)optionStart,(P*)&oldOptionStart);
     }
     hook(cls("","GameAPP"),"Update",0,(P)update,(P*)&oldUpdate);
+    initializeModifierDisplay();
 #ifdef PVZF_LOCAL_PLANTBRUSH
     initializeOffline();
 #endif

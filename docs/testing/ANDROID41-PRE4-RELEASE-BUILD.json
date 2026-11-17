@@ -1,0 +1,69 @@
+{
+  "status": "Prepared and verified on PC",
+  "tag": "v4.1-release-4",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-4",
+  "prerelease": true,
+  "release_date": "2026-11-17",
+  "source_base": "ec46ec11b2a30cf7187c450cdb05416bc4090147",
+  "blooms_branch": "4.1",
+  "blooms_checked_commit": "88f68f1538c108941a4531c138ba0a0c44eacd58",
+  "assets": [
+    {
+      "sha256": "7c6331a29ca6623d885aba5baf3cd841221d40c9066a0ac9b21dc803aab534e5",
+      "bytes": 799759960,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4100117,
+      "version_name": "4.1-English-pre4",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "en",
+      "file": "PvZ-Fusion-4.1-English-prerelease4.apk"
+    },
+    {
+      "sha256": "ab1ff0a0ee890552f85558e04fbd909e0cdaff290c1d2bbce2defdb8a0e36027",
+      "bytes": 1065386426,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4100118,
+      "version_name": "4.1-English-pre4-ENAI",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "ai",
+      "file": "PvZ-Fusion-4.1-English-prerelease4-AI.apk"
+    }
+  ],
+  "translation_counts": {
+    "LawnStrings_info": 74,
+    "LawnStrings_introduce": 28,
+    "LawnStrings_name": 19,
+    "ZombieStrings_info": 14,
+    "ZombieStrings_introduce": 6,
+    "ZombieStrings_name": 3,
+    "plant_entries": 84,
+    "zombie_entries": 17,
+    "metadata_display_literals": 28,
+    "runtime_exact_keys": 196,
+    "runtime_format_rules": 5
+  },
+  "verification": {
+    "python_checks": 79,
+    "display_fixtures": 88,
+    "translator_parity_inputs": 17346,
+    "async_bridge_checks": 36,
+    "modifier_display_checks": 6,
+    "process_startup_checks": 10,
+    "metadata_restore_checks_per_variant": 4,
+    "almanac_restore_checks_per_variant": 12,
+    "protected_metadata_slots": 32,
+    "both_abis": true,
+    "signatures": true,
+    "alignment_16k": true,
+    "compression_preserved": true,
+    "game_native_and_audio_unchanged": true,
+    "device_tested": false
+  },
+  "known_limits": [
+    "Zomboni invisibility in Endless Survival Fog is not reproduced or confirmed fixed.",
+    "The reporter's exact offline-recognition failure cannot be determined without their device; a reproducible watchdog defect was fixed.",
+    "Some unverified names remain Chinese."
+  ],
+  "private_cheats_included": false,
+  "notes_no_em_dashes": true
+}
