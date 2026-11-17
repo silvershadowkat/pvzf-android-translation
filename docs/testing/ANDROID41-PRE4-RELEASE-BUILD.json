@@ -1,5 +1,5 @@
 {
-  "status": "Prepared and verified on PC",
+  "status": "Published and verified",
   "tag": "v4.1-release-4",
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-4",
   "prerelease": true,
@@ -16,7 +16,9 @@
       "version_name": "4.1-English-pre4",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "en",
-      "file": "PvZ-Fusion-4.1-English-prerelease4.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease4.apk",
+      "github_asset_id": 761039605,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-4/PvZ-Fusion-4.1-English-prerelease4.apk"
     },
     {
       "sha256": "ab1ff0a0ee890552f85558e04fbd909e0cdaff290c1d2bbce2defdb8a0e36027",
@@ -26,7 +28,9 @@
       "version_name": "4.1-English-pre4-ENAI",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "ai",
-      "file": "PvZ-Fusion-4.1-English-prerelease4-AI.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease4-AI.apk",
+      "github_asset_id": 761041938,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-4/PvZ-Fusion-4.1-English-prerelease4-AI.apk"
     }
   ],
   "translation_counts": {
@@ -65,5 +69,9 @@
     "Some unverified names remain Chinese."
   ],
   "private_cheats_included": false,
-  "notes_no_em_dashes": true
+  "notes_no_em_dashes": true,
+  "source_commit": "bece1a3c71590d64e1db63f85744374191f285d0",
+  "release_id": 449318871,
+  "published_at": "2026-11-17T23:23:53Z",
+  "homepage_readme_commit": "e46732b5abbb75b6f4a840bd78ab42afebfe64db"
 }
