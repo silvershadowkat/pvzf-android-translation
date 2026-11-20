@@ -1,5 +1,5 @@
 {
-  "status": "Prepared and verified on PC",
+  "status": "Published and verified",
   "tag": "v4.1-release-5",
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-5",
   "prerelease": true,
@@ -16,7 +16,9 @@
       "version_name": "4.1-English-pre5",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "en",
-      "file": "PvZ-Fusion-4.1-English-prerelease5.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease5.apk",
+      "github_asset_id": 770371973,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-5/PvZ-Fusion-4.1-English-prerelease5.apk"
     },
     {
       "sha256": "d21783d0cf6666e634d404d1bffeff136ed1910af36717053460125c78d2dcb8",
@@ -26,7 +28,9 @@
       "version_name": "4.1-English-pre5-ENAI",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "ai",
-      "file": "PvZ-Fusion-4.1-English-prerelease5-AI.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease5-AI.apk",
+      "github_asset_id": 770374036,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-5/PvZ-Fusion-4.1-English-prerelease5-AI.apk"
     }
   ],
   "translation_counts": {
@@ -71,5 +75,9 @@
     "Some internal, editor and unverified specialized text remains Chinese.",
     "Zomboni invisibility in Endless Survival Fog remains unresolved."
   ],
-  "notes_no_em_dashes": true
+  "notes_no_em_dashes": true,
+  "source_commit": "ca6a561bb5d906189b816b48a1ddbde89d828f42",
+  "release_id": 452250117,
+  "published_at": "2026-11-20T04:01:07Z",
+  "homepage_readme_commit": "dcb9da0000baa81a166736f0618e29f561fd1037"
 }
