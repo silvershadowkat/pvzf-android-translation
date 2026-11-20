@@ -1,0 +1,2450 @@
+{
+  "base_en_sha256": "7c6331a29ca6623d885aba5baf3cd841221d40c9066a0ac9b21dc803aab534e5",
+  "base_ai_sha256": "ab1ff0a0ee890552f85558e04fbd909e0cdaff290c1d2bbce2defdb8a0e36027",
+  "blooms": {
+    "commit": "fa5de17a0f6b85f187f74d6ee44c9e6635c38fc5",
+    "message": "Merge branch 'Teyliu:4.1' into 4.1",
+    "files": 14,
+    "main_commit": "f7e8b5922ac7233f16afdcc653842e3966d6a5e7",
+    "main_message": "Reverting 4.1 changes, it was an accident.\n\nReverting 4.1 changes, it was an accident."
+  },
+  "context": [
+    {
+      "slot": 1513,
+      "source": "3x3范围内有植物受到伤害时，将伤害转移至自身（结算为生命流失，强制扣血，不受减伤、护盾的影响）",
+      "source_sha256": "9b721ed43a8a022db765c5a147a2a0df73727176e33b8c68897dfa2750ea4548",
+      "english": "When a plant within a 3x3 area takes damage, transfer that damage to this plant as direct HP loss. Damage reduction and shields do not prevent this HP loss.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 1514,
+      "source": "3×3内不高于{0}的向日葵\n立即推进{1:P0}产出进度；共用冷却{2:0}秒",
+      "source_sha256": "d2a711e20791eba36f259017646ac0ad6b65b07d32bc2385355b0b9178721843",
+      "english": "Sunflowers of {0} quality or lower within 3x3 immediately advance production by {1:P0}. Shared cooldown: {2:0}s.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 1515,
+      "source": "3×3内不高于{0}的植物恢复{1:P0}最大生命\n共用冷却{2:0}秒，不能复活",
+      "source_sha256": "42c01e7e90e3bb3cd826cfd54dbf7c55aeeb05b34c35e56b6d32c1e1e56b8d85",
+      "english": "Restore {1:P0} max HP to plants of {0} quality or lower within 3x3. Shared cooldown: {2:0}s. Cannot revive plants.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17065,
+      "source": "刷怪：行 / 数量（最多50）",
+      "source_sha256": "b727215d2f79c584ac934c952a50bff393256df03e9b2f98c48a74c807f265e0",
+      "english": "Spawn zombies: lane / count (maximum 50)",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17069,
+      "source": "刷新商店时，若刷新的植物卡中出现2个相同的植物卡，获得100积分。获得4次免费刷新。",
+      "source_sha256": "36665ae2af50140132614de6e1c89fe0e1fecc0e0c0210bfb97b0dde82766622",
+      "english": "When a shop refresh contains 2 identical plant cards, gain 100 points. Gain 4 free refreshes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17070,
+      "source": "刷新商店时，若刷新的角色中出现2个相同的角色，获得1金币。获得4次免费刷新。",
+      "source_sha256": "b660a34b3ecfbae80c0a2d5e111c94c28b4dfabc4099e95dcd698fd335233ff2",
+      "english": "When a shop refresh contains 2 identical characters, gain 1 coin. Gain 4 free refreshes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17090,
+      "source": "剩余积分：{0:0}",
+      "source_sha256": "6e202805c7dcf4b1ed8109ef1496551c26fc87a0f93afc72780a91d0f0017658",
+      "english": "Points remaining: {0:0}",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17206,
+      "source": "发放数量可设1～100；同种同品自动三合一，超过卡位进入溢出栏。",
+      "source_sha256": "b48c6ad4813be0b9ae7c889575f64beebf10a0be80a954e0a13d2982026e5b0e",
+      "english": "Choose a quantity from 1 to 100. Identical cards of the same quality automatically combine in groups of 3. Cards beyond the slot limit enter overflow storage.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17219,
+      "source": "变量引用未绑定，请重新从属性面板拖入",
+      "source_sha256": "a1152b79cc2be1d93afc074498421cd871aaec4cccdba4a2171e6f157565b61c",
+      "english": "Variable reference is not bound. Drag it from the properties panel again.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17279,
+      "source": "同步状态：",
+      "source_sha256": "43ec219a41dd319aaadc70b30830f46353bbd7fa90e0f3faa480734cc1c92fcb",
+      "english": "Sync status:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17280,
+      "source": "同步状态：暂无对应出战卡",
+      "source_sha256": "67999d628bbfe3f8d32b601b6a657078d99de67f0d8c6e913f3a95e25eb012ec",
+      "english": "Sync status: No matching battle card",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17281,
+      "source": "同步类型：",
+      "source_sha256": "72bc61fb99c166d4cae5f087826f2ef0acced9f1b90c250d3259b738fa21a6db",
+      "english": "Sync type:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17328,
+      "source": "品质低于钻石的出战卡牌变为高1级品质的随机植物，最高钻石，保留装备和价值；钻石、棱彩与至尊红卡不变。",
+      "source_sha256": "ebeda54d728f9b355e690913552ec394e9b9bdab6aac69558f9ec0c52cfa155b",
+      "english": "Battle cards below Diamond become random plants 1 quality tier higher, up to Diamond. Equipment and value are retained. Diamond, Prismatic and the highest red-quality cards are unchanged.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17330,
+      "source": "品质卡牌中选择1张\n消耗品，选取成功后消耗1个",
+      "source_sha256": "1d8c864c09c8f9b5ef7cbbaab38b54444bd7af3689219763070091ddf4a466d9",
+      "english": "Choose 1 card of this quality. Consumable: uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17331,
+      "source": "品质：",
+      "source_sha256": "5f4e79cff761cc891de20f1329e346ee03d761e888c17f20418138869cbea639",
+      "english": "Quality:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17339,
+      "source": "商店升级改为消耗生命，每100积分升级费用折合1点生命。\n每次Boss战后恢复50点生命。",
+      "source_sha256": "6d4b6057c475f337eaa0ae00ed21e042f59f19d0fff8566d17372ab7a1392f7a",
+      "english": "Shop upgrades cost HP instead of points, at 1 HP per 100 points of upgrade cost. Restore 50 HP after each Boss battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17340,
+      "source": "商店升级费用降低25%。\n每次升级商店后，刷新商品并直接获得其中最贵的3张卡牌。",
+      "source_sha256": "3f5af4004dd3752007294b8321a367e7b07ff57db1ba37d9fcbf97b0b9cd0305",
+      "english": "Shop upgrade costs -25%. Each shop upgrade refreshes the stock and grants the 3 most expensive cards.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17341,
+      "source": "商店已升至 Lv.{0}，升级触发效果照常结算",
+      "source_sha256": "9d2c8ca561276a4deef9bd558e239c948ab7941bc8280e6a0ac9f718181d0d2b",
+      "english": "Shop is now Lv.{0}. Upgrade effects still activate normally.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17344,
+      "source": "商店首次达到8级时，获得4000积分。",
+      "source_sha256": "9b5e0aaddf94e89d0c213429357c58b936daa5f0681b4fdfcbfb773193e0b8a4",
+      "english": "Gain 4000 points when the shop first reaches level 8.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17404,
+      "source": "在接下来3个节点只有3个备战席位置。随后，获得3件简易装备。",
+      "source_sha256": "bd9dae09a9f6585ca30c6bf90fe624df27d73bf65a4bad6e9fe9ad3167751d09",
+      "english": "For the next 3 nodes, the bench has only 3 slots. Afterwards, gain 3 pieces of random simple equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17486,
+      "source": "复制一株不高于{0}的战斗植物到物品栏\n保留类型与品质；共用冷却{1:0}秒",
+      "source_sha256": "056b79c192029725ba697384733bf7447a27a29b4b82d341805bffcb60915e9d",
+      "english": "Copy a battle plant of {0} quality or lower into the inventory. Retain its type and quality. Shared cooldown: {1:0}s.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17489,
+      "source": "复制卡\n不复制装备，参与自动合成\n消耗品，成功使用后消耗1个",
+      "source_sha256": "891ccfe5ef71cfa38e2d77d653e0fea9137b70a7f3c42cb93d5251b136148d91",
+      "english": "Copy a card without its equipment. The copy participates in automatic combining. Consumable: uses 1 after successful use.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17490,
+      "source": "复制卡：",
+      "source_sha256": "6143b1a9f55e61cff9af0ed369a489184614a6088e6899121b4a2b91b52c03de",
+      "english": "Copy card:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17535,
+      "source": "大捷！大捷！",
+      "source_sha256": "e2a7d91d64ec237dd5c4975b2d38c6b77bde0c7eafa1983d6d3f86c9672bf1cc",
+      "english": "Victory! Victory!",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17554,
+      "source": "失败奖励：{0} × {1}/{2} × 50%，向下取整。",
+      "source_sha256": "9496c71b191df3b3304c7b998ad470e1108d70bca2a0d1389fff83393c055354",
+      "english": "Failure reward: {0} x {1}/{2} x 50%, rounded down.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17791,
+      "source": "属性计数：{0}\n",
+      "source_sha256": "01423f43440341a19eb2d5b9a2e02c0d37b799d7c8ccb6d2a86f6649c8168dc3",
+      "english": "Attribute Count: {0}\n",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17802,
+      "source": "己方卡牌每穿戴一种不同装备，为全体植物提供3%生命和6%攻击力。",
+      "source_sha256": "e75cef53ffac130317b724017e2fa09c68bc75ff2c788593370a5b170dd7b466",
+      "english": "Each different equipment type worn by your cards grants all plants +3% HP and +6% attack.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17808,
+      "source": "已免费重抽商店，触发真实刷新效果",
+      "source_sha256": "71523a15f54421a7c16577902cb717a2fd0d10c3b879f67757855c2dbfc5fdd3",
+      "english": "Shop refreshed for free. Normal refresh effects activated.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18043,
+      "source": "当前填写：",
+      "source_sha256": "a8ca1eafb1ec6f82aeeaafc0d09ba2222981afb5f23884263455338e2a0f6e95",
+      "english": "Current input:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18044,
+      "source": "当前增幅：{0:F0}%",
+      "source_sha256": "98c4fa3a83c6b9105dc897a91afd7b22968843fb81106627a6f20529c3ff5577",
+      "english": "Current Bonus: {0:F0}%",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18082,
+      "source": "当前连接：",
+      "source_sha256": "ae486d11033c305f3f6c64f671cc192d1bcde6b9928c16a77203ccf511ac523c",
+      "english": "Current connection:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18133,
+      "source": "恢复失败，文件保留：",
+      "source_sha256": "aeac57998a679dfc4316f4c25644fbb442744cd485bbd65e39f8f3ddb72d8f94",
+      "english": "Restore failed. Original file retained:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18144,
+      "source": "悬停植物或装备图标查看详情；每份原始素材单独保留。",
+      "source_sha256": "f8b4dff2fe61a9869d030ac59c9244d8d09f2b99e64684c07b754d14753126c6",
+      "english": "Hover over a plant or equipment icon for details. Each original ingredient is retained separately.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18199,
+      "source": "战斗中每10秒，攻击力加成增加8%\n加算，本场战斗结束后重置",
+      "source_sha256": "5f63c4c94a8e81bc74664b407e4a1114d49e293f4d5019f64b361d96c794f1a1",
+      "english": "During battle, attack bonus increases by 8% every 10s. Adds together and resets after this battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18200,
+      "source": "战斗中每10秒，攻速加成增加5%\n最高提高200%攻速加成",
+      "source_sha256": "3081cc953978c5ec08b32622d0474265fcb28c9bc4659c3a0975ddee89388c6a",
+      "english": "During battle, attack speed bonus increases by 5% every 10s, up to +200%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18201,
+      "source": "战斗中每5秒，攻击力加成增加16%\n加算，本场战斗结束后重置",
+      "source_sha256": "29facd1dcd5a16f804d48b3a041b8dfa47ac44e9e3458624ab16c56d4b54de4f",
+      "english": "During battle, attack bonus increases by 16% every 5s. Adds together and resets after this battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18202,
+      "source": "战斗中每5秒，攻速加成增加5%\n最高提高400%攻速加成",
+      "source_sha256": "f697f26360f0de8ba577f3830066fc046ddb60c5a1622c29385690bc7c9de7b2",
+      "english": "During battle, attack speed bonus increases by 5% every 5s, up to +400%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18206,
+      "source": "战斗失败时，受到的小队生命值伤害提高5点，但能维持原来的连胜数。获得6金币。",
+      "source_sha256": "8cb7f06689d9c3cf9999032011d60a4ef007738020410c58e1fec02f42ae4649",
+      "english": "Losing a battle deals 5 more damage to squad HP, but retains the previous win streak. Gain 6 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18257,
+      "source": "找不到：",
+      "source_sha256": "9d6291cf214a8c64e3e9e8d345ad58657c0f5c9b9dd4ac29f8d8b48f3abf4171",
+      "english": "Not found:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18282,
+      "source": "抽取词条时发生错误：",
+      "source_sha256": "7644494e78767b68aed38a1d1d88c10d9e92a26cc0b67d096e4129c71988ee28",
+      "english": "Error while drawing modifiers:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18289,
+      "source": "拖到卡牌上卸下该卡的全部装备\n无限耐久，不消耗",
+      "source_sha256": "701e5d3c7da4d6850084f62a867cc7baf908fa6cf0a1748fa7a4d2137e57fea6",
+      "english": "Drag onto a card to remove all its equipment. Unlimited uses; not consumed.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18290,
+      "source": "拖到卡牌上，自选1个该植物尚未拥有的旅行词条\n主形态与亚种共用对应词条\n没有可选词条时不消耗，选取成功后消耗1个",
+      "source_sha256": "0bc2959e13aff895ff08a377cf733b60b1f208ae7207066819480aa593ec34e3",
+      "english": "Drag onto a card to choose 1 Odyssey modifier it does not own. Main forms and subspecies share their corresponding modifiers. Not consumed if none are available; uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18292,
+      "source": "拖到植物使用，持续{0:0.#}秒",
+      "source_sha256": "7520d7081423ebfaee1e03bfc5da9d8e7dfe28fbfaaf4120c219165a2514f0aa",
+      "english": "Drag onto a plant to use. Lasts {0:0.#}s.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18293,
+      "source": "拖到物品栏的基础装备上，将其随机锻造成1件进阶装备\n消耗品，成功使用后消耗1个",
+      "source_sha256": "bd83b20491d49c0765afeaca9a4a16f87561dde181b7aea3fd4f3f63a88f659d",
+      "english": "Drag onto basic equipment in the inventory to randomly forge it into advanced equipment. Consumable: uses 1 after successful use.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18294,
+      "source": "拖到物品栏的普通进阶装备上，变为对应究极装备\n基础装备或已是究极装备时不消耗；成功后消耗1张",
+      "source_sha256": "9e922d052fa65735239990b4d7c1ac80a0a580b667335abf062e7900bc009447",
+      "english": "Drag onto ordinary advanced equipment in the inventory to turn it into its corresponding Ultimate equipment. Basic or already Ultimate equipment does not consume it. Uses 1 after successful use.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18309,
+      "source": "持续阳光：",
+      "source_sha256": "b781935c10e935d6cede0ef601318c01bc845d8a6e8c46f6ef67c0a9d897f70a",
+      "english": "Continuous sun:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18349,
+      "source": "接下来3个节点备战席限3格。随后，获得3件随机基础装备。",
+      "source_sha256": "8fb233c68f65b6ae58e31748a2817fe57e1574c19434b374aadda8535397181b",
+      "english": "For the next 3 nodes, the bench has only 3 slots. Afterwards, gain 3 pieces of random basic equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18366,
+      "source": "搜索达到 {0} 次尝试的上限，尚未找到满足规则的阵型。",
+      "source_sha256": "21b7639c2d1aa41f4fd5f2178f71addee7b9dc9c48de8729a98fdeb164ff6a2d",
+      "english": "Search reached the limit of {0} attempts without finding a formation that satisfies the rules.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18368,
+      "source": "携带装备  <size=16>{0}/3</size>",
+      "source_sha256": "0b4518fae8cce0e87de984be5aee4489080aa29ee13958b7af7d093adbbd9be5",
+      "english": "Equipment  <size=16>{0}/3</size>",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18369,
+      "source": "携带装备（0/3） · 暂无装备",
+      "source_sha256": "b0de4d44ba18b516fd79191ccdd22078b1166a8e63e2c8b395f0296447c3db95",
+      "english": "Equipment (0/3) - No equipment",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18656,
+      "source": "是否合成？",
+      "source_sha256": "3a33d382738c23ada3b9b06d1a09ec5fe3d55e9e45f724d06def787dbbae399a",
+      "english": "Combine?",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18688,
+      "source": "暂存当前全部积分，进入5个新节点后返还暂存积分并额外获得7000积分。",
+      "source_sha256": "4ae4ebe181ce67700e6cac392ea7ddc385fb00940b097a2b4e63d49f2526ab51",
+      "english": "Set aside all current points. After entering 5 new nodes, recover those points plus 7000 additional points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18741,
+      "source": "未执行：",
+      "source_sha256": "d389f17ef724d98fd2288919739b276d94cc5b046ddb8e81b35046aa8e5e6aed",
+      "english": "Not executed:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18742,
+      "source": "未执行：当前不在旅行进化模式",
+      "source_sha256": "ef76516cc4ba1b3776ab2ee8fe0fc4fce1760bfaca779d72a8d97ead5c19786e",
+      "english": "Not executed: Not currently in Odyssey: Evolved.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18765,
+      "source": "本坚果保护你！",
+      "source_sha256": "e25d8a97956d7ba7e0b0702837e11c638c4968aff338f29a47b8395ce998a6af",
+      "english": "This nut protects you!",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18768,
+      "source": "本局游戏中，补给阶段的可选项减少2个。下1个补给阶段选择后，额外获得所有未选择的植物卡及装备。",
+      "source_sha256": "f6ebb084040029f6b587d6744b23b9e428b129254e6eb608c355335ddd8487a5",
+      "english": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 1 supply phase, also gain all unchosen plant cards and their equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18769,
+      "source": "本局游戏中，补给阶段的可选项减少2个。下1个补给阶段选择后，额外获得所有未选择的角色及装备。",
+      "source_sha256": "12724a03b04d2f50306f9239e58272c88c37927293eccf935b9c6ff00b433ee0",
+      "english": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 1 supply phase, also gain all unchosen characters and their equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18770,
+      "source": "本局游戏中，补给阶段的可选项减少2个。下2个补给阶段选择后，额外获得所有未选择的植物卡及装备。",
+      "source_sha256": "a9d0f202894a1726314869b56fb0bbc1d947b72636ccddbf467213fdd7c5f521",
+      "english": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 2 supply phases, also gain all unchosen plant cards and their equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18771,
+      "source": "本局游戏中，补给阶段的可选项减少2个。下2个补给阶段选择后，额外获得所有未选择的角色及装备。",
+      "source_sha256": "d3e2eab8a3dc132e2632f3069011ab7d01ba130a6ee82c5d22afd91f970fbef8",
+      "english": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 2 supply phases, also gain all unchosen characters and their equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18773,
+      "source": "本局补给的候选项减少2项，领取时获得全部候选卡牌及其装备。",
+      "source_sha256": "84f09e29e7816a04ddbb7d915c2bd3b00e0d7dc2aed02d7bbeb5f854c2c02681",
+      "english": "Supply phases offer 2 fewer choices for this run. Claim all offered cards and their equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18776,
+      "source": "本类型植物造成伤害时，直接获得1点阳光",
+      "source_sha256": "b3d172b29dc1bb074e14e31836e1e644894b7d6c5b8432e447bdfaa05cd52281",
+      "english": "Whenever this plant type deals damage, gain 1 sun directly.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18777,
+      "source": "本类型植物造成伤害时，直接获得2点阳光",
+      "source_sha256": "cb2f1beb5416493d9e55c6f338fc5235c571054a588a2f812ac3fc163c32570a",
+      "english": "Whenever this plant type deals damage, gain 2 sun directly.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18804,
+      "source": "条件为真时重复执行连接的节点，每次循环前重新检查条件",
+      "source_sha256": "3567a94cd758af439c9ad11ad02fdaf976ab6989660b48cb324b0fd0cb354ee3",
+      "english": "While the condition is true, repeat the connected nodes. Check the condition again before each loop.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18864,
+      "source": "植物持续回血：",
+      "source_sha256": "079172f1b674eb22d6302a953e9174b4a29ec2dbe3f184ca2f536b625f8f5bd5",
+      "english": "Continuous plant healing:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18869,
+      "source": "植物数量范围无效：",
+      "source_sha256": "110c481d355f50d3934e40bd9b3fdcb0012826ae108a4dd43784d3d4cc09dd56",
+      "english": "Invalid plant count range:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18873,
+      "source": "植物的规则列表为空引用：",
+      "source_sha256": "ee28b63516b3d03e3b650beeae82e8ad0d09c3b762bcab1a920c6edad21aa414",
+      "english": "The plant rule list is missing:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18890,
+      "source": "植物类型的规则重复：",
+      "source_sha256": "345b348e7675c88eb10d0766206053a2ef3e666db2f8cff7af8c9466c73d1948",
+      "english": "Duplicate rules for a plant type:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18901,
+      "source": "植物配置中存在空规则：",
+      "source_sha256": "9aec7a7b055249c11dbd2d732fb8a7c74965f141a647a7786b39e418ea2f4440",
+      "english": "Plant configuration contains an empty rule:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18918,
+      "source": "模板检查未通过：",
+      "source_sha256": "c68e81742a65ea1550c4d5fdcab634f29ec753651c279e4d473df5af4cef7017",
+      "english": "Template validation failed:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18919,
+      "source": "模板读取失败，原文件保留：",
+      "source_sha256": "b0d2cb49e0e4da11b4d021d260baf5d18c3e6bf00789f64660692bd36d1e95e2",
+      "english": "Template could not be read. Original file retained:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18979,
+      "source": "每7次刷新，商店会刷出5张费用相同的角色，费用为你备战席最左侧角色的费用。",
+      "source_sha256": "9b59688be11acffd6ad742ba1d747e228a9ceb9478ce5352fb59f8a195540269",
+      "english": "Every 7 shop refreshes, stock 5 characters whose cost matches the leftmost character on the bench.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18998,
+      "source": "每只敌方僵尸死亡时，有1%概率获得随机品质礼盒。\n每个节点最多触发3次。",
+      "source_sha256": "e626b9e287a3e0eb77a06504c0d718613f7cfc31fd31123cd134a05a28f146ba",
+      "english": "Each enemy zombie death has a 1% chance to grant a Giftbox of random quality. Triggers up to 3 times per node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18999,
+      "source": "每场战斗开始时，佩戴3件装备的卡牌及场上植物，从其中的进阶装备中随机1件临时变为究极装备，持续本场；没有进阶装备则不生效。",
+      "source_sha256": "e7fc9027ecd3c096a4ef44d5da3f9d53e41035b734b3338d1c0be71857c57cbd",
+      "english": "At the start of each battle, cards and planted units wearing 3 pieces of equipment temporarily turn 1 random advanced equipment item into Ultimate equipment for that battle. No effect if they have no advanced equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19010,
+      "source": "每损失20点小队生命值，获得500积分和1个随机基础装备。",
+      "source_sha256": "4cd650f1bb36fa6bcbd53809731e8185a21d937928efb6dd9ab309d9360b26c5",
+      "english": "For every 20 squad HP lost, gain 500 points and 1 piece of random basic equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19011,
+      "source": "每损失20点小队生命值，获得5金币和1个随机简易装备。",
+      "source_sha256": "ca4913d3ea6c65605028af2ed305b727540c555d4008f99ed5560c629068aa58",
+      "english": "For every 20 squad HP lost, gain 5 coins and 1 piece of random simple equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19020,
+      "source": "每次升级商店，使一张品质低于钻石的未售商品变为高1档品质的另一种随机植物，保留原价；最高钻石。",
+      "source_sha256": "952f3bfa33bedc00ac6af7dd1ba0e8ffe47930eadedb179e567d4060e7eb6689",
+      "english": "Each shop upgrade turns 1 unsold item below Diamond into another random plant 1 quality tier higher, up to Diamond, retaining its original price.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19023,
+      "source": "每次受到攻击时，消耗25阳光\n将该次攻击伤害降低至1",
+      "source_sha256": "5f6f177e2a568b4b0526284b7113232a6caa788fa05a4b6aefe88b949e2652dc",
+      "english": "Whenever attacked, spend 25 sun to reduce that attack to 1 damage.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19024,
+      "source": "每次受到攻击时，消耗50阳光\n将该次攻击伤害降低至1",
+      "source_sha256": "92af7c238c76dd2c4edd139a44df2ed4ad7757972d5c39f921f3c25a12a877f3",
+      "english": "Whenever attacked, spend 50 sun to reduce that attack to 1 damage.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19026,
+      "source": "每次将两件基础装备合成为进阶装备时获得2次免费刷新",
+      "source_sha256": "24497f41e7feba13bf21aa07b8c3a3e50d728ea4d3ad94665d8c33b20a304bcc",
+      "english": "Gain 2 free refreshes whenever 2 basic equipment items are combined into advanced equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19036,
+      "source": "每次消耗积分刷新商店，获得1点升级经验。",
+      "source_sha256": "eef602a9fd853570682b838614fa4c547bbbc4beaad68e22292c61300e5edd64",
+      "english": "Gain 1 upgrade XP whenever points are spent refreshing the shop.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19042,
+      "source": "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得1件随机基础装备。",
+      "source_sha256": "b722d15270f68f722e5844e37e0e0a88b734c5132ab581a70f817e0df3752fed",
+      "english": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 1 piece of random basic equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19043,
+      "source": "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得1件随机简易装备。",
+      "source_sha256": "69910cb57f2dba07a767268ac1f498aa308463a0f1dc572c8d26357bd6a6ae5d",
+      "english": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 1 piece of random simple equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19044,
+      "source": "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得2件随机基础装备。",
+      "source_sha256": "cb99636e6abbebd4fe0c206a9f35c465c6625bd98122d61f13da3ab748870bb0",
+      "english": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 2 pieces of random basic equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19045,
+      "source": "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得2件随机简易装备。",
+      "source_sha256": "b9043ec7c7090a257528a6a829836d3b8b5c86b40ad18d5790f1236e90b70802",
+      "english": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 2 pieces of random simple equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19046,
+      "source": "每次进入新节点时，处在备战席最右侧3个位置的角色变为随机的同费用角色。获得2金币。",
+      "source_sha256": "9110e2b3568bae8bd2932551c7611ebac13d033261d5deaa70e65e331903378f",
+      "english": "Whenever you enter a new node, characters in the 3 rightmost bench slots become random characters of the same cost. Gain 2 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19047,
+      "source": "每次进入新节点时，处在备战席最左侧6个位置的角色变为随机的同费用角色。立刻获得5次免费刷新和10金币。",
+      "source_sha256": "5dba56442a2d5af120323ea6a1ba7e3fb1fe8d0bd5907160b36366ff46ec1ba9",
+      "english": "Whenever you enter a new node, characters in the 6 leftmost bench slots become random characters of the same cost. Immediately gain 5 free refreshes and 10 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19048,
+      "source": "每次进入新节点时，处在备战席最左侧6个位置的角色变为随机的同费用角色。立刻获得7次免费刷新和14金币。",
+      "source_sha256": "251433dd7c1f8a3d159fa97dbf46491e0af59836c6244dcf5ae411e9e3f1825b",
+      "english": "Whenever you enter a new node, characters in the 6 leftmost bench slots become random characters of the same cost. Immediately gain 7 free refreshes and 14 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19049,
+      "source": "每次进入新节点时，如果在上个节点没有花费积分，则获得2次免费刷新。",
+      "source_sha256": "f9eb39ac8e8143ea5ed5e131a8342b69804807c8686928f0ad28ac7f02514f5d",
+      "english": "Whenever you enter a new node, gain 2 free refreshes if no points were spent at the previous node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19050,
+      "source": "每次进入新节点时，如果在上个节点没有花费金币，则获得2次免费刷新。",
+      "source_sha256": "22e7742b775e968828d239bf45aaf647dc1af543edb9ae6db355ed271bd9423d",
+      "english": "Whenever you enter a new node, gain 2 free refreshes if no coins were spent at the previous node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19051,
+      "source": "每次进入补给阶段后，随机获得一个未被选择的植物卡及其携带的装备。",
+      "source_sha256": "e57c61e08f9c1e19cd4de777d2097f7c26f2d2befbb9be18b99e251ce851cedb",
+      "english": "After entering each supply phase, gain 1 random unchosen plant card and its equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19052,
+      "source": "每次进入补给阶段后，随机获得一个未被选择的植物卡及其携带的装备。获得1个随机基础装备和400积分。",
+      "source_sha256": "379ea95af1994788488bf18fadf3e00bfb325ea16ce85a92ecde18e069bd5b63",
+      "english": "After entering each supply phase, gain 1 random unchosen plant card and its equipment. Gain 1 piece of random basic equipment and 400 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19053,
+      "source": "每次进入补给阶段后，随机获得一个未被选择的角色及其携带的装备。",
+      "source_sha256": "83240a8f7b656664d25d65c4d27b4247692543ba7516a843881c18795613a043",
+      "english": "After entering each supply phase, gain 1 random unchosen character and its equipment.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19054,
+      "source": "每次进入补给阶段后，随机获得一个未被选择的角色及其携带的装备。获得1个随机简易装备和4金币。",
+      "source_sha256": "b8918da9cee2126e53afef9b919d8e902a7b94f83f66844259a94beead52a381",
+      "english": "After entering each supply phase, gain 1 random unchosen character and its equipment. Gain 1 piece of random simple equipment and 4 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19057,
+      "source": "每第5次刷新商店时，生成5张与备战席最左侧卡牌相同品质的商品，最高钻石。\n备战席为空时按木头品质生成。",
+      "source_sha256": "e54966a0408bcb2cb5954c0e46499de715a772aa610416d6fb24c1e6692cc7d0",
+      "english": "Every 5th shop refresh stocks 5 cards matching the quality of the leftmost bench card, up to Diamond. An empty bench uses Bronze quality.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19059,
+      "source": "每第7次刷新生成5张同品质商品，品质取备战席最左侧卡牌，最高钻石，空备战按木头。",
+      "source_sha256": "9e2558e97ece54787fddc4ab03d99d400e8b57e8b8a374105f06553b1e1db5b6",
+      "english": "Every 7th shop refresh stocks 5 cards matching the quality of the leftmost bench card, up to Diamond. An empty bench uses Bronze quality.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19063,
+      "source": "每行数量限制与植物总数范围相互冲突：",
+      "source_sha256": "283bf7da72f55f9dc893384f501049d5fdbcc0a819b8bedec51de0d182969ddc",
+      "english": "Per-lane count limits conflict with the total plant count range:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19064,
+      "source": "每行最多数量不能为负数：",
+      "source_sha256": "5baf7ef2b30feb5af9e75737cbd0ba5f7e2891a7f4a6d733de8b7f7c1cb0d9c2",
+      "english": "The maximum count per lane cannot be negative:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19065,
+      "source": "每行最少数量无效或超过植物总数上限：",
+      "source_sha256": "db04ff91a543bb5c26bf04c7b6c4e4f30962fbbc09068fcf96c4d73c2825b1f6",
+      "english": "The minimum count per lane is invalid or exceeds the total plant count limit:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19265,
+      "source": "点击后，从10件不重复的随机进阶装备中选择1件\n可翻页查看，选取成功后消耗1个",
+      "source_sha256": "79e80a04b0cba62953ceef5ceced6485b131ab2ae07a31c0321662a44a3bbf25",
+      "english": "Tap to choose 1 of 10 distinct random advanced equipment items. Browse the pages to see all choices. Uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19266,
+      "source": "点击后，从4件不同究极进阶装备中选择1件\n选取成功后消耗1个",
+      "source_sha256": "6faa5faa298340ad7e2626013c48286b6935dec427c19a77c0ce45f9370b8dee",
+      "english": "Tap to choose 1 of 4 distinct Ultimate advanced equipment items. Uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19267,
+      "source": "点击后，从4件随机基础装备中选择1件\n消耗品，选取成功后消耗1个",
+      "source_sha256": "aa7e0dc34feb10986a7dd0057bdf15ad539b132bc913eb1bff2e6a880e2d9fc5",
+      "english": "Tap to choose 1 of 4 random basic equipment items. Consumable: uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19268,
+      "source": "点击后，从4件随机进阶装备中选择1件\n消耗品，选取成功后消耗1个",
+      "source_sha256": "90ca2db26c4ecde5d643e089e85e45a2c3815afe44512b1fd13d28c3b7b12b02",
+      "english": "Tap to choose 1 of 4 random advanced equipment items. Consumable: uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19270,
+      "source": "点击后，从4种随机黄金品质究极植物中选择1张\n消耗品，选取成功后消耗1个",
+      "source_sha256": "ce73104d23ac95a321e78813b4a4a94122c9434d148a323d9f3227a17d8161ac",
+      "english": "Tap to choose 1 of 4 random Gold-quality Ultimate plants. Consumable: uses 1 after a successful selection.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19299,
+      "source": "照料：{0}植物 ×{1:0.00}",
+      "source_sha256": "89c38c5d0586e03f46d4e1f4aebf1d6dcc1653b379132dbd347abe5695a86855",
+      "english": "Care: {0} plants x{1:0.00}",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19300,
+      "source": "照料：卡牌冷却",
+      "source_sha256": "2714e3d0cba44ba31c43cc5fcdbc2e27f51a1288c18bac4aa35fc39c138d4903",
+      "english": "Care: Card cooldown",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19358,
+      "source": "现在及之后每大关的第一个商店，商品改为4张不同植物的钻石品质卡，并获得300积分。",
+      "source_sha256": "4fd414deed8e0cad846db6a7288d5f9592614f3eacc382881e6384a96be28c77",
+      "english": "Now and at the first shop of each subsequent chapter, stock 4 different Diamond-quality plant cards. Gain 300 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19359,
+      "source": "现在及接下来3次进入新节点时，每次获得700积分。",
+      "source_sha256": "e088a5038c0c933e2a996171ab65ef94e17c00da65718fca6bb79c31f3405a57",
+      "english": "Now and on each of the next 3 new nodes, gain 700 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19360,
+      "source": "现在及接下来3次进入新节点时，每次获得7金币。",
+      "source_sha256": "e3f31f2987aa43045f78a69084eeadc9a139b939e6763ffb2c599aad6fb0cca9",
+      "english": "Now and on each of the next 3 new nodes, gain 7 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19361,
+      "source": "现在及接下来3次进入新节点时，每次获得900积分。",
+      "source_sha256": "249e25b60fd6c5403136115f1076a0607abb129056ae7ee6795512d3ba397ccc",
+      "english": "Now and on each of the next 3 new nodes, gain 900 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19362,
+      "source": "现在及接下来3次进入新节点时，每次获得9金币。",
+      "source_sha256": "367593c3058edb3be111baf899d0de2902918ab87a2c967ebe9abe9592f416d7",
+      "english": "Now and on each of the next 3 new nodes, gain 9 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19363,
+      "source": "现在及每次进入新节点时获得1次免费刷新，立刻获得800积分。",
+      "source_sha256": "fa407b56b0a0229a6a9eb9d58038c8fac0a3e6442c23b13f417c6a90c10bbb5e",
+      "english": "Gain 1 free refresh now and whenever you enter a new node. Immediately gain 800 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19364,
+      "source": "现在及每次进入新节点时获得1次免费刷新，立刻获得8金币。",
+      "source_sha256": "310143097b564441db8c9769cd7fae3291350bd1d33fa07e0dc01b19054bd766",
+      "english": "Gain 1 free refresh now and whenever you enter a new node. Immediately gain 8 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19477,
+      "source": "相似度：{0:P1}\n强度：{1:F2}\n{2}",
+      "source_sha256": "307ecab506a4fc15464761715ad1ea75a352dcc8f5cd6127ca41fa7cf118eba3",
+      "english": "Similarity: {0:P1}\nStrength: {1:F2}\n{2}",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19512,
+      "source": "礼盒：已收集{0}个",
+      "source_sha256": "cb2cf0557f162876546e605f3a797d906345c4d12c87b29d60a13280376fe673",
+      "english": "Giftboxes: {0} collected",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19513,
+      "source": "礼盒：暂无待开启礼盒",
+      "source_sha256": "18c41072965ba7b8fc51b916f53f06ed70a9f4b23e28e84357f29ebb2993cb90",
+      "english": "Giftboxes: None waiting to open",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19606,
+      "source": "立刻获得1件随机基础装备，首领战后，获得1件随机基础装备。",
+      "source_sha256": "bbb11a1d5de4bb22848d227bc0d8772f69cf4d4fbec8a53237aa87af0e41771c",
+      "english": "Immediately gain 1 piece of random basic equipment. Gain 1 piece of random basic equipment after each Boss battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19607,
+      "source": "立刻获得1件随机简易装备，首领战后，获得1件随机简易装备。",
+      "source_sha256": "da6505cc39e30f17d010ca3f46d8371ee170d955402477b9ad0a44af26fa09e9",
+      "english": "Immediately gain 1 piece of random simple equipment. Gain 1 piece of random simple equipment after each Boss battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19608,
+      "source": "立刻获得2件随机基础装备，boss战后，获得1件随机基础装备。",
+      "source_sha256": "44c3200123c2adb8a12fe17f28ea3318f1f587d0294e6ef3ca9a05ba8b5cd329",
+      "english": "Immediately gain 2 pieces of random basic equipment. Gain 1 piece of random basic equipment after each Boss battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19609,
+      "source": "立刻获得2件随机简易装备，首领战后，获得1件随机简易装备。",
+      "source_sha256": "48190292944cae0083b9f1bea3526c328461aab42b3167db526df5011bc2cdae",
+      "english": "Immediately gain 2 pieces of random simple equipment. Gain 1 piece of random simple equipment after each Boss battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19610,
+      "source": "立刻获得400积分，并且在每次进入新节点时，获得200积分。",
+      "source_sha256": "794823ae6dd3359543046fea50aeae3a1b72f411e147eb04a1d19fbc95b53b96",
+      "english": "Immediately gain 400 points, then gain 200 points whenever you enter a new node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19611,
+      "source": "立刻获得4个金币，并且在每次进入新节点时，获得2金币。",
+      "source_sha256": "0d064dee30064efeed18551d1edf774d79baec668b6a785bdd98c369d82d3773",
+      "english": "Immediately gain 4 coins, then gain 2 coins whenever you enter a new node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19617,
+      "source": "立即将当前生命值和积分按1点生命=100积分的比例交换。",
+      "source_sha256": "6fb94a7fb4e8fd85535f645858b9cbdfe7fce30a6b374498c8f25179325776ac",
+      "english": "Immediately exchange your current HP and points at a rate of 1 HP to 100 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19619,
+      "source": "立即获得1000积分，利息上限提高至900积分。\n进入商店时，如果自上次入店后没有花费积分，额外获得900积分。",
+      "source_sha256": "e8a2333c3be527e27164fff7953f52eb8fdb6996432ee0d1036e7cd0f0faccd4",
+      "english": "Immediately gain 1000 points and raise the interest cap to 900 points. Upon entering a shop, gain 900 extra points if none were spent since your previous shop visit.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19620,
+      "source": "立即获得1437次免费刷新，持续30秒。\n时间结束时清空全部剩余免费刷新次数。",
+      "source_sha256": "5b27faf3fb8976bb313d4c0a7e3182198af1eba379fa4e3cc6047176205ebdf6",
+      "english": "Immediately gain 1437 free refreshes for 30s. All remaining free refreshes are removed when time runs out.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19621,
+      "source": "立即获得1500积分，本局不再获得利息。每进入一个新节点获得4点升级经验。",
+      "source_sha256": "5bae51852ced568d35fa596db64c2f55cf47d843767ccf32d1fe069e2949fbee",
+      "english": "Immediately gain 1500 points. No more interest is earned this run. Gain 4 upgrade XP whenever you enter a new node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19623,
+      "source": "立即获得1个黄金礼盒。\n开启礼盒时，有50%概率获得低一级礼盒；木头礼盒不会生成更低品质礼盒。",
+      "source_sha256": "b1f77ccdee8fa1ecc95417cb37ca87d9f8a57552da51eb840bd675c7bba7af31",
+      "english": "Immediately gain 1 Gold Giftbox. Opening a Giftbox has a 50% chance to grant a Giftbox 1 quality tier lower. Bronze Giftboxes cannot grant a lower-quality Giftbox.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19624,
+      "source": "立即获得200积分。每次进入新节点时，备战席第7至9格的卡牌变为随机同品质植物，棱彩和至尊红卡不参与变换。",
+      "source_sha256": "e2e328b09239c2b645181305ce2ba734bcda556c37da5e5fb312d82829bc04fe",
+      "english": "Immediately gain 200 points. Whenever you enter a new node, cards in bench slots 7 to 9 become random plants of the same quality. Prismatic and the highest red-quality cards are excluded.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19625,
+      "source": "立即获得2500积分，利息上限提高至1000积分。",
+      "source_sha256": "a9dcd0327720d0e4ca85357d9b557e1de8cce30370b89d9e09dd343ffd4e758d",
+      "english": "Immediately gain 2500 points and raise the interest cap to 1000 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19626,
+      "source": "立即获得2件随机进阶装备。\n每次进入新节点时，库存中的装备变为其他同等级装备。",
+      "source_sha256": "1d4cf5a75f78ad5a392bd0811672c979c31723152405c94960392437f33b8ef0",
+      "english": "Immediately gain 2 pieces of random advanced equipment. Whenever you enter a new node, inventory equipment changes into other equipment of the same tier.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19629,
+      "source": "立即获得5次免费刷新和1000积分。每进入新节点，备战席最左6个位置的卡牌变为随机同品质植物，棱彩和至尊红卡不参与变换。",
+      "source_sha256": "bbc88a7c069c421972f49f4062a426b292105725bb5e593fd28a6d97b749d8fc",
+      "english": "Immediately gain 5 free refreshes and 1000 points. At each new node, cards in the 6 leftmost bench slots become random plants of the same quality. Prismatic and the highest red-quality cards are excluded.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19630,
+      "source": "立即获得600积分。僵尸进家伤害增加5点，但失败仍保留进入战斗时的连胜。",
+      "source_sha256": "24a129a50fd1f7e3a517b0c022d66226b8c5076b1190971a3fa5711b9272c074",
+      "english": "Immediately gain 600 points. Zombies entering the house deal 5 extra HP damage, but losing retains the win streak held at battle entry.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19631,
+      "source": "立即获得7次免费刷新和1400积分。每进入新节点，备战席最左6个位置的卡牌变为随机同品质植物，棱彩和至尊红卡不参与变换。",
+      "source_sha256": "4c2954d4aa2727c327d54f8dffb3d8630ea4e9ccfbedb88b1f48bc42db59fd29",
+      "english": "Immediately gain 7 free refreshes and 1400 points. At each new node, cards in the 6 leftmost bench slots become random plants of the same quality. Prismatic and the highest red-quality cards are excluded.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19632,
+      "source": "立即获得已损失生命值×100的积分。\n每次战斗结束后恢复10点生命。",
+      "source_sha256": "da5215666bc2f2bc86aa459fca7f882bbca4afb54edf268980803f5ff87c9ecc",
+      "english": "Immediately gain points equal to lost HP x100. Restore 10 HP after each battle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19643,
+      "source": "第1至第10列线性插值：\n额外攻速100%→0%，额外减伤0%→100%",
+      "source_sha256": "c77688068881954f37ab35783895b4394ce50a711b281d5e773cbe013ec57651",
+      "english": "From columns 1 to 10, the extra attack speed decreases linearly from 100% to 0%, while extra damage reduction increases from 0% to 100%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19644,
+      "source": "第1至第10列线性插值：\n额外攻速50%→0%，额外减伤0%→50%",
+      "source_sha256": "eac06b1633dc1a708955308facf8afd00e41232fc6d42ad0ce864164d9606b7c",
+      "english": "From columns 1 to 10, the extra attack speed decreases linearly from 50% to 0%, while extra damage reduction increases from 0% to 50%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19650,
+      "source": "第{0}个参数须为{1}～{2}的整数",
+      "source_sha256": "34d09da052d89bf7035209787aed7f736f70a1c13d8095e95a679500348ebfcb",
+      "english": "Parameter {0} must be an integer from {1} to {2}.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19670,
+      "source": "第{0}项格式无效，保留上一次有效值。",
+      "source_sha256": "071c90688f43f433a8395758b3b69bd1a44f9c8663af31103442903c879d55d1",
+      "english": "Invalid format for entry {0}. Previous valid value retained.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19772,
+      "source": "网格：关",
+      "source_sha256": "cfccdf23f3d5dc120be1f4a4526aab157f6903eeb9b7a6fe72be5bb0cd9b37ab",
+      "english": "Grid: Off",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19773,
+      "source": "网格：开",
+      "source_sha256": "caffdb09c59280159b931b97d37d539dba99f3847413e3ec65f5c52d6cebc073",
+      "english": "Grid: On",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19851,
+      "source": "自身每5秒直接获得100阳光\n并回复10%最大生命值，单次不超过4000",
+      "source_sha256": "2d918f4cbb3e068b394fdcb927929aab3dd3f4343efc7916ed1627fc4946e123",
+      "english": "Every 5s, directly gain 100 sun and restore 10% max HP, up to 4000 HP per heal.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19852,
+      "source": "自身每5秒直接获得50阳光\n并回复5%最大生命值，单次不超过2000",
+      "source_sha256": "d653ee192e7da7c8b023c98de2bc3d3a32574b189ef500cc6c213773b200a01f",
+      "english": "Every 5s, directly gain 50 sun and restore 5% max HP, up to 2000 HP per heal.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19853,
+      "source": "自身治疗量增加100%\n受到治疗后本行额外减伤60%，持续3秒，重复治疗刷新持续时间",
+      "source_sha256": "0503a63be10deaca3825a205721bc553da683b9e6b408f7faf4800d0bed0e7fd",
+      "english": "Healing amount +100%. After being healed, gain 60% extra damage reduction in this lane for 3s. Further healing refreshes the duration.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19854,
+      "source": "自身治疗量增加50%\n受到治疗后本行额外减伤30%，持续3秒，重复治疗刷新持续时间",
+      "source_sha256": "d46a8121a73c2baa1c8f6fdde7af3b1ede8a9e7dd9a7151c1b597d8e567c5dd0",
+      "english": "Healing amount +50%. After being healed, gain 30% extra damage reduction in this lane for 3s. Further healing refreshes the duration.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19855,
+      "source": "自身生命值降低后，攻击力加成增加300%\n持续3秒，重复降低刷新持续时间",
+      "source_sha256": "728c03f3d718b84fca725b8925d1eb11ee5f9cc210d62e849ada9d61f69afc6a",
+      "english": "After losing HP, gain +300% attack for 3s. Further HP loss refreshes the duration.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19856,
+      "source": "自身生命值降低后，攻击力加成提高150%\n持续3秒，重复降低刷新持续时间",
+      "source_sha256": "dc94e5a64a02b0cf9f26af18294e367baf1b9a9ef63389736e760c8cdb8adae5",
+      "english": "After losing HP, gain +150% attack for 3s. Further HP loss refreshes the duration.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19859,
+      "source": "至少佩戴1件装备的植物获得20%生命和16%伤害。",
+      "source_sha256": "937cabacf677cbc02a4c63ea12cab2ea60d28ebee15d86d77f0642d6e1a31518",
+      "english": "Plants wearing at least 1 piece of equipment gain +20% HP and +16% damage.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19861,
+      "source": "至少携带1件装备的角色获得20%生命增幅和16%伤害增幅。",
+      "source_sha256": "6e21c2d0fcf919dad4fbbafd84351f2da280ffc8fd53fd9c98c16727aefe45ed",
+      "english": "Characters carrying at least 1 piece of equipment gain +20% HP and +16% damage.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19895,
+      "source": "花费和冷却格式无效，未修改原数值",
+      "source_sha256": "b7a45765695fb245068a6fdbaf195e168709f8a3c87c2fdfc5873bc72119146e",
+      "english": "Invalid cost or cooldown format. Original values unchanged.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19950,
+      "source": "获得1200积分；下一张购买的白银品质商品卡提升为黄金。",
+      "source_sha256": "e73e5caba7912d7a6a4db766fd144389f44f0f9b6472ff0d5bdae4265bd0d8fa",
+      "english": "Gain 1200 points. The next Silver-quality card purchased is upgraded to Gold.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19951,
+      "source": "获得12点升级经验；连胜积分奖励变为3倍，敌人生命额外提高当前连胜数×10%。",
+      "source_sha256": "41ab76747eb518483f4505ae25f2c34d212da618fb0e3f81b89de49f152b7f6f",
+      "english": "Gain 12 upgrade XP. Win streak point rewards are tripled, and enemies gain extra HP equal to the current win streak x10%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19976,
+      "source": "获得1件随机基础装备和1个随机钻石品质植物卡，获得600积分。",
+      "source_sha256": "dc96d8c0f7726afd97b033feb4e0bb983d7fa4fb50047b8e1eec045660efccbe",
+      "english": "Gain 1 piece of random basic equipment, 1 random Diamond-quality plant card and 600 points.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19977,
+      "source": "获得1件随机基础装备和2个随机黄金品质植物卡。",
+      "source_sha256": "613ec6f3dff1da85dcf564a506c11e7c7dfd22c16e640a5380a13be96848ef59",
+      "english": "Gain 1 piece of random basic equipment and 2 random Gold-quality plant cards.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19978,
+      "source": "获得1件随机简易装备和1个随机4费角色，获得6金币。",
+      "source_sha256": "6b3da7abfda851eff823ad56fc1b8975d3864c822d9c4f051ed3d78eafd1035c",
+      "english": "Gain 1 piece of random simple equipment, 1 random 4-cost character and 6 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19979,
+      "source": "获得1件随机简易装备和2个随机3费角色。",
+      "source_sha256": "fd84058dc658792a8a2cc6d96462da680ac2a5ea993c18c80f6ba5515b0fef79",
+      "english": "Gain 1 piece of random simple equipment and 2 random 3-cost characters.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19981,
+      "source": "获得1张随机白银植物卡；每个新节点获得同种木头卡，补给后额外获得2张同种木头卡。",
+      "source_sha256": "a6332f335254892491d83ce0644ea88f7757f039d6285dd527d98325141347df",
+      "english": "Gain 1 random Silver plant card. At each new node, gain a Bronze card of that plant. After each supply phase, gain 2 additional Bronze cards of that plant.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19982,
+      "source": "获得1张随机黄金品质植物卡。每个新节点获得1张该植物的白银卡；每次领完补给后额外获得2张白银卡，持续本局。",
+      "source_sha256": "f98f9409b5639d6475a109c4f09a908f49adabb52d782a10cd38a084d6516704",
+      "english": "Gain 1 random Gold-quality plant card. At each new node, gain 1 Silver card of that plant. After each supply phase, gain 2 additional Silver cards for the rest of the run.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19984,
+      "source": "获得25金币。你的最大利息提升至10金币。",
+      "source_sha256": "4521c5a454df9a0ed2a77acf6ff3d20e1f9c1dfc11aca1a11b0c28d33491be87",
+      "english": "Gain 25 coins. Maximum interest rises to 10 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19985,
+      "source": "获得2个1费角色，2个2费角色和1个3费角色。",
+      "source_sha256": "92b59e5a061ded722716924c33eedc6caeba147c2b1da389fa3e4960d7d6b13d",
+      "english": "Gain 2 characters costing 1, 2 characters costing 2, and 1 character costing 3.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19993,
+      "source": "获得2个木头品质植物卡，2个白银品质植物卡和1个黄金品质植物卡。",
+      "source_sha256": "36cf43d9d07bd71146ea106b7ddcff8507ea3f820fe745ae74fb81ea01757b80",
+      "english": "Gain 2 Bronze-quality plant cards, 2 Silver-quality plant cards and 1 Gold-quality plant card.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20031,
+      "source": "获得旅行词条：{0}",
+      "source_sha256": "0f3b4ebb6d26d2862ab4e251f4b60ae3fdfd9692f0678ba6b796959882db120d",
+      "english": "Gain Odyssey modifier: {0}",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20083,
+      "source": "补给：领取全部三项",
+      "source_sha256": "1bce42301932864bdc996f8dda0c32582af2949ae0087040c395f0f7d940c7ac",
+      "english": "Supply: Claim all 3 choices",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20088,
+      "source": "被动技能：使卡牌前三次使用不消耗阳光，全体卡牌阳光消耗降低10%",
+      "source_sha256": "f28d4512c1ce83b10b5e7d0c97a4f86baa063724c2026b3cce61f34d02a3d4d5",
+      "english": "Passive: The first 3 card uses cost no sun. All card sun costs -10%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20089,
+      "source": "被动技能：使卡牌前六次使用不消耗阳光，全体卡牌阳光消耗降低20%",
+      "source_sha256": "9f13fc85f86f927e46e4b5798af799ed532310494f37b26324721dce7561fe10",
+      "english": "Passive: The first 6 card uses cost no sun. All card sun costs -20%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20090,
+      "source": "被动技能：使我方全体植物获得25%幸运一击率",
+      "source_sha256": "67b18f57bad831b1aa52e812c6e8253e35763273a465cec14e38e5bb3fb3ea54",
+      "english": "Passive: All friendly plants gain +25% lucky hit chance.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20091,
+      "source": "被动技能：使我方全体植物获得50%幸运一击率",
+      "source_sha256": "643259e51d8ce916cc5c305ebe5ebd1119428e52b97a9f36f6056df58c14df3a",
+      "english": "Passive: All friendly plants gain +50% lucky hit chance.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20092,
+      "source": "被动技能：使植物前三次使用不消耗冷却，全体卡牌冷却降低10%",
+      "source_sha256": "f92b94042861e5b9a0a9a3233c66c1cdcb85ee76c75013024c00f831e5b2a5af",
+      "english": "Passive: The first 3 plant uses have no cooldown. All card cooldowns -10%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20093,
+      "source": "被动技能：使植物前六次使用不消耗冷却，全体卡牌冷却降低20%",
+      "source_sha256": "8c441c65ad81ee110f887f0a265059cf2d57621bdfd6bc40da361c4f1e64ee2c",
+      "english": "Passive: The first 6 plant uses have no cooldown. All card cooldowns -20%.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20094,
+      "source": "被动技能：我方全体植物获得30%生命增幅",
+      "source_sha256": "ccef8a6f5b62735e8a4632e7c463201ae3fbd503bbd011574e1fe98fd8e2e0f6",
+      "english": "Passive: All friendly plants gain +30% HP.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20095,
+      "source": "被动技能：我方全体植物获得60%生命增幅",
+      "source_sha256": "9274e4c6ab2a76abfe727d749012f2f25df229ca1f21005323cb874d81c38afb",
+      "english": "Passive: All friendly plants gain +60% HP.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20096,
+      "source": "被动技能：每3秒为全场植物回复100+1%最大生命值\n每株单次不超过2000",
+      "source_sha256": "009f46928e647d29be6fa71d343c352dc1680154c8d20858aa502152b6de356b",
+      "english": "Passive: Every 3s, heal all plants for 100 + 1% max HP, up to 2000 HP per plant per heal.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20097,
+      "source": "被动技能：每3秒为全场植物回复200+2%最大生命值\n每株单次不超过4000",
+      "source_sha256": "e9fe53010b3de685f63932c5c2b290e651febfeb95645dbf512c458dcf8f0dc9",
+      "english": "Passive: Every 3s, heal all plants for 200 + 2% max HP, up to 4000 HP per plant per heal.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20098,
+      "source": "被动技能：每秒累计僵尸实际受到的伤害，将1%均分为护盾算\n单次回复最多为各自最大生命值的10%\n每株护盾总量上限为1000×当前轮次",
+      "source_sha256": "48c90a4d3280c0c56da142dda8dce1ec30f2895f4badf7023d577115b0c7d04a",
+      "english": "Passive: Each second, share 1% of the damage actually taken by zombies equally as shields. Each grant is capped at 10% of the recipient plant's max HP. Total shield per plant is capped at 1000 x the current round.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20099,
+      "source": "被动技能：每秒累计僵尸实际受到的伤害，将1%均分回血\n单次回复最多为各自最大生命值的10%",
+      "source_sha256": "b7f351a04a2fc32eaedb20c6e2ecb3df45347e8d95112d1dea3b04e1d6841ec8",
+      "english": "Passive: Each second, share 1% of the damage actually taken by zombies equally as healing. Each heal is capped at 10% of the recipient plant's max HP.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20100,
+      "source": "被动技能：每秒累计僵尸实际受到的伤害，将2%均分为护盾算\n单次回复最多为各自最大生命值的20%\n每株护盾总量上限为1000×当前轮次",
+      "source_sha256": "06e3394afaec29a7ed6946811fe8f05f26d71b2d5428fcb12682500a709c3a19",
+      "english": "Passive: Each second, share 2% of the damage actually taken by zombies equally as shields. Each grant is capped at 20% of the recipient plant's max HP. Total shield per plant is capped at 1000 x the current round.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20101,
+      "source": "被动技能：每秒累计僵尸实际受到的伤害，将2%均分回血\n单次回复最多为各自最大生命值的20%",
+      "source_sha256": "c045ced9f610cd09ee870968f82909036eb9c4d1083fd48f5ada81ce046c5a39",
+      "english": "Passive: Each second, share 2% of the damage actually taken by zombies equally as healing. Each heal is capped at 20% of the recipient plant's max HP.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20140,
+      "source": "解锁条件：",
+      "source_sha256": "e8fd31b055b791d81a483b217a288c4d9ceb14e24050ddbe6fea31607b15faf2",
+      "english": "Unlock conditions:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20224,
+      "source": "试炼：",
+      "source_sha256": "1cbbad317f72617f21458ed85d6bd75643acdf44291bb6be4b8069f5233f624b",
+      "english": "Trial:",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20256,
+      "source": "请先关闭控制台并完成当前四选一或海克斯附加选择",
+      "source_sha256": "e4b660fd6b46d53316d97f8951cdbb8adcef3bab87695acd456929f9f849eae3",
+      "english": "Close the console and finish the current four-choice or extra modifier selection first.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20601,
+      "source": "这张卡牌没有可选的未拥有旅行词条，道具已保留",
+      "source_sha256": "51e0913f8a65e29235f126ee3db1c6560d533127aef36cbe91015bc9b3c75a6b",
+      "english": "This card has no available unowned Odyssey modifiers. The item was retained.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20608,
+      "source": "这里不能使用此物品\n物品已保留在原处，请重新拖动",
+      "source_sha256": "caa4f607f69c7eb18ed5d949789403afc43e17b2dfb5fd8b422868d459912424",
+      "english": "This item cannot be used here. It was kept in its original location; drag it again.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20615,
+      "source": "进入boss节点时，获得700积分。",
+      "source_sha256": "a6baab495d1ce46cdf6b5c00e28a5e994ad748f91a3d697368a04a58d7a91f22",
+      "english": "Gain 700 points upon entering a Boss node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20616,
+      "source": "进入boss节点时，获得7枚金币。",
+      "source_sha256": "fbc5008030bbe970a061afc86ee113b2dda219733b8afdf8a00924d1f90876cc",
+      "english": "Gain 7 coins upon entering a Boss node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20624,
+      "source": "进入最后一个补给阶段后，获得3000积分。",
+      "source_sha256": "991fd6c2c51feae5b0b7dd8e215158c02026d10e897da975bfc4c246ebbea540",
+      "english": "Gain 3000 points after entering the final supply phase.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20625,
+      "source": "进入最后一个补给阶段后，获得30金币。",
+      "source_sha256": "759431120d1f8dba533c7acad3d32f3de8cd39b3862f73c47c2fbfb2824383d6",
+      "english": "Gain 30 coins after entering the final supply phase.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20631,
+      "source": "进入首领节点时，获得1100积分。",
+      "source_sha256": "27ce10419ec6c61953a49b82976facc3b45f0d233a786011cd29b0f99a19de45",
+      "english": "Gain 1100 points upon entering a Boss node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20632,
+      "source": "进入首领节点时，获得11枚金币。",
+      "source_sha256": "e15292287d56e2d7d8eb8975dedb2e16e5490bee731fb47dafe263247b66e0d8",
+      "english": "Gain 11 coins upon entering a Boss node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20830,
+      "source": "阳光不少于10000时，每秒消耗100阳光\n获得100%速度加成，持续1秒",
+      "source_sha256": "5a62f99c895376796630325ee8ecac4a69d25de9a85c3b8b4cf8acfbffb886f0",
+      "english": "While sun is at least 10000, spend 100 sun per second to gain +100% speed for 1s.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20831,
+      "source": "阳光不少于10000时，每秒消耗100阳光\n获得200%速度加成，持续1秒",
+      "source_sha256": "6a4253104251c617a98cf90877810098a63743b39565831afb253d966011eb4a",
+      "english": "While sun is at least 10000, spend 100 sun per second to gain +200% speed for 1s.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20841,
+      "source": "阳光消耗额外提高30%\n冷却时间额外降低30%，均与面板乘算",
+      "source_sha256": "b930d7b3c95ccddb5f9284c7299893b795d57849f877d73af86b38b9697eb3aa",
+      "english": "Sun cost increases by an extra 30% and cooldown decreases by an extra 30%. Both multiply the panel values.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20842,
+      "source": "阳光消耗额外提高30%\n冷却时间额外降低60%，均与面板乘算",
+      "source_sha256": "00bcf6669b3fb4c70db92eebcd892d0919716147720eb444b6d79a2795ab7300",
+      "english": "Sun cost increases by an extra 30% and cooldown decreases by an extra 60%. Both multiply the panel values.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20952,
+      "source": "额外2次刷新机会，僵尸血量x4\n\n",
+      "source_sha256": "66f7c4aeb38d957f453fdb0451b09e2bb18863d0db2ed9c8a35b051be43ba6e8",
+      "english": "2 additional refresh chances. Zombie HP x4.\n\n",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 20973,
+      "source": "首轮地图为沙滩时，需进入后续轮回才可出现。",
+      "source_sha256": "86ad0fcdf7f1026df4ddfff058a4d495e4aca6cb856f37009f5ef223e94fcaf7",
+      "english": "If the first-round map is Beach, this can only appear in a later cycle.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16095,
+      "source": "{0}需要{1}，范围{2}～{3}；原值未变。",
+      "source_sha256": "67415dda24997c83521d36d8296773c91bf28454ab21f700af342952f0deb0f6",
+      "english": "{0} requires {1}, in the range {2} to {3}. Original value unchanged.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16367,
+      "source": "下一个Boss战后，获得每种基础装备各1件。",
+      "source_sha256": "07e604031f4f46e476f8417ed1c29d0a342b9e00a4cdba83dbd17a7dd9eb10ea",
+      "english": "After the next Boss battle, gain 1 of every basic equipment type.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16369,
+      "source": "下一次和每4次商店刷新都将是全3费角色。获得5次刷新。",
+      "source_sha256": "d8d6568025e89cc593383e0d09bcf3d521f84d24150a71e87f5314a38df68fb6",
+      "english": "The next shop refresh and every 4th refresh stock only 3-cost characters. Gain 5 refreshes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16370,
+      "source": "下一次和每4次商店刷新都将是全黄金品质植物卡。获得5次免费刷新。",
+      "source_sha256": "c68164e5d1d83994308e93f9c6d1d42f4c0bcc9bc64217dd2f8580b448a92016",
+      "english": "The next shop refresh and every 4th refresh stock only Gold-quality plant cards. Gain 5 free refreshes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16491,
+      "source": "从3件不同进阶装备中选1件获得。本局后续获得该配方的任一种基础材料时，改为获得所选进阶装备。",
+      "source_sha256": "dfa4675ea41aa879e950d30fc06804a9c54a37d1ab5f9e6530f52a188580d352",
+      "english": "Choose 1 of 3 different advanced equipment items. For the rest of this run, gaining either basic ingredient in its recipe grants the selected advanced equipment instead.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16492,
+      "source": "从3件进阶装备中选择一件获取。本局游戏中，你获得组成该装备的简易装备时，改为获得该进阶装备。",
+      "source_sha256": "5c8d71642a632ff344d280f9f41248fd33145a6fed643db347f3b48e773c58a3",
+      "english": "Choose 1 of 3 advanced equipment items. For the rest of this run, gaining a simple equipment ingredient in its recipe grants the selected advanced equipment instead.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16567,
+      "source": "你不再获得利息。即刻获得15金币。每次进入新节点时，获得4经验。",
+      "source_sha256": "18c8573b3e4a0169033c1204819c931216d872d04843a649bb873b5a4cfe3992",
+      "english": "No more interest is earned. Immediately gain 15 coins. Gain 4 XP whenever you enter a new node.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16594,
+      "source": "你每次消耗金币刷新商店，都会获得2经验值。",
+      "source_sha256": "0954a4ba3e7719507fe9d2805366886d5c04d9e9adf6ae1ff1be3f90ff85e2e6",
+      "english": "Gain 2 XP whenever coins are spent refreshing the shop.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16623,
+      "source": "你购买的下1个4费角色将立刻升到2星。获得12金币。",
+      "source_sha256": "0ed4cf94d1f3918786595d3ebf4582b2b581f2df1c8203013eb028ce9ca03722",
+      "english": "The next 4-cost character purchased immediately becomes 2-star. Gain 12 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16780,
+      "source": "先处理溢出卡牌：出售、合成卡牌或升级商店腾出位置",
+      "source_sha256": "d93ddc14b81b1c6648978baeee083efdf88bee60a6323ad79fc7f4f54b6640e9",
+      "english": "Resolve overflow cards first: sell or combine cards, or upgrade the shop to make room.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16797,
+      "source": "免疫一次致命进家伤害。\n触发后恢复至40点生命，并获得6000积分，每局只能触发一次。",
+      "source_sha256": "996cd73ad1f5d799c3117aea601fd3546938cfff1dadaade5b937e8a69a15fa4",
+      "english": "Prevent 1 lethal instance of house-entry damage. When triggered, restore HP to 40 and gain 6000 points. Triggers only once per run.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16817,
+      "source": "全场向日葵的下一份产出翻倍\n每株只存一次；共用冷却{0:0}秒",
+      "source_sha256": "85dc88e9c69cb5423771951b7f0d7be83cff82eb59d11938df8c85b19120a508",
+      "english": "Double the next sun production of all Sunflowers on the field. Stores only once per plant. Shared cooldown: {0:0}s.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16838,
+      "source": "共{0}项，显示前10项。修复后重新检查。",
+      "source_sha256": "d2d5b5ce065da89076c7f12ed3e7d7214cddd64b6f282cab51fe0e16b3ff669c",
+      "english": "{0} items total; showing the first 10. Fix them, then check again.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16919,
+      "source": "冻结场上敌方僵尸{0:0}秒\n共用冷却{1:0}秒，期间新出现的僵尸不受影响",
+      "source_sha256": "06d16b9e261862aab879609b0c932504910094ad698f4a709cfc9d31da64362c",
+      "english": "Freeze existing enemy zombies on the field for {0:0}s. Shared cooldown: {1:0}s. Zombies appearing during this time are unaffected.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16932,
+      "source": "出售全部卡牌并返还装备；获得1张钻石、2张黄金、2张白银随机植物卡。",
+      "source_sha256": "570b7830cd6cd1c8cb23bc045c16ffc3f1cc56d81194c08839c3ab891fd4e850",
+      "english": "Sell all cards and return their equipment. Gain 1 Diamond, 2 Gold and 2 Silver random plant cards.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16933,
+      "source": "出售场上和备战席的所有植物卡，获得双倍价格的积分。你接下来6次购买植物卡是免费的。",
+      "source_sha256": "4a78614330a7d41d97a0a80a38a3f86696897f6ad0f2928eff4d1b6ab1231e8b",
+      "english": "Sell all plant cards on the field and bench for double their price in points. The next 6 plant-card purchases are free.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16934,
+      "source": "出售场上和备战席的所有植物卡，获得双倍价格的积分。获得6次免费刷新。",
+      "source_sha256": "c58758f9b9dda534f9ddea9daefc8ba24236a4881e900403f93915ada1eed46a",
+      "english": "Sell all plant cards on the field and bench for double their price in points. Gain 6 free refreshes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16935,
+      "source": "出售场上和备战席的所有角色。获得1个随机的2星3费角色、2个2星2费角色和2个2星1费角色。",
+      "source_sha256": "bc24a048239cbd9670a38a0ae3e4e9e5fc74f409afc1000abaf20f0b370bad4a",
+      "english": "Sell all characters on the field and bench. Gain 1 random 2-star 3-cost character, 2 random 2-star 2-cost characters and 2 random 2-star 1-cost characters.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16936,
+      "source": "出售场上和备战席的所有角色，获得双倍价格的金币。你接下来6次购买角色是免费的。",
+      "source_sha256": "27c44e1f04f57e807f57ca1b6baf528b5c2ee764a6c4c452dec9dedb727df02f",
+      "english": "Sell all characters on the field and bench for double their price in coins. The next 6 character purchases are free.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16937,
+      "source": "出售场上和备战席的所有角色，获得双倍价格的金币。获得6次免费刷新。",
+      "source_sha256": "a0c347cc6a90de9c76eb1af37c0992c457837e5e7a020f9cc1933217fb771ac4",
+      "english": "Sell all characters on the field and bench for double their price in coins. Gain 6 free refreshes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16938,
+      "source": "出售植物卡时，会将进阶装备拆分成基础装备。获得1件进阶装备，并在4个节点后获得1件随机基础装备。",
+      "source_sha256": "01ab88e0173b7224be41d8403dcbc489839b06fb761d150841ab4d5d20004a8c",
+      "english": "Selling plant cards breaks advanced equipment into basic ingredients. Gain 1 piece of advanced equipment, then 1 piece of random basic equipment after 4 nodes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16939,
+      "source": "出售植物卡时，会将进阶装备拆分成基础装备。获得1件进阶装备，并在5个节点后获得1件随机基础装备。",
+      "source_sha256": "07741817cfe09561789ee0db40e09ca060514568c60a55f46e881396fda5ec9e",
+      "english": "Selling plant cards breaks advanced equipment into basic ingredients. Gain 1 piece of advanced equipment, then 1 piece of random basic equipment after 5 nodes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16941,
+      "source": "出售角色时，会将进阶装备拆分成简易装备。获得1件进阶装备，并在4个节点后获得1件随机简易装备。",
+      "source_sha256": "482747092076a0181a7a73e81bf86b88e486436672bf00a137a07c1bf94c7068",
+      "english": "Selling characters breaks advanced equipment into simple ingredients. Gain 1 piece of advanced equipment, then 1 piece of random simple equipment after 4 nodes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 16942,
+      "source": "出售角色时，会将进阶装备拆分成简易装备。获得1件进阶装备，并在5个节点后获得1件随机简易装备。",
+      "source_sha256": "78774370a0c7914e53fa598cb067ecffbbbe09988b29c4eed25c1f8f13a0ecfa",
+      "english": "Selling characters breaks advanced equipment into simple ingredients. Gain 1 piece of advanced equipment, then 1 piece of random simple equipment after 5 nodes.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17234,
+      "source": "召唤的僵尸攻击时，额外释放一次冲击波，对范围内敌方随机单体造成多次伤害，多选提高范围和伤害",
+      "source_sha256": "9b16b2272f1a7e108b4f02c98e1c265d11354d8c8a2d4f70565bf77f86e5057f",
+      "english": "When a summoned zombie attacks, release an additional shockwave that deals multiple hits to random individual enemies within range. Repeated selections increase range and damage.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 17551,
+      "source": "失去你现在所有的金币，并在5个节点后，获得该金币数+70的总金币。",
+      "source_sha256": "154bf637b803935ebd72fb854aadb13e11fed597faebc96aa6880c43f9986125",
+      "english": "Lose all current coins. After 5 nodes, receive that amount plus 70 coins.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 18204,
+      "source": "战斗倍速已设为{0:0.##}（菜单仍暂停）",
+      "source_sha256": "143221bd9c0779f18fce2fbfad8dc2f350ddd93fcdb0d417238c99c3d43a6635",
+      "english": "Battle speed set to {0:0.##} (the menu remains paused).",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19060,
+      "source": "每级品质额外获得16%攻击力和冷却减免\n木头按1级、棱彩按5级、至尊红卡按6级；额外冷却与面板乘算",
+      "source_sha256": "aeb4b58c87403721bba223d31bedc860283dda3cb7ed7083e2627109089266ea",
+      "english": "Each quality tier grants an extra 16% attack and cooldown reduction. Bronze counts as tier 1, Prismatic as tier 5, and the highest red quality as tier 6. Extra cooldown reduction multiplies the panel value.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    },
+    {
+      "slot": 19061,
+      "source": "每级品质额外获得8%攻击力和冷却减免\n木头按1级、棱彩按5级、至尊红卡按6级；额外冷却与面板乘算",
+      "source_sha256": "d21f7138c6409ac2a16a2169dcda6aa99f5d26e7efbc9760f98d3cf5126dbff5",
+      "english": "Each quality tier grants an extra 8% attack and cooldown reduction. Bronze counts as tier 1, Prismatic as tier 5, and the highest red quality as tier 6. Extra cooldown reduction multiplies the panel value.",
+      "origin": "Reviewed ordinary UI or unambiguous basic effect; exact official Android 4.1 literal; existing game terminology"
+    }
+  ],
+  "upstream": [
+    {
+      "source": "究极流光射手在前方生成一束天网攻击僵尸",
+      "previous": "Photon Splitter: Summons a Celestial Beam at the farthest available column of the lawn to attack zombies.",
+      "english": "Summons a Celestial Beam at the farthest available column of the lawn to attack zombies.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "死神猎手释放的毁灭菇伤害+100%",
+      "previous": "Berserker Snipea: Explosion damage +100%",
+      "english": "Explosion damage +100%",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "死神猎手每一发子弹都会造成爆头伤害",
+      "previous": "Berserker Snipea: Critical hits are now guaranteed.",
+      "english": "Critical hits are now guaranteed.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "火焰狙击射手的火墙密度+3\n需要重新手动建立火墙",
+      "previous": "Blazer Snipea: Gains +3 Firewall links.\nThe Firewall will have to be manually rebuilt after picking this Modifier",
+      "english": "Gains +3 Firewall links.\nThe Firewall will have to be manually rebuilt after picking this Modifier",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "火焰狙击射手的火墙顶点数加2",
+      "previous": "Blazer Snipea: Firewall can now be chained together an additional 2 times.",
+      "english": "Firewall can now be chained together an additional 2 times.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极樱桃射手每次攻击多发射一发子弹",
+      "previous": "Gatling Cherrybomber: Gains +1 projectile",
+      "english": "Gains +1 projectile",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极黑橄榄机枪射手保底时大招所需射击子弹数-10",
+      "previous": "Buckshot Commando:\n-10 shots needed for ultimate",
+      "english": "-10 shots needed for ultimate",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "飓风之龙的普攻子弹数+2，龙炎子弹数 + 4",
+      "previous": null,
+      "english": "Basic attack +2 projectiles, Dragon attack +4 projectiles.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极樱桃战神百分比伤害+5%",
+      "previous": "Cherrizilla: Gains 5% extra percentage-based damage",
+      "english": "Gains 5% extra percentage-based damage",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "生命值上限+50%，其他植物受伤时，获得相当于5%伤害量的蓄能",
+      "previous": "Melon-nut: +50% max HP and gains energy equal to 5% of the damage taken by other plants",
+      "english": "+50% max HP and gains energy equal to 5% of the damage taken by other plants.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "蓄能获取效率增加+100%",
+      "previous": "Melon-nut gains energy 100% more efficiently",
+      "english": "Melon-nut gains energy 100% more efficiently.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "三线土豆雷大招持续时间+5秒",
+      "previous": "Threetato Mine: Ultimate lasts +5 more seconds",
+      "english": "Ultimate lasts +5 more seconds",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "发射的子弹升级为爆破子弹",
+      "previous": "Threetato Mine: Projectiles explode on impact",
+      "english": "Projectiles explode on impact",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "毁灭大嘴花爆炸数+1",
+      "previous": "Doom Chomper: Gains +1 explosion",
+      "english": "Gains +1 doom explosion",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极灯笼巨嘴花范围+1",
+      "previous": "Tyrannoflora Lux: Gains +1 range",
+      "english": "Gains +1 range",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "僵尸的基础速度降低10%",
+      "previous": "Gatling Icicle-shroom: All zombies speed reduced by 10% (stacks multiplicatively)",
+      "english": "All zombies speed is reduced by 10% (stacks multiplicatively)",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "狙击穿透+2",
+      "previous": "Buck-shroom Squad: Sniper rifle laser gains +2 pierce",
+      "english": "Sniper rifle laser gains +2 pierce.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极大喷菇每次攻击额外发射一枚黑冰刺",
+      "previous": "Doominator: Fires an additional doomspike every attack",
+      "english": "Fires an additional doomspike every attack.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "升级成星辉大喷菇",
+      "previous": "Doominator: Upgrade to Stellar Doominator",
+      "english": "Doominator: Upgrade to STELLAR Doominator!",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极忧郁菇伤害半径+0.5",
+      "previous": "Shroomageddon: Gains +0.5 tiles of range",
+      "english": "Gains +0.5 tiles of range.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "子弹发射数+1",
+      "previous": "Eclipse Fumigator: Gains +1 projectile",
+      "english": "Gains +1 projectile",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "魅惑概率提高7.5%",
+      "previous": "Charmatron: +7.5% hypnosis chance",
+      "english": "+7.5% hypnosis chance",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "真正的毁灭菇：毁灭菇子弹会在命中时释放毁灭菇爆炸（不留坑洞）",
+      "previous": "SP Gatling Frenzy-shroom: Ultimate Doom Shells now trigger a crater-less Doom explosion on impact",
+      "english": "Ultimate Doom Shells now trigger a crater-less Doom explosion on impact",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "大子弹所需射击数-4",
+      "previous": "SP Gatling Frenzy-shroom: Shots required for an Ultimate Doom Shell -4",
+      "english": "Shots required for an Ultimate Doom Shell -4",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "每3秒自动生成一个僚机，攻速加成可缩短这个间隔",
+      "previous": "Aristocattail: Summons a wingman every 3 seconds. This interval can be shortened with speed boosts",
+      "english": "Summons a wingman every 3 seconds. This interval can be shortened with speed boosts",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "辐射持续时间+1秒",
+      "previous": "Big Crunch Squash: Particle Soup duration +1s",
+      "english": "Particle Soup duration +1s",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "红温伤害增幅提高60%",
+      "previous": "Phoenix Threepeater: Global enflamed damage bonus +60%",
+      "english": "Global enflamed damage bonus +60%",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "浴火三线射手变为五线射手，子弹可无限穿透",
+      "previous": "Phoenix Threepeater: Now shoots in all lanes and its projectiles pierce infinitely",
+      "english": "Now shoots in all lanes and its projectiles pierce infinitely",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极机枪炮台生命偷取+50%",
+      "previous": "Apeacalypse Minigun: +50% lifesteal",
+      "english": "+50% lifesteal",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "炮台在释放大招过程中额外释放4次火爆辣椒效果，每次造成50段伤害，每次伤害对敌方随机单体造成等同于炮台10000%攻击力的伤害",
+      "previous": "Apeacalypse Minigun: Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 100x of Apeacalypse Minigun's attack power to a random zombie.",
+      "english": "Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 100x of Apeacalypse Minigun's attack power to a random zombie in range.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "获得两株地刺王在周围，地刺王拥有相当于玄钢地刺王100%的独立伤害增幅和100%的速度增幅，基础攻击力为玄钢地刺王的75%，地刺王的属性根据场地上冰火植物数量来决定",
+      "previous": "Obsidian Spikerock: Obtain 2 Icerocks OR Hearthrocks immediately that move in tandem with Obsidian Spikerock and have a base attack power that is equivalent to 75% of Obsidian Spikerock's, but possess a +100% independent damage boost and +100% speed boost. Which type you get depends on the number of ice/fire plants already existing on the lawn.",
+      "english": "Obtain 2 Icerocks OR Hearthrocks immediately that move in tandem with Obsidian Spikerock and have a base attack power that is equivalent to 75% of Obsidian Spikerock's, but possess a +100% independent damage boost and +100% speed boost. Which type you get depends on the number of ice/fire plants already existing on the lawn.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "玄钢地刺王横向范围+100%",
+      "previous": "Obsidian Spikerock: Gains +100% horizontal range",
+      "english": "Gains +100% horizontal range",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "保龄球发射数量+1",
+      "previous": "Obsidian Spike-nut: Fires 1 more bowling nut",
+      "english": "Fires 1 more bowling nut",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "每次攻击在每行发射一发保龄球",
+      "previous": "Obsidian Spike-nut: Bowling nuts are now fired in every row",
+      "english": "Bowling nuts are now fired in every row",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极仙人掌大招所需杀敌数-20",
+      "previous": "Thornminator: -20 kills required for ultimate",
+      "english": "-20 kills required for ultimate",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极杨桃大帝每轮攻击额外发射一轮多功能杨桃子弹",
+      "previous": "Magnetar: Fires additional quasar projectiles each attack",
+      "english": "Fires +5 Quasar projectiles each attack",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "大帝每60秒将会进行一次抽奖，死亡后重新计时，奖励品质会被幸运影响",
+      "previous": "Magnetar: Holds a prize draw every 60s that grants random rewards, influenced by your current luck (Timer resets upon death)",
+      "english": "Holds a prize draw every 60s that grants random rewards, influenced by your current luck (Timer resets upon death)",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极杨桃大帝升级成星辉形态",
+      "previous": "Upgrade to Stellar Magnetar!",
+      "english": "Upgrade to STELLAR Magnetar!",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极剑仙杨桃大剑数量+11",
+      "previous": "Swordsage Starfruit: Gains +11 giant swords",
+      "english": "Gains +11 giant swords",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极太阳神卷心菜陨星+1\n陨星锁定全场血量最高的僵尸，落地时造成相当于卷心菜攻击力100%的群体伤害\n然后造成30次伤害，每次伤害对范围内敌方随机单体造成100%的爆炸伤害",
+      "previous": "Helios Cabbage: +1 Helios Meteor. The meteor targets the zombie with the most health on the lawn, causing area damage equivalent to 100% of Helios Cabbage's attack power when landing and then dealing 30 damage, each damage deals 100% explosive damage to random zombies in range.",
+      "english": "+1 Helios Meteor. The meteor targets the zombie with the most health on the lawn, causing area damage equivalent to 100% of Helios Cabbage's attack power when landing and then dealing 30 damage, each damage deals 100% explosive damage to random zombies in range.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极爆破迫击炮最大散射数+10",
+      "previous": "Kaledera Eruptor: Gains +10 maximum targets",
+      "english": "Gains +10 maximum targets",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "黑洞会对附近的僵尸造成伤害，每拥有一个该词条，伤害比例增加100%",
+      "previous": "Cosmo-pult: Black holes now deal damage to surrounding zombies; and each time this entry is chosen that damage is increased by 100%",
+      "english": "Black holes now deal damage to surrounding zombies; and each time this entry is chosen that damage is increased by 100%",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "能量上限+5000，能量恢复效率+300%，每次攻击额外附带等同于当前能量25%的伤害",
+      "previous": "Pharos Umbrella: Energy cap +5000, energy regeneration speed +300%, and every attack will deal extra damage equivalent to 25% of the current energy.",
+      "english": "Energy cap +5000, energy regeneration speed +300%, and every attack will deal extra damage equivalent to 25% of the current energy.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极投手连射、散射概率增加12%",
+      "previous": "Wither-pult: Rapid fire and spread fire chances increased by 12%",
+      "english": "Rapid fire and spread fire chances +12%",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极火神弹弹菇火海时间+3秒",
+      "previous": "Napalm-shroom: Inferno lasts +3 more seconds",
+      "english": "Inferno lasts +3 more seconds",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "火神的子弹命中地面时也会生成火海，命中僵尸最多额外分裂2次",
+      "previous": "Napalm-shroom: Napalm melons create an extra sea of fire upon hitting the ground and can split up to 2 more times when hitting zombies.",
+      "english": "Napalm melons create an extra sea of fire upon hitting the ground and can split up to 2 more times when hitting zombies.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极冰神西瓜的发射数量+1",
+      "previous": "Maelonstorm: Gains +1 projectile",
+      "english": "Gains +1 projectile",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "每次召唤多生成一只僵尸",
+      "previous": "Empress-shroom: Everytime a hypnotized zombie is spawned, an extra one will spawn as well.",
+      "english": "Each time it summons a zombie, an extra one will spawn as well.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极樱桃战神升级成星辉形态",
+      "previous": "Cherrizilla: Upgrade to Stellar Cherrizilla",
+      "english": "Cherrizilla: Upgrade to STELLAR Cherrizilla!",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极大喷菇升级成星辉形态",
+      "previous": "Doominator: Upgrade to Stellar Doominator",
+      "english": "Doominator: Upgrade to STELLAR Doominator!",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极忧郁菇升级成星辉形态",
+      "previous": "Shroomageddon: Upgrade to Stellar Shroomageddon",
+      "english": "Shroomageddon: Upgrade to STELLAR Shroomageddon!",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "持续射击时，每过1秒，伤害增加10%，停止攻击后重置",
+      "previous": "Overclocked Cherrybomber: While firing continuously, +10% (linear) damage per second but resets when attack stops.",
+      "english": "While firing continuously, +10% (linear) damage per second but resets when attack stops.",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "生成杨桃所需子弹数-10",
+      "previous": "Infernal Sparkwood: Number of bullets to spawn a Spicy Starfruit -10",
+      "english": "Number of bullets to spawn a Spicy Starfruit -10",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极武装大嘴花爆头所需次数-1",
+      "previous": "A.L.E.C.: Attacks required for headshot -1",
+      "english": "Attacks required for headshot -1",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    },
+    {
+      "source": "究极浴火射手连射 + 1",
+      "previous": null,
+      "english": "Fires +1 projectile in every lane",
+      "origin": "Latest Blooms 4.1 exact source key; prior Android corrections retained"
+    }
+  ],
+  "deferred_upstream": [
+    {
+      "source": "质变-湮灭之核：相邻的两束天网之间会定期释放迷你黑洞爆炸",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-激光炮：究极激光炮台发射不间断的激光射线",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-致密：超级黑橄榄机枪射手的大招会发射更强大的巨型子弹",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "获得词条：魔力升级II\n获得词条：举世无双",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "质变-谁劈了我的瓜：西瓜坚果发射的西瓜飞到最高点时会瞬间炸开，并分裂成若干个小西瓜扔向全场僵尸",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "毁灭大嘴花攻击时没有吞噬僵尸也将释放爆炸，吞下则释放两次",
+      "reason": "Retain an existing reviewed Android-specific correction."
+    },
+    {
+      "source": "质变-吞噬：巨嘴花吞咽后的吸引范围大幅增加",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-反弹：铁豆小队的狙击不再能爆头，但弹道触碰场地边缘后会反弹，反弹数为穿透数+2",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "获得旅行词条：凛风刺骨",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "获得词条：真-万籁俱寂",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "获得词条：普度众生",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "获得词条：定时炸弹",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "【<nobr>真正的毁灭菇</nobr>】: ",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "获得词条：特制弹药、一针见血",
+      "reason": "Do not replace a modifier acquisition label with inferred gameplay effects."
+    },
+    {
+      "source": "专武登场",
+      "reason": "PC replaces a heading with a plant name; preserve contextual heading."
+    },
+    {
+      "source": "子弹弹射数量+1\n究极机枪炮台的子弹命中僵尸时额外造成多次伤害，每次伤害对小范围内的敌方随机单体造成相当于子弹伤害100%的伤害",
+      "reason": "Latest PC wording omits the explicit extra ricochet."
+    },
+    {
+      "source": "烈焰竹龙释放的飞天爆竹数+1",
+      "reason": "Retain an existing reviewed Android-specific correction."
+    },
+    {
+      "source": "质变-烈火燎原：烈焰竹龙的吐息时额外在全场释放火爆辣椒效果",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-流血：被任意地刺王命中的僵尸会在2秒内持续损失相当于本次伤害400%的生命值",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-引力：黑洞会吸引生命值低于50%的僵尸",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-光盾：流光伞会消耗能量击退3x3范围内的僵尸，普攻目标数x3",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-精英：魅帝菇召唤的僵尸强度大幅提高",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-小鬼当家：魅惑黑曜石巨人砸击时会生成魅惑黑曜石小鬼僵尸",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "质变-大运：究极冬笋路障会跟随鼠标移动，速度可提高移动速度，且遇到僵尸后强制执行撞击",
+      "reason": "Retain reviewed complete Android Ascend heading and effect."
+    },
+    {
+      "source": "究极魔法寒冰射手攻击僵尸时有几率施加一层“解读”标记。若弹射击中已标记的僵尸，则会消耗此标记，使本次弹射次数+1。多选提高概率",
+      "reason": "Latest PC adds a damage claim absent from the source."
+    }
+  ],
+  "composed": [
+    {
+      "source": "PvZ Fusion 4.1 Update\n\n1. Odyssey: Evolved rework\nEarn points each round to buy plants, upgrade the shop, or refresh its stock.\nCombine cards or upgrade the shop for higher-quality cards.\nEquip plant cards with multiple items for extra bonuses.\nFusions inherit the quality and equipment of both ingredients.\nZombies entering the house now cost HP instead of immediately ending the level.\n\n2. New plants\nBasic: Artsy Sunflower, Ball Cactus, 磁性卷心菜投手, 铁桶卷心菜投手, 超时空卷心菜投手, 浮空大喷菇, 大喷菇花盆, 磁力窝瓜, 保护伞窝瓜, 西瓜投射手, 三线胆小菇, 窝瓜大喷菇, 卷心菜投射手, 西瓜胆小菇, 大蒜窝瓜, 银窝瓜, 金窝瓜\nUltimate: SP Calamity-shroom, SP Avarice-shroom, 磁能窝瓜坚果, 飓风之龙, 平行时空树桩\n\n3. New zombies\nVariant: 樱桃战神僵尸\nUltimate: 海豚橄榄高坚果僵尸\nBoss: 渊海三叉戟\n\n4. Level updates\nSuper Random: Question Mark Battle: Paint portraits of the random plants Artsy Sunflower attracts, then use them to fight the zombies.\n\n5. New modifier\nShrinking Ray: Mini Professor Cherryz!\n\n6. Balance changes\nBlover Pot, Levitater, Sunny Pumpkin: Stats increased.\nTri-pult family: Attack speed reduced.\nBuck-nut, Steel Pumpkin, Football-nut: Matching metal items restore much more HP.\nMagnet Blover: Digested metal items now become drops.\nCalamity-shroom and Avarice-shroom: Effects reworked. Avarice-shroom can now be used on Odyssey's Cursed difficulty.\nTridents: Attacks now slow plants with the Damp status.\nPozeidon: Can bite like a trident and strengthens Damp. The Giant Trident creates a vortex that draws in projectiles.\nTrident Jugger-nut Gargantuar: No longer needs to reach the half-HP threshold before throwing its trident.\n\n7. Other improvements\nRandom mode no longer starts the next wave immediately when the remaining zombies have little total HP.\nImproved some plant facial animations.\nMagic Plantbrush recognition now runs on a server rather than the player's device.\nAdjusted the pacing of points and modifiers in classic Odyssey.\n\n8. Fixes\nFixed Drone Commando disappearing after a scene change.\nFixed Fair Points incorrectly receiving the Cursed difficulty points bonus.\nOther fixes and gameplay improvements.\n",
+      "english": "PvZ Fusion 4.1 Update\n\n1. Odyssey: Evolved rework\nEarn points each round to buy plants, upgrade the shop, or refresh its stock.\nCombine cards or upgrade the shop for higher-quality cards.\nEquip plant cards with multiple items for extra bonuses.\nFusions inherit the quality and equipment of both ingredients.\nZombies entering the house now cost HP instead of immediately ending the level.\n\n2. New plants\nBasic: Artsy Sunflower, Ball Cactus, Cabbage Morph, Scrap-pult, Chrono-pult, Balloon-shroom, Fume Pot, Magnet Squash, Umbrella Squash, Melon Pod, Trinity-shroom, Crush-shroom, Cabbage Pod, Springy-shroom, Stinky Squash, Silver Squash, Golden Squash\nUltimate: SP Calamity-shroom, SP Avarice-shroom, Gravi-nut, Longfeng Torcher, Temporal Torch\n\n3. New zombies\nVariant: Cherrizilla Zombie\nUltimate: Giga Dolphin-nut Zombie\nBoss: Channeler Pozeidon\n\n4. Level updates\nSuper Random: Question Mark Battle: Paint portraits of the random plants Artsy Sunflower attracts, then use them to fight the zombies.\n\n5. New modifier\nShrinking Ray: Mini Professor Cherryz!\n\n6. Balance changes\nBlover Pot, Levitater, Sunny Pumpkin: Stats increased.\nTri-pult family: Attack speed reduced.\nBuck-nut, Steel Pumpkin, Football-nut: Matching metal items restore much more HP.\nMagnet Blover: Digested metal items now become drops.\nCalamity-shroom and Avarice-shroom: Effects reworked. Avarice-shroom can now be used on Odyssey's Cursed difficulty.\nTridents: Attacks now slow plants with the Damp status.\nPozeidon: Can bite like a trident and strengthens Damp. The Giant Trident creates a vortex that draws in projectiles.\nTrident Jugger-nut Gargantuar: No longer needs to reach the half-HP threshold before throwing its trident.\n\n7. Other improvements\nRandom mode no longer starts the next wave immediately when the remaining zombies have little total HP.\nImproved some plant facial animations.\nMagic Plantbrush recognition now runs on a server rather than the player's device.\nAdjusted the pacing of points and modifiers in classic Odyssey.\n\n8. Fixes\nFixed Drone Commando disappearing after a scene change.\nFixed Fair Points incorrectly receiving the Cursed difficulty points bonus.\nOther fixes and gameplay improvements.\n",
+      "origin": "Existing 4.1 update wording; verified Almanac names reused; no new mechanics"
+    },
+    {
+      "source": "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方",
+      "active": "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方",
+      "english": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+      "origin": "Verified SP Evolution title and existing plant names/recipes; complete modifier, not partial recipe matching"
+    }
+  ],
+  "runtime_exact": {
+    "3x3范围内有植物受到伤害时，将伤害转移至自身（结算为生命流失，强制扣血，不受减伤、护盾的影响）": "When a plant within a 3x3 area takes damage, transfer that damage to this plant as direct HP loss. Damage reduction and shields do not prevent this HP loss.",
+    "3×3内不高于{0}的向日葵\n立即推进{1:P0}产出进度；共用冷却{2:0}秒": "Sunflowers of {0} quality or lower within 3x3 immediately advance production by {1:P0}. Shared cooldown: {2:0}s.",
+    "3×3内不高于{0}的植物恢复{1:P0}最大生命\n共用冷却{2:0}秒，不能复活": "Restore {1:P0} max HP to plants of {0} quality or lower within 3x3. Shared cooldown: {2:0}s. Cannot revive plants.",
+    "刷怪：行 / 数量（最多50）": "Spawn zombies: lane / count (maximum 50)",
+    "刷新商店时，若刷新的植物卡中出现2个相同的植物卡，获得100积分。获得4次免费刷新。": "When a shop refresh contains 2 identical plant cards, gain 100 points. Gain 4 free refreshes.",
+    "刷新商店时，若刷新的角色中出现2个相同的角色，获得1金币。获得4次免费刷新。": "When a shop refresh contains 2 identical characters, gain 1 coin. Gain 4 free refreshes.",
+    "剩余积分：{0:0}": "Points remaining: {0:0}",
+    "发放数量可设1～100；同种同品自动三合一，超过卡位进入溢出栏。": "Choose a quantity from 1 to 100. Identical cards of the same quality automatically combine in groups of 3. Cards beyond the slot limit enter overflow storage.",
+    "变量引用未绑定，请重新从属性面板拖入": "Variable reference is not bound. Drag it from the properties panel again.",
+    "同步状态：": "Sync status:",
+    "同步状态：暂无对应出战卡": "Sync status: No matching battle card",
+    "同步类型：": "Sync type:",
+    "品质低于钻石的出战卡牌变为高1级品质的随机植物，最高钻石，保留装备和价值；钻石、棱彩与至尊红卡不变。": "Battle cards below Diamond become random plants 1 quality tier higher, up to Diamond. Equipment and value are retained. Diamond, Prismatic and the highest red-quality cards are unchanged.",
+    "品质卡牌中选择1张\n消耗品，选取成功后消耗1个": "Choose 1 card of this quality. Consumable: uses 1 after a successful selection.",
+    "品质：": "Quality:",
+    "商店升级改为消耗生命，每100积分升级费用折合1点生命。\n每次Boss战后恢复50点生命。": "Shop upgrades cost HP instead of points, at 1 HP per 100 points of upgrade cost. Restore 50 HP after each Boss battle.",
+    "商店升级费用降低25%。\n每次升级商店后，刷新商品并直接获得其中最贵的3张卡牌。": "Shop upgrade costs -25%. Each shop upgrade refreshes the stock and grants the 3 most expensive cards.",
+    "商店已升至 Lv.{0}，升级触发效果照常结算": "Shop is now Lv.{0}. Upgrade effects still activate normally.",
+    "商店首次达到8级时，获得4000积分。": "Gain 4000 points when the shop first reaches level 8.",
+    "在接下来3个节点只有3个备战席位置。随后，获得3件简易装备。": "For the next 3 nodes, the bench has only 3 slots. Afterwards, gain 3 pieces of random simple equipment.",
+    "复制一株不高于{0}的战斗植物到物品栏\n保留类型与品质；共用冷却{1:0}秒": "Copy a battle plant of {0} quality or lower into the inventory. Retain its type and quality. Shared cooldown: {1:0}s.",
+    "复制卡\n不复制装备，参与自动合成\n消耗品，成功使用后消耗1个": "Copy a card without its equipment. The copy participates in automatic combining. Consumable: uses 1 after successful use.",
+    "复制卡：": "Copy card:",
+    "大捷！大捷！": "Victory! Victory!",
+    "失败奖励：{0} × {1}/{2} × 50%，向下取整。": "Failure reward: {0} x {1}/{2} x 50%, rounded down.",
+    "属性计数：{0}\n": "Attribute Count: {0}\n",
+    "己方卡牌每穿戴一种不同装备，为全体植物提供3%生命和6%攻击力。": "Each different equipment type worn by your cards grants all plants +3% HP and +6% attack.",
+    "已免费重抽商店，触发真实刷新效果": "Shop refreshed for free. Normal refresh effects activated.",
+    "当前填写：": "Current input:",
+    "当前增幅：{0:F0}%": "Current Bonus: {0:F0}%",
+    "当前连接：": "Current connection:",
+    "恢复失败，文件保留：": "Restore failed. Original file retained:",
+    "悬停植物或装备图标查看详情；每份原始素材单独保留。": "Hover over a plant or equipment icon for details. Each original ingredient is retained separately.",
+    "战斗中每10秒，攻击力加成增加8%\n加算，本场战斗结束后重置": "During battle, attack bonus increases by 8% every 10s. Adds together and resets after this battle.",
+    "战斗中每10秒，攻速加成增加5%\n最高提高200%攻速加成": "During battle, attack speed bonus increases by 5% every 10s, up to +200%.",
+    "战斗中每5秒，攻击力加成增加16%\n加算，本场战斗结束后重置": "During battle, attack bonus increases by 16% every 5s. Adds together and resets after this battle.",
+    "战斗中每5秒，攻速加成增加5%\n最高提高400%攻速加成": "During battle, attack speed bonus increases by 5% every 5s, up to +400%.",
+    "战斗失败时，受到的小队生命值伤害提高5点，但能维持原来的连胜数。获得6金币。": "Losing a battle deals 5 more damage to squad HP, but retains the previous win streak. Gain 6 coins.",
+    "找不到：": "Not found:",
+    "抽取词条时发生错误：": "Error while drawing modifiers:",
+    "拖到卡牌上卸下该卡的全部装备\n无限耐久，不消耗": "Drag onto a card to remove all its equipment. Unlimited uses; not consumed.",
+    "拖到卡牌上，自选1个该植物尚未拥有的旅行词条\n主形态与亚种共用对应词条\n没有可选词条时不消耗，选取成功后消耗1个": "Drag onto a card to choose 1 Odyssey modifier it does not own. Main forms and subspecies share their corresponding modifiers. Not consumed if none are available; uses 1 after a successful selection.",
+    "拖到植物使用，持续{0:0.#}秒": "Drag onto a plant to use. Lasts {0:0.#}s.",
+    "拖到物品栏的基础装备上，将其随机锻造成1件进阶装备\n消耗品，成功使用后消耗1个": "Drag onto basic equipment in the inventory to randomly forge it into advanced equipment. Consumable: uses 1 after successful use.",
+    "拖到物品栏的普通进阶装备上，变为对应究极装备\n基础装备或已是究极装备时不消耗；成功后消耗1张": "Drag onto ordinary advanced equipment in the inventory to turn it into its corresponding Ultimate equipment. Basic or already Ultimate equipment does not consume it. Uses 1 after successful use.",
+    "持续阳光：": "Continuous sun:",
+    "接下来3个节点备战席限3格。随后，获得3件随机基础装备。": "For the next 3 nodes, the bench has only 3 slots. Afterwards, gain 3 pieces of random basic equipment.",
+    "搜索达到 {0} 次尝试的上限，尚未找到满足规则的阵型。": "Search reached the limit of {0} attempts without finding a formation that satisfies the rules.",
+    "携带装备  <size=16>{0}/3</size>": "Equipment  <size=16>{0}/3</size>",
+    "携带装备（0/3） · 暂无装备": "Equipment (0/3) - No equipment",
+    "是否合成？": "Combine?",
+    "暂存当前全部积分，进入5个新节点后返还暂存积分并额外获得7000积分。": "Set aside all current points. After entering 5 new nodes, recover those points plus 7000 additional points.",
+    "未执行：": "Not executed:",
+    "未执行：当前不在旅行进化模式": "Not executed: Not currently in Odyssey: Evolved.",
+    "本坚果保护你！": "This nut protects you!",
+    "本局游戏中，补给阶段的可选项减少2个。下1个补给阶段选择后，额外获得所有未选择的植物卡及装备。": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 1 supply phase, also gain all unchosen plant cards and their equipment.",
+    "本局游戏中，补给阶段的可选项减少2个。下1个补给阶段选择后，额外获得所有未选择的角色及装备。": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 1 supply phase, also gain all unchosen characters and their equipment.",
+    "本局游戏中，补给阶段的可选项减少2个。下2个补给阶段选择后，额外获得所有未选择的植物卡及装备。": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 2 supply phases, also gain all unchosen plant cards and their equipment.",
+    "本局游戏中，补给阶段的可选项减少2个。下2个补给阶段选择后，额外获得所有未选择的角色及装备。": "Supply phases offer 2 fewer choices for this run. After making your selection in the next 2 supply phases, also gain all unchosen characters and their equipment.",
+    "本局补给的候选项减少2项，领取时获得全部候选卡牌及其装备。": "Supply phases offer 2 fewer choices for this run. Claim all offered cards and their equipment.",
+    "本类型植物造成伤害时，直接获得1点阳光": "Whenever this plant type deals damage, gain 1 sun directly.",
+    "本类型植物造成伤害时，直接获得2点阳光": "Whenever this plant type deals damage, gain 2 sun directly.",
+    "条件为真时重复执行连接的节点，每次循环前重新检查条件": "While the condition is true, repeat the connected nodes. Check the condition again before each loop.",
+    "植物持续回血：": "Continuous plant healing:",
+    "植物数量范围无效：": "Invalid plant count range:",
+    "植物的规则列表为空引用：": "The plant rule list is missing:",
+    "植物类型的规则重复：": "Duplicate rules for a plant type:",
+    "植物配置中存在空规则：": "Plant configuration contains an empty rule:",
+    "模板检查未通过：": "Template validation failed:",
+    "模板读取失败，原文件保留：": "Template could not be read. Original file retained:",
+    "每7次刷新，商店会刷出5张费用相同的角色，费用为你备战席最左侧角色的费用。": "Every 7 shop refreshes, stock 5 characters whose cost matches the leftmost character on the bench.",
+    "每只敌方僵尸死亡时，有1%概率获得随机品质礼盒。\n每个节点最多触发3次。": "Each enemy zombie death has a 1% chance to grant a Giftbox of random quality. Triggers up to 3 times per node.",
+    "每场战斗开始时，佩戴3件装备的卡牌及场上植物，从其中的进阶装备中随机1件临时变为究极装备，持续本场；没有进阶装备则不生效。": "At the start of each battle, cards and planted units wearing 3 pieces of equipment temporarily turn 1 random advanced equipment item into Ultimate equipment for that battle. No effect if they have no advanced equipment.",
+    "每损失20点小队生命值，获得500积分和1个随机基础装备。": "For every 20 squad HP lost, gain 500 points and 1 piece of random basic equipment.",
+    "每损失20点小队生命值，获得5金币和1个随机简易装备。": "For every 20 squad HP lost, gain 5 coins and 1 piece of random simple equipment.",
+    "每次升级商店，使一张品质低于钻石的未售商品变为高1档品质的另一种随机植物，保留原价；最高钻石。": "Each shop upgrade turns 1 unsold item below Diamond into another random plant 1 quality tier higher, up to Diamond, retaining its original price.",
+    "每次受到攻击时，消耗25阳光\n将该次攻击伤害降低至1": "Whenever attacked, spend 25 sun to reduce that attack to 1 damage.",
+    "每次受到攻击时，消耗50阳光\n将该次攻击伤害降低至1": "Whenever attacked, spend 50 sun to reduce that attack to 1 damage.",
+    "每次将两件基础装备合成为进阶装备时获得2次免费刷新": "Gain 2 free refreshes whenever 2 basic equipment items are combined into advanced equipment.",
+    "每次消耗积分刷新商店，获得1点升级经验。": "Gain 1 upgrade XP whenever points are spent refreshing the shop.",
+    "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得1件随机基础装备。": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 1 piece of random basic equipment.",
+    "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得1件随机简易装备。": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 1 piece of random simple equipment.",
+    "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得2件随机基础装备。": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 2 pieces of random basic equipment.",
+    "每次进入新节点时，你物品栏里的装备变为同品质的其他装备。获得2件随机简易装备。": "Whenever you enter a new node, inventory equipment changes into other equipment of the same quality. Gain 2 pieces of random simple equipment.",
+    "每次进入新节点时，处在备战席最右侧3个位置的角色变为随机的同费用角色。获得2金币。": "Whenever you enter a new node, characters in the 3 rightmost bench slots become random characters of the same cost. Gain 2 coins.",
+    "每次进入新节点时，处在备战席最左侧6个位置的角色变为随机的同费用角色。立刻获得5次免费刷新和10金币。": "Whenever you enter a new node, characters in the 6 leftmost bench slots become random characters of the same cost. Immediately gain 5 free refreshes and 10 coins.",
+    "每次进入新节点时，处在备战席最左侧6个位置的角色变为随机的同费用角色。立刻获得7次免费刷新和14金币。": "Whenever you enter a new node, characters in the 6 leftmost bench slots become random characters of the same cost. Immediately gain 7 free refreshes and 14 coins.",
+    "每次进入新节点时，如果在上个节点没有花费积分，则获得2次免费刷新。": "Whenever you enter a new node, gain 2 free refreshes if no points were spent at the previous node.",
+    "每次进入新节点时，如果在上个节点没有花费金币，则获得2次免费刷新。": "Whenever you enter a new node, gain 2 free refreshes if no coins were spent at the previous node.",
+    "每次进入补给阶段后，随机获得一个未被选择的植物卡及其携带的装备。": "After entering each supply phase, gain 1 random unchosen plant card and its equipment.",
+    "每次进入补给阶段后，随机获得一个未被选择的植物卡及其携带的装备。获得1个随机基础装备和400积分。": "After entering each supply phase, gain 1 random unchosen plant card and its equipment. Gain 1 piece of random basic equipment and 400 points.",
+    "每次进入补给阶段后，随机获得一个未被选择的角色及其携带的装备。": "After entering each supply phase, gain 1 random unchosen character and its equipment.",
+    "每次进入补给阶段后，随机获得一个未被选择的角色及其携带的装备。获得1个随机简易装备和4金币。": "After entering each supply phase, gain 1 random unchosen character and its equipment. Gain 1 piece of random simple equipment and 4 coins.",
+    "每第5次刷新商店时，生成5张与备战席最左侧卡牌相同品质的商品，最高钻石。\n备战席为空时按木头品质生成。": "Every 5th shop refresh stocks 5 cards matching the quality of the leftmost bench card, up to Diamond. An empty bench uses Bronze quality.",
+    "每第7次刷新生成5张同品质商品，品质取备战席最左侧卡牌，最高钻石，空备战按木头。": "Every 7th shop refresh stocks 5 cards matching the quality of the leftmost bench card, up to Diamond. An empty bench uses Bronze quality.",
+    "每行数量限制与植物总数范围相互冲突：": "Per-lane count limits conflict with the total plant count range:",
+    "每行最多数量不能为负数：": "The maximum count per lane cannot be negative:",
+    "每行最少数量无效或超过植物总数上限：": "The minimum count per lane is invalid or exceeds the total plant count limit:",
+    "点击后，从10件不重复的随机进阶装备中选择1件\n可翻页查看，选取成功后消耗1个": "Tap to choose 1 of 10 distinct random advanced equipment items. Browse the pages to see all choices. Uses 1 after a successful selection.",
+    "点击后，从4件不同究极进阶装备中选择1件\n选取成功后消耗1个": "Tap to choose 1 of 4 distinct Ultimate advanced equipment items. Uses 1 after a successful selection.",
+    "点击后，从4件随机基础装备中选择1件\n消耗品，选取成功后消耗1个": "Tap to choose 1 of 4 random basic equipment items. Consumable: uses 1 after a successful selection.",
+    "点击后，从4件随机进阶装备中选择1件\n消耗品，选取成功后消耗1个": "Tap to choose 1 of 4 random advanced equipment items. Consumable: uses 1 after a successful selection.",
+    "点击后，从4种随机黄金品质究极植物中选择1张\n消耗品，选取成功后消耗1个": "Tap to choose 1 of 4 random Gold-quality Ultimate plants. Consumable: uses 1 after a successful selection.",
+    "照料：{0}植物 ×{1:0.00}": "Care: {0} plants x{1:0.00}",
+    "照料：卡牌冷却": "Care: Card cooldown",
+    "现在及之后每大关的第一个商店，商品改为4张不同植物的钻石品质卡，并获得300积分。": "Now and at the first shop of each subsequent chapter, stock 4 different Diamond-quality plant cards. Gain 300 points.",
+    "现在及接下来3次进入新节点时，每次获得700积分。": "Now and on each of the next 3 new nodes, gain 700 points.",
+    "现在及接下来3次进入新节点时，每次获得7金币。": "Now and on each of the next 3 new nodes, gain 7 coins.",
+    "现在及接下来3次进入新节点时，每次获得900积分。": "Now and on each of the next 3 new nodes, gain 900 points.",
+    "现在及接下来3次进入新节点时，每次获得9金币。": "Now and on each of the next 3 new nodes, gain 9 coins.",
+    "现在及每次进入新节点时获得1次免费刷新，立刻获得800积分。": "Gain 1 free refresh now and whenever you enter a new node. Immediately gain 800 points.",
+    "现在及每次进入新节点时获得1次免费刷新，立刻获得8金币。": "Gain 1 free refresh now and whenever you enter a new node. Immediately gain 8 coins.",
+    "相似度：{0:P1}\n强度：{1:F2}\n{2}": "Similarity: {0:P1}\nStrength: {1:F2}\n{2}",
+    "礼盒：已收集{0}个": "Giftboxes: {0} collected",
+    "礼盒：暂无待开启礼盒": "Giftboxes: None waiting to open",
+    "立刻获得1件随机基础装备，首领战后，获得1件随机基础装备。": "Immediately gain 1 piece of random basic equipment. Gain 1 piece of random basic equipment after each Boss battle.",
+    "立刻获得1件随机简易装备，首领战后，获得1件随机简易装备。": "Immediately gain 1 piece of random simple equipment. Gain 1 piece of random simple equipment after each Boss battle.",
+    "立刻获得2件随机基础装备，boss战后，获得1件随机基础装备。": "Immediately gain 2 pieces of random basic equipment. Gain 1 piece of random basic equipment after each Boss battle.",
+    "立刻获得2件随机简易装备，首领战后，获得1件随机简易装备。": "Immediately gain 2 pieces of random simple equipment. Gain 1 piece of random simple equipment after each Boss battle.",
+    "立刻获得400积分，并且在每次进入新节点时，获得200积分。": "Immediately gain 400 points, then gain 200 points whenever you enter a new node.",
+    "立刻获得4个金币，并且在每次进入新节点时，获得2金币。": "Immediately gain 4 coins, then gain 2 coins whenever you enter a new node.",
+    "立即将当前生命值和积分按1点生命=100积分的比例交换。": "Immediately exchange your current HP and points at a rate of 1 HP to 100 points.",
+    "立即获得1000积分，利息上限提高至900积分。\n进入商店时，如果自上次入店后没有花费积分，额外获得900积分。": "Immediately gain 1000 points and raise the interest cap to 900 points. Upon entering a shop, gain 900 extra points if none were spent since your previous shop visit.",
+    "立即获得1437次免费刷新，持续30秒。\n时间结束时清空全部剩余免费刷新次数。": "Immediately gain 1437 free refreshes for 30s. All remaining free refreshes are removed when time runs out.",
+    "立即获得1500积分，本局不再获得利息。每进入一个新节点获得4点升级经验。": "Immediately gain 1500 points. No more interest is earned this run. Gain 4 upgrade XP whenever you enter a new node.",
+    "立即获得1个黄金礼盒。\n开启礼盒时，有50%概率获得低一级礼盒；木头礼盒不会生成更低品质礼盒。": "Immediately gain 1 Gold Giftbox. Opening a Giftbox has a 50% chance to grant a Giftbox 1 quality tier lower. Bronze Giftboxes cannot grant a lower-quality Giftbox.",
+    "立即获得200积分。每次进入新节点时，备战席第7至9格的卡牌变为随机同品质植物，棱彩和至尊红卡不参与变换。": "Immediately gain 200 points. Whenever you enter a new node, cards in bench slots 7 to 9 become random plants of the same quality. Prismatic and the highest red-quality cards are excluded.",
+    "立即获得2500积分，利息上限提高至1000积分。": "Immediately gain 2500 points and raise the interest cap to 1000 points.",
+    "立即获得2件随机进阶装备。\n每次进入新节点时，库存中的装备变为其他同等级装备。": "Immediately gain 2 pieces of random advanced equipment. Whenever you enter a new node, inventory equipment changes into other equipment of the same tier.",
+    "立即获得5次免费刷新和1000积分。每进入新节点，备战席最左6个位置的卡牌变为随机同品质植物，棱彩和至尊红卡不参与变换。": "Immediately gain 5 free refreshes and 1000 points. At each new node, cards in the 6 leftmost bench slots become random plants of the same quality. Prismatic and the highest red-quality cards are excluded.",
+    "立即获得600积分。僵尸进家伤害增加5点，但失败仍保留进入战斗时的连胜。": "Immediately gain 600 points. Zombies entering the house deal 5 extra HP damage, but losing retains the win streak held at battle entry.",
+    "立即获得7次免费刷新和1400积分。每进入新节点，备战席最左6个位置的卡牌变为随机同品质植物，棱彩和至尊红卡不参与变换。": "Immediately gain 7 free refreshes and 1400 points. At each new node, cards in the 6 leftmost bench slots become random plants of the same quality. Prismatic and the highest red-quality cards are excluded.",
+    "立即获得已损失生命值×100的积分。\n每次战斗结束后恢复10点生命。": "Immediately gain points equal to lost HP x100. Restore 10 HP after each battle.",
+    "第1至第10列线性插值：\n额外攻速100%→0%，额外减伤0%→100%": "From columns 1 to 10, the extra attack speed decreases linearly from 100% to 0%, while extra damage reduction increases from 0% to 100%.",
+    "第1至第10列线性插值：\n额外攻速50%→0%，额外减伤0%→50%": "From columns 1 to 10, the extra attack speed decreases linearly from 50% to 0%, while extra damage reduction increases from 0% to 50%.",
+    "第{0}个参数须为{1}～{2}的整数": "Parameter {0} must be an integer from {1} to {2}.",
+    "第{0}项格式无效，保留上一次有效值。": "Invalid format for entry {0}. Previous valid value retained.",
+    "网格：关": "Grid: Off",
+    "网格：开": "Grid: On",
+    "自身每5秒直接获得100阳光\n并回复10%最大生命值，单次不超过4000": "Every 5s, directly gain 100 sun and restore 10% max HP, up to 4000 HP per heal.",
+    "自身每5秒直接获得50阳光\n并回复5%最大生命值，单次不超过2000": "Every 5s, directly gain 50 sun and restore 5% max HP, up to 2000 HP per heal.",
+    "自身治疗量增加100%\n受到治疗后本行额外减伤60%，持续3秒，重复治疗刷新持续时间": "Healing amount +100%. After being healed, gain 60% extra damage reduction in this lane for 3s. Further healing refreshes the duration.",
+    "自身治疗量增加50%\n受到治疗后本行额外减伤30%，持续3秒，重复治疗刷新持续时间": "Healing amount +50%. After being healed, gain 30% extra damage reduction in this lane for 3s. Further healing refreshes the duration.",
+    "自身生命值降低后，攻击力加成增加300%\n持续3秒，重复降低刷新持续时间": "After losing HP, gain +300% attack for 3s. Further HP loss refreshes the duration.",
+    "自身生命值降低后，攻击力加成提高150%\n持续3秒，重复降低刷新持续时间": "After losing HP, gain +150% attack for 3s. Further HP loss refreshes the duration.",
+    "至少佩戴1件装备的植物获得20%生命和16%伤害。": "Plants wearing at least 1 piece of equipment gain +20% HP and +16% damage.",
+    "至少携带1件装备的角色获得20%生命增幅和16%伤害增幅。": "Characters carrying at least 1 piece of equipment gain +20% HP and +16% damage.",
+    "花费和冷却格式无效，未修改原数值": "Invalid cost or cooldown format. Original values unchanged.",
+    "获得1200积分；下一张购买的白银品质商品卡提升为黄金。": "Gain 1200 points. The next Silver-quality card purchased is upgraded to Gold.",
+    "获得12点升级经验；连胜积分奖励变为3倍，敌人生命额外提高当前连胜数×10%。": "Gain 12 upgrade XP. Win streak point rewards are tripled, and enemies gain extra HP equal to the current win streak x10%.",
+    "获得1件随机基础装备和1个随机钻石品质植物卡，获得600积分。": "Gain 1 piece of random basic equipment, 1 random Diamond-quality plant card and 600 points.",
+    "获得1件随机基础装备和2个随机黄金品质植物卡。": "Gain 1 piece of random basic equipment and 2 random Gold-quality plant cards.",
+    "获得1件随机简易装备和1个随机4费角色，获得6金币。": "Gain 1 piece of random simple equipment, 1 random 4-cost character and 6 coins.",
+    "获得1件随机简易装备和2个随机3费角色。": "Gain 1 piece of random simple equipment and 2 random 3-cost characters.",
+    "获得1张随机白银植物卡；每个新节点获得同种木头卡，补给后额外获得2张同种木头卡。": "Gain 1 random Silver plant card. At each new node, gain a Bronze card of that plant. After each supply phase, gain 2 additional Bronze cards of that plant.",
+    "获得1张随机黄金品质植物卡。每个新节点获得1张该植物的白银卡；每次领完补给后额外获得2张白银卡，持续本局。": "Gain 1 random Gold-quality plant card. At each new node, gain 1 Silver card of that plant. After each supply phase, gain 2 additional Silver cards for the rest of the run.",
+    "获得25金币。你的最大利息提升至10金币。": "Gain 25 coins. Maximum interest rises to 10 coins.",
+    "获得2个1费角色，2个2费角色和1个3费角色。": "Gain 2 characters costing 1, 2 characters costing 2, and 1 character costing 3.",
+    "获得2个木头品质植物卡，2个白银品质植物卡和1个黄金品质植物卡。": "Gain 2 Bronze-quality plant cards, 2 Silver-quality plant cards and 1 Gold-quality plant card.",
+    "获得旅行词条：{0}": "Gain Odyssey modifier: {0}",
+    "补给：领取全部三项": "Supply: Claim all 3 choices",
+    "被动技能：使卡牌前三次使用不消耗阳光，全体卡牌阳光消耗降低10%": "Passive: The first 3 card uses cost no sun. All card sun costs -10%.",
+    "被动技能：使卡牌前六次使用不消耗阳光，全体卡牌阳光消耗降低20%": "Passive: The first 6 card uses cost no sun. All card sun costs -20%.",
+    "被动技能：使我方全体植物获得25%幸运一击率": "Passive: All friendly plants gain +25% lucky hit chance.",
+    "被动技能：使我方全体植物获得50%幸运一击率": "Passive: All friendly plants gain +50% lucky hit chance.",
+    "被动技能：使植物前三次使用不消耗冷却，全体卡牌冷却降低10%": "Passive: The first 3 plant uses have no cooldown. All card cooldowns -10%.",
+    "被动技能：使植物前六次使用不消耗冷却，全体卡牌冷却降低20%": "Passive: The first 6 plant uses have no cooldown. All card cooldowns -20%.",
+    "被动技能：我方全体植物获得30%生命增幅": "Passive: All friendly plants gain +30% HP.",
+    "被动技能：我方全体植物获得60%生命增幅": "Passive: All friendly plants gain +60% HP.",
+    "被动技能：每3秒为全场植物回复100+1%最大生命值\n每株单次不超过2000": "Passive: Every 3s, heal all plants for 100 + 1% max HP, up to 2000 HP per plant per heal.",
+    "被动技能：每3秒为全场植物回复200+2%最大生命值\n每株单次不超过4000": "Passive: Every 3s, heal all plants for 200 + 2% max HP, up to 4000 HP per plant per heal.",
+    "被动技能：每秒累计僵尸实际受到的伤害，将1%均分为护盾算\n单次回复最多为各自最大生命值的10%\n每株护盾总量上限为1000×当前轮次": "Passive: Each second, share 1% of the damage actually taken by zombies equally as shields. Each grant is capped at 10% of the recipient plant's max HP. Total shield per plant is capped at 1000 x the current round.",
+    "被动技能：每秒累计僵尸实际受到的伤害，将1%均分回血\n单次回复最多为各自最大生命值的10%": "Passive: Each second, share 1% of the damage actually taken by zombies equally as healing. Each heal is capped at 10% of the recipient plant's max HP.",
+    "被动技能：每秒累计僵尸实际受到的伤害，将2%均分为护盾算\n单次回复最多为各自最大生命值的20%\n每株护盾总量上限为1000×当前轮次": "Passive: Each second, share 2% of the damage actually taken by zombies equally as shields. Each grant is capped at 20% of the recipient plant's max HP. Total shield per plant is capped at 1000 x the current round.",
+    "被动技能：每秒累计僵尸实际受到的伤害，将2%均分回血\n单次回复最多为各自最大生命值的20%": "Passive: Each second, share 2% of the damage actually taken by zombies equally as healing. Each heal is capped at 20% of the recipient plant's max HP.",
+    "解锁条件：": "Unlock conditions:",
+    "试炼：": "Trial:",
+    "请先关闭控制台并完成当前四选一或海克斯附加选择": "Close the console and finish the current four-choice or extra modifier selection first.",
+    "这张卡牌没有可选的未拥有旅行词条，道具已保留": "This card has no available unowned Odyssey modifiers. The item was retained.",
+    "这里不能使用此物品\n物品已保留在原处，请重新拖动": "This item cannot be used here. It was kept in its original location; drag it again.",
+    "进入boss节点时，获得700积分。": "Gain 700 points upon entering a Boss node.",
+    "进入boss节点时，获得7枚金币。": "Gain 7 coins upon entering a Boss node.",
+    "进入最后一个补给阶段后，获得3000积分。": "Gain 3000 points after entering the final supply phase.",
+    "进入最后一个补给阶段后，获得30金币。": "Gain 30 coins after entering the final supply phase.",
+    "进入首领节点时，获得1100积分。": "Gain 1100 points upon entering a Boss node.",
+    "进入首领节点时，获得11枚金币。": "Gain 11 coins upon entering a Boss node.",
+    "阳光不少于10000时，每秒消耗100阳光\n获得100%速度加成，持续1秒": "While sun is at least 10000, spend 100 sun per second to gain +100% speed for 1s.",
+    "阳光不少于10000时，每秒消耗100阳光\n获得200%速度加成，持续1秒": "While sun is at least 10000, spend 100 sun per second to gain +200% speed for 1s.",
+    "阳光消耗额外提高30%\n冷却时间额外降低30%，均与面板乘算": "Sun cost increases by an extra 30% and cooldown decreases by an extra 30%. Both multiply the panel values.",
+    "阳光消耗额外提高30%\n冷却时间额外降低60%，均与面板乘算": "Sun cost increases by an extra 30% and cooldown decreases by an extra 60%. Both multiply the panel values.",
+    "额外2次刷新机会，僵尸血量x4\n\n": "2 additional refresh chances. Zombie HP x4.\n\n",
+    "首轮地图为沙滩时，需进入后续轮回才可出现。": "If the first-round map is Beach, this can only appear in a later cycle.",
+    "{0}需要{1}，范围{2}～{3}；原值未变。": "{0} requires {1}, in the range {2} to {3}. Original value unchanged.",
+    "下一个Boss战后，获得每种基础装备各1件。": "After the next Boss battle, gain 1 of every basic equipment type.",
+    "下一次和每4次商店刷新都将是全3费角色。获得5次刷新。": "The next shop refresh and every 4th refresh stock only 3-cost characters. Gain 5 refreshes.",
+    "下一次和每4次商店刷新都将是全黄金品质植物卡。获得5次免费刷新。": "The next shop refresh and every 4th refresh stock only Gold-quality plant cards. Gain 5 free refreshes.",
+    "从3件不同进阶装备中选1件获得。本局后续获得该配方的任一种基础材料时，改为获得所选进阶装备。": "Choose 1 of 3 different advanced equipment items. For the rest of this run, gaining either basic ingredient in its recipe grants the selected advanced equipment instead.",
+    "从3件进阶装备中选择一件获取。本局游戏中，你获得组成该装备的简易装备时，改为获得该进阶装备。": "Choose 1 of 3 advanced equipment items. For the rest of this run, gaining a simple equipment ingredient in its recipe grants the selected advanced equipment instead.",
+    "你不再获得利息。即刻获得15金币。每次进入新节点时，获得4经验。": "No more interest is earned. Immediately gain 15 coins. Gain 4 XP whenever you enter a new node.",
+    "你每次消耗金币刷新商店，都会获得2经验值。": "Gain 2 XP whenever coins are spent refreshing the shop.",
+    "你购买的下1个4费角色将立刻升到2星。获得12金币。": "The next 4-cost character purchased immediately becomes 2-star. Gain 12 coins.",
+    "先处理溢出卡牌：出售、合成卡牌或升级商店腾出位置": "Resolve overflow cards first: sell or combine cards, or upgrade the shop to make room.",
+    "免疫一次致命进家伤害。\n触发后恢复至40点生命，并获得6000积分，每局只能触发一次。": "Prevent 1 lethal instance of house-entry damage. When triggered, restore HP to 40 and gain 6000 points. Triggers only once per run.",
+    "全场向日葵的下一份产出翻倍\n每株只存一次；共用冷却{0:0}秒": "Double the next sun production of all Sunflowers on the field. Stores only once per plant. Shared cooldown: {0:0}s.",
+    "共{0}项，显示前10项。修复后重新检查。": "{0} items total; showing the first 10. Fix them, then check again.",
+    "冻结场上敌方僵尸{0:0}秒\n共用冷却{1:0}秒，期间新出现的僵尸不受影响": "Freeze existing enemy zombies on the field for {0:0}s. Shared cooldown: {1:0}s. Zombies appearing during this time are unaffected.",
+    "出售全部卡牌并返还装备；获得1张钻石、2张黄金、2张白银随机植物卡。": "Sell all cards and return their equipment. Gain 1 Diamond, 2 Gold and 2 Silver random plant cards.",
+    "出售场上和备战席的所有植物卡，获得双倍价格的积分。你接下来6次购买植物卡是免费的。": "Sell all plant cards on the field and bench for double their price in points. The next 6 plant-card purchases are free.",
+    "出售场上和备战席的所有植物卡，获得双倍价格的积分。获得6次免费刷新。": "Sell all plant cards on the field and bench for double their price in points. Gain 6 free refreshes.",
+    "出售场上和备战席的所有角色。获得1个随机的2星3费角色、2个2星2费角色和2个2星1费角色。": "Sell all characters on the field and bench. Gain 1 random 2-star 3-cost character, 2 random 2-star 2-cost characters and 2 random 2-star 1-cost characters.",
+    "出售场上和备战席的所有角色，获得双倍价格的金币。你接下来6次购买角色是免费的。": "Sell all characters on the field and bench for double their price in coins. The next 6 character purchases are free.",
+    "出售场上和备战席的所有角色，获得双倍价格的金币。获得6次免费刷新。": "Sell all characters on the field and bench for double their price in coins. Gain 6 free refreshes.",
+    "出售植物卡时，会将进阶装备拆分成基础装备。获得1件进阶装备，并在4个节点后获得1件随机基础装备。": "Selling plant cards breaks advanced equipment into basic ingredients. Gain 1 piece of advanced equipment, then 1 piece of random basic equipment after 4 nodes.",
+    "出售植物卡时，会将进阶装备拆分成基础装备。获得1件进阶装备，并在5个节点后获得1件随机基础装备。": "Selling plant cards breaks advanced equipment into basic ingredients. Gain 1 piece of advanced equipment, then 1 piece of random basic equipment after 5 nodes.",
+    "出售角色时，会将进阶装备拆分成简易装备。获得1件进阶装备，并在4个节点后获得1件随机简易装备。": "Selling characters breaks advanced equipment into simple ingredients. Gain 1 piece of advanced equipment, then 1 piece of random simple equipment after 4 nodes.",
+    "出售角色时，会将进阶装备拆分成简易装备。获得1件进阶装备，并在5个节点后获得1件随机简易装备。": "Selling characters breaks advanced equipment into simple ingredients. Gain 1 piece of advanced equipment, then 1 piece of random simple equipment after 5 nodes.",
+    "召唤的僵尸攻击时，额外释放一次冲击波，对范围内敌方随机单体造成多次伤害，多选提高范围和伤害": "When a summoned zombie attacks, release an additional shockwave that deals multiple hits to random individual enemies within range. Repeated selections increase range and damage.",
+    "失去你现在所有的金币，并在5个节点后，获得该金币数+70的总金币。": "Lose all current coins. After 5 nodes, receive that amount plus 70 coins.",
+    "战斗倍速已设为{0:0.##}（菜单仍暂停）": "Battle speed set to {0:0.##} (the menu remains paused).",
+    "每级品质额外获得16%攻击力和冷却减免\n木头按1级、棱彩按5级、至尊红卡按6级；额外冷却与面板乘算": "Each quality tier grants an extra 16% attack and cooldown reduction. Bronze counts as tier 1, Prismatic as tier 5, and the highest red quality as tier 6. Extra cooldown reduction multiplies the panel value.",
+    "每级品质额外获得8%攻击力和冷却减免\n木头按1级、棱彩按5级、至尊红卡按6级；额外冷却与面板乘算": "Each quality tier grants an extra 8% attack and cooldown reduction. Bronze counts as tier 1, Prismatic as tier 5, and the highest red quality as tier 6. Extra cooldown reduction multiplies the panel value.",
+    "究极流光射手在前方生成一束天网攻击僵尸": "Summons a Celestial Beam at the farthest available column of the lawn to attack zombies.",
+    "死神猎手释放的毁灭菇伤害+100%": "Explosion damage +100%",
+    "死神猎手每一发子弹都会造成爆头伤害": "Critical hits are now guaranteed.",
+    "火焰狙击射手的火墙密度+3\n需要重新手动建立火墙": "Gains +3 Firewall links.\nThe Firewall will have to be manually rebuilt after picking this Modifier",
+    "火焰狙击射手的火墙顶点数加2": "Firewall can now be chained together an additional 2 times.",
+    "究极樱桃射手每次攻击多发射一发子弹": "Gains +1 projectile",
+    "究极黑橄榄机枪射手保底时大招所需射击子弹数-10": "-10 shots needed for ultimate",
+    "飓风之龙的普攻子弹数+2，龙炎子弹数 + 4": "Basic attack +2 projectiles, Dragon attack +4 projectiles.",
+    "究极樱桃战神百分比伤害+5%": "Gains 5% extra percentage-based damage",
+    "生命值上限+50%，其他植物受伤时，获得相当于5%伤害量的蓄能": "+50% max HP and gains energy equal to 5% of the damage taken by other plants.",
+    "蓄能获取效率增加+100%": "Melon-nut gains energy 100% more efficiently.",
+    "三线土豆雷大招持续时间+5秒": "Ultimate lasts +5 more seconds",
+    "发射的子弹升级为爆破子弹": "Projectiles explode on impact",
+    "毁灭大嘴花爆炸数+1": "Gains +1 doom explosion",
+    "究极灯笼巨嘴花范围+1": "Gains +1 range",
+    "僵尸的基础速度降低10%": "All zombies speed is reduced by 10% (stacks multiplicatively)",
+    "狙击穿透+2": "Sniper rifle laser gains +2 pierce.",
+    "究极大喷菇每次攻击额外发射一枚黑冰刺": "Fires an additional doomspike every attack.",
+    "升级成星辉大喷菇": "Doominator: Upgrade to STELLAR Doominator!",
+    "究极忧郁菇伤害半径+0.5": "Gains +0.5 tiles of range.",
+    "子弹发射数+1": "Gains +1 projectile",
+    "魅惑概率提高7.5%": "+7.5% hypnosis chance",
+    "真正的毁灭菇：毁灭菇子弹会在命中时释放毁灭菇爆炸（不留坑洞）": "Ultimate Doom Shells now trigger a crater-less Doom explosion on impact",
+    "大子弹所需射击数-4": "Shots required for an Ultimate Doom Shell -4",
+    "每3秒自动生成一个僚机，攻速加成可缩短这个间隔": "Summons a wingman every 3 seconds. This interval can be shortened with speed boosts",
+    "辐射持续时间+1秒": "Particle Soup duration +1s",
+    "红温伤害增幅提高60%": "Global enflamed damage bonus +60%",
+    "浴火三线射手变为五线射手，子弹可无限穿透": "Now shoots in all lanes and its projectiles pierce infinitely",
+    "究极机枪炮台生命偷取+50%": "+50% lifesteal",
+    "炮台在释放大招过程中额外释放4次火爆辣椒效果，每次造成50段伤害，每次伤害对敌方随机单体造成等同于炮台10000%攻击力的伤害": "Its ultimate move now releases 4 extra Jalapeno effects, each of them doing 50 instances of damage, each instance of damage doing damage equal to 100x of Apeacalypse Minigun's attack power to a random zombie in range.",
+    "获得两株地刺王在周围，地刺王拥有相当于玄钢地刺王100%的独立伤害增幅和100%的速度增幅，基础攻击力为玄钢地刺王的75%，地刺王的属性根据场地上冰火植物数量来决定": "Obtain 2 Icerocks OR Hearthrocks immediately that move in tandem with Obsidian Spikerock and have a base attack power that is equivalent to 75% of Obsidian Spikerock's, but possess a +100% independent damage boost and +100% speed boost. Which type you get depends on the number of ice/fire plants already existing on the lawn.",
+    "玄钢地刺王横向范围+100%": "Gains +100% horizontal range",
+    "保龄球发射数量+1": "Fires 1 more bowling nut",
+    "每次攻击在每行发射一发保龄球": "Bowling nuts are now fired in every row",
+    "究极仙人掌大招所需杀敌数-20": "-20 kills required for ultimate",
+    "究极杨桃大帝每轮攻击额外发射一轮多功能杨桃子弹": "Fires +5 Quasar projectiles each attack",
+    "大帝每60秒将会进行一次抽奖，死亡后重新计时，奖励品质会被幸运影响": "Holds a prize draw every 60s that grants random rewards, influenced by your current luck (Timer resets upon death)",
+    "究极杨桃大帝升级成星辉形态": "Upgrade to STELLAR Magnetar!",
+    "究极剑仙杨桃大剑数量+11": "Gains +11 giant swords",
+    "究极太阳神卷心菜陨星+1\n陨星锁定全场血量最高的僵尸，落地时造成相当于卷心菜攻击力100%的群体伤害\n然后造成30次伤害，每次伤害对范围内敌方随机单体造成100%的爆炸伤害": "+1 Helios Meteor. The meteor targets the zombie with the most health on the lawn, causing area damage equivalent to 100% of Helios Cabbage's attack power when landing and then dealing 30 damage, each damage deals 100% explosive damage to random zombies in range.",
+    "究极爆破迫击炮最大散射数+10": "Gains +10 maximum targets",
+    "黑洞会对附近的僵尸造成伤害，每拥有一个该词条，伤害比例增加100%": "Black holes now deal damage to surrounding zombies; and each time this entry is chosen that damage is increased by 100%",
+    "能量上限+5000，能量恢复效率+300%，每次攻击额外附带等同于当前能量25%的伤害": "Energy cap +5000, energy regeneration speed +300%, and every attack will deal extra damage equivalent to 25% of the current energy.",
+    "究极投手连射、散射概率增加12%": "Rapid fire and spread fire chances +12%",
+    "究极火神弹弹菇火海时间+3秒": "Inferno lasts +3 more seconds",
+    "火神的子弹命中地面时也会生成火海，命中僵尸最多额外分裂2次": "Napalm melons create an extra sea of fire upon hitting the ground and can split up to 2 more times when hitting zombies.",
+    "究极冰神西瓜的发射数量+1": "Gains +1 projectile",
+    "每次召唤多生成一只僵尸": "Each time it summons a zombie, an extra one will spawn as well.",
+    "究极樱桃战神升级成星辉形态": "Cherrizilla: Upgrade to STELLAR Cherrizilla!",
+    "究极大喷菇升级成星辉形态": "Doominator: Upgrade to STELLAR Doominator!",
+    "究极忧郁菇升级成星辉形态": "Shroomageddon: Upgrade to STELLAR Shroomageddon!",
+    "持续射击时，每过1秒，伤害增加10%，停止攻击后重置": "While firing continuously, +10% (linear) damage per second but resets when attack stops.",
+    "生成杨桃所需子弹数-10": "Number of bullets to spawn a Spicy Starfruit -10",
+    "究极武装大嘴花爆头所需次数-1": "Attacks required for headshot -1",
+    "究极浴火射手连射 + 1": "Fires +1 projectile in every lane",
+    "PvZ Fusion 4.1 Update\n\n1. Odyssey: Evolved rework\nEarn points each round to buy plants, upgrade the shop, or refresh its stock.\nCombine cards or upgrade the shop for higher-quality cards.\nEquip plant cards with multiple items for extra bonuses.\nFusions inherit the quality and equipment of both ingredients.\nZombies entering the house now cost HP instead of immediately ending the level.\n\n2. New plants\nBasic: Artsy Sunflower, Ball Cactus, 磁性卷心菜投手, 铁桶卷心菜投手, 超时空卷心菜投手, 浮空大喷菇, 大喷菇花盆, 磁力窝瓜, 保护伞窝瓜, 西瓜投射手, 三线胆小菇, 窝瓜大喷菇, 卷心菜投射手, 西瓜胆小菇, 大蒜窝瓜, 银窝瓜, 金窝瓜\nUltimate: SP Calamity-shroom, SP Avarice-shroom, 磁能窝瓜坚果, 飓风之龙, 平行时空树桩\n\n3. New zombies\nVariant: 樱桃战神僵尸\nUltimate: 海豚橄榄高坚果僵尸\nBoss: 渊海三叉戟\n\n4. Level updates\nSuper Random: Question Mark Battle: Paint portraits of the random plants Artsy Sunflower attracts, then use them to fight the zombies.\n\n5. New modifier\nShrinking Ray: Mini Professor Cherryz!\n\n6. Balance changes\nBlover Pot, Levitater, Sunny Pumpkin: Stats increased.\nTri-pult family: Attack speed reduced.\nBuck-nut, Steel Pumpkin, Football-nut: Matching metal items restore much more HP.\nMagnet Blover: Digested metal items now become drops.\nCalamity-shroom and Avarice-shroom: Effects reworked. Avarice-shroom can now be used on Odyssey's Cursed difficulty.\nTridents: Attacks now slow plants with the Damp status.\nPozeidon: Can bite like a trident and strengthens Damp. The Giant Trident creates a vortex that draws in projectiles.\nTrident Jugger-nut Gargantuar: No longer needs to reach the half-HP threshold before throwing its trident.\n\n7. Other improvements\nRandom mode no longer starts the next wave immediately when the remaining zombies have little total HP.\nImproved some plant facial animations.\nMagic Plantbrush recognition now runs on a server rather than the player's device.\nAdjusted the pacing of points and modifiers in classic Odyssey.\n\n8. Fixes\nFixed Drone Commando disappearing after a scene change.\nFixed Fair Points incorrectly receiving the Cursed difficulty points bonus.\nOther fixes and gameplay improvements.\n": "PvZ Fusion 4.1 Update\n\n1. Odyssey: Evolved rework\nEarn points each round to buy plants, upgrade the shop, or refresh its stock.\nCombine cards or upgrade the shop for higher-quality cards.\nEquip plant cards with multiple items for extra bonuses.\nFusions inherit the quality and equipment of both ingredients.\nZombies entering the house now cost HP instead of immediately ending the level.\n\n2. New plants\nBasic: Artsy Sunflower, Ball Cactus, Cabbage Morph, Scrap-pult, Chrono-pult, Balloon-shroom, Fume Pot, Magnet Squash, Umbrella Squash, Melon Pod, Trinity-shroom, Crush-shroom, Cabbage Pod, Springy-shroom, Stinky Squash, Silver Squash, Golden Squash\nUltimate: SP Calamity-shroom, SP Avarice-shroom, Gravi-nut, Longfeng Torcher, Temporal Torch\n\n3. New zombies\nVariant: Cherrizilla Zombie\nUltimate: Giga Dolphin-nut Zombie\nBoss: Channeler Pozeidon\n\n4. Level updates\nSuper Random: Question Mark Battle: Paint portraits of the random plants Artsy Sunflower attracts, then use them to fight the zombies.\n\n5. New modifier\nShrinking Ray: Mini Professor Cherryz!\n\n6. Balance changes\nBlover Pot, Levitater, Sunny Pumpkin: Stats increased.\nTri-pult family: Attack speed reduced.\nBuck-nut, Steel Pumpkin, Football-nut: Matching metal items restore much more HP.\nMagnet Blover: Digested metal items now become drops.\nCalamity-shroom and Avarice-shroom: Effects reworked. Avarice-shroom can now be used on Odyssey's Cursed difficulty.\nTridents: Attacks now slow plants with the Damp status.\nPozeidon: Can bite like a trident and strengthens Damp. The Giant Trident creates a vortex that draws in projectiles.\nTrident Jugger-nut Gargantuar: No longer needs to reach the half-HP threshold before throwing its trident.\n\n7. Other improvements\nRandom mode no longer starts the next wave immediately when the remaining zombies have little total HP.\nImproved some plant facial animations.\nMagic Plantbrush recognition now runs on a server rather than the player's device.\nAdjusted the pacing of points and modifiers in classic Odyssey.\n\n8. Fixes\nFixed Drone Commando disappearing after a scene change.\nFixed Fair Points incorrectly receiving the Cursed difficulty points bonus.\nOther fixes and gameplay improvements.\n",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<color=#800080>【SP进化】</color>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+毁灭菇</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极贪欲菇</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\nCalamity-shroom+Doom-shroom</nobr>\n<nobr>解锁<color=red>究极Avarice-shroom</color>\nAvarice-shroom+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>SP Calamity-shroom</color>\n幻灭菇+毁灭菇</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+毁灭菇</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes.",
+    "<nobr>【SP进化】</nobr>：\n<nobr>解锁<color=red>究极幻灭菇</color>\n幻灭菇+Doom-shroom</nobr>\n<nobr>解锁<color=red>SP Avarice-shroom</color>\n贪欲菇+Doom-shroom</nobr>\n继承原转换配方": "<nobr>SP Evolution</nobr>：\n<nobr>Unlock <color=red>SP Calamity-shroom</color>\nCalamity-shroom + Doom-shroom</nobr>\n<nobr>Unlock <color=red>SP Avarice-shroom</color>\nAvarice-shroom + Doom-shroom</nobr>\nRetains the original conversion recipes."
+  },
+  "runtime_regex": [
+    [
+      "3×3内不高于(.*?)的向日葵\\\n立即推进(.*?)产出进度；共用冷却(.*?)秒",
+      "Sunflowers of {0} quality or lower within 3x3 immediately advance production by {1}. Shared cooldown: {2}s."
+    ],
+    [
+      "3×3内不高于(.*?)的植物恢复(.*?)最大生命\\\n共用冷却(.*?)秒，不能复活",
+      "Restore {1} max HP to plants of {0} quality or lower within 3x3. Shared cooldown: {2}s. Cannot revive plants."
+    ],
+    [
+      "剩余积分：(.*?)",
+      "Points remaining: {0}"
+    ],
+    [
+      "商店已升至\\ Lv\\.(.*?)，升级触发效果照常结算",
+      "Shop is now Lv.{0}. Upgrade effects still activate normally."
+    ],
+    [
+      "复制一株不高于(.*?)的战斗植物到物品栏\\\n保留类型与品质；共用冷却(.*?)秒",
+      "Copy a battle plant of {0} quality or lower into the inventory. Retain its type and quality. Shared cooldown: {1}s."
+    ],
+    [
+      "失败奖励：(.*?)\\ ×\\ (.*?)/(.*?)\\ ×\\ 50%，向下取整。",
+      "Failure reward: {0} x {1}/{2} x 50%, rounded down."
+    ],
+    [
+      "属性计数：(.*?)\\\n",
+      "Attribute Count: {0}\n"
+    ],
+    [
+      "当前增幅：(.*?)%",
+      "Current Bonus: {0}%"
+    ],
+    [
+      "拖到植物使用，持续(.*?)秒",
+      "Drag onto a plant to use. Lasts {0}s."
+    ],
+    [
+      "搜索达到\\ (.*?)\\ 次尝试的上限，尚未找到满足规则的阵型。",
+      "Search reached the limit of {0} attempts without finding a formation that satisfies the rules."
+    ],
+    [
+      "携带装备\\ \\ <size=16>(.*?)/3</size>",
+      "Equipment  <size=16>{0}/3</size>"
+    ],
+    [
+      "照料：(.*?)植物\\ ×(.*?)",
+      "Care: {0} plants x{1}"
+    ],
+    [
+      "相似度：(.*?)\\\n强度：(.*?)\\\n(.*?)",
+      "Similarity: {0}\nStrength: {1}\n{2}"
+    ],
+    [
+      "礼盒：已收集(.*?)个",
+      "Giftboxes: {0} collected"
+    ],
+    [
+      "第(.*?)个参数须为(.*?)～(.*?)的整数",
+      "Parameter {0} must be an integer from {1} to {2}."
+    ],
+    [
+      "第(.*?)项格式无效，保留上一次有效值。",
+      "Invalid format for entry {0}. Previous valid value retained."
+    ],
+    [
+      "获得旅行词条：(.*?)",
+      "Gain Odyssey modifier: {0}"
+    ],
+    [
+      "(.*?)需要(.*?)，范围(.*?)～(.*?)；原值未变。",
+      "{0} requires {1}, in the range {2} to {3}. Original value unchanged."
+    ],
+    [
+      "全场向日葵的下一份产出翻倍\\\n每株只存一次；共用冷却(.*?)秒",
+      "Double the next sun production of all Sunflowers on the field. Stores only once per plant. Shared cooldown: {0}s."
+    ],
+    [
+      "共(.*?)项，显示前10项。修复后重新检查。",
+      "{0} items total; showing the first 10. Fix them, then check again."
+    ],
+    [
+      "冻结场上敌方僵尸(.*?)秒\\\n共用冷却(.*?)秒，期间新出现的僵尸不受影响",
+      "Freeze existing enemy zombies on the field for {0}s. Shared cooldown: {1}s. Zombies appearing during this time are unaffected."
+    ],
+    [
+      "战斗倍速已设为(.*?)（菜单仍暂停）",
+      "Battle speed set to {0} (the menu remains paused)."
+    ]
+  ],
+  "counts": {
+    "new_context_fields": 221,
+    "upstream_fields": 55,
+    "composed_notices": 2,
+    "full_match_format_rules": 22,
+    "plant_names_added": 0,
+    "plant_descriptions_added": 0,
+    "screenshots_reviewed": 46,
+    "distinct_screenshot_plants": 45
+  }
+}
