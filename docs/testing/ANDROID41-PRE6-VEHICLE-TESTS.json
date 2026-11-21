@@ -1,0 +1,185 @@
+{
+  "abi": "ARM64 on Android 34 x86_64 native translation",
+  "regression_test": "VehicleGroundingTest passed on Android x86_64",
+  "ab_trials": [
+    {
+      "tag": "grounding-compare-0-16-400",
+      "fix": false,
+      "speed": 4.0,
+      "vertical_seed": 1e-05,
+      "health_samples": 35,
+      "last_hp": 1190,
+      "destroyed": false,
+      "min_y": -1541.802,
+      "max_y": -3.0503,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-compare-1-16-400",
+      "fix": true,
+      "speed": 4.0,
+      "vertical_seed": 1e-05,
+      "health_samples": 12,
+      "last_hp": 68,
+      "destroyed": true,
+      "min_y": -4.2625,
+      "max_y": -4.2625,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-compare-0-18-400",
+      "fix": false,
+      "speed": 4.0,
+      "vertical_seed": 1e-05,
+      "health_samples": 35,
+      "last_hp": 2620,
+      "destroyed": false,
+      "min_y": -4.2625,
+      "max_y": 417.3083,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-compare-1-18-400",
+      "fix": true,
+      "speed": 4.0,
+      "vertical_seed": 1e-05,
+      "health_samples": 37,
+      "last_hp": 1176,
+      "destroyed": false,
+      "min_y": -4.2625,
+      "max_y": -4.2625,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-compare-1-16-100",
+      "fix": true,
+      "speed": 1.0,
+      "vertical_seed": 0.0,
+      "health_samples": 60,
+      "last_hp": 1122,
+      "destroyed": false,
+      "min_y": -4.2625,
+      "max_y": -4.2625,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-compare-1-18-200",
+      "fix": true,
+      "speed": 2.0,
+      "vertical_seed": 0.0,
+      "health_samples": 37,
+      "last_hp": 1996,
+      "destroyed": false,
+      "min_y": -4.2625,
+      "max_y": -4.2625,
+      "exceptions": []
+    }
+  ],
+  "public_runtime_trials": [
+    {
+      "tag": "grounding-public-16-100",
+      "row": 0,
+      "speed": 1.0,
+      "vertical_seed": 0.0,
+      "health_samples": 25,
+      "last_hp": 30,
+      "destroyed": true,
+      "min_y": 1.5375,
+      "max_y": 1.5375,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-public-18-100",
+      "row": 1,
+      "speed": 1.0,
+      "vertical_seed": 0.0,
+      "health_samples": 42,
+      "last_hp": 32,
+      "destroyed": true,
+      "min_y": 0.0875,
+      "max_y": 0.0875,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-public-16-200",
+      "row": 4,
+      "speed": 2.0,
+      "vertical_seed": 0.0,
+      "health_samples": 13,
+      "last_hp": 0,
+      "destroyed": true,
+      "min_y": -4.2625,
+      "max_y": -4.2625,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-public-18-200",
+      "row": 5,
+      "speed": 2.0,
+      "vertical_seed": 0.0,
+      "health_samples": 22,
+      "last_hp": 144,
+      "destroyed": true,
+      "min_y": -5.7125,
+      "max_y": -5.7125,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-public-16-400",
+      "row": 4,
+      "speed": 4.0,
+      "vertical_seed": 1e-05,
+      "health_samples": 5,
+      "last_hp": 0,
+      "destroyed": true,
+      "min_y": -4.2625,
+      "max_y": -4.2625,
+      "exceptions": []
+    },
+    {
+      "tag": "grounding-public-18-400",
+      "row": 5,
+      "speed": 4.0,
+      "vertical_seed": 1e-05,
+      "health_samples": 8,
+      "last_hp": 158,
+      "destroyed": true,
+      "min_y": -5.7125,
+      "max_y": -5.7125,
+      "exceptions": []
+    }
+  ],
+  "physical_reporter_confirmation_pending": true,
+  "roof_trials": [
+    {
+      "kind": 16,
+      "speed": 4,
+      "frames": 35,
+      "first": [
+        6.2125,
+        0.3875
+      ],
+      "last": [
+        -4.6716,
+        -1.007
+      ],
+      "stable_roof_height": true,
+      "exceptions": []
+    },
+    {
+      "kind": 18,
+      "speed": 4,
+      "frames": 36,
+      "first": [
+        6.2125,
+        0.3875
+      ],
+      "last": [
+        1.2932,
+        0.3061
+      ],
+      "stable_roof_height": true,
+      "exceptions": []
+    }
+  ]
+}

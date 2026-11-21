@@ -1,0 +1,285 @@
+{
+  "prefab_objects_compared": 559,
+  "prefab_changes": [],
+  "resource_entries_added": [
+    [
+      "englishmusic/original/boss",
+      4,
+      215327
+    ],
+    [
+      "englishmusic/original/boss2",
+      4,
+      215328
+    ],
+    [
+      "englishmusic/original/day",
+      4,
+      215329
+    ],
+    [
+      "englishmusic/original/day_drum",
+      4,
+      215330
+    ],
+    [
+      "englishmusic/original/fog",
+      4,
+      215331
+    ],
+    [
+      "englishmusic/original/fog_drum",
+      4,
+      215332
+    ],
+    [
+      "englishmusic/original/garden",
+      4,
+      215333
+    ],
+    [
+      "englishmusic/original/horseboss",
+      4,
+      215334
+    ],
+    [
+      "englishmusic/original/iz",
+      4,
+      215335
+    ],
+    [
+      "englishmusic/original/mainmenu",
+      4,
+      215336
+    ],
+    [
+      "englishmusic/original/night",
+      4,
+      215337
+    ],
+    [
+      "englishmusic/original/night_drum",
+      4,
+      215338
+    ],
+    [
+      "englishmusic/original/nightsnow",
+      4,
+      215339
+    ],
+    [
+      "englishmusic/original/nightsnow_drum",
+      4,
+      215340
+    ],
+    [
+      "englishmusic/original/pool",
+      4,
+      215341
+    ],
+    [
+      "englishmusic/original/pool_drum",
+      4,
+      215342
+    ],
+    [
+      "englishmusic/original/roof",
+      4,
+      215343
+    ],
+    [
+      "englishmusic/original/roof_drum",
+      4,
+      215344
+    ],
+    [
+      "englishmusic/original/roofpool",
+      4,
+      215345
+    ],
+    [
+      "englishmusic/original/roofpool_drum",
+      4,
+      215346
+    ],
+    [
+      "englishmusic/original/roof_pre",
+      4,
+      215347
+    ],
+    [
+      "englishmusic/original/seaboss",
+      4,
+      215348
+    ],
+    [
+      "englishmusic/original/selectcard",
+      4,
+      215349
+    ],
+    [
+      "englishmusic/original/snow",
+      4,
+      215350
+    ],
+    [
+      "englishmusic/original/snow_drum",
+      4,
+      215351
+    ],
+    [
+      "englishmusic/original/snow_boss",
+      4,
+      215352
+    ],
+    [
+      "englishmusic/original/ultimatebattle",
+      4,
+      215353
+    ],
+    [
+      "englishmusic/blooms/boss2",
+      4,
+      215354
+    ],
+    [
+      "englishmusic/blooms/day",
+      4,
+      215355
+    ],
+    [
+      "englishmusic/blooms/day_drum",
+      4,
+      215356
+    ],
+    [
+      "englishmusic/blooms/fog",
+      4,
+      215357
+    ],
+    [
+      "englishmusic/blooms/fog_drum",
+      4,
+      215358
+    ],
+    [
+      "englishmusic/blooms/garden",
+      4,
+      215359
+    ],
+    [
+      "englishmusic/blooms/iz",
+      4,
+      215360
+    ],
+    [
+      "englishmusic/blooms/mainmenu",
+      4,
+      215361
+    ],
+    [
+      "englishmusic/blooms/night",
+      4,
+      215362
+    ],
+    [
+      "englishmusic/blooms/night_drum",
+      4,
+      215363
+    ],
+    [
+      "englishmusic/blooms/pool",
+      4,
+      215364
+    ],
+    [
+      "englishmusic/blooms/pool_drum",
+      4,
+      215365
+    ],
+    [
+      "englishmusic/blooms/roof",
+      4,
+      215366
+    ],
+    [
+      "englishmusic/blooms/roof_drum",
+      4,
+      215367
+    ],
+    [
+      "englishmusic/blooms/roof_pre",
+      4,
+      215368
+    ],
+    [
+      "englishmusic/blooms/selectcard",
+      4,
+      215369
+    ],
+    [
+      "englishmusic/blooms/ultimatebattle",
+      4,
+      215370
+    ]
+  ],
+  "resource_entries_removed": [],
+  "changed_sprites": [
+    {
+      "file": "resources.assets",
+      "id": 14856,
+      "type": "Sprite",
+      "bytes": 2204,
+      "name": "Dong"
+    },
+    {
+      "file": "resources.assets",
+      "id": 15013,
+      "type": "Sprite",
+      "bytes": 816,
+      "name": "ExplosionSpudow"
+    },
+    {
+      "file": "resources.assets",
+      "id": 15390,
+      "type": "Sprite",
+      "bytes": 756,
+      "name": "Sproing"
+    },
+    {
+      "file": "resources.assets",
+      "id": 15458,
+      "type": "Sprite",
+      "bytes": 676,
+      "name": "Doom"
+    },
+    {
+      "file": "resources.assets",
+      "id": 15803,
+      "type": "Sprite",
+      "bytes": 756,
+      "name": "ExplosionPowie"
+    },
+    {
+      "file": "resources.assets",
+      "id": 16085,
+      "type": "Sprite",
+      "bytes": 792,
+      "name": "Pow"
+    },
+    {
+      "file": "resources.assets",
+      "id": 16217,
+      "type": "Sprite",
+      "bytes": 696,
+      "name": "guang"
+    },
+    {
+      "file": "resources.assets",
+      "id": 16792,
+      "type": "Sprite",
+      "bytes": 748,
+      "name": "SunExplosionPowie"
+    }
+  ]
+}

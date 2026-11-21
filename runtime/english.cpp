@@ -1,4 +1,4 @@
-// Display-only IL2CPP integration. All Unity operations run on Unity's main thread.
+// Display translation and scoped vehicle repairs. All Unity operations run on Unity's main thread.
 // No game offsets, gameplay string keys, or save structures are rewritten here.
 #include <jni.h>
 #include <dlfcn.h>
@@ -472,6 +472,8 @@ static bool bind(P lib){
 }
 static bool hook(P,const char*,int,P,P*);
 #include "modifier_display.inc"
+#include "vehicle_sprites.inc"
+#include "vehicle_grounding.inc"
 static void initialize(){
     // Called on Unity's already-attached thread only AFTER il2cpp_init succeeds.
     // Published assemblies are not proof that the VM's thread system is ready.
@@ -486,6 +488,8 @@ static void initialize(){
     }
     hook(cls("","GameAPP"),"Update",0,(P)update,(P*)&oldUpdate);
     initializeModifierDisplay();
+    initializeVehicleSprites();
+    initializeVehicleGrounding();
 #ifdef PVZF_LOCAL_PLANTBRUSH
     initializeOffline();
 #endif

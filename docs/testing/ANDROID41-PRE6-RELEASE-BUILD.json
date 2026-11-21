@@ -1,0 +1,76 @@
+{
+  "status": "Prepared and verified",
+  "tag": "v4.1-release-6",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-6",
+  "prerelease": true,
+  "release_date": "2026-11-20",
+  "blooms_branch": "4.1",
+  "blooms_checked_commit": "f5f8a205204c71a6a17bcbe250cad8e80eda3c15",
+  "assets": [
+    {
+      "sha256": "a410ffe97197791cc8b1751783a68dbac61541dc620c054199d9243211210b98",
+      "bytes": 799506008,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4100121,
+      "version_name": "4.1-English-pre6",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "en",
+      "file": "PvZ-Fusion-4.1-English-prerelease6.apk"
+    },
+    {
+      "sha256": "d8f72301125d152abf946642418c61f55903bed08daf7e6cf3946dbdb8cecb38",
+      "bytes": 1065103802,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4100122,
+      "version_name": "4.1-English-pre6-ENAI",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "ai",
+      "file": "PvZ-Fusion-4.1-English-prerelease6-AI.apk"
+    }
+  ],
+  "translation_counts": {
+    "verified_ascend_titles": 19,
+    "complete_title_aliases": 56,
+    "resolved_aliases": 6,
+    "zombie_field_aliases": 449,
+    "screenshots_reviewed": 16,
+    "upstream_text_changes": 0,
+    "new_plant_names": 0,
+    "new_zombie_names": 0
+  },
+  "verification": {
+    "python_checks": 79,
+    "display_fixtures": 598,
+    "metadata_restore_checks_per_variant": 4,
+    "almanac_restore_checks_per_variant": 12,
+    "grounding_regression_test": true,
+    "emulator_final_runtime_combat_trials": 6,
+    "roof_slope_trials": 2,
+    "unchanged_game_dex_unity_metadata_audio": true,
+    "unchanged_offline_model_and_inference": true,
+    "signatures": true,
+    "alignment_16k": true,
+    "compression_preserved": true
+  },
+  "vehicle_vertical_instability_reproduced": true,
+  "vehicle_grounding_repair": true,
+  "reporter_device_confirmation_pending": true,
+  "private_cheats_included": false,
+  "diagnostic_harness_included": false,
+  "clean_base_hashes": {
+    "en": "a66ee8e6a23c927c262728a43824f02eb6909574674e61f5c9faec7369e08ddb",
+    "ai": "d21783d0cf6666e634d404d1bffeff136ed1910af36717053460125c78d2dcb8"
+  },
+  "changed_entries": [
+    "AndroidManifest.xml",
+    "assets/english/manifest.json",
+    "assets/english/translations.json",
+    "lib/arm64-v8a/libpvzfenglish.so",
+    "lib/armeabi-v7a/libpvzfenglish.so"
+  ],
+  "known_limits": [
+    "Physical reporter device confirmation is pending; the reproduced movement failure is repaired, but unrelated bobsled failures may still exist.",
+    "Some specialized unverified names and text remain Chinese.",
+    "Offline AI keeps the existing model/catalog and pre4 lifecycle fix; no new AI accuracy or memory optimization is claimed."
+  ]
+}

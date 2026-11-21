@@ -1,0 +1,99 @@
+[
+  {
+    "screenshot": 1,
+    "zombie_id": 20,
+    "name": "Trident Zombie",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 2,
+    "zombie_id": 38,
+    "name": "Mecha Gargantuar",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 3,
+    "zombie_id": 39,
+    "name": "Giga Mecha Gargantuar",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 4,
+    "zombie_id": 43,
+    "name": "Armored Gargantuar",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 5,
+    "zombie_id": 76,
+    "name": "Trident Gargantuar",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 6,
+    "zombie_id": 92,
+    "name": "Lost Automaton",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 7,
+    "zombie_id": 98,
+    "name": "Snowbeak (Hostile)",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 8,
+    "zombie_id": 134,
+    "name": "Giga Dolphin-nut Zombie",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 9,
+    "zombie_id": 135,
+    "name": "Cherrizilla Zombie",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 10,
+    "zombie_id": 202,
+    "name": "Giga Trident-nut Zombie",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 11,
+    "zombie_id": 218,
+    "name": "<u>Pozeidon</u>",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 12,
+    "zombie_id": 240,
+    "name": "Trident Jugger-nut Gargantuar",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 13,
+    "zombie_id": 261,
+    "name": "<u><i>Jackson Universe</i></u>",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 14,
+    "zombie_id": 262,
+    "name": "Harpooneer Frost Tall-nut Zombie",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 15,
+    "zombie_id": 339,
+    "name": "<u><i>Channeler Pozeidon</i></u>",
+    "packaged_fields_english": true
+  },
+  {
+    "screenshot": 16,
+    "area": "Gods Almanac",
+    "source_title": "Ascend: 噬化万军",
+    "english_title": "Ascend: Summoner",
+    "fixed_missing_complete_title_key": true
+  }
+]
