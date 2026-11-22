@@ -28,7 +28,7 @@
     "process_initialization": "ProcessStartGate performs setup once per main game process; restoration still prepares before Unity.",
     "managed_files": "Existing metadata and existing default/named-profile language overrides are SHA256-checked at startup. Only16MiB metadata and small JSON/support files are involved per path; multiple profiles/slow storage can increase cost. No large model hashing is part of game startup.",
     "dictionary": "About3.9MB JSON,17153 exact mappings and694 regex rules; existing logs show90-117ms for this phase in the emulator.",
-    "offline_recognition": "PlantbrushBridge.init checks availability and starts a health thread; model service binding/loading/inference begins only through request/Identify. EnglishApplication excludes the isolated AI process from Unity preparation.",
+    "offline_recognition": "PlantbrushBridge.init checks availability and starts a health thread. Native MaLiangMenu.Start or Parse requests service binding/model loading; normal game startup installs routing/hooks without starting the model. EnglishApplication excludes the isolated AI process from Unity preparation.",
     "music": "Selected profile loads a Unity resource and calls LoadAudioData; only active clips and the roof-prelude stems are retained. AudioClips already use background loading and disable preload. Individual resource/decode timings are missing.",
     "translation_runtime": "Prefix-filtered regex rules and bounded Java/native caches already exist. First-scene translation overhead remains within the unmeasured scene window.",
     "bundle": "Both official and translated bundles use128KiB chunks and ZIP_STORED outer entries. No accidental monolithic LZMA block or outer ZIP deflate found."
