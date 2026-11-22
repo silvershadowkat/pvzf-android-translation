@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-22",
+  "status": "Initial audit complete; performance cause unconfirmed",
+  "report": "Returning player reports about13s loading in3.0 versus2-3minutes now. Exact device, edition and timing endpoints not yet supplied. Maintainer is requesting comparison with current untranslated Chinese game.",
+  "reference_release": "v4.1-release-7",
+  "source_base": "3f53544",
+  "observed_emulator_logs": {
+    "test_date": "2026-11-21",
+    "standard": {
+      "dictionary_phase_ms": 117,
+      "dictionary_finished_to_process_prepared_ms": 81,
+      "process_prepared_to_native_init_finished_ms": 1699,
+      "native_init_finished_to_first_TMP_parse_callback_ms": 40338
+    },
+    "offline_ai": {
+      "dictionary_phase_ms": 90,
+      "dictionary_finished_to_process_prepared_ms": 162,
+      "process_prepared_to_native_init_finished_ms": 1984,
+      "native_init_finished_to_first_TMP_parse_callback_ms": 41299
+    },
+    "limitations": [
+      "Existing Render callback log is the first TMP ParseInputText callback, not proof of a presented frame or interactable menu.",
+      "Dictionary-phase timing starts at the managed-files-complete log. It excludes preceding verification, class loading and other setup.",
+      "Emulator results do not establish the reporter phone timings or causality. The long window includes original Unity startup and translation/music hooks."
+    ]
+  },
+  "code_review": {
+    "process_initialization": "ProcessStartGate performs setup once per main game process; restoration still prepares before Unity.",
+    "managed_files": "Existing metadata and existing default/named-profile language overrides are SHA256-checked at startup. Only16MiB metadata and small JSON/support files are involved per path; multiple profiles/slow storage can increase cost. No large model hashing is part of game startup.",
+    "dictionary": "About3.9MB JSON,17153 exact mappings and694 regex rules; existing logs show90-117ms for this phase in the emulator.",
+    "offline_recognition": "PlantbrushBridge.init checks availability and starts a health thread; model service binding/loading/inference begins only through request/Identify. EnglishApplication excludes the isolated AI process from Unity preparation.",
+    "music": "Selected profile loads a Unity resource and calls LoadAudioData; only active clips and the roof-prelude stems are retained. AudioClips already use background loading and disable preload. Individual resource/decode timings are missing.",
+    "translation_runtime": "Prefix-filtered regex rules and bounded Java/native caches already exist. First-scene translation overhead remains within the unmeasured scene window.",
+    "bundle": "Both official and translated bundles use128KiB chunks and ZIP_STORED outer entries. No accidental monolithic LZMA block or outer ZIP deflate found."
+  },
+  "bundle_inventory": {
+    "official": {
+      "bundle_bytes": 510347835,
+      "unity": "5.x.x",
+      "block_count": 10800,
+      "max_uncompressed_block": 131072,
+      "total_uncompressed": 1415561156,
+      "compression_flags": {
+        "3": 10800
+      }
+    },
+    "EN_pre7": {
+      "bundle_bytes": 523741438,
+      "unity": "5.x.x",
+      "block_count": 11132,
+      "max_uncompressed_block": 131072,
+      "total_uncompressed": 1458976048,
+      "compression_flags": {
+        "2": 11132
+      }
+    },
+    "largest_added_entries": [
+      {
+        "name": "assets/english/translations.json",
+        "bytes": 3904707
+      },
+      {
+        "name": "lib/arm64-v8a/libpvzfenglish.so",
+        "bytes": 959320
+      },
+      {
+        "name": "assets/english-almanac/LawnStrings.json",
+        "bytes": 758144
+      },
+      {
+        "name": "lib/armeabi-v7a/libpvzfenglish.so",
+        "bytes": 577168
+      },
+      {
+        "name": "assets/english-almanac/ZombieStrings.json",
+        "bytes": 208447
+      },
+      {
+        "name": "assets/english-almanac/DetailStrings.json",
+        "bytes": 38613
+      }
+    ]
+  },
+  "apk_entry_deltas": [
+    {
+      "name": "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+      "zip_bytes_delta": 1050771,
+      "original_uncompressed": 13855272,
+      "translated_uncompressed": 16268688,
+      "original_zip_method": 8,
+      "translated_zip_method": 8
+    },
+    {
+      "name": "assets/bin/Data/data.unity3d",
+      "zip_bytes_delta": 13393603,
+      "original_uncompressed": 510347835,
+      "translated_uncompressed": 523741438,
+      "original_zip_method": 0,
+      "translated_zip_method": 0
+    },
+    {
+      "name": "assets/bin/Data/resources.resource",
+      "zip_bytes_delta": 162323424,
+      "original_uncompressed": 44576544,
+      "translated_uncompressed": 206899968,
+      "original_zip_method": 0,
+      "translated_zip_method": 0
+    }
+  ],
+  "next_release_measurements": [
+    "Log monotonic durations for managed verification, dictionary parse/regex compile, library load, original IL2CPP initialization, hook installation, music Resources.Load and LoadAudioData.",
+    "Measure actual visible/interactable menu separately from first TMP callback and splash-screen presentation.",
+    "Run matched current Chinese4.1, EN and ENAI on the same test device with repeated process-cold and warm launches; record first launch after update separately. Do not compare3.0 against4.1 alone to assign blame.",
+    "Compare soundtrack variants using a true factory-audio diagnostic control. Public Original redirects to normalized original assets; the existing PVZF_MUSIC_DIAGNOSTICS Original bypass is the proper factory control.",
+    "Profile file verification only if it is material. Preserve recovery from old restored metadata/almanacs; existing backup-restoration tests must continue passing.",
+    "Optimize the measured dominant stage; assess asset I/O, first-scene translation and audio scheduling before spending effort on the short dictionary phase."
+  ],
+  "needed_reporter_details": [
+    "Device model and Android version",
+    "Current game/release version and EN/ENAI edition",
+    "Timing endpoints and whether the delay occurs on every launch or only after update/install",
+    "Same-device current Chinese4.1 result"
+  ],
+  "implemented_speed_changes": false,
+  "apk_built_or_installed": false,
+  "release_published": false
+}
