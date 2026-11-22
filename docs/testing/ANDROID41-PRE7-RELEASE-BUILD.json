@@ -1,5 +1,5 @@
 {
-  "status": "Prepared and verified",
+  "status": "Published and verified",
   "tag": "v4.1-release-7",
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-7",
   "prerelease": true,
@@ -16,7 +16,9 @@
       "version_name": "4.1-English-pre7",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "en",
-      "file": "PvZ-Fusion-4.1-English-prerelease7.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease7.apk",
+      "github_asset_id": 777737761,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-7/PvZ-Fusion-4.1-English-prerelease7.apk"
     },
     {
       "sha256": "1b5e2b927e12d384929b3b990cb97194563db605dadd849f4517cec439495a2c",
@@ -26,7 +28,9 @@
       "version_name": "4.1-English-pre7-ENAI",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "ai",
-      "file": "PvZ-Fusion-4.1-English-prerelease7-AI.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease7-AI.apk",
+      "github_asset_id": 777739215,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-7/PvZ-Fusion-4.1-English-prerelease7-AI.apk"
     }
   ],
   "translation_counts": {
@@ -123,5 +127,9 @@
     "Static description audit and targeted emulator startup/restoration checks; not exhaustive combat testing of every plant, effect, upgrade or mode.",
     "Specialized wording without verified evidence may still need further review.",
     "Offline recognition retains the existing model and lifecycle handling."
-  ]
+  ],
+  "source_commit": "df5048b6c059e65c3e4e4a919335cad01407f076",
+  "release_id": 454168977,
+  "published_at": "2026-11-22T03:28:46Z",
+  "homepage_readme_commit": "a00988407d9ddeeb5c7a6c19a2e9d7136aeee89e"
 }
