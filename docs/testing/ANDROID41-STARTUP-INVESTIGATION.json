@@ -1,6 +1,6 @@
 {
   "date": "2026-11-22",
-  "status": "Initial audit complete; performance cause unconfirmed",
+  "status": "Follow-up completed: base-game bottleneck profiled; experimental UI loading improvement measured",
   "report": "Returning player reports about13s loading in3.0 versus2-3minutes now. Exact device, edition and timing endpoints not yet supplied. Maintainer is requesting comparison with current untranslated Chinese game.",
   "reference_release": "v4.1-release-7",
   "source_base": "3f53544",
@@ -123,5 +123,7 @@
   ],
   "implemented_speed_changes": false,
   "apk_built_or_installed": false,
-  "release_published": false
+  "release_published": false,
+  "reporter_confirmation": "Both current Chinese and translated game have slow repeated startup on the reporter device; exact hardware remains unknown.",
+  "followup_report": "ANDROID41-STARTUP-PERFORMANCE-EXPERIMENT.json"
 }

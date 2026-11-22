@@ -1,0 +1,265 @@
+{
+  "date": "2026-11-22",
+  "status": "Measured experimental candidate; not enabled in normal builds",
+  "reporter_update": "Maintainer confirms the reporter also sees long repeated launches in current Chinese game. Device/Android version unknown; weaker hardware is an assumption.",
+  "source_base": "v4.1-release-7",
+  "experiment": "Construct UIResourcesLoader dictionary/stack without preloading the entire menu folder; load a verified menu prefab at first Push and reuse it thereafter.",
+  "environment": {
+    "device": "Dedicated Android emulator",
+    "cpu_cores": 2,
+    "ram_mib": 2048,
+    "graphics": "SwiftShader software rendering",
+    "runtime_abi": "arm64 via emulator native bridge"
+  },
+  "control": {
+    "runs": 2,
+    "mean_awake_plus_start_seconds": 36.0492685,
+    "mean_ui_constructor_seconds": 3.5449845,
+    "mean_initial_pss_mib": 938.12744140625,
+    "mean_launch_to_frame_sample_and_memory_snapshot_seconds": 53.453000000008615
+  },
+  "candidate": {
+    "runs": 2,
+    "mean_awake_plus_start_seconds": 32.6058845,
+    "mean_ui_constructor_seconds": 0.0064895000000000005,
+    "mean_initial_pss_mib": 885.162109375,
+    "mean_launch_to_frame_sample_and_memory_snapshot_seconds": 48.34399999999732
+  },
+  "differences": {
+    "initialization_seconds_saved": 3.4433839999999947,
+    "initialization_percent_faster": 9.551883140153024,
+    "initial_pss_mib_saved": 52.96533203125
+  },
+  "raw_trials": [
+    {
+      "label": "control-1",
+      "mode": 0,
+      "phases_ms": {
+        "ResourcesManager.LoadNormalSkin": 18152.359,
+        "ResourcesManager.LoadSkin": 816.379,
+        "ResourcesManager.LoadPlant": 18976.982,
+        "ResourcesManager.LoadBullet": 806.404,
+        "ResourcesManager.LoadGridItem": 186.607,
+        "ResourcesManager.ctor": 29642.388,
+        "SoundManager.LoadSound": 180.719,
+        "SoundManager.LoadMusic": 1.874,
+        "GameAPP.LoadParticle": 49.8,
+        "GameAPP.LoadItem": 156.365,
+        "GameAPP.LoadResources": 707.301,
+        "UIResourcesLoader.ctor": 3372.0,
+        "GameAPP.Awake": 34857.13,
+        "MixData.InitMixData": 173.663,
+        "PlantDataManager.Init": 73.367,
+        "ExploreDataManager.LoadData": 81.639,
+        "ZombieDataManager.LoadData": 29.992,
+        "GameAPP.Start": 862.22
+      },
+      "pss_kib": 955344,
+      "wall_until_start_and_first_frame_sample_seconds": 53.375
+    },
+    {
+      "label": "lazy-1",
+      "mode": 1,
+      "phases_ms": {
+        "ResourcesManager.LoadNormalSkin": 16603.225,
+        "ResourcesManager.LoadSkin": 810.644,
+        "ResourcesManager.LoadPlant": 17417.575,
+        "ResourcesManager.LoadBullet": 654.015,
+        "ResourcesManager.LoadGridItem": 197.761,
+        "ResourcesManager.ctor": 28307.094,
+        "SoundManager.LoadSound": 160.203,
+        "SoundManager.LoadMusic": 2.655,
+        "GameAPP.LoadParticle": 45.476,
+        "GameAPP.LoadItem": 155.855,
+        "GameAPP.LoadResources": 662.679,
+        "UIResourcesLoader.ctor": 7.771,
+        "GameAPP.Awake": 30259.23,
+        "MixData.InitMixData": 217.172,
+        "PlantDataManager.Init": 78.03,
+        "ExploreDataManager.LoadData": 81.841,
+        "ZombieDataManager.LoadData": 37.24,
+        "GameAPP.Start": 1608.535
+      },
+      "pss_kib": 907842,
+      "wall_until_start_and_first_frame_sample_seconds": 47.75
+    },
+    {
+      "label": "control-2",
+      "mode": 0,
+      "phases_ms": {
+        "ResourcesManager.LoadNormalSkin": 17611.67,
+        "ResourcesManager.LoadSkin": 810.822,
+        "ResourcesManager.LoadPlant": 18425.959,
+        "ResourcesManager.LoadBullet": 672.189,
+        "ResourcesManager.LoadGridItem": 163.292,
+        "ResourcesManager.ctor": 29474.878,
+        "SoundManager.LoadSound": 176.395,
+        "SoundManager.LoadMusic": 1.722,
+        "GameAPP.LoadParticle": 53.044,
+        "GameAPP.LoadItem": 180.147,
+        "GameAPP.LoadResources": 713.615,
+        "UIResourcesLoader.ctor": 3717.969,
+        "GameAPP.Awake": 35503.386,
+        "MixData.InitMixData": 192.247,
+        "PlantDataManager.Init": 88.327,
+        "ExploreDataManager.LoadData": 76.035,
+        "ZombieDataManager.LoadData": 39.231,
+        "GameAPP.Start": 875.801
+      },
+      "pss_kib": 965941,
+      "wall_until_start_and_first_frame_sample_seconds": 53.53100000001723
+    },
+    {
+      "label": "lazy-2",
+      "mode": 1,
+      "phases_ms": {
+        "ResourcesManager.LoadNormalSkin": 17430.171,
+        "ResourcesManager.LoadSkin": 794.043,
+        "ResourcesManager.LoadPlant": 18229.349,
+        "ResourcesManager.LoadBullet": 631.021,
+        "ResourcesManager.LoadGridItem": 162.984,
+        "ResourcesManager.ctor": 29644.306,
+        "SoundManager.LoadSound": 174.869,
+        "SoundManager.LoadMusic": 3.666,
+        "GameAPP.LoadParticle": 40.788,
+        "GameAPP.LoadItem": 155.952,
+        "GameAPP.LoadResources": 686.908,
+        "UIResourcesLoader.ctor": 5.208,
+        "GameAPP.Awake": 31579.382,
+        "MixData.InitMixData": 651.049,
+        "PlantDataManager.Init": 102.71,
+        "ExploreDataManager.LoadData": 84.776,
+        "ZombieDataManager.LoadData": 38.316,
+        "GameAPP.Start": 1764.622
+      },
+      "pss_kib": 904970,
+      "wall_until_start_and_first_frame_sample_seconds": 48.937999999994645
+    }
+  ],
+  "methodology": [
+    "Four launches in control/candidate/control/candidate order, same signed diagnostic APK, same app profile and unchanged gameplay assets. Process stopped between trials; filesystem cache was not forcibly cleared.",
+    "Primary metric sums measured GameAPP.Awake and GameAPP.Start durations; nested phase timings must not be added again.",
+    "Secondary wall metric includes launch dispatch, readiness polling, first five-second frame sample, and dumpsys memory snapshot; it is not an exact interactable-menu timer.",
+    "PSS snapshots are taken after startup and before loading deferred menus. Later opening all menus can consume the deferred memory.",
+    "Baseline and candidate retain the original game startup/assets except the candidate UI constructor/Push interception. The original Push/pop/navigation functions are used."
+  ],
+  "validation": {
+    "official_ui_enum_entries": 94,
+    "matching_gameobject_resource_paths": 94,
+    "runtime_resource_validation": 94,
+    "final_dictionary_count": 94,
+    "menu_smoke": [
+      {
+        "kind": 4,
+        "name": "settings",
+        "pushed": true,
+        "visible_nonblank": true
+      },
+      {
+        "kind": 79,
+        "name": "almanac-select",
+        "pushed": true,
+        "visible_nonblank": true
+      },
+      {
+        "kind": 56,
+        "name": "plants",
+        "pushed": true,
+        "visible_nonblank": true
+      },
+      {
+        "kind": 57,
+        "name": "zombies",
+        "pushed": true,
+        "visible_nonblank": true
+      },
+      {
+        "kind": 66,
+        "name": "gods",
+        "pushed": true,
+        "visible_nonblank": true
+      },
+      {
+        "kind": 9,
+        "name": "survival",
+        "pushed": true,
+        "visible_nonblank": true
+      }
+    ],
+    "visual_inspection": [
+      "Settings",
+      "Plant Almanac",
+      "Zombie Almanac",
+      "Gods Collection"
+    ],
+    "unity_errors_observed": false,
+    "original_chinese_controls": [
+      {
+        "label": "stock-first",
+        "wall_seconds_to_polled_stock_awake_log": 39.110000000015134,
+        "stock_marker": "11-22 11:39:04.521  5939  5984 I Unity   : 启动时间：2026年11月22日11时39分03秒",
+        "physical_device": false
+      },
+      {
+        "label": "stock-repeat",
+        "wall_seconds_to_polled_stock_awake_log": 39.219000000011874,
+        "stock_marker": "11-22 11:39:53.014  6137  6155 I Unity   : 启动时间：2026年11月22日11时39分52秒",
+        "physical_device": false
+      }
+    ],
+    "apk_delta_report": {
+      "sha256": "2c5487cc8b2661af7cd3e6e7c14d3883c7763392ef89eb99fac6d4f96bdec7a6",
+      "base_sha256": "dbfb2d9b5666aa52d3a441e28bbe659073dcff4cf597302a4fa2754dbf4d8e2e",
+      "diagnostic": true,
+      "experiment_abi": "arm64-v8a",
+      "changed_entries": [
+        "lib/arm64-v8a/libpvzfenglish.so"
+      ],
+      "other_entries_identical": true,
+      "source_files": {
+        "english.cpp": "66b6fe00a5986aa7e87d98d933dfe69ad3a6dda552ddb16df73f0f1f9079969c",
+        "startup_bench.inc": "aa639b5c573ed82d08a94fa2a63bc7f4dbcf2c76486d9c243c83023bed512766",
+        "lazy_ui_candidate.inc": "1e54d6d9df1d4487b19620444469d1c00afc74b6be785e504cf6b74b1d5eb34a"
+      },
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "installed": false,
+      "published": false,
+      "limitations": [
+        "Experimental owner tracking and fallback need production hardening before a release.",
+        "No 32-bit experiment or physical-device validation."
+      ],
+      "apk_file": "repro-probe.apk"
+    },
+    "wrong_base_rejected_before_mutation": true,
+    "armv7_compile_passed": true,
+    "armv7_runtime_tested": false,
+    "emulator_standard_pre7_restored_after_test": true,
+    "emulator_stopped": true
+  },
+  "findings": [
+    "Base ResourcesManager initialization is the main measured cost: about25-30seconds, including about15-18seconds loading normal plant assets.",
+    "UI constructor normally costs3.4-3.7seconds; the lazy constructor costs5-8milliseconds, with some menu loading moving into subsequent first use.",
+    "Sound loading and data parsing are much smaller in these traces.",
+    "Of3362original Texture2D assets, only13are readable (~3.1MiB serialized image data); disabling texture readability would not provide a meaningful general win.",
+    "The stock game requests200FPS. That is not actual FPS, and this GPU-constrained emulator is already much slower; a forced cap is not an evidenced fix for its startup delay."
+  ],
+  "limitations": [
+    "Only two timing trials per mode; not a statistically broad hardware benchmark.",
+    "The stock-Chinese marker is an Awake log, so its wall seconds must not be directly compared to the English frame-sample-and-memory endpoint.",
+    "No physical-device testing, combat FPS improvement, thermal/power result or promise of solving the reporter2-3minute delay.",
+    "First opening a deferred menu can pause while its prefab loads; later visits use its cached asset.",
+    "Prototype owner tracking and fallback need hardening; runtime compatibility and save/profile lifecycle need release-level validation before production enablement.",
+    "All94prefabs load correctly, but six menu families are smoke-tested, not every possible menu interaction."
+  ],
+  "next_targets": [
+    "Retain this UI-loading candidate for next-release integration after hardening and device validation.",
+    "Profile the much larger plant/skin/zombie preload phase before considering on-demand loading there; fusion, preview, skin and enumeration dependencies make it a larger change.",
+    "Investigate frame pacing on real target hardware before adding any optional FPS policy."
+  ],
+  "published": false,
+  "installed_on_user_device": false,
+  "source_hashes": {
+    "startup_bench.inc": "aa639b5c573ed82d08a94fa2a63bc7f4dbcf2c76486d9c243c83023bed512766",
+    "lazy_ui_candidate.inc": "1e54d6d9df1d4487b19620444469d1c00afc74b6be785e504cf6b74b1d5eb34a"
+  }
+}
