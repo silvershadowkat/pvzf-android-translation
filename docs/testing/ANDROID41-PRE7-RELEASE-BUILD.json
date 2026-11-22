@@ -1,0 +1,127 @@
+{
+  "status": "Prepared and verified",
+  "tag": "v4.1-release-7",
+  "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-7",
+  "prerelease": true,
+  "release_date": "2026-11-21",
+  "source_base_commit": "0a974c51999ee5f0e5d9f6ab4355890ce6584814",
+  "blooms_branch": "4.1",
+  "blooms_checked_commit": "c4872b81c7a846c102a47b54683a3a52e20b652e",
+  "assets": [
+    {
+      "sha256": "dbfb2d9b5666aa52d3a441e28bbe659073dcff4cf597302a4fa2754dbf4d8e2e",
+      "bytes": 799862360,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesEN",
+      "version_code": 4100123,
+      "version_name": "4.1-English-pre7",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "en",
+      "file": "PvZ-Fusion-4.1-English-prerelease7.apk"
+    },
+    {
+      "sha256": "1b5e2b927e12d384929b3b990cb97194563db605dadd849f4517cec439495a2c",
+      "bytes": 1065497018,
+      "package": "com.LanPiaoPiao.PlantsVsZombiesENAI",
+      "version_code": 4100124,
+      "version_name": "4.1-English-pre7-ENAI",
+      "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
+      "variant": "ai",
+      "file": "PvZ-Fusion-4.1-English-prerelease7-AI.apk"
+    }
+  ],
+  "translation_counts": {
+    "plant_entries_audited": 742,
+    "zombie_entries_audited": 238,
+    "plant_descriptions_corrected": 25,
+    "zombie_descriptions_corrected": 11,
+    "blooms_asset_fields": 50,
+    "runtime_exact_updates": 148,
+    "metadata_updates": 36
+  },
+  "verification": {
+    "python_checks": 85,
+    "java_display_fixtures": 236,
+    "managed_refresh_checks": 8,
+    "metadata_restore_checks_per_edition": 4,
+    "almanac_restore_checks_per_edition": 12,
+    "release_signatures_v1_v2_v3": true,
+    "alignment_16k": true,
+    "zip_integrity": true,
+    "defender_custom_scan": {
+      "date": "2026-11-21",
+      "version": "4.18.26090.9",
+      "result": "No threats found",
+      "exit_code": 0
+    },
+    "editions": {
+      "en": {
+        "base_sha256": "a410ffe97197791cc8b1751783a68dbac61541dc620c054199d9243211210b98",
+        "changed_entries": [
+          "AndroidManifest.xml",
+          "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+          "assets/bin/Data/data.unity3d",
+          "assets/english-almanac/LawnStrings.json",
+          "assets/english-almanac/ZombieStrings.json",
+          "assets/english/manifest.json",
+          "assets/english/translations.json"
+        ],
+        "objects_compared": 219584,
+        "changed_unity_text_objects": 34,
+        "bundle_sha256": "8a22216e23db73899856245793649261ae56fad551df36577aa566541ea089c0",
+        "metadata_sha256": "5913d828a26a26cec964f913021ab13a00ede846cf960838acf745457b54ab45",
+        "protected_metadata_slots": 32,
+        "other_apk_entries_identical": true,
+        "other_unity_objects_identical": true,
+        "compression_preserved": true,
+        "emulator_startup": true,
+        "restored_language_hashes": {
+          "LawnStrings.json": "4d7a4deaabe855afe907d6264d613de4e724f1f59efae095b1de680067bc2c8a",
+          "ZombieStrings.json": "dcb308f9a4e6d219c268e1089bde47fd7cd9888c5ae5b87235b55a8f10d5fb4e",
+          "DetailStrings.json": "9556c2316f36dc50f7393e4ede4f66a82a83d5133de5c5821443ef9da723e22d",
+          "il2cpp/Metadata/global-metadata.dat": "5913d828a26a26cec964f913021ab13a00ede846cf960838acf745457b54ab45"
+        },
+        "visible_nonblank_startup": true
+      },
+      "ai": {
+        "base_sha256": "d8f72301125d152abf946642418c61f55903bed08daf7e6cf3946dbdb8cecb38",
+        "changed_entries": [
+          "AndroidManifest.xml",
+          "assets/bin/Data/Managed/Metadata/global-metadata.dat",
+          "assets/bin/Data/data.unity3d",
+          "assets/english-almanac/LawnStrings.json",
+          "assets/english-almanac/ZombieStrings.json",
+          "assets/english/manifest.json",
+          "assets/english/translations.json"
+        ],
+        "objects_compared": 219584,
+        "changed_unity_text_objects": 34,
+        "bundle_sha256": "115fb46c815fb972f148f0c207288c396bdffa677c86ae1e00f7141f34e429ff",
+        "metadata_sha256": "5913d828a26a26cec964f913021ab13a00ede846cf960838acf745457b54ab45",
+        "protected_metadata_slots": 32,
+        "other_apk_entries_identical": true,
+        "other_unity_objects_identical": true,
+        "compression_preserved": true,
+        "emulator_startup": true,
+        "restored_language_hashes": {
+          "LawnStrings.json": "4d7a4deaabe855afe907d6264d613de4e724f1f59efae095b1de680067bc2c8a",
+          "ZombieStrings.json": "dcb308f9a4e6d219c268e1089bde47fd7cd9888c5ae5b87235b55a8f10d5fb4e",
+          "DetailStrings.json": "9556c2316f36dc50f7393e4ede4f66a82a83d5133de5c5821443ef9da723e22d",
+          "il2cpp/Metadata/global-metadata.dat": "5913d828a26a26cec964f913021ab13a00ede846cf960838acf745457b54ab45"
+        },
+        "visible_nonblank_startup": true
+      }
+    }
+  },
+  "gameplay_data_unchanged": true,
+  "game_native_code_and_dex_unchanged": true,
+  "bridge_code_unchanged": true,
+  "audio_unchanged": true,
+  "recognition_assets_unchanged": true,
+  "vehicle_repair_retained": true,
+  "physical_device_tested_for_this_revision": false,
+  "known_limits": [
+    "Static description audit and targeted emulator startup/restoration checks; not exhaustive combat testing of every plant, effect, upgrade or mode.",
+    "Specialized wording without verified evidence may still need further review.",
+    "Offline recognition retains the existing model and lifecycle handling."
+  ]
+}
