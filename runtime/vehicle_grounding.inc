@@ -6,6 +6,7 @@
 static void (*oldGroundedVehicleVelocity)(P,float,M)=nullptr;
 static M vehicleGetVelocity=nullptr,vehicleGetPosition=nullptr;
 static M vehicleSetVelocity=nullptr,vehicleSetPosition=nullptr,vehicleFixedStep=nullptr;
+static M vehicleGetTransform=nullptr,vehicleGetWorldPosition=nullptr;
 static void groundedVehicleVelocity(P zombie,float vx,M m){
     oldGroundedVehicleVelocity(zombie,vx,m);
     // Preserve the game's target ground height, roof offset and horizontal speed.
@@ -13,9 +14,11 @@ static void groundedVehicleVelocity(P zombie,float vx,M m){
     P rb=field<P>(zombie,"rb");if(!rb)return;
     P boxedVelocity=call(vehicleGetVelocity,rb),boxedPosition=call(vehicleGetPosition,rb);
     P boxedStep=call(vehicleFixedStep);
-    if(!boxedVelocity||!boxedPosition||!boxedStep)return;
+    P transform=call(vehicleGetTransform,zombie);
+    P boxedRoot=transform?call(vehicleGetWorldPosition,transform):nullptr;
+    if(!boxedVelocity||!boxedPosition||!boxedStep||!boxedRoot)return;
     V2 velocity=value<V2>(boxedVelocity),position=value<V2>(boxedPosition);float y;
-    if(!std::isfinite(velocity.x)||!english::groundedVehicleY(position.y,velocity.y,value<float>(boxedStep),y))return;
+    if(!std::isfinite(velocity.x)||!english::groundedVehicleY(value<V3>(boxedRoot).y,velocity.y,value<float>(boxedStep),y))return;
     position.y=y;velocity.y=0;
     P positionArgs[]={&position},velocityArgs[]={&velocity};
     call(vehicleSetPosition,rb,positionArgs);
@@ -28,9 +31,12 @@ static void initializeVehicleGrounding(){
     vehicleSetVelocity=overload(rb,"set_velocity",{"UnityEngine.Vector2"});
     vehicleSetPosition=overload(rb,"set_position",{"UnityEngine.Vector2"});
     vehicleFixedStep=overload(cls("UnityEngine","Time"),"get_fixedDeltaTime",{});
+    vehicleGetTransform=overload(cls("UnityEngine","Component"),"get_transform",{});
+    vehicleGetWorldPosition=overload(cls("UnityEngine","Transform"),"get_position",{});
     P driver=cls("","DriverZombie");
     if(!fieldInfo(driver,"rb")||!vehicleGetVelocity||!vehicleGetPosition||
        !vehicleSetVelocity||!vehicleSetPosition||!vehicleFixedStep||
+       !vehicleGetTransform||!vehicleGetWorldPosition||
        !overload(driver,"SetGroundedDriverVelocity",{"System.Single"})){
         LOG("Vehicle grounding repair: unexpected schema; disabled");return;
     }

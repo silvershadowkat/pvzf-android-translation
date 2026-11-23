@@ -1,0 +1,272 @@
+{
+  "date": "2026-11-23",
+  "published_release_unchanged": "v4.1-release-7",
+  "reporter_build_confirmation_pending": true,
+  "emulator": "Android 14 x86_64 with ARM64 native translation; PvZF_Pre6_Test; 2 cores / 2048MiB",
+  "cadence_test": {
+    "time_scale": 0.1,
+    "vertical_seed": 1e-05,
+    "pre7": [
+      {
+        "label": "pre7-confirmed-timing",
+        "kind": 16,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 24,
+        "min_root_y": -30.08034,
+        "max_root_y": 22.00953,
+        "min_body_y": -183.1214,
+        "max_body_y": 55.66821,
+        "x_start": 3.16994,
+        "x_end": 5.63812,
+        "hp_last": 1350,
+        "helper_delta": 300,
+        "exceptions": []
+      },
+      {
+        "label": "pre7-confirmed-timing",
+        "kind": 18,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 23,
+        "min_root_y": -6.9673,
+        "max_root_y": 42.31958,
+        "min_body_y": -306.00922,
+        "max_body_y": 46.37658,
+        "x_start": 2.64053,
+        "x_end": 5.50267,
+        "hp_last": 2700,
+        "helper_delta": 144,
+        "exceptions": []
+      },
+      {
+        "label": "pre7-confirmed-timing",
+        "kind": 201,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 25,
+        "min_root_y": -4.2303,
+        "max_root_y": 7.64963,
+        "min_body_y": -16.49168,
+        "max_body_y": 7.64943,
+        "x_start": 2.45653,
+        "x_end": 5.48401,
+        "hp_last": 12000,
+        "helper_delta": 139,
+        "exceptions": []
+      },
+      {
+        "label": "pre7-confirmed-timing",
+        "kind": 222,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 25,
+        "min_root_y": -2.35098,
+        "max_root_y": 2.9353,
+        "min_body_y": -21.96694,
+        "max_body_y": 3.51795,
+        "x_start": 2.91123,
+        "x_end": 5.48401,
+        "hp_last": 48000,
+        "helper_delta": 130,
+        "exceptions": []
+      },
+      {
+        "label": "pre7-confirmed-timing",
+        "kind": 10,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 22,
+        "min_root_y": -0.42,
+        "max_root_y": -0.41999,
+        "min_body_y": -0.41999,
+        "max_body_y": -0.41999,
+        "x_start": 2.97113,
+        "x_end": 6.0,
+        "hp_last": 720,
+        "helper_delta": 0,
+        "exceptions": []
+      }
+    ],
+    "corrected": [
+      {
+        "label": "corrected-timing",
+        "kind": 16,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 23,
+        "min_root_y": -1.0625,
+        "max_root_y": -1.0625,
+        "min_body_y": -1.0625,
+        "max_body_y": -1.0625,
+        "x_start": 3.05246,
+        "x_end": 5.65437,
+        "hp_last": 1350,
+        "helper_delta": 292,
+        "exceptions": []
+      },
+      {
+        "label": "corrected-timing",
+        "kind": 18,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 23,
+        "min_root_y": -1.0625,
+        "max_root_y": -1.0625,
+        "min_body_y": -1.0625,
+        "max_body_y": -1.0625,
+        "x_start": 2.51919,
+        "x_end": 5.48534,
+        "hp_last": 2700,
+        "helper_delta": 146,
+        "exceptions": []
+      },
+      {
+        "label": "corrected-timing",
+        "kind": 201,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 25,
+        "min_root_y": -1.0625,
+        "max_root_y": -1.0625,
+        "min_body_y": -1.0625,
+        "max_body_y": -1.0625,
+        "x_start": 2.56186,
+        "x_end": 5.50134,
+        "hp_last": 12000,
+        "helper_delta": 136,
+        "exceptions": []
+      },
+      {
+        "label": "corrected-timing",
+        "kind": 222,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 25,
+        "min_root_y": -0.8592,
+        "max_root_y": -0.8592,
+        "min_body_y": -0.8592,
+        "max_body_y": -0.8592,
+        "x_start": 2.89256,
+        "x_end": 5.48667,
+        "hp_last": 48000,
+        "helper_delta": 134,
+        "exceptions": []
+      },
+      {
+        "label": "corrected-timing",
+        "kind": 10,
+        "speed": 0.1,
+        "seed_y": 1e-05,
+        "samples": 21,
+        "min_root_y": -0.42,
+        "max_root_y": -0.41999,
+        "min_body_y": -0.41999,
+        "max_body_y": -0.41999,
+        "x_start": 2.87412,
+        "x_end": 6.0,
+        "hp_last": 720,
+        "helper_delta": 0,
+        "exceptions": []
+      }
+    ],
+    "limitations": "Controlled cadence and seed, not reporter timing reproduction. Walking Jackson control is a separate unpatched path. Timing stress windows are not isolated damage benchmarks."
+  },
+  "roof_mixed_projectile_trials": [
+    {
+      "kind": 16,
+      "row": 0,
+      "speed": 2.0,
+      "prepared_body_damage": 500,
+      "samples": 11,
+      "hp_first": 850,
+      "hp_last": 130,
+      "destroyed": true,
+      "max_axis_ground_error": 0.025139999999999996,
+      "helper_delta": 54,
+      "exceptions": []
+    },
+    {
+      "kind": 18,
+      "row": 0,
+      "speed": 2.0,
+      "prepared_body_damage": 1000,
+      "samples": 18,
+      "hp_first": 1700,
+      "hp_last": 580,
+      "destroyed": false,
+      "max_axis_ground_error": 0.006459999999999966,
+      "helper_delta": 101,
+      "exceptions": []
+    },
+    {
+      "kind": 201,
+      "row": 0,
+      "speed": 4.0,
+      "prepared_body_damage": 8000,
+      "samples": 13,
+      "hp_first": 4000,
+      "hp_last": 2508,
+      "destroyed": false,
+      "max_axis_ground_error": 0.03445999999999999,
+      "helper_delta": 83,
+      "exceptions": []
+    },
+    {
+      "kind": 222,
+      "row": 2,
+      "speed": 2,
+      "samples": 22,
+      "hp_first": 16000,
+      "hp_last": 15547,
+      "destroyed": false,
+      "max_axis_ground_error": 0.019800000000000095,
+      "exceptions": [],
+      "fresh_board": true,
+      "note": "Stopped after test loss; repeated terminal paused samples are not advancing movement observations."
+    }
+  ],
+  "static_audit": {
+    "writer_candidates": 473,
+    "division_bearing_candidates": 75,
+    "scan": "Direct native Rigidbody/Transform movement call sites; not exhaustive virtual/indirect/inlined coverage."
+  },
+  "native_checks": {
+    "android_x86_64_regression": "passed",
+    "arm64_diagnostic_compile": "passed",
+    "armv7_production_compile": "passed",
+    "armv7_runtime": "not tested"
+  },
+  "excluded_trials": [
+    "No-board navigation windows; no active helper calls; Dying/stationary preliminary actors",
+    "Sequential Worldwide combat with unchanged HP; loss/summons confounded exposure; replaced with fresh-board damage window"
+  ],
+  "publication": {
+    "new_tag_created": false,
+    "github_assets_changed": false,
+    "physical_devices_operated": false
+  },
+  "source_sha256": {
+    "vehicle_grounding.h": "c9f1443b5b65653c1830c4e7cb3cda43c9fb34926fc56d44577397a77c34de7a",
+    "vehicle_grounding.inc": "78453ffcb6244aed8c25a23f46088a032aa866ae6097a50f0ac0b89aee2ff115",
+    "VehicleGroundingTest.cpp": "11eeabb82fb1e0b447420bf8f28faff8e0200adc749609c07fdf685090df78de"
+  },
+  "apk_probe_audit": {
+    "changed_entries": [
+      "lib/arm64-v8a/libpvzfenglish.so"
+    ],
+    "other_payload_entries_identical": true,
+    "zip_integrity": true,
+    "managed_payload_hashes": true,
+    "signature_verification": true,
+    "alignment_16k": true
+  },
+  "cleanup": {
+    "standard_en_pre7_restored": true,
+    "restored_version_code": 4100123,
+    "restored_app_launched": false,
+    "emulator_stopped": true,
+    "test_command_files_removed": true,
+    "physical_devices_untouched": true
+  }
+}

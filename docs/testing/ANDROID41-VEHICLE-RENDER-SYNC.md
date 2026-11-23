@@ -1,0 +1,31 @@
+# Vehicle grounding follow-up — November 23, 2026
+
+The pre6/pre7 grounding correction has a second timing failure. This is a defect in our earlier correction, separate from the original Chinese 4.1 held-velocity defect. The new report's installed version and exact Jackson variant remain unconfirmed; a static loss screenshot cannot identify either. The reproduction below establishes a real remaining defect without claiming to identify that reporter's precise sequence.
+
+## Cause and repair
+
+The original helper measures a ground-height error from the animated axis Transform. Pre6/pre7 added that error to `Rigidbody2D.position`, then cleared vertical velocity. This prevents repeated physics steps from integrating the same velocity. However, the Rigidbody can already contain a correction while its rendered Transform still has the previous position. Several Updates before the next physics step repeatedly add the same old error to an increasingly different physics position. Small errors grow into off-lawn oscillation even though the helper hook remains active and vertical velocity is zero.
+
+The follow-up applies the error to the **rendered root Transform**, matching the coordinate snapshot used for the axis error. It writes the resulting absolute target to the Rigidbody. Repeated Updates now choose the same target instead of accumulating an old error. Using the root rather than the animated axis preserves each prefab's root-to-axis offset. The original helper still supplies terrain/roof height, horizontal velocity, direction and slowing. No health, damage, movement speed, global time settings, or unrelated zombie movement is changed.
+
+Both public pre7 ABI libraries contain the earlier repair and are byte-identical to their pre6 counterparts. The ARM64 SHA-256 is `641d93e184ed6215814ddb55e37971bab5cb8a018c2b98a6b2cb4cfdde40ad2a`; ARMv7 is `344138e39221860d07c100b735e715960bc72a2b78d0b005815ff9d29bc5b0c9`.
+
+## Reproduction and scope
+
+The dedicated Android 14 x86_64 emulator runs the ARM64 game through native translation. An isolated diagnostic bridge over immutable EN pre7 provides observation, controlled actor creation, a repair switch and time-scale commands. Production builds contain none of those commands. A 0.00001-unit vertical seed and 0.1x simulation deliberately create multiple rendered Updates per physics step; this is a controlled cadence test, not a claim that the reporter used slow motion. It does not require plant damage to start the instability.
+
+A first regular-Zomboni trial on an otherwise fresh Roof Endless board reproduced root Y from -21.7666 to +12.19972, with a sampled physics position reaching +154.95229, while remaining alive at 1350 HP, status Default, and vertical velocity zero. Subsequent observed helper-active windows also reproduced divergence in red Zomboni (18), Michael Zomboni (201), and Jackson Worldwide (222). With the follow-up, all four remained at their prefab-specific ground heights over the same cadence/seed windows, with increasing helper counters and no managed exceptions. Detailed results and additional combat/slope checks are recorded in the accompanying JSON.
+
+The walking Jackson (10, 720 HP) is a separate class. Its control window showed no vertical divergence, but does not prove every walking-Jackson state is safe. Its code, attack-position adjustment, moonwalk handling and inherited movement were inspected; this patch does not extend the driver hook to that class. Jackson Universe (261) also remains a separate movement implementation.
+
+Roof combat with actual Melon Tri-pult, Brood-shroom, Icicle-shroom and Cryomancer Pea projectiles confirmed subsequent damage after preparing dented bodies: regular Zomboni 850 HP to destruction, red Zomboni 1700 to 580, Michael Zomboni 4000 to 2508, and Jackson Worldwide 16000 to 15547 in a fresh-board trial. These are observed windows, not four complete-wave tests. Maximum sampled animated-axis deviation from the stock roof ground target was below 0.035 units in those accepted damage windows. A separate sequential Worldwide window had no subsequent HP loss and reached the test loss state; it is excluded as a damage check and replaced by the fresh-board trial. Repeated terminal paused samples are not movement observations.
+
+The wider static scan found 473 methods with direct native calls to the selected Rigidbody/Transform movement APIs; 75 contained floating-point division. Relevant effects, knockback and Jackson methods were reviewed alongside the earlier 228-class/2,041-method zombie audit. Launch explicitly rejects driver zombies; the reviewed knockback methods alter X. No second copy of the original fixed-step ground-error division was identified. Direct-call scanning cannot exclude every virtual, indirect or inlined movement path, so these findings are not a blanket guarantee against all disappearance bugs.
+
+## Test exclusions and limits
+
+Early follow-up automation windows with no active board, no advancing helper counters, or Dying actors are excluded. Trial cleanup initially invoked death callbacks, which can create Jackson/dancer summons and muddle later combat targets. The final combat harness instead tracks actual `CreateZombie.SetZombie` returns and destroys its scene actors without calling death handlers or enumerating resource prefabs. The game was restarted before those combat checks. Earlier timing windows remain evidence of the coordinate failure; they are not single-enemy combat benchmarks.
+
+The C++ regression covers both physics/render cadence directions, stale-render versus current-body divergence, changing roof targets, prefab offsets and invalid inputs. It passes as an Android x86_64 executable. ARM64 diagnostic and ARMv7 production compilation are checked. The diagnostic APK payload comparison permits only its ARM64 bridge library to differ from public EN pre7; managed payload hashes, ZIP integrity, signature verification and 16 KB alignment are checked. Physical reporter confirmation and 32-bit runtime validation remain pending. The standard EN pre7 APK was restored to the dedicated test emulator without launching it, test command files were removed, and the emulator was stopped. No physical device was operated.
+
+This change is local source work for a future release. The published `v4.1-release-7` tag and APKs are unchanged.
