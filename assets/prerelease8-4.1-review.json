@@ -1,0 +1,161 @@
+{
+  "base_en_sha256": "dbfb2d9b5666aa52d3a441e28bbe659073dcff4cf597302a4fa2754dbf4d8e2e",
+  "base_ai_sha256": "1b5e2b927e12d384929b3b990cb97194563db605dadd849f4517cec439495a2c",
+  "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
+  "blooms": {
+    "commit": "ab5d1c03ad44ba2039855381b16045fe54519767",
+    "branch": "4.1",
+    "previous_commit": "c4872b81c7a846c102a47b54683a3a52e20b652e"
+  },
+  "fields": [
+    {
+      "asset": "LawnStrings",
+      "id": 1492,
+      "field": "info",
+      "source": "喷射烟雾打击低空敌人，还会落下孢子雨攻击地表。\n\n<color=#3D1400>伤害：</color><color=red>40/1.5秒</color>\n<color=#3D1400>特点：</color><color=red>烟雾仅对空，且会在范围内降下12发伤害10的孢子攻击地表的僵尸</color>\n<color=#3D1400>融合配方：</color><color=red>大喷菇+三叶草</color>",
+      "source_sha256": "f1c9f9b947d6c45a6f8ee8d88182a81886e9aa06196f1a9a7625958dccf74011",
+      "previous": "Emits fumes to strike flying enemies while also dropping rains of spores to pepper the ground.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000> Flying plant. Fumes only hits aerial zombies. But each attack also drops 12 spores that deals 10 damage across its attack range. Hitting non-aerial zombies below.</color>",
+      "english": "Emits fumes to strike flying enemies while also dropping rains of spores to pepper the ground.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000> Flying plant. Fumes only hit aerial zombies. Each attack also drops 12 spores that deal 10 damage across their attack range, hitting non-aerial zombies below.</color>",
+      "reason": "Blooms English grammar clarification; attack values unchanged."
+    }
+  ],
+  "text_assets": [
+    {
+      "asset": "level1209-磁性玉米投手4.1",
+      "path": [
+        "tips"
+      ],
+      "source": "试试给磁性玉米投手融合铁桶或者时空碎片！\n超时空玉米投手与超时空豌豆射手的组合能快速放逐僵尸，非常强！",
+      "source_sha256": "1c1bbf16ea615745d019f5af953abce82f895751a3968c6106432ecb5f15648a",
+      "previous": "试试给磁性玉米投手融合铁桶或者时空碎片！\n超时空玉米投手与超时空豌豆射手的组合能快速放逐僵尸，非常强！",
+      "english": "Try putting Iron Buckets and Chrono Cores on Kernel Morphs!\nVortex-pult has amazing synergy with Chrono Pea!",
+      "reason": "Blooms showcase wording."
+    },
+    {
+      "asset": "level1213-磁性毁灭菇4.1",
+      "path": [
+        "tips"
+      ],
+      "source": "【本关手套无冷却】\n磁性毁灭菇不立即爆炸，而是在与铁器融合后爆炸！\n+铁桶：击杀僵尸获得铁桶补给      +玩偶匣：击杀僵尸释放爆炸      +时空碎片：控制随后放逐僵尸",
+      "source_sha256": "a69d98441dc0367a7d4360edf456b2e2c2948bd09aaf77bbb286c67edf8df866",
+      "previous": "【本关手套无冷却】\n磁性毁灭菇不立即爆炸，而是在与铁器融合后爆炸！\n+铁桶：击杀僵尸获得铁桶补给      +玩偶匣：击杀僵尸释放爆炸      +时空碎片：控制随后放逐僵尸",
+      "english": "The Glove has no CD in this level. Dormant-shroom does not explode until you feed it Metal Objects!\nDoomplate-shroom gives a Bucket for every zombie killed!\nTrade these to Solar Magnets for Sun or feed them to Mecha-nuts!\nDoombox-shroom triggers a chain explosion with 1800 damage for every zombie killed!\nDoomwarp-shroom stun-locks the surviving zombies for 4s!",
+      "reason": "Blooms showcase wording."
+    }
+  ],
+  "metadata": [
+    {
+      "index": 16408,
+      "source": "专家",
+      "source_sha256": "c3a73c5eecea42a3c94160b47321be551eb2c90f7ee23288e3ecc220a1998f59",
+      "previous": "Reinforcement",
+      "english": "Expert"
+    },
+    {
+      "index": 16412,
+      "source": "专家词条",
+      "source_sha256": "f4201239aa7faebe6e618b622de51f9a7c1ba7bc4840d020683d941563e66e42",
+      "previous": "Reinforcement Modifiers",
+      "english": "Expert Modifiers"
+    },
+    {
+      "index": 16413,
+      "source": "专家邀请",
+      "source_sha256": "a33442e15af4e0900fa1600d6952a57f8310f8aa01ae195e8e9163e9b15c0d94",
+      "previous": "Reinforcement",
+      "english": "Expert Support"
+    },
+    {
+      "index": 16494,
+      "source": "从多个选项中自选一株专家植物",
+      "source_sha256": "1da749027cea6a93d9e1a3cdd79f0733746d360cf357a846f0c43f87f6c189c0",
+      "previous": "Pick 1 from a random assortment of Reinforcement plants",
+      "english": "Pick 1 from a random assortment of Expert plants"
+    },
+    {
+      "index": 17459,
+      "source": "基础",
+      "source_sha256": "89e5e14c8db996da74f67767f2d7351513fd5a4f563f6a7ce1b3adc7820d6af3",
+      "previous": "Base",
+      "english": "Basic"
+    },
+    {
+      "index": 18218,
+      "source": "战术词条",
+      "source_sha256": "49ab62acd08f0a239dc58cf3e8c895934882c6ae68320c0543ff6cf73b4c3bfe",
+      "previous": "Tactic Modifiers",
+      "english": "Tactical Modifiers"
+    },
+    {
+      "index": 18861,
+      "source": "植物图鉴",
+      "source_sha256": "3aa46eb3c3ee7cb03270509cdefe7c8dcbf95f6ad01d62a9141c41753fa90687",
+      "previous": "Plant Almanac",
+      "english": "Pantheon of Plants"
+    },
+    {
+      "index": 20221,
+      "source": "词条效果",
+      "source_sha256": "deb3a276b970594839645827d1c5a5957be2d7a510e3058e7425909cda2fe516",
+      "previous": "Modifier Effects",
+      "english": "Modifier Effect"
+    },
+    {
+      "index": 20528,
+      "source": "超质变",
+      "source_sha256": "af689f8dc78c55e57a4f226780f0d1f7eda48ebb62bb40d77b26313b917ed4f0",
+      "previous": "Apex Modifiers",
+      "english": "Ascensions"
+    }
+  ],
+  "runtime_exact": {
+    "超级机枪忧郁菇的子弹命中次数 + 5": "Projectiles gain +5 additional pierce",
+    "专家邀请": "Expert Support",
+    "从多个选项中自选一株专家植物": "Pick 1 from a random assortment of Expert plants",
+    "Evolve: 究极": "Evolve: SP",
+    "究极魔法寒冰射手攻击僵尸时有4%概率施加一层“解读”标记。若弹射击中已标记的僵尸，则会消耗此标记，使本次弹射次数 + 1。多选每次提高4%概率": "Cryomancer Pea attacks have +4% chance to apply a Decryption stack. If projectile ricochets and hits a zombie with Decryption, 1 stack is spent to increase the projectile ricochet time by 1",
+    "护航-天罚": "Lightning Storm",
+    "天罚-闪电风暴": "Lightning Storm - X",
+    "天罚": "Lightning Storm",
+    "植物图鉴": "Pantheon of Plants",
+    "专家词条": "Expert Modifiers",
+    "超质变": "Ascensions",
+    "战术词条": "Tactical Modifiers",
+    "浏览植物进化路线与诸神模式的各类词条": "View plant upgrade paths and all kinds of modifiers in The Gods: Evolved!",
+    "点击卡牌或条目查看详细说明 · 滚轮浏览更多内容": "Clicking on plant profiles or modifier entries for details; scroll to see more.",
+    "词条效果": "Modifier Effect",
+    "专家": "Expert",
+    "基础": "Basic",
+    "喷射烟雾打击低空敌人，还会落下孢子雨攻击地表。\n\n<color=#3D1400>伤害：</color><color=red>40/1.5秒</color>\n<color=#3D1400>特点：</color><color=red>烟雾仅对空，且会在范围内降下12发伤害10的孢子攻击地表的僵尸</color>\n<color=#3D1400>融合配方：</color><color=red>大喷菇+三叶草</color>": "Emits fumes to strike flying enemies while also dropping rains of spores to pepper the ground.\n\n<color=black>Damage: </color><color=#8B0000>40/1.5s</color>\n<color=black>Special: </color><color=#8B0000> Flying plant. Fumes only hit aerial zombies. Each attack also drops 12 spores that deal 10 damage across their attack range, hitting non-aerial zombies below.</color>",
+    "试试给磁性玉米投手融合铁桶或者时空碎片！\n超时空玉米投手与超时空豌豆射手的组合能快速放逐僵尸，非常强！": "Try putting Iron Buckets and Chrono Cores on Kernel Morphs!\nVortex-pult has amazing synergy with Chrono Pea!",
+    "【本关手套无冷却】\n磁性毁灭菇不立即爆炸，而是在与铁器融合后爆炸！\n+铁桶：击杀僵尸获得铁桶补给      +玩偶匣：击杀僵尸释放爆炸      +时空碎片：控制随后放逐僵尸": "The Glove has no CD in this level. Dormant-shroom does not explode until you feed it Metal Objects!\nDoomplate-shroom gives a Bucket for every zombie killed!\nTrade these to Solar Magnets for Sun or feed them to Mecha-nuts!\nDoombox-shroom triggers a chain explosion with 1800 damage for every zombie killed!\nDoomwarp-shroom stun-locks the surviving zombies for 4s!",
+    "切换手套": "Switch Glove"
+  },
+  "runtime_regex": [
+    [
+      "^诸神币：(\\d+)$",
+      "TGE Coins: {0}"
+    ],
+    [
+      "^(\\d+)币$",
+      "{0} Coins"
+    ],
+    [
+      "^时停\\([xX×](\\d+(?:\\.\\d+)?)\\)$",
+      "Slow Mode (x{0})"
+    ]
+  ],
+  "upstream_exclusions": [
+    {
+      "source": "Strings/changelog.txt",
+      "reason": "PC plugin changelog includes PC Languages-menu, untranslated-mode and server-recognition claims that do not describe Android EN/ENAI. Retain Android release information."
+    }
+  ],
+  "counts": {
+    "almanac_fields": 1,
+    "text_asset_fields": 2,
+    "metadata_updates": 9,
+    "runtime_exact_updates": 21,
+    "runtime_regex_updates": 3
+  }
+}
