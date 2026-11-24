@@ -1,5 +1,7 @@
 # Vehicle grounding follow-up — November 23, 2026
 
+**Diagnostic correction, November 24:** the `interp=0` field in the original raw observation logs is not a valid interpolation measurement. This IL2CPP build strips `Rigidbody2D.get_interpolation`; the diagnostic converted a missing getter result to the default integer zero. The game's spawn code calls `set_interpolation(Interpolate)`, confirmed by a new setter hook. Do not infer that runtime interpolation was disabled from those older fields. Position, health, helper-counter and collider observations use available APIs and remain valid. See `ANDROID41-VEHICLE-RELATED-AUDIT-20261124.md` for the follow-up.
+
 The pre6/pre7 grounding correction has a second timing failure. This is a defect in our earlier correction, separate from the original Chinese 4.1 held-velocity defect. The new report's installed version and exact Jackson variant remain unconfirmed; a static loss screenshot cannot identify either. The reproduction below establishes a real remaining defect without claiming to identify that reporter's precise sequence.
 
 ## Cause and repair

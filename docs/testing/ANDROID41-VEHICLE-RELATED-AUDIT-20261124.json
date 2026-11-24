@@ -1,0 +1,380 @@
+{
+  "date": "2026-11-24",
+  "production_base": "71aff7f",
+  "new_gameplay_defect_confirmed": false,
+  "diagnostic_getter_error_confirmed": true,
+  "interpolation_getter_present": false,
+  "spawn_requests_interpolation": 1,
+  "methods_reviewed": 128,
+  "prefab_hierarchies_reviewed": 8,
+  "interpolation_setter_direct_call_sites": 14,
+  "engine_header": "2022.3.62f1c1",
+  "known_engine_issues": [
+    {
+      "issue": "UUM-80058",
+      "official_fixed_version": "2022.3.48f1",
+      "url": "https://unity.com/releases/editor/whats-new/2022.3.48f1"
+    },
+    {
+      "issue": "UUM-82789",
+      "official_fixed_version": "2022.3.49f1",
+      "url": "https://unity.com/releases/editor/whats-new/2022.3.49f1"
+    }
+  ],
+  "engine_issue_reproduced": false,
+  "lifecycle_trials": [
+    {
+      "kind": 16,
+      "klass": "DriverZombie",
+      "max_hp": 1350,
+      "prepared_damage": 900,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.01346000000000025
+        },
+        "fast": {
+          "samples": 5,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.008599999999999941
+        }
+      },
+      "last_row": 3,
+      "last_hp": 450,
+      "min_y": -3.4725,
+      "max_y": -1.8025,
+      "game_exceptions": []
+    },
+    {
+      "kind": 18,
+      "klass": "SuperDriverZombie",
+      "max_hp": 2700,
+      "prepared_damage": 1800,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.014669999999999739
+        },
+        "fast": {
+          "samples": 4,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.01466999999999996
+        }
+      },
+      "last_row": 3,
+      "last_hp": 900,
+      "min_y": -3.4725,
+      "max_y": -1.8025,
+      "game_exceptions": []
+    },
+    {
+      "kind": 201,
+      "klass": "JacksonDriver",
+      "max_hp": 12000,
+      "prepared_damage": 8000,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 6,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.014669999999999739
+        },
+        "fast": {
+          "samples": 5,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.014660000000000117
+        }
+      },
+      "last_row": 3,
+      "last_hp": 4000,
+      "min_y": -3.4725,
+      "max_y": -1.8025,
+      "game_exceptions": []
+    },
+    {
+      "kind": 222,
+      "klass": "UltimateJacksonDriver",
+      "max_hp": 48000,
+      "prepared_damage": 32000,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.5992,
+          "max_y": -1.5992,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.009160000000000501
+        },
+        "fast": {
+          "samples": 6,
+          "min_y": -1.5992,
+          "max_y": -1.5992,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.006670000000000176
+        }
+      },
+      "last_row": 3,
+      "last_hp": 16000,
+      "min_y": -3.2692,
+      "max_y": -1.5992,
+      "game_exceptions": []
+    },
+    {
+      "kind": 321,
+      "klass": "Driver_a",
+      "max_hp": 6000,
+      "prepared_damage": 4000,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.80249,
+          "max_y": -1.80249,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.005990000000000606
+        },
+        "fast": {
+          "samples": 5,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.0
+        }
+      },
+      "last_row": 3,
+      "last_hp": 2000,
+      "min_y": -3.45608,
+      "max_y": -1.80249,
+      "game_exceptions": []
+    },
+    {
+      "kind": 322,
+      "klass": "Driver_b",
+      "max_hp": 12000,
+      "prepared_damage": 8000,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 8,
+          "min_y": -1.80249,
+          "max_y": -1.80249,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.005889999999999951
+        },
+        "fast": {
+          "samples": 5,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.0
+        }
+      },
+      "last_row": 3,
+      "last_hp": 4000,
+      "min_y": -3.45471,
+      "max_y": -1.80249,
+      "game_exceptions": []
+    },
+    {
+      "kind": 323,
+      "klass": "Driver_c",
+      "max_hp": 24000,
+      "prepared_damage": 16000,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.80249,
+          "max_y": -1.80249,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.00617999999999963
+        },
+        "fast": {
+          "samples": 4,
+          "min_y": -1.8025,
+          "max_y": -1.8025,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.0
+        }
+      },
+      "last_row": 3,
+      "last_hp": 8000,
+      "min_y": -3.44838,
+      "max_y": -1.80249,
+      "game_exceptions": []
+    },
+    {
+      "kind": 261,
+      "klass": "JacksonDriverBoss",
+      "max_hp": 90000,
+      "prepared_damage": 60000,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.59919,
+          "max_y": -1.59919,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.03638999999999992
+        },
+        "fast": {
+          "samples": 4,
+          "min_y": -1.5992,
+          "max_y": -1.5992,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.0
+        }
+      },
+      "last_row": 2,
+      "last_hp": 30000,
+      "min_y": -3.11643,
+      "max_y": -1.59919,
+      "game_exceptions": []
+    },
+    {
+      "kind": 10,
+      "klass": "ZombieJackson",
+      "max_hp": 720,
+      "prepared_damage": 480,
+      "requested_interpolation": [
+        1
+      ],
+      "collider_enabled_samples": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "phases": {
+        "slow": {
+          "samples": 7,
+          "min_y": -1.15999,
+          "max_y": -1.15999,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.02709000000000028
+        },
+        "fast": {
+          "samples": 4,
+          "min_y": -1.16,
+          "max_y": -1.16,
+          "max_body_root_gap": 0.0,
+          "max_horizontal_gap": 0.0
+        }
+      },
+      "last_row": 3,
+      "last_hp": 240,
+      "min_y": -2.80045,
+      "max_y": -1.15999,
+      "diagnostic_formatting_warnings": [
+        "11-24 13:25:09.105  4592  4653 I PvZFEnglish: Managed call failed: get_name",
+        "11-24 13:25:09.682  4592  4653 I PvZFEnglish: Managed call failed: get_name",
+        "11-24 13:25:15.526  4592  4653 I PvZFEnglish: Managed call failed: get_name"
+      ],
+      "game_exceptions": []
+    }
+  ],
+  "physical_devices_operated": false,
+  "releases_changed": false,
+  "limits": [
+    "Controlled emulator scenarios, not reporter save/device reproduction",
+    "32-bit runtime not tested",
+    "Does not prove all modifier/animation/render/timing combinations safe"
+  ],
+  "diagnostic_null_sprite_guard": "Source guard added after recorded run; warnings retained and classified",
+  "apk_probe_audit": {
+    "changed_entries": [
+      "lib/arm64-v8a/libpvzfenglish.so"
+    ],
+    "other_payload_entries_identical": true,
+    "zip_integrity": true,
+    "managed_hashes": true,
+    "alignment_16k": true,
+    "signature_verification": true
+  },
+  "cleanup": {
+    "standard_en_pre7_restored": true,
+    "restored_app_launched": false,
+    "emulator_stopped": true,
+    "test_commands_removed": true
+  }
+}
