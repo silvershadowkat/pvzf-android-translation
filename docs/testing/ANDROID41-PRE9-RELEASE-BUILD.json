@@ -1,5 +1,5 @@
 {
-  "status": "Prepared and verified",
+  "status": "Published and verified",
   "tag": "v4.1-release-9",
   "release_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-9",
   "prerelease": true,
@@ -17,7 +17,9 @@
       "version_name": "4.1-English-pre9",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "en",
-      "file": "PvZ-Fusion-4.1-English-prerelease9.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease9.apk",
+      "github_asset_id": 789765372,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-9/PvZ-Fusion-4.1-English-prerelease9.apk"
     },
     {
       "sha256": "78d4cd1cc656830800f286d6f50b3c9e9761934a34d008d0e8ba998fb054c48a",
@@ -27,7 +29,9 @@
       "version_name": "4.1-English-pre9-ENAI",
       "certificate_sha256": "1f2552cc7dbfbbbee21d2ea7e77edf371a377902cdcb78ba4f3104e387cd7bc6",
       "variant": "ai",
-      "file": "PvZ-Fusion-4.1-English-prerelease9-AI.apk"
+      "file": "PvZ-Fusion-4.1-English-prerelease9-AI.apk",
+      "github_asset_id": 789767685,
+      "asset_url": "https://github.com/silvershadowkat/pvzf-android-translation/releases/download/v4.1-release-9/PvZ-Fusion-4.1-English-prerelease9-AI.apk"
     }
   ],
   "translation_counts": {
@@ -153,5 +157,9 @@
     "Internal IDs, parsers, logs and creator names remain unchanged; other generated text still needs review.",
     "ARMv7 payload retained; no 32-bit runtime test.",
     "Recognition model/lifecycle and startup-loading behavior are unchanged."
-  ]
+  ],
+  "source_commit": "6effdd5ffacfb33aecba4e3cc6422d0dd0b864ec",
+  "release_id": 457583677,
+  "published_at": "2026-11-25T02:41:03Z",
+  "homepage_readme_commit": "28b638a1bff2014cc93ba75d46e9b220d4742da3"
 }
