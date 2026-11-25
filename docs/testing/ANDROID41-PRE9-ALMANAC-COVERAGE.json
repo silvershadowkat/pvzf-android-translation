@@ -1,0 +1,13 @@
+{
+  "method": "Final staged Unity bundle display fields passed through actual release Java translator; identifiers excluded.",
+  "display_fields_checked": 4297,
+  "by_catalog": {
+    "DetailStrings": 96,
+    "LawnStrings": 2968,
+    "ShootingAlmanacIndex": 519,
+    "ZombieStrings": 714
+  },
+  "remaining_cjk_fields": 0,
+  "remaining": [],
+  "all_gods_519_fields_checked": true
+}

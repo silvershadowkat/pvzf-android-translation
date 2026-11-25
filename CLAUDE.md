@@ -1,3 +1,13 @@
+# Current release checkpoint: 4.1 pre-release 9
+
+Prepared November 24, 2026 on `agent/translation-4.1-prerelease9`. Public EN/ENAI derive independently from matching immutable public pre8 APKs. Read `docs/RELEASE-NOTES-4.1-PRE9.md`, `docs/testing/ANDROID41-PRE9-AUDIT.md`, `ANDROID41-PRE9-ALMANAC-COVERAGE.json`, `ANDROID41-PRE9-RELEASE-BUILD.json` and `assets/prerelease9-4.1-review.json`.
+
+Filled 12 Gods fields by stable IDs, trident mechanics and a Melon Morph showcase. Added 126 reviewed messages, related exact aliases/labels and 17 anchored rules including combined badges for 13 tactic groups. Final census: 4297 catalog display fields, zero remaining CJK; this is not every generated UI or mode. Blooms4.1 ab5d1c03ad44ba2039855381b16045fe54519767 is still current. No language added. Keep creator names and internal identifiers unchanged.
+
+Both bundles compared219584objects; only3reviewedTextAssets changed. Metadata is byte-identical to pre8;32protectedslots retained. Only5APKentries differ peredition; native/Dex/audio/model unchanged, including the pre8 vehicle correction. 89Pythonchecks,502Javafixtures,32actualAPKrestorationchecks and both final emulator startups pass. Live finalEN Vanguard tiers and ordinary/maximum badges verified. S9ARM64 candidate9startup passed before badge-only dictionary refinements; record exact scope in build JSON. Startup experiments remain disabled. Preserve prior release tags.
+
+Public notes omit clean/local/mod/cheats. Private ENAI derivative remains outside Git/releases, retaining the exact red3 swipe menu and pre8 private native bridge; only revision label changes. Only S26 personal9 installation is requested for this revision, without launching. S9 personal remains pre8. APK/save/install-identity checks are required for that update.
+
 # Current release checkpoint: 4.1 pre-release 8
 
 Published and verified November 24, 2026: https://github.com/silvershadowkat/pvzf-android-translation/releases/tag/v4.1-release-8. Immutable tag points to `b793fbcfcfdbaae4fe24fba3161bb84b55174e14`; later publication-record commits do not move it. All four remote asset sizes and SHA256 digests match. The main README points to prerelease 8.

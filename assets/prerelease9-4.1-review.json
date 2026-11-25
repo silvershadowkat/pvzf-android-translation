@@ -1,0 +1,1496 @@
+{
+  "base_en_sha256": "35323d4fb1b01de0da35badbbd50ff22cab8d5316b670b875932e023e5974ba7",
+  "base_ai_sha256": "8232d673b2eb35e7ab890dd0ab7626032c76eebebf49405fb7b3e69a76daa5ec",
+  "official_sha256": "6272551fd2573bd3e342acf1a214aa0ee6d44833260babe600e27301ef9a6390",
+  "blooms": {
+    "commit": "ab5d1c03ad44ba2039855381b16045fe54519767",
+    "branch": "4.1",
+    "changed_since_pre8": false,
+    "files": 15
+  },
+  "fields": [],
+  "text_assets": [
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        3,
+        "condition"
+      ],
+      "source": "抽取概率受幸运影响。\n僵尸类型不是豌豆僵尸或随机僵尸时生效。",
+      "source_sha256": "2af20a72fe21a9dbfeece76e0a3d5ecc1e98cd8b199504be75e88f739e549a6e",
+      "previous": "抽取概率受幸运影响。\n僵尸类型不是豌豆僵尸或随机僵尸时生效。",
+      "english": "Selection chance is affected by Luck.\nApplies when the zombie type is neither Pea Zombies nor Zombie Gacha.",
+      "reason": "Context: shield variant for non-pea/non-gacha zombie types; no gameplay condition changed.",
+      "entry_id": "Other:保护:0"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        4,
+        "condition"
+      ],
+      "source": "抽取概率受幸运影响。\n僵尸类型为豌豆僵尸或随机僵尸时生效。",
+      "source_sha256": "f2d4a847fd74ebd244a67255cb335053b49b1f897d3cd611b48b2bb187a93aa3",
+      "previous": "抽取概率受幸运影响。\n僵尸类型为豌豆僵尸或随机僵尸时生效。",
+      "english": "Selection chance is affected by Luck.\nApplies when the zombie type is Pea Zombies or Zombie Gacha.",
+      "reason": "Context: alternate shield variant; preserve positive condition.",
+      "entry_id": "Other:保护:0:variant:0"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        21,
+        "description"
+      ],
+      "source": "获得新植物：[[plant:BlackHoleTorch]]\n可查看其全部专属词条。",
+      "source_sha256": "aff7ae7ea806f248de9cd5cd6abed563b4a2aa9bc7d69e6ff31f387c382a365a",
+      "previous": "获得新植物：[[plant:BlackHoleTorch]]\n可查看其全部专属词条。",
+      "english": "Unlock a new plant: [[plant:BlackHoleTorch]]\nView all of its exclusive modifiers.",
+      "reason": "Plant reference token preserved. BlackHoleTorch is PlantType313, existing English name Temporal Torch.",
+      "entry_id": "Expert:plant:BlackHoleTorch"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        23,
+        "description"
+      ],
+      "source": "在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n木桩会秒杀解除到的魅惑僵尸",
+      "source_sha256": "f127bcc3f01dd545e77efa6e3efe18abb6ff1876730c19cfe17b796ecf763f51",
+      "previous": "在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n木桩会秒杀解除到的魅惑僵尸",
+      "english": "Summons a Dummy Zombie on the lawn. It distributes 60% of the damage it takes equally among all zombies and can be moved with the Zombie Glove.\nThe dummy instantly kills hypnotized zombies it touches.",
+      "reason": "Uses existing Voodoo Dummy terminology. TrainingDummy.OnTriggerStay2D checks same row and isMindControlled then invokes virtual Zombie.Die; resolves source typo without guessing a new mechanic.",
+      "entry_id": "Tactics:Shooting_木桩1"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        71,
+        "title"
+      ],
+      "source": "狂战-铁卫",
+      "source_sha256": "bbaefd465f920c7492315c4c22b01e6f28cc4a8ed2bff8cea9444e2d20d01b4c",
+      "previous": "狂战-铁卫",
+      "english": "Vanguard",
+      "reason": "Matched Blooms travel modifier 13050 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫1"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        71,
+        "description"
+      ],
+      "source": "植物在右4列时，对僵尸额外造成30%伤害",
+      "source_sha256": "7166fd9db19c699b90833c06544943f92208619e72b8d38d14f970843147a80d",
+      "previous": "植物在右4列时，对僵尸额外造成30%伤害",
+      "english": "Plants deal an additional 30% damage while they are in the rightmost 4 columns.",
+      "reason": "Matched Blooms travel modifier 13050 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫1"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        72,
+        "title"
+      ],
+      "source": "狂战-铁卫",
+      "source_sha256": "bbaefd465f920c7492315c4c22b01e6f28cc4a8ed2bff8cea9444e2d20d01b4c",
+      "previous": "狂战-铁卫",
+      "english": "Vanguard - A",
+      "reason": "Matched Blooms travel modifier 13051 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫2"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        72,
+        "description"
+      ],
+      "source": "植物在右4列时，对僵尸额外造成100%伤害",
+      "source_sha256": "f556debc68401555bc6c914115c49728b6f744e2e0acfb7910079546c0baca9e",
+      "previous": "植物在右4列时，对僵尸额外造成100%伤害",
+      "english": "Plants deal an additional 100% damage while they are in the rightmost 4 columns.",
+      "reason": "Matched Blooms travel modifier 13051 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫2"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        73,
+        "title"
+      ],
+      "source": "狂战-铁卫",
+      "source_sha256": "bbaefd465f920c7492315c4c22b01e6f28cc4a8ed2bff8cea9444e2d20d01b4c",
+      "previous": "狂战-铁卫",
+      "english": "Vanguard - B",
+      "reason": "Matched Blooms travel modifier 13052 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫3"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        73,
+        "description"
+      ],
+      "source": "立即获得碾压保护、爆炸保护，并使全体植物立即获得25000护盾",
+      "source_sha256": "d1a266155277dfd9a23309926e1762bc2556207df56f001a37f0199f933b02e3",
+      "previous": "立即获得碾压保护、爆炸保护，并使全体植物立即获得25000护盾",
+      "english": "Immediately gain the Anti-crush and [Blast Protection] modifiers. All plants gain 25000 shield.",
+      "reason": "Matched Blooms travel modifier 13052 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫3"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        74,
+        "title"
+      ],
+      "source": "铁卫-不灭之躯",
+      "source_sha256": "641025e528852906bc6e1da1401c702723c8561dbb8e2ea4572b337d77c3498e",
+      "previous": "铁卫-不灭之躯",
+      "english": "Vanguard - X",
+      "reason": "Matched Blooms travel modifier 13053 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫Max"
+    },
+    {
+      "asset": "ShootingAlmanacIndex",
+      "path": [
+        "entries",
+        74,
+        "description"
+      ],
+      "source": "植物在3格内造成伤害时可回复生命值和护盾（有上限）",
+      "source_sha256": "352df42ca6268cc2551aa9baf001175e30357155cd017f937634fe0fc5118a05",
+      "previous": "植物在3格内造成伤害时可回复生命值和护盾（有上限）",
+      "english": "When plants deal damage within 3 tiles, they restore HP and shield (up to a cap).",
+      "reason": "Matched Blooms travel modifier 13053 by stable enum/catalog ID; preserve tier-specific canonical name and effect.",
+      "entry_id": "Tactics:Shooting_铁卫Max"
+    },
+    {
+      "asset": "DetailStrings",
+      "path": [
+        "details",
+        30,
+        "title"
+      ],
+      "source": "僵尸机制-三叉戟",
+      "source_sha256": "05d93bef64f12924a35617f1678db70d654e1787617d3a150abd4659878c53f7",
+      "previous": "僵尸机制-三叉戟",
+      "english": "Zombie Mechanics - Tridents",
+      "reason": "Matches existing mechanics Almanac heading style."
+    },
+    {
+      "asset": "DetailStrings",
+      "path": [
+        "details",
+        30,
+        "text"
+      ],
+      "source": "<color=#FF7400>三叉戟</color>是僵尸的一种远程攻击方式，但其不属于<color=#FF7400>投掷物</color>。命中时会造成（植物当前血量20%，且最少为60）的伤害，并施加潮湿状态\n\n<color=#FF7400>潮湿状态</color>会使植物的<color=#77FFF8>速度</color>降低25%，持续时间5秒，每次施加会重置持续时间\n\n<color=#FF7400>雪叉</color>是三叉戟的变种，在三叉戟的基础上还能施加冰封",
+      "source_sha256": "7c56ffcd86bc6bce9b88a0376419f1304bc1aa969f53e2742d9f69e32c255d27",
+      "previous": "<color=#FF7400>三叉戟</color>是僵尸的一种远程攻击方式，但其不属于<color=#FF7400>投掷物</color>。命中时会造成（植物当前血量20%，且最少为60）的伤害，并施加潮湿状态\n\n<color=#FF7400>潮湿状态</color>会使植物的<color=#77FFF8>速度</color>降低25%，持续时间5秒，每次施加会重置持续时间\n\n<color=#FF7400>雪叉</color>是三叉戟的变种，在三叉戟的基础上还能施加冰封",
+      "english": "<color=#FF7400>Tridents</color> are ranged zombie attacks, but are not considered <color=#FF7400>projectiles</color>. A hit deals damage equal to 20% of the plant's current HP, with a minimum of 60 damage, and applies Drenched.\n\n<color=#FF7400>Drenched</color> reduces the plant's <color=#77FFF8>Speed</color> by 25% for 5 seconds. Reapplying it resets the duration.\n\n<color=#FF7400>Snow tridents</color> also freeze plants.",
+      "reason": "Blooms trident terminology; retain official Android 5-second duration and numeric values, omit extra PC-only tip."
+    },
+    {
+      "asset": "level1314-磁性西瓜投手4.1",
+      "path": [
+        "tips"
+      ],
+      "source": "==============配方关卡==============\n鸣谢：冰蓝色微笑、红烧黛鱼、卡波姆、梦珞、Miku喵、裴璃Daze、Raykilling、若致萝卜、零只羊、一盆游戏菌\nemememek、咕咕之鸽、路人·无名、罗太のqueen、手机被占、托卡马克、窝不想取名字、弦海青鱼、心明\n以及游玩配方关卡的你\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n试试给磁性西瓜投手融合铁桶或时空碎片！\n铁桶西瓜投手伤害很高，超时空西瓜投手能扩散传送状态！\n推荐搭配铁桶豌豆射手（击退）和超时空豌豆射手（传送源）\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "source_sha256": "6a981ca0289c31bf8383c8564c11556a39ff5ae1131c1015033bd6ed142fe26f",
+      "previous": "==============配方关卡==============\n鸣谢：冰蓝色微笑、红烧黛鱼、卡波姆、梦珞、Miku喵、裴璃Daze、Raykilling、若致萝卜、零只羊、一盆游戏菌\nemememek、咕咕之鸽、路人·无名、罗太のqueen、手机被占、托卡马克、窝不想取名字、弦海青鱼、心明\n以及游玩配方关卡的你\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n试试给磁性西瓜投手融合铁桶或时空碎片！\n铁桶西瓜投手伤害很高，超时空西瓜投手能扩散传送状态！\n推荐搭配铁桶豌豆射手（击退）和超时空豌豆射手（传送源）\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+      "english": "\n\n\n\n\n\n\n\n\nTry giving Buckets or Chrono Cores to Melon Morphs!\nMetal-pult dishes out enormous damage while Portal-pult spreads Chronoshift!\nPerfect matches for Buckshooter (for knockback) and Chrono Pea (Chronoshift source)!\n\n\n\n\n==============Fusion Showcase==============\nSpecial Thanks: 冰蓝色微笑、红烧黛鱼、卡波姆、Mengluo、Miku喵、裴璃Daze、Raykilling、若致萝卜、零只羊、一盆游戏菌\nemememek、咕咕之鸽、路人·无名、罗太のqueen、手机被占、托卡马克、窝不想取名字、弦海青鱼、心明\nEnglish Translators: MamoruKun, cassidy, revo,\nand you the players!",
+      "reason": "Existing Blooms 4.1 showcase text and canonical Melon Morph/Metal-pult/Portal-pult names; creator credits preserved."
+    }
+  ],
+  "metadata": [],
+  "runtime_exact": {
+    "抽取概率受幸运影响。\n僵尸类型不是豌豆僵尸或随机僵尸时生效。": "Selection chance is affected by Luck.\nApplies when the zombie type is neither Pea Zombies nor Zombie Gacha.",
+    "抽取概率受幸运影响。\n僵尸类型为豌豆僵尸或随机僵尸时生效。": "Selection chance is affected by Luck.\nApplies when the zombie type is Pea Zombies or Zombie Gacha.",
+    "获得新植物：[[plant:BlackHoleTorch]]\n可查看其全部专属词条。": "Unlock a new plant: [[plant:BlackHoleTorch]]\nView all of its exclusive modifiers.",
+    "在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n木桩会秒杀解除到的魅惑僵尸": "Summons a Dummy Zombie on the lawn. It distributes 60% of the damage it takes equally among all zombies and can be moved with the Zombie Glove.\nThe dummy instantly kills hypnotized zombies it touches.",
+    "植物在右4列时，对僵尸额外造成30%伤害": "Plants deal an additional 30% damage while they are in the rightmost 4 columns.",
+    "植物在右4列时，对僵尸额外造成100%伤害": "Plants deal an additional 100% damage while they are in the rightmost 4 columns.",
+    "立即获得碾压保护、爆炸保护，并使全体植物立即获得25000护盾": "Immediately gain the Anti-crush and [Blast Protection] modifiers. All plants gain 25000 shield.",
+    "植物在3格内造成伤害时可回复生命值和护盾（有上限）": "When plants deal damage within 3 tiles, they restore HP and shield (up to a cap).",
+    "僵尸机制-三叉戟": "Zombie Mechanics - Tridents",
+    "<color=#FF7400>三叉戟</color>是僵尸的一种远程攻击方式，但其不属于<color=#FF7400>投掷物</color>。命中时会造成（植物当前血量20%，且最少为60）的伤害，并施加潮湿状态\n\n<color=#FF7400>潮湿状态</color>会使植物的<color=#77FFF8>速度</color>降低25%，持续时间5秒，每次施加会重置持续时间\n\n<color=#FF7400>雪叉</color>是三叉戟的变种，在三叉戟的基础上还能施加冰封": "<color=#FF7400>Tridents</color> are ranged zombie attacks, but are not considered <color=#FF7400>projectiles</color>. A hit deals damage equal to 20% of the plant's current HP, with a minimum of 60 damage, and applies Drenched.\n\n<color=#FF7400>Drenched</color> reduces the plant's <color=#77FFF8>Speed</color> by 25% for 5 seconds. Reapplying it resets the duration.\n\n<color=#FF7400>Snow tridents</color> also freeze plants.",
+    "==============配方关卡==============\n鸣谢：冰蓝色微笑、红烧黛鱼、卡波姆、梦珞、Miku喵、裴璃Daze、Raykilling、若致萝卜、零只羊、一盆游戏菌\nemememek、咕咕之鸽、路人·无名、罗太のqueen、手机被占、托卡马克、窝不想取名字、弦海青鱼、心明\n以及游玩配方关卡的你\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n试试给磁性西瓜投手融合铁桶或时空碎片！\n铁桶西瓜投手伤害很高，超时空西瓜投手能扩散传送状态！\n推荐搭配铁桶豌豆射手（击退）和超时空豌豆射手（传送源）\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n": "\n\n\n\n\n\n\n\n\nTry giving Buckets or Chrono Cores to Melon Morphs!\nMetal-pult dishes out enormous damage while Portal-pult spreads Chronoshift!\nPerfect matches for Buckshooter (for knockback) and Chrono Pea (Chronoshift source)!\n\n\n\n\n==============Fusion Showcase==============\nSpecial Thanks: 冰蓝色微笑、红烧黛鱼、卡波姆、Mengluo、Miku喵、裴璃Daze、Raykilling、若致萝卜、零只羊、一盆游戏菌\nemememek、咕咕之鸽、路人·无名、罗太のqueen、手机被占、托卡马克、窝不想取名字、弦海青鱼、心明\nEnglish Translators: MamoruKun, cassidy, revo,\nand you the players!",
+    "\n\n期货奖励：不增加海克斯品质难度。": "\n\nFutures reward: does not increase modifier-quality difficulty.",
+    "\n\n点击开启，随机获得一项": "\n\nTap to open and receive one random ",
+    "\n但也开到了一些僵尸": "\nBut you also found some zombies.",
+    "\n位置：溢出区": "\nLocation: Overflow",
+    "\n免费种植": "\nFree planting",
+    "\n敌方护甲：{0:F0}": "\nEnemy armor: {0:F0}",
+    "\n新奖励：": "\nNew reward: ",
+    "\n点击选择，在草坪上种植": "\nTap to select, then plant on the lawn.",
+    "\n解锁": "\nUnlock",
+    "{0} {1} · 第{2}路第{3}格": "{0} {1} · Lane {2}, Column {3}",
+    "{0}秒": "{0}s",
+    "{0}（{1}份）": "{0} ({1} copies)",
+    "一次性消耗品 · 不可升级": "Single-use consumable · Cannot be upgraded",
+    "一次鉴定只能指定一种植物或僵尸。": "Each identification request can specify only one plant or zombie.",
+    "不会被敌方攻击": "Cannot be targeted by enemies",
+    "不可碾压": "Immune to crushing",
+    "与出战卡一致，无需同步": "Matches the deployed card; no sync needed",
+    "仅已获得": "Obtained only",
+    "你开到了僵尸礼盒": "You found a Zombie Gift Box.",
+    "你开到了南瓜箱子，爆出了5000阳光": "You opened a Pumpkin Box and received 5000 Sun.",
+    "你开到了南瓜箱子，爆出了一株三级植物": "You opened a Pumpkin Box and received a level-3 plant.",
+    "你开到了南瓜箱子，爆出了随机词条": "You opened a Pumpkin Box and received a random modifier.",
+    "你无法在商店购买植物卡和刷新，持续3个节点。在此之后，获得2000积分。": "You cannot buy plant cards or reroll the shop for 3 nodes. Afterwards, gain 2000 points.",
+    "使植物获得防碾压的效果": "Grants plants protection against crushing.",
+    "修改持有卡牌不会回写已经种下的植物快照。复制卡不复制装备；移除卡牌按来源退回全部装备，不发出售积分。": "Editing owned cards does not update snapshots of plants already deployed. Cloned cards do not copy equipment. Removing a card returns all equipment to its original inventory and awards no sale points.",
+    "先从已有积分中每扣400积分获得1张随机黄金植物卡，最多扣4000积分；再获得1600积分和1个模仿者。拖到卡牌上可获得对应植物的黄金品质卡牌。": "First, spend 400 points from your current balance per random Gold plant card, up to 4000 points. Then gain 1600 points and 1 Imitater. Drag the Imitater onto a card to receive a Gold card of the same plant.",
+    "关卡名称为空或包含无效文件名字符": "The level name is empty or contains invalid filename characters.",
+    "关卡特性：植物全部都变成问号": "Level effect: All plants appear as question marks.",
+    "力大砖飞：\n植物方的樱桃爆炸伤害增加2倍": "Megaton Blast:\nPlant cherry explosions deal 3x damage.",
+    "势不可挡：\n◆樱桃机枪读报僵尸愤怒的时候会无视植物\n◇未选取时，究极Z教授获得1份备用报纸": "Breakthrough:\n◆ Gatling Cherry Newspaper Zombie ignores plants while enraged.\n◇ If not selected, Professor Cherryz gains 1 spare newspaper.",
+    "卡牌 #{0} 操作完成；已种植物快照不回写": "Card #{0} updated; deployed plant snapshots remain unchanged.",
+    "可选植物不足4种": "Fewer than 4 plant types are available.",
+    "可选究极植物不足4种": "Fewer than 4 Odyssey plant types are available.",
+    "合理投资：旅行词条刷新次数+3": "Sound Investment: Gain 3 modifier rerolls.",
+    "商店 / 关卡": "Shop / Battle",
+    "好运令牌-词条": "Modifier Luck Token",
+    "小队与场上植物已恢复生命": "Squad and deployed plants healed.",
+    "已更新：{0} = {1}（当前关卡）": "Updated: {0} = {1} (current level)",
+    "已清空全部卡牌冷却": "All card cooldowns reset.",
+    "已清除场上植物，卡牌保留": "Deployed plants cleared; cards retained.",
+    "当前密钥正确，将加载待审核关卡": "Correct access key; loading levels awaiting review.",
+    "当前密钥错误，将加载已过审关卡": "Incorrect access key; loading approved levels.",
+    "成品植物不支持直接升阶": "Final plants cannot be promoted directly.",
+    "战场操作要求正式战斗。种植使用目标卡牌的品质与装备快照；僵尸走原生生成入口并应用旅行生命倍率。": "Battlefield actions require an active battle. Planting uses the target card's quality and equipment snapshot. Zombies use the original spawn path and Odyssey HP multiplier.",
+    "拖到卡牌上，获得一张同种植物的": "Drag onto a card to receive another card of the same plant at ",
+    "拖到装备上：随机变为其他同等级装备\n拖到卡牌上：全部装备随机变为其他同等级装备并卸下\n基础变基础，进阶变进阶，保留究极身份\n拥有升级锅炉时，大麦将基础装备改为随机进阶装备\n消耗品，成功使用后消耗1个": "Drag onto equipment: Reroll it into another item of the same tier.\nDrag onto a card: Reroll all equipment into other items of the same tier and unequip them.\nBasic stays Basic and Advanced stays Advanced; Odyssey status is preserved.\nWith an Upgrade Boiler, Barley converts Basic equipment into random Advanced equipment.\nConsumable: Uses 1 item on success.",
+    "溢出卡牌待处理": "Resolve overflow cards",
+    "火力植物\n{0:0.#}工作秒": "Firepower plants\n{0:0.#} work seconds",
+    "电力相生：植物每有1%攻速加成，获得1%攻击力加成": "Power Synergy: Plants gain 1% attack power for every 1% attack speed bonus.",
+    "立即获得3张随机钻石品质究极植物卡、1个钻石模仿者和4次免费刷新。": "Immediately gain 3 random Diamond Odyssey plant cards, 1 Diamond Imitater and 4 free rerolls.",
+    "管理已持有卡牌": "Manage Owned Cards",
+    "给已佩戴普通进阶装备的卡牌再装同名普通进阶装备时，消耗新装的1件，将原装备变为对应究极装备；立即获得1个基础装备盒。": "Equip another copy of the same non-Odyssey Advanced equipment to a card already holding it. Consume the new copy to upgrade the original into its Odyssey form. Immediately gain 1 Basic Equipment Box.",
+    "群攻-木桩：在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n木桩会秒杀解除到的魅惑僵尸": "Voodoo Dummy: Summons a Dummy Zombie on the lawn. It distributes 60% of the damage it takes equally among all zombies and can be moved with the Zombie Glove.\nThe dummy instantly kills hypnotized zombies it touches.",
+    "获得10点商店升级经验。": "Gain 10 shop upgrade XP.",
+    "获得10经验值。": "Gain 10 XP.",
+    "获得11次免费刷新。": "Gain 11 free rerolls.",
+    "获得1个【基础装备盒】，获得400积分。": "Gain 1 Basic Equipment Box and 400 points.",
+    "获得1个【基础装备盒】，获得800积分。": "Gain 1 Basic Equipment Box and 800 points.",
+    "获得1个【好运令牌】和1件随机简易装备。": "Gain 1 Luck Token and 1 random Basic equipment item.",
+    "获得1个【模仿者】，3个节点后，获得1个【模仿者】。拖到卡牌上可获得对应植物的黄金品质卡牌。": "Gain 1 Imitater now and another after 3 nodes. Drag it onto a card to receive a Gold card of the same plant.",
+    "获得1个【模仿者】，4个节点后，获得1个【模仿者】。拖到卡牌上可获得对应植物的黄金品质卡牌。": "Gain 1 Imitater now and another after 4 nodes. Drag it onto a card to receive a Gold card of the same plant.",
+    "获得1个好运令牌-词条。": "Gain 1 Modifier Luck Token.",
+    "获得1个好运令牌-词条，立即获得2000积分。": "Gain 1 Modifier Luck Token and immediately gain 2000 points.",
+    "获得1件战术小刀。全体植物获得30%攻击力和5%独立伤害增幅。": "Gain 1 Tactical Knife. All plants gain 30% attack power and 5% independent damage amplification.",
+    "获得1件战术手炮。全体植物获得30%攻击力，卡牌冷却缩短15%。": "Gain 1 Tactical Handcannon. All plants gain 30% attack power and their card cooldowns are reduced by 15%.",
+    "获得1件战术护盾。全体植物受到伤害降低15%，获得护盾量提高5%。": "Gain 1 Tactical Shield. All plants take 15% less damage and receive 5% more shield.",
+    "获得1件生命之花。全体植物生命提高15%，治疗量提高5%。": "Gain 1 Flower of Life. All plants gain 15% HP and receive 5% more healing.",
+    "获得1张究极赋予卡和1个基础装备盒。": "Gain 1 Odyssey Grant Card and 1 Basic Equipment Box.",
+    "获得2个【模仿者】。获得1300积分。拖到卡牌上可获得对应植物的黄金品质卡牌。": "Gain 2 Imitaters and 1300 points. Drag an Imitater onto a card to receive a Gold card of the same plant.",
+    "获得2个【模仿者】。获得700积分。拖到卡牌上可获得对应植物的黄金品质卡牌。": "Gain 2 Imitaters and 700 points. Drag an Imitater onto a card to receive a Gold card of the same plant.",
+    "获得2个究极邀请函，每个可从4种随机黄金品质究极植物中选择1张，获得1200积分。": "Gain 2 Odyssey Invitations and 1200 points. Each invitation lets you choose 1 of 4 random Gold Odyssey plant cards.",
+    "获得2个究极邀请函，每个可从4种随机黄金品质究极植物中选择1张，获得400积分。": "Gain 2 Odyssey Invitations and 400 points. Each invitation lets you choose 1 of 4 random Gold Odyssey plant cards.",
+    "获得2张白银聘用书，获得400积分。": "Gain 2 Silver Recruitment Letters and 400 points.",
+    "获得2张白银聘用书，获得500积分。": "Gain 2 Silver Recruitment Letters and 500 points.",
+    "获得4个随机白银品质植物卡。": "Gain 4 random Silver plant cards.",
+    "获得4个随机钻石品质植物卡。": "Gain 4 random Diamond plant cards.",
+    "获得4个随机黄金品质植物卡。": "Gain 4 random Gold plant cards.",
+    "获得一个【装备骰子】。": "Gain 1 Equipment Die.",
+    "获得一个【随便骰子】。": "Gain 1 Wildcard Die.",
+    "获得随机的大笔奖励。": "Receive a random large reward.",
+    "装到目标卡牌": "Equip to Target Card",
+    "装备一致，无需同步": "Equipment matches; no sync needed",
+    "装备与道具目录": "Equipment and Item Catalog",
+    "装备已按原来源卸回物品栏": "Equipment returned to its original inventory.",
+    "装备已通过真实装配/合成入口装上": "Equipment equipped through the standard equip/combine action.",
+    "装备已随机转化并卸下": "Equipment rerolled and unequipped.",
+    "装备库存（序号从1开始）": "Equipment Inventory (indices start at 1)",
+    "装备锻造器只能用于基础装备": "The Equipment Forge only accepts Basic equipment.",
+    "解除锁定": "Unlock",
+    "该装备没有后续合成配方": "This equipment has no further combination recipe.",
+    "说明内容": "Description",
+    "请将好运令牌-词条拖到卡牌上": "Drag the Modifier Luck Token onto a card.",
+    "跳转会清理当前敌人并进入该轮的真实阶段，保留卡牌、装备和资源，不发放被跳过战斗的结算收入。": "Jumping clears current enemies and enters the selected round's actual phase. Cards, equipment and resources are retained. Skipped battles award no settlement income.",
+    "跳转轮次（从1开始）": "Round to Jump To (starts at 1)",
+    "转为究极": "Convert to Odyssey",
+    "这个位置没有卡牌": "There is no card in this position.",
+    "进入3个节点后，获得1个【好运令牌】。": "After entering 3 nodes, gain 1 Luck Token.",
+    "进入此轮": "Enter This Round",
+    "进阶装备盒子": "Advanced Equipment Box",
+    "道具库存（按种类汇总；每次移除1件）": "Item Inventory (grouped by type; remove 1 at a time)",
+    "重置掉盒上限": "Reset Box Drop Limit",
+    "重置推车": "Reset Mowers",
+    "铲除 · 返还{0}阳光": "Shovel · Refund {0} Sun",
+    "锁定商品": "Lock Shop Offers",
+    "阳光已设为{0}": "Sun set to {0}",
+    "阳光消耗-{0:P0}": "Sun Cost -{0:P0}",
+    "随机": "Random",
+    "随机品质": "Random Quality",
+    "随机基础装备": "Random Basic Equipment",
+    "随机进阶装备": "Random Advanced Equipment",
+    "领取": "Claim",
+    "额外获得{0}件基础装备": "Gain {0} additional Basic equipment items",
+    "（本场）": "(this battle)",
+    "（永久）": "(permanent)",
+    "，使用卡牌真实品质与装备快照": ", using the card's actual quality and equipment snapshot",
+    "，它在滑行时碾压植物会触发暴风雪效果": ", triggering a blizzard when it crushes plants while sliding",
+    "狂战-铁卫：植物在右4列时，对僵尸额外造成100%伤害": "Vanguard - A: Plants deal an additional 100% damage while they are in the rightmost 4 columns.",
+    "狂战-铁卫：植物在右4列时，对僵尸额外造成30%伤害": "Vanguard: Plants deal an additional 30% damage while they are in the rightmost 4 columns.",
+    "狂战-铁卫：立即获得碾压保护、爆炸保护，并使全体植物立即获得25000护盾": "Vanguard - B: Immediately gain the Anti-crush and [Blast Protection] modifiers. All plants gain 25000 shield.",
+    "铁卫-不灭之躯：植物在3格内造成伤害时可回复生命值和护盾（有上限）": "Vanguard - X: When plants deal damage within 3 tiles, they restore HP and shield (up to a cap).",
+    "专家招募": "Expert Recruitment",
+    "专家招募+": "Expert Recruitment+",
+    "铁卫": "Vanguard",
+    "战术小刀": "Tactical Knife",
+    "战术手炮": "Tactical Handcannon",
+    "好运令牌": "Luck Token",
+    "究极邀请函": "Odyssey Invitation",
+    "升级锅炉": "Upgrade Boiler",
+    "装备骰子": "Equipment Die",
+    "装备锻造器": "Equipment Forge",
+    "装备批发商": "Equipment Wholesaler",
+    "胜利结算": "Victory Rewards",
+    "金币": "Coins",
+    "道具": "Items",
+    "被动技能": "Passive Skill",
+    "黄金植物礼盒": "Gold Plant Gift Box",
+    "钻石植物礼盒": "Diamond Plant Gift Box",
+    "基础装备": "Basic Equipment",
+    "<nobr>匣中惊喜</nobr>：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "轨迹多端：\n◆超级三叉戟僵尸将依次投射最近、血量最高、血量最低的植物\n◇未选取时，究极渊海三叉戟额外携带一列随从": "Scatterthrow:\n◆ Giga Trident-nut Zombie targets the nearest plant, the plant with the highest HP, then the plant with the lowest HP in turn.\n◇ If not selected, Pozeidon brings an additional column of followers.",
+    "随从强化：非领袖僵尸获得30%速度加成和30%血量加成": "<nobr>Follower Reinforcement</nobr>:\nNon-leader zombies gain 30% speed and 30% HP.",
+    "<nobr>随从强化</nobr>：\n非领袖僵尸获得30%速度加成和30%血量加成": "<nobr>Follower Reinforcement</nobr>:\nNon-leader zombies gain 30% speed and 30% HP.",
+    "<nobr>霸凌弱者</nobr>：\n植物因血量归零死亡时爆炸，对附近植物自身最大生命值的伤害": "<nobr>Bully the Weak</nobr>:\nPlants that die because their HP reaches zero explode, dealing damage equal to their own maximum HP to nearby plants.",
+    "霸凌弱者：植物因血量归零死亡时爆炸，对附近植物自身最大生命值的伤害": "<nobr>Bully the Weak</nobr>:\nPlants that die because their HP reaches zero explode, dealing damage equal to their own maximum HP to nearby plants.",
+    "<nobr>领袖强化</nobr>：\n领袖僵尸获得30%速度加成和30%血量加成": "<nobr>Leader Reinforcement</nobr>:\nLeader zombies gain 30% speed and 30% HP.",
+    "领袖强化：领袖僵尸获得30%速度加成和30%血量加成": "<nobr>Leader Reinforcement</nobr>:\nLeader zombies gain 30% speed and 30% HP.",
+    "饱和投射：\n◆超级三叉戟僵尸、冰封三叉戟僵尸攻击额外散射两发\n◇未选取时，究极渊海三叉戟额外携带一列随从": "Trident Torrents:\n◆ Giga Trident-nut Zombie and Harpooneer Frost Tall-nut Zombie scatter 2 additional shots per attack.\n◇ If not selected, Pozeidon brings an additional column of followers.",
+    "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植Plant Giftbox或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>Sea-greed Zombox</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植Zombie Giftbox时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植Zombie盲盒时掉落\n◆通过击败赏金状态的Zombie获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>Kelptain Goldbeard</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或Imitater时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "匣中惊喜：\n◆<nobr><color=red>Kelptain Goldbeard</color></nobr>：自身卡牌有概率在种植Plant Giftbox或Imitater时掉落\n◆<nobr><color=red>Sea-greed Zombox</color></nobr>：自身卡牌有概率在种植Zombie Giftbox时掉落\n◆通过击败赏金状态的Zombie获得的积分翻倍": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+    "随从强化：非领袖Zombie获得30%速度加成和30%血量加成": "<nobr>Follower Reinforcement</nobr>:\nNon-leader zombies gain 30% speed and 30% HP.",
+    "领袖强化：领袖Zombie获得30%速度加成和30%血量加成": "<nobr>Leader Reinforcement</nobr>:\nLeader zombies gain 30% speed and 30% HP.",
+    " 级": " Tier",
+    "级": "Tier"
+  },
+  "runtime_regex": [
+    [
+      "^([^\\n]*? · )木桩( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Voodoo Dummy{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )烈阳( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Solar Blast{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )战锤( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Warhammer{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )裂空( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}G-Fish Bomber{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )明月( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Moonlight Veil{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )硬化( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Iron Curtain{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )交易( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Luck • Loan{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )宝藏( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Luck • Bounty{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )Infernal\\ Combustion( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Infernal Combustion{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )光棱( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Prism Fighter{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )Thunderstorm( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Approaching Storm{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )全能( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Omnipotence{1}{2}"
+    ],
+    [
+      "^([^\\n]*? · )铁卫( · (?:Level \\d+|Maximum Tier))(?:\\s*级)?( · [^\\n]+)$",
+      "{0}Vanguard{1}{2}"
+    ],
+    [
+      "^([^\\n]*?\\bLevel \\d+)\\s*级( · [^\\n]+)$",
+      "{0}{1}"
+    ],
+    [
+      "^((?:[\\s\\S]+ · )?Level \\d+) 级$",
+      "{0}"
+    ],
+    [
+      "^([\\s\\S]+ · )(\\d+) 级$",
+      "{0}Tier {1}"
+    ],
+    [
+      "^(\\d+) 级$",
+      "Tier {0}"
+    ]
+  ],
+  "context": [
+    {
+      "index": 52,
+      "source": "\n\n期货奖励：不增加海克斯品质难度。",
+      "source_sha256": "2638f406bb9d2058c77aa3a5dcdf84d115244d61a3f47dd171bdef2ae41668d4",
+      "previous": "\n\n期货奖励：不增加海克斯品质难度。",
+      "english": "\n\nFutures reward: does not increase modifier-quality difficulty.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 54,
+      "source": "\n\n点击开启，随机获得一项",
+      "source_sha256": "236dce7912b198aedffd58f24508e9986ce55fea8af4730ec0e4c9d6a3037c54",
+      "previous": "\n\n点击开启，随机获得一项",
+      "english": "\n\nTap to open and receive one random ",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 102,
+      "source": "\n但也开到了一些僵尸",
+      "source_sha256": "5f71d312f1d824a634eb3cf7b1ea3cb795a814ce07e5164928464713d8b6be4a",
+      "previous": "\n但也开到了一些僵尸",
+      "english": "\nBut you also found some zombies.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 105,
+      "source": "\n位置：溢出区",
+      "source_sha256": "fe07d303b17823a1981a3ae26761428b757caa2267c147d3f2f4fd9f0198031b",
+      "previous": "\n位置：溢出区",
+      "english": "\nLocation: Overflow",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 106,
+      "source": "\n免费种植",
+      "source_sha256": "567eff2a5c0ce8ee5b335e470bdfac252a2f66d291c0f141a37de43e3d4d1043",
+      "previous": "\n免费种植",
+      "english": "\nFree planting",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 121,
+      "source": "\n敌方护甲：{0:F0}",
+      "source_sha256": "25d72fd5510452f9735873c815192babbaf515b51fad7006550b4aa0bc06a34b",
+      "previous": "\n敌方护甲：{0:F0}",
+      "english": "\nEnemy armor: {0:F0}",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 122,
+      "source": "\n新奖励：",
+      "source_sha256": "086940baf4b12df276dc6a468c77503a29da64d07bc1ca77546635e5c83ee6c4",
+      "previous": "\n新奖励：",
+      "english": "\nNew reward: ",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 128,
+      "source": "\n点击选择，在草坪上种植",
+      "source_sha256": "12004b010e5bec3a7e6335339682b1cfec7e2f7e996b89b4051259459bed3437",
+      "previous": "\n点击选择，在草坪上种植",
+      "english": "\nTap to select, then plant on the lawn.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 139,
+      "source": "\n解锁",
+      "source_sha256": "e05de1b2c46f13a960f2ca4c7d8a0bf273d43350a59e6f9a60a3998208ae6335",
+      "previous": "\n解锁",
+      "english": "\nUnlock",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 15975,
+      "source": "{0} {1} · 第{2}路第{3}格",
+      "source_sha256": "eddd7c1853fee2aa075e1ad5a5d162463879de04b76da7883c7ecde638679e64",
+      "previous": "{0} {1} · 第{2}路第{3}格",
+      "english": "{0} {1} · Lane {2}, Column {3}",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16076,
+      "source": "{0}秒",
+      "source_sha256": "2ed88790527d2c80f4f9f9333d25167d2f82b00a5cfe8cfd4d3c0b7d6b9da69a",
+      "previous": "{0}秒",
+      "english": "{0}s",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16096,
+      "source": "{0}（{1}份）",
+      "source_sha256": "9b251d4f403f1a1fd3d016388249558d00a01ec0c4b014294dd1a2ccbda3e9ff",
+      "previous": "{0}（{1}份）",
+      "english": "{0} ({1} copies)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16328,
+      "source": "一次性消耗品 · 不可升级",
+      "source_sha256": "50d16ef62837489417079487e5b22f5a5d9d21e959e7c30d596afd476d8bdf6a",
+      "previous": "一次性消耗品 · 不可升级",
+      "english": "Single-use consumable · Cannot be upgraded",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16332,
+      "source": "一次鉴定只能指定一种植物或僵尸。",
+      "source_sha256": "5e0b64a0f14d5127dbb8573183e074eb91ad73706b4b4d31dae898ba827ae3c3",
+      "previous": "一次鉴定只能指定一种植物或僵尸。",
+      "english": "Each identification request can specify only one plant or zombie.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16379,
+      "source": "不会被敌方攻击",
+      "source_sha256": "18e45b76b06978eacde7afc7ee9f16386b4d35c6996806de1f9a92d8786c6c3c",
+      "previous": "不会被敌方攻击",
+      "english": "Cannot be targeted by enemies",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16385,
+      "source": "不可碾压",
+      "source_sha256": "1ad8c48a48a62ef977c8248e4ae972c468136fcc3b5fcebf51c3355f7d866ec1",
+      "previous": "不可碾压",
+      "english": "Immune to crushing",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16407,
+      "source": "与出战卡一致，无需同步",
+      "source_sha256": "b2c81ac5d9213afe2cc8780bd09c93d98c454725b9c879b79ab0c9988e2353a8",
+      "previous": "与出战卡一致，无需同步",
+      "english": "Matches the deployed card; no sync needed",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16486,
+      "source": "仅已获得",
+      "source_sha256": "e300c238be742fc4b47ef00ce255a1bab7932a7636bfacd56b8f031bb9752b90",
+      "previous": "仅已获得",
+      "english": "Obtained only",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16582,
+      "source": "你开到了僵尸礼盒",
+      "source_sha256": "0b6243e1c0b2aac15eb14aa77866b0ce8225ee3b6455fcf449d12b39bad75738",
+      "previous": "你开到了僵尸礼盒",
+      "english": "You found a Zombie Gift Box.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16583,
+      "source": "你开到了南瓜箱子，爆出了5000阳光",
+      "source_sha256": "9ce3b233c3b856b6bc3d60ee309fa9d205b084b0d9b242d63f72212fc4026a1d",
+      "previous": "你开到了南瓜箱子，爆出了5000阳光",
+      "english": "You opened a Pumpkin Box and received 5000 Sun.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16585,
+      "source": "你开到了南瓜箱子，爆出了一株三级植物",
+      "source_sha256": "862465d46251eeb022bec2e2f0b1099ffe18a865a613ab558393ceea0c7af0c3",
+      "previous": "你开到了南瓜箱子，爆出了一株三级植物",
+      "english": "You opened a Pumpkin Box and received a level-3 plant.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16586,
+      "source": "你开到了南瓜箱子，爆出了随机词条",
+      "source_sha256": "d43cb0929782e713b86180000e66cb35bf8831c54312236057e943b404f1e16e",
+      "previous": "你开到了南瓜箱子，爆出了随机词条",
+      "english": "You opened a Pumpkin Box and received a random modifier.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16590,
+      "source": "你无法在商店购买植物卡和刷新，持续3个节点。在此之后，获得2000积分。",
+      "source_sha256": "d33a1992e1697f481369851af09d7aa19cc7c2a598490e4b9ef526528159ccd2",
+      "previous": "你无法在商店购买植物卡和刷新，持续3个节点。在此之后，获得2000积分。",
+      "english": "You cannot buy plant cards or reroll the shop for 3 nodes. Afterwards, gain 2000 points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16634,
+      "source": "使植物获得防碾压的效果",
+      "source_sha256": "f394b03423fc0ca8f6fb0adb2b098916bf96947c808e8275ab1831b0fc920168",
+      "previous": "使植物获得防碾压的效果",
+      "english": "Grants plants protection against crushing.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16686,
+      "source": "修改持有卡牌不会回写已经种下的植物快照。复制卡不复制装备；移除卡牌按来源退回全部装备，不发出售积分。",
+      "source_sha256": "9eccea82df04a8130a8454da5c15872acbe62b65c32d43f9bb6951b73da80497",
+      "previous": "修改持有卡牌不会回写已经种下的植物快照。复制卡不复制装备；移除卡牌按来源退回全部装备，不发出售积分。",
+      "english": "Editing owned cards does not update snapshots of plants already deployed. Cloned cards do not copy equipment. Removing a card returns all equipment to its original inventory and awards no sale points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16777,
+      "source": "先从已有积分中每扣400积分获得1张随机黄金植物卡，最多扣4000积分；再获得1600积分和1个模仿者。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "source_sha256": "efe316d42f8f84ca225b36472b647162817e66efd6c725e5aa220aac2a0f8fb0",
+      "previous": "先从已有积分中每扣400积分获得1张随机黄金植物卡，最多扣4000积分；再获得1600积分和1个模仿者。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "english": "First, spend 400 points from your current balance per random Gold plant card, up to 4000 points. Then gain 1600 points and 1 Imitater. Drag the Imitater onto a card to receive a Gold card of the same plant.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16854,
+      "source": "关卡名称为空或包含无效文件名字符",
+      "source_sha256": "ff52575252b0a8eb973527588c71d92d2c5a9aad8c900563c51a04fe56a6c2c6",
+      "previous": "关卡名称为空或包含无效文件名字符",
+      "english": "The level name is empty or contains invalid filename characters.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 16870,
+      "source": "关卡特性：植物全部都变成问号",
+      "source_sha256": "045e06c80eb1bd7a7dcded239f2a91559171489127b3d74ec8dd49fb1401bf67",
+      "previous": "关卡特性：植物全部都变成问号",
+      "english": "Level effect: All plants appear as question marks.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17095,
+      "source": "力大砖飞：\n植物方的樱桃爆炸伤害增加2倍",
+      "source_sha256": "eb6fc45256b6df990db82baf9015e34274358bdc969298285611d3b6053f047d",
+      "previous": "力大砖飞：\n植物方的樱桃爆炸伤害增加2倍",
+      "english": "Megaton Blast:\nPlant cherry explosions deal 3x damage.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17118,
+      "source": "势不可挡：\n◆樱桃机枪读报僵尸愤怒的时候会无视植物\n◇未选取时，究极Z教授获得1份备用报纸",
+      "source_sha256": "4d45007ccb0229ec4c4befffd5df75e0087fffb9c03e726aee31384d32309968",
+      "previous": "势不可挡：\n◆樱桃机枪读报僵尸愤怒的时候会无视植物\n◇未选取时，究极Z教授获得1份备用报纸",
+      "english": "Breakthrough:\n◆ Gatling Cherry Newspaper Zombie ignores plants while enraged.\n◇ If not selected, Professor Cherryz gains 1 spare newspaper.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17169,
+      "source": "卡牌 #{0} 操作完成；已种植物快照不回写",
+      "source_sha256": "7e50597738f24a0ae69107f09cacf14909fa0712362bd73fc00e22938afef5e4",
+      "previous": "卡牌 #{0} 操作完成；已种植物快照不回写",
+      "english": "Card #{0} updated; deployed plant snapshots remain unchanged.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17251,
+      "source": "可选植物不足4种",
+      "source_sha256": "e8a51e29e1d07a2fb2690934a5fe57d2729ce8d4a30621a063a9b4585afe3106",
+      "previous": "可选植物不足4种",
+      "english": "Fewer than 4 plant types are available.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17252,
+      "source": "可选究极植物不足4种",
+      "source_sha256": "1553910faee15169048e83855cb511a3a04dd1a7a08ce8fa4d61b26aa28e5a36",
+      "previous": "可选究极植物不足4种",
+      "english": "Fewer than 4 Odyssey plant types are available.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17273,
+      "source": "合理投资：旅行词条刷新次数+3",
+      "source_sha256": "854f643fb790d71bc3e73dd219cee4d732043cdf2c507ab558a05b6d8785b4e4",
+      "previous": "合理投资：旅行词条刷新次数+3",
+      "english": "Sound Investment: Gain 3 modifier rerolls.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17336,
+      "source": "商店 / 关卡",
+      "source_sha256": "23b31af619e4d30eabae67b6506218b790272eb070e8f6ed61cba862ebdd2d66",
+      "previous": "商店 / 关卡",
+      "english": "Shop / Battle",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17563,
+      "source": "好运令牌-词条",
+      "source_sha256": "e37639158c83251e32f29816fb13adb2dbc7abdeea978f39addf77e9e4047505",
+      "previous": "好运令牌-词条",
+      "english": "Modifier Luck Token",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17762,
+      "source": "小队与场上植物已恢复生命",
+      "source_sha256": "d73d019854cdd8be104b5f2bdd579cc48580285ce360f6cc14d33634944685be",
+      "previous": "小队与场上植物已恢复生命",
+      "english": "Squad and deployed plants healed.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17833,
+      "source": "已更新：{0} = {1}（当前关卡）",
+      "source_sha256": "9ff4db1f62c32bae88fffc638b9e0eddd06be804c91b29e9564fb364ed99285a",
+      "previous": "已更新：{0} = {1}（当前关卡）",
+      "english": "Updated: {0} = {1} (current level)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17839,
+      "source": "已清空全部卡牌冷却",
+      "source_sha256": "5829909d13c0ff9de1ac9acbabcef853d3c80269d10906ce1b42405c41844bec",
+      "previous": "已清空全部卡牌冷却",
+      "english": "All card cooldowns reset.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17840,
+      "source": "已清除场上植物，卡牌保留",
+      "source_sha256": "bab932004146f103a8ec7a58c3ec877fe60d73186ad9cea1e5f5d0b7c1305004",
+      "previous": "已清除场上植物，卡牌保留",
+      "english": "Deployed plants cleared; cards retained.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 18050,
+      "source": "当前密钥正确，将加载待审核关卡",
+      "source_sha256": "073d994d7806a8f280e0dd196640a74e7d9ac5c4e791dd83a67286984acb84c1",
+      "previous": "当前密钥正确，将加载待审核关卡",
+      "english": "Correct access key; loading levels awaiting review.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 18051,
+      "source": "当前密钥错误，将加载已过审关卡",
+      "source_sha256": "1582f9afb2e2adbf8f6db0972e0847b19ec467825d6ebf616b5564a124fbf401",
+      "previous": "当前密钥错误，将加载已过审关卡",
+      "english": "Incorrect access key; loading approved levels.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 18156,
+      "source": "成品植物不支持直接升阶",
+      "source_sha256": "873f693cdc2dca6ad4ac5e5ced0094672bf12f087931e038dcc7d078a98c358a",
+      "previous": "成品植物不支持直接升阶",
+      "english": "Final plants cannot be promoted directly.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 18194,
+      "source": "战场操作要求正式战斗。种植使用目标卡牌的品质与装备快照；僵尸走原生生成入口并应用旅行生命倍率。",
+      "source_sha256": "8a4cd67929b79a2afc5ba8d8d1c5d9622db5767350afe3904d07e0a19f71175e",
+      "previous": "战场操作要求正式战斗。种植使用目标卡牌的品质与装备快照；僵尸走原生生成入口并应用旅行生命倍率。",
+      "english": "Battlefield actions require an active battle. Planting uses the target card's quality and equipment snapshot. Zombies use the original spawn path and Odyssey HP multiplier.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 18291,
+      "source": "拖到卡牌上，获得一张同种植物的",
+      "source_sha256": "da28e749d26790c99b4ad4b49bc4460f44ea45771f030fc0d7a4055ae25b1c79",
+      "previous": "拖到卡牌上，获得一张同种植物的",
+      "english": "Drag onto a card to receive another card of the same plant at ",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 18296,
+      "source": "拖到装备上：随机变为其他同等级装备\n拖到卡牌上：全部装备随机变为其他同等级装备并卸下\n基础变基础，进阶变进阶，保留究极身份\n拥有升级锅炉时，大麦将基础装备改为随机进阶装备\n消耗品，成功使用后消耗1个",
+      "source_sha256": "72522bdc9b42789d0988a925f7c6f04d30024efee37a6b98231e43abaff8ef6f",
+      "previous": "拖到装备上：随机变为其他同等级装备\n拖到卡牌上：全部装备随机变为其他同等级装备并卸下\n基础变基础，进阶变进阶，保留究极身份\n拥有升级锅炉时，大麦将基础装备改为随机进阶装备\n消耗品，成功使用后消耗1个",
+      "english": "Drag onto equipment: Reroll it into another item of the same tier.\nDrag onto a card: Reroll all equipment into other items of the same tier and unequip them.\nBasic stays Basic and Advanced stays Advanced; Odyssey status is preserved.\nWith an Upgrade Boiler, Barley converts Basic equipment into random Advanced equipment.\nConsumable: Uses 1 item on success.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19221,
+      "source": "溢出卡牌待处理",
+      "source_sha256": "e114cf7ea9a6e24108761bf1b41eba41c685ca8a4fe7810afaa5b391d76812b1",
+      "previous": "溢出卡牌待处理",
+      "english": "Resolve overflow cards",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19239,
+      "source": "火力植物\n{0:0.#}工作秒",
+      "source_sha256": "e6ea825ff0e2ac6dbfdcbdf35818baa91a68520f2d0260ffb215e4af92d1444f",
+      "previous": "火力植物\n{0:0.#}工作秒",
+      "english": "Firepower plants\n{0:0.#} work seconds",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19428,
+      "source": "电力相生：植物每有1%攻速加成，获得1%攻击力加成",
+      "source_sha256": "2bf17f799cf8a9bf1d4bec4d9a47cb775f1b863c68380aa46c2bf852d489f6da",
+      "previous": "电力相生：植物每有1%攻速加成，获得1%攻击力加成",
+      "english": "Power Synergy: Plants gain 1% attack power for every 1% attack speed bonus.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19627,
+      "source": "立即获得3张随机钻石品质究极植物卡、1个钻石模仿者和4次免费刷新。",
+      "source_sha256": "f65e71a168ed0658ffd651fb6a83ccf2710df2319baa75e477c18ea046954064",
+      "previous": "立即获得3张随机钻石品质究极植物卡、1个钻石模仿者和4次免费刷新。",
+      "english": "Immediately gain 3 random Diamond Odyssey plant cards, 1 Diamond Imitater and 4 free rerolls.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19693,
+      "source": "管理已持有卡牌",
+      "source_sha256": "9d17a1324702ee359058f0b53c3ae91925d53d52af625cff9594b8dc6f50a820",
+      "previous": "管理已持有卡牌",
+      "english": "Manage Owned Cards",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19748,
+      "source": "给已佩戴普通进阶装备的卡牌再装同名普通进阶装备时，消耗新装的1件，将原装备变为对应究极装备；立即获得1个基础装备盒。",
+      "source_sha256": "d9b634591e9efd738c06ae0e44c177d67f5ad75c5a9602ee9610a3e8a3c5747e",
+      "previous": "给已佩戴普通进阶装备的卡牌再装同名普通进阶装备时，消耗新装的1件，将原装备变为对应究极装备；立即获得1个基础装备盒。",
+      "english": "Equip another copy of the same non-Odyssey Advanced equipment to a card already holding it. Consume the new copy to upgrade the original into its Odyssey form. Immediately gain 1 Basic Equipment Box.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19787,
+      "source": "群攻-木桩：在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n木桩会秒杀解除到的魅惑僵尸",
+      "source_sha256": "e12a5effb86573b2f7dd0b36698ab7f15964306516146d5bb2a330c86e68e8d4",
+      "previous": "群攻-木桩：在场上生成一个木桩僵尸，木桩僵尸会把受到伤害的60%均摊给全场僵尸，可以使用僵尸手套移动木桩僵尸\n木桩会秒杀解除到的魅惑僵尸",
+      "english": "Voodoo Dummy: Summons a Dummy Zombie on the lawn. It distributes 60% of the damage it takes equally among all zombies and can be moved with the Zombie Glove.\nThe dummy instantly kills hypnotized zombies it touches.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19946,
+      "source": "获得10点商店升级经验。",
+      "source_sha256": "16c4b3739157236b35977d8d5a72737f0979ca7f0143184044cecc8f37d518e9",
+      "previous": "获得10点商店升级经验。",
+      "english": "Gain 10 shop upgrade XP.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19947,
+      "source": "获得10经验值。",
+      "source_sha256": "e19af21d47f1bbd62b8d97b6d84f7f9d51dc386b1bb18e8d6cf9e3e0f0c0cef8",
+      "previous": "获得10经验值。",
+      "english": "Gain 10 XP.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19948,
+      "source": "获得11次免费刷新。",
+      "source_sha256": "8a7ac193f328c3f0e3647d62bdd701d3f95ed9579f15db9178b36a608ea9c63b",
+      "previous": "获得11次免费刷新。",
+      "english": "Gain 11 free rerolls.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19955,
+      "source": "获得1个【基础装备盒】，获得400积分。",
+      "source_sha256": "7984e28d0ef4f76782fccca776ff4fe2da948c55bdc842c3145520b86ec1913e",
+      "previous": "获得1个【基础装备盒】，获得400积分。",
+      "english": "Gain 1 Basic Equipment Box and 400 points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19956,
+      "source": "获得1个【基础装备盒】，获得800积分。",
+      "source_sha256": "39eabc4024e4c5b459281002d2f8adb15a1f5da11f38660470d4f91f81d92409",
+      "previous": "获得1个【基础装备盒】，获得800积分。",
+      "english": "Gain 1 Basic Equipment Box and 800 points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19959,
+      "source": "获得1个【好运令牌】和1件随机简易装备。",
+      "source_sha256": "4476fc5354ebfb819ad2c96d5f08710b4385207a5e3763cf88ef71bcb2057a34",
+      "previous": "获得1个【好运令牌】和1件随机简易装备。",
+      "english": "Gain 1 Luck Token and 1 random Basic equipment item.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19961,
+      "source": "获得1个【模仿者】，3个节点后，获得1个【模仿者】。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "source_sha256": "eb7a5658a1b53c49972057df957aa0ee5715c2af83f4be9504e560fdacfa6f6e",
+      "previous": "获得1个【模仿者】，3个节点后，获得1个【模仿者】。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "english": "Gain 1 Imitater now and another after 3 nodes. Drag it onto a card to receive a Gold card of the same plant.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19962,
+      "source": "获得1个【模仿者】，4个节点后，获得1个【模仿者】。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "source_sha256": "344560f04cc6cfc1005bec8a622d0ef3b7974d667ab0a2ba72fe4af622a2c546",
+      "previous": "获得1个【模仿者】，4个节点后，获得1个【模仿者】。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "english": "Gain 1 Imitater now and another after 4 nodes. Drag it onto a card to receive a Gold card of the same plant.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19968,
+      "source": "获得1个好运令牌-词条。",
+      "source_sha256": "6e37ba480e1045158dbe349b782510bbe85fa9d8362d6ae90dbc1865acc7a1c7",
+      "previous": "获得1个好运令牌-词条。",
+      "english": "Gain 1 Modifier Luck Token.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19969,
+      "source": "获得1个好运令牌-词条，立即获得2000积分。",
+      "source_sha256": "6d2047326f390b1fcd0c942ee608d898f687e5f8c184eee0ce884080ab4f86e6",
+      "previous": "获得1个好运令牌-词条，立即获得2000积分。",
+      "english": "Gain 1 Modifier Luck Token and immediately gain 2000 points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19972,
+      "source": "获得1件战术小刀。全体植物获得30%攻击力和5%独立伤害增幅。",
+      "source_sha256": "530ec3888d82a17f6254b617ed07f7810bacba5fb6735d329ea96e8c2743364e",
+      "previous": "获得1件战术小刀。全体植物获得30%攻击力和5%独立伤害增幅。",
+      "english": "Gain 1 Tactical Knife. All plants gain 30% attack power and 5% independent damage amplification.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19973,
+      "source": "获得1件战术手炮。全体植物获得30%攻击力，卡牌冷却缩短15%。",
+      "source_sha256": "80f55a5904f367bf6e24fae8fdb72e5376ec87458e4e367c0e224a45b572d8ce",
+      "previous": "获得1件战术手炮。全体植物获得30%攻击力，卡牌冷却缩短15%。",
+      "english": "Gain 1 Tactical Handcannon. All plants gain 30% attack power and their card cooldowns are reduced by 15%.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19974,
+      "source": "获得1件战术护盾。全体植物受到伤害降低15%，获得护盾量提高5%。",
+      "source_sha256": "6563024d4feacb97fd23bf64e05e0c041c0e01375ea6319aa579edfd60857022",
+      "previous": "获得1件战术护盾。全体植物受到伤害降低15%，获得护盾量提高5%。",
+      "english": "Gain 1 Tactical Shield. All plants take 15% less damage and receive 5% more shield.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19975,
+      "source": "获得1件生命之花。全体植物生命提高15%，治疗量提高5%。",
+      "source_sha256": "ca3ca3b2d59f580c5ce2d094621551f2939f7cc1581d1e344c17fb7c221d505e",
+      "previous": "获得1件生命之花。全体植物生命提高15%，治疗量提高5%。",
+      "english": "Gain 1 Flower of Life. All plants gain 15% HP and receive 5% more healing.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19980,
+      "source": "获得1张究极赋予卡和1个基础装备盒。",
+      "source_sha256": "13c7aa737a199f5b1f09686ce488a334fcbc7d036e31c8028e1a9ba5abe0daf8",
+      "previous": "获得1张究极赋予卡和1个基础装备盒。",
+      "english": "Gain 1 Odyssey Grant Card and 1 Basic Equipment Box.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19990,
+      "source": "获得2个【模仿者】。获得1300积分。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "source_sha256": "fff2c6d19089223aaaf55a830e98e7b5a8f1dab7275c5e10ba717a70cee0e804",
+      "previous": "获得2个【模仿者】。获得1300积分。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "english": "Gain 2 Imitaters and 1300 points. Drag an Imitater onto a card to receive a Gold card of the same plant.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19991,
+      "source": "获得2个【模仿者】。获得700积分。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "source_sha256": "b0308ded75db63222f2be706063b74100912812865040633ad8998293f00dec9",
+      "previous": "获得2个【模仿者】。获得700积分。拖到卡牌上可获得对应植物的黄金品质卡牌。",
+      "english": "Gain 2 Imitaters and 700 points. Drag an Imitater onto a card to receive a Gold card of the same plant.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19994,
+      "source": "获得2个究极邀请函，每个可从4种随机黄金品质究极植物中选择1张，获得1200积分。",
+      "source_sha256": "c991daa41d84107fa26df35955db3bade74389c11e3dbfa911c9f68ae6d8db0a",
+      "previous": "获得2个究极邀请函，每个可从4种随机黄金品质究极植物中选择1张，获得1200积分。",
+      "english": "Gain 2 Odyssey Invitations and 1200 points. Each invitation lets you choose 1 of 4 random Gold Odyssey plant cards.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19995,
+      "source": "获得2个究极邀请函，每个可从4种随机黄金品质究极植物中选择1张，获得400积分。",
+      "source_sha256": "0c53b02de311340dff4f50e8c79043b5dfd6020f45d485469cd049a4bdfc6d0a",
+      "previous": "获得2个究极邀请函，每个可从4种随机黄金品质究极植物中选择1张，获得400积分。",
+      "english": "Gain 2 Odyssey Invitations and 400 points. Each invitation lets you choose 1 of 4 random Gold Odyssey plant cards.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19998,
+      "source": "获得2张白银聘用书，获得400积分。",
+      "source_sha256": "bc3e39fc574cc17236b36068e8cb9faa8bb21c47563fb7dbb5bfc633968b7b30",
+      "previous": "获得2张白银聘用书，获得400积分。",
+      "english": "Gain 2 Silver Recruitment Letters and 400 points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19999,
+      "source": "获得2张白银聘用书，获得500积分。",
+      "source_sha256": "7068411f3fd4c0a57d7110264fdd227cc3189f4294ce9ab90633a50f393f60e1",
+      "previous": "获得2张白银聘用书，获得500积分。",
+      "english": "Gain 2 Silver Recruitment Letters and 500 points.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20004,
+      "source": "获得4个随机白银品质植物卡。",
+      "source_sha256": "9386d7c85250f4f57b3b628015ed16075e5513ea7005f81953cf20547b1ab23e",
+      "previous": "获得4个随机白银品质植物卡。",
+      "english": "Gain 4 random Silver plant cards.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20005,
+      "source": "获得4个随机钻石品质植物卡。",
+      "source_sha256": "c2a6230fa5822edc632c7af0b448f8307b1591fc9586ea77b523d74088618596",
+      "previous": "获得4个随机钻石品质植物卡。",
+      "english": "Gain 4 random Diamond plant cards.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20006,
+      "source": "获得4个随机黄金品质植物卡。",
+      "source_sha256": "279758686bec7184689cf6f926493ab520fd7168681ce3cac996dd2f0ffa2f98",
+      "previous": "获得4个随机黄金品质植物卡。",
+      "english": "Gain 4 random Gold plant cards.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20016,
+      "source": "获得一个【装备骰子】。",
+      "source_sha256": "4a64b98e177df84a286ef8e537beea49cb63c3ca5ff2cb54706ae5d6a696e089",
+      "previous": "获得一个【装备骰子】。",
+      "english": "Gain 1 Equipment Die.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20017,
+      "source": "获得一个【随便骰子】。",
+      "source_sha256": "c80877ed347de6bf413f0260ae0211a01e0df13ab002104d6ed93c4b661b1fdc",
+      "previous": "获得一个【随便骰子】。",
+      "english": "Gain 1 Wildcard Die.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20046,
+      "source": "获得随机的大笔奖励。",
+      "source_sha256": "6fd1f7d834440389472e36b14b5f022bb050bb5885bdbb7870f04f200dc6b40d",
+      "previous": "获得随机的大笔奖励。",
+      "english": "Receive a random large reward.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20107,
+      "source": "装到目标卡牌",
+      "source_sha256": "524d01c17754c2e5b8a7359a7fce4ecf55b9fc0f34fec1b841c031591ef292d7",
+      "previous": "装到目标卡牌",
+      "english": "Equip to Target Card",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20109,
+      "source": "装备一致，无需同步",
+      "source_sha256": "aadb8b628a9d4dbd6066154d90e54ee63cac0e8ce4ea33fada77efcd3ddbf6eb",
+      "previous": "装备一致，无需同步",
+      "english": "Equipment matches; no sync needed",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20110,
+      "source": "装备与道具目录",
+      "source_sha256": "830dd8a6db68a94d8ffc64a8750bcb576ad9dac5d0941b8459851b3585e0b1e2",
+      "previous": "装备与道具目录",
+      "english": "Equipment and Item Catalog",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20112,
+      "source": "装备已按原来源卸回物品栏",
+      "source_sha256": "e85e0617ac53683f9943a582f77697f837def027eeb7a73a6521df4c87fc28d2",
+      "previous": "装备已按原来源卸回物品栏",
+      "english": "Equipment returned to its original inventory.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20113,
+      "source": "装备已通过真实装配/合成入口装上",
+      "source_sha256": "11dfd0e27a1acb8f4c90485ae80ca16729bdaf5e19238b266c0ab5b1c939bf35",
+      "previous": "装备已通过真实装配/合成入口装上",
+      "english": "Equipment equipped through the standard equip/combine action.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20114,
+      "source": "装备已随机转化并卸下",
+      "source_sha256": "617524b0a8a56ee0808fb2ffc375bc351516fe290df36dfa637561286cf7ead0",
+      "previous": "装备已随机转化并卸下",
+      "english": "Equipment rerolled and unequipped.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20115,
+      "source": "装备库存（序号从1开始）",
+      "source_sha256": "ac67636dc517a847caf18005e096dfc6db3c724c8b542e216c6936fecbdaefb1",
+      "previous": "装备库存（序号从1开始）",
+      "english": "Equipment Inventory (indices start at 1)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20118,
+      "source": "装备锻造器只能用于基础装备",
+      "source_sha256": "dda4a78b2d3f6750b90fcf797c0bec611905ce760c3e5e5ab5e09939bf6864f0",
+      "previous": "装备锻造器只能用于基础装备",
+      "english": "The Equipment Forge only accepts Basic equipment.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20144,
+      "source": "解除锁定",
+      "source_sha256": "5c12e1836b19eb689098626eee19dee30cee9ca0b03c1dc50750a449d93353d6",
+      "previous": "解除锁定",
+      "english": "Unlock",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20246,
+      "source": "该装备没有后续合成配方",
+      "source_sha256": "1d36a4db9ffa56ca0ffaa0d5b07eaa98742f2695f25cef44117fb4484ce263c9",
+      "previous": "该装备没有后续合成配方",
+      "english": "This equipment has no further combination recipe.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20255,
+      "source": "说明内容",
+      "source_sha256": "63e8a4f9b3bfc563360b9e76200b60cd3ef3c94b7d9353cea22ddbd3c61d5407",
+      "previous": "说明内容",
+      "english": "Description",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20274,
+      "source": "请将好运令牌-词条拖到卡牌上",
+      "source_sha256": "1b413d0536f718d9661ebd8a6556890e6b91f6c673682492acbc1ac292fdaf01",
+      "previous": "请将好运令牌-词条拖到卡牌上",
+      "english": "Drag the Modifier Luck Token onto a card.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20547,
+      "source": "跳转会清理当前敌人并进入该轮的真实阶段，保留卡牌、装备和资源，不发放被跳过战斗的结算收入。",
+      "source_sha256": "46c744c23d781a43abe767aa9de7a491a96060961ba68a9f5b53855c7d313b01",
+      "previous": "跳转会清理当前敌人并进入该轮的真实阶段，保留卡牌、装备和资源，不发放被跳过战斗的结算收入。",
+      "english": "Jumping clears current enemies and enters the selected round's actual phase. Cards, equipment and resources are retained. Skipped battles award no settlement income.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20548,
+      "source": "跳转轮次（从1开始）",
+      "source_sha256": "00d9308afb9e97017513cb2dfdedc805bac6c2c32e3c5f0c49be547131d96ddf",
+      "previous": "跳转轮次（从1开始）",
+      "english": "Round to Jump To (starts at 1)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20552,
+      "source": "转为究极",
+      "source_sha256": "e0a4eabe3990ec2a7b751c739bf5e770ba8b95c734b404a591208284e4cff808",
+      "previous": "转为究极",
+      "english": "Convert to Odyssey",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20595,
+      "source": "这个位置没有卡牌",
+      "source_sha256": "585db31da87db77583d9c0054a8eae58c9d9fdd938e08c4213f361c143a3d425",
+      "previous": "这个位置没有卡牌",
+      "english": "There is no card in this position.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20613,
+      "source": "进入3个节点后，获得1个【好运令牌】。",
+      "source_sha256": "bbb4f29470b0d5b40605a7a704a3a8d0d876c36b9098a798781dbf2b0d5913da",
+      "previous": "进入3个节点后，获得1个【好运令牌】。",
+      "english": "After entering 3 nodes, gain 1 Luck Token.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20626,
+      "source": "进入此轮",
+      "source_sha256": "9590d727a14889e9ef1ba4719df167c5020778d0bc39418a201103e12d97f08c",
+      "previous": "进入此轮",
+      "english": "Enter This Round",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20639,
+      "source": "进阶装备盒子",
+      "source_sha256": "fbffbbb50a1c827df54b5a0abf690a63d40e8cc7fb63189781c999cc42c20ac7",
+      "previous": "进阶装备盒子",
+      "english": "Advanced Equipment Box",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20718,
+      "source": "道具库存（按种类汇总；每次移除1件）",
+      "source_sha256": "bbf8c5842059233b18e784c6ad3fa58efc2535db5cbd9a1ac17117d1838bc32d",
+      "previous": "道具库存（按种类汇总；每次移除1件）",
+      "english": "Item Inventory (grouped by type; remove 1 at a time)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20748,
+      "source": "重置掉盒上限",
+      "source_sha256": "64754a448a1cae426b50e4070a5d84708e44aa20ffab86495f280e7e8e417321",
+      "previous": "重置掉盒上限",
+      "english": "Reset Box Drop Limit",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20749,
+      "source": "重置推车",
+      "source_sha256": "ee555017bff09b7068da0289224a3e1552e6b782b58bad9e7a3272bdae853856",
+      "previous": "重置推车",
+      "english": "Reset Mowers",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20788,
+      "source": "铲除 · 返还{0}阳光",
+      "source_sha256": "87efae00a9f876897be85d4bada3ffe077c247d4ea23413632e04ace3d71115c",
+      "previous": "铲除 · 返还{0}阳光",
+      "english": "Shovel · Refund {0} Sun",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20796,
+      "source": "锁定商品",
+      "source_sha256": "2554a0d90346e1d4cff887bc73620e18bfee4d80198389bcabb0688133b8d2fe",
+      "previous": "锁定商品",
+      "english": "Lock Shop Offers",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20837,
+      "source": "阳光已设为{0}",
+      "source_sha256": "7c51a0473eeea997fe3d454ddbe99bb288a77247c31b11d58209f3a3245234e0",
+      "previous": "阳光已设为{0}",
+      "english": "Sun set to {0}",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20840,
+      "source": "阳光消耗-{0:P0}",
+      "source_sha256": "42c9402dd0dfd1bdd26561d82520eeb154fa8fa467368f16a2eb3d433479bffa",
+      "previous": "阳光消耗-{0:P0}",
+      "english": "Sun Cost -{0:P0}",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20861,
+      "source": "随机",
+      "source_sha256": "75ca4f921437f9a89412168c31724a561278101dce0a0be42fa233e5f76eb781",
+      "previous": "随机",
+      "english": "Random",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20863,
+      "source": "随机品质",
+      "source_sha256": "b63d5718e7bbec70099f647119aa7b6ef98c58412ee33e16dc86ae3d6d0c84d3",
+      "previous": "随机品质",
+      "english": "Random Quality",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20864,
+      "source": "随机基础装备",
+      "source_sha256": "858d760ac0dae057d397371e73dd6f7c0ca41430883141a86532ee2604beac11",
+      "previous": "随机基础装备",
+      "english": "Random Basic Equipment",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20880,
+      "source": "随机进阶装备",
+      "source_sha256": "034151174a9b474837fb6d76083a1037267ea4445b887c176377579480e08e69",
+      "previous": "随机进阶装备",
+      "english": "Random Advanced Equipment",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20947,
+      "source": "领取",
+      "source_sha256": "844ab9477225078aa5d63d8622d54ed3bd6d117f822f6dfb88e9b5578111049e",
+      "previous": "领取",
+      "english": "Claim",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20958,
+      "source": "额外获得{0}件基础装备",
+      "source_sha256": "d70f1522a5fe41265b4c06af3728bdf73417ae48fbd52e66785df9cc7c43c015",
+      "previous": "额外获得{0}件基础装备",
+      "english": "Gain {0} additional Basic equipment items",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 21121,
+      "source": "（本场）",
+      "source_sha256": "8b2eeb508ff48b5dd138420aad384a90fe3abbcc2577591ac7748fee625c96e5",
+      "previous": "（本场）",
+      "english": "(this battle)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 21122,
+      "source": "（永久）",
+      "source_sha256": "e8582e8a14b4b1f2ed6ea2e38e17c84a9cf8ee0c51b5f825cb3645d92062da8b",
+      "previous": "（永久）",
+      "english": "(permanent)",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 21127,
+      "source": "，使用卡牌真实品质与装备快照",
+      "source_sha256": "d44caa5e3be02704fda27c5c75f4c9c12723fd0242ea349df26b17800e7370d0",
+      "previous": "，使用卡牌真实品质与装备快照",
+      "english": ", using the card's actual quality and equipment snapshot",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 21128,
+      "source": "，它在滑行时碾压植物会触发暴风雪效果",
+      "source_sha256": "5b8001ab26b4375464c4a28ffd43c78dc425db16296c5c2de5b977cccfc1042d",
+      "previous": "，它在滑行时碾压植物会触发暴风雪效果",
+      "english": ", triggering a blizzard when it crushes plants while sliding",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19331,
+      "source": "狂战-铁卫：植物在右4列时，对僵尸额外造成100%伤害",
+      "source_sha256": "25ce969c4714acec81479cda30c3a5b6b8c1d021c3e097fdf7f235efd90b2550",
+      "previous": "狂战-铁卫：植物在右4列时，对僵尸额外造成100%伤害",
+      "english": "Vanguard - A: Plants deal an additional 100% damage while they are in the rightmost 4 columns.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19332,
+      "source": "狂战-铁卫：植物在右4列时，对僵尸额外造成30%伤害",
+      "source_sha256": "417c40e278e9a2b921c2ac85cfad30e64592a0c6a29dc2496eb9ee8a6e40711b",
+      "previous": "狂战-铁卫：植物在右4列时，对僵尸额外造成30%伤害",
+      "english": "Vanguard: Plants deal an additional 30% damage while they are in the rightmost 4 columns.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 19333,
+      "source": "狂战-铁卫：立即获得碾压保护、爆炸保护，并使全体植物立即获得25000护盾",
+      "source_sha256": "71f3727bebc7e0dc6976bc5d69297cbaf03535bfb8a6c9dc1b2843d24b830799",
+      "previous": "狂战-铁卫：立即获得碾压保护、爆炸保护，并使全体植物立即获得25000护盾",
+      "english": "Vanguard - B: Immediately gain the Anti-crush and [Blast Protection] modifiers. All plants gain 25000 shield.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20777,
+      "source": "铁卫-不灭之躯：植物在3格内造成伤害时可回复生命值和护盾（有上限）",
+      "source_sha256": "86cb294f785b01b899be2cde7f7ce87a427f1bc87706719da481de2764fc98f0",
+      "previous": "铁卫-不灭之躯：植物在3格内造成伤害时可回复生命值和护盾（有上限）",
+      "english": "Vanguard - X: When plants deal damage within 3 tiles, they restore HP and shield (up to a cap).",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 17121,
+      "source": "匣中惊喜：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍",
+      "source_sha256": "7f41d0f7e644e4d5778b593ee36acd8eb205e07ed72474bbb2f3b93bc61d174e",
+      "previous": "<nobr>匣中惊喜</nobr>：\n◆<nobr><color=red>究极贪欲水草</color></nobr>：自身卡牌有概率在种植惊喜礼盒或模仿者时掉落\n◆<nobr><color=red>究极贪欲盒草</color></nobr>：自身卡牌有概率在种植僵尸盲盒时掉落\n◆通过击败赏金状态的僵尸获得的积分翻倍",
+      "english": "<nobr>Gamble of Bounty</nobr>:\n◆ <nobr><color=red>Kelptain Goldbeard</color></nobr>: Its card may drop when planting Plant Giftboxes or Imitaters.\n◆ <nobr><color=red>Sea-greed Zombox</color></nobr>: Its card may drop when planting Zombie Giftboxes.\n◆ Double the points earned by defeating zombies with a bounty.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20551,
+      "source": "轨迹多端：\n◆超级三叉戟僵尸将依次投射最近、血量最高、血量最低的植物\n◇未选取时，究极渊海三叉戟额外携带一列随从",
+      "source_sha256": "fb14b100ba645d2431dbaba7229844912de7293518185a5dc3964f8d3b21d18a",
+      "previous": "轨迹多端：\n◆超级三叉戟僵尸将依次投射最近、血量最高、血量最低的植物\n◇未选取时，究极渊海三叉戟额外携带一列随从",
+      "english": "Scatterthrow:\n◆ Giga Trident-nut Zombie targets the nearest plant, the plant with the highest HP, then the plant with the lowest HP in turn.\n◇ If not selected, Pozeidon brings an additional column of followers.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20859,
+      "source": "随从强化：非领袖僵尸获得30%速度加成和30%血量加成",
+      "source_sha256": "418bc6d7849b7c52aa53551be1d199529921acdcc6b590fbbbc572f090db6323",
+      "previous": "<nobr>随从强化</nobr>：\n非领袖僵尸获得30%速度加成和30%血量加成",
+      "english": "<nobr>Follower Reinforcement</nobr>:\nNon-leader zombies gain 30% speed and 30% HP.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20932,
+      "source": "霸凌弱者：植物因血量归零死亡时爆炸，对附近植物自身最大生命值的伤害",
+      "source_sha256": "7c2cdfb44942abe49ce5fb5ac264b68a833365ebb739b3d13c6450504b1ae641",
+      "previous": "<nobr>霸凌弱者</nobr>：\n植物因血量归零死亡时爆炸，对附近植物自身最大生命值的伤害",
+      "english": "<nobr>Bully the Weak</nobr>:\nPlants that die because their HP reaches zero explode, dealing damage equal to their own maximum HP to nearby plants.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20951,
+      "source": "领袖强化：领袖僵尸获得30%速度加成和30%血量加成",
+      "source_sha256": "04302f7854899f6531e81676f3449c51305428e0d9258695715a419fb6454396",
+      "previous": "<nobr>领袖强化</nobr>：\n领袖僵尸获得30%速度加成和30%血量加成",
+      "english": "<nobr>Leader Reinforcement</nobr>:\nLeader zombies gain 30% speed and 30% HP.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    },
+    {
+      "index": 20969,
+      "source": "饱和投射：\n◆超级三叉戟僵尸、冰封三叉戟僵尸攻击额外散射两发\n◇未选取时，究极渊海三叉戟额外携带一列随从",
+      "source_sha256": "1fe9c4f45cca89bb0a7aa2013c074fa608ef0fc58202e0361e367c8f0ef739c6",
+      "previous": "饱和投射：\n◆超级三叉戟僵尸、冰封三叉戟僵尸攻击额外散射两发\n◇未选取时，究极渊海三叉戟额外携带一列随从",
+      "english": "Trident Torrents:\n◆ Giga Trident-nut Zombie and Harpooneer Frost Tall-nut Zombie scatter 2 additional shots per attack.\n◇ If not selected, Pozeidon brings an additional column of followers.",
+      "reason": "Reviewed player-facing message; runtime rendering only, metadata and logic keys unchanged."
+    }
+  ],
+  "counts": {
+    "gods_catalog_fields": 12,
+    "mechanics_fields": 2,
+    "showcase_tips": 1,
+    "runtime_exact_updates": 170,
+    "context_messages": 126,
+    "metadata_updates": 0,
+    "runtime_regex_updates": 17
+  },
+  "composed_tactic_groups": {
+    "木桩": "Voodoo Dummy",
+    "烈阳": "Solar Blast",
+    "战锤": "Warhammer",
+    "裂空": "G-Fish Bomber",
+    "明月": "Moonlight Veil",
+    "硬化": "Iron Curtain",
+    "交易": "Luck • Loan",
+    "宝藏": "Luck • Bounty",
+    "Infernal Combustion": "Infernal Combustion",
+    "光棱": "Prism Fighter",
+    "Thunderstorm": "Approaching Storm",
+    "全能": "Omnipotence",
+    "铁卫": "Vanguard"
+  }
+}
